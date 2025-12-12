@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      designs: {
+        Row: {
+          category: string
+          created_at: string | null
+          description: string | null
+          external_id: string | null
+          featured: boolean | null
+          id: string
+          image_url: string
+          name: string
+          redbubble_url: string | null
+          source: string | null
+          tags: string[] | null
+          teepublic_url: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          external_id?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url: string
+          name: string
+          redbubble_url?: string | null
+          source?: string | null
+          tags?: string[] | null
+          teepublic_url?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string | null
+          description?: string | null
+          external_id?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string
+          name?: string
+          redbubble_url?: string | null
+          source?: string | null
+          tags?: string[] | null
+          teepublic_url?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
