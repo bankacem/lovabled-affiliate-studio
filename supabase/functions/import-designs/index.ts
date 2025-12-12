@@ -36,8 +36,8 @@ serve(async (req) => {
 
     console.log(`Scraping store: ${storeUrl} (source: ${source})`);
 
-    // First, map the site to get all product URLs
-    const mapResponse = await fetch("https://api.firecrawl.dev/v1/map", {
+    // Use scrape endpoint to extract links and content from the shop page
+    const scrapeResponse = await fetch("https://api.firecrawl.dev/v1/scrape", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -45,54 +45,133 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         url: storeUrl,
-        limit: 100,
+        formats: ["markdown", "links", "html"],
+        onlyMainContent: false,
+        waitFor: 3000, // Wait for dynamic content to load
       }),
     });
 
-    const mapData = await mapResponse.json();
-    
-    if (!mapResponse.ok) {
-      console.error("Firecrawl map error:", mapData);
+    const scrapeData = await scrapeResponse.json();
+
+    if (!scrapeResponse.ok || !scrapeData.success) {
+      console.error("Firecrawl scrape error:", scrapeData);
       return new Response(
-        JSON.stringify({ success: false, error: mapData.error || "Failed to map store" }),
+        JSON.stringify({ success: false, error: scrapeData.error || "Failed to scrape store" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    console.log(`Found ${mapData.links?.length || 0} URLs`);
+    const allLinks = scrapeData.data?.links || [];
+    console.log(`Found ${allLinks.length} total links on page`);
 
     // Filter for product URLs based on the source
     let productUrls: string[] = [];
-    
+
     if (source === "redbubble") {
-      // Redbubble product URLs typically contain /i/amokan/ pattern
-      productUrls = (mapData.links || []).filter((url: string) => 
-        url.includes("/i/") && !url.includes("/shop") && !url.includes("/explore")
+      // Redbubble product URLs contain /i/ followed by product name
+      productUrls = allLinks.filter((url: string) =>
+        url.includes("redbubble.com") &&
+        url.includes("/i/") &&
+        !url.includes("/shop") &&
+        !url.includes("/explore") &&
+        !url.includes("/people/")
       );
     } else if (source === "teepublic") {
-      // TeePublic product URLs contain /t-shirt/, /mug/, /sticker/, etc.
-      productUrls = (mapData.links || []).filter((url: string) => 
-        (url.includes("/t-shirt/") || url.includes("/mug/") || 
-         url.includes("/sticker/") || url.includes("/hoodie/") ||
-         url.includes("/poster/") || url.includes("/tank-top/") ||
-         url.includes("/phone-case/")) && 
+      // TeePublic product URLs contain product type patterns
+      productUrls = allLinks.filter((url: string) =>
+        url.includes("teepublic.com") &&
+        (url.includes("/t-shirt/") ||
+          url.includes("/mug/") ||
+          url.includes("/sticker/") ||
+          url.includes("/hoodie/") ||
+          url.includes("/poster/") ||
+          url.includes("/tank-top/") ||
+          url.includes("/tote-bag/") ||
+          url.includes("/phone-case/")) &&
         !url.includes("/user/")
       );
     }
 
+    // Remove duplicates and clean up URLs
+    productUrls = [...new Set(productUrls)];
     console.log(`Filtered to ${productUrls.length} product URLs`);
 
-    // Limit to first 20 products for initial import
-    const limitedUrls = productUrls.slice(0, 20);
-    
+    // If no product URLs found, try extracting from HTML content
+    if (productUrls.length === 0) {
+      const html = scrapeData.data?.html || "";
+      
+      if (source === "redbubble") {
+        // Extract product links from Redbubble HTML
+        const regex = /href="(https:\/\/www\.redbubble\.com\/i\/[^"]+)"/g;
+        let match;
+        while ((match = regex.exec(html)) !== null) {
+          productUrls.push(match[1]);
+        }
+      } else if (source === "teepublic") {
+        // Extract product links from TeePublic HTML
+        const regex = /href="(https:\/\/www\.teepublic\.com\/[^"]*(?:t-shirt|mug|sticker|hoodie|poster)\/[^"]+)"/g;
+        let match;
+        while ((match = regex.exec(html)) !== null) {
+          productUrls.push(match[1]);
+        }
+      }
+      
+      productUrls = [...new Set(productUrls)];
+      console.log(`Extracted ${productUrls.length} product URLs from HTML`);
+    }
+
+    // Limit to first 15 products for initial import
+    const limitedUrls = productUrls.slice(0, 15);
+
+    if (limitedUrls.length === 0) {
+      console.log("No product URLs found, attempting crawl approach");
+      
+      // Try crawl as fallback
+      const crawlResponse = await fetch("https://api.firecrawl.dev/v1/crawl", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          url: storeUrl,
+          limit: 20,
+          maxDepth: 2,
+          scrapeOptions: {
+            formats: ["markdown"],
+            onlyMainContent: true,
+          },
+        }),
+      });
+
+      const crawlData = await crawlResponse.json();
+      
+      if (crawlData.success && crawlData.id) {
+        // Return the crawl job ID for polling
+        return new Response(
+          JSON.stringify({
+            success: true,
+            message: `Crawl job started. Job ID: ${crawlData.id}. This may take a few minutes.`,
+            crawlJobId: crawlData.id,
+            designs: 0,
+            status: "crawling"
+          }),
+          { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
+
     const designs: any[] = [];
-    
+
     // Scrape each product page
     for (const productUrl of limitedUrls) {
       try {
         console.log(`Scraping product: ${productUrl}`);
-        
-        const scrapeResponse = await fetch("https://api.firecrawl.dev/v1/scrape", {
+
+        // Add delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        const productResponse = await fetch("https://api.firecrawl.dev/v1/scrape", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${apiKey}`,
@@ -100,25 +179,34 @@ serve(async (req) => {
           },
           body: JSON.stringify({
             url: productUrl,
-            formats: ["markdown", "links"],
+            formats: ["markdown"],
             onlyMainContent: true,
           }),
         });
 
-        const scrapeData = await scrapeResponse.json();
-        
-        if (scrapeData.success && scrapeData.data) {
-          const metadata = scrapeData.data.metadata || {};
-          const markdown = scrapeData.data.markdown || "";
-          
+        const productData = await productResponse.json();
+
+        if (productData.success && productData.data) {
+          const metadata = productData.data.metadata || {};
+
           // Extract design info
           let name = metadata.title || "Untitled Design";
-          
+
           // Clean up the title
           if (source === "redbubble") {
-            name = name.replace(/ \| Redbubble$/i, "").replace(/ by .+$/i, "").trim();
+            name = name
+              .replace(/ \| Redbubble$/i, "")
+              .replace(/ by .+$/i, "")
+              .replace(/ Essential T-Shirt$/i, "")
+              .replace(/ Classic T-Shirt$/i, "")
+              .replace(/ Sticker$/i, "")
+              .trim();
           } else if (source === "teepublic") {
-            name = name.replace(/ \| TeePublic$/i, "").replace(/ T-Shirt$/i, "").trim();
+            name = name
+              .replace(/ \| TeePublic$/i, "")
+              .replace(/ T-Shirt$/i, "")
+              .replace(/ Sticker$/i, "")
+              .trim();
           }
 
           // Determine category from URL
@@ -128,9 +216,12 @@ serve(async (req) => {
           else if (productUrl.includes("/hoodie")) category = "Hoodies";
           else if (productUrl.includes("/poster")) category = "Posters";
           else if (productUrl.includes("/phone-case")) category = "Phone Cases";
+          else if (productUrl.includes("/tote-bag")) category = "Bags";
 
           // Get image URL from metadata
-          const imageUrl = metadata.ogImage || metadata.image || 
+          const imageUrl =
+            metadata.ogImage ||
+            metadata.image ||
             `https://via.placeholder.com/600x600?text=${encodeURIComponent(name)}`;
 
           const design = {
@@ -160,9 +251,9 @@ serve(async (req) => {
     if (designs.length > 0) {
       const { data, error } = await supabase
         .from("designs")
-        .upsert(designs, { 
+        .upsert(designs, {
           onConflict: "external_id",
-          ignoreDuplicates: true 
+          ignoreDuplicates: false,
         })
         .select();
 
@@ -178,15 +269,14 @@ serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
+      JSON.stringify({
+        success: true,
         message: `Imported ${designs.length} designs from ${source}`,
         designs: designs.length,
-        totalUrls: productUrls.length
+        totalUrls: productUrls.length,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
-
   } catch (error: unknown) {
     console.error("Import error:", error);
     const errorMessage = error instanceof Error ? error.message : "Import failed";
@@ -204,9 +294,10 @@ function extractTags(text: string): string[] {
     "animal", "cat", "dog", "wolf", "space", "galaxy", "moon", "sun",
     "funny", "cute", "cool", "gaming", "music", "art", "design",
     "typography", "quote", "inspirational", "love", "heart", "flower",
-    "skull", "skeleton", "halloween", "christmas", "summer", "beach"
+    "skull", "skeleton", "halloween", "christmas", "summer", "beach",
+    "sport", "coffee", "programmer", "developer", "code", "geek", "nerd"
   ];
-  
+
   const foundTags = commonTags.filter(tag => words.some(word => word.includes(tag)));
   return foundTags.slice(0, 5);
 }
@@ -214,10 +305,10 @@ function extractTags(text: string): string[] {
 function extractExternalId(url: string, source: string): string {
   if (source === "redbubble") {
     const match = url.match(/\/i\/(\d+)/);
-    return match ? `rb_${match[1]}` : `rb_${Date.now()}`;
+    return match ? `rb_${match[1]}` : `rb_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   } else if (source === "teepublic") {
     const match = url.match(/\/(\d+)-/);
-    return match ? `tp_${match[1]}` : `tp_${Date.now()}`;
+    return match ? `tp_${match[1]}` : `tp_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   }
   return `unknown_${Date.now()}`;
 }
