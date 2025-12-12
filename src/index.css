@@ -13,7 +13,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 15%;
 
-    --primary: 0 76% 70%;
+    --primary: 0 76% 65%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14% 96%;
@@ -22,7 +22,7 @@
     --muted: 220 14% 96%;
     --muted-foreground: 220 10% 50%;
 
-    --accent: 0 76% 70%;
+    --accent: 0 76% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -30,33 +30,37 @@
 
     --border: 220 14% 90%;
     --input: 220 14% 90%;
-    --ring: 0 76% 70%;
+    --ring: 0 76% 65%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --coral: 0 76% 70%;
-    --coral-light: 0 76% 85%;
-    --coral-dark: 0 76% 55%;
+    --coral: 0 76% 65%;
+    --coral-light: 0 76% 80%;
+    --coral-dark: 0 76% 50%;
     --charcoal: 220 15% 15%;
     --cream: 40 33% 98%;
     --warm-gray: 30 10% 60%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 76% 70% / 0.1) 0%, hsl(220 14% 96%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 76% 65% / 0.08) 0%, hsl(220 14% 96%) 50%, hsl(0 76% 65% / 0.05) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 33% 98%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(0 76% 70%) 0%, hsl(0 76% 60%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(0 76% 65%) 0%, hsl(0 76% 55%) 100%);
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(0 76% 65% / 0.1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsl(220 100% 70% / 0.08) 0px, transparent 50%), radial-gradient(at 0% 50%, hsl(0 76% 65% / 0.06) 0px, transparent 50%);
     
     /* Shadows */
     --shadow-sm: 0 2px 8px hsl(220 15% 15% / 0.04);
     --shadow-md: 0 4px 20px hsl(220 15% 15% / 0.08);
     --shadow-lg: 0 8px 40px hsl(220 15% 15% / 0.12);
-    --shadow-glow: 0 0 40px hsl(0 76% 70% / 0.3);
+    --shadow-xl: 0 20px 60px hsl(220 15% 15% / 0.15);
+    --shadow-glow: 0 0 40px hsl(0 76% 65% / 0.25);
+    --shadow-inner: inset 0 2px 4px hsl(220 15% 15% / 0.05);
     
     /* Transitions */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -65,7 +69,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 0 76% 70%;
+    --sidebar-ring: 0 76% 65%;
   }
 
   .dark {
@@ -78,7 +82,7 @@
     --popover: 220 18% 12%;
     --popover-foreground: 40 20% 95%;
 
-    --primary: 0 76% 70%;
+    --primary: 0 76% 65%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 15% 18%;
@@ -87,7 +91,7 @@
     --muted: 220 15% 18%;
     --muted-foreground: 220 10% 55%;
 
-    --accent: 0 76% 70%;
+    --accent: 0 76% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 50%;
@@ -95,9 +99,9 @@
 
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 0 76% 70%;
+    --ring: 0 76% 65%;
     
-    --gradient-hero: linear-gradient(135deg, hsl(0 76% 70% / 0.08) 0%, hsl(220 20% 10%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 76% 65% / 0.06) 0%, hsl(220 20% 10%) 50%, hsl(0 76% 65% / 0.04) 100%);
     --gradient-card: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 20% 10%) 100%);
     
     --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.2);
@@ -106,12 +110,12 @@
 
     --sidebar-background: 220 18% 10%;
     --sidebar-foreground: 40 20% 90%;
-    --sidebar-primary: 0 76% 70%;
+    --sidebar-primary: 0 76% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 15% 15%;
     --sidebar-accent-foreground: 40 20% 90%;
     --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 0 76% 70%;
+    --sidebar-ring: 0 76% 65%;
   }
 }
 
@@ -120,13 +124,36 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply tracking-tight;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
   }
 }
 
@@ -134,6 +161,10 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-cta);
+  }
+  
+  .bg-mesh {
+    background-image: var(--gradient-mesh);
   }
   
   .shadow-card {
@@ -148,11 +179,75 @@
     box-shadow: var(--shadow-glow);
   }
   
+  .shadow-inner-soft {
+    box-shadow: var(--shadow-inner);
+  }
+  
   .transition-smooth {
     transition: all var(--transition-smooth);
   }
   
   .transition-spring {
     transition: all var(--transition-spring);
+  }
+
+  .glass {
+    @apply bg-background/80 backdrop-blur-lg;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  /* Text balance for better typography */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation: animate-in 0.3s ease-out;
+  }
+
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

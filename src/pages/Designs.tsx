@@ -1,12 +1,22 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search } from "lucide-react";
+import { Search, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { DesignCard } from "@/components/designs/DesignCard";
-import { designs, categories } from "@/data/designs";
+import { useDesigns } from "@/hooks/useDesigns";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+
+const categories = [
+  "All",
+  "T-Shirts",
+  "Hoodies",
+  "Mugs",
+  "Stickers",
+  "Phone Cases",
+  "Posters",
+];
 
 const Designs = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,18 +24,20 @@ const Designs = () => {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const { data: designs = [], isLoading } = useDesigns();
+
   const filteredDesigns = useMemo(() => {
     return designs.filter((design) => {
       const matchesCategory =
         selectedCategory === "All" || design.category === selectedCategory;
       const matchesSearch =
         design.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        design.tags.some((tag) =>
+        (design.tags || []).some((tag) =>
           tag.toLowerCase().includes(searchQuery.toLowerCase())
         );
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [designs, selectedCategory, searchQuery]);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
@@ -48,10 +60,10 @@ const Designs = () => {
             className="text-center"
           >
             <h1 className="font-display text-4xl font-bold text-foreground md:text-5xl">
-              All Designs
+              جميع التصاميم
             </h1>
             <p className="mt-3 text-lg text-muted-foreground">
-              Browse our complete collection of print-on-demand designs
+              تصفح مجموعتنا الكاملة من تصاميم الطباعة عند الطلب
             </p>
           </motion.div>
 
@@ -67,7 +79,7 @@ const Designs = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search designs..."
+                placeholder="ابحث عن تصميم..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -95,7 +107,12 @@ const Designs = () => {
 
           {/* Results */}
           <div className="mt-10">
-            {filteredDesigns.length > 0 ? (
+            {isLoading ? (
+              <div className="py-20 flex flex-col items-center justify-center gap-4">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                <p className="text-muted-foreground">جاري تحميل التصاميم...</p>
+              </div>
+            ) : filteredDesigns.length > 0 ? (
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filteredDesigns.map((design, index) => (
                   <DesignCard key={design.id} design={design} index={index} />
@@ -104,7 +121,7 @@ const Designs = () => {
             ) : (
               <div className="py-20 text-center">
                 <p className="text-lg text-muted-foreground">
-                  No designs found. Try adjusting your filters.
+                  لا توجد تصاميم. جرب تعديل البحث أو الفلاتر.
                 </p>
               </div>
             )}

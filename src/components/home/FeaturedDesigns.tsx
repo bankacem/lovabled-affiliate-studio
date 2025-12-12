@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DesignCard } from "@/components/designs/DesignCard";
-import { designs } from "@/data/designs";
+import { useFeaturedDesigns } from "@/hooks/useDesigns";
 
 export function FeaturedDesigns() {
-  const featuredDesigns = designs.filter((d) => d.featured).slice(0, 4);
+  const { data: featuredDesigns = [], isLoading } = useFeaturedDesigns();
 
   return (
     <section className="py-16 md:py-24">
@@ -20,24 +20,36 @@ export function FeaturedDesigns() {
         >
           <div>
             <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              Featured Designs
+              التصاميم المميزة
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Our most popular and trending designs this month
+              أكثر التصاميم شعبية وانتشاراً هذا الشهر
             </p>
           </div>
           <Button asChild variant="outline">
             <Link to="/designs">
-              View All Designs
+              عرض جميع التصاميم
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
         </motion.div>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredDesigns.map((design, index) => (
-            <DesignCard key={design.id} design={design} index={index} />
-          ))}
+        <div className="mt-10">
+          {isLoading ? (
+            <div className="py-12 flex items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+          ) : featuredDesigns.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {featuredDesigns.map((design, index) => (
+                <DesignCard key={design.id} design={design} index={index} />
+              ))}
+            </div>
+          ) : (
+            <div className="py-12 text-center text-muted-foreground">
+              لا توجد تصاميم مميزة حتى الآن
+            </div>
+          )}
         </div>
       </div>
     </section>
