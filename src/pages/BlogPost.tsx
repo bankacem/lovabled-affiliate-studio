@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { DesignCard } from "@/components/designs/DesignCard";
 import { blogPosts } from "@/data/blogPosts";
-import { designs } from "@/data/designs";
 import { toast } from "sonner";
 
 const BlogPost = () => {
@@ -17,22 +15,18 @@ const BlogPost = () => {
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center md:px-6">
           <h1 className="font-display text-2xl font-bold text-foreground">
-            Article not found
+            المقال غير موجود
           </h1>
           <Button asChild variant="outline" className="mt-4">
             <Link to="/blog">
               <ArrowLeft className="h-4 w-4" />
-              Back to Blog
+              العودة للمدونة
             </Link>
           </Button>
         </div>
       </Layout>
     );
   }
-
-  const relatedDesigns = designs.filter((d) =>
-    post.relatedDesigns.includes(d.id)
-  );
 
   const handleShare = async () => {
     try {
@@ -43,7 +37,7 @@ const BlogPost = () => {
       });
     } catch {
       await navigator.clipboard.writeText(window.location.href);
-      toast.success("Link copied to clipboard!");
+      toast.success("تم نسخ الرابط!");
     }
   };
 
@@ -62,7 +56,7 @@ const BlogPost = () => {
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to Blog
+              العودة للمدونة
             </Link>
           </motion.div>
 
@@ -85,7 +79,7 @@ const BlogPost = () => {
                 </span>
                 <span className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
-                  {new Date(post.date).toLocaleDateString("en-US", {
+                  {new Date(post.date).toLocaleDateString("ar-SA", {
                     month: "long",
                     day: "numeric",
                     year: "numeric",
@@ -100,7 +94,7 @@ const BlogPost = () => {
                   className="flex items-center gap-1 text-primary hover:underline"
                 >
                   <Share2 className="h-4 w-4" />
-                  Share
+                  مشاركة
                 </button>
               </div>
             </motion.header>
@@ -131,25 +125,6 @@ const BlogPost = () => {
               ))}
             </motion.div>
           </div>
-
-          {/* Related Designs */}
-          {relatedDesigns.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mt-16"
-            >
-              <h2 className="font-display text-2xl font-bold text-foreground">
-                Featured Designs in This Article
-              </h2>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {relatedDesigns.map((design, index) => (
-                  <DesignCard key={design.id} design={design} index={index} />
-                ))}
-              </div>
-            </motion.div>
-          )}
         </div>
       </article>
     </Layout>
