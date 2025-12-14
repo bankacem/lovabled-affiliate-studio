@@ -20,15 +20,15 @@ export function FeaturedDesigns() {
         >
           <div>
             <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              التصاميم المميزة
+              Featured Designs
             </h2>
             <p className="mt-2 text-muted-foreground">
-              أكثر التصاميم شعبية وانتشاراً هذا الشهر
+              Our most popular designs this month
             </p>
           </div>
           <Button asChild variant="outline">
             <Link to="/designs">
-              عرض جميع التصاميم
+              View All Designs
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -47,7 +47,7 @@ export function FeaturedDesigns() {
             </div>
           ) : (
             <div className="py-12 text-center text-muted-foreground">
-              لا توجد تصاميم مميزة حتى الآن
+              No featured designs yet
             </div>
           )}
         </div>

@@ -26,8 +26,8 @@ export function HeroSection() {
               <Star className="w-5 h-5 text-amber-500" />
             </div>
             <div>
-              <p className="text-sm font-medium text-foreground">تصاميم مميزة</p>
-              <p className="text-xs text-muted-foreground">+100 تصميم</p>
+              <p className="text-sm font-medium text-foreground">Featured Designs</p>
+              <p className="text-xs text-muted-foreground">+100 designs</p>
             </div>
           </div>
         </div>
@@ -44,8 +44,8 @@ export function HeroSection() {
               <TrendingUp className="w-5 h-5 text-emerald-500" />
             </div>
             <div>
-              <p className="text-sm font-medium text-foreground">مبيعات متزايدة</p>
-              <p className="text-xs text-muted-foreground">أفضل العروض</p>
+              <p className="text-sm font-medium text-foreground">Trending Now</p>
+              <p className="text-xs text-muted-foreground">Best Sellers</p>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@ export function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-sm font-medium text-primary border border-primary/20">
               <Sparkles className="h-4 w-4" />
-              مجموعة تصاميم حصرية
+              Exclusive Design Collection
             </span>
           </motion.div>
 
@@ -70,14 +70,14 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-8 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl text-balance"
           >
-            اكتشف تصاميم{" "}
+            Discover{" "}
             <span className="text-gradient relative">
-              فريدة
+              Unique
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
                 <path d="M2 8C50 2 150 2 198 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-primary/30"/>
               </svg>
             </span>{" "}
-            للطباعة
+            Print Designs
           </motion.h1>
 
           <motion.p
@@ -86,7 +86,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto"
           >
-            تصفح مجموعتنا المختارة من التصاميم المذهلة للتيشيرتات والهوديز والأكواب والملصقات. تسوق من TeePublic و Redbubble
+            Browse our curated collection of stunning designs for t-shirts, hoodies, mugs, and stickers. Shop from TeePublic & Redbubble
           </motion.p>
 
           <motion.div
@@ -97,12 +97,12 @@ export function HeroSection() {
           >
             <Button asChild variant="hero" size="xl" className="group">
               <Link to="/designs">
-                تصفح التصاميم
+                Browse Designs
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
             <Button asChild variant="hero-outline" size="xl">
-              <Link to="/blog">اقرأ المدونة</Link>
+              <Link to="/blog">Read the Blog</Link>
             </Button>
           </motion.div>
 
@@ -119,7 +119,7 @@ export function HeroSection() {
                   <div key={i} className="w-8 h-8 rounded-full bg-secondary border-2 border-background" />
                 ))}
               </div>
-              <span className="text-sm">+500 عميل سعيد</span>
+              <span className="text-sm">+500 Happy Customers</span>
             </div>
             <div className="h-6 w-px bg-border hidden sm:block" />
             <div className="flex items-center gap-2">
@@ -128,7 +128,7 @@ export function HeroSection() {
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
-              <span className="text-sm">تقييم 4.9/5</span>
+              <span className="text-sm">4.9/5 Rating</span>
             </div>
           </motion.div>
         </div>

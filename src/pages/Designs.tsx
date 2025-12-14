@@ -60,10 +60,10 @@ const Designs = () => {
             className="text-center"
           >
             <h1 className="font-display text-4xl font-bold text-foreground md:text-5xl">
-              جميع التصاميم
+              All Designs
             </h1>
             <p className="mt-3 text-lg text-muted-foreground">
-              تصفح مجموعتنا الكاملة من تصاميم الطباعة عند الطلب
+              Browse our complete collection of print-on-demand designs
             </p>
           </motion.div>
 
@@ -79,7 +79,7 @@ const Designs = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="ابحث عن تصميم..."
+                placeholder="Search designs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -110,7 +110,7 @@ const Designs = () => {
             {isLoading ? (
               <div className="py-20 flex flex-col items-center justify-center gap-4">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                <p className="text-muted-foreground">جاري تحميل التصاميم...</p>
+                <p className="text-muted-foreground">Loading designs...</p>
               </div>
             ) : filteredDesigns.length > 0 ? (
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -121,7 +121,7 @@ const Designs = () => {
             ) : (
               <div className="py-20 text-center">
                 <p className="text-lg text-muted-foreground">
-                  لا توجد تصاميم. جرب تعديل البحث أو الفلاتر.
+                  No designs found. Try adjusting your search or filters.
                 </p>
               </div>
             )}
