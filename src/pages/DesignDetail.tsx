@@ -25,7 +25,7 @@ const DesignDetail = () => {
       });
     } catch {
       await navigator.clipboard.writeText(window.location.href);
-      toast.success("تم نسخ الرابط!");
+      toast.success("Link copied!");
     }
   };
 
@@ -44,12 +44,12 @@ const DesignDetail = () => {
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center md:px-6">
           <h1 className="font-display text-2xl font-bold text-foreground">
-            التصميم غير موجود
+            Design Not Found
           </h1>
           <Button asChild variant="outline" className="mt-4">
             <Link to="/designs">
               <ArrowLeft className="h-4 w-4" />
-              العودة للتصاميم
+              Back to Designs
             </Link>
           </Button>
         </div>
@@ -72,7 +72,7 @@ const DesignDetail = () => {
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
-              العودة للتصاميم
+              Back to Designs
             </Link>
           </motion.div>
 
@@ -154,7 +154,7 @@ const DesignDetail = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      عرض على TeePublic
+                      View on TeePublic
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
@@ -171,7 +171,7 @@ const DesignDetail = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      عرض على Redbubble
+                      View on Redbubble
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
@@ -180,7 +180,7 @@ const DesignDetail = () => {
 
               {/* Affiliate Notice */}
               <p className="mt-6 text-xs text-muted-foreground">
-                * إفصاح: قد نحصل على عمولة من المشتريات عبر هذه الروابط دون تكلفة إضافية عليك.
+                * Disclosure: We may earn a commission from purchases through these links at no extra cost to you.
               </p>
             </motion.div>
           </div>
@@ -189,7 +189,7 @@ const DesignDetail = () => {
           {relatedDesigns.length > 0 && (
             <div className="mt-16">
               <h2 className="font-display text-2xl font-bold text-foreground">
-                تصاميم مشابهة
+                Related Designs
               </h2>
               <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {relatedDesigns.map((design, index) => (

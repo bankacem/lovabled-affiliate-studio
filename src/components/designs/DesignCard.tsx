@@ -35,7 +35,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
             {/* Featured badge */}
             {design.featured && (
               <div className="absolute left-3 top-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3 py-1 text-xs font-medium text-white shadow-lg">
-                ⭐ مميز
+                ⭐ Featured
               </div>
             )}
 
@@ -54,7 +54,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
             <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
               <span className="flex items-center gap-2 text-sm font-medium text-white">
                 <Eye className="h-4 w-4" />
-                عرض التفاصيل
+                View Details
               </span>
               <ExternalLink className="h-4 w-4 text-white" />
             </div>

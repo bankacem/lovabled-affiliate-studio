@@ -15,12 +15,12 @@ const BlogPost = () => {
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center md:px-6">
           <h1 className="font-display text-2xl font-bold text-foreground">
-            المقال غير موجود
+            Article Not Found
           </h1>
           <Button asChild variant="outline" className="mt-4">
             <Link to="/blog">
               <ArrowLeft className="h-4 w-4" />
-              العودة للمدونة
+              Back to Blog
             </Link>
           </Button>
         </div>
@@ -37,7 +37,7 @@ const BlogPost = () => {
       });
     } catch {
       await navigator.clipboard.writeText(window.location.href);
-      toast.success("تم نسخ الرابط!");
+      toast.success("Link copied!");
     }
   };
 
@@ -56,7 +56,7 @@ const BlogPost = () => {
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
-              العودة للمدونة
+              Back to Blog
             </Link>
           </motion.div>
 
@@ -79,7 +79,7 @@ const BlogPost = () => {
                 </span>
                 <span className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
-                  {new Date(post.date).toLocaleDateString("ar-SA", {
+                  {new Date(post.date).toLocaleDateString("en-US", {
                     month: "long",
                     day: "numeric",
                     year: "numeric",
@@ -94,7 +94,7 @@ const BlogPost = () => {
                   className="flex items-center gap-1 text-primary hover:underline"
                 >
                   <Share2 className="h-4 w-4" />
-                  مشاركة
+                  Share
                 </button>
               </div>
             </motion.header>
