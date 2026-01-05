@@ -1,26 +1,28 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Search } from "lucide-react";
+import { Search, FileText } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { blogPosts, blogCategories } from "@/data/blogPosts";
+import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 const Blog = () => {
+  const { posts, isLoading } = useBlogPosts();
+  const { categories } = useBlogCategories();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredPosts = useMemo(() => {
-    return blogPosts.filter((post) => {
+    return posts.filter((post) => {
       const matchesCategory =
         selectedCategory === "All" || post.category === selectedCategory;
       const matchesSearch =
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+        (post.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false);
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [posts, selectedCategory, searchQuery]);
 
   return (
     <Layout>
@@ -61,7 +63,7 @@ const Blog = () => {
 
             {/* Categories */}
             <div className="flex flex-wrap gap-2">
-              {blogCategories.map((category) => (
+              {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
@@ -80,7 +82,12 @@ const Blog = () => {
 
           {/* Results */}
           <div className="mt-10">
-            {filteredPosts.length > 0 ? (
+            {isLoading ? (
+              <div className="py-20 text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+                <p className="mt-4 text-muted-foreground">Loading posts...</p>
+              </div>
+            ) : filteredPosts.length > 0 ? (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredPosts.map((post, index) => (
                   <BlogCard key={post.id} post={post} index={index} />
@@ -88,8 +95,11 @@ const Blog = () => {
               </div>
             ) : (
               <div className="py-20 text-center">
+                <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
                 <p className="text-lg text-muted-foreground">
-                  No articles found. Try adjusting your search.
+                  {searchQuery || selectedCategory !== "All" 
+                    ? "No articles found. Try adjusting your search."
+                    : "No articles published yet. Check back soon!"}
                 </p>
               </div>
             )}
