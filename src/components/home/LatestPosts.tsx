@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/blog/BlogCard";
-import { blogPosts } from "@/data/blogPosts";
+import { useBlogPosts } from "@/hooks/useBlogPosts";
 
 export function LatestPosts() {
-  const latestPosts = blogPosts.slice(0, 3);
+  const { posts, isLoading } = useBlogPosts();
+  const latestPosts = posts.slice(0, 3);
 
   return (
     <section className="py-16 md:py-24">
@@ -34,10 +35,26 @@ export function LatestPosts() {
           </Button>
         </motion.div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {latestPosts.map((post, index) => (
-            <BlogCard key={post.id} post={post} index={index} />
-          ))}
+        <div className="mt-10">
+          {isLoading ? (
+            <div className="py-12 text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+              <p className="mt-4 text-muted-foreground">Loading posts...</p>
+            </div>
+          ) : latestPosts.length > 0 ? (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {latestPosts.map((post, index) => (
+                <BlogCard key={post.id} post={post} index={index} />
+              ))}
+            </div>
+          ) : (
+            <div className="py-12 text-center">
+              <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+              <p className="text-muted-foreground">
+                No blog posts yet. Check back soon!
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
