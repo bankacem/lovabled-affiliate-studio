@@ -12,10 +12,12 @@ import {
   Users,
   BarChart3,
   Star,
-  Download,
   RefreshCw,
   ExternalLink,
-  Trash2
+  Trash2,
+  Plus,
+  Store,
+  Edit
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -23,17 +25,22 @@ import { useAuth } from "@/hooks/useAuth";
 import { AuthPage } from "./AuthPage";
 import { BlogPostsList } from "./BlogPostsList";
 import { BlogPostEditor } from "./BlogPostEditor";
+import { StoreManager } from "./StoreManager";
+import { CustomImport } from "./CustomImport";
+import { DesignEditor } from "./DesignEditor";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
-type View = "dashboard" | "posts" | "designs" | "settings" | "edit-post";
+type View = "dashboard" | "posts" | "designs" | "stores" | "settings" | "edit-post" | "edit-design";
 
 interface Design {
   id: string;
   name: string;
+  description: string | null;
   image_url: string;
   category: string;
+  tags: string[];
   featured: boolean;
   source: string | null;
   teepublic_url: string | null;
@@ -46,12 +53,14 @@ interface Stats {
   draftPosts: number;
   totalDesigns: number;
   featuredDesigns: number;
+  totalStores: number;
 }
 
 export function AdminDashboard() {
   const { user, isLoading: authLoading, isAdmin, signOut } = useAuth();
   const [currentView, setCurrentView] = useState<View>("dashboard");
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
+  const [editingDesign, setEditingDesign] = useState<Design | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [stats, setStats] = useState<Stats>({
     totalPosts: 0,
@@ -59,6 +68,7 @@ export function AdminDashboard() {
     draftPosts: 0,
     totalDesigns: 0,
     featuredDesigns: 0,
+    totalStores: 0,
   });
   const [designs, setDesigns] = useState<Design[]>([]);
   const [isLoadingDesigns, setIsLoadingDesigns] = useState(false);
@@ -72,13 +82,15 @@ export function AdminDashboard() {
   }, [user, isAdmin]);
 
   const fetchStats = async () => {
-    const [postsResult, designsResult] = await Promise.all([
+    const [postsResult, designsResult, storesResult] = await Promise.all([
       supabase.from("blog_posts").select("status"),
       supabase.from("designs").select("featured"),
+      supabase.from("stores").select("id"),
     ]);
 
     const posts = postsResult.data || [];
     const designsData = designsResult.data || [];
+    const stores = storesResult.data || [];
 
     setStats({
       totalPosts: posts.length,
@@ -86,6 +98,7 @@ export function AdminDashboard() {
       draftPosts: posts.filter(p => p.status === "draft").length,
       totalDesigns: designsData.length,
       featuredDesigns: designsData.filter(d => d.featured).length,
+      totalStores: stores.length,
     });
   };
 
@@ -97,22 +110,17 @@ export function AdminDashboard() {
       .order("created_at", { ascending: false });
 
     if (!error && data) {
-      setDesigns(data);
+      setDesigns(data as Design[]);
     }
     setIsLoadingDesigns(false);
   };
 
-  const importFromStore = async (source: "redbubble" | "teepublic") => {
+  const importFromStore = async (storeUrl: string, source: "redbubble" | "teepublic") => {
     setIsImporting(source);
-    
-    const storeUrls = {
-      redbubble: "https://www.redbubble.com/people/rengone/shop",
-      teepublic: "https://www.teepublic.com/user/bankacem"
-    };
 
     try {
       const { data, error } = await supabase.functions.invoke("import-designs", {
-        body: { storeUrl: storeUrls[source], source }
+        body: { storeUrl, source }
       });
 
       if (error) throw new Error(error.message);
@@ -185,6 +193,23 @@ export function AdminDashboard() {
     setCurrentView("posts");
   };
 
+  const handleEditDesign = (design: Design) => {
+    setEditingDesign(design);
+    setCurrentView("edit-design");
+  };
+
+  const handleNewDesign = () => {
+    setEditingDesign(null);
+    setCurrentView("edit-design");
+  };
+
+  const handleBackFromDesignEditor = () => {
+    setEditingDesign(null);
+    setCurrentView("designs");
+    fetchDesigns();
+    fetchStats();
+  };
+
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -221,6 +246,7 @@ export function AdminDashboard() {
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "posts", label: "Blog Posts", icon: FileText },
     { id: "designs", label: "Designs", icon: Image },
+    { id: "stores", label: "My Stores", icon: Store },
     { id: "settings", label: "Settings", icon: Settings },
   ];
 
@@ -258,7 +284,8 @@ export function AdminDashboard() {
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentView === item.id || 
-                (currentView === "edit-post" && item.id === "posts");
+                (currentView === "edit-post" && item.id === "posts") ||
+                (currentView === "edit-design" && item.id === "designs");
               
               return (
                 <button
@@ -375,11 +402,11 @@ export function AdminDashboard() {
                 <Card className="p-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
-                      <Star className="w-6 h-6 text-amber-500" />
+                      <Store className="w-6 h-6 text-amber-500" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-foreground">{stats.featuredDesigns}</p>
-                      <p className="text-sm text-muted-foreground">Featured</p>
+                      <p className="text-2xl font-bold text-foreground">{stats.totalStores}</p>
+                      <p className="text-sm text-muted-foreground">Stores</p>
                     </div>
                   </div>
                 </Card>
@@ -400,19 +427,38 @@ export function AdminDashboard() {
                     <Button 
                       className="w-full justify-start" 
                       variant="outline"
-                      onClick={() => setCurrentView("designs")}
+                      onClick={handleNewDesign}
                     >
-                      <Image className="w-4 h-4 mr-2" />
-                      Manage Designs
+                      <Plus className="w-4 h-4 mr-2" />
+                      Add New Design
+                    </Button>
+                    <Button 
+                      className="w-full justify-start" 
+                      variant="outline"
+                      onClick={() => setCurrentView("stores")}
+                    >
+                      <Store className="w-4 h-4 mr-2" />
+                      Manage Stores
                     </Button>
                   </div>
                 </Card>
 
                 <Card className="p-6">
-                  <h3 className="font-semibold text-foreground mb-4">Recent Activity</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {stats.draftPosts} draft posts waiting to be published
-                  </p>
+                  <h3 className="font-semibold text-foreground mb-4">Stats Overview</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Draft Posts</span>
+                      <span className="font-medium">{stats.draftPosts}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Featured Designs</span>
+                      <span className="font-medium">{stats.featuredDesigns}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Connected Stores</span>
+                      <span className="font-medium">{stats.totalStores}</span>
+                    </div>
+                  </div>
                 </Card>
               </div>
             </motion.div>
@@ -434,6 +480,15 @@ export function AdminDashboard() {
             />
           )}
 
+          {/* Edit Design View */}
+          {currentView === "edit-design" && (
+            <DesignEditor
+              design={editingDesign}
+              onSave={handleBackFromDesignEditor}
+              onCancel={handleBackFromDesignEditor}
+            />
+          )}
+
           {/* Designs View */}
           {currentView === "designs" && (
             <motion.div
@@ -441,50 +496,33 @@ export function AdminDashboard() {
               animate={{ opacity: 1, y: 0 }}
               className="space-y-6"
             >
-              <div>
-                <h2 className="text-2xl font-bold text-foreground">Designs</h2>
-                <p className="text-muted-foreground">Manage your design library</p>
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold text-foreground">Designs</h2>
+                  <p className="text-muted-foreground">Manage your design library</p>
+                </div>
+                <Button onClick={handleNewDesign}>
+                  <Plus className="w-4 h-4 mr-2" />
+                  Add Design
+                </Button>
               </div>
 
-              {/* Import Section */}
+              {/* Custom Import */}
+              <CustomImport 
+                onImport={importFromStore}
+                isImporting={isImporting !== null}
+              />
+
+              {/* Designs Grid */}
               <Card className="p-6">
-                <h3 className="font-semibold text-foreground mb-4">Import Designs</h3>
-                <div className="flex flex-wrap gap-4">
-                  <Button
-                    onClick={() => importFromStore("redbubble")}
-                    disabled={isImporting !== null}
-                    variant="outline"
-                  >
-                    {isImporting === "redbubble" ? (
-                      <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                    ) : (
-                      <Download className="w-4 h-4 mr-2" />
-                    )}
-                    Import from Redbubble
-                  </Button>
-                  <Button
-                    onClick={() => importFromStore("teepublic")}
-                    disabled={isImporting !== null}
-                    variant="outline"
-                  >
-                    {isImporting === "teepublic" ? (
-                      <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                    ) : (
-                      <Download className="w-4 h-4 mr-2" />
-                    )}
-                    Import from TeePublic
-                  </Button>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold text-foreground">
+                    All Designs ({designs.length})
+                  </h3>
                   <Button onClick={fetchDesigns} variant="ghost" size="icon">
                     <RefreshCw className="w-4 h-4" />
                   </Button>
                 </div>
-              </Card>
-
-              {/* Designs Grid */}
-              <Card className="p-6">
-                <h3 className="font-semibold text-foreground mb-4">
-                  All Designs ({designs.length})
-                </h3>
                 
                 {isLoadingDesigns ? (
                   <div className="py-12 text-center text-muted-foreground">
@@ -492,7 +530,9 @@ export function AdminDashboard() {
                   </div>
                 ) : designs.length === 0 ? (
                   <div className="py-12 text-center text-muted-foreground">
-                    No designs yet. Import designs from your stores.
+                    <Image className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                    <p>No designs yet.</p>
+                    <p className="text-sm mt-1">Add designs manually or import from your stores.</p>
                   </div>
                 ) : (
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -518,6 +558,14 @@ export function AdminDashboard() {
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
                           <div className="flex gap-2">
+                            <Button
+                              size="icon"
+                              variant="secondary"
+                              className="h-8 w-8"
+                              onClick={() => handleEditDesign(design)}
+                            >
+                              <Edit className="w-4 h-4" />
+                            </Button>
                             <Button
                               size="icon"
                               variant="secondary"
@@ -561,28 +609,82 @@ export function AdminDashboard() {
                           </div>
                         )}
 
+                        {/* Source badge */}
+                        {design.source && (
+                          <div className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${
+                            design.source === "redbubble" 
+                              ? "bg-red-500 text-white" 
+                              : design.source === "teepublic"
+                              ? "bg-blue-500 text-white"
+                              : "bg-gray-500 text-white"
+                          }`}>
+                            {design.source === "redbubble" ? "RB" : design.source === "teepublic" ? "TP" : "Manual"}
+                          </div>
+                        )}
+
                         {/* Info */}
                         <div className="p-3">
                           <h4 className="font-medium text-sm text-foreground line-clamp-1">
                             {design.name}
                           </h4>
-                          <div className="flex items-center justify-between mt-1">
-                            <span className="text-xs text-muted-foreground">{design.category}</span>
-                            {design.source && (
-                              <span className={`text-xs px-2 py-0.5 rounded-full ${
-                                design.source === "redbubble" 
-                                  ? "bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400" 
-                                  : "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400"
-                              }`}>
-                                {design.source}
-                              </span>
-                            )}
-                          </div>
+                          <span className="text-xs text-muted-foreground">{design.category}</span>
                         </div>
                       </motion.div>
                     ))}
                   </div>
                 )}
+              </Card>
+            </motion.div>
+          )}
+
+          {/* Stores View */}
+          {currentView === "stores" && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="space-y-6"
+            >
+              <div>
+                <h2 className="text-2xl font-bold text-foreground">My Stores</h2>
+                <p className="text-muted-foreground">Manage your TeePublic and Redbubble stores</p>
+              </div>
+
+              <StoreManager 
+                onImport={importFromStore}
+                isImporting={isImporting}
+              />
+
+              <Card className="p-6">
+                <h3 className="font-semibold text-foreground mb-4">How It Works</h3>
+                <div className="space-y-4 text-sm text-muted-foreground">
+                  <div className="flex gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-primary font-bold">1</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Add Your Store</p>
+                      <p>Enter your Redbubble or TeePublic store URL</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-primary font-bold">2</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Import Designs</p>
+                      <p>Click import to fetch your designs automatically</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-primary font-bold">3</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">Visitors Buy From Your Store</p>
+                      <p>When visitors click on a design, they go directly to your store to purchase</p>
+                    </div>
+                  </div>
+                </div>
               </Card>
             </motion.div>
           )}
@@ -611,6 +713,14 @@ export function AdminDashboard() {
                     <p className="font-medium text-foreground">Administrator</p>
                   </div>
                 </div>
+              </Card>
+
+              <Card className="p-6">
+                <h3 className="font-semibold text-foreground mb-4">About This App</h3>
+                <p className="text-sm text-muted-foreground">
+                  Design Vault is a portfolio website for showcasing and selling print-on-demand designs. 
+                  When visitors click on a design, they are redirected to your TeePublic or Redbubble store to complete the purchase.
+                </p>
               </Card>
             </motion.div>
           )}
