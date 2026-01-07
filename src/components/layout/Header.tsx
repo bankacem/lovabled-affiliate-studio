@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X, ShoppingBag, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -53,11 +53,19 @@ export function Header() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <Button variant="coral" size="sm">
-            Browse Designs
-          </Button>
+        {/* CTA Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <Link to="/admin">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Shield className="h-4 w-4" />
+              Admin
+            </Button>
+          </Link>
+          <Link to="/designs">
+            <Button variant="coral" size="sm">
+              Browse Designs
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -95,9 +103,17 @@ export function Header() {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="coral" className="mt-2 w-full">
-                Browse Designs
-              </Button>
+              <Link to="/admin" onClick={() => setIsMenuOpen(false)} className="w-full">
+                <Button variant="outline" className="mt-2 w-full gap-2">
+                  <Shield className="h-4 w-4" />
+                  Admin
+                </Button>
+              </Link>
+              <Link to="/designs" onClick={() => setIsMenuOpen(false)} className="w-full">
+                <Button variant="coral" className="mt-2 w-full">
+                  Browse Designs
+                </Button>
+              </Link>
             </nav>
           </motion.div>
         )}
