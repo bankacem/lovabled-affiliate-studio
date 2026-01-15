@@ -18,7 +18,8 @@ import {
   Plus,
   Store,
   Edit,
-  Wrench
+  Wrench,
+  Upload
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -29,6 +30,7 @@ import { BlogPostsList } from "./BlogPostsList";
 import { BlogPostEditor } from "./BlogPostEditor";
 import { BlogStatsOverview } from "./BlogStatsOverview";
 import { BlogToolsPanel } from "./BlogToolsPanel";
+import { BulkPostImport } from "./BulkPostImport";
 import { StoreManager } from "./StoreManager";
 import { CustomImport } from "./CustomImport";
 import { DesignEditor } from "./DesignEditor";
@@ -476,10 +478,14 @@ export function AdminDashboard() {
               className="space-y-6"
             >
               <Tabs defaultValue="articles" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 mb-6">
+                <TabsList className="grid w-full grid-cols-4 mb-6">
                   <TabsTrigger value="articles">
                     <FileText className="h-4 w-4 mr-2" />
                     Articles
+                  </TabsTrigger>
+                  <TabsTrigger value="import">
+                    <Upload className="h-4 w-4 mr-2" />
+                    Import
                   </TabsTrigger>
                   <TabsTrigger value="stats">
                     <BarChart3 className="h-4 w-4 mr-2" />
@@ -496,6 +502,10 @@ export function AdminDashboard() {
                     onNewPost={handleNewPost}
                     onEditPost={handleEditPost}
                   />
+                </TabsContent>
+
+                <TabsContent value="import">
+                  <BulkPostImport />
                 </TabsContent>
 
                 <TabsContent value="stats">
