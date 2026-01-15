@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
@@ -9,7 +9,9 @@ import {
   Tag,
   FileText,
   Settings,
-  Send
+  Send,
+  Link2,
+  Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RichTextEditor } from "./RichTextEditor";
+import { InternalLinkingTool } from "./InternalLinkingTool";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -61,6 +64,8 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   const [isSaving, setIsSaving] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
   const [tagsInput, setTagsInput] = useState("");
+  const [showLinkingTool, setShowLinkingTool] = useState(false);
+  const editorRef = useRef<{ insertLink: (url: string, text: string) => void } | null>(null);
   
   const [post, setPost] = useState<BlogPost>({
     title: "",
@@ -247,6 +252,15 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
+            size="sm"
+            onClick={() => setShowLinkingTool(!showLinkingTool)}
+            className={showLinkingTool ? "bg-primary/10" : ""}
+          >
+            <Link2 className="h-4 w-4 mr-2" />
+            Internal Links
+          </Button>
+          <Button
+            variant="outline"
             onClick={() => savePost("draft")}
             disabled={isSaving}
           >
@@ -334,6 +348,27 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
 
         {/* Sidebar */}
         <div className="space-y-6">
+          {/* Internal Linking Tool */}
+          {showLinkingTool && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+            >
+              <InternalLinkingTool
+                currentPostId={postId}
+                onInsertLink={(url, title) => {
+                  // Insert as HTML link in content
+                  const link = `<a href="${url}">${title}</a>`;
+                  setPost(prev => ({
+                    ...prev,
+                    content: prev.content + ` ${link}`
+                  }));
+                }}
+              />
+            </motion.div>
+          )}
+
           {/* Featured Image */}
           <Card className="p-6">
             <div className="space-y-4">
