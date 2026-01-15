@@ -185,21 +185,38 @@ export function BulkPostImport() {
     for (let i = 0; i < batches; i++) {
       const batch = postsToImport.slice(i * batchSize, (i + 1) * batchSize);
       
-      const postsData = batch.map(post => ({
-        title: post.title,
-        slug: generateSlug(post.title) + `-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        excerpt: post.excerpt || null,
-        content: post.content || null,
-        category: post.category || "General",
-        tags: post.tags ? post.tags.split(",").map(t => t.trim()) : [],
-        featured_image: post.image || null,
-        status: post.status === "scheduled" ? "draft" : (post.status || "draft"),
-        published_at: post.publishDate ? new Date(post.publishDate).toISOString() : null,
-        read_time: post.readTime || null,
-        meta_title: post.seoTitle || post.title,
-        meta_description: post.seoDesc || post.excerpt,
-        author_name: "Admin"
-      }));
+      const postsData = batch.map(post => {
+        // Determine the correct status
+        let status = post.status || "draft";
+        let publishedAt = null;
+        
+        if (status === "published") {
+          // If published, set published_at to now if not specified
+          publishedAt = post.publishDate 
+            ? new Date(post.publishDate).toISOString() 
+            : new Date().toISOString();
+        } else if (status === "scheduled" && post.publishDate) {
+          // Keep as draft but save the scheduled date
+          status = "draft";
+          publishedAt = new Date(post.publishDate).toISOString();
+        }
+        
+        return {
+          title: post.title,
+          slug: generateSlug(post.title) + `-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          excerpt: post.excerpt || null,
+          content: post.content || null,
+          category: post.category || "General",
+          tags: post.tags ? post.tags.split(",").map(t => t.trim()) : [],
+          featured_image: post.image || null,
+          status: status,
+          published_at: publishedAt,
+          read_time: post.readTime || null,
+          meta_title: post.seoTitle || post.title,
+          meta_description: post.seoDesc || post.excerpt,
+          author_name: "Admin"
+        };
+      });
 
       const { data, error } = await supabase
         .from("blog_posts")
