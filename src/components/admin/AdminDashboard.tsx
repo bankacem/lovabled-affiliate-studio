@@ -17,14 +17,18 @@ import {
   Trash2,
   Plus,
   Store,
-  Edit
+  Edit,
+  Wrench
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthPage } from "./AuthPage";
 import { BlogPostsList } from "./BlogPostsList";
 import { BlogPostEditor } from "./BlogPostEditor";
+import { BlogStatsOverview } from "./BlogStatsOverview";
+import { BlogToolsPanel } from "./BlogToolsPanel";
 import { StoreManager } from "./StoreManager";
 import { CustomImport } from "./CustomImport";
 import { DesignEditor } from "./DesignEditor";
@@ -464,12 +468,71 @@ export function AdminDashboard() {
             </motion.div>
           )}
 
-          {/* Posts View */}
+          {/* Posts View - Enhanced with Stats and Tools */}
           {currentView === "posts" && (
-            <BlogPostsList 
-              onNewPost={handleNewPost}
-              onEditPost={handleEditPost}
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="space-y-6"
+            >
+              <Tabs defaultValue="articles" className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-6">
+                  <TabsTrigger value="articles">
+                    <FileText className="h-4 w-4 mr-2" />
+                    Articles
+                  </TabsTrigger>
+                  <TabsTrigger value="stats">
+                    <BarChart3 className="h-4 w-4 mr-2" />
+                    Stats
+                  </TabsTrigger>
+                  <TabsTrigger value="tools">
+                    <Wrench className="h-4 w-4 mr-2" />
+                    Tools
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="articles">
+                  <BlogPostsList 
+                    onNewPost={handleNewPost}
+                    onEditPost={handleEditPost}
+                  />
+                </TabsContent>
+
+                <TabsContent value="stats">
+                  <BlogStatsOverview />
+                </TabsContent>
+
+                <TabsContent value="tools">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <BlogToolsPanel />
+                    <Card className="p-6">
+                      <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                        <Settings className="h-5 w-5" />
+                        SEO Best Practices
+                      </h3>
+                      <div className="space-y-3 text-sm text-muted-foreground">
+                        <div className="p-3 rounded-lg bg-muted/50">
+                          <p className="font-medium text-foreground mb-1">Meta Title</p>
+                          <p>Keep under 60 characters with main keyword at start</p>
+                        </div>
+                        <div className="p-3 rounded-lg bg-muted/50">
+                          <p className="font-medium text-foreground mb-1">Meta Description</p>
+                          <p>Write 150-160 chars with call-to-action</p>
+                        </div>
+                        <div className="p-3 rounded-lg bg-muted/50">
+                          <p className="font-medium text-foreground mb-1">Internal Links</p>
+                          <p>Add 2-5 links to related articles per post</p>
+                        </div>
+                        <div className="p-3 rounded-lg bg-muted/50">
+                          <p className="font-medium text-foreground mb-1">Featured Image</p>
+                          <p>Use high-quality images with descriptive alt text</p>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </motion.div>
           )}
 
           {/* Edit Post View */}
