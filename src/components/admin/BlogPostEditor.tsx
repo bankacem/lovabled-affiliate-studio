@@ -11,7 +11,8 @@ import {
   Settings,
   Send,
   Link2,
-  Sparkles
+  Sparkles,
+  Code
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -311,11 +312,15 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
 
           {/* Content Editor */}
           <Card className="p-6">
-            <Tabs defaultValue="content">
+            <Tabs defaultValue="visual">
               <TabsList className="mb-4">
-                <TabsTrigger value="content">
+                <TabsTrigger value="visual">
                   <FileText className="h-4 w-4 mr-2" />
-                  Content
+                  Visual Editor
+                </TabsTrigger>
+                <TabsTrigger value="html">
+                  <Code className="h-4 w-4 mr-2" />
+                  HTML
                 </TabsTrigger>
                 <TabsTrigger value="excerpt">
                   <FileText className="h-4 w-4 mr-2" />
@@ -323,12 +328,27 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
                 </TabsTrigger>
               </TabsList>
               
-              <TabsContent value="content" className="mt-0">
+              <TabsContent value="visual" className="mt-0">
                 <RichTextEditor
                   content={post.content}
                   onChange={handleContentChange}
                   placeholder="Write your article content here..."
                 />
+              </TabsContent>
+
+              <TabsContent value="html" className="mt-0">
+                <div className="space-y-2">
+                  <Textarea
+                    placeholder="<p>Write your HTML content here...</p>"
+                    value={post.content}
+                    onChange={(e) => handleContentChange(e.target.value)}
+                    className="font-mono text-sm min-h-[400px] bg-muted/30"
+                    dir="ltr"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Write or paste HTML code directly. Changes sync with Visual Editor.
+                  </p>
+                </div>
               </TabsContent>
               
               <TabsContent value="excerpt" className="mt-0">
