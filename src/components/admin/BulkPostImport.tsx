@@ -125,6 +125,53 @@ export function BulkPostImport() {
     }
   };
 
+  // Clean HTML content - extract body content and remove DOCTYPE/html/body tags
+  const cleanHtmlContent = (html: string): string => {
+    if (!html) return "";
+    
+    // Remove DOCTYPE, html, head, and body tags but keep the content
+    let cleaned = html
+      .replace(/<!DOCTYPE[^>]*>/gi, "")
+      .replace(/<\/?html[^>]*>/gi, "")
+      .replace(/<head[\s\S]*?<\/head>/gi, "")
+      .replace(/<\/?body[^>]*>/gi, "")
+      .trim();
+    
+    // If content starts with code block markers (from AI generated content), extract the HTML
+    if (cleaned.startsWith("```html")) {
+      cleaned = cleaned.replace(/^```html\s*/, "").replace(/```$/, "").trim();
+    } else if (cleaned.startsWith("```")) {
+      cleaned = cleaned.replace(/^```\s*/, "").replace(/```$/, "").trim();
+    }
+    
+    return cleaned;
+  };
+
+  // Extract a clean title from potentially messy title content
+  const extractCleanTitle = (rawTitle: string): string => {
+    if (!rawTitle) return "Untitled Post";
+    
+    // If title contains suggestions or multiple options, try to extract the first good one
+    if (rawTitle.includes("###") || rawTitle.includes("**") || rawTitle.length > 200) {
+      // Try to find a title in bold **Title**
+      const boldMatch = rawTitle.match(/\*\*([^*]+)\*\*/);
+      if (boldMatch && boldMatch[1].length < 100) {
+        return boldMatch[1].trim();
+      }
+      
+      // Try to find title after a colon
+      const colonMatch = rawTitle.match(/:\s*\*?\*?([^*\n]+)\*?\*?/);
+      if (colonMatch && colonMatch[1].length < 100) {
+        return colonMatch[1].trim();
+      }
+      
+      // Just take first 80 characters
+      return rawTitle.substring(0, 80).replace(/[#*]/g, "").trim() + "...";
+    }
+    
+    return rawTitle.trim();
+  };
+
   const processFile = async (file: File) => {
     if (!file.name.endsWith(".json")) {
       toast.error("Please upload a JSON file");
@@ -151,9 +198,18 @@ export function BulkPostImport() {
         throw new Error("No posts found in the file");
       }
 
-      setImportedPosts(posts);
-      setSelectedPosts(new Set(posts.map(p => p.id)));
-      toast.success(`Loaded ${posts.length.toLocaleString()} posts from file`);
+      // Clean and process each post
+      const processedPosts = posts.map(post => ({
+        ...post,
+        title: extractCleanTitle(post.title),
+        content: cleanHtmlContent(post.content),
+        excerpt: post.excerpt ? extractCleanTitle(post.excerpt).substring(0, 300) : "",
+        seoTitle: post.seoTitle ? extractCleanTitle(post.seoTitle) : "",
+      }));
+
+      setImportedPosts(processedPosts);
+      setSelectedPosts(new Set(processedPosts.map(p => p.id)));
+      toast.success(`Loaded ${processedPosts.length.toLocaleString()} posts from file`);
     } catch (error: any) {
       toast.error(`Failed to parse file: ${error.message}`);
     } finally {

@@ -378,12 +378,26 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
               <InternalLinkingTool
                 currentPostId={postId}
                 onInsertLink={(url, title) => {
-                  // Insert as HTML link in content
-                  const link = `<a href="${url}">${title}</a>`;
-                  setPost(prev => ({
-                    ...prev,
-                    content: prev.content + ` ${link}`
-                  }));
+                  // Get selected text or use title
+                  const selection = window.getSelection();
+                  const selectedText = selection?.toString() || title;
+                  
+                  // Create link HTML
+                  const link = `<a href="${url}" title="${title}">${selectedText}</a>`;
+                  
+                  // If there's a selection, try to replace it
+                  if (selection && selection.toString()) {
+                    // For now, copy to clipboard for manual insertion
+                    navigator.clipboard.writeText(link);
+                    toast.success("Link copied! Paste it in your content where needed.");
+                  } else {
+                    // Append to content if no selection
+                    setPost(prev => ({
+                      ...prev,
+                      content: prev.content + ` ${link}`
+                    }));
+                    toast.success("Link added to content!");
+                  }
                 }}
               />
             </motion.div>
