@@ -1,4 +1,5 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -9,7 +10,53 @@ import { format } from "date-fns";
 
 const BlogPost = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(id || "");
+
+  // Handle anchor links within the article (Table of Contents)
+  useEffect(() => {
+    if (!post || !contentRef.current) return;
+
+    // Handle initial hash on page load
+    if (location.hash) {
+      const targetId = location.hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+
+    // Add click handlers for internal anchor links
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+      
+      if (anchor) {
+        const href = anchor.getAttribute("href");
+        
+        // Handle in-page anchor links (e.g., #section-id)
+        if (href?.startsWith("#")) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+            // Update URL without reload
+            window.history.pushState({}, "", href);
+          }
+        }
+      }
+    };
+
+    contentRef.current.addEventListener("click", handleAnchorClick);
+    
+    return () => {
+      contentRef.current?.removeEventListener("click", handleAnchorClick);
+    };
+  }, [post, location.hash]);
 
   const handleShare = async () => {
     try {
@@ -151,10 +198,11 @@ const BlogPost = () => {
 
             {/* Content */}
             <motion.div
+              ref={contentRef}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary"
+              className="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content"
               dangerouslySetInnerHTML={{ __html: post.content || "" }}
             />
 

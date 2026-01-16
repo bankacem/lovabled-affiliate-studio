@@ -553,3 +553,59 @@
     padding: 0.625rem 0.75rem;
   }
 }
+
+/* Article Content - Preserve inline styles (colors, backgrounds) */
+.article-content [style] {
+  /* Allow inline styles to override defaults */
+}
+
+.article-content div[style*="background"],
+.article-content span[style*="background"],
+.article-content p[style*="background"] {
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.article-content span[style*="color"],
+.article-content p[style*="color"] {
+  /* Preserve color styles from imported content */
+}
+
+/* Styled callout boxes commonly used in articles */
+.article-content div[style*="border-left"] {
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Anchor link targets - add offset for fixed headers */
+.article-content [id] {
+  scroll-margin-top: 100px;
+}
+
+/* Style anchor links in TOC */
+.article-content a[href^="#"] {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  border-bottom: 1px dashed hsl(var(--primary) / 0.5);
+  transition: all 0.2s ease;
+}
+
+.article-content a[href^="#"]:hover {
+  border-bottom-style: solid;
+  border-bottom-color: hsl(var(--primary));
+}
+
+/* External vs Internal link styling */
+.article-content a[href^="http"]:not([href*="lovable.app"])::after {
+  content: " ↗";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.article-content a[href^="/"]::before {
+  content: "→ ";
+  font-size: 0.9em;
+  opacity: 0.7;
+}
