@@ -141,13 +141,13 @@ const DesignDetail = () => {
               )}
 
               {/* CTAs */}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 {design.teepublic_url && (
                   <Button
                     asChild
                     variant="coral"
                     size="lg"
-                    className="flex-1"
+                    className="flex-1 min-w-[140px]"
                   >
                     <a
                       href={design.teepublic_url}
@@ -164,7 +164,7 @@ const DesignDetail = () => {
                     asChild
                     variant="outline"
                     size="lg"
-                    className="flex-1"
+                    className="flex-1 min-w-[140px]"
                   >
                     <a
                       href={design.redbubble_url}
@@ -172,6 +172,40 @@ const DesignDetail = () => {
                       rel="noopener noreferrer"
                     >
                       View on Redbubble
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
+                {design.amazon_url && (
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="flex-1 min-w-[140px] border-orange-500 text-orange-600 hover:bg-orange-50"
+                  >
+                    <a
+                      href={design.amazon_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on Amazon
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </Button>
+                )}
+                {design.etsy_url && (
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="flex-1 min-w-[140px] border-amber-500 text-amber-600 hover:bg-amber-50"
+                  >
+                    <a
+                      href={design.etsy_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View on Etsy
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>

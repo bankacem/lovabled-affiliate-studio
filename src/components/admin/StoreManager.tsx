@@ -22,17 +22,19 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
+type Platform = "redbubble" | "teepublic" | "amazon" | "etsy";
+
 interface StoreProfile {
   id: string;
   name: string;
   store_url: string;
-  platform: "redbubble" | "teepublic";
+  platform: Platform;
   username: string | null;
   created_at: string;
 }
 
 interface StoreManagerProps {
-  onImport: (storeUrl: string, platform: "redbubble" | "teepublic") => void;
+  onImport: (storeUrl: string, platform: Platform) => void;
   isImporting: string | null;
 }
 
@@ -43,7 +45,7 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
   const [newStore, setNewStore] = useState({
     name: "",
     store_url: "",
-    platform: "redbubble" as "redbubble" | "teepublic",
+    platform: "redbubble" as Platform,
     username: "",
   });
 
@@ -108,11 +110,33 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
   };
 
   const getPlatformColor = (platform: string) => {
-    return platform === "redbubble" ? "text-red-500 bg-red-500/10" : "text-blue-500 bg-blue-500/10";
+    switch (platform) {
+      case "redbubble": return "text-red-500 bg-red-500/10";
+      case "teepublic": return "text-blue-500 bg-blue-500/10";
+      case "amazon": return "text-orange-500 bg-orange-500/10";
+      case "etsy": return "text-amber-600 bg-amber-500/10";
+      default: return "text-gray-500 bg-gray-500/10";
+    }
   };
 
   const getPlatformLabel = (platform: string) => {
-    return platform === "redbubble" ? "RB" : "TP";
+    switch (platform) {
+      case "redbubble": return "RB";
+      case "teepublic": return "TP";
+      case "amazon": return "AMZ";
+      case "etsy": return "ET";
+      default: return "??";
+    }
+  };
+  
+  const getPlaceholderUrl = (platform: Platform) => {
+    switch (platform) {
+      case "redbubble": return "https://www.redbubble.com/people/username/shop";
+      case "teepublic": return "https://www.teepublic.com/user/username";
+      case "amazon": return "https://www.amazon.com/s?rh=n%3A7141123011%2Cp_4%3AYOUR_BRAND";
+      case "etsy": return "https://www.etsy.com/shop/YOUR_SHOP_NAME";
+      default: return "";
+    }
   };
 
   return (
@@ -152,7 +176,7 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
                 <Label htmlFor="platform">Platform</Label>
                 <Select
                   value={newStore.platform}
-                  onValueChange={(value: "redbubble" | "teepublic") =>
+                  onValueChange={(value: Platform) =>
                     setNewStore({ ...newStore, platform: value })
                   }
                 >
@@ -162,6 +186,8 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
                   <SelectContent>
                     <SelectItem value="redbubble">Redbubble</SelectItem>
                     <SelectItem value="teepublic">TeePublic</SelectItem>
+                    <SelectItem value="amazon">Merch by Amazon</SelectItem>
+                    <SelectItem value="etsy">Etsy</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -169,14 +195,14 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
                 <Label htmlFor="store-url">Store URL</Label>
                 <Input
                   id="store-url"
-                  placeholder={
-                    newStore.platform === "redbubble"
-                      ? "https://www.redbubble.com/people/username/shop"
-                      : "https://www.teepublic.com/user/username"
-                  }
+                  placeholder={getPlaceholderUrl(newStore.platform)}
                   value={newStore.store_url}
                   onChange={(e) => setNewStore({ ...newStore, store_url: e.target.value })}
                 />
+                <p className="text-xs text-muted-foreground">
+                  {newStore.platform === "amazon" && "Use your Merch by Amazon brand search URL"}
+                  {newStore.platform === "etsy" && "Use your Etsy shop URL"}
+                </p>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="username">Username (optional)</Label>

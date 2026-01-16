@@ -21,11 +21,20 @@ serve(async (req) => {
       );
     }
 
+    // Validate source
+    const validSources = ["redbubble", "teepublic", "amazon", "etsy"];
+    if (!validSources.includes(source)) {
+      return new Response(
+        JSON.stringify({ success: false, error: `Invalid source. Must be one of: ${validSources.join(", ")}` }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     const apiKey = Deno.env.get("FIRECRAWL_API_KEY");
     if (!apiKey) {
       console.error("FIRECRAWL_API_KEY not configured");
       return new Response(
-        JSON.stringify({ success: false, error: "Firecrawl API key not configured" }),
+        JSON.stringify({ success: false, error: "Firecrawl API key not configured. Please add it in settings." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -47,7 +56,7 @@ serve(async (req) => {
         url: storeUrl,
         formats: ["markdown", "links", "html"],
         onlyMainContent: false,
-        waitFor: 3000, // Wait for dynamic content to load
+        waitFor: 5000,
       }),
     });
 
@@ -56,19 +65,19 @@ serve(async (req) => {
     if (!scrapeResponse.ok || !scrapeData.success) {
       console.error("Firecrawl scrape error:", scrapeData);
       return new Response(
-        JSON.stringify({ success: false, error: scrapeData.error || "Failed to scrape store" }),
+        JSON.stringify({ success: false, error: scrapeData.error || "Failed to scrape store. Please check the URL and try again." }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
     const allLinks = scrapeData.data?.links || [];
+    const html = scrapeData.data?.html || "";
     console.log(`Found ${allLinks.length} total links on page`);
 
-    // Filter for product URLs based on the source
     let productUrls: string[] = [];
 
+    // Extract product URLs based on source
     if (source === "redbubble") {
-      // Redbubble product URLs contain /i/ followed by product name
       productUrls = allLinks.filter((url: string) =>
         url.includes("redbubble.com") &&
         url.includes("/i/") &&
@@ -76,8 +85,16 @@ serve(async (req) => {
         !url.includes("/explore") &&
         !url.includes("/people/")
       );
+      
+      // Fallback: extract from HTML
+      if (productUrls.length === 0) {
+        const regex = /href="(https:\/\/www\.redbubble\.com\/i\/[^"]+)"/g;
+        let match;
+        while ((match = regex.exec(html)) !== null) {
+          productUrls.push(match[1]);
+        }
+      }
     } else if (source === "teepublic") {
-      // TeePublic product URLs contain product type patterns
       productUrls = allLinks.filter((url: string) =>
         url.includes("teepublic.com") &&
         (url.includes("/t-shirt/") ||
@@ -90,75 +107,79 @@ serve(async (req) => {
           url.includes("/phone-case/")) &&
         !url.includes("/user/")
       );
-    }
-
-    // Remove duplicates and clean up URLs
-    productUrls = [...new Set(productUrls)];
-    console.log(`Filtered to ${productUrls.length} product URLs`);
-
-    // If no product URLs found, try extracting from HTML content
-    if (productUrls.length === 0) {
-      const html = scrapeData.data?.html || "";
       
-      if (source === "redbubble") {
-        // Extract product links from Redbubble HTML
-        const regex = /href="(https:\/\/www\.redbubble\.com\/i\/[^"]+)"/g;
-        let match;
-        while ((match = regex.exec(html)) !== null) {
-          productUrls.push(match[1]);
-        }
-      } else if (source === "teepublic") {
-        // Extract product links from TeePublic HTML
+      // Fallback: extract from HTML
+      if (productUrls.length === 0) {
         const regex = /href="(https:\/\/www\.teepublic\.com\/[^"]*(?:t-shirt|mug|sticker|hoodie|poster)\/[^"]+)"/g;
         let match;
         while ((match = regex.exec(html)) !== null) {
           productUrls.push(match[1]);
         }
       }
+    } else if (source === "amazon") {
+      // Amazon Merch product URLs
+      productUrls = allLinks.filter((url: string) =>
+        (url.includes("amazon.com/dp/") || url.includes("amazon.com/gp/product/")) &&
+        !url.includes("/ref=")
+      );
       
-      productUrls = [...new Set(productUrls)];
-      console.log(`Extracted ${productUrls.length} product URLs from HTML`);
+      // Fallback: extract from HTML
+      if (productUrls.length === 0) {
+        const regex = /href="(https:\/\/www\.amazon\.com\/(?:dp|gp\/product)\/[A-Z0-9]+)"/gi;
+        let match;
+        while ((match = regex.exec(html)) !== null) {
+          productUrls.push(match[1]);
+        }
+      }
+    } else if (source === "etsy") {
+      // Etsy product URLs
+      productUrls = allLinks.filter((url: string) =>
+        url.includes("etsy.com/listing/") &&
+        !url.includes("/similar") &&
+        !url.includes("/reviews")
+      );
+      
+      // Fallback: extract from HTML
+      if (productUrls.length === 0) {
+        const regex = /href="(https:\/\/www\.etsy\.com\/listing\/\d+[^"]+)"/g;
+        let match;
+        while ((match = regex.exec(html)) !== null) {
+          productUrls.push(match[1]);
+        }
+      }
     }
 
-    // Limit to first 15 products for initial import
-    const limitedUrls = productUrls.slice(0, 15);
+    // Remove duplicates and clean up URLs
+    productUrls = [...new Set(productUrls)].map(url => {
+      // Clean up URL by removing query params if needed
+      try {
+        const urlObj = new URL(url);
+        // Keep important params, remove tracking ones
+        urlObj.searchParams.delete("ref");
+        urlObj.searchParams.delete("ref_");
+        return urlObj.toString();
+      } catch {
+        return url;
+      }
+    });
+    
+    console.log(`Filtered to ${productUrls.length} product URLs`);
+
+    // Limit products
+    const limitedUrls = productUrls.slice(0, 25);
 
     if (limitedUrls.length === 0) {
-      console.log("No product URLs found, attempting crawl approach");
-      
-      // Try crawl as fallback
-      const crawlResponse = await fetch("https://api.firecrawl.dev/v1/crawl", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          url: storeUrl,
-          limit: 20,
-          maxDepth: 2,
-          scrapeOptions: {
-            formats: ["markdown"],
-            onlyMainContent: true,
-          },
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: "No product URLs found on this page. Please check that the store URL is correct and contains products.",
+          debug: {
+            totalLinks: allLinks.length,
+            htmlLength: html.length
+          }
         }),
-      });
-
-      const crawlData = await crawlResponse.json();
-      
-      if (crawlData.success && crawlData.id) {
-        // Return the crawl job ID for polling
-        return new Response(
-          JSON.stringify({
-            success: true,
-            message: `Crawl job started. Job ID: ${crawlData.id}. This may take a few minutes.`,
-            crawlJobId: crawlData.id,
-            designs: 0,
-            status: "crawling"
-          }),
-          { headers: { ...corsHeaders, "Content-Type": "application/json" } }
-        );
-      }
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     const designs: any[] = [];
@@ -169,7 +190,7 @@ serve(async (req) => {
         console.log(`Scraping product: ${productUrl}`);
 
         // Add delay to avoid rate limiting
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 800));
 
         const productResponse = await fetch("https://api.firecrawl.dev/v1/scrape", {
           method: "POST",
@@ -181,6 +202,7 @@ serve(async (req) => {
             url: productUrl,
             formats: ["markdown"],
             onlyMainContent: true,
+            waitFor: 3000,
           }),
         });
 
@@ -192,7 +214,7 @@ serve(async (req) => {
           // Extract design info
           let name = metadata.title || "Untitled Design";
 
-          // Clean up the title
+          // Clean up the title based on source
           if (source === "redbubble") {
             name = name
               .replace(/ \| Redbubble$/i, "")
@@ -206,6 +228,16 @@ serve(async (req) => {
               .replace(/ \| TeePublic$/i, "")
               .replace(/ T-Shirt$/i, "")
               .replace(/ Sticker$/i, "")
+              .trim();
+          } else if (source === "amazon") {
+            name = name
+              .replace(/ - Amazon\.com$/i, "")
+              .replace(/Amazon\.com: /i, "")
+              .trim();
+          } else if (source === "etsy") {
+            name = name
+              .replace(/ - Etsy$/i, "")
+              .replace(/ \| Etsy$/i, "")
               .trim();
           }
 
@@ -224,18 +256,27 @@ serve(async (req) => {
             metadata.image ||
             `https://via.placeholder.com/600x600?text=${encodeURIComponent(name)}`;
 
-          const design = {
+          const design: any = {
             name: name.substring(0, 100),
             description: (metadata.description || "").substring(0, 500),
             image_url: imageUrl,
             category,
             tags: extractTags(name + " " + (metadata.description || "")),
-            teepublic_url: source === "teepublic" ? productUrl : null,
-            redbubble_url: source === "redbubble" ? productUrl : null,
             source,
             external_id: extractExternalId(productUrl, source),
             featured: false,
           };
+
+          // Set the correct URL field based on source
+          if (source === "teepublic") {
+            design.teepublic_url = productUrl;
+          } else if (source === "redbubble") {
+            design.redbubble_url = productUrl;
+          } else if (source === "amazon") {
+            design.amazon_url = productUrl;
+          } else if (source === "etsy") {
+            design.etsy_url = productUrl;
+          }
 
           designs.push(design);
           console.log(`Extracted design: ${design.name}`);
@@ -309,6 +350,12 @@ function extractExternalId(url: string, source: string): string {
   } else if (source === "teepublic") {
     const match = url.match(/\/(\d+)-/);
     return match ? `tp_${match[1]}` : `tp_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  } else if (source === "amazon") {
+    const match = url.match(/\/(?:dp|product)\/([A-Z0-9]+)/i);
+    return match ? `amz_${match[1]}` : `amz_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  } else if (source === "etsy") {
+    const match = url.match(/\/listing\/(\d+)/);
+    return match ? `etsy_${match[1]}` : `etsy_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   }
   return `unknown_${Date.now()}`;
 }

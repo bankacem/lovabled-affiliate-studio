@@ -16,7 +16,8 @@ import {
   X,
   Clock,
   ArrowUpDown,
-  Filter
+  Filter,
+  Key
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -51,6 +52,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { format } from "date-fns";
+import { SchedulingPanel } from "./SchedulingPanel";
 
 interface ImportedPost {
   id: string;
@@ -95,6 +97,7 @@ export function BulkPostImport() {
   const [sortBy, setSortBy] = useState<"title" | "date" | "status">("date");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [importedPostDbIds, setImportedPostDbIds] = useState<string[]>([]);
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -177,7 +180,9 @@ export function BulkPostImport() {
 
     setIsImporting(true);
     setImportProgress(0);
+    setImportedPostDbIds([]);
     const result: ImportResult = { success: 0, failed: 0, errors: [] };
+    const importedPostIds: string[] = [];
 
     const batchSize = 50; // Import in batches for better performance
     const batches = Math.ceil(postsToImport.length / batchSize);
@@ -186,20 +191,21 @@ export function BulkPostImport() {
       const batch = postsToImport.slice(i * batchSize, (i + 1) * batchSize);
       
       const postsData = batch.map(post => {
-        // Determine the correct status
-        let status = post.status || "draft";
+        // IMPORTANT: Import all posts as DRAFT by default
+        // Users can then use the scheduling panel to publish/schedule them
+        const status = "draft";
         let publishedAt = null;
+        let scheduledAt = null;
         
-        if (status === "published") {
-          // If published, set published_at to now if not specified
-          publishedAt = post.publishDate 
-            ? new Date(post.publishDate).toISOString() 
-            : new Date().toISOString();
-        } else if (status === "scheduled" && post.publishDate) {
-          // Keep as draft but save the scheduled date
-          status = "draft";
-          publishedAt = new Date(post.publishDate).toISOString();
+        // If the post has a publish date, save it as scheduled_publish_at
+        if (post.publishDate) {
+          scheduledAt = new Date(post.publishDate).toISOString();
         }
+        
+        // Extract keywords from seoKeywords field or tags
+        const keywords = post.seoKeywords 
+          ? post.seoKeywords.split(",").map((k: string) => k.trim()).filter(Boolean)
+          : (post.tags ? post.tags.split(",").map((t: string) => t.trim()).slice(0, 10) : []);
         
         return {
           title: post.title,
@@ -207,10 +213,11 @@ export function BulkPostImport() {
           excerpt: post.excerpt || null,
           content: post.content || null,
           category: post.category || "General",
-          tags: post.tags ? post.tags.split(",").map(t => t.trim()) : [],
+          tags: post.tags ? post.tags.split(",").map((t: string) => t.trim()) : [],
           featured_image: post.image || null,
           status: status,
           published_at: publishedAt,
+          scheduled_publish_at: scheduledAt,
           read_time: post.readTime || null,
           meta_title: post.seoTitle || post.title,
           meta_description: post.seoDesc || post.excerpt,
@@ -228,16 +235,21 @@ export function BulkPostImport() {
         result.errors.push(`Batch ${i + 1}: ${error.message}`);
       } else {
         result.success += data?.length || 0;
+        // Store imported post IDs for scheduling
+        if (data) {
+          importedPostIds.push(...data.map(p => p.id));
+        }
       }
 
       setImportProgress(Math.round(((i + 1) / batches) * 100));
     }
 
     setImportResult(result);
+    setImportedPostDbIds(importedPostIds);
     setIsImporting(false);
 
     if (result.success > 0) {
-      toast.success(`Successfully imported ${result.success.toLocaleString()} posts`);
+      toast.success(`Imported ${result.success.toLocaleString()} posts as drafts. Use the scheduling panel to publish them.`);
     }
     if (result.failed > 0) {
       toast.error(`Failed to import ${result.failed.toLocaleString()} posts`);
@@ -431,7 +443,7 @@ export function BulkPostImport() {
 
       {/* Import Result */}
       {importResult && (
-        <Card className="p-6">
+        <Card className="p-6 space-y-4">
           <div className="flex items-start gap-4">
             <div className={`p-3 rounded-full ${
               importResult.failed === 0 ? "bg-green-100" : "bg-yellow-100"
@@ -443,10 +455,13 @@ export function BulkPostImport() {
               )}
             </div>
             <div className="flex-1">
-              <h3 className="font-medium text-foreground">Import Complete</h3>
+              <h3 className="font-medium text-foreground">Import Complete - All Posts Saved as Drafts</h3>
               <p className="text-sm text-muted-foreground">
-                Successfully imported {importResult.success.toLocaleString()} posts
+                Imported {importResult.success.toLocaleString()} posts as drafts
                 {importResult.failed > 0 && `, ${importResult.failed.toLocaleString()} failed`}
+              </p>
+              <p className="text-xs text-primary mt-1">
+                Use the scheduling panel below to publish or schedule your posts
               </p>
               {importResult.errors.length > 0 && (
                 <div className="mt-2">
@@ -466,6 +481,22 @@ export function BulkPostImport() {
               Import More
             </Button>
           </div>
+          
+          {/* Scheduling Panel for imported posts */}
+          {importedPostDbIds.length > 0 && (
+            <div className="border-t pt-4">
+              <h4 className="font-medium text-foreground mb-3 flex items-center gap-2">
+                <Calendar className="h-4 w-4" />
+                Schedule or Publish Imported Posts
+              </h4>
+              <SchedulingPanel 
+                selectedPostIds={importedPostDbIds} 
+                onScheduleComplete={() => {
+                  toast.success("Posts scheduled/published successfully!");
+                }}
+              />
+            </div>
+          )}
         </Card>
       )}
 

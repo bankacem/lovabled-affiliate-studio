@@ -10,6 +10,8 @@ export interface Design {
   tags: string[];
   teepublic_url: string | null;
   redbubble_url: string | null;
+  amazon_url: string | null;
+  etsy_url: string | null;
   featured: boolean;
   source: string | null;
   created_at: string;
