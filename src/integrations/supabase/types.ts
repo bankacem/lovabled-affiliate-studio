@@ -48,11 +48,13 @@ export type Database = {
           excerpt: string | null
           featured_image: string | null
           id: string
+          keywords: string[] | null
           meta_description: string | null
           meta_title: string | null
           published_at: string | null
           read_time: string | null
           related_designs: string[] | null
+          scheduled_publish_at: string | null
           slug: string
           status: string
           tags: string[] | null
@@ -68,11 +70,13 @@ export type Database = {
           excerpt?: string | null
           featured_image?: string | null
           id?: string
+          keywords?: string[] | null
           meta_description?: string | null
           meta_title?: string | null
           published_at?: string | null
           read_time?: string | null
           related_designs?: string[] | null
+          scheduled_publish_at?: string | null
           slug: string
           status?: string
           tags?: string[] | null
@@ -88,11 +92,13 @@ export type Database = {
           excerpt?: string | null
           featured_image?: string | null
           id?: string
+          keywords?: string[] | null
           meta_description?: string | null
           meta_title?: string | null
           published_at?: string | null
           read_time?: string | null
           related_designs?: string[] | null
+          scheduled_publish_at?: string | null
           slug?: string
           status?: string
           tags?: string[] | null
@@ -103,9 +109,11 @@ export type Database = {
       }
       designs: {
         Row: {
+          amazon_url: string | null
           category: string
           created_at: string | null
           description: string | null
+          etsy_url: string | null
           external_id: string | null
           featured: boolean | null
           id: string
@@ -118,9 +126,11 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          amazon_url?: string | null
           category?: string
           created_at?: string | null
           description?: string | null
+          etsy_url?: string | null
           external_id?: string | null
           featured?: boolean | null
           id?: string
@@ -133,9 +143,11 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          amazon_url?: string | null
           category?: string
           created_at?: string | null
           description?: string | null
+          etsy_url?: string | null
           external_id?: string | null
           featured?: boolean | null
           id?: string
