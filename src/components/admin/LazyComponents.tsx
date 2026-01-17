@@ -54,3 +54,7 @@ export const LazyDesignEditor = lazyWithLoading(
 export const LazyCustomImport = lazyWithLoading(
   () => import("./CustomImport").then(m => ({ default: m.CustomImport }))
 );
+
+export const LazyArticleOptimizer = lazyWithLoading(
+  () => import("./ArticleOptimizer").then(m => ({ default: m.ArticleOptimizer }))
+);

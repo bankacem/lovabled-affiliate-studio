@@ -148,11 +148,21 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     setIsLoading(false);
   };
 
+  // Use the SEO-optimized slug generator
   const generateSlug = (title: string) => {
     return title
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
+      // Remove special characters (: ? ! @ # $ % ^ & * etc.)
+      .replace(/[^a-z0-9\s\-]/g, '')
+      // Replace spaces with hyphens
+      .replace(/\s+/g, '-')
+      // Remove consecutive hyphens
+      .replace(/-+/g, '-')
+      // Remove leading and trailing hyphens
+      .replace(/^-+|-+$/g, '')
+      // Limit length for SEO (max 60 chars)
+      .slice(0, 60)
+      .replace(/-+$/, '');
   };
 
   const handleTitleChange = (title: string) => {
