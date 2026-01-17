@@ -20,7 +20,8 @@ import {
   Edit,
   Wrench,
   Upload,
-  Link2
+  Link2,
+  Rocket
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -38,12 +39,13 @@ import {
   LazyLinkAnalyticsPanel,
   LazyCustomImport,
   LazyArticleOptimizer,
+  LazyProgrammaticSEO,
 } from "./LazyComponents";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
-type View = "dashboard" | "posts" | "designs" | "stores" | "settings" | "edit-post" | "edit-design" | "analytics";
+type View = "dashboard" | "posts" | "designs" | "stores" | "settings" | "edit-post" | "edit-design" | "analytics" | "pseo";
 
 interface Design {
   id: string;
@@ -256,6 +258,7 @@ export function AdminDashboard() {
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "posts", label: "Blog Posts", icon: FileText },
+    { id: "pseo", label: "P-SEO Engine", icon: Rocket },
     { id: "analytics", label: "Link Analytics", icon: Link2 },
     { id: "designs", label: "Designs", icon: Image },
     { id: "stores", label: "My Stores", icon: Store },
@@ -478,6 +481,9 @@ export function AdminDashboard() {
 
           {/* Link Analytics View */}
           {currentView === "analytics" && <LazyLinkAnalyticsPanel />}
+
+          {/* Programmatic SEO Engine View */}
+          {currentView === "pseo" && <LazyProgrammaticSEO />}
 
           {/* Posts View - Enhanced with Stats and Tools */}
           {currentView === "posts" && (
