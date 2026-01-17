@@ -14,6 +14,41 @@ export type Database = {
   }
   public: {
     Tables: {
+      auto_link_keywords: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          keyword: string
+          priority: number
+          target_post_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          keyword: string
+          priority?: number
+          target_post_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          keyword?: string
+          priority?: number
+          target_post_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "auto_link_keywords_target_post_id_fkey"
+            columns: ["target_post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       blog_categories: {
         Row: {
           created_at: string
@@ -60,6 +95,7 @@ export type Database = {
           tags: string[] | null
           title: string
           updated_at: string
+          view_count: number | null
         }
         Insert: {
           author_id?: string | null
@@ -82,6 +118,7 @@ export type Database = {
           tags?: string[] | null
           title: string
           updated_at?: string
+          view_count?: number | null
         }
         Update: {
           author_id?: string | null
@@ -104,6 +141,7 @@ export type Database = {
           tags?: string[] | null
           title?: string
           updated_at?: string
+          view_count?: number | null
         }
         Relationships: []
       }
@@ -160,6 +198,88 @@ export type Database = {
           updated_at?: string | null
         }
         Relationships: []
+      }
+      link_tracking: {
+        Row: {
+          click_count: number
+          created_at: string
+          id: string
+          link_text: string | null
+          link_type: string
+          source_post_id: string | null
+          target_url: string
+          updated_at: string
+        }
+        Insert: {
+          click_count?: number
+          created_at?: string
+          id?: string
+          link_text?: string | null
+          link_type?: string
+          source_post_id?: string | null
+          target_url: string
+          updated_at?: string
+        }
+        Update: {
+          click_count?: number
+          created_at?: string
+          id?: string
+          link_text?: string | null
+          link_type?: string
+          source_post_id?: string | null
+          target_url?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "link_tracking_source_post_id_fkey"
+            columns: ["source_post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      page_views: {
+        Row: {
+          created_at: string
+          id: string
+          page_path: string
+          page_title: string | null
+          post_id: string | null
+          referrer: string | null
+          session_id: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          page_path: string
+          page_title?: string | null
+          post_id?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          page_path?: string
+          page_title?: string | null
+          post_id?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          user_agent?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "page_views_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       stores: {
         Row: {
