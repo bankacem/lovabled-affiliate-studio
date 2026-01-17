@@ -37,6 +37,7 @@ import {
   LazyDesignEditor,
   LazyLinkAnalyticsPanel,
   LazyCustomImport,
+  LazyArticleOptimizer,
 } from "./LazyComponents";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -521,32 +522,37 @@ export function AdminDashboard() {
                 </TabsContent>
 
                 <TabsContent value="tools">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <LazyBlogToolsPanel />
-                    <Card className="p-6">
-                      <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                        <Settings className="h-5 w-5" />
-                        SEO Best Practices
-                      </h3>
-                      <div className="space-y-3 text-sm text-muted-foreground">
-                        <div className="p-3 rounded-lg bg-muted/50">
-                          <p className="font-medium text-foreground mb-1">Meta Title</p>
-                          <p>Keep under 60 characters with main keyword at start</p>
+                  <div className="space-y-6">
+                    {/* Article Optimizer - One-Click SEO */}
+                    <LazyArticleOptimizer />
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <LazyBlogToolsPanel />
+                      <Card className="p-6">
+                        <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
+                          <Settings className="h-5 w-5" />
+                          SEO Best Practices
+                        </h3>
+                        <div className="space-y-3 text-sm text-muted-foreground">
+                          <div className="p-3 rounded-lg bg-muted/50">
+                            <p className="font-medium text-foreground mb-1">URL Slugs</p>
+                            <p>Use lowercase, hyphens only, no special characters</p>
+                          </div>
+                          <div className="p-3 rounded-lg bg-muted/50">
+                            <p className="font-medium text-foreground mb-1">Meta Description</p>
+                            <p>Write 150-160 chars with call-to-action</p>
+                          </div>
+                          <div className="p-3 rounded-lg bg-muted/50">
+                            <p className="font-medium text-foreground mb-1">Internal Links</p>
+                            <p>Add 2-5 links to related articles per post</p>
+                          </div>
+                          <div className="p-3 rounded-lg bg-muted/50">
+                            <p className="font-medium text-foreground mb-1">Featured Image</p>
+                            <p>Use high-quality images with descriptive alt text</p>
+                          </div>
                         </div>
-                        <div className="p-3 rounded-lg bg-muted/50">
-                          <p className="font-medium text-foreground mb-1">Meta Description</p>
-                          <p>Write 150-160 chars with call-to-action</p>
-                        </div>
-                        <div className="p-3 rounded-lg bg-muted/50">
-                          <p className="font-medium text-foreground mb-1">Internal Links</p>
-                          <p>Add 2-5 links to related articles per post</p>
-                        </div>
-                        <div className="p-3 rounded-lg bg-muted/50">
-                          <p className="font-medium text-foreground mb-1">Featured Image</p>
-                          <p>Use high-quality images with descriptive alt text</p>
-                        </div>
-                      </div>
-                    </Card>
+                      </Card>
+                    </div>
                   </div>
                 </TabsContent>
               </Tabs>

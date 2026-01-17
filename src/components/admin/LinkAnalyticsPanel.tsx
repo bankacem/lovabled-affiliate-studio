@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import {
   Link2,
@@ -9,6 +9,9 @@ import {
   RefreshCw,
   Search,
   Filter,
+  Database,
+  Loader2,
+  ScanSearch,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -24,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { extractLinksFromContent } from "@/lib/seoUtils";
 
 interface LinkData {
   id: string;
@@ -46,10 +50,21 @@ interface PostLinkStats {
   total_clicks: number;
 }
 
+interface DiscoveredLink {
+  url: string;
+  text: string;
+  isInternal: boolean;
+  postId: string;
+  postTitle: string;
+  isTracked: boolean;
+}
+
 export function LinkAnalyticsPanel() {
   const [links, setLinks] = useState<LinkData[]>([]);
+  const [discoveredLinks, setDiscoveredLinks] = useState<DiscoveredLink[]>([]);
   const [postStats, setPostStats] = useState<PostLinkStats[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isScanning, setIsScanning] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState<"all" | "internal" | "external">("all");
   const [totalStats, setTotalStats] = useState({
@@ -57,6 +72,7 @@ export function LinkAnalyticsPanel() {
     totalClicks: 0,
     internalLinks: 0,
     externalLinks: 0,
+    untracked: 0,
   });
 
   useEffect(() => {
@@ -78,10 +94,11 @@ export function LinkAnalyticsPanel() {
       // Fetch blog posts for reference
       const { data: posts } = await supabase
         .from("blog_posts")
-        .select("id, title, slug")
+        .select("id, title, slug, content")
         .eq("status", "published");
 
       const postsMap = new Map(posts?.map((p) => [p.id, p]) || []);
+      const trackedUrls = new Set(linksData?.map(l => `${l.target_url}|${l.source_post_id}`) || []);
 
       // Enrich links with post info
       const enrichedLinks =
@@ -94,46 +111,78 @@ export function LinkAnalyticsPanel() {
 
       setLinks(enrichedLinks);
 
-      // Calculate stats per post
-      const postStatsMap = new Map<string, PostLinkStats>();
-
-      enrichedLinks.forEach((link) => {
-        if (link.source_post_id) {
-          const post = postsMap.get(link.source_post_id);
-          if (post) {
-            const existing = postStatsMap.get(link.source_post_id) || {
-              post_id: link.source_post_id,
-              post_title: post.title,
-              post_slug: post.slug,
-              internal_links: 0,
-              external_links: 0,
-              total_clicks: 0,
-            };
-
-            if (link.link_type === "internal") {
-              existing.internal_links += 1;
-            } else {
-              existing.external_links += 1;
-            }
-            existing.total_clicks += link.click_count;
-
-            postStatsMap.set(link.source_post_id, existing);
-          }
+      // Discover all links from article content (Link Inventory)
+      const allDiscovered: DiscoveredLink[] = [];
+      posts?.forEach(post => {
+        if (post.content) {
+          const extracted = extractLinksFromContent(post.content);
+          extracted.forEach(link => {
+            const trackKey = `${link.url}|${post.id}`;
+            allDiscovered.push({
+              url: link.url,
+              text: link.text,
+              isInternal: link.isInternal,
+              postId: post.id,
+              postTitle: post.title,
+              isTracked: trackedUrls.has(trackKey),
+            });
+          });
         }
       });
 
-      setPostStats(Array.from(postStatsMap.values()).sort((a, b) => b.total_clicks - a.total_clicks));
+      setDiscoveredLinks(allDiscovered);
+
+      // Calculate stats per post
+      const postStatsMap = new Map<string, PostLinkStats>();
+
+      // Include discovered links in stats
+      allDiscovered.forEach((link) => {
+        const post = postsMap.get(link.postId);
+        if (post) {
+          const existing = postStatsMap.get(link.postId) || {
+            post_id: link.postId,
+            post_title: post.title,
+            post_slug: post.slug,
+            internal_links: 0,
+            external_links: 0,
+            total_clicks: 0,
+          };
+
+          if (link.isInternal) {
+            existing.internal_links += 1;
+          } else {
+            existing.external_links += 1;
+          }
+
+          postStatsMap.set(link.postId, existing);
+        }
+      });
+
+      // Add click counts from tracking
+      enrichedLinks.forEach((link) => {
+        if (link.source_post_id && postStatsMap.has(link.source_post_id)) {
+          const existing = postStatsMap.get(link.source_post_id)!;
+          existing.total_clicks += link.click_count;
+          postStatsMap.set(link.source_post_id, existing);
+        }
+      });
+
+      setPostStats(Array.from(postStatsMap.values()).sort((a, b) => 
+        (b.internal_links + b.external_links) - (a.internal_links + a.external_links)
+      ));
 
       // Calculate total stats
-      const internal = enrichedLinks.filter((l) => l.link_type === "internal");
-      const external = enrichedLinks.filter((l) => l.link_type === "external");
+      const internal = allDiscovered.filter((l) => l.isInternal);
+      const external = allDiscovered.filter((l) => !l.isInternal);
       const totalClicks = enrichedLinks.reduce((sum, l) => sum + l.click_count, 0);
+      const untracked = allDiscovered.filter(l => !l.isTracked).length;
 
       setTotalStats({
-        totalLinks: enrichedLinks.length,
+        totalLinks: allDiscovered.length,
         totalClicks,
         internalLinks: internal.length,
         externalLinks: external.length,
+        untracked,
       });
     } catch (error) {
       console.error("Error fetching link data:", error);
@@ -143,11 +192,56 @@ export function LinkAnalyticsPanel() {
     }
   };
 
-  const filteredLinks = links.filter((link) => {
+  const scanAndIndexLinks = useCallback(async () => {
+    setIsScanning(true);
+    
+    try {
+      const { data: posts } = await supabase
+        .from("blog_posts")
+        .select("id, title, content")
+        .eq("status", "published");
+
+      let indexed = 0;
+      
+      for (const post of posts || []) {
+        if (!post.content) continue;
+        
+        const links = extractLinksFromContent(post.content);
+        for (const link of links) {
+          const { error } = await supabase
+            .from("link_tracking")
+            .upsert({
+              target_url: link.url,
+              link_text: link.text || null,
+              link_type: link.isInternal ? "internal" : "external",
+              source_post_id: post.id,
+              click_count: 0,
+            }, {
+              onConflict: "target_url,source_post_id",
+              ignoreDuplicates: true,
+            });
+
+          if (!error) indexed++;
+        }
+      }
+
+      toast.success(`Indexed ${indexed} links from all articles!`);
+      await fetchData();
+    } catch (error: any) {
+      toast.error("Failed to scan links: " + error.message);
+    } finally {
+      setIsScanning(false);
+    }
+  }, []);
+
+  const filteredDiscoveredLinks = discoveredLinks.filter((link) => {
     const matchesSearch =
-      link.link_text?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      link.target_url.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesType = filterType === "all" || link.link_type === filterType;
+      link.text?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      link.url.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      link.postTitle.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesType = filterType === "all" || 
+      (filterType === "internal" && link.isInternal) ||
+      (filterType === "external" && !link.isInternal);
     return matchesSearch && matchesType;
   });
 
@@ -173,22 +267,36 @@ export function LinkAnalyticsPanel() {
             Track internal and external links across your articles
           </p>
         </div>
-        <Button variant="outline" onClick={fetchData}>
-          <RefreshCw className="h-4 w-4 mr-2" />
-          Refresh
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            variant="outline" 
+            onClick={scanAndIndexLinks}
+            disabled={isScanning}
+          >
+            {isScanning ? (
+              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+            ) : (
+              <ScanSearch className="h-4 w-4 mr-2" />
+            )}
+            Scan All Articles
+          </Button>
+          <Button variant="outline" onClick={fetchData}>
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Refresh
+          </Button>
+        </div>
       </div>
 
       {/* Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <Card className="p-4">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-primary/10">
-              <Link2 className="h-5 w-5 text-primary" />
+              <Database className="h-5 w-5 text-primary" />
             </div>
             <div>
               <p className="text-2xl font-bold">{totalStats.totalLinks}</p>
-              <p className="text-sm text-muted-foreground">Total Links</p>
+              <p className="text-sm text-muted-foreground">Link Inventory</p>
             </div>
           </div>
         </Card>
@@ -228,22 +336,34 @@ export function LinkAnalyticsPanel() {
             </div>
           </div>
         </Card>
+
+        <Card className="p-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-yellow-500/10">
+              <ScanSearch className="h-5 w-5 text-yellow-500" />
+            </div>
+            <div>
+              <p className="text-2xl font-bold">{totalStats.untracked}</p>
+              <p className="text-sm text-muted-foreground">Untracked</p>
+            </div>
+          </div>
+        </Card>
       </div>
 
-      <Tabs defaultValue="all-links" className="space-y-4">
+      <Tabs defaultValue="inventory" className="space-y-4">
         <TabsList>
-          <TabsTrigger value="all-links">All Links</TabsTrigger>
+          <TabsTrigger value="inventory">Link Inventory</TabsTrigger>
           <TabsTrigger value="by-post">By Article</TabsTrigger>
           <TabsTrigger value="top-clicks">Top Clicked</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="all-links" className="space-y-4">
+        <TabsContent value="inventory" className="space-y-4">
           {/* Filters */}
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search links..."
+                placeholder="Search links or articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-9"
@@ -263,47 +383,57 @@ export function LinkAnalyticsPanel() {
           </div>
 
           <Card className="p-6">
-            <div className="space-y-3">
-              {filteredLinks.map((link) => (
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold flex items-center gap-2">
+                <Database className="h-5 w-5" />
+                All Links in Articles ({filteredDiscoveredLinks.length})
+              </h3>
+            </div>
+            <div className="space-y-3 max-h-[500px] overflow-y-auto">
+              {filteredDiscoveredLinks.map((link, index) => (
                 <div
-                  key={link.id}
+                  key={`${link.postId}-${link.url}-${index}`}
                   className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
                 >
                   <div className="flex items-center gap-3 flex-1 min-w-0">
-                    {link.link_type === "external" ? (
+                    {!link.isInternal ? (
                       <ExternalLink className="h-4 w-4 text-orange-500 shrink-0" />
                     ) : (
                       <Link2 className="h-4 w-4 text-primary shrink-0" />
                     )}
                     <div className="min-w-0 flex-1">
                       <p className="font-medium truncate">
-                        {link.link_text || "No text"}
+                        {link.text || "No anchor text"}
                       </p>
                       <p className="text-xs text-muted-foreground truncate">
-                        {link.target_url}
+                        {link.url}
                       </p>
-                      {link.source_post_title && (
-                        <p className="text-xs text-primary truncate">
-                          From: {link.source_post_title}
-                        </p>
-                      )}
+                      <p className="text-xs text-primary truncate">
+                        From: {link.postTitle}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Badge
-                      variant={link.link_type === "internal" ? "default" : "secondary"}
+                      variant={link.isInternal ? "default" : "secondary"}
                     >
-                      {link.link_type}
+                      {link.isInternal ? "internal" : "external"}
                     </Badge>
-                    <Badge variant="outline" className="font-mono">
-                      {link.click_count} clicks
-                    </Badge>
+                    {link.isTracked ? (
+                      <Badge variant="outline" className="text-green-600">
+                        Tracked
+                      </Badge>
+                    ) : (
+                      <Badge variant="outline" className="text-yellow-600">
+                        Not tracked
+                      </Badge>
+                    )}
                   </div>
                 </div>
               ))}
-              {filteredLinks.length === 0 && (
+              {filteredDiscoveredLinks.length === 0 && (
                 <p className="text-muted-foreground text-center py-8">
-                  No links found. Links will appear here when visitors click on them.
+                  No links found in articles. Add links to your content to see them here.
                 </p>
               )}
             </div>
@@ -316,7 +446,7 @@ export function LinkAnalyticsPanel() {
               <FileText className="h-5 w-5" />
               Links by Article
             </h3>
-            <div className="space-y-3">
+            <div className="space-y-3 max-h-[500px] overflow-y-auto">
               {postStats.map((stat) => (
                 <div
                   key={stat.post_id}
@@ -365,8 +495,8 @@ export function LinkAnalyticsPanel() {
               <TrendingUp className="h-5 w-5" />
               Most Clicked Links
             </h3>
-            <div className="space-y-3">
-              {links.slice(0, 20).map((link, index) => (
+            <div className="space-y-3 max-h-[500px] overflow-y-auto">
+              {links.slice(0, 50).map((link, index) => (
                 <div
                   key={link.id}
                   className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
@@ -399,7 +529,7 @@ export function LinkAnalyticsPanel() {
               ))}
               {links.length === 0 && (
                 <p className="text-muted-foreground text-center py-8">
-                  No click data yet
+                  No click data yet. Links will appear here after visitors click them.
                 </p>
               )}
             </div>
