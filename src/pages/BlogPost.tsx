@@ -1,10 +1,12 @@
 import { useParams, Link, useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { useBlogPost } from "@/hooks/useBlogPosts";
+import { useAutoLinking } from "@/hooks/useAutoLinking";
+import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -13,8 +15,19 @@ const BlogPost = () => {
   const location = useLocation();
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(id || "");
+  const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
+  const { trackLinkClick } = useLinkTracking();
+  
+  // Track page view
+  usePageTracking(post?.id);
 
-  // Handle anchor links within the article (Table of Contents)
+  // Apply auto-linking to content
+  const linkedContent = useMemo(() => {
+    if (!post?.content || autoLinksLoading) return post?.content || "";
+    return applyAutoLinks(post.content, post.id);
+  }, [post?.content, post?.id, applyAutoLinks, autoLinksLoading]);
+
+  // Handle anchor links and track clicks
   useEffect(() => {
     if (!post || !contentRef.current) return;
 
@@ -29,13 +42,14 @@ const BlogPost = () => {
       }, 100);
     }
 
-    // Add click handlers for internal anchor links
-    const handleAnchorClick = (e: MouseEvent) => {
+    // Add click handlers for links
+    const handleLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
       
       if (anchor) {
         const href = anchor.getAttribute("href");
+        const linkText = anchor.textContent || "";
         
         // Handle in-page anchor links (e.g., #section-id)
         if (href?.startsWith("#")) {
@@ -44,19 +58,21 @@ const BlogPost = () => {
           const element = document.getElementById(targetId);
           if (element) {
             element.scrollIntoView({ behavior: "smooth", block: "start" });
-            // Update URL without reload
             window.history.pushState({}, "", href);
           }
+        } else if (href) {
+          // Track link clicks (internal and external)
+          trackLinkClick(href, linkText, post.id);
         }
       }
     };
 
-    contentRef.current.addEventListener("click", handleAnchorClick);
+    contentRef.current.addEventListener("click", handleLinkClick);
     
     return () => {
-      contentRef.current?.removeEventListener("click", handleAnchorClick);
+      contentRef.current?.removeEventListener("click", handleLinkClick);
     };
-  }, [post, location.hash]);
+  }, [post, location.hash, trackLinkClick]);
 
   const handleShare = async () => {
     try {
@@ -196,14 +212,14 @@ const BlogPost = () => {
               </motion.div>
             )}
 
-            {/* Content */}
+            {/* Content with auto-linking */}
             <motion.div
               ref={contentRef}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content"
-              dangerouslySetInnerHTML={{ __html: post.content || "" }}
+              dangerouslySetInnerHTML={{ __html: linkedContent }}
             />
 
             {/* Excerpt as intro if no rich content */}

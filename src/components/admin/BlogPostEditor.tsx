@@ -12,7 +12,9 @@ import {
   Send,
   Link2,
   Sparkles,
-  Code
+  Code,
+  Calendar,
+  Clock
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,11 +28,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RichTextEditor } from "./RichTextEditor";
 import { InternalLinkingTool } from "./InternalLinkingTool";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { format } from "date-fns";
 
 interface BlogPost {
   id?: string;
@@ -41,11 +49,12 @@ interface BlogPost {
   featured_image: string;
   category: string;
   tags: string[];
-  status: "draft" | "published" | "archived";
+  status: "draft" | "published" | "scheduled" | "archived";
   meta_title: string;
   meta_description: string;
   read_time: string;
   author_name: string;
+  scheduled_publish_at?: string | null;
 }
 
 interface Category {
@@ -81,7 +90,9 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     meta_description: "",
     read_time: "5 min read",
     author_name: "Admin",
+    scheduled_publish_at: null,
   });
+  const [scheduleDate, setScheduleDate] = useState("");
 
   useEffect(() => {
     fetchCategories();
@@ -122,13 +133,17 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
         featured_image: data.featured_image || "",
         category: data.category,
         tags: data.tags || [],
-        status: data.status as "draft" | "published" | "archived",
+        status: data.status as "draft" | "published" | "scheduled" | "archived",
         meta_title: data.meta_title || "",
         meta_description: data.meta_description || "",
         read_time: data.read_time || "5 min read",
         author_name: data.author_name,
+        scheduled_publish_at: data.scheduled_publish_at,
       });
       setTagsInput((data.tags || []).join(", "));
+      if (data.scheduled_publish_at) {
+        setScheduleDate(data.scheduled_publish_at.slice(0, 16));
+      }
     }
     setIsLoading(false);
   };
@@ -171,7 +186,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     }));
   };
 
-  const savePost = async (status?: "draft" | "published") => {
+  const savePost = async (status?: "draft" | "published" | "scheduled", scheduledAt?: string) => {
     if (!post.title.trim()) {
       toast.error("Please enter a title");
       return;
@@ -192,7 +207,10 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
       meta_description: post.meta_description || post.excerpt,
       read_time: post.read_time,
       author_name: post.author_name,
-      published_at: status === "published" ? new Date().toISOString() : null,
+      published_at: status === "published" ? new Date().toISOString() : undefined,
+      scheduled_publish_at: status === "scheduled" && scheduledAt 
+        ? new Date(scheduledAt).toISOString() 
+        : undefined,
     };
 
     try {
@@ -203,14 +221,18 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
           .eq("id", postId);
 
         if (error) throw error;
-        toast.success("Post updated successfully!");
+        toast.success(status === "scheduled" 
+          ? `Post scheduled for ${format(new Date(scheduledAt!), "PPp")}`
+          : "Post updated successfully!");
       } else {
         const { error } = await supabase
           .from("blog_posts")
           .insert([postData]);
 
         if (error) throw error;
-        toast.success("Post created successfully!");
+        toast.success(status === "scheduled"
+          ? `Post scheduled for ${format(new Date(scheduledAt!), "PPp")}`
+          : "Post created successfully!");
         onBack();
       }
     } catch (error: any) {
@@ -218,6 +240,14 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const handleSchedule = () => {
+    if (!scheduleDate) {
+      toast.error("Please select a date and time");
+      return;
+    }
+    savePost("scheduled", scheduleDate);
   };
 
   if (isLoading) {
@@ -245,7 +275,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
               {postId ? "Edit Post" : "New Post"}
             </h1>
             <p className="text-sm text-muted-foreground">
-              {post.status === "draft" ? "Draft" : "Published"}
+              {post.status === "draft" ? "Draft" : post.status === "scheduled" ? "Scheduled" : "Published"}
             </p>
           </div>
         </div>
@@ -268,6 +298,46 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
             <Save className="h-4 w-4 mr-2" />
             Save Draft
           </Button>
+          
+          {/* Schedule Button */}
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" disabled={isSaving}>
+                <Calendar className="h-4 w-4 mr-2" />
+                Schedule
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80" align="end">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label className="flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    Schedule Date & Time
+                  </Label>
+                  <Input
+                    type="datetime-local"
+                    value={scheduleDate}
+                    onChange={(e) => setScheduleDate(e.target.value)}
+                    min={new Date().toISOString().slice(0, 16)}
+                  />
+                </div>
+                <Button 
+                  className="w-full" 
+                  onClick={handleSchedule}
+                  disabled={!scheduleDate || isSaving}
+                >
+                  <Calendar className="h-4 w-4 mr-2" />
+                  Schedule Post
+                </Button>
+                {post.scheduled_publish_at && (
+                  <p className="text-xs text-muted-foreground text-center">
+                    Currently scheduled: {format(new Date(post.scheduled_publish_at), "PPp")}
+                  </p>
+                )}
+              </div>
+            </PopoverContent>
+          </Popover>
+          
           <Button
             onClick={() => savePost("published")}
             disabled={isSaving}

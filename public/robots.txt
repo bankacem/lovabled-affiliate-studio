@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lovabled-affiliate-studio.lovable.app/sitemap.xml
+Sitemap: https://redbubble-sable.vercel.app/sitemap.xml

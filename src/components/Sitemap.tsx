@@ -68,7 +68,7 @@ export function generateSitemapXml(posts: SitemapEntry[], baseUrl: string): stri
 // Component to display sitemap (for debugging)
 export function SitemapPage() {
   const { posts, isLoading } = useSitemapData();
-  const baseUrl = window.location.origin;
+  const baseUrl = "https://redbubble-sable.vercel.app";
 
   if (isLoading) {
     return <div>Loading sitemap...</div>;
