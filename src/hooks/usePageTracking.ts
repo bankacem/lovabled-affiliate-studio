@@ -60,32 +60,52 @@ export function useLinkTracking() {
         ? "internal"
         : "external";
 
-      // Check if link already exists
-      const { data: existing } = await supabase
+      // Build proper filter for source_post_id
+      let query = supabase
         .from("link_tracking")
         .select("id, click_count")
-        .eq("target_url", targetUrl)
-        .eq("source_post_id", sourcePostId || "")
-        .maybeSingle();
+        .eq("target_url", targetUrl);
+      
+      // Handle null source_post_id properly
+      if (sourcePostId) {
+        query = query.eq("source_post_id", sourcePostId);
+      } else {
+        query = query.is("source_post_id", null);
+      }
+      
+      const { data: existing, error: selectError } = await query.maybeSingle();
+
+      if (selectError) {
+        console.error("Error checking existing link:", selectError);
+        return;
+      }
 
       if (existing) {
         // Update click count
-        await supabase
+        const { error: updateError } = await supabase
           .from("link_tracking")
           .update({ 
             click_count: existing.click_count + 1,
             updated_at: new Date().toISOString()
           })
           .eq("id", existing.id);
+        
+        if (updateError) {
+          console.error("Error updating link click:", updateError);
+        }
       } else {
         // Insert new tracking record
-        await supabase.from("link_tracking").insert({
+        const { error: insertError } = await supabase.from("link_tracking").insert({
           source_post_id: sourcePostId || null,
           target_url: targetUrl,
           link_text: linkText,
           link_type: linkType,
           click_count: 1,
         });
+        
+        if (insertError) {
+          console.error("Error inserting link tracking:", insertError);
+        }
       }
     } catch (error) {
       console.error("Failed to track link click:", error);

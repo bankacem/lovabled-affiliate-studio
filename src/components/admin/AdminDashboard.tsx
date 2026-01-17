@@ -28,14 +28,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthPage } from "./AuthPage";
 import { BlogPostsList } from "./BlogPostsList";
-import { BlogPostEditor } from "./BlogPostEditor";
 import { BlogStatsOverview } from "./BlogStatsOverview";
-import { BlogToolsPanel } from "./BlogToolsPanel";
-import { BulkPostImport } from "./BulkPostImport";
 import { StoreManager } from "./StoreManager";
-import { CustomImport } from "./CustomImport";
-import { DesignEditor } from "./DesignEditor";
-import { LinkAnalyticsPanel } from "./LinkAnalyticsPanel";
+import {
+  LazyBlogPostEditor,
+  LazyBlogToolsPanel,
+  LazyBulkPostImport,
+  LazyDesignEditor,
+  LazyLinkAnalyticsPanel,
+  LazyCustomImport,
+} from "./LazyComponents";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
@@ -474,7 +476,7 @@ export function AdminDashboard() {
           )}
 
           {/* Link Analytics View */}
-          {currentView === "analytics" && <LinkAnalyticsPanel />}
+          {currentView === "analytics" && <LazyLinkAnalyticsPanel />}
 
           {/* Posts View - Enhanced with Stats and Tools */}
           {currentView === "posts" && (
@@ -511,7 +513,7 @@ export function AdminDashboard() {
                 </TabsContent>
 
                 <TabsContent value="import">
-                  <BulkPostImport />
+                  <LazyBulkPostImport />
                 </TabsContent>
 
                 <TabsContent value="stats">
@@ -520,7 +522,7 @@ export function AdminDashboard() {
 
                 <TabsContent value="tools">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <BlogToolsPanel />
+                    <LazyBlogToolsPanel />
                     <Card className="p-6">
                       <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
                         <Settings className="h-5 w-5" />
@@ -553,7 +555,7 @@ export function AdminDashboard() {
 
           {/* Edit Post View */}
           {currentView === "edit-post" && (
-            <BlogPostEditor 
+            <LazyBlogPostEditor 
               postId={editingPostId || undefined}
               onBack={handleBackFromEditor}
             />
@@ -561,7 +563,7 @@ export function AdminDashboard() {
 
           {/* Edit Design View */}
           {currentView === "edit-design" && (
-            <DesignEditor
+            <LazyDesignEditor
               design={editingDesign}
               onSave={handleBackFromDesignEditor}
               onCancel={handleBackFromDesignEditor}
@@ -587,7 +589,7 @@ export function AdminDashboard() {
               </div>
 
               {/* Custom Import */}
-              <CustomImport 
+              <LazyCustomImport 
                 onImport={importFromStore}
                 isImporting={isImporting !== null}
               />

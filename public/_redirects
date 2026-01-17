@@ -1,1 +1,5 @@
+# Sitemap redirect to Edge Function
+/sitemap.xml https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap 200
+
+# SPA fallback - must be last
 /* /index.html 200
