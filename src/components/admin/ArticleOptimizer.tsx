@@ -158,21 +158,30 @@ export function ArticleOptimizer() {
           // Index all links from this article
           const allLinks = extractLinksFromContent(linkedContent);
           for (const link of allLinks) {
-            // Upsert to link_tracking table
-            const { error: trackingError } = await supabase
+            // Check if link already exists
+            const { data: existingLink } = await supabase
               .from("link_tracking")
-              .upsert({
-                target_url: link.url,
-                link_text: link.text,
-                link_type: link.isInternal ? "internal" : "external",
-                source_post_id: post.id,
-                click_count: 0,
-              }, {
-                onConflict: "target_url,source_post_id",
-                ignoreDuplicates: true,
-              });
+              .select("id")
+              .eq("target_url", link.url)
+              .eq("source_post_id", post.id)
+              .maybeSingle();
 
-            if (!trackingError) {
+            if (!existingLink) {
+              // Insert new link tracking record
+              const { error: trackingError } = await supabase
+                .from("link_tracking")
+                .insert({
+                  target_url: link.url,
+                  link_text: link.text,
+                  link_type: link.isInternal ? "internal" : "external",
+                  source_post_id: post.id,
+                  click_count: 0,
+                });
+
+              if (!trackingError) {
+                result.linksIndexed++;
+              }
+            } else {
               result.linksIndexed++;
             }
           }
@@ -184,18 +193,26 @@ export function ArticleOptimizer() {
 
       // Step 4: Sync auto_link_keywords table
       setCurrentStep("Updating keyword database...");
-      for (const keyword of keywordMap.slice(0, 500)) { // Limit to prevent overload
-        await supabase
+      const keywordsToProcess = keywordMap.slice(0, 500); // Limit to prevent overload
+      for (const keyword of keywordsToProcess) {
+        // Check if keyword already exists
+        const { data: existingKeyword } = await supabase
           .from("auto_link_keywords")
-          .upsert({
-            keyword: keyword.keyword,
-            target_post_id: keyword.postId,
-            priority: keyword.keyword.split(' ').length, // Longer phrases = higher priority
-            is_active: true,
-          }, {
-            onConflict: "keyword,target_post_id",
-            ignoreDuplicates: true,
-          });
+          .select("id")
+          .eq("keyword", keyword.keyword)
+          .eq("target_post_id", keyword.postId)
+          .maybeSingle();
+
+        if (!existingKeyword) {
+          await supabase
+            .from("auto_link_keywords")
+            .insert({
+              keyword: keyword.keyword,
+              target_post_id: keyword.postId,
+              priority: keyword.keyword.split(' ').length, // Longer phrases = higher priority
+              is_active: true,
+            });
+        }
       }
 
       completedSteps++;
