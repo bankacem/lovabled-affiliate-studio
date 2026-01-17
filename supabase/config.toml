@@ -32,3 +32,9 @@ enable_confirmations = false
 
 [functions.import-designs]
 verify_jwt = false
+
+[functions.publish-scheduled-posts]
+verify_jwt = false
+
+[functions.sitemap]
+verify_jwt = false
