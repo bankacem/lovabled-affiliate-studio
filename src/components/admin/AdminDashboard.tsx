@@ -19,7 +19,8 @@ import {
   Store,
   Edit,
   Wrench,
-  Upload
+  Upload,
+  Link2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -34,11 +35,12 @@ import { BulkPostImport } from "./BulkPostImport";
 import { StoreManager } from "./StoreManager";
 import { CustomImport } from "./CustomImport";
 import { DesignEditor } from "./DesignEditor";
+import { LinkAnalyticsPanel } from "./LinkAnalyticsPanel";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
-type View = "dashboard" | "posts" | "designs" | "stores" | "settings" | "edit-post" | "edit-design";
+type View = "dashboard" | "posts" | "designs" | "stores" | "settings" | "edit-post" | "edit-design" | "analytics";
 
 interface Design {
   id: string;
@@ -251,6 +253,7 @@ export function AdminDashboard() {
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "posts", label: "Blog Posts", icon: FileText },
+    { id: "analytics", label: "Link Analytics", icon: Link2 },
     { id: "designs", label: "Designs", icon: Image },
     { id: "stores", label: "My Stores", icon: Store },
     { id: "settings", label: "Settings", icon: Settings },
@@ -469,6 +472,9 @@ export function AdminDashboard() {
               </div>
             </motion.div>
           )}
+
+          {/* Link Analytics View */}
+          {currentView === "analytics" && <LinkAnalyticsPanel />}
 
           {/* Posts View - Enhanced with Stats and Tools */}
           {currentView === "posts" && (
