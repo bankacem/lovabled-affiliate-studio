@@ -29,7 +29,16 @@ export function usePageTracking(postId?: string) {
 
         // Update view count on blog post if applicable
         if (postId) {
-          await supabase.rpc("increment_view_count", { post_id: postId });
+          const { data: post } = await supabase
+            .from("blog_posts")
+            .select("view_count")
+            .eq("id", postId)
+            .single();
+          
+          await supabase
+            .from("blog_posts")
+            .update({ view_count: (post?.view_count || 0) + 1 })
+            .eq("id", postId);
         }
       } catch (error) {
         console.error("Failed to track page view:", error);
