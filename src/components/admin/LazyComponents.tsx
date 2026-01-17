@@ -58,3 +58,7 @@ export const LazyCustomImport = lazyWithLoading(
 export const LazyArticleOptimizer = lazyWithLoading(
   () => import("./ArticleOptimizer").then(m => ({ default: m.ArticleOptimizer }))
 );
+
+export const LazyProgrammaticSEO = lazyWithLoading(
+  () => import("./ProgrammaticSEO").then(m => ({ default: m.ProgrammaticSEO }))
+);

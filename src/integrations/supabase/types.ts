@@ -14,6 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
+      article_templates: {
+        Row: {
+          category: string
+          content_template: string
+          created_at: string
+          description: string | null
+          excerpt_template: string | null
+          id: string
+          is_active: boolean
+          meta_description_template: string | null
+          meta_title_template: string | null
+          name: string
+          slug_template: string
+          tags: string[] | null
+          template_type: string
+          title_template: string
+          updated_at: string
+          variables: Json | null
+        }
+        Insert: {
+          category?: string
+          content_template: string
+          created_at?: string
+          description?: string | null
+          excerpt_template?: string | null
+          id?: string
+          is_active?: boolean
+          meta_description_template?: string | null
+          meta_title_template?: string | null
+          name: string
+          slug_template: string
+          tags?: string[] | null
+          template_type?: string
+          title_template: string
+          updated_at?: string
+          variables?: Json | null
+        }
+        Update: {
+          category?: string
+          content_template?: string
+          created_at?: string
+          description?: string | null
+          excerpt_template?: string | null
+          id?: string
+          is_active?: boolean
+          meta_description_template?: string | null
+          meta_title_template?: string | null
+          name?: string
+          slug_template?: string
+          tags?: string[] | null
+          template_type?: string
+          title_template?: string
+          updated_at?: string
+          variables?: Json | null
+        }
+        Relationships: []
+      }
       auto_link_keywords: {
         Row: {
           created_at: string
@@ -80,8 +137,10 @@ export type Database = {
           category: string
           content: string | null
           created_at: string
+          design_id: string | null
           excerpt: string | null
           featured_image: string | null
+          generation_batch: string | null
           id: string
           keywords: string[] | null
           meta_description: string | null
@@ -91,8 +150,10 @@ export type Database = {
           related_designs: string[] | null
           scheduled_publish_at: string | null
           slug: string
+          source: string
           status: string
           tags: string[] | null
+          template_id: string | null
           title: string
           updated_at: string
           view_count: number | null
@@ -103,8 +164,10 @@ export type Database = {
           category?: string
           content?: string | null
           created_at?: string
+          design_id?: string | null
           excerpt?: string | null
           featured_image?: string | null
+          generation_batch?: string | null
           id?: string
           keywords?: string[] | null
           meta_description?: string | null
@@ -114,8 +177,10 @@ export type Database = {
           related_designs?: string[] | null
           scheduled_publish_at?: string | null
           slug: string
+          source?: string
           status?: string
           tags?: string[] | null
+          template_id?: string | null
           title: string
           updated_at?: string
           view_count?: number | null
@@ -126,8 +191,10 @@ export type Database = {
           category?: string
           content?: string | null
           created_at?: string
+          design_id?: string | null
           excerpt?: string | null
           featured_image?: string | null
+          generation_batch?: string | null
           id?: string
           keywords?: string[] | null
           meta_description?: string | null
@@ -137,13 +204,23 @@ export type Database = {
           related_designs?: string[] | null
           scheduled_publish_at?: string | null
           slug?: string
+          source?: string
           status?: string
           tags?: string[] | null
+          template_id?: string | null
           title?: string
           updated_at?: string
           view_count?: number | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "blog_posts_design_id_fkey"
+            columns: ["design_id"]
+            isOneToOne: false
+            referencedRelation: "designs"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       designs: {
         Row: {
@@ -198,6 +275,56 @@ export type Database = {
           updated_at?: string | null
         }
         Relationships: []
+      }
+      generation_batches: {
+        Row: {
+          batch_name: string
+          created_at: string
+          created_by: string | null
+          generated_count: number
+          id: string
+          published_count: number
+          status: string
+          template_id: string | null
+          total_articles: number
+          updated_at: string
+          variables_data: Json | null
+        }
+        Insert: {
+          batch_name: string
+          created_at?: string
+          created_by?: string | null
+          generated_count?: number
+          id?: string
+          published_count?: number
+          status?: string
+          template_id?: string | null
+          total_articles?: number
+          updated_at?: string
+          variables_data?: Json | null
+        }
+        Update: {
+          batch_name?: string
+          created_at?: string
+          created_by?: string | null
+          generated_count?: number
+          id?: string
+          published_count?: number
+          status?: string
+          template_id?: string | null
+          total_articles?: number
+          updated_at?: string
+          variables_data?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "generation_batches_template_id_fkey"
+            columns: ["template_id"]
+            isOneToOne: false
+            referencedRelation: "article_templates"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       link_tracking: {
         Row: {
