@@ -40,14 +40,34 @@ export function useAuth() {
   }, []);
 
   const checkAdminRole = async (userId: string) => {
-    const { data, error } = await supabase.rpc('has_role', {
-      _user_id: userId,
-      _role: 'admin'
-    });
-    
-    if (!error && data) {
-      setIsAdmin(true);
-    } else {
+    try {
+      // First try RPC function
+      const { data, error } = await supabase.rpc('has_role', {
+        _user_id: userId,
+        _role: 'admin'
+      });
+      
+      if (!error && data === true) {
+        setIsAdmin(true);
+        return;
+      }
+      
+      // Fallback: Direct query to user_roles table
+      const { data: roleData, error: roleError } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', userId)
+        .eq('role', 'admin')
+        .maybeSingle();
+      
+      if (!roleError && roleData) {
+        setIsAdmin(true);
+        return;
+      }
+      
+      setIsAdmin(false);
+    } catch (err) {
+      console.error('Error checking admin role:', err);
       setIsAdmin(false);
     }
   };
