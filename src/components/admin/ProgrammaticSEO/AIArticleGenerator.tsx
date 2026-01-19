@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,6 +11,9 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import {
   Sparkles,
   Play,
@@ -25,9 +28,21 @@ import {
   ListChecks,
   HelpCircle,
   Image,
+  Trash2,
+  Eye,
+  Download,
+  RefreshCw,
+  TrendingUp,
+  Zap,
+  Target,
+  BarChart3,
+  Save,
+  X,
 } from "lucide-react";
 import { toast } from "sonner";
 import { format, addMinutes, addHours, addDays } from "date-fns";
+
+const STORAGE_KEY = "ai_generated_articles";
 
 interface GeneratedArticle {
   id?: string;
@@ -40,12 +55,21 @@ interface GeneratedArticle {
   category: string;
   status: "generated" | "saved" | "error";
   error?: string;
+  generatedAt?: string;
 }
 
 interface Category {
   id: string;
   name: string;
   slug: string;
+}
+
+interface ArticleStats {
+  totalGenerated: number;
+  totalSaved: number;
+  totalPublished: number;
+  totalScheduled: number;
+  totalDraft: number;
 }
 
 export function AIArticleGenerator() {
@@ -63,6 +87,16 @@ export function AIArticleGenerator() {
   const [currentKeyword, setCurrentKeyword] = useState("");
   const [generatedArticles, setGeneratedArticles] = useState<GeneratedArticle[]>([]);
   const [selectedArticles, setSelectedArticles] = useState<Set<number>>(new Set());
+  const [stats, setStats] = useState<ArticleStats>({
+    totalGenerated: 0,
+    totalSaved: 0,
+    totalPublished: 0,
+    totalScheduled: 0,
+    totalDraft: 0,
+  });
+  
+  // Preview dialog
+  const [previewArticle, setPreviewArticle] = useState<GeneratedArticle | null>(null);
   
   // Scheduling options
   const [scheduleMode, setScheduleMode] = useState<"immediate" | "draft" | "scheduled">("draft");
@@ -72,11 +106,56 @@ export function AIArticleGenerator() {
 
   useEffect(() => {
     fetchCategories();
+    loadFromStorage();
+    fetchStats();
   }, []);
+
+  // Save to localStorage whenever generatedArticles changes
+  useEffect(() => {
+    if (generatedArticles.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(generatedArticles));
+    }
+  }, [generatedArticles]);
+
+  const loadFromStorage = () => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const articles = JSON.parse(stored);
+        setGeneratedArticles(articles);
+        // Auto-select generated articles
+        const indices = new Set(articles.map((_: any, i: number) => i).filter((i: number) => articles[i].status === "generated"));
+        setSelectedArticles(indices as Set<number>);
+      } catch (e) {
+        console.error("Failed to load from storage:", e);
+      }
+    }
+  };
+
+  const clearStorage = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    setGeneratedArticles([]);
+    setSelectedArticles(new Set());
+    toast.success("Cleared all generated articles");
+  };
 
   const fetchCategories = async () => {
     const { data } = await supabase.from("blog_categories").select("*").order("name");
     if (data) setCategories(data);
+  };
+
+  const fetchStats = async () => {
+    const { data } = await supabase.from("blog_posts").select("status, source");
+    if (data) {
+      const aiGenerated = data.filter(p => p.source === "ai_generated");
+      setStats({
+        totalGenerated: generatedArticles.length,
+        totalSaved: aiGenerated.length,
+        totalPublished: aiGenerated.filter(p => p.status === "published").length,
+        totalScheduled: aiGenerated.filter(p => p.status === "scheduled").length,
+        totalDraft: aiGenerated.filter(p => p.status === "draft").length,
+      });
+    }
   };
 
   const parseKeywords = () => {
@@ -104,6 +183,7 @@ export function AIArticleGenerator() {
       return {
         ...data,
         status: "generated" as const,
+        generatedAt: new Date().toISOString(),
       };
     } catch (error) {
       console.error("Error generating article:", error);
@@ -117,6 +197,7 @@ export function AIArticleGenerator() {
         category,
         status: "error" as const,
         error: error instanceof Error ? error.message : "Failed to generate",
+        generatedAt: new Date().toISOString(),
       };
     }
   };
@@ -131,10 +212,10 @@ export function AIArticleGenerator() {
     setIsGenerating(true);
     setIsPaused(false);
     setProgress(0);
-    setGeneratedArticles([]);
-    setSelectedArticles(new Set());
 
-    const articles: GeneratedArticle[] = [];
+    // Keep existing articles and add new ones
+    const existingArticles = [...generatedArticles];
+    const articles: GeneratedArticle[] = [...existingArticles];
     
     for (let i = 0; i < keywordList.length; i++) {
       if (isPaused) {
@@ -150,7 +231,7 @@ export function AIArticleGenerator() {
       setGeneratedArticles([...articles]);
       
       if (article.status === "generated") {
-        setSelectedArticles(prev => new Set([...prev, i]));
+        setSelectedArticles(prev => new Set([...prev, existingArticles.length + i]));
       }
       
       setProgress(((i + 1) / keywordList.length) * 100);
@@ -163,7 +244,10 @@ export function AIArticleGenerator() {
 
     setIsGenerating(false);
     setCurrentKeyword("");
-    toast.success(`Generated ${articles.filter(a => a.status === "generated").length} articles`);
+    setKeywords(""); // Clear input after generation
+    const successCount = articles.filter(a => a.status === "generated").length - existingArticles.filter(a => a.status === "generated").length;
+    toast.success(`Generated ${successCount} new articles`);
+    fetchStats();
   };
 
   const handleSaveArticles = async () => {
@@ -228,6 +312,7 @@ export function AIArticleGenerator() {
     }
 
     toast.success(`Saved ${savedCount} articles as ${scheduleMode === "immediate" ? "published" : scheduleMode}`);
+    fetchStats();
   };
 
   const toggleArticleSelection = (index: number) => {
@@ -249,28 +334,74 @@ export function AIArticleGenerator() {
     setSelectedArticles(new Set());
   };
 
+  const deleteArticle = (index: number) => {
+    const newArticles = generatedArticles.filter((_, i) => i !== index);
+    setGeneratedArticles(newArticles);
+    const newSelected = new Set<number>();
+    selectedArticles.forEach(i => {
+      if (i < index) newSelected.add(i);
+      else if (i > index) newSelected.add(i - 1);
+    });
+    setSelectedArticles(newSelected);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newArticles));
+  };
+
+  const deleteSelected = () => {
+    const newArticles = generatedArticles.filter((_, i) => !selectedArticles.has(i));
+    setGeneratedArticles(newArticles);
+    setSelectedArticles(new Set());
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(newArticles));
+    toast.success(`Deleted ${selectedArticles.size} articles`);
+  };
+
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold flex items-center gap-2">
-          <Sparkles className="h-6 w-6 text-primary" />
-          AI Article Generator
-        </h2>
-        <p className="text-muted-foreground">
-          Generate professional SEO-optimized articles using AI
-        </p>
+      {/* Header with Stats */}
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <h2 className="text-2xl font-bold flex items-center gap-2">
+            <Sparkles className="h-6 w-6 text-primary" />
+            AI Article Generator
+          </h2>
+          <p className="text-muted-foreground">
+            Generate professional SEO-optimized articles using AI
+          </p>
+        </div>
+        
+        {/* Quick Stats */}
+        <div className="flex flex-wrap gap-3">
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full">
+            <Zap className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium">{generatedArticles.filter(a => a.status === "generated").length} Ready</span>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 rounded-full">
+            <CheckCircle2 className="h-4 w-4 text-green-500" />
+            <span className="text-sm font-medium">{stats.totalPublished} Published</span>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 rounded-full">
+            <Clock className="h-4 w-4 text-blue-500" />
+            <span className="text-sm font-medium">{stats.totalScheduled} Scheduled</span>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-amber-500/10 rounded-full">
+            <FileText className="h-4 w-4 text-amber-500" />
+            <span className="text-sm font-medium">{stats.totalDraft} Drafts</span>
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Input Panel */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Article Settings</CardTitle>
-            <CardDescription>Configure your article generation</CardDescription>
+      {/* Main Content */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Input Panel - Takes 1 column */}
+        <Card className="lg:col-span-1">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Target className="h-5 w-5" />
+              Article Settings
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label className="flex items-center gap-2">
+              <Label className="flex items-center gap-2 text-sm">
                 <FileText className="h-4 w-4" />
                 Keywords (one per line)
               </Label>
@@ -278,21 +409,18 @@ export function AIArticleGenerator() {
                 value={keywords}
                 onChange={(e) => setKeywords(e.target.value)}
                 placeholder="Bitcoin price prediction 2026&#10;Best crypto wallets&#10;Ethereum vs Bitcoin"
-                className="min-h-[150px] font-mono text-sm"
+                className="min-h-[120px] font-mono text-sm resize-none"
               />
               <p className="text-xs text-muted-foreground">
                 {parseKeywords().length} keywords detected
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div className="space-y-2">
-                <Label className="flex items-center gap-2">
-                  <ListChecks className="h-4 w-4" />
-                  Category
-                </Label>
+                <Label className="text-sm">Category</Label>
                 <Select value={category} onValueChange={setCategory}>
-                  <SelectTrigger>
+                  <SelectTrigger className="h-9">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -307,12 +435,9 @@ export function AIArticleGenerator() {
               </div>
 
               <div className="space-y-2">
-                <Label className="flex items-center gap-2">
-                  <Languages className="h-4 w-4" />
-                  Language
-                </Label>
+                <Label className="text-sm">Language</Label>
                 <Select value={language} onValueChange={setLanguage}>
-                  <SelectTrigger>
+                  <SelectTrigger className="h-9">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -326,40 +451,34 @@ export function AIArticleGenerator() {
               </div>
             </div>
 
-            <div className="space-y-3 pt-2">
-              <Label>Content Options</Label>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2">
-                  <Switch checked={includeTOC} onCheckedChange={setIncludeTOC} />
+            <div className="space-y-3 border-t pt-3">
+              <Label className="text-sm text-muted-foreground">Content Options</Label>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
                   <span className="text-sm">Table of Contents</span>
+                  <Switch checked={includeTOC} onCheckedChange={setIncludeTOC} />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm">FAQ Section</span>
                   <Switch checked={includeFAQ} onCheckedChange={setIncludeFAQ} />
-                  <span className="text-sm flex items-center gap-1">
-                    <HelpCircle className="h-3 w-3" />
-                    FAQ Section
-                  </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm">Image Placeholders</span>
                   <Switch checked={includeImages} onCheckedChange={setIncludeImages} />
-                  <span className="text-sm flex items-center gap-1">
-                    <Image className="h-3 w-3" />
-                    Image Placeholders
-                  </span>
                 </div>
               </div>
             </div>
 
             {isGenerating && (
-              <div className="space-y-2 pt-2">
+              <div className="space-y-2 border-t pt-3">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 text-muted-foreground">
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    Generating: {currentKeyword}
+                    {currentKeyword}
                   </span>
-                  <span>{Math.round(progress)}%</span>
+                  <span className="font-medium">{Math.round(progress)}%</span>
                 </div>
-                <Progress value={progress} />
+                <Progress value={progress} className="h-2" />
               </div>
             )}
 
@@ -368,6 +487,7 @@ export function AIArticleGenerator() {
                 onClick={handleGenerate}
                 disabled={isGenerating || parseKeywords().length === 0}
                 className="flex-1"
+                size="lg"
               >
                 {isGenerating ? (
                   <>
@@ -377,12 +497,12 @@ export function AIArticleGenerator() {
                 ) : (
                   <>
                     <Sparkles className="h-4 w-4 mr-2" />
-                    Generate Articles
+                    Generate
                   </>
                 )}
               </Button>
               {isGenerating && (
-                <Button variant="outline" onClick={() => setIsPaused(true)}>
+                <Button variant="outline" size="lg" onClick={() => setIsPaused(true)}>
                   <Pause className="h-4 w-4" />
                 </Button>
               )}
@@ -390,26 +510,40 @@ export function AIArticleGenerator() {
           </CardContent>
         </Card>
 
-        {/* Scheduling Panel */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+        {/* Scheduling Panel - Takes 1 column */}
+        <Card className="lg:col-span-1">
+          <CardHeader className="pb-4">
+            <CardTitle className="text-lg flex items-center gap-2">
               <Calendar className="h-5 w-5" />
               Save & Schedule
             </CardTitle>
-            <CardDescription>Choose how to save generated articles</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label>Save Mode</Label>
+              <Label className="text-sm">Save Mode</Label>
               <Select value={scheduleMode} onValueChange={(v: any) => setScheduleMode(v)}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="draft">Save as Draft</SelectItem>
-                  <SelectItem value="immediate">Publish Immediately</SelectItem>
-                  <SelectItem value="scheduled">Schedule Publishing</SelectItem>
+                  <SelectItem value="draft">
+                    <div className="flex items-center gap-2">
+                      <FileText className="h-4 w-4" />
+                      Save as Draft
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="immediate">
+                    <div className="flex items-center gap-2">
+                      <Zap className="h-4 w-4" />
+                      Publish Immediately
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="scheduled">
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4" />
+                      Schedule Publishing
+                    </div>
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -417,26 +551,27 @@ export function AIArticleGenerator() {
             {scheduleMode === "scheduled" && (
               <>
                 <div className="space-y-2">
-                  <Label>Start Date & Time</Label>
+                  <Label className="text-sm">Start Date & Time</Label>
                   <Input
                     type="datetime-local"
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
+                    className="h-9"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Interval Between Posts</Label>
+                  <Label className="text-sm">Interval Between Posts</Label>
                   <div className="flex gap-2">
                     <Input
                       type="number"
                       min={1}
                       value={intervalValue}
                       onChange={(e) => setIntervalValue(parseInt(e.target.value) || 1)}
-                      className="w-20"
+                      className="w-20 h-9"
                     />
                     <Select value={intervalUnit} onValueChange={(v: any) => setIntervalUnit(v)}>
-                      <SelectTrigger className="flex-1">
+                      <SelectTrigger className="flex-1 h-9">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -451,7 +586,7 @@ export function AIArticleGenerator() {
                 {selectedArticles.size > 0 && (
                   <div className="bg-muted/50 rounded-lg p-3 space-y-1">
                     <p className="text-sm font-medium">Schedule Preview:</p>
-                    {Array.from(selectedArticles).slice(0, 5).map((index, i) => {
+                    {Array.from(selectedArticles).slice(0, 4).map((index, i) => {
                       let publishAt: Date;
                       const startDateTime = new Date(startDate);
                       switch (intervalUnit) {
@@ -468,98 +603,182 @@ export function AIArticleGenerator() {
                       return (
                         <div key={index} className="flex items-center gap-2 text-xs text-muted-foreground">
                           <Clock className="h-3 w-3" />
-                          <span>Article {i + 1}: {format(publishAt, "MMM d, yyyy HH:mm")}</span>
+                          <span>#{i + 1}: {format(publishAt, "MMM d, HH:mm")}</span>
                         </div>
                       );
                     })}
-                    {selectedArticles.size > 5 && (
-                      <p className="text-xs text-muted-foreground">...and {selectedArticles.size - 5} more</p>
+                    {selectedArticles.size > 4 && (
+                      <p className="text-xs text-muted-foreground">...+{selectedArticles.size - 4} more</p>
                     )}
                   </div>
                 )}
               </>
             )}
 
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-sm text-muted-foreground">
-                {selectedArticles.size} articles selected
-              </span>
-              <div className="flex gap-2">
-                <Button variant="ghost" size="sm" onClick={selectAll}>
-                  Select All
-                </Button>
-                <Button variant="ghost" size="sm" onClick={deselectAll}>
-                  Clear
-                </Button>
+            <div className="border-t pt-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">{selectedArticles.size} selected</span>
+                <div className="flex gap-1">
+                  <Button variant="ghost" size="sm" onClick={selectAll} className="h-7 text-xs">
+                    All
+                  </Button>
+                  <Button variant="ghost" size="sm" onClick={deselectAll} className="h-7 text-xs">
+                    None
+                  </Button>
+                </div>
               </div>
-            </div>
 
-            <Button
-              onClick={handleSaveArticles}
-              disabled={selectedArticles.size === 0}
-              className="w-full"
-            >
-              <CheckCircle2 className="h-4 w-4 mr-2" />
-              Save {selectedArticles.size} Articles
-            </Button>
+              <Button
+                onClick={handleSaveArticles}
+                disabled={selectedArticles.size === 0}
+                className="w-full"
+                size="lg"
+              >
+                <Save className="h-4 w-4 mr-2" />
+                Save {selectedArticles.size} Articles
+              </Button>
+
+              {selectedArticles.size > 0 && (
+                <Button
+                  variant="destructive"
+                  onClick={deleteSelected}
+                  className="w-full"
+                  size="sm"
+                >
+                  <Trash2 className="h-4 w-4 mr-2" />
+                  Delete Selected
+                </Button>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Generated Articles Panel - Takes 1 column */}
+        <Card className="lg:col-span-1">
+          <CardHeader className="pb-4">
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg flex items-center gap-2">
+                <BarChart3 className="h-5 w-5" />
+                Generated ({generatedArticles.length})
+              </CardTitle>
+              {generatedArticles.length > 0 && (
+                <Button variant="ghost" size="sm" onClick={clearStorage} className="h-7 text-xs text-destructive hover:text-destructive">
+                  <Trash2 className="h-3 w-3 mr-1" />
+                  Clear All
+                </Button>
+              )}
+            </div>
+          </CardHeader>
+          <CardContent>
+            {generatedArticles.length === 0 ? (
+              <div className="text-center py-8 text-muted-foreground">
+                <Sparkles className="h-12 w-12 mx-auto mb-3 opacity-20" />
+                <p className="text-sm">No articles generated yet</p>
+                <p className="text-xs mt-1">Enter keywords and click Generate</p>
+              </div>
+            ) : (
+              <ScrollArea className="h-[400px] pr-2">
+                <div className="space-y-2">
+                  {generatedArticles.map((article, index) => (
+                    <div
+                      key={index}
+                      className={`flex items-start gap-2 p-2.5 rounded-lg border transition-all cursor-pointer hover:bg-muted/50 ${
+                        selectedArticles.has(index) ? "bg-primary/5 border-primary/30" : "bg-background"
+                      }`}
+                      onClick={() => article.status !== "error" && toggleArticleSelection(index)}
+                    >
+                      <Checkbox
+                        checked={selectedArticles.has(index)}
+                        onCheckedChange={() => toggleArticleSelection(index)}
+                        disabled={article.status === "error"}
+                        className="mt-0.5"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5">
+                          <h4 className="font-medium text-sm line-clamp-1 flex-1">{article.title}</h4>
+                          <Badge
+                            variant={
+                              article.status === "generated" ? "outline" :
+                              article.status === "saved" ? "default" : "destructive"
+                            }
+                            className="text-[10px] px-1.5 py-0"
+                          >
+                            {article.status === "generated" ? "Ready" :
+                             article.status === "saved" ? "Saved" : "Error"}
+                          </Badge>
+                        </div>
+                        <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">
+                          {article.excerpt || article.error || "No excerpt"}
+                        </p>
+                      </div>
+                      <div className="flex gap-1">
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-6 w-6"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setPreviewArticle(article);
+                          }}
+                        >
+                          <Eye className="h-3 w-3" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-6 w-6 text-destructive hover:text-destructive"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            deleteArticle(index);
+                          }}
+                        >
+                          <X className="h-3 w-3" />
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
+            )}
           </CardContent>
         </Card>
       </div>
 
-      {/* Generated Articles List */}
-      {generatedArticles.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Generated Articles ({generatedArticles.length})</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ScrollArea className="h-[400px]">
-              <div className="space-y-2">
-                {generatedArticles.map((article, index) => (
-                  <div
-                    key={index}
-                    className={`flex items-start gap-3 p-3 rounded-lg border transition-colors ${
-                      selectedArticles.has(index) ? "bg-primary/5 border-primary/30" : "bg-background"
-                    }`}
-                  >
-                    <Checkbox
-                      checked={selectedArticles.has(index)}
-                      onCheckedChange={() => toggleArticleSelection(index)}
-                      disabled={article.status === "error"}
-                    />
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <h4 className="font-medium text-sm line-clamp-1">{article.title}</h4>
-                        <Badge
-                          variant={
-                            article.status === "generated" ? "outline" :
-                            article.status === "saved" ? "default" : "destructive"
-                          }
-                          className="text-xs"
-                        >
-                          {article.status === "generated" ? "Ready" :
-                           article.status === "saved" ? "Saved" : "Error"}
-                        </Badge>
-                      </div>
-                      <p className="text-xs text-muted-foreground line-clamp-1 mt-1">
-                        {article.excerpt || article.error || "No excerpt"}
-                      </p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <Badge variant="secondary" className="text-xs">
-                          {article.category}
-                        </Badge>
-                        <span className="text-xs text-muted-foreground">
-                          /{article.slug}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+      {/* Preview Dialog */}
+      <Dialog open={!!previewArticle} onOpenChange={() => setPreviewArticle(null)}>
+        <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>{previewArticle?.title}</DialogTitle>
+            <DialogDescription>
+              /{previewArticle?.slug} • {previewArticle?.category}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="text-xs text-muted-foreground">Meta Title</Label>
+                <p className="text-sm">{previewArticle?.meta_title}</p>
               </div>
-            </ScrollArea>
-          </CardContent>
-        </Card>
-      )}
+              <div>
+                <Label className="text-xs text-muted-foreground">Meta Description</Label>
+                <p className="text-sm">{previewArticle?.meta_description}</p>
+              </div>
+            </div>
+            <div>
+              <Label className="text-xs text-muted-foreground">Excerpt</Label>
+              <p className="text-sm">{previewArticle?.excerpt}</p>
+            </div>
+            <div className="border-t pt-4">
+              <Label className="text-xs text-muted-foreground mb-2 block">Content Preview</Label>
+              <div 
+                className="prose prose-sm max-w-none dark:prose-invert"
+                dangerouslySetInnerHTML={{ __html: previewArticle?.content || "" }}
+              />
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
