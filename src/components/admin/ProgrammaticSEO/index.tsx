@@ -2,7 +2,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TemplateManager } from "./TemplateManager";
 import { ArticleGenerator } from "./ArticleGenerator";
 import { BatchManager } from "./BatchManager";
-import { FileText, Rocket, FolderOpen } from "lucide-react";
+import { AIArticleGenerator } from "./AIArticleGenerator";
+import { FileText, Rocket, FolderOpen, Sparkles } from "lucide-react";
 
 export function ProgrammaticSEO() {
   return (
@@ -10,25 +11,33 @@ export function ProgrammaticSEO() {
       <div>
         <h1 className="text-3xl font-bold">Programmatic SEO Engine</h1>
         <p className="text-muted-foreground">
-          نظام توليد المقالات الآلي للوصول إلى مليون مقال
+          AI-powered article generation with professional SEO structure
         </p>
       </div>
 
-      <Tabs defaultValue="templates" className="space-y-4">
-        <TabsList>
+      <Tabs defaultValue="ai-generator" className="space-y-4">
+        <TabsList className="grid grid-cols-4 w-full max-w-2xl">
+          <TabsTrigger value="ai-generator" className="flex items-center gap-2">
+            <Sparkles className="h-4 w-4" />
+            AI Generator
+          </TabsTrigger>
           <TabsTrigger value="templates" className="flex items-center gap-2">
             <FileText className="h-4 w-4" />
-            القوالب
+            Templates
           </TabsTrigger>
           <TabsTrigger value="generator" className="flex items-center gap-2">
             <Rocket className="h-4 w-4" />
-            المولد
+            Batch Generator
           </TabsTrigger>
           <TabsTrigger value="batches" className="flex items-center gap-2">
             <FolderOpen className="h-4 w-4" />
-            الدفعات
+            Batches
           </TabsTrigger>
         </TabsList>
+
+        <TabsContent value="ai-generator">
+          <AIArticleGenerator />
+        </TabsContent>
 
         <TabsContent value="templates">
           <TemplateManager />
@@ -49,3 +58,4 @@ export function ProgrammaticSEO() {
 export { TemplateManager } from "./TemplateManager";
 export { ArticleGenerator } from "./ArticleGenerator";
 export { BatchManager } from "./BatchManager";
+export { AIArticleGenerator } from "./AIArticleGenerator";

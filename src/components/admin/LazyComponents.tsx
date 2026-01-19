@@ -62,3 +62,7 @@ export const LazyArticleOptimizer = lazyWithLoading(
 export const LazyProgrammaticSEO = lazyWithLoading(
   () => import("./ProgrammaticSEO").then(m => ({ default: m.ProgrammaticSEO }))
 );
+
+export const LazyAIArticleGenerator = lazyWithLoading(
+  () => import("./ProgrammaticSEO/AIArticleGenerator").then(m => ({ default: m.AIArticleGenerator }))
+);
