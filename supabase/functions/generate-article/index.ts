@@ -5,6 +5,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+type WritingStyle = "professional" | "friendly" | "conversational" | "academic" | "persuasive" | "storytelling";
+
 interface ArticleRequest {
   keyword: string;
   category?: string;
@@ -12,25 +14,112 @@ interface ArticleRequest {
   includeImages?: boolean;
   includeFAQ?: boolean;
   includeTOC?: boolean;
+  includeComparisonTable?: boolean;
+  writingStyle?: WritingStyle;
 }
 
-const generateSystemPrompt = (language: string) => `You are a professional SEO content writer. Write high-quality, engaging, and SEO-optimized articles.
+const getStyleInstructions = (style: WritingStyle): string => {
+  const styles: Record<WritingStyle, string> = {
+    professional: `
+WRITING STYLE - PROFESSIONAL:
+- Use formal, authoritative language
+- Include industry-specific terminology with explanations
+- Cite data and statistics when making claims
+- Maintain objective, balanced perspective
+- Use third-person point of view
+- Focus on accuracy and credibility`,
+    
+    friendly: `
+WRITING STYLE - FRIENDLY:
+- Use warm, approachable language
+- Write as if talking to a friend
+- Include personal anecdotes and relatable examples
+- Use contractions naturally (you're, we're, it's)
+- Add encouraging phrases and positive tone
+- Keep technical jargon minimal`,
+    
+    conversational: `
+WRITING STYLE - CONVERSATIONAL:
+- Write like you're having a coffee chat with the reader
+- Use "you" and "I" frequently
+- Ask rhetorical questions to engage readers
+- Include casual expressions and idioms
+- Break complex topics into simple explanations
+- Use short sentences and paragraphs`,
+    
+    academic: `
+WRITING STYLE - ACADEMIC:
+- Use scholarly, research-based language
+- Include proper citations format (Author, Year)
+- Present multiple perspectives on topics
+- Use precise, technical vocabulary
+- Maintain formal structure with clear methodology
+- Include literature references and theoretical frameworks`,
+    
+    persuasive: `
+WRITING STYLE - PERSUASIVE:
+- Use compelling, action-oriented language
+- Include strong calls-to-action throughout
+- Present benefits clearly and convincingly
+- Address and overcome common objections
+- Use emotional appeals alongside logic
+- Create urgency and excitement`,
+    
+    storytelling: `
+WRITING STYLE - STORYTELLING:
+- Open with a captivating hook or scenario
+- Use narrative structure (beginning, middle, end)
+- Include characters, settings, and plots when applicable
+- Create emotional connections through stories
+- Use vivid descriptions and sensory language
+- Weave information into engaging narratives`,
+  };
+  
+  return styles[style] || styles.professional;
+};
+
+const generateSystemPrompt = (language: string, style: WritingStyle, includeComparisonTable: boolean) => {
+  const styleInstructions = getStyleInstructions(style);
+  const langName = language === 'ar' ? 'Arabic' : language === 'fr' ? 'French' : language === 'es' ? 'Spanish' : language === 'de' ? 'German' : 'English';
+  
+  const comparisonTableSection = includeComparisonTable ? `
+11. Include a detailed COMPARISON TABLE section with proper HTML table structure
+    - Use <table class="comparison-table"> with proper thead and tbody
+    - Compare at least 4-5 items/options related to the topic
+    - Include columns for: Feature/Item, Pros, Cons, Rating, Price/Cost (if applicable)
+    - Style cells with appropriate classes for pros (text-green-600) and cons (text-red-600)` : '';
+
+  return `You are a professional SEO content writer who writes like a REAL HUMAN, not an AI.
+
+${styleInstructions}
 
 CRITICAL REQUIREMENTS:
-1. Write in ${language === 'ar' ? 'Arabic' : 'English'}
+1. Write in ${langName}
 2. Use proper HTML structure with semantic tags
 3. Include a Table of Contents at the beginning
 4. Use H2 and H3 headings properly
 5. Include relevant internal linking placeholders
 6. Add an FAQ section at the end with 5-7 questions
-7. Write naturally like a human expert
-8. Include relevant statistics and facts
+7. WRITE NATURALLY LIKE A HUMAN - avoid AI patterns like "In this article" or "Let me explain"
+8. Include relevant statistics and facts with natural integration
 9. Use bullet points and numbered lists where appropriate
 10. Add relevant images placeholders with descriptive alt text
+${comparisonTableSection}
+
+HUMAN WRITING PATTERNS TO USE:
+- Start paragraphs in varied ways, not always with the subject
+- Use transitional phrases naturally: "Here's the thing...", "What's interesting is...", "You might be wondering..."
+- Include personal opinions where appropriate: "In my experience...", "What I've found is..."
+- Vary sentence length - mix short punchy sentences with longer ones
+- Use rhetorical questions to engage readers
+- Include real examples and case studies
+- Avoid overused AI phrases like "In conclusion", "Furthermore", "It is important to note"
+- Add humor or wit where appropriate for the topic
+- Show personality through word choice
 
 OUTPUT FORMAT (HTML only, no markdown):
 <article>
-  <h1>[Title]</h1>
+  <h1>[Title - Make it catchy and click-worthy]</h1>
   
   <div class="toc">
     <h3>Table of Contents</h3>
@@ -55,6 +144,33 @@ OUTPUT FORMAT (HTML only, no markdown):
     <img src="[IMAGE_PLACEHOLDER]" alt="descriptive alt text">
   </section>
   
+  ${includeComparisonTable ? `
+  <section id="comparison" class="comparison-section">
+    <h2>Comparison Table</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature/Option</th>
+          <th>Pros</th>
+          <th>Cons</th>
+          <th>Rating</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Option 1</td>
+          <td class="text-green-600">Pro points...</td>
+          <td class="text-red-600">Con points...</td>
+          <td>⭐⭐⭐⭐⭐</td>
+          <td>Use case...</td>
+        </tr>
+        ...
+      </tbody>
+    </table>
+  </section>
+  ` : ''}
+  
   ... more sections ...
   
   <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
@@ -68,7 +184,8 @@ OUTPUT FORMAT (HTML only, no markdown):
   </section>
 </article>
 
-Make the content comprehensive (2000-3000 words), engaging, and valuable to readers.`;
+Make the content comprehensive (2000-3000 words), engaging, and valuable to readers. Write like a human expert, not an AI.`;
+};
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -76,7 +193,16 @@ serve(async (req) => {
   }
 
   try {
-    const { keyword, category, language = 'en', includeImages = true, includeFAQ = true, includeTOC = true }: ArticleRequest = await req.json();
+    const { 
+      keyword, 
+      category, 
+      language = 'en', 
+      includeImages = true, 
+      includeFAQ = true, 
+      includeTOC = true,
+      includeComparisonTable = false,
+      writingStyle = 'professional'
+    }: ArticleRequest = await req.json();
 
     if (!keyword) {
       return new Response(
@@ -95,8 +221,9 @@ ${category ? `Category: ${category}` : ''}
 ${includeImages ? 'Include image placeholders with descriptive alt text' : 'No images needed'}
 ${includeFAQ ? 'Include FAQ section with Schema.org markup' : 'Skip FAQ section'}
 ${includeTOC ? 'Include Table of Contents' : 'Skip Table of Contents'}
+${includeComparisonTable ? 'Include a detailed comparison table comparing relevant options/products/methods' : ''}
 
-Focus on providing valuable, actionable information that helps readers understand this topic deeply.`;
+IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. Be natural, engaging, and provide genuine value to readers. Show personality and expertise.`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -107,10 +234,10 @@ Focus on providing valuable, actionable information that helps readers understan
       body: JSON.stringify({
         model: "google/gemini-3-flash-preview",
         messages: [
-          { role: "system", content: generateSystemPrompt(language) },
+          { role: "system", content: generateSystemPrompt(language, writingStyle as WritingStyle, includeComparisonTable) },
           { role: "user", content: userPrompt },
         ],
-        temperature: 0.7,
+        temperature: 0.8, // Slightly higher for more natural variation
         max_tokens: 8000,
       }),
     });
@@ -170,6 +297,7 @@ Focus on providing valuable, actionable information that helps readers understan
         meta_title: title.slice(0, 60),
         meta_description: metaDescription,
         category: category || "General",
+        writingStyle,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
