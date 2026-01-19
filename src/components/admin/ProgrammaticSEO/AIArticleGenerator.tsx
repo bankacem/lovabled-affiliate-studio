@@ -38,9 +38,26 @@ import {
   BarChart3,
   Save,
   X,
+  Pen,
+  Table2,
+  MessageSquare,
+  GraduationCap,
+  Megaphone,
+  BookOpen,
 } from "lucide-react";
 import { toast } from "sonner";
 import { format, addMinutes, addHours, addDays } from "date-fns";
+
+type WritingStyle = "professional" | "friendly" | "conversational" | "academic" | "persuasive" | "storytelling";
+
+const WRITING_STYLES: { value: WritingStyle; label: string; icon: React.ReactNode; description: string }[] = [
+  { value: "professional", label: "Professional", icon: <Pen className="h-4 w-4" />, description: "Formal, authoritative tone" },
+  { value: "friendly", label: "Friendly", icon: <MessageSquare className="h-4 w-4" />, description: "Warm, approachable style" },
+  { value: "conversational", label: "Conversational", icon: <MessageSquare className="h-4 w-4" />, description: "Casual, engaging chat" },
+  { value: "academic", label: "Academic", icon: <GraduationCap className="h-4 w-4" />, description: "Scholarly, research-based" },
+  { value: "persuasive", label: "Persuasive", icon: <Megaphone className="h-4 w-4" />, description: "Compelling, action-oriented" },
+  { value: "storytelling", label: "Storytelling", icon: <BookOpen className="h-4 w-4" />, description: "Narrative, engaging stories" },
+];
 
 const STORAGE_KEY = "ai_generated_articles";
 
@@ -80,6 +97,8 @@ export function AIArticleGenerator() {
   const [includeImages, setIncludeImages] = useState(true);
   const [includeFAQ, setIncludeFAQ] = useState(true);
   const [includeTOC, setIncludeTOC] = useState(true);
+  const [includeComparisonTable, setIncludeComparisonTable] = useState(false);
+  const [writingStyle, setWritingStyle] = useState<WritingStyle>("professional");
   
   const [isGenerating, setIsGenerating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -175,6 +194,8 @@ export function AIArticleGenerator() {
           includeImages,
           includeFAQ,
           includeTOC,
+          includeComparisonTable,
+          writingStyle,
         },
       });
 
@@ -451,6 +472,35 @@ export function AIArticleGenerator() {
               </div>
             </div>
 
+            {/* Writing Style Selector */}
+            <div className="space-y-2 border-t pt-3">
+              <Label className="text-sm flex items-center gap-2">
+                <Pen className="h-4 w-4" />
+                Writing Style
+              </Label>
+              <Select value={writingStyle} onValueChange={(v: WritingStyle) => setWritingStyle(v)}>
+                <SelectTrigger className="h-9">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {WRITING_STYLES.map((style) => (
+                    <SelectItem key={style.value} value={style.value}>
+                      <div className="flex items-center gap-2">
+                        {style.icon}
+                        <div>
+                          <span className="font-medium">{style.label}</span>
+                          <span className="text-xs text-muted-foreground ml-2">{style.description}</span>
+                        </div>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground">
+                Choose a tone that matches your audience
+              </p>
+            </div>
+
             <div className="space-y-3 border-t pt-3">
               <Label className="text-sm text-muted-foreground">Content Options</Label>
               <div className="space-y-2">
@@ -465,6 +515,13 @@ export function AIArticleGenerator() {
                 <div className="flex items-center justify-between">
                   <span className="text-sm">Image Placeholders</span>
                   <Switch checked={includeImages} onCheckedChange={setIncludeImages} />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Table2 className="h-4 w-4 text-primary" />
+                    <span className="text-sm">Comparison Table</span>
+                  </div>
+                  <Switch checked={includeComparisonTable} onCheckedChange={setIncludeComparisonTable} />
                 </div>
               </div>
             </div>
