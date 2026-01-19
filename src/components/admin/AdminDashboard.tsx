@@ -28,7 +28,7 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthPage } from "./AuthPage";
-import { BlogPostsList } from "./BlogPostsList";
+import { BlogPostsListOptimized } from "./BlogPostsListOptimized";
 import { BlogStatsOverview } from "./BlogStatsOverview";
 import { StoreManager } from "./StoreManager";
 import {
@@ -513,7 +513,7 @@ export function AdminDashboard() {
                 </TabsList>
 
                 <TabsContent value="articles">
-                  <BlogPostsList 
+                  <BlogPostsListOptimized 
                     onNewPost={handleNewPost}
                     onEditPost={handleEditPost}
                   />
