@@ -39,7 +39,9 @@ export function useAuth() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const checkAdminRole = async (userId: string) => {
+  const checkAdminRole = async (userId: string, retryCount = 0) => {
+    const maxRetries = 3;
+    
     try {
       // First try RPC function
       const { data, error } = await supabase.rpc('has_role', {
@@ -65,9 +67,21 @@ export function useAuth() {
         return;
       }
       
+      // If no role found and we haven't maxed retries, wait and retry
+      // This handles race conditions when session is still being established
+      if (retryCount < maxRetries) {
+        await new Promise(resolve => setTimeout(resolve, 500 * (retryCount + 1)));
+        return checkAdminRole(userId, retryCount + 1);
+      }
+      
       setIsAdmin(false);
     } catch (err) {
       console.error('Error checking admin role:', err);
+      // Retry on error
+      if (retryCount < maxRetries) {
+        await new Promise(resolve => setTimeout(resolve, 500 * (retryCount + 1)));
+        return checkAdminRole(userId, retryCount + 1);
+      }
       setIsAdmin(false);
     }
   };

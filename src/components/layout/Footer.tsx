@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ShoppingBag, Instagram, Twitter, Mail } from "lucide-react";
+import { ShoppingBag, Instagram, Twitter, Mail, Settings } from "lucide-react";
 
 export function Footer() {
   return (
@@ -109,9 +109,18 @@ export function Footer() {
         <div className="mt-12 border-t border-border pt-6">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
             <p>© 2025 DesignVault. All rights reserved.</p>
-            <p className="text-xs">
-              Affiliate Disclosure: We earn commissions from qualifying purchases through our affiliate links.
-            </p>
+            <div className="flex items-center gap-4">
+              <p className="text-xs">
+                Affiliate Disclosure: We earn commissions from qualifying purchases through our affiliate links.
+              </p>
+              <Link 
+                to="/admin" 
+                className="opacity-30 hover:opacity-100 transition-opacity"
+                aria-label="Admin"
+              >
+                <Settings className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
