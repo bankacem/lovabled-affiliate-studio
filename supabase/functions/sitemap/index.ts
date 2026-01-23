@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
 
     console.log(`Found ${posts?.length || 0} published posts`);
 
-    const baseUrl = "https://redbubble-sable.vercel.app";
+    const baseUrl = "https://aiprintverse.com";
     
     const staticPages = [
       { path: "/", priority: "1.0", changefreq: "daily" },
