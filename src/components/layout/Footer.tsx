@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ShoppingBag, Instagram, Twitter, Mail, Settings } from "lucide-react";
+import { Instagram, Twitter, Mail, Settings } from "lucide-react";
+import logoImage from "@/assets/logo.png";
 
 export function Footer() {
   return (
@@ -9,15 +10,17 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-                <ShoppingBag className="h-5 w-5 text-primary-foreground" />
-              </div>
+              <img 
+                src={logoImage} 
+                alt="AIPrintVerse Logo" 
+                className="h-10 w-10 rounded-full object-cover"
+              />
               <span className="font-display text-xl font-semibold text-foreground">
-                DesignVault
+                AIPrintVerse
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Curated print-on-demand designs for t-shirts, mugs, stickers, and more.
+              AI-curated print-on-demand designs for t-shirts, mugs, stickers, and more.
             </p>
           </div>
 
@@ -108,7 +111,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 border-t border-border pt-6">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
-            <p>© 2025 DesignVault. All rights reserved.</p>
+            <p>© 2025 AIPrintVerse. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <p className="text-xs">
                 Affiliate Disclosure: We earn commissions from qualifying purchases through our affiliate links.
