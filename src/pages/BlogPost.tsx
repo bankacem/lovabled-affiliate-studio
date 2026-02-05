@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useBlogPost } from "@/hooks/useBlogPosts";
 import { useAutoLinking } from "@/hooks/useAutoLinking";
 import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
+ import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -233,6 +234,15 @@ const BlogPost = () => {
                 <p className="text-lg text-muted-foreground">{post.excerpt}</p>
               </motion.div>
             )}
+
+             {/* Smart Internal Linking Section */}
+             <InternalLinkBridge
+               currentPostId={post.id}
+               currentCategory={post.category}
+               currentTags={post.tags || []}
+               variant="end"
+               maxSuggestions={3}
+             />
           </div>
         </div>
       </article>

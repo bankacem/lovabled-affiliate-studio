@@ -142,6 +142,7 @@ export type Database = {
           featured_image: string | null
           generation_batch: string | null
           id: string
+          indexing_status: string
           keywords: string[] | null
           meta_description: string | null
           meta_title: string | null
@@ -169,6 +170,7 @@ export type Database = {
           featured_image?: string | null
           generation_batch?: string | null
           id?: string
+          indexing_status?: string
           keywords?: string[] | null
           meta_description?: string | null
           meta_title?: string | null
@@ -196,6 +198,7 @@ export type Database = {
           featured_image?: string | null
           generation_batch?: string | null
           id?: string
+          indexing_status?: string
           keywords?: string[] | null
           meta_description?: string | null
           meta_title?: string | null
