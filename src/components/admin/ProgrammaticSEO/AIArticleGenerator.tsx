@@ -140,11 +140,16 @@ export function AIArticleGenerator() {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
       try {
-        const articles = JSON.parse(stored);
+        const articles: GeneratedArticle[] = JSON.parse(stored);
         setGeneratedArticles(articles);
-        // Auto-select generated articles
-        const indices = new Set(articles.map((_: any, i: number) => i).filter((i: number) => articles[i].status === "generated"));
-        setSelectedArticles(indices as Set<number>);
+        // Auto-select all articles with status "generated"
+        const generatedIndices: number[] = [];
+        articles.forEach((article, index) => {
+          if (article.status === "generated") {
+            generatedIndices.push(index);
+          }
+        });
+        setSelectedArticles(new Set(generatedIndices));
       } catch (e) {
         console.error("Failed to load from storage:", e);
       }
@@ -272,18 +277,24 @@ export function AIArticleGenerator() {
   };
 
   const handleSaveArticles = async () => {
-    const articlesToSave = generatedArticles.filter((_, i) => selectedArticles.has(i) && generatedArticles[i].status === "generated");
+    // Get indices of selected articles that have "generated" status
+    const selectedIndices = Array.from(selectedArticles);
+    const articlesToSave = selectedIndices
+      .filter(i => generatedArticles[i] && generatedArticles[i].status === "generated")
+      .map(i => ({ article: generatedArticles[i], originalIndex: i }));
     
     if (articlesToSave.length === 0) {
-      toast.error("No articles selected");
+      toast.error("No articles selected for saving. Make sure selected articles have 'generated' status.");
       return;
     }
 
     const startDateTime = new Date(startDate);
     let savedCount = 0;
 
+    const updatedArticles = [...generatedArticles];
+    
     for (let i = 0; i < articlesToSave.length; i++) {
-      const article = articlesToSave[i];
+      const { article, originalIndex } = articlesToSave[i];
       
       let publishAt: Date | null = null;
       let status = "draft";
@@ -324,13 +335,16 @@ export function AIArticleGenerator() {
 
       if (!error) {
         savedCount++;
-        const articleIndex = generatedArticles.findIndex(a => a.slug === article.slug);
-        if (articleIndex !== -1) {
-          generatedArticles[articleIndex].status = "saved" as any;
-          setGeneratedArticles([...generatedArticles]);
-        }
+        // Update the status in the array using the original index
+        updatedArticles[originalIndex] = { ...updatedArticles[originalIndex], status: "saved" };
+      } else {
+        console.error("Error saving article:", error);
+        toast.error(`Failed to save: ${article.title}`);
       }
     }
+    
+    setGeneratedArticles(updatedArticles);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedArticles));
 
     toast.success(`Saved ${savedCount} articles as ${scheduleMode === "immediate" ? "published" : scheduleMode}`);
     fetchStats();
