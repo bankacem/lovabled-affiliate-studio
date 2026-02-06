@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   Wand2,
@@ -19,6 +19,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { generateSEOSlug, applyAutoLinksToContent, extractLinksFromContent } from "@/lib/seoUtils";
 
+const OPTIMIZER_STORAGE_KEY = "article-optimizer-state";
+
 interface OptimizationResult {
   slugsFixed: number;
   linksAdded: number;
@@ -26,16 +28,67 @@ interface OptimizationResult {
   errors: string[];
 }
 
+interface OptimizerState {
+  isRunning: boolean;
+  progress: number;
+  currentStep: string;
+  lastResult: OptimizationResult | null;
+  startedAt: number | null;
+}
+
 export function ArticleOptimizer() {
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState("");
   const [lastResult, setLastResult] = useState<OptimizationResult | null>(null);
+  const abortRef = useRef(false);
+
+  // Load saved state on mount
+  useEffect(() => {
+    const savedState = localStorage.getItem(OPTIMIZER_STORAGE_KEY);
+    if (savedState) {
+      try {
+        const state: OptimizerState = JSON.parse(savedState);
+        // Only restore if it was running less than 10 minutes ago
+        if (state.isRunning && state.startedAt && Date.now() - state.startedAt < 10 * 60 * 1000) {
+          // Don't auto-resume, just show that it was interrupted
+          setLastResult({
+            slugsFixed: 0,
+            linksAdded: 0,
+            linksIndexed: 0,
+            errors: ["Previous optimization was interrupted. Please run again."]
+          });
+          // Clear the running state
+          localStorage.removeItem(OPTIMIZER_STORAGE_KEY);
+        } else if (state.lastResult && !state.isRunning) {
+          setLastResult(state.lastResult);
+        }
+      } catch (e) {
+        console.error("Failed to load optimizer state:", e);
+      }
+    }
+  }, []);
+
+  // Save state when it changes
+  const saveState = useCallback((state: Partial<OptimizerState>) => {
+    const currentState = localStorage.getItem(OPTIMIZER_STORAGE_KEY);
+    const parsed: OptimizerState = currentState ? JSON.parse(currentState) : {
+      isRunning: false,
+      progress: 0,
+      currentStep: "",
+      lastResult: null,
+      startedAt: null
+    };
+    const newState = { ...parsed, ...state };
+    localStorage.setItem(OPTIMIZER_STORAGE_KEY, JSON.stringify(newState));
+  }, []);
 
   const optimizeAllArticles = useCallback(async () => {
+    abortRef.current = false;
     setIsOptimizing(true);
     setProgress(0);
     setCurrentStep("Loading articles...");
+    saveState({ isRunning: true, progress: 0, currentStep: "Loading articles...", startedAt: Date.now() });
 
     const result: OptimizationResult = {
       slugsFixed: 0,
@@ -219,6 +272,7 @@ export function ArticleOptimizer() {
       setProgress(100);
       setCurrentStep("Optimization complete!");
       setLastResult(result);
+      saveState({ isRunning: false, progress: 100, currentStep: "Optimization complete!", lastResult: result });
 
       if (result.errors.length === 0) {
         toast.success(
@@ -234,10 +288,11 @@ export function ArticleOptimizer() {
       toast.error("Optimization failed: " + error.message);
       result.errors.push(error.message);
       setLastResult(result);
+      saveState({ isRunning: false, lastResult: result });
     } finally {
       setIsOptimizing(false);
     }
-  }, []);
+  }, [saveState]);
 
   return (
     <Card className="p-6">
