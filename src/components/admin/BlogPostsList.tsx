@@ -9,8 +9,10 @@ import {
   MoreHorizontal,
   FileText,
   Calendar,
-  Tag
+  Tag,
+  TrendingUp,
 } from "lucide-react";
+import { SEOCTRBooster } from "./SEOCTRBooster";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -44,6 +46,8 @@ interface BlogPost {
   updated_at: string;
   featured_image: string | null;
   author_name: string;
+  indexing_status?: string;
+  view_count?: number | null;
 }
 
 interface BlogPostsListProps {
@@ -279,6 +283,12 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
                       <Badge variant="secondary" className={getStatusColor(post.status)}>
                         {post.status}
                       </Badge>
+                      {post.indexing_status === "indexed" && (
+                        <Badge variant="secondary" className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+                          <TrendingUp className="h-3 w-3 mr-1" />
+                          Indexed
+                        </Badge>
+                      )}
                       <Badge variant="outline">
                         <Tag className="h-3 w-3 mr-1" />
                         {post.category}
@@ -290,6 +300,18 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
                       <span className="text-xs text-muted-foreground">
                         by {post.author_name}
                       </span>
+                      
+                      {/* SEO CTR Booster Button */}
+                      <SEOCTRBooster
+                        postId={post.id}
+                        currentTitle={post.title}
+                        category={post.category}
+                        onTitleUpdated={(newTitle) => {
+                          setPosts(posts.map(p => 
+                            p.id === post.id ? { ...p, title: newTitle } : p
+                          ));
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
