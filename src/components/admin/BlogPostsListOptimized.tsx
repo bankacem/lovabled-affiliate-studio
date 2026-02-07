@@ -15,6 +15,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock,
+  TrendingUp,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,6 +41,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { SchedulingPanel } from "./SchedulingPanel";
+import { ImportSearchData } from "./ImportSearchData";
+import { SEOCTRBooster } from "./SEOCTRBooster";
 
 interface BlogPost {
   id: string;
@@ -53,6 +57,8 @@ interface BlogPost {
   featured_image: string | null;
   author_name: string;
   scheduled_publish_at: string | null;
+  impressions: number | null;
+  clicks: number | null;
 }
 
 interface BlogPostsListProps {
@@ -82,7 +88,7 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
     // Build query
     let query = supabase
       .from("blog_posts")
-      .select("id, title, slug, excerpt, category, status, source, created_at, updated_at, featured_image, author_name, scheduled_publish_at", { count: "exact" });
+      .select("id, title, slug, excerpt, category, status, source, created_at, updated_at, featured_image, author_name, scheduled_publish_at, impressions, clicks", { count: "exact" });
 
     // Apply filters
     if (statusFilter !== "all") {
@@ -196,6 +202,13 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
     }
   };
 
+  // High Potential: impressions > 100 but CTR < 2%
+  const isHighPotential = (post: BlogPost) => {
+    if (!post.impressions || post.impressions < 100) return false;
+    const ctr = post.clicks ? (post.clicks / post.impressions) * 100 : 0;
+    return ctr < 2;
+  };
+
   const getSourceBadge = (source: string) => {
     switch (source) {
       case "programmatic":
@@ -219,10 +232,13 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
             {totalCount} total posts • Page {currentPage} of {totalPages || 1}
           </p>
         </div>
-        <Button onClick={onNewPost}>
-          <Plus className="h-4 w-4 mr-2" />
-          New Post
-        </Button>
+        <div className="flex gap-2">
+          <ImportSearchData onImportComplete={fetchPosts} />
+          <Button onClick={onNewPost}>
+            <Plus className="h-4 w-4 mr-2" />
+            New Post
+          </Button>
+        </div>
       </div>
 
       {/* Filters & Actions */}
@@ -365,47 +381,56 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
                         </p>
                       </div>
                       
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <MoreHorizontal className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem onClick={() => onEditPost(post.id)}>
-                            <Edit className="h-4 w-4 mr-2" />
-                            Edit
-                          </DropdownMenuItem>
-                          <DropdownMenuItem asChild>
-                            <a 
-                              href={`/blog/${post.slug}`} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
+                      <div className="flex items-center gap-1">
+                        {/* SEO CTR Booster Button */}
+                        <SEOCTRBooster
+                          postId={post.id}
+                          currentTitle={post.title}
+                          onTitleUpdated={fetchPosts}
+                        />
+                        
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" size="icon" className="h-8 w-8">
+                              <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem onClick={() => onEditPost(post.id)}>
+                              <Edit className="h-4 w-4 mr-2" />
+                              Edit
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                              <a 
+                                href={`/blog/${post.slug}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                              >
+                                <Eye className="h-4 w-4 mr-2" />
+                                View
+                              </a>
+                            </DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            {post.status !== "published" ? (
+                              <DropdownMenuItem onClick={() => updateStatus(post.id, "published")}>
+                                Publish
+                              </DropdownMenuItem>
+                            ) : (
+                              <DropdownMenuItem onClick={() => updateStatus(post.id, "draft")}>
+                                Unpublish
+                              </DropdownMenuItem>
+                            )}
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem 
+                              onClick={() => deletePost(post.id)}
+                              className="text-destructive focus:text-destructive"
                             >
-                              <Eye className="h-4 w-4 mr-2" />
-                              View
-                            </a>
-                          </DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          {post.status !== "published" ? (
-                            <DropdownMenuItem onClick={() => updateStatus(post.id, "published")}>
-                              Publish
+                              <Trash2 className="h-4 w-4 mr-2" />
+                              Delete
                             </DropdownMenuItem>
-                          ) : (
-                            <DropdownMenuItem onClick={() => updateStatus(post.id, "draft")}>
-                              Unpublish
-                            </DropdownMenuItem>
-                          )}
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem 
-                            onClick={() => deletePost(post.id)}
-                            className="text-destructive focus:text-destructive"
-                          >
-                            <Trash2 className="h-4 w-4 mr-2" />
-                            Delete
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </div>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2 mt-2">
@@ -417,6 +442,26 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
                         <Tag className="h-3 w-3 mr-1" />
                         {post.category}
                       </Badge>
+                      
+                      {/* Impressions & Clicks */}
+                      {post.impressions !== null && post.impressions > 0 && (
+                        <span className="text-xs text-muted-foreground flex items-center gap-1">
+                          <TrendingUp className="h-3 w-3" />
+                          {post.impressions.toLocaleString()} impr
+                          {post.clicks !== null && post.clicks > 0 && (
+                            <span className="text-green-600">• {post.clicks} clicks</span>
+                          )}
+                        </span>
+                      )}
+                      
+                      {/* High Potential Badge */}
+                      {isHighPotential(post) && (
+                        <Badge className="bg-amber-500/20 text-amber-600 border-amber-500/30 text-xs gap-1">
+                          <Zap className="h-3 w-3" />
+                          High Potential
+                        </Badge>
+                      )}
+                      
                       {post.scheduled_publish_at && (
                         <span className="text-xs text-muted-foreground flex items-center gap-1">
                           <Clock className="h-3 w-3" />
