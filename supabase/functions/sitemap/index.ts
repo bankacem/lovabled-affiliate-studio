@@ -41,8 +41,8 @@ Deno.serve(async (req) => {
     
     const staticPages = [
       { path: "/", priority: "1.0", changefreq: "daily" },
+      { path: "/designs", priority: "0.9", changefreq: "daily" },
       { path: "/blog", priority: "0.9", changefreq: "daily" },
-      { path: "/designs", priority: "0.9", changefreq: "weekly" },
       { path: "/about", priority: "0.5", changefreq: "monthly" },
     ];
 
@@ -53,6 +53,7 @@ Deno.serve(async (req) => {
     for (const page of staticPages) {
       xml += `  <url>\n`;
       xml += `    <loc>${baseUrl}${page.path}</loc>\n`;
+      xml += `    <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>\n`;
       xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
       xml += `    <priority>${page.priority}</priority>\n`;
       xml += `  </url>\n`;
@@ -66,7 +67,7 @@ Deno.serve(async (req) => {
         xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
         xml += `    <lastmod>${lastmod}</lastmod>\n`;
         xml += `    <changefreq>weekly</changefreq>\n`;
-        xml += `    <priority>0.8</priority>\n`;
+        xml += `    <priority>0.7</priority>\n`;
         xml += `  </url>\n`;
       }
     }
