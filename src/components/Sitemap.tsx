@@ -22,14 +22,14 @@ export function useSitemapData() {
 
       const { data: designsData } = await supabase
         .from("designs")
-        .select("id, updated_at")
+        .select("slug, updated_at")
         .order("updated_at", { ascending: false });
 
       if (postsData) {
         setPosts(postsData.map(p => ({ id: p.slug, slug: p.slug, updated_at: p.updated_at })));
       }
       if (designsData) {
-        setDesigns(designsData);
+        setDesigns(designsData.map(d => ({ id: d.slug, slug: d.slug, updated_at: d.updated_at })));
       }
       setIsLoading(false);
     };
@@ -77,7 +77,7 @@ export function generateSitemapXml(posts: SitemapEntry[], designs: SitemapEntry[
   designs.forEach((design) => {
     const lastmod = new Date(design.updated_at).toISOString().split("T")[0];
     xml += `  <url>\n`;
-    xml += `    <loc>${baseUrl}/designs/${design.id}</loc>\n`;
+    xml += `    <loc>${baseUrl}/designs/${design.slug}</loc>\n`;
     xml += `    <lastmod>${lastmod}</lastmod>\n`;
     xml += `    <changefreq>monthly</changefreq>\n`;
     xml += `    <priority>0.7</priority>\n`;

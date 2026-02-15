@@ -1,4 +1,5 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Share2, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -9,9 +10,19 @@ import { useDesign, useDesigns } from "@/hooks/useDesigns";
 import { toast } from "sonner";
 
 const DesignDetail = () => {
-  const { id } = useParams();
-  const { data: design, isLoading } = useDesign(id || "");
+  const { slug } = useParams();
+  const navigate = useNavigate();
+  const { data: design, isLoading } = useDesign(slug || "");
   const { data: allDesigns = [] } = useDesigns();
+
+  useEffect(() => {
+    if (design && slug) {
+      const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slug);
+      if (isUUID && design.slug !== slug) {
+        navigate(`/designs/${design.slug}`, { replace: true });
+      }
+    }
+  }, [design, slug, navigate]);
 
   const relatedDesigns = allDesigns
     .filter((d) => d.category === design?.category && d.id !== design?.id)
@@ -63,7 +74,7 @@ const DesignDetail = () => {
       <SEO
         title={design.name}
         description={design.description || `Check out ${design.name} - unique ${design.category} design at AIPrintVerse.`}
-        canonical={`/designs/${design.id}`}
+        canonical={`/designs/${design.slug}`}
         ogImage={design.image_url}
         ogType="product"
       />
