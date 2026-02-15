@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Search, FileText } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/layout/SEO";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
 import { Input } from "@/components/ui/input";
@@ -26,6 +27,11 @@ const Blog = () => {
 
   return (
     <Layout>
+      <SEO
+        title={selectedCategory === "All" ? "Blog" : `${selectedCategory} Blog`}
+        description="Design tips, trends, and inspiration for your style. Read our latest articles about AI-powered print-on-demand designs."
+        canonical={selectedCategory === "All" ? "/blog" : `/blog?category=${selectedCategory}`}
+      />
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
           {/* Header */}

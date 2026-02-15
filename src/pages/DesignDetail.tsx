@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Share2, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/layout/SEO";
 import { Button } from "@/components/ui/button";
 import { DesignCard } from "@/components/designs/DesignCard";
 import { useDesign, useDesigns } from "@/hooks/useDesigns";
@@ -59,6 +60,34 @@ const DesignDetail = () => {
 
   return (
     <Layout>
+      <SEO
+        title={design.name}
+        description={design.description || `Check out ${design.name} - unique ${design.category} design at AIPrintVerse.`}
+        canonical={`/designs/${design.id}`}
+        ogImage={design.image_url}
+        ogType="product"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": design.name,
+          "image": [design.image_url],
+          "description": design.description || `Unique ${design.category} design`,
+          "brand": {
+            "@type": "Brand",
+            "name": "AIPrintVerse"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "offerCount": (design.teepublic_url ? 1 : 0) + (design.redbubble_url ? 1 : 0) + (design.amazon_url ? 1 : 0) + (design.etsy_url ? 1 : 0),
+            "lowPrice": "14.99",
+            "highPrice": "45.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        })}
+      </script>
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
           {/* Breadcrumb */}

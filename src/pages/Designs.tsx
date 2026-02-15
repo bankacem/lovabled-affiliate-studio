@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/layout/SEO";
 import { DesignCard } from "@/components/designs/DesignCard";
 import { useDesigns } from "@/hooks/useDesigns";
 import { Input } from "@/components/ui/input";
@@ -51,6 +52,11 @@ const Designs = () => {
 
   return (
     <Layout>
+      <SEO
+        title={selectedCategory === "All" ? "All Designs" : `${selectedCategory} Designs`}
+        description={`Explore our collection of ${selectedCategory === "All" ? "" : selectedCategory} print-on-demand designs. Unique artwork for t-shirts, mugs, and more.`}
+        canonical={selectedCategory === "All" ? "/designs" : `/designs?category=${selectedCategory}`}
+      />
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
           {/* Header */}

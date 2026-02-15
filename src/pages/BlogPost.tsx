@@ -3,6 +3,7 @@ import { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/layout/SEO";
 import { Button } from "@/components/ui/button";
 import { useBlogPost } from "@/hooks/useBlogPosts";
 import { useAutoLinking } from "@/hooks/useAutoLinking";
@@ -122,9 +123,28 @@ const BlogPost = () => {
 
   return (
     <Layout>
-      {/* SEO Meta Tags */}
-      <title>{post.meta_title || post.title}</title>
-      <meta name="description" content={post.meta_description || post.excerpt || ""} />
+      <SEO
+        title={post.meta_title || post.title}
+        description={post.meta_description || post.excerpt || ""}
+        canonical={`/blog/${post.slug}`}
+        ogImage={post.featured_image || ""}
+        ogType="article"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "image": post.featured_image ? [post.featured_image] : [],
+          "datePublished": post.published_at || post.created_at,
+          "dateModified": post.updated_at || post.published_at || post.created_at,
+          "author": [{
+              "@type": "Person",
+              "name": post.author_name || "AIPrintVerse Team"
+            }],
+          "description": post.excerpt || post.meta_description || ""
+        })}
+      </script>
       
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
