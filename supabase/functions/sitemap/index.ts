@@ -75,7 +75,7 @@ Deno.serve(async (req) => {
     // Fetch designs
     const { data: designs } = await supabase
       .from("designs")
-      .select("id, updated_at")
+      .select("slug, updated_at")
       .order("updated_at", { ascending: false });
 
     if (designs) {
@@ -83,7 +83,7 @@ Deno.serve(async (req) => {
       for (const design of designs) {
         const lastmod = new Date(design.updated_at || new Date()).toISOString().split("T")[0];
         xml += `  <url>\n`;
-        xml += `    <loc>${baseUrl}/designs/${design.id}</loc>\n`;
+        xml += `    <loc>${baseUrl}/designs/${design.slug}</loc>\n`;
         xml += `    <lastmod>${lastmod}</lastmod>\n`;
         xml += `    <changefreq>monthly</changefreq>\n`;
         xml += `    <priority>0.7</priority>\n`;
