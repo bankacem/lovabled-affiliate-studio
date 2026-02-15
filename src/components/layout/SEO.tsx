@@ -7,6 +7,7 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   twitterCard?: string;
+  noindex?: boolean;
 }
 
 export function SEO({
@@ -16,6 +17,7 @@ export function SEO({
   ogImage,
   ogType = "website",
   twitterCard = "summary_large_image",
+  noindex = false,
 }: SEOProps) {
   const siteTitle = "AIPrintVerse";
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
@@ -98,7 +100,22 @@ export function SEO({
       updateTwitterTag("twitter:image", ogImage);
     }
 
-  }, [fullTitle, description, canonical, ogImage, ogType, twitterCard]);
+    // Update Robots
+    let robotsMeta = document.querySelector('meta[name="robots"]');
+    if (noindex) {
+      if (robotsMeta) {
+        robotsMeta.setAttribute("content", "noindex, nofollow");
+      } else {
+        robotsMeta = document.createElement("meta");
+        robotsMeta.setAttribute("name", "robots");
+        robotsMeta.setAttribute("content", "noindex, nofollow");
+        document.head.appendChild(robotsMeta);
+      }
+    } else if (robotsMeta) {
+      robotsMeta.setAttribute("content", "index, follow");
+    }
+
+  }, [fullTitle, description, canonical, ogImage, ogType, twitterCard, noindex]);
 
   return null;
 }

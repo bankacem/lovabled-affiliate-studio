@@ -10,7 +10,7 @@ interface AdminLoginProps {
 }
 
 // Simple admin password - change this to your own secret password
-const ADMIN_PASSWORD = "designvault2025";
+const ADMIN_PASSWORD = "aiprintverse2025";
 
 export function AdminLogin({ onSuccess }: AdminLoginProps) {
   const [password, setPassword] = useState("");

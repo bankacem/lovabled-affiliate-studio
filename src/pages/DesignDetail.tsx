@@ -43,6 +43,7 @@ const DesignDetail = () => {
   if (!design) {
     return (
       <Layout>
+        <SEO title="Design Not Found" noindex={true} />
         <div className="container mx-auto px-4 py-20 text-center md:px-6">
           <h1 className="font-display text-2xl font-bold text-foreground">
             Design Not Found
@@ -247,6 +248,33 @@ const DesignDetail = () => {
               </p>
             </motion.div>
           </div>
+
+          {/* Product Details - Extra Content for SEO */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 grid gap-8 lg:grid-cols-3"
+          >
+            <div className="rounded-2xl border border-border/50 bg-card p-6 p-shadow-sm">
+              <h3 className="font-display text-xl font-bold text-foreground">Design Info</h3>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                This unique <span className="text-primary font-medium">{design.category}</span> design titled <span className="text-primary font-medium">"{design.name}"</span> is a custom-curated piece by AIPrintVerse. Perfect for expressing your unique style through high-quality print-on-demand merchandise.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/50 bg-card p-6 p-shadow-sm">
+              <h3 className="font-display text-xl font-bold text-foreground">Printing & Quality</h3>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                Available on multiple platforms like TeePublic and Redbubble, ensuring the highest print quality on various products. Whether it's a T-shirt, mug, or sticker, you can expect vibrant colors and durable materials.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/50 bg-card p-6 p-shadow-sm">
+              <h3 className="font-display text-xl font-bold text-foreground">Why AIPrintVerse?</h3>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                We use advanced AI technology to curate and refine the best designs in the market. Our goal is to provide art that resonates with trending styles while maintaining a high level of artistic integrity.
+              </p>
+            </div>
+          </motion.div>
 
           {/* Related Designs */}
           {relatedDesigns.length > 0 && (

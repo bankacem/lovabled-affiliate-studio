@@ -1,6 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/layout/SEO";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft, Search } from "lucide-react";
 
@@ -13,6 +14,7 @@ const NotFound = () => {
 
   return (
     <Layout>
+      <SEO title="Page Not Found" noindex={true} />
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="text-center max-w-md mx-auto px-4">
           <div className="text-8xl font-bold text-primary/20 mb-4">404</div>
