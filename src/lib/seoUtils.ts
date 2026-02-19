@@ -23,8 +23,8 @@ export function generateSEOSlug(title: string): string {
     .replace(/-+/g, '-')
     // Remove leading and trailing hyphens
     .replace(/^-+|-+$/g, '')
-    // Limit length for SEO (max 60 chars)
-    .slice(0, 60)
+    // Limit length for SEO (max 100 chars)
+    .slice(0, 100)
     // Remove trailing hyphen if cut mid-word
     .replace(/-+$/, '');
 }
