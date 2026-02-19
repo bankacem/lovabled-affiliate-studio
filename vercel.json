@@ -11,6 +11,16 @@
   ],
   "redirects": [
     {
+      "source": "/blog/the-ultimate-guide-to-v-neck-shirts-style-fit-and-fashion-ma",
+      "destination": "/blog/ultimate-v-neck-style-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-ultimate-guide-to-v-neck-shirts-how-to-style-them-for-an",
+      "destination": "/blog/ultimate-v-neck-style-guide",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

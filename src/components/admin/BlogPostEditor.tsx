@@ -160,8 +160,8 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
       .replace(/-+/g, '-')
       // Remove leading and trailing hyphens
       .replace(/^-+|-+$/g, '')
-      // Limit length for SEO (max 60 chars)
-      .slice(0, 60)
+      // Limit length for SEO (max 100 chars)
+      .slice(0, 100)
       .replace(/-+$/, '');
   };
 
