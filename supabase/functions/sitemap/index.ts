@@ -8,6 +8,7 @@ const corsHeaders = {
 interface SitemapEntry {
   slug: string;
   updated_at: string;
+  published_at?: string;
 }
 
 Deno.serve(async (req) => {
@@ -24,11 +25,16 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     // Fetch published blog posts
+    // CRITICAL: We include ALL posts with 'published' status regardless of the timestamp.
+    // We intentionally OMIT any .lte('published_at', now) filter to ensure that
+    // posts published in any timezone (even those that might appear to be in the
+    // "future" relative to the server's UTC clock) are included in the sitemap.
     const { data: posts, error } = await supabase
       .from("blog_posts")
-      .select("slug, updated_at")
+      .select("slug, updated_at, published_at")
       .eq("status", "published")
-      .order("updated_at", { ascending: false });
+      .order("published_at", { ascending: false })
+      .limit(5000); // Increase limit to ensure all posts are included
 
     if (error) {
       console.error("Error fetching posts:", error);
@@ -62,7 +68,10 @@ Deno.serve(async (req) => {
     // Add blog posts
     if (posts) {
       for (const post of posts) {
-        const lastmod = new Date(post.updated_at).toISOString().split("T")[0];
+        // Use the date part directly from the timestamp string to stay as close as possible
+        // to the intended publishing date, falling back to updated_at.
+        const dateStr = post.published_at || post.updated_at;
+        const lastmod = dateStr ? dateStr.split("T")[0] : new Date().toISOString().split("T")[0];
         xml += `  <url>\n`;
         xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
         xml += `    <lastmod>${lastmod}</lastmod>\n`;
@@ -76,7 +85,8 @@ Deno.serve(async (req) => {
     const { data: designs } = await supabase
       .from("designs")
       .select("slug, updated_at")
-      .order("updated_at", { ascending: false });
+      .order("updated_at", { ascending: false })
+      .limit(5000);
 
     if (designs) {
       console.log(`Found ${designs.length} designs`);
