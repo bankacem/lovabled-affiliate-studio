@@ -153,7 +153,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     return title
       .toLowerCase()
       // Remove special characters (: ? ! @ # $ % ^ & * etc.)
-      .replace(/[^a-z0-9\s\-]/g, '')
+      .replace(/[^a-z0-9\s-]/g, '')
       // Replace spaces with hyphens
       .replace(/\s+/g, '-')
       // Remove consecutive hyphens
