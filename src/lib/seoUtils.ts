@@ -124,7 +124,7 @@ export function isValidSEOSlug(slug: string): boolean {
   if (slug !== slug.toLowerCase()) return false;
   
   // Must not contain special characters except hyphens
-  if (!/^[a-z0-9\-]+$/.test(slug)) return false;
+  if (!/^[a-z0-9-]+$/.test(slug)) return false;
   
   // Must not have consecutive hyphens
   if (/--/.test(slug)) return false;

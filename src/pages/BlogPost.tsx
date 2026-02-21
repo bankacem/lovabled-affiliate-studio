@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useBlogPost } from "@/hooks/useBlogPosts";
 import { useAutoLinking } from "@/hooks/useAutoLinking";
 import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
- import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
+import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -125,11 +125,12 @@ const BlogPost = () => {
   const extractFAQSchema = (content: string) => {
     if (!content) return null;
 
-    // Look for FAQ section
-    const faqSectionMatch = content.match(/Frequently Asked Questions([\s\S]*)/i);
+    // Look for FAQ section - specifically a heading
+    const faqSectionMatch = content.match(/<h2[^>]*>.*?Frequently Asked Questions.*?<\/h2>([\s\S]*)/i);
     if (!faqSectionMatch) return null;
 
-    const faqContent = faqSectionMatch[1];
+    // Only look at content until the next h2 or end of string to avoid matching other sections
+    const faqContent = faqSectionMatch[1].split(/<h2/i)[0];
     const questions: { question: string, answer: string }[] = [];
 
     // Regex to find <h3>Question</h3> followed by next element which is usually a <p>Answer</p>
