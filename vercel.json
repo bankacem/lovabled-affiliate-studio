@@ -17,7 +17,12 @@
     },
     {
       "source": "/blog/the-ultimate-guide-to-v-neck-shirts-how-to-style-them-for-an",
-      "destination": "/blog/ultimate-v-neck-style-guide",
+      "destination": "/blog/how-to-style-v-neck-shirts",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-architectural-staple-why-slim-fit-black-v-neck-t-shirts",
+      "destination": "/blog/best-slim-fit-black-v-neck-t-shirts-shopping-guide",
       "permanent": true
     },
     {

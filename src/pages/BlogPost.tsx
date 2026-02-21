@@ -89,6 +89,42 @@ const BlogPost = () => {
     }
   };
 
+  // Extract FAQs from content for JSON-LD
+  const faqSchema = useMemo(() => {
+    if (!post?.content) return null;
+
+    const questions: { question: string; answer: string }[] = [];
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = post.content;
+
+    const faqSection = tempDiv.querySelector(".faq") || tempDiv.querySelector('[itemtype="https://schema.org/FAQPage"]');
+    if (faqSection) {
+      const items = faqSection.querySelectorAll('[itemtype="https://schema.org/Question"]');
+      items.forEach(item => {
+        const q = item.querySelector('[itemprop="name"]')?.textContent;
+        const a = item.querySelector('[itemprop="text"]')?.textContent || item.querySelector('[itemtype="https://schema.org/Answer"]')?.textContent;
+        if (q && a) {
+          questions.push({ question: q, answer: a });
+        }
+      });
+    }
+
+    if (questions.length === 0) return null;
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": questions.map(q => ({
+        "@type": "Question",
+        "name": q.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": q.answer
+        }
+      }))
+    };
+  }, [post?.content]);
+
   if (isLoading) {
     return (
       <Layout>
@@ -145,6 +181,11 @@ const BlogPost = () => {
           "description": post.excerpt || post.meta_description || ""
         })}
       </script>
+      {faqSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      )}
       
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
