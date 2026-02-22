@@ -26,35 +26,36 @@ export function SEO({
     // Update Title
     document.title = fullTitle;
 
+    // Smart Fallback Description
+    const smartDescription = description || (title && title !== "Home"
+      ? `${title} - Explore the latest AI-curated designs and insights on AIPrintVerse. ${defaultDescription}`
+      : defaultDescription);
+
     // Update Meta Description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", description || defaultDescription);
+      metaDescription.setAttribute("content", smartDescription);
     } else {
       const newMeta = document.createElement("meta");
       newMeta.name = "description";
-      newMeta.content = description || defaultDescription;
+      newMeta.content = smartDescription;
       document.head.appendChild(newMeta);
     }
 
     // Update Canonical Link
     let linkCanonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      if (linkCanonical) {
-        linkCanonical.setAttribute("href", canonical.startsWith("http") ? canonical : `${baseUrl}${canonical}`);
-      } else {
-        linkCanonical = document.createElement("link");
-        linkCanonical.setAttribute("rel", "canonical");
-        linkCanonical.setAttribute("href", canonical.startsWith("http") ? canonical : `${baseUrl}${canonical}`);
-        document.head.appendChild(linkCanonical);
-      }
-    } else if (linkCanonical) {
-      // Set current URL as default canonical if not provided
-      linkCanonical.setAttribute("href", window.location.href);
+    // Ensure absolute URL and strip query params/hashes for self-referencing canonicals
+    const cleanCurrentUrl = window.location.origin + window.location.pathname;
+    const fullCanonical = canonical
+      ? (canonical.startsWith("http") ? canonical : `${baseUrl}${canonical.startsWith("/") ? canonical : `/${canonical}`}`)
+      : cleanCurrentUrl;
+
+    if (linkCanonical) {
+      linkCanonical.setAttribute("href", fullCanonical);
     } else {
       linkCanonical = document.createElement("link");
       linkCanonical.setAttribute("rel", "canonical");
-      linkCanonical.setAttribute("href", window.location.href);
+      linkCanonical.setAttribute("href", fullCanonical);
       document.head.appendChild(linkCanonical);
     }
 
@@ -72,7 +73,7 @@ export function SEO({
     };
 
     updateOgTag("og:title", fullTitle);
-    updateOgTag("og:description", description || defaultDescription);
+    updateOgTag("og:description", smartDescription);
     updateOgTag("og:type", ogType);
     if (ogImage) {
       updateOgTag("og:image", ogImage);
@@ -92,13 +93,13 @@ export function SEO({
     };
 
     updateTwitterTag("twitter:title", fullTitle);
-    updateTwitterTag("twitter:description", description || defaultDescription);
+    updateTwitterTag("twitter:description", smartDescription);
     updateTwitterTag("twitter:card", twitterCard);
     if (ogImage) {
       updateTwitterTag("twitter:image", ogImage);
     }
 
-  }, [fullTitle, description, canonical, ogImage, ogType, twitterCard]);
+  }, [fullTitle, title, description, canonical, ogImage, ogType, twitterCard]);
 
   return null;
 }

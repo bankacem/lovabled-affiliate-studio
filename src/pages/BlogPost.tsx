@@ -12,6 +12,29 @@ import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
+/**
+ * Utility to optimize HTML content for SEO and performance
+ * - Adds lazy loading to images
+ * - Enforces heading hierarchy (no h1 in content, strict h2 to h3 order)
+ */
+const processHtmlContent = (html: string) => {
+  if (!html) return "";
+
+  let processed = html;
+
+  // 1. Add loading="lazy" to all images that don't already have it
+  processed = processed.replace(/<img (?!.*?loading=)/gi, '<img loading="lazy" ');
+
+  // 2. Normalize headings
+  // Replace h1 with h2 to ensure only one h1 per page (the title)
+  processed = processed.replace(/<h1/gi, '<h2').replace(/<\/h1>/gi, '</h2>');
+
+  // Convert h4, h5, h6 to h3 to maintain a strict h2 to h3 hierarchy as requested
+  processed = processed.replace(/<h[4-6]/gi, '<h3').replace(/<\/h[4-6]>/gi, '</h3>');
+
+  return processed;
+};
+
 const BlogPost = () => {
   const { id } = useParams();
   const location = useLocation();
@@ -23,10 +46,11 @@ const BlogPost = () => {
   // Track page view
   usePageTracking(post?.id);
 
-  // Apply auto-linking to content
-  const linkedContent = useMemo(() => {
+  // Apply auto-linking and SEO optimizations to content
+  const processedContent = useMemo(() => {
     if (!post?.content || autoLinksLoading) return post?.content || "";
-    return applyAutoLinks(post.content, post.id);
+    const linked = applyAutoLinks(post.content, post.id);
+    return processHtmlContent(linked);
   }, [post?.content, post?.id, applyAutoLinks, autoLinksLoading]);
 
   // Handle anchor links and track clicks
@@ -69,10 +93,15 @@ const BlogPost = () => {
       }
     };
 
-    contentRef.current.addEventListener("click", handleLinkClick);
+    const contentElement = contentRef.current;
+    if (contentElement) {
+      contentElement.addEventListener("click", handleLinkClick);
+    }
     
     return () => {
-      contentRef.current?.removeEventListener("click", handleLinkClick);
+      if (contentElement) {
+        contentElement.removeEventListener("click", handleLinkClick);
+      }
     };
   }, [post, location.hash, trackLinkClick]);
 
@@ -174,8 +203,9 @@ const BlogPost = () => {
         ogImage={post.featured_image || ""}
         ogType="article"
       />
-      <script type="application/ld+json">
-        {JSON.stringify({
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BlogPosting",
           "headline": post.title,
@@ -187,10 +217,11 @@ const BlogPost = () => {
               "name": post.author_name || "AIPrintVerse Team"
             }],
           "description": post.excerpt || post.meta_description || ""
-        })}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify({
+        }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": post.title,
@@ -210,12 +241,13 @@ const BlogPost = () => {
             }
           },
           "description": post.excerpt || post.meta_description || ""
-        })}
-      </script>
+        }) }}
+      />
       {faqSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
       )}
       
       <article className="py-8 md:py-12">
@@ -301,18 +333,19 @@ const BlogPost = () => {
                   src={post.featured_image}
                   alt={post.title}
                   className="h-full w-full object-cover"
+                  loading="lazy"
                 />
               </motion.div>
             )}
 
-            {/* Content with auto-linking */}
+            {/* Content with auto-linking and SEO optimizations */}
             <motion.div
               ref={contentRef}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content"
-              dangerouslySetInnerHTML={{ __html: linkedContent }}
+              dangerouslySetInnerHTML={{ __html: processedContent }}
             />
 
             {/* Excerpt as intro if no rich content */}

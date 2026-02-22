@@ -128,6 +128,7 @@ const DesignDetail = () => {
                   src={design.image_url}
                   alt={design.name}
                   className="h-full w-full object-cover"
+                  loading="lazy"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://via.placeholder.com/600?text=Design";
                   }}

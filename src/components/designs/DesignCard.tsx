@@ -24,6 +24,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
               src={design.image_url}
               alt={design.name}
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "https://via.placeholder.com/400?text=Design";
               }}
