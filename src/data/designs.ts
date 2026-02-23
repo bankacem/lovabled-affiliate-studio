@@ -1,5 +1,6 @@
 export interface Design {
   id: string;
+  slug: string;
   name: string;
   description: string;
   imageUrl: string;
@@ -13,6 +14,7 @@ export interface Design {
 export const designs: Design[] = [
   {
     id: "1",
+    slug: "geometric-wolf-shirt",
     name: "Geometric Wolf",
     description: "A stunning geometric wolf design perfect for nature lovers and those who appreciate minimalist art. This design combines the majesty of wolves with modern geometric patterns.",
     imageUrl: "https://images.unsplash.com/photo-1568702846914-96b305d2uj89?w=600&h=600&fit=crop",
@@ -24,6 +26,7 @@ export const designs: Design[] = [
   },
   {
     id: "2",
+    slug: "retro-sunset-vibes-shirt",
     name: "Retro Sunset Vibes",
     description: "Capture the essence of vintage aesthetics with this retro sunset design. Perfect for those who love 80s and 90s nostalgic artwork.",
     imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop",
@@ -35,6 +38,7 @@ export const designs: Design[] = [
   },
   {
     id: "3",
+    slug: "space-explorer-hoodie",
     name: "Space Explorer",
     description: "For the dreamers and space enthusiasts. This astronaut design captures the wonder of space exploration with artistic flair.",
     imageUrl: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&h=600&fit=crop",
@@ -46,6 +50,7 @@ export const designs: Design[] = [
   },
   {
     id: "4",
+    slug: "coffee-lover-mug",
     name: "Coffee Lover",
     description: "The perfect design for coffee addicts. Express your love for that morning brew with this stylish coffee-themed artwork.",
     imageUrl: "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=600&h=600&fit=crop",
@@ -57,6 +62,7 @@ export const designs: Design[] = [
   },
   {
     id: "5",
+    slug: "mountain-adventure-shirt",
     name: "Mountain Adventure",
     description: "For the outdoor enthusiasts and hiking lovers. This mountain landscape design captures the spirit of adventure and exploration.",
     imageUrl: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=600&fit=crop",
@@ -68,6 +74,7 @@ export const designs: Design[] = [
   },
   {
     id: "6",
+    slug: "cute-cat-illustration-sticker",
     name: "Cute Cat Illustration",
     description: "An adorable cat illustration for all the cat lovers out there. Minimalist yet expressive, perfect for stickers and accessories.",
     imageUrl: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=600&fit=crop",
@@ -79,6 +86,7 @@ export const designs: Design[] = [
   },
   {
     id: "7",
+    slug: "vintage-motorcycle-shirt",
     name: "Vintage Motorcycle",
     description: "Classic motorcycle design for the riders and vintage enthusiasts. Captures the spirit of freedom on the open road.",
     imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop",
@@ -90,6 +98,7 @@ export const designs: Design[] = [
   },
   {
     id: "8",
+    slug: "abstract-waves-phone-case",
     name: "Abstract Waves",
     description: "Modern abstract wave pattern perfect for those who appreciate contemporary art and design aesthetics.",
     imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&h=600&fit=crop",

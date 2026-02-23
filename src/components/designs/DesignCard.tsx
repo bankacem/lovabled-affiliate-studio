@@ -16,7 +16,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="group"
     >
-      <Link to={`/designs/${design.slug}`}>
+      <Link to={`/designs/${design.slug || design.id}`}>
         <div className="overflow-hidden rounded-2xl bg-card shadow-card transition-all duration-500 hover:shadow-xl hover:-translate-y-2 border border-border/50">
           {/* Image */}
           <div className="relative aspect-square overflow-hidden bg-secondary">
