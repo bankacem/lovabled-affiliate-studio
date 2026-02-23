@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the most popular eco-friendly fabrics for 2026 bachelorette parties?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In 2026, the trend has shifted heavily towards sustainable materials. The most popular eco-friendly fabrics include GOTS-certified organic cotton, recycled polyester (rPET) for activewear, and sustainable flax linen. These materials offer a premium feel while significantly reducing the environmental footprint of your bridal party gear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is express shipping available for large bridal party orders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer priority express shipping options for bridal parties. We recommend placing group orders at least 14 days in advance; however, our express service can deliver to most locations within 3-5 business days to ensure everyone has their gear before the big celebration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is sustainable group printing and why should we choose it for our 2026 event?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sustainable group printing utilizes water-based, non-toxic inks and energy-efficient direct-to-garment (DTG) technology. This method eliminates the heavy chemical waste associated with traditional screen printing. It's the best choice for 2026 bachelorette parties looking to combine high-quality, vibrant designs with a commitment to planetary health."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we customize individual names on sustainable bachelorette shirts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! Our 2026 customization suite allows you to add individual names or titles (e.g., 'Maid of Honor', 'Bride Squad') to any of our sustainable garment options. Each piece is printed on demand, meaning zero inventory waste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the top color trends for 2026 bachelorette party designs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2026 is seeing a rise in 'Dopamine Decor' inspired colors: vibrant Magentas, Electric Blues, and Sunset Oranges. For those preferring a more natural look, 'Earthcore' tones like Sage Green and Terracotta remain highly popular for sustainable group outings."
+      }
+    }
+  ]
+}
