@@ -9,9 +9,11 @@
  * - Replaces spaces and underscores with hyphens
  * - Removes consecutive hyphens
  * - Trims leading/trailing hyphens
+ * @param title The title to convert
+ * @param suffix Optional suffix to append (e.g., "-shirt")
  */
-export function generateSEOSlug(title: string): string {
-  return title
+export function generateSEOSlug(title: string, suffix?: string): string {
+  let slug = title
     .toLowerCase()
     // Replace Arabic/Persian numbers with English
     .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
@@ -27,6 +29,15 @@ export function generateSEOSlug(title: string): string {
     .slice(0, 100)
     // Remove trailing hyphen if cut mid-word
     .replace(/-+$/, '');
+
+  if (suffix) {
+    const cleanSuffix = suffix.startsWith('-') ? suffix : `-${suffix}`;
+    if (!slug.endsWith(cleanSuffix.toLowerCase())) {
+      slug += cleanSuffix.toLowerCase();
+    }
+  }
+
+  return slug;
 }
 
 /**

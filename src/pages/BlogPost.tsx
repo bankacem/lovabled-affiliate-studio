@@ -9,6 +9,8 @@ import { useBlogPost } from "@/hooks/useBlogPosts";
 import { useAutoLinking } from "@/hooks/useAutoLinking";
 import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
 import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
+import { ProductShowcase } from "@/components/blog/ProductShowcase";
+import { CTAButton } from "@/components/blog/CTAButton";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -305,15 +307,35 @@ const BlogPost = () => {
               </motion.div>
             )}
 
-            {/* Content with auto-linking */}
+            {/* Content with auto-linking and CRO component injection */}
             <motion.div
               ref={contentRef}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content"
-              dangerouslySetInnerHTML={{ __html: linkedContent }}
-            />
+              className="mt-10"
+            >
+              {(() => {
+                // Split content by <h2> tags to inject components
+                // We use a simple split/regex approach for injection
+                const sections = linkedContent.split(/(?=<h2)/gi);
+
+                return sections.map((section, index) => (
+                  <div key={index}>
+                    <div
+                      className="prose prose-lg max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content"
+                      dangerouslySetInnerHTML={{ __html: section }}
+                    />
+
+                    {/* Inject ProductShowcase after the first <h2> section */}
+                    {index === 0 && sections.length > 1 && <ProductShowcase />}
+
+                    {/* Inject CTAButton after the 3rd section or at the end if fewer sections */}
+                    {(index === 2 || (index === sections.length - 1 && sections.length <= 2)) && <CTAButton />}
+                  </div>
+                ));
+              })()}
+            </motion.div>
 
             {/* Excerpt as intro if no rich content */}
             {!post.content && post.excerpt && (
