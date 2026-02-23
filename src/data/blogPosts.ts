@@ -146,6 +146,26 @@ Don't be afraid of <strong>Dopamine Decor Color Palettes</strong>—vibrant hues
     readTime: "5 min read",
     relatedDesigns: ["4"],
   },
+  {
+    id: "10",
+    title: "The Ultimate Guide to Custom Phone Cases",
+    excerpt: "Everything you need to know about choosing and designing the perfect custom phone case.",
+    content: `Custom phone cases are the ultimate accessory for self-expression in 2026. From minimalist monograms to complex Solarpunk landscapes, your phone case is a canvas.
+
+<div class="product-feature-box" style="border: 2px solid #6366f1; border-radius: 12px; padding: 24px; margin: 32px 0; background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%); text-align: center;">
+    <h3 style="margin: 0 0 8px 0; color: #1e293b;">Custom Print Masterpieces</h3>
+    <p style="color: #64748b; margin-bottom: 24px;">Bring your vision to life with our premium printing technology.</p>
+    <a href="/designs" style="background: #6366f1; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">Shop Now →</a>
+</div>
+
+When choosing a case, prioritize impact-resistant materials and UV-protected printing to ensure your design stays vibrant.`,
+    imageUrl: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=800&h=400&fit=crop",
+    author: "Tech Stylist",
+    date: "2026-02-20",
+    category: "Product Guide",
+    readTime: "6 min read",
+    relatedDesigns: ["8"],
+  },
 ];
 
 export const blogCategories = [
