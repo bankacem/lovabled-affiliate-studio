@@ -68,6 +68,104 @@ From minimalist designs to bold statements, find your perfect match...`,
     readTime: "6 min read",
     relatedDesigns: ["4"],
   },
+  {
+    id: "5",
+    title: "Bachelorette Party Shirt Ideas 2024",
+    excerpt: "Get the best ideas for your 2024 bachelorette party with these trendy and fun shirt designs.",
+    content: `Looking for the latest trends? Check out our updated <a href="/blog/bachelorette-party-shirt-ideas-2026-master-guide">Bachelorette Party Shirt Ideas for 2026</a> guide for the upcoming season.
+
+For 2024, we saw a lot of retro and custom typography...`,
+    imageUrl: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&h=400&fit=crop",
+    author: "Event Planner",
+    date: "2024-03-15",
+    category: "Event Planning",
+    readTime: "5 min read",
+    relatedDesigns: [],
+  },
+  {
+    id: "6",
+    title: "Bachelorette Party Shirt Ideas 2026: The Master Guide",
+    excerpt: "The definitive guide to 2026 bachelorette party fashion. From Solarpunk to Quiet Luxury.",
+    content: `Welcome to the future of bachelorette parties. In 2026, we're seeing a shift towards more sustainable and high-concept themes.
+
+Whether you're planning a desert retreat or a city getaway, your apparel should reflect the new era of celebration. We recommend looking into eco-friendly fabrics and biomorphic patterns.`,
+    imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=400&fit=crop",
+    author: "Trend Analyst",
+    date: "2026-02-01",
+    category: "Event Planning",
+    readTime: "8 min read",
+    relatedDesigns: [],
+  },
+  {
+    id: "7",
+    title: "7 Pro Secrets to Styling Throw Pillows",
+    excerpt: "Transform your living space with these expert tips on arranging and choosing the perfect throw pillows.",
+    content: `Styling throw pillows is an art form. To stay ahead of the curve in 2026, you need to consider more than just color.
+
+One secret is incorporating <strong>Biophilic Textile Patterns</strong> that bring the outdoors in. Pair these with <strong>Sustainable Flax Linen</strong> for durability and a touch of eco-luxury.
+
+Don't be afraid of <strong>Dopamine Decor Color Palettes</strong>—vibrant hues that spark joy. If you're feeling bold, try <strong>Maximalist Layering Techniques</strong> by mixing textures and sizes. Finally, always look for <strong>Ethical Artisanal Cushion Covers</strong> to ensure your style is as responsible as it is beautiful.`,
+    imageUrl: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=400&fit=crop",
+    author: "Interior Designer",
+    date: "2026-02-10",
+    category: "Home Decor",
+    readTime: "6 min read",
+    relatedDesigns: [],
+  },
+  {
+    id: "8",
+    title: "The Definitive Guide to Washing Vintage T-Shirts",
+    excerpt: "Learn how to preserve your precious vintage collection with our technical washing guide.",
+    content: `Washing vintage t-shirts requires a delicate touch. To avoid dry rot and preserve the print, follow these essential steps:
+
+1. Turn the garment inside out.
+2. Use cold water only.
+3. Air dry flat.`,
+    imageUrl: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=800&h=400&fit=crop",
+    author: "Vintage Expert",
+    date: "2026-01-20",
+    category: "Care Guides",
+    readTime: "4 min read",
+    relatedDesigns: [],
+  },
+  {
+    id: "9",
+    title: "Custom Mugs: The Ultimate Gifting Guide",
+    excerpt: "Why custom mugs make the perfect gift for any occasion.",
+    content: `Custom mugs are a classic gift, but in 2026, we're taking them to the next level with personalized AR-enabled designs and thermal-reactive coatings.
+
+<div class="product-feature-box" style="border: 2px solid #6366f1; border-radius: 12px; padding: 24px; margin: 32px 0; background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%); text-align: center;">
+    <h3 style="margin: 0 0 8px 0; color: #1e293b;">Custom Print Masterpieces</h3>
+    <p style="color: #64748b; margin-bottom: 24px;">Bring your vision to life with our premium printing technology.</p>
+    <a href="/designs" style="background: #6366f1; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">Shop Now →</a>
+</div>`,
+    imageUrl: "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=800&h=400&fit=crop",
+    author: "Lifestyle Editor",
+    date: "2026-02-15",
+    category: "Product Guide",
+    readTime: "5 min read",
+    relatedDesigns: ["4"],
+  },
+  {
+    id: "10",
+    title: "The Ultimate Guide to Custom Phone Cases",
+    excerpt: "Everything you need to know about choosing and designing the perfect custom phone case.",
+    content: `Custom phone cases are the ultimate accessory for self-expression in 2026. From minimalist monograms to complex Solarpunk landscapes, your phone case is a canvas.
+
+<div class="product-feature-box" style="border: 2px solid #6366f1; border-radius: 12px; padding: 24px; margin: 32px 0; background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%); text-align: center;">
+    <h3 style="margin: 0 0 8px 0; color: #1e293b;">Custom Print Masterpieces</h3>
+    <p style="color: #64748b; margin-bottom: 24px;">Bring your vision to life with our premium printing technology.</p>
+    <a href="/designs" style="background: #6366f1; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600;">Shop Now →</a>
+</div>
+
+When choosing a case, prioritize impact-resistant materials and UV-protected printing to ensure your design stays vibrant.`,
+    imageUrl: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=800&h=400&fit=crop",
+    author: "Tech Stylist",
+    date: "2026-02-20",
+    category: "Product Guide",
+    readTime: "6 min read",
+    relatedDesigns: ["8"],
+  },
 ];
 
 export const blogCategories = [
@@ -76,4 +174,7 @@ export const blogCategories = [
   "Fashion Tips",
   "Industry News",
   "Product Guide",
+  "Event Planning",
+  "Home Decor",
+  "Care Guides",
 ];
