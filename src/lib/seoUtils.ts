@@ -160,16 +160,27 @@ export function calculateKeywordDensity(content: string, keyword: string): numbe
 
 /**
  * Remove Schema.org Microdata attributes from HTML content
- * Used to prevent duplication when providing JSON-LD
+ * Used to prevent duplication when providing JSON-LD.
+ * Uses a tag-aware approach to avoid breaking HTML structure or removing text content.
  */
 export function stripMicrodata(html: string): string {
   if (!html) return '';
 
-  return html
-    // Remove itemscope attribute
-    .replace(/\sitemscope\b/gi, '')
-    // Remove itemtype="..." or itemtype='...'
-    .replace(/\sitemtype=["'][^"']*["']/gi, '')
-    // Remove itemprop="..." or itemprop='...'
-    .replace(/\sitemprop=["'][^"']*["']/gi, '');
+  // This regex matches HTML tags while correctly handling quotes to avoid stopping at > inside an attribute
+  const tagRegex = /<(?:[^"'>]|"[^"]*"|'[^']*')*>/g;
+
+  return html.replace(tagRegex, (tag) => {
+    // Skip closing tags as they don't have attributes
+    if (tag.startsWith('</')) return tag;
+
+    return tag
+      // Remove itemtype and itemprop with quoted values, ensuring we don't cross to another tag
+      // We use [^"'>]* to ensure we stay within the current attribute's quotes and the tag itself
+      .replace(/\s(itemtype|itemprop)=["'][^"'>]*["']/gi, '')
+      // Handle unquoted attributes (though rare for microdata)
+      .replace(/\s(itemtype|itemprop)=[^"'\s>]+/gi, '')
+      // Remove itemscope only if it's a standalone attribute (followed by space or >)
+      // This prevents accidental removal from class names like "my-itemscope"
+      .replace(/\sitemscope(?=[\s>])/gi, '');
+  });
 }
