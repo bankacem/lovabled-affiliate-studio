@@ -173,12 +173,12 @@ OUTPUT FORMAT (HTML only, no markdown):
   
   ... more sections ...
   
-  <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <section class="faq">
     <h2>Frequently Asked Questions</h2>
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Question?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Answer...</p>
+    <div>
+      <h3>Question?</h3>
+      <div>
+        <p>Answer...</p>
       </div>
     </div>
   </section>
