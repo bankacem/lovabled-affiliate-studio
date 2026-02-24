@@ -1,4 +1,4 @@
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
@@ -18,6 +18,7 @@ import { format } from "date-fns";
 const BlogPost = () => {
   const { id } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(id || "");
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
@@ -25,6 +26,14 @@ const BlogPost = () => {
   
   // Track page view
   usePageTracking(post?.id);
+
+  // Canonical Redirect logic
+  useEffect(() => {
+    if (post && post.slug && id && post.slug !== id) {
+      console.log(`[BlogPost] Redirecting to canonical slug: /blog/${post.slug}`);
+      navigate(`/blog/${post.slug}`, { replace: true });
+    }
+  }, [post, id, navigate]);
 
   // Extract FAQ data for schema
   const extractFAQSchema = (content: string) => {
@@ -263,9 +272,18 @@ const BlogPost = () => {
                 </span>
                 <span className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
-                  {post.published_at 
-                    ? format(new Date(post.published_at), "MMMM d, yyyy")
-                    : format(new Date(post.created_at), "MMMM d, yyyy")}
+                  {(() => {
+                    const dateStr = post.published_at || post.created_at;
+                    if (!dateStr) return "N/A";
+                    try {
+                      const date = new Date(dateStr);
+                      if (isNaN(date.getTime())) return "Invalid Date";
+                      return format(date, "MMMM d, yyyy");
+                    } catch (e) {
+                      console.error("Date formatting error:", e);
+                      return "Invalid Date";
+                    }
+                  })()}
                 </span>
                 {post.read_time && (
                   <span className="flex items-center gap-1">
