@@ -117,3 +117,15 @@ Insert this high-conversion component into guides for "Custom Phone Cases" and "
   }
 }
 ```
+
+## 6. Resolved: Duplicate FAQPage & Schema Consolidation
+**Status:** ✅ COMPLETED (Phase: Authority Connector)
+
+**Issue:** Google Search Console reported critical "Duplicate FAQPage field" errors due to conflicting Microdata and hardcoded JSON-LD scripts across 12+ URLs.
+
+**Solution:**
+1.  **Schema Consolidation (@graph):** Refactored `src/components/layout/SEO.tsx` to accept a `jsonLd` prop. It now automatically wraps multiple schemas in a single `@graph` object, ensuring only ONE `<script type="application/ld+json">` is rendered per page.
+2.  **Microdata Stripping:** Implemented a `stripMicrodata` utility in `src/lib/seoUtils.ts` to programmatically remove `itemscope`, `itemtype`, and `itemprop` attributes from blog content before rendering.
+3.  **Edge Function Optimization:** Updated the AI Article Generator (`supabase/functions/generate-article/index.ts`) to stop generating legacy Microdata attributes in the FAQ section.
+
+**Verification:** Verified that legacy posts like "Funny Doctor Quotes" and "Washing Vintage T-shirts" now serve clean, consolidated JSON-LD with zero Microdata conflicts.

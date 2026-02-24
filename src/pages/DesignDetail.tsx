@@ -77,10 +77,7 @@ const DesignDetail = () => {
         canonical={`/designs/${design.slug}`}
         ogImage={design.image_url}
         ogType="product"
-      />
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org/",
+        jsonLd={{
           "@type": "Product",
           "name": design.name,
           "image": [design.image_url],
@@ -97,8 +94,8 @@ const DesignDetail = () => {
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock"
           }
-        })}
-      </script>
+        }}
+      />
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
           {/* Breadcrumb */}

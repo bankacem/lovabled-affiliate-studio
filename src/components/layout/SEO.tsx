@@ -7,6 +7,7 @@ interface SEOProps {
   ogImage?: string;
   ogType?: string;
   twitterCard?: string;
+  jsonLd?: object | object[];
 }
 
 export function SEO({
@@ -16,6 +17,7 @@ export function SEO({
   ogImage,
   ogType = "website",
   twitterCard = "summary_large_image",
+  jsonLd,
 }: SEOProps) {
   const siteTitle = "AIPrintVerse";
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
@@ -100,5 +102,35 @@ export function SEO({
 
   }, [fullTitle, description, canonical, ogImage, ogType, twitterCard]);
 
-  return null;
+  const renderJsonLd = () => {
+    if (!jsonLd) return null;
+
+    let schema: Record<string, unknown> = jsonLd as Record<string, unknown>;
+
+    // If it's an array, wrap it in @graph for best practice
+    if (Array.isArray(jsonLd)) {
+      schema = {
+        "@context": "https://schema.org",
+        "@graph": jsonLd.map((item: Record<string, unknown>) => {
+          // Remove redundant @context from individual items if they exist
+          const { "@context": _, ...rest } = item;
+          return rest;
+        }),
+      };
+    } else {
+      // Ensure single object has @context
+      if (!schema["@context"]) {
+        schema["@context"] = "https://schema.org";
+      }
+    }
+
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+    );
+  };
+
+  return renderJsonLd();
 }

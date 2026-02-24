@@ -157,3 +157,19 @@ export function calculateKeywordDensity(content: string, keyword: string): numbe
   
   return words.length > 0 ? (keywordCount / words.length) * 100 : 0;
 }
+
+/**
+ * Remove Schema.org Microdata attributes from HTML content
+ * Used to prevent duplication when providing JSON-LD
+ */
+export function stripMicrodata(html: string): string {
+  if (!html) return '';
+
+  return html
+    // Remove itemscope attribute
+    .replace(/\sitemscope\b/gi, '')
+    // Remove itemtype="..." or itemtype='...'
+    .replace(/\sitemtype=["'][^"']*["']/gi, '')
+    // Remove itemprop="..." or itemprop='...'
+    .replace(/\sitemprop=["'][^"']*["']/gi, '');
+}

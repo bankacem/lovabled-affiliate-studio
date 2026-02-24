@@ -11,6 +11,7 @@ import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
 import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
 import { ProductShowcase } from "@/components/blog/ProductShowcase";
 import { CTAButton } from "@/components/blog/CTAButton";
+import { stripMicrodata } from "@/lib/seoUtils";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -25,10 +26,101 @@ const BlogPost = () => {
   // Track page view
   usePageTracking(post?.id);
 
-  // Apply auto-linking to content
-  const linkedContent = useMemo(() => {
+  // Extract FAQ data for schema
+  const extractFAQSchema = (content: string) => {
+    if (!content) return null;
+
+    // Look for FAQ section - specifically a heading
+    const faqSectionMatch = content.match(/<h2[^>]*>.*?Frequently Asked Questions.*?<\/h2>([\s\S]*)/i);
+    if (!faqSectionMatch) return null;
+
+    // Only look at content until the next h2 or end of string to avoid matching other sections
+    const faqContent = faqSectionMatch[1].split(/<h2/i)[0];
+    const questions: { question: string, answer: string }[] = [];
+
+    // Regex to find <h3>Question</h3> followed by next element which is usually a <p>Answer</p>
+    // This is a simplified parser for the common pattern in the blog posts
+    const qRegex = /<h3[^>]*>(.*?)<\/h3>[\s\S]*?<p[^>]*>(.*?)<\/p>/gi;
+    let match;
+
+    while ((match = qRegex.exec(faqContent)) !== null && questions.length < 10) {
+      const question = match[1].replace(/<[^>]*>/g, '').trim();
+      const answer = match[2].replace(/<[^>]*>/g, '').trim();
+
+      if (question && answer) {
+        questions.push({ question, answer });
+      }
+    }
+
+    if (questions.length === 0) return null;
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": questions.map(q => ({
+        "@type": "Question",
+        "name": q.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": q.answer
+        }
+      }))
+    };
+  };
+
+  const faqSchema = useMemo(() => extractFAQSchema(post?.content || ""), [post?.content]);
+
+  // Consolidate all schemas into a single array for the SEO component
+  const jsonLd = useMemo(() => {
+    if (!post) return [];
+
+    const schemas: Record<string, unknown>[] = [
+      {
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "image": post.featured_image ? [post.featured_image] : [],
+        "datePublished": post.published_at || post.created_at,
+        "dateModified": post.updated_at || post.published_at || post.created_at,
+        "author": [{
+            "@type": "Person",
+            "name": post.author_name || "AIPrintVerse Team"
+          }],
+        "description": post.excerpt || post.meta_description || ""
+      },
+      {
+        "@type": "Article",
+        "headline": post.title,
+        "image": post.featured_image ? [post.featured_image] : [],
+        "datePublished": post.published_at || post.created_at,
+        "dateModified": post.updated_at || post.published_at || post.created_at,
+        "author": [{
+            "@type": "Person",
+            "name": post.author_name || "AIPrintVerse Team"
+          }],
+        "publisher": {
+          "@type": "Organization",
+          "name": "AIPrintVerse",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://aiprintverse.com/logo.png"
+          }
+        },
+        "description": post.excerpt || post.meta_description || ""
+      }
+    ];
+
+    if (faqSchema) {
+      schemas.push(faqSchema);
+    }
+
+    return schemas;
+  }, [post, faqSchema]);
+
+  // Apply auto-linking to content and strip Microdata to prevent duplication with JSON-LD
+  const processedContent = useMemo(() => {
     if (!post?.content || autoLinksLoading) return post?.content || "";
-    return applyAutoLinks(post.content, post.id);
+    const linked = applyAutoLinks(post.content, post.id);
+    return stripMicrodata(linked);
   }, [post?.content, post?.id, applyAutoLinks, autoLinksLoading]);
 
   // Handle anchor links and track clicks
@@ -123,49 +215,6 @@ const BlogPost = () => {
     );
   }
 
-  // Extract FAQ data for schema
-  const extractFAQSchema = (content: string) => {
-    if (!content) return null;
-
-    // Look for FAQ section - specifically a heading
-    const faqSectionMatch = content.match(/<h2[^>]*>.*?Frequently Asked Questions.*?<\/h2>([\s\S]*)/i);
-    if (!faqSectionMatch) return null;
-
-    // Only look at content until the next h2 or end of string to avoid matching other sections
-    const faqContent = faqSectionMatch[1].split(/<h2/i)[0];
-    const questions: { question: string, answer: string }[] = [];
-
-    // Regex to find <h3>Question</h3> followed by next element which is usually a <p>Answer</p>
-    // This is a simplified parser for the common pattern in the blog posts
-    const qRegex = /<h3[^>]*>(.*?)<\/h3>[\s\S]*?<p[^>]*>(.*?)<\/p>/gi;
-    let match;
-
-    while ((match = qRegex.exec(faqContent)) !== null && questions.length < 10) {
-      const question = match[1].replace(/<[^>]*>/g, '').trim();
-      const answer = match[2].replace(/<[^>]*>/g, '').trim();
-
-      if (question && answer) {
-        questions.push({ question, answer });
-      }
-    }
-
-    if (questions.length === 0) return null;
-
-    return {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": questions.map(q => ({
-        "@type": "Question",
-        "name": q.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": q.answer
-        }
-      }))
-    };
-  };
-
-  const faqSchema = extractFAQSchema(post.content || "");
 
   return (
     <Layout>
@@ -175,50 +224,8 @@ const BlogPost = () => {
         canonical={`/blog/${post.slug}`}
         ogImage={post.featured_image || ""}
         ogType="article"
+        jsonLd={jsonLd}
       />
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": post.title,
-          "image": post.featured_image ? [post.featured_image] : [],
-          "datePublished": post.published_at || post.created_at,
-          "dateModified": post.updated_at || post.published_at || post.created_at,
-          "author": [{
-              "@type": "Person",
-              "name": post.author_name || "AIPrintVerse Team"
-            }],
-          "description": post.excerpt || post.meta_description || ""
-        })}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": post.title,
-          "image": post.featured_image ? [post.featured_image] : [],
-          "datePublished": post.published_at || post.created_at,
-          "dateModified": post.updated_at || post.published_at || post.created_at,
-          "author": [{
-              "@type": "Person",
-              "name": post.author_name || "AIPrintVerse Team"
-            }],
-          "publisher": {
-            "@type": "Organization",
-            "name": "AIPrintVerse",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://aiprintverse.com/logo.png"
-            }
-          },
-          "description": post.excerpt || post.meta_description || ""
-        })}
-      </script>
-      {faqSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-      )}
       
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
@@ -318,7 +325,7 @@ const BlogPost = () => {
               {(() => {
                 // Split content by <h2> tags to inject components
                 // We use a simple split/regex approach for injection
-                const sections = linkedContent.split(/(?=<h2)/gi);
+                const sections = processedContent.split(/(?=<h2)/gi);
 
                 return sections.map((section, index) => (
                   <div key={index}>
