@@ -25,6 +25,7 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     // Fetch published blog posts
+    // VERIFIED: This dynamic generation uses the SEO-friendly 'slug' field exclusively.
     // CRITICAL: We include ALL posts with 'published' status regardless of the timestamp.
     // We intentionally OMIT any .lte('published_at', now) filter to ensure that
     // posts published in any timezone (even those that might appear to be in the
@@ -65,7 +66,7 @@ Deno.serve(async (req) => {
       xml += `  </url>\n`;
     }
 
-    // Add blog posts
+    // Add blog posts using new SEO-friendly slugs
     if (posts) {
       for (const post of posts) {
         // Use the date part directly from the timestamp string to stay as close as possible
