@@ -1,4 +1,4 @@
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
@@ -17,9 +17,21 @@ import { format } from "date-fns";
 
 const BlogPost = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const location = useLocation();
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(id || "");
+
+  // Canonical Redirect logic: Ensure we are always on the correct SEO-friendly slug
+  useEffect(() => {
+    if (post && id && !isLoading) {
+      // If the current URL param doesn't match the canonical slug (e.g. it's a UUID or wrong case)
+      if (post.slug !== id) {
+        console.log(`[BlogPost] Redirecting from ${id} to canonical slug: ${post.slug}`);
+        navigate(`/blog/${post.slug}`, { replace: true });
+      }
+    }
+  }, [post, id, isLoading, navigate]);
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
   const { trackLinkClick } = useLinkTracking();
   

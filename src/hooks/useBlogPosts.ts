@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { blogPosts as staticBlogPosts } from "@/data/blogPosts";
 
 export interface BlogPost {
   id: string;
@@ -31,49 +32,100 @@ export function useBlogPosts() {
 
   const fetchPosts = async () => {
     setIsLoading(true);
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .select("*")
-      .eq("status", "published")
-      .order("published_at", { ascending: false });
+    try {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("status", "published")
+        .order("published_at", { ascending: false });
 
-    if (error) {
-      setError(error.message);
-    } else {
-      setPosts(data || []);
+      if (error) {
+        console.error("Error fetching from Supabase:", error);
+        // Fallback to static posts if Supabase fails
+        setPosts(staticBlogPosts as BlogPost[]);
+      } else {
+        // Merge Supabase posts with static posts, avoiding duplicates by slug
+        const supabasePosts = data || [];
+        const supabaseSlugs = new Set(supabasePosts.map(p => p.slug.toLowerCase()));
+
+        const uniqueStaticPosts = staticBlogPosts.filter(
+          p => !supabaseSlugs.has(p.slug.toLowerCase())
+        );
+
+        setPosts([...supabasePosts, ...uniqueStaticPosts] as BlogPost[]);
+      }
+    } catch (err) {
+      console.error("Unexpected error in fetchPosts:", err);
+      setPosts(staticBlogPosts as BlogPost[]);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return { posts, isLoading, error, refetch: fetchPosts };
 }
 
-export function useBlogPost(slug: string) {
+export function useBlogPost(identifier: string) {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (slug) {
+    if (identifier) {
       fetchPost();
     }
-  }, [slug]);
+  }, [identifier]);
 
   const fetchPost = async () => {
     setIsLoading(true);
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .select("*")
-      .eq("slug", slug)
-      .eq("status", "published")
-      .maybeSingle();
+    const lowerIdentifier = identifier.toLowerCase();
+    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(identifier);
 
-    if (error) {
-      setError(error.message);
-    } else {
-      setPost(data);
+    console.log(`[useBlogPost] Fetching post for identifier: "${identifier}" (isUUID: ${isUUID})`);
+
+    try {
+      let query = supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("status", "published");
+
+      if (isUUID) {
+        query = query.or(`id.eq.${identifier},slug.eq.${identifier}`);
+      } else {
+        // Try case-insensitive slug match
+        query = query.ilike("slug", lowerIdentifier);
+      }
+
+      const { data, error: supabaseError } = await query.maybeSingle();
+
+      if (supabaseError) {
+        console.warn(`[useBlogPost] Supabase warning: ${supabaseError.message}`);
+        // Continue to static fallback
+      }
+
+      if (data) {
+        console.log(`[useBlogPost] Found post in Supabase: "${data.title}"`);
+        setPost(data as BlogPost);
+      } else {
+        console.log(`[useBlogPost] Not found in Supabase, checking static data...`);
+        const staticPost = staticBlogPosts.find(
+          (p) => p.slug.toLowerCase() === lowerIdentifier || p.id === identifier
+        );
+
+        if (staticPost) {
+          console.log(`[useBlogPost] Found post in static data: "${staticPost.title}"`);
+          setPost(staticPost as BlogPost);
+        } else {
+          console.log(`[useBlogPost] Post not found in any source.`);
+          setPost(null);
+        }
+      }
+    } catch (err) {
+      console.error("[useBlogPost] Unexpected error:", err);
+      setError(err instanceof Error ? err.message : "An unexpected error occurred");
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return { post, isLoading, error };
