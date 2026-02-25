@@ -21,6 +21,11 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(id || "");
+
+  // RCA Logs
+  console.log('Current Slug:', id);
+  console.log('Found Article:', post);
+
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
   const { trackLinkClick } = useLinkTracking();
   
