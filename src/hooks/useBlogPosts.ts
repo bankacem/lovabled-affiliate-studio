@@ -32,18 +32,43 @@ export function useBlogPosts() {
 
   const fetchPosts = async () => {
     setIsLoading(true);
-    const { data, error } = await supabase
-      .from("blog_posts")
-      .select("*")
-      .eq("status", "published")
-      .order("published_at", { ascending: false });
+    console.log("[useBlogPosts] Fetching all published posts...");
 
-    if (error) {
-      setError(error.message);
-    } else {
-      setPosts(data || []);
+    try {
+      const { data: dbPosts, error: dbError } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("status", "published")
+        .order("published_at", { ascending: false });
+
+      if (dbError) {
+        console.error("[useBlogPosts] Supabase fetch error:", dbError);
+        setError(dbError.message);
+      }
+
+      // Merge with static data to bypass date filtering and ensure 2026 articles are visible
+      const dbPostsList = dbPosts || [];
+      const dbSlugs = new Set(dbPostsList.map(p => p.slug.toLowerCase()));
+
+      const missingStaticPosts = blogPosts.filter(p => !dbSlugs.has(p.slug.toLowerCase()));
+
+      console.log(`[useBlogPosts] DB posts: ${dbPostsList.length}, Missing static posts: ${missingStaticPosts.length}`);
+
+      const allPosts = [...dbPostsList, ...missingStaticPosts].sort((a, b) => {
+        const dateA = new Date(a.published_at || a.created_at).getTime();
+        const dateB = new Date(b.published_at || b.created_at).getTime();
+        return dateB - dateA; // Newest first
+      });
+
+      setPosts(allPosts as BlogPost[]);
+    } catch (err) {
+      console.error("[useBlogPosts] Unexpected error:", err);
+      // Fallback to just static data on major error
+      setPosts(blogPosts as unknown as BlogPost[]);
+      setError(err instanceof Error ? err.message : "An unexpected error occurred");
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return { posts, isLoading, error, refetch: fetchPosts };
@@ -61,70 +86,56 @@ export function useBlogPost(slug: string) {
   }, [slug]);
 
   const fetchPost = async () => {
-    console.log(`[useBlogPost] Fetching post for slug/id: "${slug}"`);
+    const cleanSlug = slug.toLowerCase().trim();
+    console.log(`[useBlogPost] Fetching post for slug: "${cleanSlug}" (original: "${slug}")`);
     setIsLoading(true);
     setError(null);
 
     try {
-      // 1. Try case-insensitive slug match
-      console.log(`[useBlogPost] Step 1: Trying case-insensitive slug match via ilike...`);
+      // 1. Try case-insensitive slug match in Supabase
+      console.log(`[useBlogPost] Step 1: Trying Supabase slug match...`);
       const { data: slugData, error: slugError } = await supabase
         .from("blog_posts")
         .select("*")
-        .ilike("slug", slug)
+        .ilike("slug", cleanSlug)
         .eq("status", "published")
         .maybeSingle();
 
       if (slugData) {
-        console.log(`[useBlogPost] Match found in Supabase by slug: ${slugData.title}`);
+        console.log(`[useBlogPost] Match found in Supabase: ${slugData.title}`);
         setPost(slugData);
         setIsLoading(false);
         return;
       }
 
       if (slugError) {
-        console.error(`[useBlogPost] Supabase slug fetch error:`, slugError);
+        console.error(`[useBlogPost] Supabase fetch error:`, slugError);
       }
 
-      // 2. Try UUID match if slug looks like a UUID
-      const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-      if (uuidRegex.test(slug)) {
-        console.log(`[useBlogPost] Step 2: Input looks like a UUID, trying ID match...`);
-        const { data: idData, error: idError } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .eq("id", slug)
-          .eq("status", "published")
-          .maybeSingle();
-
-        if (idData) {
-          console.log(`[useBlogPost] Match found in Supabase by ID: ${idData.title}`);
-          setPost(idData);
-          setIsLoading(false);
-          return;
-        }
-
-        if (idError) {
-          console.error(`[useBlogPost] Supabase ID fetch error:`, idError);
-        }
-      }
-
-      // 3. Fallback to static data (case-insensitive)
-      console.log(`[useBlogPost] Step 3: No Supabase match, checking static blogPosts array...`);
+      // 2. Forced Fallback to static data
+      console.log(`[useBlogPost] Step 2: Falling back to static blogPosts array...`);
       const staticPost = blogPosts.find(
-        (p) => p.slug.toLowerCase() === slug.toLowerCase() || p.id === slug
+        (p) => p.slug.toLowerCase() === cleanSlug || p.id === cleanSlug
       );
 
       if (staticPost) {
         console.log(`[useBlogPost] Match found in static data: ${staticPost.title}`);
         setPost(staticPost as unknown as BlogPost);
       } else {
-        console.warn(`[useBlogPost] No match found for "${slug}" in any source.`);
+        console.warn(`[useBlogPost] No match found for "${cleanSlug}" in any source.`);
         setPost(null);
       }
     } catch (err) {
       console.error(`[useBlogPost] Unexpected error:`, err);
-      setError(err instanceof Error ? err.message : "An unexpected error occurred");
+      // Even on error, try static fallback
+      const staticPost = blogPosts.find(
+        (p) => p.slug.toLowerCase() === cleanSlug || p.id === cleanSlug
+      );
+      if (staticPost) {
+        setPost(staticPost as unknown as BlogPost);
+      } else {
+        setError(err instanceof Error ? err.message : "An unexpected error occurred");
+      }
     } finally {
       setIsLoading(false);
     }

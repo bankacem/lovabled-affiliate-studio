@@ -16,14 +16,14 @@ import { toast } from "sonner";
 import { format } from "date-fns";
 
 const BlogPost = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
-  const { post, isLoading, error } = useBlogPost(id || "");
+  const { post, isLoading, error } = useBlogPost(slug || "");
 
   // RCA Logs
-  console.log('Current Slug:', id);
+  console.log('Current Slug:', slug);
   console.log('Found Article:', post);
 
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
@@ -34,11 +34,11 @@ const BlogPost = () => {
 
   // Canonical Redirect logic
   useEffect(() => {
-    if (post && post.slug && id && post.slug !== id) {
+    if (post && post.slug && slug && post.slug !== slug) {
       console.log(`[BlogPost] Redirecting to canonical slug: /blog/${post.slug}`);
       navigate(`/blog/${post.slug}`, { replace: true });
     }
-  }, [post, id, navigate]);
+  }, [post, slug, navigate]);
 
   // Extract FAQ data for schema
   const extractFAQSchema = (content: string) => {
