@@ -74,68 +74,48 @@ export function useBlogPosts() {
   return { posts, isLoading, error, refetch: fetchPosts };
 }
 
-export function useBlogPost(slug: string) {
+export function useBlogPost(rawSlug: string) {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (slug) {
-      fetchPost();
-    }
-  }, [slug]);
+    if (!rawSlug) return;
+    fetchPost();
+  }, [rawSlug]);
 
   const fetchPost = async () => {
-    const cleanSlug = slug.toLowerCase().trim();
-    console.log(`[useBlogPost] Fetching post for slug: "${cleanSlug}" (original: "${slug}")`);
+    const cleanSlug = rawSlug.toLowerCase().trim();
     setIsLoading(true);
     setError(null);
 
     try {
-      // 1. Try case-insensitive slug match in Supabase
-      console.log(`[useBlogPost] Step 1: Trying Supabase slug match...`);
-      const { data: slugData, error: slugError } = await supabase
+      // 1. Database Fetch using .eq() instead of .ilike()
+      const { data, error: dbError } = await supabase
         .from("blog_posts")
         .select("*")
-        .ilike("slug", cleanSlug)
-        .eq("status", "published")
+        .eq("slug", cleanSlug)
         .maybeSingle();
 
-      if (slugData) {
-        console.log(`[useBlogPost] Match found in Supabase: ${slugData.title}`);
-        setPost(slugData);
+      if (data) {
+        setPost(data as BlogPost);
         setIsLoading(false);
         return;
       }
 
-      if (slugError) {
-        console.error(`[useBlogPost] Supabase fetch error:`, slugError);
+      // 2. Static Fallback if DB returns null
+      const staticMatch = blogPosts.find(p => p.slug.toLowerCase() === cleanSlug);
+      if (staticMatch) {
+        setPost(staticMatch as BlogPost);
+        setIsLoading(false);
+        return;
       }
 
-      // 2. Forced Fallback to static data
-      console.log(`[useBlogPost] Step 2: Falling back to static blogPosts array...`);
-      const staticPost = blogPosts.find(
-        (p) => p.slug.toLowerCase() === cleanSlug || p.id === cleanSlug
-      );
-
-      if (staticPost) {
-        console.log(`[useBlogPost] Match found in static data: ${staticPost.title}`);
-        setPost(staticPost as unknown as BlogPost);
-      } else {
-        console.warn(`[useBlogPost] No match found for "${cleanSlug}" in any source.`);
-        setPost(null);
-      }
-    } catch (err) {
-      console.error(`[useBlogPost] Unexpected error:`, err);
-      // Even on error, try static fallback
-      const staticPost = blogPosts.find(
-        (p) => p.slug.toLowerCase() === cleanSlug || p.id === cleanSlug
-      );
-      if (staticPost) {
-        setPost(staticPost as unknown as BlogPost);
-      } else {
-        setError(err instanceof Error ? err.message : "An unexpected error occurred");
-      }
+      setPost(null);
+    } catch (err: any) {
+      const staticMatch = blogPosts.find(p => p.slug.toLowerCase() === cleanSlug);
+      if (staticMatch) setPost(staticMatch as BlogPost);
+      else setError(err?.message || "Post not found");
     } finally {
       setIsLoading(false);
     }
