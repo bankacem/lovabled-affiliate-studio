@@ -39,6 +39,12 @@ export function useBlogPosts() {
         .eq("status", "published")
         .order("published_at", { ascending: false });
 
+      if (dbPosts && dbPosts.length > 0) {
+        console.log("[useBlogPosts] DIAGNOSTIC - First 5 DB posts (slug/status/published_at):",
+          dbPosts.slice(0, 5).map(p => ({ slug: p.slug, status: p.status, published_at: p.published_at }))
+        );
+      }
+
       if (dbError) {
         console.error("[useBlogPosts] Supabase fetch error:", dbError);
         setError(dbError.message);
@@ -111,6 +117,7 @@ export function useBlogPost(rawSlug: string) {
 
   const fetchPost = useCallback(async () => {
     const cleanSlug = rawSlug.toLowerCase().trim();
+    console.log(`[useBlogPost] DIAGNOSTIC: Starting fetch for cleanSlug: "${cleanSlug}"`);
     setIsLoading(true);
     setError(null);
 
@@ -122,6 +129,8 @@ export function useBlogPost(rawSlug: string) {
         .select("*")
         .eq("slug", cleanSlug)
         .maybeSingle();
+
+      console.log(`[useBlogPost] Stage 1 (Exact): ${exactMatch ? "MATCH FOUND" : "No match"}`);
 
       if (exactMatch) {
         const post = exactMatch as BlogPost;
@@ -144,6 +153,8 @@ export function useBlogPost(rawSlug: string) {
           .select("*")
           .eq("id", cleanSlug)
           .maybeSingle();
+
+        console.log(`[useBlogPost] Stage 2 (ID/UUID): ${idMatch ? "MATCH FOUND" : "No match"}`);
 
         if (idMatch) {
           const post = idMatch as BlogPost;
@@ -172,6 +183,8 @@ export function useBlogPost(rawSlug: string) {
           .eq("slug", fuzzySlug)
           .maybeSingle();
 
+        console.log(`[useBlogPost] Stage 3 (Fuzzy): ${fuzzyMatch ? "MATCH FOUND" : "No match"}`);
+
         if (fuzzyMatch) {
           const post = fuzzyMatch as BlogPost;
           setPost({
@@ -194,6 +207,8 @@ export function useBlogPost(rawSlug: string) {
         .ilike("slug", cleanSlug)
         .maybeSingle();
 
+      console.log(`[useBlogPost] Stage 4 (Case-Insensitive): ${caseInsensitiveMatch ? "MATCH FOUND" : "No match"}`);
+
       if (caseInsensitiveMatch) {
         const post = caseInsensitiveMatch as BlogPost;
         setPost({
@@ -214,6 +229,8 @@ export function useBlogPost(rawSlug: string) {
         p.slug.toLowerCase() === fuzzySlug
       );
 
+      console.log(`[useBlogPost] Stage 5 (Static): ${staticMatch ? "MATCH FOUND" : "No match"}`);
+
       if (staticMatch) {
         const post = staticMatch as BlogPost;
         setPost({
@@ -225,6 +242,13 @@ export function useBlogPost(rawSlug: string) {
         setIsLoading(false);
         return;
       }
+
+      console.log(`[useBlogPost] No DB match found. Fetching sample slugs for diagnostic comparison...`);
+      const { data: sampleSlugs } = await supabase
+        .from("blog_posts")
+        .select("slug")
+        .limit(5);
+      console.log(`[useBlogPost] DIAGNOSTIC - Sample DB Slugs:`, sampleSlugs?.map(p => p.slug));
 
       setPost(null);
     } catch (err) {
