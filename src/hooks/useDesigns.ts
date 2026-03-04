@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 export interface Design {
   id: string;
-  slug: string;
+  slug?: string;
   name: string;
   description: string | null;
   image_url: string;
@@ -37,7 +37,7 @@ export function useDesigns(category?: string) {
         throw error;
       }
 
-      return data as Design[];
+      return data as unknown as Design[];
     },
   });
 }
@@ -51,9 +51,9 @@ export function useDesign(identifier: string) {
       let query = supabase.from("designs").select("*");
 
       if (isUUID) {
-        query = query.or(`id.eq.${identifier},slug.eq.${identifier}`);
+        query = query.eq("id", identifier);
       } else {
-        query = query.eq("slug", identifier);
+        query = query.eq("id", identifier);
       }
 
       const { data, error } = await query.maybeSingle();
@@ -62,7 +62,7 @@ export function useDesign(identifier: string) {
         throw error;
       }
 
-      return data as Design | null;
+      return data as unknown as Design | null;
     },
     enabled: !!identifier,
   });
@@ -83,7 +83,7 @@ export function useFeaturedDesigns() {
         throw error;
       }
 
-      return data as Design[];
+      return data as unknown as Design[];
     },
   });
 }

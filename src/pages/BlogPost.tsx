@@ -33,8 +33,9 @@ const BlogPost = () => {
   usePageTracking(post?.id);
 
   // Canonical Redirect logic
+  // Canonical redirect - only if slugs differ after normalization (prevents infinite loops)
   useEffect(() => {
-    if (post && post.slug && slug && post.slug !== slug) {
+    if (post && post.slug && slug && post.slug.toLowerCase() !== slug.toLowerCase()) {
       console.log(`[BlogPost] Redirecting to canonical slug: /blog/${post.slug}`);
       navigate(`/blog/${post.slug}`, { replace: true });
     }
