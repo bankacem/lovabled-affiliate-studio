@@ -29,10 +29,6 @@ const BlogPost = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(slug || "");
 
-  // RCA Logs
-  console.log('Current Slug:', slug);
-  console.log('Found Article:', post);
-
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
   const { trackLinkClick } = useLinkTracking();
   
@@ -44,7 +40,6 @@ const BlogPost = () => {
   /*
   useEffect(() => {
     if (post && post.slug && slug && post.slug.toLowerCase() !== slug.toLowerCase()) {
-      console.log(`[BlogPost] Redirecting to canonical slug: /blog/${post.slug}`);
       navigate(`/blog/${post.slug}`, { replace: true });
     }
   }, [post, slug, navigate]);
