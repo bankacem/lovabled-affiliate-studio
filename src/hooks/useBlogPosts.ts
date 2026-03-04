@@ -17,7 +17,7 @@ export interface BlogPost {
   read_time: string | null;
   meta_title: string | null;
   meta_description: string | null;
-  canonical_url: string | null;
+  canonical_url?: string | null;
   published_at: string | null;
   created_at: string;
   updated_at: string;
@@ -65,7 +65,7 @@ export function useBlogPosts() {
         // Fallback logic for SEO metadata
         const meta_title = post.meta_title || `${post.title} | AIPrintVerse`;
         const meta_description = post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : "");
-        const canonical_url = post.canonical_url || `/blog/${post.slug}`;
+        const canonical_url = (post as any).canonical_url || `/blog/${post.slug}`;
 
         return {
           ...post,
@@ -102,7 +102,7 @@ export function useBlogPosts() {
 
   // Run SEO Health Check when posts are loaded (only in development)
   useEffect(() => {
-    if (!isLoading && posts.length > 0 && process.env.NODE_ENV === "development") {
+    if (!isLoading && posts.length > 0 && import.meta.env.DEV) {
       runSEOHealthCheck(posts);
     }
   }, [posts, isLoading]);
@@ -158,7 +158,7 @@ export function useBlogPost(rawSlug: string) {
       console.log(`[useBlogPost] Stage 1 (Exact): ${exactMatch ? "MATCH FOUND" : "No match"}`);
 
       if (exactMatch) {
-        const post = exactMatch as BlogPost;
+        const post = exactMatch as unknown as BlogPost;
         setPost({
           ...post,
           meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
@@ -182,7 +182,7 @@ export function useBlogPost(rawSlug: string) {
         console.log(`[useBlogPost] Stage 2 (ID/UUID): ${idMatch ? "MATCH FOUND" : "No match"}`);
 
         if (idMatch) {
-          const post = idMatch as BlogPost;
+          const post = idMatch as unknown as BlogPost;
           setPost({
             ...post,
             meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
@@ -207,7 +207,7 @@ export function useBlogPost(rawSlug: string) {
         console.log(`[useBlogPost] Stage 3 (Fuzzy): ${fuzzyMatch ? "MATCH FOUND" : "No match"}`);
 
         if (fuzzyMatch) {
-          const post = fuzzyMatch as BlogPost;
+          const post = fuzzyMatch as unknown as BlogPost;
           setPost({
             ...post,
             meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
@@ -232,7 +232,7 @@ export function useBlogPost(rawSlug: string) {
       console.log(`[useBlogPost] Stage 4 (Partial/ilike): ${foundPartialMatch ? "MATCH FOUND" : "No match"}`);
 
       if (foundPartialMatch) {
-        const post = foundPartialMatch as BlogPost;
+        const post = foundPartialMatch as unknown as BlogPost;
         setPost({
           ...post,
           meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
@@ -271,7 +271,7 @@ export function useBlogPost(rawSlug: string) {
             .maybeSingle();
 
           if (fullPost) {
-            const post = fullPost as BlogPost;
+            const post = fullPost as unknown as BlogPost;
             setPost({
               ...post,
               meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
