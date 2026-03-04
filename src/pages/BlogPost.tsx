@@ -15,19 +15,16 @@ import { stripMicrodata } from "@/lib/seoUtils";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
-// Loading fallback component
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center min-h-[200px]">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-  </div>
-);
-
 const BlogPost = () => {
   const { slug } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(slug || "");
+
+  // RCA Logs
+  console.log('Current Slug:', slug);
+  console.log('Found Article:', post);
 
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
   const { trackLinkClick } = useLinkTracking();
@@ -36,14 +33,12 @@ const BlogPost = () => {
   usePageTracking(post?.id);
 
   // Canonical Redirect logic
-  // Canonical redirect - only if slugs differ after normalization (prevents infinite loops)
-  /*
   useEffect(() => {
-    if (post && post.slug && slug && post.slug.toLowerCase() !== slug.toLowerCase()) {
+    if (post && post.slug && slug && post.slug !== slug) {
+      console.log(`[BlogPost] Redirecting to canonical slug: /blog/${post.slug}`);
       navigate(`/blog/${post.slug}`, { replace: true });
     }
   }, [post, slug, navigate]);
-  */
 
   // Extract FAQ data for schema
   const extractFAQSchema = (content: string) => {
@@ -142,9 +137,6 @@ const BlogPost = () => {
     return stripMicrodata(linked);
   }, [post?.content, post?.id, applyAutoLinks, autoLinksLoading]);
 
-  // Safety check for content to prevent crashes during split/replace
-  const content = processedContent || '';
-
   // Handle anchor links and track clicks
   useEffect(() => {
     if (!post || !contentRef.current) return;
@@ -232,8 +224,6 @@ const BlogPost = () => {
 
   return (
     <Layout>
-      {post ? (
-        <>
       <SEO
         title={post.meta_title || post.title}
         description={post.meta_description || post.excerpt || ""}
@@ -347,10 +337,10 @@ const BlogPost = () => {
               transition={{ delay: 0.2 }}
               className="mt-10"
             >
-              {post && (() => {
+              {(() => {
                 // Split content by <h2> tags to inject components
                 // We use a simple split/regex approach for injection
-                const sections = content.split(/(?=<h2)/gi);
+                const sections = processedContent.split(/(?=<h2)/gi);
 
                 return sections.map((section, index) => (
                   <div key={index}>
@@ -392,10 +382,6 @@ const BlogPost = () => {
           </div>
         </div>
       </article>
-      </>
-      ) : (
-        <LoadingSpinner />
-      )}
     </Layout>
   );
 };
