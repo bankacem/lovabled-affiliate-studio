@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { blogPosts } from "@/data/blogPosts";
 
 interface AutoLinkKeyword {
   id: string;
@@ -23,6 +24,7 @@ export function useAutoLinking() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchKeywords = useCallback(async () => {
+    setIsLoading(true);
     const { data } = await supabase
       .from("auto_link_keywords")
       .select(`
@@ -36,20 +38,17 @@ export function useAutoLinking() {
       .order("priority", { ascending: false });
 
     if (data) {
-      // Fetch target post details
-      const postIds = [...new Set(data.map(k => k.target_post_id))];
-      const { data: posts } = await supabase
-        .from("blog_posts")
-        .select("id, title, slug")
-        .in("id", postIds);
-
-      const postsMap = new Map(posts?.map(p => [p.id, p]) || []);
+      // Create a map from local blog data for faster lookup
+      const postsMap = new Map(blogPosts.map(p => [p.id, p]));
       
-      const enrichedKeywords = data.map(k => ({
-        ...k,
-        target_slug: postsMap.get(k.target_post_id)?.slug,
-        target_title: postsMap.get(k.target_post_id)?.title,
-      }));
+      const enrichedKeywords = data.map(k => {
+        const post = postsMap.get(k.target_post_id);
+        return {
+          ...k,
+          target_slug: post?.slug,
+          target_title: post?.title,
+        };
+      });
 
       setKeywords(enrichedKeywords);
     }

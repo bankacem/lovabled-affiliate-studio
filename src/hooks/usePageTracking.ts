@@ -27,19 +27,7 @@ export function usePageTracking(postId?: string) {
           post_id: postId || null,
         });
 
-        // Update view count on blog post if applicable
-        if (postId) {
-          const { data: post } = await supabase
-            .from("blog_posts")
-            .select("view_count")
-            .eq("id", postId)
-            .single();
-          
-          await supabase
-            .from("blog_posts")
-            .update({ view_count: (post?.view_count || 0) + 1 })
-            .eq("id", postId);
-        }
+        // Update view count on blog post logic removed as data is now local
       } catch (error) {
         console.error("Failed to track page view:", error);
       }

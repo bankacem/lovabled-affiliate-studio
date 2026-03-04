@@ -1,5 +1,5 @@
- import { useState, useEffect, useCallback, useMemo } from "react";
- import { supabase } from "@/integrations/supabase/client";
+import { useState, useEffect, useCallback, useMemo } from "react";
+ import { blogPosts } from "@/data/blogPosts";
  
  interface SmartLinkPost {
    id: string;
@@ -8,9 +8,9 @@
    category: string;
    tags: string[];
    indexing_status: "indexed" | "pending";
-   excerpt?: string;
-   featured_image?: string;
-   published_at?: string;
+   excerpt?: string | null;
+   featured_image?: string | null;
+   published_at?: string | null;
  }
  
  interface SmartLinkSuggestion {
@@ -23,22 +23,19 @@
    const [allPosts, setAllPosts] = useState<SmartLinkPost[]>([]);
    const [isLoading, setIsLoading] = useState(true);
  
-   // Fetch all published posts with indexing status
+   // Fetch all published posts from local data
    const fetchPosts = useCallback(async () => {
      setIsLoading(true);
-     const { data, error } = await supabase
-       .from("blog_posts")
-       .select("id, title, slug, category, tags, indexing_status, excerpt, featured_image, published_at")
-       .eq("status", "published")
-       .order("published_at", { ascending: false });
- 
-     if (data && !error) {
-       setAllPosts(data.map(post => ({
+
+     const posts = blogPosts
+       .filter(post => post.status === "published")
+       .map(post => ({
          ...post,
          tags: post.tags || [],
-         indexing_status: (post.indexing_status as "indexed" | "pending") || "pending",
-       })));
-     }
+         indexing_status: "indexed" as const, // Default to indexed for local data
+       }));
+
+     setAllPosts(posts as SmartLinkPost[]);
      setIsLoading(false);
    }, []);
  
@@ -161,39 +158,23 @@
      ).filter(s => s.post.indexing_status === "pending");
    }, [getSuggestions, isCurrentPageIndexed]);
  
-   // Update indexing status
+   // Update indexing status (Disabled as we are now using local data)
    const updateIndexingStatus = useCallback(async (
      postId: string,
      status: "indexed" | "pending"
    ): Promise<boolean> => {
-     const { error } = await supabase
-       .from("blog_posts")
-       .update({ indexing_status: status })
-       .eq("id", postId);
+     console.log("[useSmartLinking] updateIndexingStatus disabled for local data.");
+     return true;
+   }, []);
  
-     if (!error) {
-       await fetchPosts();
-       return true;
-     }
-     return false;
-   }, [fetchPosts]);
- 
-   // Bulk update indexing status
+   // Bulk update indexing status (Disabled as we are now using local data)
    const bulkUpdateIndexingStatus = useCallback(async (
      postIds: string[],
      status: "indexed" | "pending"
    ): Promise<boolean> => {
-     const { error } = await supabase
-       .from("blog_posts")
-       .update({ indexing_status: status })
-       .in("id", postIds);
- 
-     if (!error) {
-       await fetchPosts();
-       return true;
-     }
-     return false;
-   }, [fetchPosts]);
+     console.log("[useSmartLinking] bulkUpdateIndexingStatus disabled for local data.");
+     return true;
+   }, []);
  
    return {
      allPosts,

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { blogPosts } from "@/data/blogPosts";
 
 interface SitemapEntry {
   id: string;
@@ -14,20 +15,22 @@ export function useSitemapData() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data: postsData } = await supabase
-        .from("blog_posts")
-        .select("slug, updated_at")
-        .eq("status", "published")
-        .order("updated_at", { ascending: false });
+      // Get blog posts from local data
+      const localPosts = blogPosts
+        .filter(p => p.status === "published")
+        .map(p => ({
+          id: p.slug,
+          slug: p.slug,
+          updated_at: p.updated_at
+        }));
+      setPosts(localPosts);
 
+      // Get designs from Supabase (still database-backed)
       const { data: designsData } = await supabase
         .from("designs")
         .select("slug, updated_at")
         .order("updated_at", { ascending: false });
 
-      if (postsData) {
-        setPosts(postsData.map(p => ({ id: p.slug, slug: p.slug, updated_at: p.updated_at })));
-      }
       if (designsData) {
         setDesigns(designsData.map(d => ({ id: d.slug, slug: d.slug, updated_at: d.updated_at })));
       }

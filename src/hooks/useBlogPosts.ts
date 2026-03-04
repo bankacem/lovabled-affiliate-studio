@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { blogPosts } from "@/data/blogPosts";
+import { blogPosts, blogCategories } from "@/data/blogPosts";
 import { runSEOHealthCheck } from "@/lib/seoUtils";
 
 export interface BlogPost {
@@ -23,6 +22,19 @@ export interface BlogPost {
   updated_at: string;
 }
 
+const applySEOFallbacks = (post: any): BlogPost => {
+  const meta_title = post.meta_title || `${post.title} | AIPrintVerse`;
+  const meta_description = post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : "");
+  const canonical_url = post.canonical_url || `/blog/${post.slug}`;
+
+  return {
+    ...post,
+    meta_title,
+    meta_description,
+    canonical_url
+  };
+};
+
 export function useBlogPosts() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,66 +42,20 @@ export function useBlogPosts() {
 
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
-    console.log("[useBlogPosts] Fetching all published posts...");
-
     try {
-      const { data: dbPosts, error: dbError } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .eq("status", "published")
-        .order("published_at", { ascending: false });
-
-      if (dbPosts && dbPosts.length > 0) {
-        console.log("[useBlogPosts] DIAGNOSTIC - First 5 DB posts (slug/status/published_at):",
-          dbPosts.slice(0, 5).map(p => ({ slug: p.slug, status: p.status, published_at: p.published_at }))
-        );
-      }
-
-      if (dbError) {
-        console.error("[useBlogPosts] Supabase fetch error:", dbError);
-        setError(dbError.message);
-      }
-
-      // Merge with static data to bypass date filtering and ensure 2026 articles are visible
-      const dbPostsList = dbPosts || [];
-
-      // Use normalized slugs (lowercase + hyphens) for more robust deduplication
-      const normalizeSlug = (s: string) => s.toLowerCase().replace(/_/g, '-');
-      const dbNormalizedSlugs = new Set(dbPostsList.map(p => normalizeSlug(p.slug)));
-
-      const missingStaticPosts = blogPosts.filter(p => !dbNormalizedSlugs.has(normalizeSlug(p.slug)));
-
-      console.log(`[useBlogPosts] DB posts: ${dbPostsList.length}, Missing static posts: ${missingStaticPosts.length}`);
-
-      const allPosts = [...dbPostsList, ...missingStaticPosts].map(post => {
-        // Fallback logic for SEO metadata
-        const meta_title = post.meta_title || `${post.title} | AIPrintVerse`;
-        const meta_description = post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : "");
-        const canonical_url = post.canonical_url || `/blog/${post.slug}`;
-
-        return {
-          ...post,
-          meta_title,
-          meta_description,
-          canonical_url
-        };
-      }).sort((a, b) => {
-        const dateA = new Date(a.published_at || a.created_at).getTime();
-        const dateB = new Date(b.published_at || b.created_at).getTime();
-        return dateB - dateA; // Newest first
-      });
+      // Filter for published posts and apply SEO fallbacks
+      const allPosts = blogPosts
+        .filter(post => post.status === "published")
+        .map(applySEOFallbacks)
+        .sort((a, b) => {
+          const dateA = new Date(a.published_at || a.created_at).getTime();
+          const dateB = new Date(b.published_at || b.created_at).getTime();
+          return dateB - dateA; // Newest first
+        });
 
       setPosts(allPosts as BlogPost[]);
     } catch (err) {
-      console.error("[useBlogPosts] Unexpected error:", err);
-      // Fallback to just static data on major error
-      const fallbackPosts = blogPosts.map(post => ({
-        ...post,
-        meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-        meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-        canonical_url: post.canonical_url || `/blog/${post.slug}`
-      }));
-      setPosts(fallbackPosts as BlogPost[]);
+      console.error("[useBlogPosts] Error processing posts:", err);
       setError(err instanceof Error ? err.message : "An unexpected error occurred");
     } finally {
       setIsLoading(false);
@@ -116,163 +82,34 @@ export function useBlogPost(rawSlug: string) {
   const [error, setError] = useState<string | null>(null);
 
   const fetchPost = useCallback(async () => {
+    if (!rawSlug) return;
+
     const cleanSlug = rawSlug.toLowerCase().trim();
-    console.log(`[useBlogPost] DIAGNOSTIC: Starting fetch for cleanSlug: "${cleanSlug}"`);
     setIsLoading(true);
     setError(null);
 
     try {
-      // Stage 1: Exact slug match
-      console.log(`[useBlogPost] Attempting exact slug match for: ${cleanSlug}`);
-      const { data: exactMatch } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .eq("slug", cleanSlug)
-        .maybeSingle();
-
-      console.log(`[useBlogPost] Stage 1 (Exact): ${exactMatch ? "MATCH FOUND" : "No match"}`);
-
-      if (exactMatch) {
-        const post = exactMatch as BlogPost;
-        setPost({
-          ...post,
-          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-          canonical_url: post.canonical_url || `/blog/${post.slug}`
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Stage 2: ID match (if it looks like a UUID)
-      const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(cleanSlug);
-      if (isUUID) {
-        console.log(`[useBlogPost] Slug looks like UUID, attempting ID match: ${cleanSlug}`);
-        const { data: idMatch } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .eq("id", cleanSlug)
-          .maybeSingle();
-
-        console.log(`[useBlogPost] Stage 2 (ID/UUID): ${idMatch ? "MATCH FOUND" : "No match"}`);
-
-        if (idMatch) {
-          const post = idMatch as BlogPost;
-          setPost({
-            ...post,
-            meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-            meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-            canonical_url: post.canonical_url || `/blog/${post.slug}`
-          });
-          setIsLoading(false);
-          return;
-        }
-      }
-
-      // Stage 3: Fuzzy slug match (hyphens vs underscores)
-      // This handles legacy data where slugs might have used underscores instead of hyphens
-      const fuzzySlug = cleanSlug.includes("-")
-        ? cleanSlug.replace(/-/g, "_")
-        : cleanSlug.replace(/_/g, "-");
-
-      if (fuzzySlug !== cleanSlug) {
-        console.log(`[useBlogPost] Attempting fuzzy slug match: ${fuzzySlug}`);
-        const { data: fuzzyMatch } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .eq("slug", fuzzySlug)
-          .maybeSingle();
-
-        console.log(`[useBlogPost] Stage 3 (Fuzzy): ${fuzzyMatch ? "MATCH FOUND" : "No match"}`);
-
-        if (fuzzyMatch) {
-          const post = fuzzyMatch as BlogPost;
-          setPost({
-            ...post,
-            meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-            meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-            canonical_url: post.canonical_url || `/blog/${post.slug}`
-          });
-          setIsLoading(false);
-          return;
-        }
-      }
-
-      // Stage 4: Case-insensitive fallback (using ilike)
-      // Only run this if the previous exact/fuzzy matches failed
-      console.log(`[useBlogPost] Attempting case-insensitive match for: ${cleanSlug}`);
-      const { data: caseInsensitiveMatch } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .ilike("slug", cleanSlug)
-        .maybeSingle();
-
-      console.log(`[useBlogPost] Stage 4 (Case-Insensitive): ${caseInsensitiveMatch ? "MATCH FOUND" : "No match"}`);
-
-      if (caseInsensitiveMatch) {
-        const post = caseInsensitiveMatch as BlogPost;
-        setPost({
-          ...post,
-          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-          canonical_url: post.canonical_url || `/blog/${post.slug}`
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Stage 5: Static Fallback
-      console.log(`[useBlogPost] No DB match found. Checking static fallback for: ${cleanSlug}`);
-      const staticMatch = blogPosts.find(p =>
+      // Search in local data with case-insensitive match
+      const matchedPost = blogPosts.find(p =>
         p.slug.toLowerCase() === cleanSlug ||
-        p.id === cleanSlug ||
-        p.slug.toLowerCase() === fuzzySlug
+        p.id === cleanSlug
       );
 
-      console.log(`[useBlogPost] Stage 5 (Static): ${staticMatch ? "MATCH FOUND" : "No match"}`);
-
-      if (staticMatch) {
-        const post = staticMatch as BlogPost;
-        setPost({
-          ...post,
-          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-          canonical_url: post.canonical_url || `/blog/${post.slug}`
-        });
-        setIsLoading(false);
-        return;
+      if (matchedPost) {
+        setPost(applySEOFallbacks(matchedPost));
+      } else {
+        setPost(null);
+        setError("Post not found");
       }
-
-      console.log(`[useBlogPost] No DB match found. Fetching sample slugs for diagnostic comparison...`);
-      const { data: sampleSlugs } = await supabase
-        .from("blog_posts")
-        .select("slug")
-        .limit(5);
-      console.log(`[useBlogPost] DIAGNOSTIC - Sample DB Slugs:`, sampleSlugs?.map(p => p.slug));
-
-      setPost(null);
     } catch (err) {
-      console.error("[useBlogPost] Unexpected error fetching post:", err);
-      const errorMessage = err instanceof Error ? err.message : "Post not found";
-      // Final desperation fallback to static data
-      const staticMatch = blogPosts.find(p => p.slug.toLowerCase() === cleanSlug);
-      if (staticMatch) {
-        const post = staticMatch as BlogPost;
-        setPost({
-          ...post,
-          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-          canonical_url: post.canonical_url || `/blog/${post.slug}`
-        });
-      }
-      else setError(errorMessage);
+      console.error("[useBlogPost] Error fetching post:", err);
+      setError(err instanceof Error ? err.message : "Post not found");
     } finally {
       setIsLoading(false);
     }
   }, [rawSlug]);
 
   useEffect(() => {
-    if (!rawSlug) return;
     fetchPost();
   }, [rawSlug, fetchPost]);
 
@@ -284,20 +121,9 @@ export function useBlogCategories() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchCategories = async () => {
-    const { data } = await supabase
-      .from("blog_categories")
-      .select("name")
-      .order("name");
-
-    if (data) {
-      setCategories(["All", ...data.map(c => c.name)]);
-    }
+    setCategories(blogCategories);
     setIsLoading(false);
-  };
+  }, []);
 
   return { categories, isLoading };
 }
