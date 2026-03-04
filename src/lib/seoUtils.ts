@@ -195,7 +195,6 @@ export function stripMicrodata(html: string): string {
 export function runSEOHealthCheck(posts: any[]): void {
   if (!posts || posts.length === 0) return;
 
-  console.group("🚀 SEO Health Check");
   let issuesFound = 0;
 
   posts.forEach(post => {
@@ -212,11 +211,4 @@ export function runSEOHealthCheck(posts: any[]): void {
       issuesFound++;
     }
   });
-
-  if (issuesFound === 0) {
-    console.log("✅ No critical SEO health issues found in current posts.");
-  } else {
-    console.log(`ℹ️ SEO Health Check complete. Found ${issuesFound} potential issues.`);
-  }
-  console.groupEnd();
 }

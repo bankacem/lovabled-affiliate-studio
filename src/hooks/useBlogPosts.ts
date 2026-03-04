@@ -30,7 +30,6 @@ export function useBlogPosts() {
 
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
-    console.log("[useBlogPosts] Fetching all published posts...");
 
     try {
       const { data: dbPosts, error: dbError } = await supabase
@@ -38,12 +37,6 @@ export function useBlogPosts() {
         .select("*")
         .eq("status", "published")
         .order("published_at", { ascending: false });
-
-      if (dbPosts && dbPosts.length > 0) {
-        console.log("[useBlogPosts] DIAGNOSTIC - First 5 DB posts (slug/status/published_at):",
-          dbPosts.slice(0, 5).map(p => ({ slug: p.slug, status: p.status, published_at: p.published_at }))
-        );
-      }
 
       if (dbError) {
         console.error("[useBlogPosts] Supabase fetch error:", dbError);
@@ -58,8 +51,6 @@ export function useBlogPosts() {
       const dbNormalizedSlugs = new Set(dbPostsList.map(p => normalizeSlug(p.slug)));
 
       const missingStaticPosts = blogPosts.filter(p => !dbNormalizedSlugs.has(normalizeSlug(p.slug)));
-
-      console.log(`[useBlogPosts] DB posts: ${dbPostsList.length}, Missing static posts: ${missingStaticPosts.length}`);
 
       const allPosts = [...dbPostsList, ...missingStaticPosts].map(post => {
         // Fallback logic for SEO metadata
@@ -121,7 +112,6 @@ export function useBlogPost(rawSlug: string) {
       ? cleanSlug.replace(/-/g, "_")
       : cleanSlug.replace(/_/g, "-");
 
-    console.log(`[useBlogPost] DIAGNOSTIC: Starting fetch for cleanSlug: "${cleanSlug}"`);
     setIsLoading(true);
     setError(null);
 
@@ -134,7 +124,6 @@ export function useBlogPost(rawSlug: string) {
     );
 
     if (staticMatch) {
-      console.log(`[useBlogPost] Stage 0 (Static): Instant match found for ${cleanSlug}`);
       const post = staticMatch as BlogPost;
       setPost({
         ...post,
@@ -148,14 +137,11 @@ export function useBlogPost(rawSlug: string) {
 
     try {
       // Stage 1: Exact slug match
-      console.log(`[useBlogPost] Attempting exact slug match for: ${cleanSlug}`);
       const { data: exactMatch } = await supabase
         .from("blog_posts")
         .select("*")
         .eq("slug", cleanSlug)
         .maybeSingle();
-
-      console.log(`[useBlogPost] Stage 1 (Exact): ${exactMatch ? "MATCH FOUND" : "No match"}`);
 
       if (exactMatch) {
         const post = exactMatch as unknown as BlogPost;
@@ -172,14 +158,11 @@ export function useBlogPost(rawSlug: string) {
       // Stage 2: ID match (if it looks like a UUID)
       const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(cleanSlug);
       if (isUUID) {
-        console.log(`[useBlogPost] Slug looks like UUID, attempting ID match: ${cleanSlug}`);
         const { data: idMatch } = await supabase
           .from("blog_posts")
           .select("*")
           .eq("id", cleanSlug)
           .maybeSingle();
-
-        console.log(`[useBlogPost] Stage 2 (ID/UUID): ${idMatch ? "MATCH FOUND" : "No match"}`);
 
         if (idMatch) {
           const post = idMatch as unknown as BlogPost;
@@ -197,14 +180,11 @@ export function useBlogPost(rawSlug: string) {
       // Stage 3: Fuzzy slug match (hyphens vs underscores)
       // This handles legacy data where slugs might have used underscores instead of hyphens
       if (fuzzySlug !== cleanSlug) {
-        console.log(`[useBlogPost] Attempting fuzzy slug match: ${fuzzySlug}`);
         const { data: fuzzyMatch } = await supabase
           .from("blog_posts")
           .select("*")
           .eq("slug", fuzzySlug)
           .maybeSingle();
-
-        console.log(`[useBlogPost] Stage 3 (Fuzzy): ${fuzzyMatch ? "MATCH FOUND" : "No match"}`);
 
         if (fuzzyMatch) {
           const post = fuzzyMatch as unknown as BlogPost;
@@ -221,7 +201,6 @@ export function useBlogPost(rawSlug: string) {
 
       // Stage 4: Case-insensitive & Partial match (using ilike with wildcards)
       // This helps find slugs that have extra SEO suffixes in the DB
-      console.log(`[useBlogPost] Attempting partial match for: %${cleanSlug}%`);
       const { data: partialMatch } = await supabase
         .from("blog_posts")
         .select("*")
@@ -229,7 +208,6 @@ export function useBlogPost(rawSlug: string) {
         .limit(1);
 
       const foundPartialMatch = partialMatch && partialMatch.length > 0 ? partialMatch[0] : null;
-      console.log(`[useBlogPost] Stage 4 (Partial/ilike): ${foundPartialMatch ? "MATCH FOUND" : "No match"}`);
 
       if (foundPartialMatch) {
         const post = foundPartialMatch as unknown as BlogPost;
@@ -244,7 +222,6 @@ export function useBlogPost(rawSlug: string) {
       }
 
       // Stage 5: Suffix-agnostic comparison
-      console.log(`[useBlogPost] Attempting suffix-agnostic comparison for: ${cleanSlug}`);
       const { data: slugList } = await supabase
         .from("blog_posts")
         .select("id, slug")
@@ -263,7 +240,6 @@ export function useBlogPost(rawSlug: string) {
         const match = slugList.find(item => normalize(item.slug) === target);
 
         if (match) {
-          console.log(`[useBlogPost] Stage 5 (Normalization): MATCH FOUND: ${match.slug}`);
           const { data: fullPost } = await supabase
             .from("blog_posts")
             .select("*")
@@ -285,8 +261,6 @@ export function useBlogPost(rawSlug: string) {
       }
 
       // Stage 6: Static Fallback
-      console.log(`[useBlogPost] No DB match found. Checking static fallback for: ${cleanSlug}`);
-
       // If we found a static match in Stage 0, we already set the post.
       // We check again here in case we missed it or need a final confirmation.
       const fallbackMatch = staticMatch || blogPosts.find(p =>
@@ -294,8 +268,6 @@ export function useBlogPost(rawSlug: string) {
         p.id === cleanSlug ||
         p.slug.toLowerCase() === fuzzySlug
       );
-
-      console.log(`[useBlogPost] Stage 6 (Static): ${fallbackMatch ? "MATCH FOUND" : "No match"}`);
 
       if (fallbackMatch) {
         const post = fallbackMatch as BlogPost;
@@ -308,13 +280,6 @@ export function useBlogPost(rawSlug: string) {
         setIsLoading(false);
         return;
       }
-
-      console.log(`[useBlogPost] No DB match found. Fetching sample slugs for diagnostic comparison...`);
-      const { data: sampleSlugs } = await supabase
-        .from("blog_posts")
-        .select("slug")
-        .limit(5);
-      console.log(`[useBlogPost] DIAGNOSTIC - Sample DB Slugs:`, sampleSlugs?.map(p => p.slug));
 
       setPost(null);
     } catch (err) {
