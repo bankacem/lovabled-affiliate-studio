@@ -208,13 +208,21 @@ const BlogPost = () => {
     );
   }
 
-  if (!isLoading && !post) {
+  if (error || !post) {
     return (
       <Layout>
-        <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="text-2xl font-bold">Article Not Found</h1>
-          <Button asChild className="mt-4">
-            <Link to="/blog">Back to Blog</Link>
+        <div className="container mx-auto px-4 py-20 text-center md:px-6">
+          <h1 className="font-display text-2xl font-bold text-foreground">
+            Article Not Found
+          </h1>
+          <p className="mt-2 text-muted-foreground">
+            The article you're looking for doesn't exist or has been removed.
+          </p>
+          <Button asChild variant="outline" className="mt-4">
+            <Link to="/blog">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Blog
+            </Link>
           </Button>
         </div>
       </Layout>

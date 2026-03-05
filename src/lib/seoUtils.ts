@@ -184,39 +184,3 @@ export function stripMicrodata(html: string): string {
       .replace(/\sitemscope(?=[\s>])/gi, '');
   });
 }
-
-/**
- * SEO Health Check Utility
- * Scans a list of blog posts for potential SEO issues:
- * - Slugs longer than 75 characters
- * - Missing featured images
- * @param posts Array of blog posts to check
- */
-export function runSEOHealthCheck(posts: any[]): void {
-  if (!posts || posts.length === 0) return;
-
-  console.group("🚀 SEO Health Check");
-  let issuesFound = 0;
-
-  posts.forEach(post => {
-    const slug = post.slug || "";
-    const hasImage = !!post.featured_image;
-
-    if (slug.length > 75) {
-      console.warn(`⚠️ [SEO Health Check] Long Slug found: "${slug}" (${slug.length} chars). Target < 75 chars.`);
-      issuesFound++;
-    }
-
-    if (!hasImage) {
-      console.warn(`⚠️ [SEO Health Check] Missing Featured Image: "${post.title}" (slug: ${slug})`);
-      issuesFound++;
-    }
-  });
-
-  if (issuesFound === 0) {
-    console.log("✅ No critical SEO health issues found in current posts.");
-  } else {
-    console.log(`ℹ️ SEO Health Check complete. Found ${issuesFound} potential issues.`);
-  }
-  console.groupEnd();
-}
