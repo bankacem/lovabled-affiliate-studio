@@ -12,6 +12,7 @@ export interface BlogPost {
   read_time: string | null;
   meta_title: string | null;
   meta_description: string | null;
+  canonical_url: string | null;
   published_at: string | null;
   created_at: string;
   updated_at: string;
@@ -42,6 +43,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "5 min read",
     meta_title: "Top 10 Geometric Animal Designs for 2025 | AIPrintVerse",
     meta_description: "Discover the hottest geometric animal designs that are taking the print-on-demand world by storm this year.",
+    canonical_url: null,
     published_at: "2025-01-15T12:00:00Z",
     created_at: "2025-01-15T12:00:00Z",
     updated_at: "2025-01-15T12:00:00Z"
@@ -55,6 +57,16 @@ export const blogPosts: BlogPost[] = [
 <p>Vintage t-shirts have made a massive comeback in recent years. Whether you're into 80s nostalgia or classic rock aesthetics, knowing how to style these pieces can elevate your entire wardrobe. To keep your collection in top shape, read our <a href="/blog/the-definitive-guide-to-washing-vintage-t-shirts">Vintage Washing Guide</a>.</p>
 
 <p>Let's dive into the different ways you can incorporate vintage tees into your daily outfits, from casual weekend looks to smart-casual office attire.</p>
+
+<h2>How to tell if a shirt is vintage</h2>
+<p>Authenticating vintage apparel is an art form. Use this 5-point checklist to ensure your finds are the real deal:</p>
+<ul>
+  <li><strong>The Stitching:</strong> Look for single-stitch hems on the sleeves and bottom. Most shirts transitioned to double-stitching in the mid-to-late 90s.</li>
+  <li><strong>The Tag:</strong> Check for iconic brands like Screen Stars, Hanes (especially the "beefy" line), or Fruit of the Loom. Paper tags are often a sign of older 70s/80s stock.</li>
+  <li><strong>The Fabric:</strong> Vintage shirts often feel thinner and softer. Look for 50/50 polyester-cotton blends which were common in the 80s.</li>
+  <li><strong>The Print:</strong> Authentic vintage prints often show "crackling" or fading that looks integrated into the fabric, rather than sitting on top.</li>
+  <li><strong>The Fit:</strong> Older shirts tend to be shorter and wider than modern "slim-fit" equivalents.</li>
+</ul>
 
 <h2>Mixing Textures and Eras</h2>
 <p>One of the secrets to great styling is contrast. Pairing a rugged vintage tee with a sleek blazer or high-end denim creates a balanced look that feels intentional. For more on specific holiday styles, see our <a href="/blog/retro-easter-bunny-fashion-trends">Retro Easter Bunny Trends</a> guide.</p>
@@ -70,6 +82,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "7 min read",
     meta_title: "How to Style Vintage T-Shirts: A Complete Guide | AIPrintVerse",
     meta_description: "Learn the art of styling vintage and retro t-shirts for any occasion with our comprehensive style guide.",
+    canonical_url: null,
     published_at: "2025-01-10T10:00:00Z",
     created_at: "2025-01-10T10:00:00Z",
     updated_at: "2025-01-10T10:00:00Z"
@@ -98,6 +111,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "4 min read",
     meta_title: "The Rise of Space-Themed Merchandise | AIPrintVerse",
     meta_description: "Space exploration has captured our imagination, and it's reflected in the merchandise we love. Here's why.",
+    canonical_url: null,
     published_at: "2025-01-05T09:00:00Z",
     created_at: "2025-01-05T09:00:00Z",
     updated_at: "2025-01-05T09:00:00Z"
@@ -126,6 +140,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "6 min read",
     meta_title: "Best Coffee Mugs for Your Home Office | AIPrintVerse",
     meta_description: "Working from home? Here are the most stylish and functional coffee mugs to brighten your workspace.",
+    canonical_url: null,
     published_at: "2024-12-28T14:00:00Z",
     created_at: "2024-12-28T14:00:00Z",
     updated_at: "2024-12-28T14:00:00Z"
@@ -158,6 +173,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "6 min read",
     meta_title: "German Shepherd Vintage Style Guide | AIPrintVerse",
     meta_description: "Master the vintage pet apparel trend with our deep dive into German Shepherd designs for 2026.",
+    canonical_url: null,
     published_at: "2026-02-25T10:00:00Z",
     created_at: "2026-02-25T10:00:00Z",
     updated_at: "2026-02-25T10:00:00Z"
@@ -183,7 +199,8 @@ export const blogPosts: BlogPost[] = [
     status: "published",
     read_time: "8 min read",
     meta_title: "The Ultimate V-Neck Shirts Style Guide | AIPrintVerse",
-    meta_description: "Master the art of wearing V-neck shirts. Our comprehensive guide covers fit, fabric, and 2026 trends.",
+    meta_description: "Discover the best vnecks for women in 2026. Our ultimate guide covers style, fit, and fashion tips to keep your V-neck look trending.",
+    canonical_url: null,
     published_at: "2026-02-28T09:00:00Z",
     created_at: "2026-02-28T09:00:00Z",
     updated_at: "2026-02-28T09:00:00Z"
@@ -216,6 +233,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "5 min read",
     meta_title: "Retro Easter Bunny Fashion Trends 2026 | AIPrintVerse",
     meta_description: "Celebrate Easter 2026 in style with the latest 'Pastel Y2K' bunny designs and retro aesthetics.",
+    canonical_url: null,
     published_at: "2026-03-01T12:00:00Z",
     created_at: "2026-03-01T12:00:00Z",
     updated_at: "2026-03-01T12:00:00Z"
@@ -244,6 +262,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "4 min read",
     meta_title: "The Definitive Guide to Washing Vintage T-Shirts | AIPrintVerse",
     meta_description: "Learn how to preserve your precious vintage collection with our technical washing guide.",
+    canonical_url: null,
     published_at: "2026-01-20T10:00:00Z",
     created_at: "2026-01-20T10:00:00Z",
     updated_at: "2026-01-20T10:00:00Z"
@@ -276,6 +295,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "5 min read",
     meta_title: "Custom Mugs: The Ultimate Gifting Guide | AIPrintVerse",
     meta_description: "Why custom mugs make the perfect gift for any occasion.",
+    canonical_url: null,
     published_at: "2026-02-15T12:00:00Z",
     created_at: "2026-02-15T12:00:00Z",
     updated_at: "2026-02-15T12:00:00Z"
@@ -308,6 +328,7 @@ export const blogPosts: BlogPost[] = [
     read_time: "6 min read",
     meta_title: "The Ultimate Guide to Custom Phone Cases | AIPrintVerse",
     meta_description: "Everything you need to know about choosing and designing the perfect custom phone case.",
+    canonical_url: null,
     published_at: "2026-02-20T14:00:00Z",
     created_at: "2026-02-20T14:00:00Z",
     updated_at: "2026-02-20T14:00:00Z"

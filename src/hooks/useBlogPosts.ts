@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { blogPosts } from "@/data/blogPosts";
+import { runSEOHealthCheck } from "@/lib/seoUtils";
 
 export interface BlogPost {
   id: string;
@@ -16,6 +17,7 @@ export interface BlogPost {
   read_time: string | null;
   meta_title: string | null;
   meta_description: string | null;
+  canonical_url: string | null;
   published_at: string | null;
   created_at: string;
   updated_at: string;
@@ -37,6 +39,12 @@ export function useBlogPosts() {
         .eq("status", "published")
         .order("published_at", { ascending: false });
 
+      if (dbPosts && dbPosts.length > 0) {
+        console.log("[useBlogPosts] DIAGNOSTIC - First 5 DB posts (slug/status/published_at):",
+          dbPosts.slice(0, 5).map(p => ({ slug: p.slug, status: p.status, published_at: p.published_at }))
+        );
+      }
+
       if (dbError) {
         console.error("[useBlogPosts] Supabase fetch error:", dbError);
         setError(dbError.message);
@@ -53,7 +61,19 @@ export function useBlogPosts() {
 
       console.log(`[useBlogPosts] DB posts: ${dbPostsList.length}, Missing static posts: ${missingStaticPosts.length}`);
 
-      const allPosts = [...dbPostsList, ...missingStaticPosts].sort((a, b) => {
+      const allPosts = [...dbPostsList, ...missingStaticPosts].map(post => {
+        // Fallback logic for SEO metadata
+        const meta_title = post.meta_title || `${post.title} | AIPrintVerse`;
+        const meta_description = post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : "");
+        const canonical_url = post.canonical_url || `/blog/${post.slug}`;
+
+        return {
+          ...post,
+          meta_title,
+          meta_description,
+          canonical_url
+        };
+      }).sort((a, b) => {
         const dateA = new Date(a.published_at || a.created_at).getTime();
         const dateB = new Date(b.published_at || b.created_at).getTime();
         return dateB - dateA; // Newest first
@@ -63,7 +83,13 @@ export function useBlogPosts() {
     } catch (err) {
       console.error("[useBlogPosts] Unexpected error:", err);
       // Fallback to just static data on major error
-      setPosts(blogPosts as unknown as BlogPost[]);
+      const fallbackPosts = blogPosts.map(post => ({
+        ...post,
+        meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+        meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
+        canonical_url: post.canonical_url || `/blog/${post.slug}`
+      }));
+      setPosts(fallbackPosts as BlogPost[]);
       setError(err instanceof Error ? err.message : "An unexpected error occurred");
     } finally {
       setIsLoading(false);
@@ -73,6 +99,13 @@ export function useBlogPosts() {
   useEffect(() => {
     fetchPosts();
   }, [fetchPosts]);
+
+  // Run SEO Health Check when posts are loaded (only in development)
+  useEffect(() => {
+    if (!isLoading && posts.length > 0 && process.env.NODE_ENV === "development") {
+      runSEOHealthCheck(posts);
+    }
+  }, [posts, isLoading]);
 
   return { posts, isLoading, error, refetch: fetchPosts };
 }
@@ -84,6 +117,7 @@ export function useBlogPost(rawSlug: string) {
 
   const fetchPost = useCallback(async () => {
     const cleanSlug = rawSlug.toLowerCase().trim();
+    console.log(`[useBlogPost] DIAGNOSTIC: Starting fetch for cleanSlug: "${cleanSlug}"`);
     setIsLoading(true);
     setError(null);
 
@@ -96,8 +130,16 @@ export function useBlogPost(rawSlug: string) {
         .eq("slug", cleanSlug)
         .maybeSingle();
 
+      console.log(`[useBlogPost] Stage 1 (Exact): ${exactMatch ? "MATCH FOUND" : "No match"}`);
+
       if (exactMatch) {
-        setPost(exactMatch as BlogPost);
+        const post = exactMatch as BlogPost;
+        setPost({
+          ...post,
+          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
+          canonical_url: post.canonical_url || `/blog/${post.slug}`
+        });
         setIsLoading(false);
         return;
       }
@@ -112,8 +154,16 @@ export function useBlogPost(rawSlug: string) {
           .eq("id", cleanSlug)
           .maybeSingle();
 
+        console.log(`[useBlogPost] Stage 2 (ID/UUID): ${idMatch ? "MATCH FOUND" : "No match"}`);
+
         if (idMatch) {
-          setPost(idMatch as BlogPost);
+          const post = idMatch as BlogPost;
+          setPost({
+            ...post,
+            meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+            meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
+            canonical_url: post.canonical_url || `/blog/${post.slug}`
+          });
           setIsLoading(false);
           return;
         }
@@ -133,8 +183,16 @@ export function useBlogPost(rawSlug: string) {
           .eq("slug", fuzzySlug)
           .maybeSingle();
 
+        console.log(`[useBlogPost] Stage 3 (Fuzzy): ${fuzzyMatch ? "MATCH FOUND" : "No match"}`);
+
         if (fuzzyMatch) {
-          setPost(fuzzyMatch as BlogPost);
+          const post = fuzzyMatch as BlogPost;
+          setPost({
+            ...post,
+            meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+            meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
+            canonical_url: post.canonical_url || `/blog/${post.slug}`
+          });
           setIsLoading(false);
           return;
         }
@@ -149,8 +207,16 @@ export function useBlogPost(rawSlug: string) {
         .ilike("slug", cleanSlug)
         .maybeSingle();
 
+      console.log(`[useBlogPost] Stage 4 (Case-Insensitive): ${caseInsensitiveMatch ? "MATCH FOUND" : "No match"}`);
+
       if (caseInsensitiveMatch) {
-        setPost(caseInsensitiveMatch as BlogPost);
+        const post = caseInsensitiveMatch as BlogPost;
+        setPost({
+          ...post,
+          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
+          canonical_url: post.canonical_url || `/blog/${post.slug}`
+        });
         setIsLoading(false);
         return;
       }
@@ -163,11 +229,26 @@ export function useBlogPost(rawSlug: string) {
         p.slug.toLowerCase() === fuzzySlug
       );
 
+      console.log(`[useBlogPost] Stage 5 (Static): ${staticMatch ? "MATCH FOUND" : "No match"}`);
+
       if (staticMatch) {
-        setPost(staticMatch as BlogPost);
+        const post = staticMatch as BlogPost;
+        setPost({
+          ...post,
+          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
+          canonical_url: post.canonical_url || `/blog/${post.slug}`
+        });
         setIsLoading(false);
         return;
       }
+
+      console.log(`[useBlogPost] No DB match found. Fetching sample slugs for diagnostic comparison...`);
+      const { data: sampleSlugs } = await supabase
+        .from("blog_posts")
+        .select("slug")
+        .limit(5);
+      console.log(`[useBlogPost] DIAGNOSTIC - Sample DB Slugs:`, sampleSlugs?.map(p => p.slug));
 
       setPost(null);
     } catch (err) {
@@ -175,7 +256,15 @@ export function useBlogPost(rawSlug: string) {
       const errorMessage = err instanceof Error ? err.message : "Post not found";
       // Final desperation fallback to static data
       const staticMatch = blogPosts.find(p => p.slug.toLowerCase() === cleanSlug);
-      if (staticMatch) setPost(staticMatch as BlogPost);
+      if (staticMatch) {
+        const post = staticMatch as BlogPost;
+        setPost({
+          ...post,
+          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
+          canonical_url: post.canonical_url || `/blog/${post.slug}`
+        });
+      }
       else setError(errorMessage);
     } finally {
       setIsLoading(false);
