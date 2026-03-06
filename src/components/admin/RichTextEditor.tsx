@@ -126,7 +126,14 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
 
   const addYoutube = () => {
     if (youtubeUrl) {
-      editor.commands.setYoutubeVideo({ src: youtubeUrl, width: 640, height: 360 });
+      const match = youtubeUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
+      const videoId = match ? match[1] : null;
+      if (videoId) {
+        editor.chain().focus().insertContent({
+          type: 'youtube',
+          attrs: { src: `https://www.youtube.com/embed/${videoId}`, width: 640, height: 360 },
+        }).run();
+      }
       setYoutubeUrl('');
       setIsYoutubeDialogOpen(false);
     }
