@@ -525,6 +525,54 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
             </div>
           </Card>
 
+          {/* YouTube Video */}
+          <Card className="p-6">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <Youtube className="h-4 w-4 text-red-500" />
+                <Label>فيديو YouTube</Label>
+              </div>
+              
+              {post.video_url ? (
+                <div className="space-y-3">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${extractYoutubeId(post.video_url)}`}
+                      className="w-full h-full"
+                      allowFullScreen
+                      title="YouTube video preview"
+                    />
+                  </div>
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => setPost(prev => ({ ...prev, video_url: "" }))}
+                  >
+                    إزالة الفيديو
+                  </Button>
+                </div>
+              ) : (
+                <div className="aspect-video rounded-lg border-2 border-dashed border-border flex items-center justify-center bg-muted/30">
+                  <div className="text-center">
+                    <Youtube className="h-8 w-8 mx-auto text-muted-foreground mb-1" />
+                    <p className="text-sm text-muted-foreground">لم يتم إضافة فيديو</p>
+                  </div>
+                </div>
+              )}
+              
+              <Input
+                placeholder="https://www.youtube.com/watch?v=..."
+                value={post.video_url}
+                onChange={(e) => setPost(prev => ({ ...prev, video_url: e.target.value }))}
+                dir="ltr"
+              />
+              <p className="text-xs text-muted-foreground">
+                أضف رابط الفيديو هنا وسيظهر في المقال. يمكنك أيضاً إدراج فيديوهات إضافية داخل المحرر باستخدام زر YouTube.
+              </p>
+            </div>
+          </Card>
+
           {/* Category & Tags */}
           <Card className="p-6">
             <div className="space-y-4">
