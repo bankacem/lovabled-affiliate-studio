@@ -70,6 +70,11 @@ interface BlogPostEditorProps {
   onBack: () => void;
 }
 
+const extractYoutubeId = (url: string): string => {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
+  return match ? match[1] : '';
+};
+
 export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
