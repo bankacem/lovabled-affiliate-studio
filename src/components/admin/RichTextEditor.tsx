@@ -3,7 +3,29 @@ import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
 import Placeholder from '@tiptap/extension-placeholder';
-import Youtube from '@tiptap/extension-youtube';
+import { Node, mergeAttributes } from '@tiptap/core';
+
+const YoutubeExtension = Node.create({
+  name: 'youtube',
+  group: 'block',
+  atom: true,
+  addAttributes() {
+    return {
+      src: { default: null },
+      width: { default: 640 },
+      height: { default: 360 },
+    };
+  },
+  parseHTML() {
+    return [{ tag: 'div[data-youtube-video]' }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    const { src, width, height } = HTMLAttributes;
+    return ['div', { 'data-youtube-video': '', class: 'rounded-lg overflow-hidden my-4', style: 'aspect-ratio:16/9' },
+      ['iframe', { src, width: '100%', height: '100%', allowfullscreen: 'true', frameborder: '0', style: 'width:100%;height:100%' }]
+    ];
+  },
+});
 import { 
   Bold, 
   Italic, 
@@ -66,12 +88,7 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
           class: 'rounded-lg max-w-full mx-auto my-4',
         },
       }),
-      Youtube.configure({
-        inline: false,
-        HTMLAttributes: {
-          class: 'rounded-lg overflow-hidden my-4',
-        },
-      }),
+      YoutubeExtension,
       Placeholder.configure({
         placeholder,
       }),
@@ -109,7 +126,14 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
 
   const addYoutube = () => {
     if (youtubeUrl) {
-      editor.commands.setYoutubeVideo({ src: youtubeUrl, width: 640, height: 360 });
+      const match = youtubeUrl.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
+      const videoId = match ? match[1] : null;
+      if (videoId) {
+        editor.chain().focus().insertContent({
+          type: 'youtube',
+          attrs: { src: `https://www.youtube.com/embed/${videoId}`, width: 640, height: 360 },
+        }).run();
+      }
       setYoutubeUrl('');
       setIsYoutubeDialogOpen(false);
     }
