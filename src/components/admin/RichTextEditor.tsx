@@ -3,7 +3,29 @@ import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
 import Placeholder from '@tiptap/extension-placeholder';
-import Youtube from '@tiptap/extension-youtube';
+import { Node, mergeAttributes } from '@tiptap/core';
+
+const YoutubeExtension = Node.create({
+  name: 'youtube',
+  group: 'block',
+  atom: true,
+  addAttributes() {
+    return {
+      src: { default: null },
+      width: { default: 640 },
+      height: { default: 360 },
+    };
+  },
+  parseHTML() {
+    return [{ tag: 'div[data-youtube-video]' }];
+  },
+  renderHTML({ HTMLAttributes }) {
+    const { src, width, height } = HTMLAttributes;
+    return ['div', { 'data-youtube-video': '', class: 'rounded-lg overflow-hidden my-4', style: 'aspect-ratio:16/9' },
+      ['iframe', { src, width: '100%', height: '100%', allowfullscreen: 'true', frameborder: '0', style: 'width:100%;height:100%' }]
+    ];
+  },
+});
 import { 
   Bold, 
   Italic, 
