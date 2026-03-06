@@ -48,26 +48,19 @@ export function useDesign(identifier: string) {
     queryFn: async () => {
       const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(identifier);
 
-      let query = supabase.from("designs").select("*");
-
       if (isUUID) {
-        const { data, error } = await query.eq("id", identifier).maybeSingle();
+        const { data, error } = await supabase.from("designs").select("*").eq("id", identifier).maybeSingle();
         if (error) throw error;
         return data as Design | null;
       } else {
-        // No slug column, match by name
-        const { data, error } = await query.maybeSingle();
+        const { data, error } = await supabase.from("designs").select("*");
         if (error) throw error;
-        return data as Design | null;
+        const match = data?.find(d => {
+          const genSlug = d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+          return genSlug === identifier || d.id === identifier;
+        });
+        return (match as Design | null) || null;
       }
-
-      const { data, error } = await query.maybeSingle();
-
-      if (error) {
-        throw error;
-      }
-
-      return data as Design | null;
     },
     enabled: !!identifier,
   });
