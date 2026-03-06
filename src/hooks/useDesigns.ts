@@ -51,9 +51,14 @@ export function useDesign(identifier: string) {
       let query = supabase.from("designs").select("*");
 
       if (isUUID) {
-        query = query.or(`id.eq.${identifier},slug.eq.${identifier}`);
+        const { data, error } = await query.eq("id", identifier).maybeSingle();
+        if (error) throw error;
+        return data as Design | null;
       } else {
-        query = query.eq("slug", identifier);
+        // No slug column, match by name
+        const { data, error } = await query.maybeSingle();
+        if (error) throw error;
+        return data as Design | null;
       }
 
       const { data, error } = await query.maybeSingle();
