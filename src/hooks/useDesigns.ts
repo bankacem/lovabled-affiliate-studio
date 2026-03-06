@@ -3,7 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 export interface Design {
   id: string;
-  slug: string;
+  slug?: string;
   name: string;
   description: string | null;
   image_url: string;
