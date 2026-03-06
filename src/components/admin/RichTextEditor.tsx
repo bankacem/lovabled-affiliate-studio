@@ -43,8 +43,10 @@ interface RichTextEditorProps {
 export function RichTextEditor({ content, onChange, placeholder = "Start writing your article..." }: RichTextEditorProps) {
   const [linkUrl, setLinkUrl] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [youtubeUrl, setYoutubeUrl] = useState('');
   const [isLinkDialogOpen, setIsLinkDialogOpen] = useState(false);
   const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
+  const [isYoutubeDialogOpen, setIsYoutubeDialogOpen] = useState(false);
 
   const editor = useEditor({
     extensions: [
@@ -62,6 +64,12 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
       Image.configure({
         HTMLAttributes: {
           class: 'rounded-lg max-w-full mx-auto my-4',
+        },
+      }),
+      Youtube.configure({
+        inline: false,
+        HTMLAttributes: {
+          class: 'rounded-lg overflow-hidden my-4',
         },
       }),
       Placeholder.configure({
