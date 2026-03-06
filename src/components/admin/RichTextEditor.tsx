@@ -297,6 +297,42 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
           </DialogContent>
         </Dialog>
 
+        {/* YouTube Dialog */}
+        <Dialog open={isYoutubeDialogOpen} onOpenChange={setIsYoutubeDialogOpen}>
+          <DialogTrigger asChild>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="h-8 w-8 p-0"
+              title="Add YouTube Video"
+            >
+              <YoutubeIcon className="h-4 w-4" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>إضافة فيديو YouTube</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 pt-4">
+              <div className="space-y-2">
+                <Label htmlFor="youtube-url">رابط الفيديو</Label>
+                <Input
+                  id="youtube-url"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  value={youtubeUrl}
+                  onChange={(e) => setYoutubeUrl(e.target.value)}
+                  dir="ltr"
+                />
+                <p className="text-xs text-muted-foreground">
+                  يمكنك لصق رابط YouTube العادي أو رابط المشاركة القصير
+                </p>
+              </div>
+              <Button onClick={addYoutube} className="w-full">إدراج الفيديو</Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
         <div className="flex-1" />
 
         <ToolbarButton
