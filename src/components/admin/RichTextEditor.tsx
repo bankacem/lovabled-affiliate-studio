@@ -3,6 +3,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
 import Placeholder from '@tiptap/extension-placeholder';
+import Youtube from '@tiptap/extension-youtube';
 import { 
   Bold, 
   Italic, 
@@ -17,7 +18,8 @@ import {
   Undo,
   Redo,
   Code,
-  Minus
+  Minus,
+  Youtube as YoutubeIcon
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
