@@ -3,6 +3,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
 import Placeholder from '@tiptap/extension-placeholder';
+import Youtube from '@tiptap/extension-youtube';
 import { 
   Bold, 
   Italic, 
@@ -17,7 +18,8 @@ import {
   Undo,
   Redo,
   Code,
-  Minus
+  Minus,
+  Youtube as YoutubeIcon
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -41,8 +43,10 @@ interface RichTextEditorProps {
 export function RichTextEditor({ content, onChange, placeholder = "Start writing your article..." }: RichTextEditorProps) {
   const [linkUrl, setLinkUrl] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [youtubeUrl, setYoutubeUrl] = useState('');
   const [isLinkDialogOpen, setIsLinkDialogOpen] = useState(false);
   const [isImageDialogOpen, setIsImageDialogOpen] = useState(false);
+  const [isYoutubeDialogOpen, setIsYoutubeDialogOpen] = useState(false);
 
   const editor = useEditor({
     extensions: [
@@ -60,6 +64,12 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
       Image.configure({
         HTMLAttributes: {
           class: 'rounded-lg max-w-full mx-auto my-4',
+        },
+      }),
+      Youtube.configure({
+        inline: false,
+        HTMLAttributes: {
+          class: 'rounded-lg overflow-hidden my-4',
         },
       }),
       Placeholder.configure({
@@ -94,6 +104,14 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
       editor.chain().focus().setImage({ src: imageUrl }).run();
       setImageUrl('');
       setIsImageDialogOpen(false);
+    }
+  };
+
+  const addYoutube = () => {
+    if (youtubeUrl) {
+      editor.commands.setYoutubeVideo({ src: youtubeUrl, width: 640, height: 360 });
+      setYoutubeUrl('');
+      setIsYoutubeDialogOpen(false);
     }
   };
 
@@ -275,6 +293,42 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
                 />
               </div>
               <Button onClick={addImage} className="w-full">Insert Image</Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* YouTube Dialog */}
+        <Dialog open={isYoutubeDialogOpen} onOpenChange={setIsYoutubeDialogOpen}>
+          <DialogTrigger asChild>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              className="h-8 w-8 p-0"
+              title="Add YouTube Video"
+            >
+              <YoutubeIcon className="h-4 w-4" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>إضافة فيديو YouTube</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 pt-4">
+              <div className="space-y-2">
+                <Label htmlFor="youtube-url">رابط الفيديو</Label>
+                <Input
+                  id="youtube-url"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  value={youtubeUrl}
+                  onChange={(e) => setYoutubeUrl(e.target.value)}
+                  dir="ltr"
+                />
+                <p className="text-xs text-muted-foreground">
+                  يمكنك لصق رابط YouTube العادي أو رابط المشاركة القصير
+                </p>
+              </div>
+              <Button onClick={addYoutube} className="w-full">إدراج الفيديو</Button>
             </div>
           </DialogContent>
         </Dialog>

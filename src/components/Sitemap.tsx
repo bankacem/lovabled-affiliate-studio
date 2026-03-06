@@ -22,14 +22,17 @@ export function useSitemapData() {
 
       const { data: designsData } = await supabase
         .from("designs")
-        .select("slug, updated_at")
+        .select("id, name, updated_at")
         .order("updated_at", { ascending: false });
 
       if (postsData) {
         setPosts(postsData.map(p => ({ id: p.slug, slug: p.slug, updated_at: p.updated_at })));
       }
       if (designsData) {
-        setDesigns(designsData.map(d => ({ id: d.slug, slug: d.slug, updated_at: d.updated_at })));
+        setDesigns(designsData.map(d => {
+          const slug = d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+          return { id: d.id, slug, updated_at: d.updated_at };
+        }));
       }
       setIsLoading(false);
     };

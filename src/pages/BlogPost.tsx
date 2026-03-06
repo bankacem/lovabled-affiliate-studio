@@ -337,6 +337,21 @@ const BlogPost = () => {
               transition={{ delay: 0.2 }}
               className="mt-10"
             >
+              {/* Main YouTube Video */}
+              {(post as any).video_url && (() => {
+                const vidMatch = (post as any).video_url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
+                const vidId = vidMatch ? vidMatch[1] : null;
+                return vidId ? (
+                  <div className="aspect-video rounded-lg overflow-hidden mb-8">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${vidId}`}
+                      className="w-full h-full"
+                      allowFullScreen
+                      title="فيديو المقال"
+                    />
+                  </div>
+                ) : null;
+              })()}
               {(() => {
                 // Split content by <h2> tags to inject components
                 // We use a simple split/regex approach for injection

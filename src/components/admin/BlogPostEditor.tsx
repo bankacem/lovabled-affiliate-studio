@@ -14,7 +14,8 @@ import {
   Sparkles,
   Code,
   Calendar,
-  Clock
+  Clock,
+  Youtube
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,6 +48,7 @@ interface BlogPost {
   excerpt: string;
   content: string;
   featured_image: string;
+  video_url: string;
   category: string;
   tags: string[];
   status: "draft" | "published" | "scheduled" | "archived";
@@ -68,6 +70,11 @@ interface BlogPostEditorProps {
   onBack: () => void;
 }
 
+const extractYoutubeId = (url: string): string => {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
+  return match ? match[1] : '';
+};
+
 export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -83,6 +90,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     excerpt: "",
     content: "",
     featured_image: "",
+    video_url: "",
     category: "General",
     tags: [],
     status: "draft",
@@ -131,6 +139,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
         excerpt: data.excerpt || "",
         content: data.content || "",
         featured_image: data.featured_image || "",
+        video_url: (data as any).video_url || "",
         category: data.category,
         tags: data.tags || [],
         status: data.status as "draft" | "published" | "scheduled" | "archived",
@@ -518,6 +527,54 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
                 value={post.featured_image}
                 onChange={(e) => setPost(prev => ({ ...prev, featured_image: e.target.value }))}
               />
+            </div>
+          </Card>
+
+          {/* YouTube Video */}
+          <Card className="p-6">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <Youtube className="h-4 w-4 text-red-500" />
+                <Label>فيديو YouTube</Label>
+              </div>
+              
+              {post.video_url ? (
+                <div className="space-y-3">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${extractYoutubeId(post.video_url)}`}
+                      className="w-full h-full"
+                      allowFullScreen
+                      title="YouTube video preview"
+                    />
+                  </div>
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => setPost(prev => ({ ...prev, video_url: "" }))}
+                  >
+                    إزالة الفيديو
+                  </Button>
+                </div>
+              ) : (
+                <div className="aspect-video rounded-lg border-2 border-dashed border-border flex items-center justify-center bg-muted/30">
+                  <div className="text-center">
+                    <Youtube className="h-8 w-8 mx-auto text-muted-foreground mb-1" />
+                    <p className="text-sm text-muted-foreground">لم يتم إضافة فيديو</p>
+                  </div>
+                </div>
+              )}
+              
+              <Input
+                placeholder="https://www.youtube.com/watch?v=..."
+                value={post.video_url}
+                onChange={(e) => setPost(prev => ({ ...prev, video_url: e.target.value }))}
+                dir="ltr"
+              />
+              <p className="text-xs text-muted-foreground">
+                أضف رابط الفيديو هنا وسيظهر في المقال. يمكنك أيضاً إدراج فيديوهات إضافية داخل المحرر باستخدام زر YouTube.
+              </p>
             </div>
           </Card>
 

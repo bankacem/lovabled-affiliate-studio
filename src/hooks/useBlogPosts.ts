@@ -17,7 +17,7 @@ export interface BlogPost {
   read_time: string | null;
   meta_title: string | null;
   meta_description: string | null;
-  canonical_url: string | null;
+  canonical_url?: string | null;
   published_at: string | null;
   created_at: string;
   updated_at: string;
@@ -65,7 +65,7 @@ export function useBlogPosts() {
         // Fallback logic for SEO metadata
         const meta_title = post.meta_title || `${post.title} | AIPrintVerse`;
         const meta_description = post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : "");
-        const canonical_url = post.canonical_url || `/blog/${post.slug}`;
+        const canonical_url = (post as any).canonical_url || `/blog/${post.slug}`;
 
         return {
           ...post,
