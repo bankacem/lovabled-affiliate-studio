@@ -88,12 +88,7 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
           class: 'rounded-lg max-w-full mx-auto my-4',
         },
       }),
-      Youtube.configure({
-        inline: false,
-        HTMLAttributes: {
-          class: 'rounded-lg overflow-hidden my-4',
-        },
-      }),
+      YoutubeExtension,
       Placeholder.configure({
         placeholder,
       }),
