@@ -48,6 +48,7 @@ interface BlogPost {
   excerpt: string;
   content: string;
   featured_image: string;
+  video_url: string;
   category: string;
   tags: string[];
   status: "draft" | "published" | "scheduled" | "archived";
