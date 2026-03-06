@@ -107,6 +107,14 @@ export function RichTextEditor({ content, onChange, placeholder = "Start writing
     }
   };
 
+  const addYoutube = () => {
+    if (youtubeUrl) {
+      editor.commands.setYoutubeVideo({ src: youtubeUrl, width: 640, height: 360 });
+      setYoutubeUrl('');
+      setIsYoutubeDialogOpen(false);
+    }
+  };
+
   const ToolbarButton = ({ 
     onClick, 
     isActive = false, 
