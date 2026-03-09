@@ -120,6 +120,24 @@ const BlogPost = () => {
           }
         },
         "description": post.excerpt || post.meta_description || ""
+      },
+      {
+        "@type": "Product",
+        "name": post.title,
+        "image": post.featured_image ? [post.featured_image] : [],
+        "description": post.excerpt || post.meta_description || "",
+        "brand": {
+          "@type": "Brand",
+          "name": "AIPrintVerse"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "offerCount": 1,
+          "lowPrice": "15.95",
+          "highPrice": "45.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
       }
     ];
 
@@ -338,8 +356,8 @@ const BlogPost = () => {
               className="mt-10"
             >
               {/* Main YouTube Video */}
-              {(post as any).video_url && (() => {
-                const vidMatch = (post as any).video_url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
+              {post.video_url && (() => {
+                const vidMatch = post.video_url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
                 const vidId = vidMatch ? vidMatch[1] : null;
                 return vidId ? (
                   <div className="aspect-video rounded-lg overflow-hidden mb-8">
