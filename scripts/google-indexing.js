@@ -22,7 +22,7 @@ import path from 'path';
 import { google } from 'googleapis';
 
 // Configuration
-const SERVICE_ACCOUNT_FILE = path.join(process.cwd(), 'service_account.json');
+const SERVICE_ACCOUNT_FILE = path.join(process.cwd(), 'service-account.json');
 const SLUGS_FILE = path.join(process.cwd(), 'all_slugs.json');
 const BASE_URL = 'https://aiprintverse.com/blog';
 
@@ -31,7 +31,7 @@ async function main() {
 
   // 1. Check for Service Account file
   if (!fs.existsSync(SERVICE_ACCOUNT_FILE)) {
-    console.error('❌ Error: service_account.json not found.');
+    console.error(`❌ Error: ${SERVICE_ACCOUNT_FILE} not found.`);
     console.info('Please see script comments for setup instructions.');
     process.exit(1);
   }
@@ -55,7 +55,7 @@ async function main() {
 
   const client = await auth.getClient();
   const indexing = google.indexing({
-    version: 'v1',
+    version: 'v3',
     auth: auth,
   });
 
