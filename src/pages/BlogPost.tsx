@@ -1,11 +1,19 @@
 import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User, Share2, Tag, Home } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/layout/SEO";
 import { Button } from "@/components/ui/button";
-import { useBlogPost } from "@/hooks/useBlogPosts";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { useBlogPost, useBlogPosts } from "@/hooks/useBlogPosts";
 import { useAutoLinking } from "@/hooks/useAutoLinking";
 import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
 import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
@@ -14,6 +22,7 @@ import { CTAButton } from "@/components/blog/CTAButton";
 import { stripMicrodata } from "@/lib/seoUtils";
 import { toast } from "sonner";
 import { format } from "date-fns";
+import allSlugsData from "../../all_slugs.json";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -21,6 +30,35 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(slug || "");
+  const { posts: allPostsList } = useBlogPosts();
+
+  // Related Articles matching logic
+  const relatedArticles = useMemo(() => {
+    if (!post || !allPostsList.length) return [];
+
+    // Filter by category or tags, excluding current post
+    const candidates = allPostsList.filter(p => {
+      // Exclude current post
+      if (p.id === post.id || p.slug === post.slug) return false;
+
+      // Check if it exists in all_slugs.json pool
+      const inSlugPool = allSlugsData.some(s => s.slug === p.slug);
+      if (!inSlugPool) return false;
+
+      // Match category
+      const categoryMatch = p.category === post.category;
+
+      // Match tags
+      const tagMatch = p.tags.some(tag => post.tags.includes(tag));
+
+      return categoryMatch || tagMatch;
+    });
+
+    // Shuffle and pick 3
+    return candidates
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 3);
+  }, [post, allPostsList]);
 
   // RCA Logs
   console.log('Current Slug:', slug);
@@ -145,6 +183,38 @@ const BlogPost = () => {
       schemas.push(faqSchema);
     }
 
+    // Breadcrumb Schema
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://aiprintverse.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://aiprintverse.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": post.category,
+          "item": `https://aiprintverse.com/blog?category=${encodeURIComponent(post.category)}`
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": post.title,
+          "item": `https://aiprintverse.com/blog/${post.slug}`
+        }
+      ]
+    });
+
     return schemas;
   }, [post, faqSchema]);
 
@@ -253,19 +323,44 @@ const BlogPost = () => {
       
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
-          {/* Breadcrumb */}
+          {/* Breadcrumbs */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="mb-6"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8"
           >
-            <Link
-              to="/blog"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Blog
-            </Link>
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/" className="flex items-center gap-1">
+                      <Home className="h-3.5 w-3.5" />
+                      <span className="sr-only md:not-sr-only">Home</span>
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/blog">Blog</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to={`/blog?category=${encodeURIComponent(post.category)}`}>
+                      {post.category}
+                    </Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="max-w-[200px] truncate md:max-w-none">
+                    {post.title}
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
           </motion.div>
 
           <div className="mx-auto max-w-3xl">
@@ -404,14 +499,53 @@ const BlogPost = () => {
               </motion.div>
             )}
 
-             {/* Smart Internal Linking Section */}
-             <InternalLinkBridge
-               currentPostId={post.id}
-               currentCategory={post.category}
-               currentTags={post.tags || []}
-               variant="end"
-               maxSuggestions={3}
-             />
+             {/* Related Articles Section */}
+             {relatedArticles.length > 0 && (
+               <section className="mt-16 border-t pt-12">
+                 <h2 className="text-2xl font-display font-bold mb-8">Related Articles</h2>
+                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                   {relatedArticles.map((article) => (
+                     <Link
+                       key={article.id}
+                       to={`/blog/${article.slug}`}
+                       className="group block"
+                     >
+                       <div className="aspect-[16/9] overflow-hidden rounded-xl bg-muted mb-4">
+                         {article.featured_image ? (
+                           <img
+                             src={article.featured_image}
+                             alt={article.title}
+                             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                             loading="lazy"
+                           />
+                         ) : (
+                           <div className="h-full w-full flex items-center justify-center text-muted-foreground">
+                             No image
+                           </div>
+                         )}
+                       </div>
+                       <h3 className="font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                         {article.title}
+                       </h3>
+                       <p className="mt-2 text-sm text-muted-foreground line-clamp-2 italic">
+                         {article.excerpt}
+                       </p>
+                     </Link>
+                   ))}
+                 </div>
+               </section>
+             )}
+
+             {/* Smart Internal Linking Section (Fallback/Additional) */}
+             {relatedArticles.length === 0 && (
+               <InternalLinkBridge
+                 currentPostId={post.id}
+                 currentCategory={post.category}
+                 currentTags={post.tags || []}
+                 variant="end"
+                 maxSuggestions={3}
+               />
+             )}
           </div>
         </div>
       </article>
