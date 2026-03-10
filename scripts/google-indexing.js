@@ -9,7 +9,7 @@
  * PREREQUISITES:
  * 1. Create a Service Account in Google Cloud Console.
  * 2. Enable the Indexing API for your project.
- * 3. Download the Service Account JSON key as `service_account.json` in the root.
+ * 3. Download the Service Account JSON key as `service-account.json` in the root.
  * 4. Give the Service Account 'Owner' permission in Google Search Console.
  * 5. Install dependencies: `bun add googleapis`
  *
@@ -23,8 +23,25 @@ import { google } from 'googleapis';
 
 // Configuration
 const SERVICE_ACCOUNT_FILE = path.join(process.cwd(), 'service-account.json');
-const SLUGS_FILE = path.join(process.cwd(), 'all_slugs.json');
-const BASE_URL = 'https://aiprintverse.com/blog';
+const SITEMAP_URL = 'https://aiprintverse.com/sitemap.xml';
+
+async function fetchSitemapUrls() {
+  console.log(`📡 Fetching sitemap from ${SITEMAP_URL}...`);
+  try {
+    const response = await fetch(SITEMAP_URL);
+    const xml = await response.text();
+    const locRegex = /<loc>(https?:\/\/[^<]+)<\/loc>/g;
+    const urls = [];
+    let match;
+    while ((match = locRegex.exec(xml)) !== null) {
+      urls.push(match[1]);
+    }
+    return [...new Set(urls)];
+  } catch (err) {
+    console.error('❌ Error fetching sitemap:', err.message);
+    return [];
+  }
+}
 
 async function main() {
   console.log('--- Google Indexing API Batch Submitter ---');
@@ -36,16 +53,15 @@ async function main() {
     process.exit(1);
   }
 
-  // 2. Load slugs
-  if (!fs.existsSync(SLUGS_FILE)) {
-    console.error('❌ Error: all_slugs.json not found. Run sync-slugs.js first.');
+  // 2. Load URLs from sitemap
+  const urls = await fetchSitemapUrls();
+
+  if (urls.length === 0) {
+    console.error('❌ Error: No URLs found in sitemap.');
     process.exit(1);
   }
 
-  const slugsData = JSON.parse(fs.readFileSync(SLUGS_FILE, 'utf8'));
-  const urls = [...new Set(slugsData.map(item => `${BASE_URL}/${item.slug}`))];
-
-  console.log(`✅ Loaded ${urls.length} unique URLs.`);
+  console.log(`✅ Loaded ${urls.length} unique URLs from sitemap.`);
 
   // 3. Authenticate
   const auth = new google.auth.GoogleAuth({
@@ -60,24 +76,15 @@ async function main() {
   });
 
   // 4. Batch Submission Logic
-  // The Indexing API supports a batch endpoint at:
-  // https://indexing.googleapis.com/batch
-
-  console.log('🚀 Starting batch submission...');
-
-  // Note: While google-api-nodejs-client has some support for batching,
-  // the Indexing API's multipart batching is often easier to handle via direct requests
-  // if the library's batching is not explicitly exposed for this specific API.
-  // Here we use a chunked approach to stay within standard API quotas (default 200/day).
+  console.log('🚀 Starting submission...');
 
   const CHUNK_SIZE = 100;
+  let successCount = 0;
+  let failCount = 0;
+
   for (let i = 0; i < urls.length; i += CHUNK_SIZE) {
     const chunk = urls.slice(i, i + CHUNK_SIZE);
     console.log(`Processing chunk ${Math.floor(i / CHUNK_SIZE) + 1} (${chunk.length} URLs)...`);
-
-    // We iterate the chunk. If you have higher quotas and need true multipart batching,
-    // you would typically use a library like `axios` with a multipart body.
-    // For 109 URLs, individual calls within the client is robust.
 
     await Promise.all(chunk.map(async (url) => {
       try {
@@ -88,8 +95,11 @@ async function main() {
           },
         });
         console.log(`  ✅ ${url} (${res.status})`);
+        if (res.status === 200) successCount++;
+        else failCount++;
       } catch (err) {
         console.error(`  ❌ ${url}: ${err.message}`);
+        failCount++;
       }
     }));
 
@@ -100,6 +110,7 @@ async function main() {
   }
 
   console.log('\n--- Submission Complete ---');
+  console.log(`Summary: ${successCount} URLs submitted successfully, ${failCount} failed.`);
   console.log('Warning: It may take some time for Google to crawl and index these pages.');
 }
 
