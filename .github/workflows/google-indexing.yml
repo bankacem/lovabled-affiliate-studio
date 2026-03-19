@@ -1,0 +1,29 @@
+name: Google Indexing Automation
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # Every day at 08:00 AM UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  index-urls:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: bun install googleapis @supabase/supabase-js
+
+      - name: Run Indexing Script
+        env:
+          GOOGLE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: bun scripts/google-indexing.js
