@@ -3,8 +3,6 @@
  *
  * IMPORTANT: Google officially states that the Indexing API is only for pages
  * containing `JobPosting` or `BroadcastEvent` embedded in a `VideoObject`.
- * Using it for other types of pages (like blog posts) may not have any effect
- * and could potentially lead to quota issues or other restrictions.
  *
  * PREREQUISITES:
  * 1. Create a Service Account in Google Cloud Console.
@@ -54,14 +52,18 @@ async function main() {
   }
 
   // 2. Load URLs from sitemap
-  const urls = await fetchSitemapUrls();
+  let urls = await fetchSitemapUrls();
 
   if (urls.length === 0) {
     console.error('❌ Error: No URLs found in sitemap.');
     process.exit(1);
   }
 
-  console.log(`✅ Loaded ${urls.length} unique URLs from sitemap.`);
+  console.log(`✅ Total URLs in sitemap: ${urls.length}`);
+
+  // Filter for blog posts and design pages as requested
+  urls = urls.filter(url => url.includes('/blog/') || url.includes('/designs/'));
+  console.log(`🎯 Filtered to ${urls.length} high-priority URLs (blog & designs).`);
 
   // 3. Authenticate
   const auth = new google.auth.GoogleAuth({
@@ -72,7 +74,7 @@ async function main() {
   const client = await auth.getClient();
   const indexing = google.indexing({
     version: 'v3',
-    auth: auth,
+    auth: client,
   });
 
   // 4. Batch Submission Logic
@@ -86,7 +88,7 @@ async function main() {
     const chunk = urls.slice(i, i + CHUNK_SIZE);
     console.log(`Processing chunk ${Math.floor(i / CHUNK_SIZE) + 1} (${chunk.length} URLs)...`);
 
-    await Promise.all(chunk.map(async (url) => {
+    for (const url of chunk) {
       try {
         const res = await indexing.urlNotifications.publish({
           requestBody: {
@@ -100,8 +102,14 @@ async function main() {
       } catch (err) {
         console.error(`  ❌ ${url}: ${err.message}`);
         failCount++;
+        // If we hit a quota error, stop processing
+        if (err.message.includes('Quota exceeded')) {
+          console.error('🛑 Quota exceeded. Stopping further submissions for today.');
+          printSummary(successCount, failCount);
+          process.exit(0);
+        }
       }
-    }));
+    }
 
     if (i + CHUNK_SIZE < urls.length) {
       console.log('Waiting before next chunk...');
@@ -109,8 +117,12 @@ async function main() {
     }
   }
 
+  printSummary(successCount, failCount);
+}
+
+function printSummary(successCount, failCount) {
   console.log('\n--- Submission Complete ---');
-  console.log(`Summary: ${successCount} URLs submitted successfully, ${failCount} failed.`);
+  console.log(`Summary: ${successCount} URLs successfully 'Published' (Status 200), ${failCount} failed.`);
   console.log('Warning: It may take some time for Google to crawl and index these pages.');
 }
 
