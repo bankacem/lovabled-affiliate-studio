@@ -20,7 +20,7 @@ export function SEO({
   jsonLd,
 }: SEOProps) {
   const siteTitle = "AIPrintVerse";
-  const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+  const fullTitle = (title && title.includes(siteTitle)) ? title : (title ? `${title} | ${siteTitle}` : siteTitle);
   const defaultDescription = "Discover AI-curated print-on-demand designs for t-shirts, mugs, stickers and more.";
   const baseUrl = "https://aiprintverse.com";
 
