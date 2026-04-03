@@ -127,6 +127,7 @@ const DesignDetail = () => {
                   className="h-full w-full object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/placeholder-design.svg";
+                    (e.target as HTMLImageElement).onerror = null;
                   }}
                 />
               </div>

@@ -206,6 +206,7 @@ export function TemplateManager() {
   };
 
   const handleDelete = async (id: string) => {
+    // FIXED: Removed window.confirm()
     const { error } = await supabase
       .from("article_templates")
       .delete()
@@ -217,7 +218,6 @@ export function TemplateManager() {
       toast.success("Template deleted");
       fetchTemplates();
     }
-    setTemplateToDelete(null);
   };
 
   const handleDuplicate = async (template: ArticleTemplate) => {

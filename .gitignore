@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.production
+.env.*.local
+
 # Editor directories and files
 service-account.json
 .vscode/*
@@ -23,4 +29,6 @@ service-account.json
 *.njsproj
 *.sln
 *.sw?
-.env
+
+# Build artifacts
+bun.lockb

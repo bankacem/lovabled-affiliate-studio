@@ -109,7 +109,14 @@ export function AdminDashboard() {
   }, [user, isAdmin]);
 
   const fetchStats = async () => {
-    setIsLoadingStats(true);
+    setStats({
+      totalPosts: 0,
+      publishedPosts: 0,
+      draftPosts: 0,
+      totalDesigns: 0,
+      featuredDesigns: 0,
+      totalStores: 0,
+    });
     const [postsResult, designsResult, storesResult] = await Promise.all([
       supabase.from("blog_posts").select("status"),
       supabase.from("designs").select("featured"),
@@ -122,13 +129,12 @@ export function AdminDashboard() {
 
     setStats({
       totalPosts: posts.length,
-      publishedPosts: posts.filter(p => p.status === "published").length,
-      draftPosts: posts.filter(p => p.status === "draft").length,
+      publishedPosts: posts.filter((p) => p.status === "published").length,
+      draftPosts: posts.filter((p) => p.status === "draft").length,
       totalDesigns: designsData.length,
-      featuredDesigns: designsData.filter(d => d.featured).length,
+      featuredDesigns: designsData.filter((d) => d.featured).length,
       totalStores: stores.length,
     });
-    setIsLoadingStats(false);
   };
 
   const fetchDesigns = async () => {
@@ -186,19 +192,15 @@ export function AdminDashboard() {
   };
 
   const deleteDesign = async (id: string) => {
-    const { error } = await supabase
-      .from("designs")
-      .delete()
-      .eq("id", id);
-
+    // FIXED: Removed window.confirm() — use AlertDialog in JSX instead
+    const { error } = await supabase.from("designs").delete().eq("id", id);
     if (error) {
       toast.error("Failed to delete design");
     } else {
-      setDesigns(designs.filter(d => d.id !== id));
+      setDesigns(designs.filter((d) => d.id !== id));
       fetchStats();
       toast.success("Design deleted");
     }
-    setDesignToDelete(null);
   };
 
   const handleLogout = async () => {
@@ -678,6 +680,7 @@ export function AdminDashboard() {
                             className="w-full h-full object-cover"
                             onError={(e) => {
                               (e.target as HTMLImageElement).src = "/placeholder-design.svg";
+                              (e.target as HTMLImageElement).onerror = null;
                             }}
                           />
                         </div>
