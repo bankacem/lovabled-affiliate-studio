@@ -24,15 +24,23 @@ export interface BlogPost {
 }
 
 // Helper: enrich post with fallback SEO metadata
-function enrichPost(post: Partial<BlogPost> & { title: string; slug: string }): BlogPost {
+function enrichPost(post: any): BlogPost {
+  const safeTitle = post?.title || "Untitled Post";
+  const safeSlug = post?.slug || "no-slug";
+
   return {
     ...post,
-    meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
+    title: safeTitle,
+    slug: safeSlug,
+    meta_title: post?.meta_title || `${safeTitle} | AIPrintVerse`,
     meta_description:
-      post.meta_description ||
-      post.excerpt ||
-      (post.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
-    canonical_url: (post as any).canonical_url || `/blog/${post.slug}`,
+      post?.meta_description ||
+      post?.excerpt ||
+      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : "No description available"),
+    canonical_url: post?.canonical_url || `/blog/${safeSlug}`,
+    tags: Array.isArray(post?.tags) ? post.tags : [],
+    status: post?.status || "draft",
+    published_at: post?.published_at || post?.created_at || new Date().toISOString(),
   } as BlogPost;
 }
 
