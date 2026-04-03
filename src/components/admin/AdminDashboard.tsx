@@ -21,10 +21,22 @@ import {
   Wrench,
   Upload,
   Link2,
-  Rocket
+  Rocket,
+  Loader2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthPage } from "./AuthPage";
@@ -76,6 +88,7 @@ export function AdminDashboard() {
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
   const [editingDesign, setEditingDesign] = useState<Design | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isStatsLoading, setIsStatsLoading] = useState(true);
   const [stats, setStats] = useState<Stats>({
     totalPosts: 0,
     publishedPosts: 0,
@@ -87,6 +100,7 @@ export function AdminDashboard() {
   const [designs, setDesigns] = useState<Design[]>([]);
   const [isLoadingDesigns, setIsLoadingDesigns] = useState(false);
   const [isImporting, setIsImporting] = useState<string | null>(null);
+  const [designToDelete, setDesignToDelete] = useState<string | null>(null);
 
   useEffect(() => {
     if (user && isAdmin) {
@@ -96,6 +110,7 @@ export function AdminDashboard() {
   }, [user, isAdmin]);
 
   const fetchStats = async () => {
+    setIsStatsLoading(true);
     const [postsResult, designsResult, storesResult] = await Promise.all([
       supabase.from("blog_posts").select("status"),
       supabase.from("designs").select("featured"),
@@ -114,6 +129,7 @@ export function AdminDashboard() {
       featuredDesigns: designsData.filter(d => d.featured).length,
       totalStores: stores.length,
     });
+    setIsStatsLoading(false);
   };
 
   const fetchDesigns = async () => {
@@ -171,8 +187,6 @@ export function AdminDashboard() {
   };
 
   const deleteDesign = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this design?")) return;
-
     const { error } = await supabase
       .from("designs")
       .delete()
@@ -185,6 +199,7 @@ export function AdminDashboard() {
       fetchStats();
       toast.success("Design deleted");
     }
+    setDesignToDelete(null);
   };
 
   const handleLogout = async () => {
@@ -388,7 +403,7 @@ export function AdminDashboard() {
                       <FileText className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-foreground">{stats.totalPosts}</p>
+                      {isStatsLoading ? <Skeleton className="h-8 w-16" /> : <p className="text-2xl font-bold text-foreground">{stats.totalPosts}</p>}
                       <p className="text-sm text-muted-foreground">Total Posts</p>
                     </div>
                   </div>
@@ -399,7 +414,7 @@ export function AdminDashboard() {
                       <BarChart3 className="w-6 h-6 text-green-500" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-foreground">{stats.publishedPosts}</p>
+                      {isStatsLoading ? <Skeleton className="h-8 w-16" /> : <p className="text-2xl font-bold text-foreground">{stats.publishedPosts}</p>}
                       <p className="text-sm text-muted-foreground">Published</p>
                     </div>
                   </div>
@@ -410,7 +425,7 @@ export function AdminDashboard() {
                       <Image className="w-6 h-6 text-blue-500" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-foreground">{stats.totalDesigns}</p>
+                      {isStatsLoading ? <Skeleton className="h-8 w-16" /> : <p className="text-2xl font-bold text-foreground">{stats.totalDesigns}</p>}
                       <p className="text-sm text-muted-foreground">Designs</p>
                     </div>
                   </div>
@@ -421,7 +436,7 @@ export function AdminDashboard() {
                       <Store className="w-6 h-6 text-amber-500" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-foreground">{stats.totalStores}</p>
+                      {isStatsLoading ? <Skeleton className="h-8 w-16" /> : <p className="text-2xl font-bold text-foreground">{stats.totalStores}</p>}
                       <p className="text-sm text-muted-foreground">Stores</p>
                     </div>
                   </div>
@@ -647,7 +662,7 @@ export function AdminDashboard() {
                             alt={design.name}
                             className="w-full h-full object-cover"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = "https://via.placeholder.com/300?text=No+Image";
+                              (e.target as HTMLImageElement).src = "/placeholder-design.svg";
                             }}
                           />
                         </div>
@@ -691,7 +706,7 @@ export function AdminDashboard() {
                               size="icon"
                               variant="destructive"
                               className="h-8 w-8"
-                              onClick={() => deleteDesign(design.id)}
+                              onClick={() => setDesignToDelete(design.id)}
                             >
                               <Trash2 className="w-4 h-4" />
                             </Button>
@@ -785,6 +800,27 @@ export function AdminDashboard() {
               </Card>
             </motion.div>
           )}
+
+          {/* AlertDialog for Design Deletion */}
+          <AlertDialog open={designToDelete !== null} onOpenChange={(open) => !open && setDesignToDelete(null)}>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This action cannot be undone. This will permanently delete the design from our database.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={() => designToDelete && deleteDesign(designToDelete)}
+                  className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                >
+                  Delete
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
 
           {/* Settings View */}
           {currentView === "settings" && (

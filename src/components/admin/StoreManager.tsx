@@ -3,6 +3,16 @@ import { motion } from "framer-motion";
 import { Store, Plus, Trash2, ExternalLink, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -42,6 +52,7 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
   const [stores, setStores] = useState<StoreProfile[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [storeToDelete, setStoreToDelete] = useState<string | null>(null);
   const [newStore, setNewStore] = useState({
     name: "",
     store_url: "",
@@ -97,8 +108,6 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
   };
 
   const handleDeleteStore = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this store?")) return;
-
     const { error } = await supabase.from("stores").delete().eq("id", id);
 
     if (error) {
@@ -107,6 +116,7 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
       setStores(stores.filter((s) => s.id !== id));
       toast.success("Store deleted");
     }
+    setStoreToDelete(null);
   };
 
   const getPlatformColor = (platform: string) => {
@@ -278,7 +288,7 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
                   size="icon"
                   variant="ghost"
                   className="text-destructive hover:text-destructive"
-                  onClick={() => handleDeleteStore(store.id)}
+                  onClick={() => setStoreToDelete(store.id)}
                 >
                   <Trash2 className="w-4 h-4" />
                 </Button>
@@ -287,6 +297,27 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
           ))}
         </div>
       )}
+
+      {/* AlertDialog for Store Deletion */}
+      <AlertDialog open={storeToDelete !== null} onOpenChange={(open) => !open && setStoreToDelete(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the store from our database.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => storeToDelete && handleDeleteStore(storeToDelete)}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Card>
   );
 }

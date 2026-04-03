@@ -21,6 +21,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -77,6 +87,7 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
   const [selectedPosts, setSelectedPosts] = useState<Set<string>>(new Set());
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
+  const [postToDelete, setPostToDelete] = useState<string | null>(null);
 
   useEffect(() => {
     fetchPosts();
@@ -127,8 +138,6 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
   }, [posts, searchQuery]);
 
   const deletePost = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this post?")) return;
-
     const { error } = await supabase
       .from("blog_posts")
       .delete()
@@ -142,6 +151,7 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
       setSelectedPosts(new Set(selectedPosts));
       toast.success("Post deleted successfully");
     }
+    setPostToDelete(null);
   };
 
   const updateStatus = async (id: string, status: string) => {
@@ -422,7 +432,7 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
                             )}
                             <DropdownMenuSeparator />
                             <DropdownMenuItem 
-                              onClick={() => deletePost(post.id)}
+                              onClick={() => setPostToDelete(post.id)}
                               className="text-destructive focus:text-destructive"
                             >
                               <Trash2 className="h-4 w-4 mr-2" />
@@ -528,6 +538,27 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
           )}
         </>
       )}
+
+      {/* AlertDialog for Post Deletion */}
+      <AlertDialog open={postToDelete !== null} onOpenChange={(open) => !open && setPostToDelete(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the blog post from our database.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => postToDelete && deletePost(postToDelete)}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

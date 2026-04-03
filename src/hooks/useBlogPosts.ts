@@ -118,210 +118,48 @@ export function useBlogPost(rawSlug: string) {
 
   const fetchPost = useCallback(async () => {
     const cleanSlug = rawSlug.toLowerCase().trim();
-    const fuzzySlug = cleanSlug.includes("-")
-      ? cleanSlug.replace(/-/g, "_")
-      : cleanSlug.replace(/_/g, "-");
-
-    console.log(`[useBlogPost] DIAGNOSTIC: Starting fetch for cleanSlug: "${cleanSlug}"`);
+    console.log(`[useBlogPost] Fetching post for slug: "${cleanSlug}"`);
     setIsLoading(true);
     setError(null);
 
-    // Stage 0: Instant Static Fallback
-    // We check this first to ensure immediate UI response
-    const staticMatch = blogPosts.find(p =>
-      p.slug.toLowerCase() === cleanSlug ||
-      p.id === cleanSlug ||
-      p.slug.toLowerCase() === fuzzySlug
-    );
-
-    if (staticMatch) {
-      console.log(`[useBlogPost] Stage 0 (Static): Instant match found for ${cleanSlug}`);
-      const post = staticMatch as BlogPost;
-      setPost({
-        ...post,
-        meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-        meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-        canonical_url: post.canonical_url || `/blog/${post.slug}`
-      });
-      setIsLoading(false);
-      // We continue to fetch from DB to get the most up-to-date content if it exists
-    }
-
     try {
-      // Stage 1: Exact slug match
-      console.log(`[useBlogPost] Attempting exact slug match for: ${cleanSlug}`);
-      const { data: exactMatch } = await supabase
+      // Direct exact match query - optimized for SEO and normalized slugs
+      const { data: dbPost, error: dbError } = await supabase
         .from("blog_posts")
         .select("*")
         .eq("slug", cleanSlug)
         .maybeSingle();
 
-      console.log(`[useBlogPost] Stage 1 (Exact): ${exactMatch ? "MATCH FOUND" : "No match"}`);
+      if (dbError) throw dbError;
 
-      if (exactMatch) {
-        const post = exactMatch as BlogPost;
+      if (dbPost) {
+        const post = dbPost as BlogPost;
         setPost({
           ...post,
           meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
           meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-          canonical_url: post.canonical_url || `/blog/${post.slug}`
+          canonical_url: (post as any).canonical_url || `/blog/${post.slug}`
         });
-        setIsLoading(false);
-        return;
-      }
-
-      // Stage 2: ID match (if it looks like a UUID)
-      const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(cleanSlug);
-      if (isUUID) {
-        console.log(`[useBlogPost] Slug looks like UUID, attempting ID match: ${cleanSlug}`);
-        const { data: idMatch } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .eq("id", cleanSlug)
-          .maybeSingle();
-
-        console.log(`[useBlogPost] Stage 2 (ID/UUID): ${idMatch ? "MATCH FOUND" : "No match"}`);
-
-        if (idMatch) {
-          const post = idMatch as BlogPost;
+      } else {
+        // Fallback to static data
+        const staticMatch = blogPosts.find(p => p.slug.toLowerCase() === cleanSlug);
+        if (staticMatch) {
+          const post = staticMatch as BlogPost;
           setPost({
             ...post,
             meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
             meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
             canonical_url: post.canonical_url || `/blog/${post.slug}`
           });
-          setIsLoading(false);
-          return;
+        } else {
+          setPost(null);
         }
       }
-
-      // Stage 3: Fuzzy slug match (hyphens vs underscores)
-      // This handles legacy data where slugs might have used underscores instead of hyphens
-      if (fuzzySlug !== cleanSlug) {
-        console.log(`[useBlogPost] Attempting fuzzy slug match: ${fuzzySlug}`);
-        const { data: fuzzyMatch } = await supabase
-          .from("blog_posts")
-          .select("*")
-          .eq("slug", fuzzySlug)
-          .maybeSingle();
-
-        console.log(`[useBlogPost] Stage 3 (Fuzzy): ${fuzzyMatch ? "MATCH FOUND" : "No match"}`);
-
-        if (fuzzyMatch) {
-          const post = fuzzyMatch as BlogPost;
-          setPost({
-            ...post,
-            meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-            meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-            canonical_url: post.canonical_url || `/blog/${post.slug}`
-          });
-          setIsLoading(false);
-          return;
-        }
-      }
-
-      // Stage 4: Case-insensitive & Partial match (using ilike with wildcards)
-      // This helps find slugs that have extra SEO suffixes in the DB
-      console.log(`[useBlogPost] Attempting partial match for: %${cleanSlug}%`);
-      const { data: partialMatch } = await supabase
-        .from("blog_posts")
-        .select("*")
-        .ilike("slug", `%${cleanSlug}%`)
-        .limit(1);
-
-      const foundPartialMatch = partialMatch && partialMatch.length > 0 ? partialMatch[0] : null;
-      console.log(`[useBlogPost] Stage 4 (Partial/ilike): ${foundPartialMatch ? "MATCH FOUND" : "No match"}`);
-
-      if (foundPartialMatch) {
-        const post = foundPartialMatch as BlogPost;
-        setPost({
-          ...post,
-          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-          canonical_url: post.canonical_url || `/blog/${post.slug}`
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      // Stage 5: Suffix-agnostic comparison
-      console.log(`[useBlogPost] Attempting suffix-agnostic comparison for: ${cleanSlug}`);
-      const { data: slugList } = await supabase
-        .from("blog_posts")
-        .select("id, slug")
-        .eq("status", "published");
-
-      if (slugList) {
-        const normalize = (s: string) => s.toLowerCase()
-          .replace(/_/g, '-')
-          .split('-2026-')[0] // Handle cases like beagle-shirts-2026-...
-          .replace(/-design-protection-and-style$/, '')
-          .replace(/-everything-you-need-to-know$/, '')
-          .replace(/-a-complete-guide$/, '')
-          .replace(/-the-ultimate-guide$/, '');
-
-        const target = normalize(cleanSlug);
-        const match = slugList.find(item => normalize(item.slug) === target);
-
-        if (match) {
-          console.log(`[useBlogPost] Stage 5 (Normalization): MATCH FOUND: ${match.slug}`);
-          const { data: fullPost } = await supabase
-            .from("blog_posts")
-            .select("*")
-            .eq("id", match.id)
-            .maybeSingle();
-
-          if (fullPost) {
-            const post = fullPost as BlogPost;
-            setPost({
-              ...post,
-              meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-              meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-              canonical_url: post.canonical_url || `/blog/${post.slug}`
-            });
-            setIsLoading(false);
-            return;
-          }
-        }
-      }
-
-      // Stage 6: Static Fallback
-      console.log(`[useBlogPost] No DB match found. Checking static fallback for: ${cleanSlug}`);
-
-      // If we found a static match in Stage 0, we already set the post.
-      // We check again here in case we missed it or need a final confirmation.
-      const fallbackMatch = staticMatch || blogPosts.find(p =>
-        p.slug.toLowerCase() === cleanSlug ||
-        p.id === cleanSlug ||
-        p.slug.toLowerCase() === fuzzySlug
-      );
-
-      console.log(`[useBlogPost] Stage 6 (Static): ${fallbackMatch ? "MATCH FOUND" : "No match"}`);
-
-      if (fallbackMatch) {
-        const post = fallbackMatch as BlogPost;
-        setPost({
-          ...post,
-          meta_title: post.meta_title || `${post.title} | AIPrintVerse`,
-          meta_description: post.meta_description || post.excerpt || (post.content ? post.content.replace(/<[^>]*>/g, '').slice(0, 160) : ""),
-          canonical_url: post.canonical_url || `/blog/${post.slug}`
-        });
-        setIsLoading(false);
-        return;
-      }
-
-      console.log(`[useBlogPost] No DB match found. Fetching sample slugs for diagnostic comparison...`);
-      const { data: sampleSlugs } = await supabase
-        .from("blog_posts")
-        .select("slug")
-        .limit(5);
-      console.log(`[useBlogPost] DIAGNOSTIC - Sample DB Slugs:`, sampleSlugs?.map(p => p.slug));
-
-      setPost(null);
     } catch (err) {
       console.error("[useBlogPost] Unexpected error fetching post:", err);
-      const errorMessage = err instanceof Error ? err.message : "Post not found";
-      // Final desperation fallback to static data
+      setError(err instanceof Error ? err.message : "Post not found");
+
+      // Desperation fallback to static
       const staticMatch = blogPosts.find(p => p.slug.toLowerCase() === cleanSlug);
       if (staticMatch) {
         const post = staticMatch as BlogPost;
@@ -332,7 +170,6 @@ export function useBlogPost(rawSlug: string) {
           canonical_url: post.canonical_url || `/blog/${post.slug}`
         });
       }
-      else setError(errorMessage);
     } finally {
       setIsLoading(false);
     }

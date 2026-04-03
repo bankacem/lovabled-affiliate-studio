@@ -31,10 +31,10 @@ double_confirm_changes = true
 enable_confirmations = false
 
 [functions.import-designs]
-verify_jwt = false
+verify_jwt = true
 
 [functions.publish-scheduled-posts]
-verify_jwt = false
+verify_jwt = true
 
 [functions.sitemap]
 verify_jwt = false

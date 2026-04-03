@@ -41,22 +41,28 @@ export function SEO({
 
     // Update Canonical Link
     let linkCanonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      if (linkCanonical) {
-        linkCanonical.setAttribute("href", canonical.startsWith("http") ? canonical : `${baseUrl}${canonical}`);
-      } else {
-        linkCanonical = document.createElement("link");
-        linkCanonical.setAttribute("rel", "canonical");
-        linkCanonical.setAttribute("href", canonical.startsWith("http") ? canonical : `${baseUrl}${canonical}`);
-        document.head.appendChild(linkCanonical);
+
+    // Ensure the base URL is always the non-www version of aiprintverse.com
+    const getCanonicalUrl = (path?: string) => {
+      if (path) {
+        // If it's already a full URL, ensure it's the non-www version
+        if (path.startsWith("http")) {
+          return path.replace("www.aiprintverse.com", "aiprintverse.com");
+        }
+        return `${baseUrl}${path.startsWith("/") ? "" : "/"}${path}`;
       }
-    } else if (linkCanonical) {
-      // Set current URL as default canonical if not provided
-      linkCanonical.setAttribute("href", window.location.href);
+      // Fallback to current location, but force non-www
+      return window.location.href.replace("www.aiprintverse.com", "aiprintverse.com");
+    };
+
+    const finalCanonical = getCanonicalUrl(canonical);
+
+    if (linkCanonical) {
+      linkCanonical.setAttribute("href", finalCanonical);
     } else {
       linkCanonical = document.createElement("link");
       linkCanonical.setAttribute("rel", "canonical");
-      linkCanonical.setAttribute("href", window.location.href);
+      linkCanonical.setAttribute("href", finalCanonical);
       document.head.appendChild(linkCanonical);
     }
 

@@ -16,6 +16,16 @@ import { SEOCTRBooster } from "./SEOCTRBooster";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
@@ -60,6 +70,7 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
+  const [postToDelete, setPostToDelete] = useState<string | null>(null);
 
   useEffect(() => {
     fetchPosts();
@@ -81,8 +92,6 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
   };
 
   const deletePost = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this post?")) return;
-
     const { error } = await supabase
       .from("blog_posts")
       .delete()
@@ -94,6 +103,7 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
       setPosts(posts.filter(p => p.id !== id));
       toast.success("Post deleted successfully");
     }
+    setPostToDelete(null);
   };
 
   const updateStatus = async (id: string, status: string) => {
@@ -269,7 +279,7 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
                           )}
                           <DropdownMenuSeparator />
                           <DropdownMenuItem 
-                            onClick={() => deletePost(post.id)}
+                            onClick={() => setPostToDelete(post.id)}
                             className="text-destructive focus:text-destructive"
                           >
                             <Trash2 className="h-4 w-4 mr-2" />
@@ -320,6 +330,27 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
           ))}
         </div>
       )}
+
+      {/* AlertDialog for Post Deletion */}
+      <AlertDialog open={postToDelete !== null} onOpenChange={(open) => !open && setPostToDelete(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the blog post from our database.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => postToDelete && deletePost(postToDelete)}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

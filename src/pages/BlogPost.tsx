@@ -42,7 +42,7 @@ const BlogPost = () => {
       if (p.id === post.id || p.slug === post.slug) return false;
 
       // Check if it exists in all_slugs.json pool
-      const inSlugPool = allSlugsData.some(s => s.slug === p.slug);
+      const inSlugPool = (allSlugsData as any[]).some(s => s.slug === p.slug);
       if (!inSlugPool) return false;
 
       // Match category
@@ -54,9 +54,19 @@ const BlogPost = () => {
       return categoryMatch || tagMatch;
     });
 
-    // Shuffle and pick 3
+    // Deterministic seeded shuffle based on post ID to ensure stable rankings
+    const seed = post.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const seededRandom = (s: number) => {
+      const x = Math.sin(s++) * 10000;
+      return x - Math.floor(x);
+    };
+
     return candidates
-      .sort(() => 0.5 - Math.random())
+      .sort((a, b) => {
+        const valA = seededRandom(seed + a.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
+        const valB = seededRandom(seed + b.id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
+        return valA - valB;
+      })
       .slice(0, 3);
   }, [post, allPostsList]);
 
