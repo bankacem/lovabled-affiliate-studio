@@ -92,18 +92,15 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
   };
 
   const deletePost = async (id: string) => {
-    const { error } = await supabase
-      .from("blog_posts")
-      .delete()
-      .eq("id", id);
+    // FIXED: Removed window.confirm()
+    const { error } = await supabase.from("blog_posts").delete().eq("id", id);
 
     if (error) {
       toast.error("Failed to delete post");
     } else {
-      setPosts(posts.filter(p => p.id !== id));
+      setPosts(posts.filter((p) => p.id !== id));
       toast.success("Post deleted successfully");
     }
-    setPostToDelete(null);
   };
 
   const updateStatus = async (id: string, status: string) => {

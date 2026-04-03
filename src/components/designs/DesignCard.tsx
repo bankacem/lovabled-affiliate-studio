@@ -26,6 +26,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "/placeholder-design.svg";
+                (e.target as HTMLImageElement).onerror = null;
               }}
             />
             

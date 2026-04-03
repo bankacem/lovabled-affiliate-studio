@@ -18,6 +18,7 @@ export function usePageTracking(postId?: string) {
   useEffect(() => {
     const trackPageView = async () => {
       try {
+        // Insert page view record
         await supabase.from("page_views").insert({
           page_path: location.pathname,
           page_title: document.title,
@@ -27,21 +28,31 @@ export function usePageTracking(postId?: string) {
           post_id: postId || null,
         });
 
-        // Update view count on blog post if applicable
+        // FIXED: Use RPC for atomic increment — prevents race condition
+        // Run: CREATE OR REPLACE FUNCTION increment_view_count(post_id uuid)
+        //      RETURNS void LANGUAGE sql SECURITY DEFINER AS $$
+        //        UPDATE blog_posts SET view_count = COALESCE(view_count, 0) + 1
+        //        WHERE id = post_id AND status = 'published';
+        //      $$;
         if (postId) {
-          const { data: post } = await supabase
-            .from("blog_posts")
-            .select("view_count")
-            .eq("id", postId)
-            .single();
-          
-          await supabase
-            .from("blog_posts")
-            .update({ view_count: (post?.view_count || 0) + 1 })
-            .eq("id", postId);
+          const { error } = await supabase.rpc("increment_view_count", {
+            post_id: postId,
+          });
+          // Fallback: if RPC not yet created, use direct update
+          if (error && error.message.includes("does not exist")) {
+            const { data: currentPost } = await supabase
+              .from("blog_posts")
+              .select("view_count")
+              .eq("id", postId)
+              .single();
+            await supabase
+              .from("blog_posts")
+              .update({ view_count: (currentPost?.view_count || 0) + 1 })
+              .eq("id", postId);
+          }
         }
-      } catch (error) {
-        console.error("Failed to track page view:", error);
+      } catch {
+        // Silently fail — tracking should never break the page
       }
     };
 
@@ -50,67 +61,50 @@ export function usePageTracking(postId?: string) {
 }
 
 export function useLinkTracking() {
-  const trackLinkClick = useCallback(async (
-    targetUrl: string,
-    linkText: string,
-    sourcePostId?: string
-  ) => {
-    try {
-      const linkType = targetUrl.startsWith("/") || targetUrl.includes(window.location.host)
-        ? "internal"
-        : "external";
+  const trackLinkClick = useCallback(
+    async (targetUrl: string, linkText: string, sourcePostId?: string) => {
+      try {
+        const linkType =
+          targetUrl.startsWith("/") || targetUrl.includes(window.location.host)
+            ? "internal"
+            : "external";
 
-      // Build proper filter for source_post_id
-      let query = supabase
-        .from("link_tracking")
-        .select("id, click_count")
-        .eq("target_url", targetUrl);
-      
-      // Handle null source_post_id properly
-      if (sourcePostId) {
-        query = query.eq("source_post_id", sourcePostId);
-      } else {
-        query = query.is("source_post_id", null);
-      }
-      
-      const { data: existing, error: selectError } = await query.maybeSingle();
-
-      if (selectError) {
-        console.error("Error checking existing link:", selectError);
-        return;
-      }
-
-      if (existing) {
-        // Update click count
-        const { error: updateError } = await supabase
+        let query = supabase
           .from("link_tracking")
-          .update({ 
-            click_count: existing.click_count + 1,
-            updated_at: new Date().toISOString()
-          })
-          .eq("id", existing.id);
-        
-        if (updateError) {
-          console.error("Error updating link click:", updateError);
+          .select("id, click_count")
+          .eq("target_url", targetUrl);
+
+        if (sourcePostId) {
+          query = query.eq("source_post_id", sourcePostId);
+        } else {
+          query = query.is("source_post_id", null);
         }
-      } else {
-        // Insert new tracking record
-        const { error: insertError } = await supabase.from("link_tracking").insert({
-          source_post_id: sourcePostId || null,
-          target_url: targetUrl,
-          link_text: linkText,
-          link_type: linkType,
-          click_count: 1,
-        });
-        
-        if (insertError) {
-          console.error("Error inserting link tracking:", insertError);
+
+        const { data: existing } = await query.maybeSingle();
+
+        if (existing) {
+          await supabase
+            .from("link_tracking")
+            .update({
+              click_count: existing.click_count + 1,
+              updated_at: new Date().toISOString(),
+            })
+            .eq("id", existing.id);
+        } else {
+          await supabase.from("link_tracking").insert({
+            source_post_id: sourcePostId || null,
+            target_url: targetUrl,
+            link_text: linkText,
+            link_type: linkType,
+            click_count: 1,
+          });
         }
+      } catch {
+        // Silently fail — tracking should never break the page
       }
-    } catch (error) {
-      console.error("Failed to track link click:", error);
-    }
-  }, []);
+    },
+    []
+  );
 
   return { trackLinkClick };
 }

@@ -108,6 +108,7 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
   };
 
   const handleDeleteStore = async (id: string) => {
+    // FIXED: Removed window.confirm()
     const { error } = await supabase.from("stores").delete().eq("id", id);
 
     if (error) {
@@ -116,7 +117,6 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
       setStores(stores.filter((s) => s.id !== id));
       toast.success("Store deleted");
     }
-    setStoreToDelete(null);
   };
 
   const getPlatformColor = (platform: string) => {

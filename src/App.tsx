@@ -15,7 +15,20 @@ const About = lazy(() => import("./pages/About"));
 const Admin = lazy(() => import("./pages/Admin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const queryClient = new QueryClient();
+// FIXED: QueryClient with proper configuration
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,     // 5 minutes before refetch
+      gcTime: 10 * 60 * 1000,       // 10 minutes in cache
+      retry: 1,                      // Only 1 retry on failure
+      refetchOnWindowFocus: false,   // Don't refetch on tab focus
+    },
+    mutations: {
+      retry: 0,
+    },
+  },
+});
 
 // Loading fallback for pages
 const PageLoader = () => (

@@ -32,48 +32,35 @@ const BlogPost = () => {
   const { post, isLoading, error } = useBlogPost(slug || "");
   const { posts: allPostsList } = useBlogPosts();
 
-  // Related Articles matching logic
+  // Related Articles — deterministic sort using post.id as seed
   const relatedArticles = useMemo(() => {
     if (!post || !allPostsList.length) return [];
 
-    // Filter by category or tags, excluding current post
-    const candidates = allPostsList.filter(p => {
-      // Exclude current post
+    const candidates = allPostsList.filter((p) => {
       if (p.id === post.id || p.slug === post.slug) return false;
-
-      // Check if it exists in all_slugs.json pool
-      const inSlugPool = allSlugsData.some(s => s.slug === p.slug);
+      const inSlugPool = allSlugsData.some((s: { slug: string }) => s.slug === p.slug);
       if (!inSlugPool) return false;
-
-      // Match category
-      const categoryMatch = p.category === post.category;
-
-      // Match tags
-      const tagMatch = p.tags.some(tag => post.tags.includes(tag));
-
-      return categoryMatch || tagMatch;
+      return p.category === post.category || p.tags.some((tag) => post.tags.includes(tag));
     });
 
-    // Shuffle and pick 3
-    return candidates
-      .sort(() => 0.5 - Math.random())
+    // FIXED: Deterministic sort using post.id as seed — no more random reorders
+    const seed = post.id.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
+    return [...candidates]
+      .sort((a, b) => ((a.id.charCodeAt(0) + seed) % 100) - ((b.id.charCodeAt(0) + seed) % 100))
       .slice(0, 3);
   }, [post, allPostsList]);
 
-  // RCA Logs
-  console.log('Current Slug:', slug);
-  console.log('Found Article:', post);
+  // FIXED: Removed RCA console.log statements (leaked private data to DevTools)
 
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
   const { trackLinkClick } = useLinkTracking();
-  
+
   // Track page view
   usePageTracking(post?.id);
 
   // Canonical Redirect logic
   useEffect(() => {
     if (post && post.slug && slug && post.slug !== slug) {
-      console.log(`[BlogPost] Redirecting to canonical slug: /blog/${post.slug}`);
       navigate(`/blog/${post.slug}`, { replace: true });
     }
   }, [post, slug, navigate]);
