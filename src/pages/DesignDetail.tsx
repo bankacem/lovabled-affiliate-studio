@@ -126,7 +126,7 @@ const DesignDetail = () => {
                   alt={design.name}
                   className="h-full w-full object-cover"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://via.placeholder.com/600?text=Design";
+                    (e.target as HTMLImageElement).src = "/placeholder-design.svg";
                   }}
                 />
               </div>
