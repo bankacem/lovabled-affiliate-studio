@@ -41,6 +41,7 @@ export function useAuth() {
 
   const checkAdminRole = async (userId: string, retryCount = 0) => {
     const maxRetries = 3;
+    console.log(`Checking admin role for user ${userId} (Attempt ${retryCount + 1})`);
     
     try {
       // First try RPC function
@@ -49,7 +50,11 @@ export function useAuth() {
         _role: 'admin'
       });
       
+      if (error) console.error("RPC has_role error:", error);
+      console.log("RPC has_role result:", data);
+
       if (!error && data === true) {
+        console.log("User confirmed as admin via RPC");
         setIsAdmin(true);
         return;
       }
@@ -62,7 +67,11 @@ export function useAuth() {
         .eq('role', 'admin')
         .maybeSingle();
       
+      if (roleError) console.error("Query user_roles error:", roleError);
+      console.log("Query user_roles result:", roleData);
+
       if (!roleError && roleData) {
+        console.log("User confirmed as admin via database query");
         setIsAdmin(true);
         return;
       }

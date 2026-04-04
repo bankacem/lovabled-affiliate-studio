@@ -51,6 +51,7 @@ export function useBlogPosts() {
 
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
+    console.log("Fetching blog posts...");
 
     try {
       const { data: dbPosts, error: dbError } = await supabase
@@ -59,14 +60,21 @@ export function useBlogPosts() {
         .eq("status", "published")
         .order("published_at", { ascending: false });
 
-      if (dbError) setError(dbError.message);
+      if (dbError) {
+        console.error("Supabase error fetching posts:", dbError);
+        setError(dbError.message);
+      }
 
       const dbPostsList = dbPosts || [];
-      const normalizeSlug = (s: string) => s.toLowerCase().replace(/_/g, "-");
+      console.log(`Found ${dbPostsList.length} posts in database`);
+
+      const normalizeSlug = (s: string) => s.toLowerCase().replace(/[_\s]+/g, "-");
       const dbNormalizedSlugs = new Set(dbPostsList.map((p) => normalizeSlug(p.slug)));
       const missingStaticPosts = blogPosts.filter(
         (p) => !dbNormalizedSlugs.has(normalizeSlug(p.slug))
       );
+
+      console.log(`Adding ${missingStaticPosts.length} missing static posts`);
 
       const allPosts = [...dbPostsList, ...missingStaticPosts]
         .map((post) => enrichPost(post as any))
@@ -76,8 +84,14 @@ export function useBlogPosts() {
           return dateB - dateA;
         });
 
-      setPosts(allPosts);
+      if (allPosts.length === 0) {
+        console.warn("No posts found (DB or static). Falling back to all static data.");
+        setPosts(blogPosts.map((p) => enrichPost(p as any)));
+      } else {
+        setPosts(allPosts);
+      }
     } catch (err) {
+      console.error("Major error in fetchPosts:", err);
       // Fallback to static data on major error
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
       setError(err instanceof Error ? err.message : "An unexpected error occurred");
@@ -102,28 +116,34 @@ export function useBlogPost(rawSlug: string) {
     if (!rawSlug) return;
     setIsLoading(true);
     setError(null);
+    console.log(`Fetching blog post for slug: ${rawSlug}`);
 
-    // Normalize slug: lowercase + replace underscores with hyphens
-    const cleanSlug = rawSlug.toLowerCase().trim().replace(/_/g, "-");
+    // Normalize slug: lowercase + replace underscores/spaces with hyphens
+    const cleanSlug = rawSlug.toLowerCase().trim().replace(/[_\s]+/g, "-");
+    console.log(`Cleaned slug: ${cleanSlug}`);
 
     // Stage 0: Instant static fallback for immediate UI response
     const staticMatch = blogPosts.find(
-      (p) => p.slug.toLowerCase().replace(/_/g, "-") === cleanSlug
+      (p) => p.slug.toLowerCase().replace(/[_\s]+/g, "-") === cleanSlug
     );
     if (staticMatch) {
+      console.log("Found static match for slug");
       setPost(enrichPost(staticMatch as any));
       setIsLoading(false);
     }
 
     try {
       // Stage 1: Direct DB lookup by normalized slug (primary path)
-      const { data: exactMatch } = await supabase
+      const { data: exactMatch, error: exactError } = await supabase
         .from("blog_posts")
         .select("*")
         .eq("slug", cleanSlug)
         .maybeSingle();
 
+      if (exactError) console.error("Error fetching exact match:", exactError);
+
       if (exactMatch) {
+        console.log("Found database match for slug");
         setPost(enrichPost(exactMatch as any));
         setIsLoading(false);
         return;

@@ -83,6 +83,7 @@ interface Stats {
 
 export function AdminDashboard() {
   const { user, isLoading: authLoading, isAdmin, signOut } = useAuth();
+  console.log("AdminDashboard - Auth state:", { user: user?.id, isAdmin, authLoading });
   const [currentView, setCurrentView] = useState<View>("dashboard");
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
   const [editingDesign, setEditingDesign] = useState<Design | null>(null);
