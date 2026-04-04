@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Save, 
-  Eye, 
   ArrowLeft, 
   Image as ImageIcon,
   Tag,
@@ -11,7 +10,6 @@ import {
   Settings,
   Send,
   Link2,
-  Sparkles,
   Code,
   Calendar,
   Clock,
@@ -82,7 +80,6 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [tagsInput, setTagsInput] = useState("");
   const [showLinkingTool, setShowLinkingTool] = useState(false);
-  const editorRef = useRef<{ insertLink: (url: string, text: string) => void } | null>(null);
   
   const [post, setPost] = useState<BlogPost>({
     title: "",
@@ -211,13 +208,13 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
 
     setIsSaving(true);
     
-    const postData = {
+    const postData: any = {
       title: post.title,
       slug: post.slug || generateSlug(post.title),
       excerpt: post.excerpt,
       content: post.content,
       featured_image: post.featured_image,
-      video_url: post.video_url,
+      video_url: post.video_url || null,
       category: post.category,
       tags: post.tags,
       status: status || post.status,
