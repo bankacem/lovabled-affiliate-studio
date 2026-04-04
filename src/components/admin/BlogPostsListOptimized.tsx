@@ -99,7 +99,7 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
     // Build query
     let query = supabase
       .from("blog_posts")
-      .select("id, title, slug, excerpt, category, status, source, created_at, updated_at, featured_image, author_name, scheduled_publish_at, impressions, clicks", { count: "exact" });
+      .select("id, title, slug, excerpt, category, status, source, created_at, updated_at, featured_image, author_name, scheduled_publish_at, impressions, clicks, video_url", { count: "exact" });
 
     // Apply filters
     if (statusFilter !== "all") {

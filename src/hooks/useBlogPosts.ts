@@ -24,23 +24,24 @@ export interface BlogPost {
 }
 
 // Helper: enrich post with fallback SEO metadata
-function enrichPost(post: any): BlogPost {
-  const safeTitle = post?.title || "Untitled Post";
-  const safeSlug = post?.slug || "no-slug";
+function enrichPost(post: unknown): BlogPost {
+  const p = post as Record<string, unknown>;
+  const safeTitle = (p?.title as string) || "Untitled Post";
+  const safeSlug = (p?.slug as string) || "no-slug";
 
   return {
-    ...post,
+    ...p,
     title: safeTitle,
     slug: safeSlug,
-    meta_title: post?.meta_title || `${safeTitle} | AIPrintVerse`,
+    meta_title: (p?.meta_title as string) || `${safeTitle} | AIPrintVerse`,
     meta_description:
-      post?.meta_description ||
-      post?.excerpt ||
-      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : "No description available"),
-    canonical_url: post?.canonical_url || `/blog/${safeSlug}`,
-    tags: Array.isArray(post?.tags) ? post.tags : [],
-    status: post?.status || "draft",
-    published_at: post?.published_at || post?.created_at || new Date().toISOString(),
+      (p?.meta_description as string) ||
+      (p?.excerpt as string) ||
+      (p?.content ? (p.content as string).replace(/<[^>]*>/g, "").slice(0, 160) : "No description available"),
+    canonical_url: (p?.canonical_url as string) || `/blog/${safeSlug}`,
+    tags: Array.isArray(p?.tags) ? p.tags : [],
+    status: (p?.status as string) || "draft",
+    published_at: (p?.published_at as string) || (p?.created_at as string) || new Date().toISOString(),
   } as BlogPost;
 }
 
@@ -51,9 +52,12 @@ export function useBlogPosts() {
 
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
-    console.log("Fetching blog posts...");
 
     try {
+      if (!supabase || typeof supabase.from !== 'function') {
+        throw new Error("Supabase client not initialized");
+      }
+
       const { data: dbPosts, error: dbError } = await supabase
         .from("blog_posts")
         .select("*")
@@ -61,12 +65,10 @@ export function useBlogPosts() {
         .order("published_at", { ascending: false });
 
       if (dbError) {
-        console.error("Supabase error fetching posts:", dbError);
         setError(dbError.message);
       }
 
       const dbPostsList = dbPosts || [];
-      console.log(`Found ${dbPostsList.length} posts in database`);
 
       const normalizeSlug = (s: string) => s.toLowerCase().replace(/[_\s]+/g, "-");
       const dbNormalizedSlugs = new Set(dbPostsList.map((p) => normalizeSlug(p.slug)));
@@ -74,10 +76,8 @@ export function useBlogPosts() {
         (p) => !dbNormalizedSlugs.has(normalizeSlug(p.slug))
       );
 
-      console.log(`Adding ${missingStaticPosts.length} missing static posts`);
-
       const allPosts = [...dbPostsList, ...missingStaticPosts]
-        .map((post) => enrichPost(post as any))
+        .map((post) => enrichPost(post))
         .sort((a, b) => {
           const dateA = new Date(a.published_at || a.created_at).getTime();
           const dateB = new Date(b.published_at || b.created_at).getTime();
@@ -85,15 +85,13 @@ export function useBlogPosts() {
         });
 
       if (allPosts.length === 0) {
-        console.warn("No posts found (DB or static). Falling back to all static data.");
-        setPosts(blogPosts.map((p) => enrichPost(p as any)));
+        setPosts(blogPosts.map((p) => enrichPost(p)));
       } else {
         setPosts(allPosts);
       }
     } catch (err) {
-      console.error("Major error in fetchPosts:", err);
       // Fallback to static data on major error
-      setPosts(blogPosts.map((p) => enrichPost(p as any)));
+      setPosts(blogPosts.map((p) => enrichPost(p)));
       setError(err instanceof Error ? err.message : "An unexpected error occurred");
     } finally {
       setIsLoading(false);
@@ -116,35 +114,33 @@ export function useBlogPost(rawSlug: string) {
     if (!rawSlug) return;
     setIsLoading(true);
     setError(null);
-    console.log(`Fetching blog post for slug: ${rawSlug}`);
 
     // Normalize slug: lowercase + replace underscores/spaces with hyphens
     const cleanSlug = rawSlug.toLowerCase().trim().replace(/[_\s]+/g, "-");
-    console.log(`Cleaned slug: ${cleanSlug}`);
 
     // Stage 0: Instant static fallback for immediate UI response
     const staticMatch = blogPosts.find(
       (p) => p.slug.toLowerCase().replace(/[_\s]+/g, "-") === cleanSlug
     );
     if (staticMatch) {
-      console.log("Found static match for slug");
-      setPost(enrichPost(staticMatch as any));
+      setPost(enrichPost(staticMatch));
       setIsLoading(false);
     }
 
     try {
+      if (!supabase || typeof supabase.from !== 'function') {
+        return;
+      }
+
       // Stage 1: Direct DB lookup by normalized slug (primary path)
-      const { data: exactMatch, error: exactError } = await supabase
+      const { data: exactMatch } = await supabase
         .from("blog_posts")
         .select("*")
         .eq("slug", cleanSlug)
         .maybeSingle();
 
-      if (exactError) console.error("Error fetching exact match:", exactError);
-
       if (exactMatch) {
-        console.log("Found database match for slug");
-        setPost(enrichPost(exactMatch as any));
+        setPost(enrichPost(exactMatch));
         setIsLoading(false);
         return;
       }
@@ -159,7 +155,7 @@ export function useBlogPost(rawSlug: string) {
           .eq("id", cleanSlug)
           .maybeSingle();
         if (idMatch) {
-          setPost(enrichPost(idMatch as any));
+          setPost(enrichPost(idMatch));
           setIsLoading(false);
           return;
         }
@@ -192,6 +188,11 @@ export function useBlogCategories() {
 
   useEffect(() => {
     const fetchCategories = async () => {
+      if (!supabase || typeof supabase.from !== 'function') {
+        setIsLoading(false);
+        return;
+      }
+
       const { data } = await supabase
         .from("blog_categories")
         .select("name")

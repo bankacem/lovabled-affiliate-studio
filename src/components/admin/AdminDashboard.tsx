@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   LayoutDashboard, 
@@ -83,7 +84,9 @@ interface Stats {
 
 export function AdminDashboard() {
   const { user, isLoading: authLoading, isAdmin, signOut } = useAuth();
-  console.log("AdminDashboard - Auth state:", { user: user?.id, isAdmin, authLoading });
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [currentView, setCurrentView] = useState<View>("dashboard");
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
   const [editingDesign, setEditingDesign] = useState<Design | null>(null);
@@ -109,36 +112,48 @@ export function AdminDashboard() {
     }
   }, [user, isAdmin]);
 
+  // Sync currentView with URL
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/admin/posts") {
+      setCurrentView("posts");
+    } else if (path === "/admin") {
+      setCurrentView("dashboard");
+    }
+  }, [location.pathname]);
+
   const fetchStats = async () => {
-    setStats({
-      totalPosts: 0,
-      publishedPosts: 0,
-      draftPosts: 0,
-      totalDesigns: 0,
-      featuredDesigns: 0,
-      totalStores: 0,
-    });
-    const [postsResult, designsResult, storesResult] = await Promise.all([
-      supabase.from("blog_posts").select("status"),
-      supabase.from("designs").select("featured"),
-      supabase.from("stores").select("id"),
-    ]);
+    setIsLoadingStats(true);
+    try {
+      if (!supabase || typeof supabase.from !== 'function') return;
 
-    const posts = postsResult.data || [];
-    const designsData = designsResult.data || [];
-    const stores = storesResult.data || [];
+      const [postsResult, designsResult, storesResult] = await Promise.all([
+        supabase.from("blog_posts").select("status"),
+        supabase.from("designs").select("featured"),
+        supabase.from("stores").select("id"),
+      ]);
 
-    setStats({
-      totalPosts: posts.length,
-      publishedPosts: posts.filter((p) => p.status === "published").length,
-      draftPosts: posts.filter((p) => p.status === "draft").length,
-      totalDesigns: designsData.length,
-      featuredDesigns: designsData.filter((d) => d.featured).length,
-      totalStores: stores.length,
-    });
+      const posts = postsResult.data || [];
+      const designsData = designsResult.data || [];
+      const stores = storesResult.data || [];
+
+      setStats({
+        totalPosts: posts.length,
+        publishedPosts: posts.filter((p) => p.status === "published").length,
+        draftPosts: posts.filter((p) => p.status === "draft").length,
+        totalDesigns: designsData.length,
+        featuredDesigns: designsData.filter((d) => d.featured).length,
+        totalStores: stores.length,
+      });
+    } catch (error) {
+      // Silent
+    } finally {
+      setIsLoadingStats(false);
+    }
   };
 
   const fetchDesigns = async () => {
+    if (!supabase || typeof supabase.from !== 'function') return;
     setIsLoadingDesigns(true);
     const { data, error } = await supabase
       .from("designs")
@@ -176,6 +191,7 @@ export function AdminDashboard() {
   };
 
   const toggleFeatured = async (id: string, featured: boolean) => {
+    if (!supabase || typeof supabase.from !== 'function') return;
     const { error } = await supabase
       .from("designs")
       .update({ featured: !featured })
@@ -193,7 +209,7 @@ export function AdminDashboard() {
   };
 
   const deleteDesign = async (id: string) => {
-    // FIXED: Removed window.confirm() — use AlertDialog in JSX instead
+    if (!supabase || typeof supabase.from !== 'function') return;
     const { error } = await supabase.from("designs").delete().eq("id", id);
     if (error) {
       toast.error("Failed to delete design");
@@ -221,7 +237,11 @@ export function AdminDashboard() {
 
   const handleBackFromEditor = () => {
     setEditingPostId(null);
-    setCurrentView("posts");
+    if (location.pathname === "/admin/posts") {
+      setCurrentView("posts");
+    } else {
+      navigate("/admin/posts");
+    }
   };
 
   const handleEditDesign = (design: Design) => {
@@ -324,6 +344,11 @@ export function AdminDashboard() {
                 <button
                   key={item.id}
                   onClick={() => {
+                    if (item.id === "posts") {
+                      navigate("/admin/posts");
+                    } else if (item.id === "dashboard") {
+                      navigate("/admin");
+                    }
                     setCurrentView(item.id as View);
                     setIsSidebarOpen(false);
                   }}
