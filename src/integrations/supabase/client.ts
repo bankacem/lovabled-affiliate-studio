@@ -5,13 +5,31 @@ import type { Database } from './types';
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
-// Import the supabase client like this:
-// import { supabase } from "@/integrations/supabase/client";
-
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-  auth: {
-    storage: localStorage,
-    persistSession: true,
-    autoRefreshToken: true,
+// Defensive initialization to prevent white screen if env vars are missing
+const createSafeClient = () => {
+  // If credentials are missing, we log a warning but don't call createClient.
+  // This prevents the "Invalid URL" error from crashing the entire React app on load.
+  // We return a "dummy" object that will cause runtime errors only when a database
+  // operation is actually attempted, rather than at application startup.
+  if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+    if (import.meta.env.DEV) {
+      console.warn("Supabase credentials missing. Database features will be unavailable.");
+    }
+    return {} as any;
   }
-});
+
+  try {
+    return createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+      auth: {
+        storage: localStorage,
+        persistSession: true,
+        autoRefreshToken: true,
+      }
+    });
+  } catch (error) {
+    console.error("Failed to initialize Supabase client:", error);
+    return {} as any;
+  }
+};
+
+export const supabase = createSafeClient();
