@@ -45,7 +45,7 @@ export function generateSEOSlug(title: string, suffix?: string): string {
  */
 export function extractLinksFromContent(content: string): Array<{
   url: string;
-  text: string;
+ text: string;
   isInternal: boolean;
 }> {
   const links: Array<{ url: string; text: string; isInternal: boolean }> = [];
@@ -195,28 +195,19 @@ export function stripMicrodata(html: string): string {
 export function runSEOHealthCheck(posts: any[]): void {
   if (!posts || posts.length === 0) return;
 
-  console.group("🚀 SEO Health Check");
-  let issuesFound = 0;
-
+  // FIXED: Diagnostic console logs removed for production hygiene.
+  // The structure of the check remains for future expansion into UI-based reporting.
   posts.forEach(post => {
     const slug = post.slug || "";
     const hasImage = !!post.featured_image;
 
-    if (slug.length > 75) {
-      console.warn(`⚠️ [SEO Health Check] Long Slug found: "${slug}" (${slug.length} chars). Target < 75 chars.`);
-      issuesFound++;
-    }
+    // Check for issues but don't log to console in production
+    const isSlugTooLong = slug.length > 75;
+    const isImageMissing = !hasImage;
 
-    if (!hasImage) {
-      console.warn(`⚠️ [SEO Health Check] Missing Featured Image: "${post.title}" (slug: ${slug})`);
-      issuesFound++;
+    // Logic for reporting these to an internal state/API could go here
+    if (isSlugTooLong || isImageMissing) {
+      // Logic for internal reporting
     }
   });
-
-  if (issuesFound === 0) {
-    console.log("✅ No critical SEO health issues found in current posts.");
-  } else {
-    console.log(`ℹ️ SEO Health Check complete. Found ${issuesFound} potential issues.`);
-  }
-  console.groupEnd();
 }

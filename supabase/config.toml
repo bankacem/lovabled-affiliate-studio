@@ -38,6 +38,14 @@ verify_jwt = true
 [functions.publish-scheduled-posts]
 verify_jwt = true
 
+# FIXED: generate-article creates AI content — must require auth
+[functions.generate-article]
+verify_jwt = true
+
+# FIXED: optimize-title uses AI — must require auth
+[functions.optimize-title]
+verify_jwt = true
+
 # sitemap is public — OK to leave open
 [functions.sitemap]
 verify_jwt = false
