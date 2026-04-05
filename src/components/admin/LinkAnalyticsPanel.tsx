@@ -105,7 +105,7 @@ export function LinkAnalyticsPanel() {
         linksData?.map((link) => ({
           ...link,
           source_post_title: link.source_post_id
-            ? postsMap.get(link.source_post_id)?.title
+            ? (postsMap.get(link.source_post_id) as any)?.title
             : null,
         })) || [];
 
