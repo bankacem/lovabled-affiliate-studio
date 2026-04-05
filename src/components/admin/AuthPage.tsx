@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Lock, Mail, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Lock, Mail, Eye, EyeOff, Loader2, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -16,6 +15,11 @@ const authSchema = z.object({
 });
 
 export function AuthPage() {
+  // FIX: Only sign-in is exposed. Sign-up was removed because new accounts
+  // created through the UI have no admin role and get stuck at "Access Denied".
+  // New admins must be added directly via Supabase Dashboard:
+  //   1. Authentication > Users > Invite User
+  //   2. Table Editor > user_roles > INSERT row with role='admin'
   const { signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,15 +51,18 @@ export function AuthPage() {
 
     setIsLoading(true);
     const { error } = await signIn(email, password);
-    
+
     if (error) {
       if (error.message.includes("Invalid login credentials")) {
-        toast.error("Invalid email or password");
+        toast.error("Invalid email or password. Please try again.");
+      } else if (error.message.includes("Email not confirmed")) {
+        toast.error("Please confirm your email address before signing in.");
       } else {
         toast.error(error.message);
       }
+      setIsLoading(false);
     }
-    setIsLoading(false);
+    // Note: if no error, isLoading stays true while useAuth completes admin check
   };
 
   return (
@@ -75,82 +82,85 @@ export function AuthPage() {
               Admin Dashboard
             </h1>
             <p className="text-muted-foreground mt-2 text-sm">
-              Sign in to manage your blog
+              Sign in with your admin account
             </p>
           </div>
 
-          <Tabs defaultValue="signin" className="w-full">
-            <TabsList className="grid w-full grid-cols-1 mb-6">
-              <TabsTrigger value="signin">Sign In</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="signin">
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-6 text-sm text-amber-800">
-                <p className="font-semibold mb-1">Registration Restricted</p>
-                <p>New admin accounts must be created by the system administrator. Please sign in with your credentials.</p>
+          <form onSubmit={handleSignIn} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="admin@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-10"
+                  autoComplete="email"
+                  disabled={isLoading}
+                />
               </div>
+              {errors.email && (
+                <p className="text-xs text-destructive">{errors.email}</p>
+              )}
+            </div>
 
-              <form onSubmit={handleSignIn} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="signin-email">Email</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="signin-email"
-                      type="email"
-                      placeholder="admin@example.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="pl-10"
-                    />
-                  </div>
-                  {errors.email && (
-                    <p className="text-xs text-destructive">{errors.email}</p>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="signin-password">Password</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      id="signin-password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="••••••••"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="pl-10 pr-10"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {showPassword ? (
-                        <EyeOff className="h-4 w-4" />
-                      ) : (
-                        <Eye className="h-4 w-4" />
-                      )}
-                    </button>
-                  </div>
-                  {errors.password && (
-                    <p className="text-xs text-destructive">{errors.password}</p>
-                  )}
-                </div>
-
-                <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                      Signing in...
-                    </>
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-10 pr-10"
+                  autoComplete="current-password"
+                  disabled={isLoading}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
                   ) : (
-                    "Sign In"
+                    <Eye className="h-4 w-4" />
                   )}
-                </Button>
-              </form>
-            </TabsContent>
-          </Tabs>
+                </button>
+              </div>
+              {errors.password && (
+                <p className="text-xs text-destructive">{errors.password}</p>
+              )}
+            </div>
+
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Signing in...
+                </>
+              ) : (
+                "Sign In"
+              )}
+            </Button>
+          </form>
+
+          {/* Info box for new admins */}
+          <div className="mt-6 p-3 rounded-lg bg-muted/60 border border-border flex gap-2 text-xs text-muted-foreground">
+            <ShieldAlert className="h-4 w-4 flex-shrink-0 mt-0.5 text-amber-500" />
+            <span>
+              New admin accounts must be created via the{" "}
+              <strong className="text-foreground">Supabase Dashboard</strong> and assigned the{" "}
+              <code className="bg-muted px-1 rounded">admin</code> role in{" "}
+              <code className="bg-muted px-1 rounded">user_roles</code>.
+            </span>
+          </div>
         </Card>
       </motion.div>
     </div>

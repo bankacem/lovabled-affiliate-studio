@@ -24,24 +24,23 @@ export interface BlogPost {
 }
 
 // Helper: enrich post with fallback SEO metadata
-function enrichPost(post: unknown): BlogPost {
-  const p = post as Record<string, unknown>;
-  const safeTitle = (p?.title as string) || "Untitled Post";
-  const safeSlug = (p?.slug as string) || "no-slug";
+function enrichPost(post: any): BlogPost {
+  const safeTitle = post?.title || "Untitled Post";
+  const safeSlug = post?.slug || "no-slug";
 
   return {
-    ...p,
+    ...post,
     title: safeTitle,
     slug: safeSlug,
-    meta_title: (p?.meta_title as string) || `${safeTitle} | AIPrintVerse`,
+    meta_title: post?.meta_title || `${safeTitle} | AIPrintVerse`,
     meta_description:
-      (p?.meta_description as string) ||
-      (p?.excerpt as string) ||
-      (p?.content ? (p.content as string).replace(/<[^>]*>/g, "").slice(0, 160) : "No description available"),
-    canonical_url: (p?.canonical_url as string) || `/blog/${safeSlug}`,
-    tags: Array.isArray(p?.tags) ? p.tags : [],
-    status: (p?.status as string) || "draft",
-    published_at: (p?.published_at as string) || (p?.created_at as string) || new Date().toISOString(),
+      post?.meta_description ||
+      post?.excerpt ||
+      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : "No description available"),
+    canonical_url: post?.canonical_url || `/blog/${safeSlug}`,
+    tags: Array.isArray(post?.tags) ? post.tags : [],
+    status: post?.status || "draft",
+    published_at: post?.published_at || post?.created_at || new Date().toISOString(),
   } as BlogPost;
 }
 
@@ -65,6 +64,7 @@ export function useBlogPosts() {
         .order("published_at", { ascending: false });
 
       if (dbError) {
+        console.error("Supabase error fetching posts:", dbError);
         setError(dbError.message);
       }
 
@@ -77,7 +77,7 @@ export function useBlogPosts() {
       );
 
       const allPosts = [...dbPostsList, ...missingStaticPosts]
-        .map((post) => enrichPost(post))
+        .map((post) => enrichPost(post as any))
         .sort((a, b) => {
           const dateA = new Date(a.published_at || a.created_at).getTime();
           const dateB = new Date(b.published_at || b.created_at).getTime();
@@ -85,13 +85,15 @@ export function useBlogPosts() {
         });
 
       if (allPosts.length === 0) {
-        setPosts(blogPosts.map((p) => enrichPost(p)));
+        console.warn("No posts found (DB or static). Falling back to all static data.");
+        setPosts(blogPosts.map((p) => enrichPost(p as any)));
       } else {
         setPosts(allPosts);
       }
     } catch (err) {
+      console.error("Major error in fetchPosts:", err);
       // Fallback to static data on major error
-      setPosts(blogPosts.map((p) => enrichPost(p)));
+      setPosts(blogPosts.map((p) => enrichPost(p as any)));
       setError(err instanceof Error ? err.message : "An unexpected error occurred");
     } finally {
       setIsLoading(false);
@@ -123,7 +125,7 @@ export function useBlogPost(rawSlug: string) {
       (p) => p.slug.toLowerCase().replace(/[_\s]+/g, "-") === cleanSlug
     );
     if (staticMatch) {
-      setPost(enrichPost(staticMatch));
+      setPost(enrichPost(staticMatch as any));
       setIsLoading(false);
     }
 
@@ -133,14 +135,16 @@ export function useBlogPost(rawSlug: string) {
       }
 
       // Stage 1: Direct DB lookup by normalized slug (primary path)
-      const { data: exactMatch } = await supabase
+      const { data: exactMatch, error: exactError } = await supabase
         .from("blog_posts")
         .select("*")
         .eq("slug", cleanSlug)
         .maybeSingle();
 
+      if (exactError) console.error("Error fetching exact match:", exactError);
+
       if (exactMatch) {
-        setPost(enrichPost(exactMatch));
+        setPost(enrichPost(exactMatch as any));
         setIsLoading(false);
         return;
       }
@@ -155,7 +159,7 @@ export function useBlogPost(rawSlug: string) {
           .eq("id", cleanSlug)
           .maybeSingle();
         if (idMatch) {
-          setPost(enrichPost(idMatch));
+          setPost(enrichPost(idMatch as any));
           setIsLoading(false);
           return;
         }

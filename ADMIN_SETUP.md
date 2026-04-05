@@ -1,50 +1,72 @@
-# دليل إعداد المسؤول (Admin Setup Guide)
+# Admin Panel Setup Guide
 
-هذا الدليل يشرح كيفية إعداد أول حساب مسؤول (Admin) وتشخيص مشاكل الدخول للوحة التحكم.
+## Why Can't I Access the Admin Panel?
 
-## 1. إنشاء حساب مستخدم
-أولاً، يجب إنشاء حساب مستخدم عادي من خلال واجهة الموقع (إذا كان التسجيل متاحاً) أو من خلال `Supabase Auth`:
-1. اذهب إلى `Supabase Dashboard` > `Authentication` > `Users`.
-2. اضغط على `Add User` > `Create new user`.
-3. أدخل البريد الإلكتروني وكلمة المرور.
+The most common reasons for being stuck at "Access Denied" or the sign-in page:
 
-## 2. منح صلاحية المسؤول (Admin Role)
-بعد إنشاء المستخدم، يجب منحه دور المسؤول في جدول `user_roles`:
-1. اذهب إلى `Supabase Dashboard` > `SQL Editor`.
-2. قم بتشغيل الاستعلام التالي (استبدل `USER_EMAIL` ببريدك الإلكتروني):
+### 1. No Admin Role in Database (Most Common)
 
-```sql
--- الحصول على معرف المستخدم ومنحه دور المسؤول
-INSERT INTO public.user_roles (user_id, role)
-SELECT id, 'admin'
-FROM auth.users
-WHERE email = 'USER_EMAIL'
-ON CONFLICT (user_id, role) DO NOTHING;
-```
+After signing in, the system checks `user_roles` table for `role = 'admin'`.
+If no row exists, you see "Access Denied" even with correct credentials.
 
-## 3. إصلاح مشكلة "Access Denied" (RLS Policy)
-إذا كنت مسجلاً كمسؤول وتظهر لك رسالة "Access Denied"، فقد يكون السبب هو سياسة الحماية (RLS). تأكد من تشغيل السياسة التالية في `SQL Editor`:
+**Fix:**
+1. Go to [Supabase Dashboard](https://supabase.com/dashboard) → your project
+2. **Authentication > Users** → Find your user → copy the UUID
+3. **Table Editor > user_roles** → Insert new row:
+   - `user_id`: paste your UUID
+   - `role`: `admin`
+4. Refresh the admin page
+
+### 2. RLS Policy Blocking Role Lookup
+
+Run this SQL in Supabase SQL Editor if the above doesn't work:
 
 ```sql
--- السماح للمستخدمين المسجلين بقراءة دورهم الخاص
+-- Allow users to read their own role (required for login check)
 CREATE POLICY "Users can view own role"
-ON public.user_roles FOR SELECT TO authenticated
+ON public.user_roles
+FOR SELECT
+TO authenticated
 USING (auth.uid() = user_id);
 ```
 
-## 4. تحديثات قاعدة البيانات الضرورية
-تأكد من تطبيق آخر التحديثات للأعمدة الجديدة (مثل `video_url` و حالة `scheduled`):
+### 3. Race Condition (Fixed in this version)
 
-```sql
--- إضافة عمود الفيديو إذا لم يكن موجوداً
-ALTER TABLE public.blog_posts ADD COLUMN IF NOT EXISTS video_url TEXT;
+Old version: `isLoading` was set to `false` before the admin role check completed,
+causing a flash of "Access Denied". This is fixed in `useAuth.ts`.
 
--- تحديث قيود الحالة لتشمل 'scheduled'
-ALTER TABLE public.blog_posts DROP CONSTRAINT IF EXISTS blog_posts_status_check;
-ALTER TABLE public.blog_posts ADD CONSTRAINT blog_posts_status_check
-CHECK (status IN ('draft', 'published', 'scheduled', 'archived'));
+---
+
+## Running Migrations
+
+After deploying, run all migrations in order:
+
+```bash
+supabase db push
 ```
 
-## 5. تشخيص المشاكل (Troubleshooting)
-- **شاشة بيضاء:** تأكد من تعيين `VITE_SUPABASE_URL` و `VITE_SUPABASE_PUBLISHABLE_KEY` في إعدادات البيئة (Environment Variables).
-- **لا يمكن الحفظ:** تحقق من صلاحيات الـ `RLS` لجدول `blog_posts` و `designs`. يجب أن تسمح للمسؤولين (Admins) بجميع العمليات (ALL).
+Or manually in SQL Editor in chronological order (by filename date prefix).
+
+---
+
+## Creating Admin Users
+
+Do NOT use the "Sign Up" form on the admin page (it was intentionally removed).
+New admins must be created via Supabase Dashboard:
+
+1. **Authentication > Users > Invite User**
+2. User confirms email
+3. Insert role in `user_roles` table (see Step 1 above)
+
+---
+
+## Environment Variables Required
+
+Create a `.env` file in the project root:
+
+```
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
+```
+
+Both values are in: **Supabase Dashboard > Settings > API**

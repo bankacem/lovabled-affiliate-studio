@@ -276,18 +276,45 @@ export function AdminDashboard() {
   if (!isAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background p-4">
-        <Card className="p-8 max-w-md text-center">
-          <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-4">
+        <Card className="p-8 max-w-lg text-center space-y-4">
+          <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto">
             <X className="w-8 h-8 text-destructive" />
           </div>
-          <h1 className="text-2xl font-bold text-foreground mb-2">Access Denied</h1>
-          <p className="text-muted-foreground mb-6">
-            You don't have admin privileges. Please contact the administrator.
+          <h1 className="text-2xl font-bold text-foreground">Access Denied</h1>
+          <p className="text-muted-foreground">
+            Signed in as <span className="font-mono text-sm bg-muted px-2 py-0.5 rounded">{user.email}</span>
+            {" "}but no admin role found.
           </p>
-          <Button variant="outline" onClick={handleLogout}>
-            <LogOut className="w-4 h-4 mr-2" />
-            Sign Out
-          </Button>
+
+          {/* Diagnostic info */}
+          <div className="text-left rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800 p-4 text-sm space-y-2">
+            <p className="font-semibold text-amber-800 dark:text-amber-300">How to fix:</p>
+            <p className="text-amber-700 dark:text-amber-400">
+              Run this SQL in your{" "}
+              <strong>Supabase Dashboard → SQL Editor</strong>:
+            </p>
+            <pre className="bg-white dark:bg-black/30 rounded p-3 text-xs overflow-x-auto text-amber-900 dark:text-amber-200 whitespace-pre-wrap">
+{`INSERT INTO public.user_roles (user_id, role)
+SELECT id, 'admin'
+FROM auth.users
+WHERE email = '${user.email}'
+ON CONFLICT (user_id, role) DO NOTHING;`}
+            </pre>
+            <p className="text-amber-600 dark:text-amber-500 text-xs">
+              After running, refresh this page and sign in again.
+            </p>
+          </div>
+
+          <div className="flex gap-3 justify-center pt-2">
+            <Button variant="outline" onClick={() => window.location.reload()}>
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Refresh
+            </Button>
+            <Button variant="outline" onClick={handleLogout}>
+              <LogOut className="w-4 h-4 mr-2" />
+              Sign Out
+            </Button>
+          </div>
         </Card>
       </div>
     );
