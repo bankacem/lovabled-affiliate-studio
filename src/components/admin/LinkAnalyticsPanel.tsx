@@ -141,8 +141,8 @@ export function LinkAnalyticsPanel() {
         if (post) {
           const existing = postStatsMap.get(link.postId) || {
             post_id: link.postId,
-            post_title: post.title,
-            post_slug: post.slug,
+            post_title: (post as any).title,
+            post_slug: (post as any).slug,
             internal_links: 0,
             external_links: 0,
             total_clicks: 0,
