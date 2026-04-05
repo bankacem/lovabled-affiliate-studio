@@ -49,7 +49,3 @@ verify_jwt = true
 # sitemap is public — OK to leave open
 [functions.sitemap]
 verify_jwt = false
-
-# Temporary — reset admin password (will be removed after use)
-[functions.reset-admin-password]
-verify_jwt = false
