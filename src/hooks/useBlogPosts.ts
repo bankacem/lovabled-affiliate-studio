@@ -54,7 +54,10 @@ export function useBlogPosts() {
 
     try {
       if (!supabase || typeof supabase.from !== 'function') {
-        throw new Error("Supabase client not initialized");
+        // Supabase not ready — fall through to static data fallback
+        setPosts(blogPosts.map((p) => enrichPost(p as any)));
+        setIsLoading(false);
+        return;
       }
 
       const { data: dbPosts, error: dbError } = await supabase

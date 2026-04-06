@@ -11,6 +11,9 @@ export function useAuth() {
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  
+  // Check if Supabase is properly initialized
+  const isSupabaseReady = Boolean(supabase && typeof supabase.auth?.getSession === 'function');
 
   /**
    * Check admin role via:
@@ -20,10 +23,6 @@ export function useAuth() {
    * 4. Retry with backoff (handles timing issues)
    */
   const checkAdminRole = async (userObj: User, retryCount = 0): Promise<boolean> => {
-    if (!supabase || typeof supabase.rpc !== 'function') {
-      return false;
-    }
-
     const maxRetries = 3;
 
     // LAYER 1: Email whitelist — instant check, no DB roundtrip
@@ -74,17 +73,21 @@ export function useAuth() {
    * Called in background after email-whitelist grants access.
    */
   const ensureAdminRoleInDB = async (userId: string) => {
-    if (!supabase || typeof supabase.from !== 'function') return;
-    await supabase
-      .from("user_roles")
-      .insert({ user_id: userId, role: "admin" })
-      .select()
-      // If already exists, the UNIQUE constraint causes an error — that's fine
-      .maybeSingle();
+    if (!isSupabaseReady) return;
+    try {
+      await supabase
+        .from("user_roles")
+        .upsert({ user_id: userId, role: "admin" }, { onConflict: "user_id,role" })
+        .select()
+        .maybeSingle();
+    } catch {
+      // Silently ignore — role may already exist
+    }
   };
 
   useEffect(() => {
-    if (!supabase || !supabase.auth) {
+    if (!isSupabaseReady) {
+      console.warn("Supabase client not ready — check environment variables");
       setIsLoading(false);
       return;
     }
@@ -139,7 +142,7 @@ export function useAuth() {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    if (!supabase || !supabase.auth) return { error: new Error("Supabase auth not initialized") };
+    if (!isSupabaseReady) return { error: new Error("Backend not available. Please refresh the page.") };
     setIsLoading(true);
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) setIsLoading(false);
@@ -147,7 +150,7 @@ export function useAuth() {
   };
 
   const signUp = async (email: string, password: string) => {
-    if (!supabase || !supabase.auth) return { error: new Error("Supabase auth not initialized") };
+    if (!isSupabaseReady) return { error: new Error("Backend not available. Please refresh the page.") };
     const redirectUrl = `${window.location.origin}/`;
     const { error } = await supabase.auth.signUp({
       email,
@@ -158,7 +161,7 @@ export function useAuth() {
   };
 
   const signOut = async () => {
-    if (!supabase || !supabase.auth) return { error: new Error("Supabase auth not initialized") };
+    if (!isSupabaseReady) return { error: new Error("Backend not available.") };
     const { error } = await supabase.auth.signOut();
     setIsAdmin(false);
     setUser(null);
