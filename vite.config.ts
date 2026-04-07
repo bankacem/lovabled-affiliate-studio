@@ -11,9 +11,16 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
+    alias: [
+      {
+        find: "@/integrations/supabase/client",
+        replacement: path.resolve(__dirname, "./src/lib/supabase-safe.ts"),
+      },
+      {
+        find: "@",
+        replacement: path.resolve(__dirname, "./src"),
+      },
+    ],
   },
   build: {
     rollupOptions: {

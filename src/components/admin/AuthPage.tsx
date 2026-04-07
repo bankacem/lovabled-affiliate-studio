@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Lock, Mail, Eye, EyeOff, Loader2, ShieldAlert } from "lucide-react";
+import { Lock, Mail, Eye, EyeOff, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -15,11 +15,6 @@ const authSchema = z.object({
 });
 
 export function AuthPage() {
-  // FIX: Only sign-in is exposed. Sign-up was removed because new accounts
-  // created through the UI have no admin role and get stuck at "Access Denied".
-  // New admins must be added directly via Supabase Dashboard:
-  //   1. Authentication > Users > Invite User
-  //   2. Table Editor > user_roles > INSERT row with role='admin'
   const { signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -151,16 +146,9 @@ export function AuthPage() {
             </Button>
           </form>
 
-          {/* Info box for new admins */}
-          <div className="mt-6 p-3 rounded-lg bg-muted/60 border border-border flex gap-2 text-xs text-muted-foreground">
-            <ShieldAlert className="h-4 w-4 flex-shrink-0 mt-0.5 text-amber-500" />
-            <span>
-              New admin accounts must be created via the{" "}
-              <strong className="text-foreground">Supabase Dashboard</strong> and assigned the{" "}
-              <code className="bg-muted px-1 rounded">admin</code> role in{" "}
-              <code className="bg-muted px-1 rounded">user_roles</code>.
-            </span>
-          </div>
+          <p className="mt-6 text-center text-xs text-muted-foreground">
+            Use your admin email and password to sign in.
+          </p>
         </Card>
       </motion.div>
     </div>
