@@ -5,14 +5,25 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface SitemapEntry {
-  slug: string;
-  updated_at: string;
-  published_at?: string;
+const PAGE_SIZE = 1000;
+
+async function fetchAll(supabase: any, table: string, selectCols: string, filters?: (q: any) => any) {
+  const rows: any[] = [];
+  let from = 0;
+  while (true) {
+    let query = supabase.from(table).select(selectCols).range(from, from + PAGE_SIZE - 1);
+    if (filters) query = filters(query);
+    const { data, error } = await query;
+    if (error) { console.error(`Error fetching ${table}:`, error); break; }
+    if (!data || data.length === 0) break;
+    rows.push(...data);
+    if (data.length < PAGE_SIZE) break;
+    from += PAGE_SIZE;
+  }
+  return rows;
 }
 
 Deno.serve(async (req) => {
-  // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -24,27 +35,20 @@ Deno.serve(async (req) => {
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Fetch published blog posts
-    // CRITICAL: We include ALL posts with 'published' status regardless of the timestamp.
-    // We intentionally OMIT any .lte('published_at', now) filter to ensure that
-    // posts published in any timezone (even those that might appear to be in the
-    // "future" relative to the server's UTC clock) are included in the sitemap.
-    const { data: posts, error } = await supabase
-      .from("blog_posts")
-      .select("slug, updated_at, published_at")
-      .eq("status", "published")
-      .order("published_at", { ascending: false })
-      .limit(5000); // Increase limit to ensure all posts are included
-
-    if (error) {
-      console.error("Error fetching posts:", error);
-      throw error;
-    }
-
-    console.log(`Found ${posts?.length || 0} published posts`);
-
     const baseUrl = "https://aiprintverse.com";
-    
+
+    // Fetch ALL published blog posts with pagination
+    const posts = await fetchAll(supabase, "blog_posts", "slug, updated_at, published_at", (q) =>
+      q.eq("status", "published").order("published_at", { ascending: false })
+    );
+    console.log(`Found ${posts.length} published posts`);
+
+    // Fetch ALL designs with pagination
+    const designs = await fetchAll(supabase, "designs", "slug, name, updated_at", (q) =>
+      q.order("updated_at", { ascending: false })
+    );
+    console.log(`Found ${designs.length} designs`);
+
     const staticPages = [
       { path: "/", priority: "1.0", changefreq: "daily" },
       { path: "/designs", priority: "0.9", changefreq: "daily" },
@@ -55,7 +59,6 @@ Deno.serve(async (req) => {
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
-    // Add static pages
     for (const page of staticPages) {
       xml += `  <url>\n`;
       xml += `    <loc>${baseUrl}${page.path}</loc>\n`;
@@ -65,45 +68,33 @@ Deno.serve(async (req) => {
       xml += `  </url>\n`;
     }
 
-    // Add blog posts
-    if (posts) {
-      for (const post of posts) {
-        // Use the date part directly from the timestamp string to stay as close as possible
-        // to the intended publishing date, falling back to updated_at.
-        const dateStr = post.published_at || post.updated_at;
-        const lastmod = dateStr ? dateStr.split("T")[0] : new Date().toISOString().split("T")[0];
-        xml += `  <url>\n`;
-        xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
-        xml += `    <lastmod>${lastmod}</lastmod>\n`;
-        xml += `    <changefreq>weekly</changefreq>\n`;
-        xml += `    <priority>0.7</priority>\n`;
-        xml += `  </url>\n`;
-      }
+    for (const post of posts) {
+      if (!post.slug) continue;
+      const dateStr = post.published_at || post.updated_at;
+      const lastmod = dateStr ? dateStr.split("T")[0] : new Date().toISOString().split("T")[0];
+      xml += `  <url>\n`;
+      xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+      xml += `    <lastmod>${lastmod}</lastmod>\n`;
+      xml += `    <changefreq>weekly</changefreq>\n`;
+      xml += `    <priority>0.7</priority>\n`;
+      xml += `  </url>\n`;
     }
 
-    // Fetch designs
-    const { data: designs } = await supabase
-      .from("designs")
-      .select("slug, updated_at")
-      .order("updated_at", { ascending: false })
-      .limit(5000);
-
-    if (designs) {
-      console.log(`Found ${designs.length} designs`);
-      for (const design of designs) {
-        const lastmod = new Date(design.updated_at || new Date()).toISOString().split("T")[0];
-        xml += `  <url>\n`;
-        xml += `    <loc>${baseUrl}/designs/${design.slug}</loc>\n`;
-        xml += `    <lastmod>${lastmod}</lastmod>\n`;
-        xml += `    <changefreq>monthly</changefreq>\n`;
-        xml += `    <priority>0.7</priority>\n`;
-        xml += `  </url>\n`;
-      }
+    for (const design of designs) {
+      const slug = design.slug || design.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      if (!slug) continue;
+      const lastmod = design.updated_at ? design.updated_at.split("T")[0] : new Date().toISOString().split("T")[0];
+      xml += `  <url>\n`;
+      xml += `    <loc>${baseUrl}/designs/${slug}</loc>\n`;
+      xml += `    <lastmod>${lastmod}</lastmod>\n`;
+      xml += `    <changefreq>monthly</changefreq>\n`;
+      xml += `    <priority>0.7</priority>\n`;
+      xml += `  </url>\n`;
     }
 
     xml += "</urlset>";
 
-    console.log("Sitemap generated successfully");
+    console.log(`Sitemap generated: ${posts.length} posts + ${designs.length} designs`);
 
     return new Response(xml, {
       headers: {
@@ -116,10 +107,7 @@ Deno.serve(async (req) => {
     console.error("Error generating sitemap:", error);
     return new Response(
       JSON.stringify({ error: "Failed to generate sitemap" }),
-      {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      }
+      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
 });
