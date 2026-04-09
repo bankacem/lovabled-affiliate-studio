@@ -23,7 +23,16 @@ export interface BlogPost {
   updated_at: string;
 }
 
-// Helper: enrich post with fallback SEO metadata
+// ═══════════════════════════════════════════════════════════════
+// دالة تنسيق الـ Slug
+// ═══════════════════════════════════════════════════════════════
+function normalizeSlug(s: string): string {
+  return s.toLowerCase().trim().replace(/[_\s]+/g, "-").replace(/[^a-z0-9-]/g, "");
+}
+
+// ═══════════════════════════════════════════════════════════════
+// دالة إغناء المقالات بالبيانات الناقصة
+// ═══════════════════════════════════════════════════════════════
 function enrichPost(post: any): BlogPost {
   const safeTitle = post?.title || "Untitled Post";
   const safeSlug = post?.slug || "no-slug";
@@ -44,6 +53,16 @@ function enrichPost(post: any): BlogPost {
   } as BlogPost;
 }
 
+// ═══════════════════════════════════════════════════════════════
+// تخزين مؤقت للمقالات المحلية (للبحث السريع)
+// ═══════════════════════════════════════════════════════════════
+const normalizedStaticPosts = new Map(
+  blogPosts.map(p => [normalizeSlug(p.slug), p])
+);
+
+// ═══════════════════════════════════════════════════════════════
+// الحصول على جميع المقالات
+// ═══════════════════════════════════════════════════════════════
 export function useBlogPosts() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,7 +73,6 @@ export function useBlogPosts() {
 
     try {
       if (!supabase || typeof supabase.from !== 'function') {
-        // Supabase not ready — fall through to static data fallback
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
         setIsLoading(false);
         return;
@@ -73,7 +91,6 @@ export function useBlogPosts() {
 
       const dbPostsList = dbPosts || [];
 
-      const normalizeSlug = (s: string) => s.toLowerCase().replace(/[_\s]+/g, "-");
       const dbNormalizedSlugs = new Set(dbPostsList.map((p) => normalizeSlug(p.slug)));
       const missingStaticPosts = blogPosts.filter(
         (p) => !dbNormalizedSlugs.has(normalizeSlug(p.slug))
@@ -95,7 +112,6 @@ export function useBlogPosts() {
       }
     } catch (err) {
       console.error("Major error in fetchPosts:", err);
-      // Fallback to static data on major error
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
       setError(err instanceof Error ? err.message : "An unexpected error occurred");
     } finally {
@@ -110,34 +126,59 @@ export function useBlogPosts() {
   return { posts, isLoading, error, refetch: fetchPosts };
 }
 
+// ═══════════════════════════════════════════════════════════════
+// الحصول على مقال واحد بالـ Slug
+// ═══════════════════════════════════════════════════════════════
 export function useBlogPost(rawSlug: string) {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchPost = useCallback(async () => {
-    if (!rawSlug) return;
+    if (!rawSlug) {
+      setIsLoading(false);
+      return;
+    }
     setIsLoading(true);
     setError(null);
 
-    // Normalize slug: lowercase + replace underscores/spaces with hyphens
-    const cleanSlug = rawSlug.toLowerCase().trim().replace(/[_\s]+/g, "-");
+    // تنسيق الـ Slug
+    const cleanSlug = normalizeSlug(rawSlug);
 
-    // Stage 0: Instant static fallback for immediate UI response
-    const staticMatch = blogPosts.find(
-      (p) => p.slug.toLowerCase().replace(/[_\s]+/g, "-") === cleanSlug
-    );
+    // ═══════════════════════════════════════════════════════════
+    // المرحلة 1: البحث في المقالات المحلية أولاً (الأسرع)
+    // ═══════════════════════════════════════════════════════════
+    const staticMatch = normalizedStaticPosts.get(cleanSlug);
     if (staticMatch) {
       setPost(enrichPost(staticMatch as any));
       setIsLoading(false);
+      return;
+    }
+
+    // البحث الجزئي في المقالات المحلية
+    for (const [, staticPost] of normalizedStaticPosts) {
+      const normalizedStaticSlug = normalizeSlug(staticPost.slug);
+      if (
+        normalizedStaticSlug === cleanSlug ||
+        normalizedStaticSlug.includes(cleanSlug) ||
+        cleanSlug.includes(normalizedStaticSlug)
+      ) {
+        setPost(enrichPost(staticPost as any));
+        setIsLoading(false);
+        return;
+      }
     }
 
     try {
       if (!supabase || typeof supabase.from !== 'function') {
+        setPost(null);
+        setIsLoading(false);
         return;
       }
 
-      // Stage 1: Direct DB lookup by normalized slug (primary path)
+      // ═══════════════════════════════════════════════════════════
+      // المرحلة 2: البحث في قاعدة البيانات بالـ Slug المنظم
+      // ═══════════════════════════════════════════════════════════
       const { data: exactMatch, error: exactError } = await supabase
         .from("blog_posts")
         .select("*")
@@ -152,7 +193,24 @@ export function useBlogPost(rawSlug: string) {
         return;
       }
 
-      // Stage 2: UUID fallback (for legacy links)
+      // ═══════════════════════════════════════════════════════════
+      // المرحلة 3: البحث بالـ Slug الأصلي
+      // ═══════════════════════════════════════════════════════════
+      const { data: originalMatch } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("slug", rawSlug)
+        .maybeSingle();
+
+      if (originalMatch) {
+        setPost(enrichPost(originalMatch as any));
+        setIsLoading(false);
+        return;
+      }
+
+      // ═══════════════════════════════════════════════════════════
+      // المرحلة 4: البحث بالمعرف القديم (UUID)
+      // ═══════════════════════════════════════════════════════════
       const isUUID =
         /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(cleanSlug);
       if (isUUID) {
@@ -168,27 +226,43 @@ export function useBlogPost(rawSlug: string) {
         }
       }
 
-      // Stage 3: If no DB match and no static match already set
-      if (!staticMatch) {
-        setPost(null);
+      // ═══════════════════════════════════════════════════════════
+      // المرحلة 5: البحث التقريبي
+      // ═══════════════════════════════════════════════════════════
+      const { data: similarMatch } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .ilike("slug", `%${cleanSlug}%`)
+        .maybeSingle();
+
+      if (similarMatch) {
+        setPost(enrichPost(similarMatch as any));
+        setIsLoading(false);
+        return;
       }
+
+      // المقالة غير موجودة
+      setPost(null);
+      setError("المقال غير موجود");
     } catch (err) {
-      if (!staticMatch) {
-        setError(err instanceof Error ? err.message : "Post not found");
-      }
+      console.error("Error fetching post:", err);
+      setError(err instanceof Error ? err.message : "Post not found");
+      setPost(null);
     } finally {
       setIsLoading(false);
     }
   }, [rawSlug]);
 
   useEffect(() => {
-    if (!rawSlug) return;
     fetchPost();
-  }, [rawSlug, fetchPost]);
+  }, [fetchPost]);
 
   return { post, isLoading, error };
 }
 
+// ═══════════════════════════════════════════════════════════════
+// الحصول على الفئات
+// ═══════════════════════════════════════════════════════════════
 export function useBlogCategories() {
   const [categories, setCategories] = useState<string[]>(["All"]);
   const [isLoading, setIsLoading] = useState(true);

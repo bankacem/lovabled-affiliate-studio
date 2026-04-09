@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  LayoutDashboard, 
-  FileText, 
-  Image, 
+import {
+  LayoutDashboard,
+  FileText,
+  Image,
   Settings,
   LogOut,
   Menu,
@@ -22,9 +22,13 @@ import {
   Wrench,
   Upload,
   Link2,
-  Rocket
+  Rocket,
+  Lock,
+  Eye,
+  EyeOff
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -38,8 +42,6 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useAuth } from "@/hooks/useAuth";
-import { AuthPage } from "./AuthPage";
 import { BlogPostsListOptimized } from "./BlogPostsListOptimized";
 import { BlogStatsOverview } from "./BlogStatsOverview";
 import { StoreManager } from "./StoreManager";
@@ -83,9 +85,47 @@ interface Stats {
 }
 
 export function AdminDashboard() {
-  const { user, isLoading: authLoading, isAdmin, signOut } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+
+  // ═══════════════════════════════════════════════════════════════
+  // نظام الدخول البسيط - بدون Supabase Auth
+  // ═══════════════════════════════════════════════════════════════
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return sessionStorage.getItem("admin_auth") === "true";
+  });
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // كلمة المرور الافتراضية
+  const ADMIN_PASSWORD = "designvault2025";
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setLoginError("");
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    if (password === ADMIN_PASSWORD) {
+      sessionStorage.setItem("admin_auth", "true");
+      setIsAuthenticated(true);
+      setPassword("");
+      toast.success("تم الدخول بنجاح!");
+    } else {
+      setLoginError("كلمة المرور غير صحيحة");
+    }
+    setIsLoading(false);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("admin_auth");
+    setIsAuthenticated(false);
+    toast.success("تم تسجيل الخروج");
+  };
+  // ═══════════════════════════════════════════════════════════════
 
   const [currentView, setCurrentView] = useState<View>("dashboard");
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
@@ -106,13 +146,12 @@ export function AdminDashboard() {
   const [isLoadingStats, setIsLoadingStats] = useState(true);
 
   useEffect(() => {
-    if (user && isAdmin) {
+    if (isAuthenticated) {
       fetchStats();
       fetchDesigns();
     }
-  }, [user, isAdmin]);
+  }, [isAuthenticated]);
 
-  // Sync currentView with URL
   useEffect(() => {
     const path = location.pathname;
     if (path === "/admin/posts") {
@@ -220,11 +259,6 @@ export function AdminDashboard() {
     }
   };
 
-  const handleLogout = async () => {
-    await signOut();
-    toast.success("Logged out successfully");
-  };
-
   const handleEditPost = (id: string) => {
     setEditingPostId(id);
     setCurrentView("edit-post");
@@ -261,64 +295,78 @@ export function AdminDashboard() {
     fetchStats();
   };
 
-  if (authLoading) {
+  // ═══════════════════════════════════════════════════════════════
+  // صفحة تسجيل الدخول
+  // ═══════════════════════════════════════════════════════════════
+  if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary/50 p-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card className="w-full max-w-md p-8 shadow-lg">
+            <div className="text-center mb-8">
+              <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Lock className="w-8 h-8 text-primary" />
+              </div>
+              <h1 className="font-display text-2xl font-bold text-foreground">
+                لوحة التحكم
+              </h1>
+              <p className="text-muted-foreground mt-2 text-sm">
+                أدخل كلمة المرور للوصول إلى لوحة الإدارة
+              </p>
+            </div>
+
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="relative">
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="كلمة المرور"
+                  className="pr-10 text-right"
+                  dir="rtl"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+
+              {loginError && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-destructive text-sm text-center"
+                >
+                  {loginError}
+                </motion.p>
+              )}
+
+              <Button
+                type="submit"
+                variant="coral"
+                className="w-full"
+                disabled={isLoading || !password}
+              >
+                {isLoading ? "جاري التحقق..." : "دخول"}
+              </Button>
+            </form>
+          </Card>
+        </motion.div>
       </div>
     );
   }
-
-  if (!user) {
-    return <AuthPage />;
-  }
-
-  if (!isAdmin) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background p-4">
-        <Card className="p-8 max-w-lg text-center space-y-4">
-          <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto">
-            <X className="w-8 h-8 text-destructive" />
-          </div>
-          <h1 className="text-2xl font-bold text-foreground">Access Denied</h1>
-          <p className="text-muted-foreground">
-            Signed in as <span className="font-mono text-sm bg-muted px-2 py-0.5 rounded">{user.email}</span>
-            {" "}but no admin role found.
-          </p>
-
-          {/* Diagnostic info */}
-          <div className="text-left rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950/20 dark:border-amber-800 p-4 text-sm space-y-2">
-            <p className="font-semibold text-amber-800 dark:text-amber-300">How to fix:</p>
-            <p className="text-amber-700 dark:text-amber-400">
-              Run this SQL in your{" "}
-              <strong>Supabase Dashboard → SQL Editor</strong>:
-            </p>
-            <pre className="bg-white dark:bg-black/30 rounded p-3 text-xs overflow-x-auto text-amber-900 dark:text-amber-200 whitespace-pre-wrap">
-{`INSERT INTO public.user_roles (user_id, role)
-SELECT id, 'admin'
-FROM auth.users
-WHERE email = '${user.email}'
-ON CONFLICT (user_id, role) DO NOTHING;`}
-            </pre>
-            <p className="text-amber-600 dark:text-amber-500 text-xs">
-              After running, refresh this page and sign in again.
-            </p>
-          </div>
-
-          <div className="flex gap-3 justify-center pt-2">
-            <Button variant="outline" onClick={() => window.location.reload()}>
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Refresh
-            </Button>
-            <Button variant="outline" onClick={handleLogout}>
-              <LogOut className="w-4 h-4 mr-2" />
-              Sign Out
-            </Button>
-          </div>
-        </Card>
-      </div>
-    );
-  }
+  // ═══════════════════════════════════════════════════════════════
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -332,7 +380,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
 
   return (
     <div className="min-h-screen bg-secondary/30 flex">
-      {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -340,13 +387,11 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
         />
       )}
 
-      {/* Sidebar */}
       <aside className={cn(
         "fixed lg:sticky top-0 left-0 h-screen w-64 bg-background border-r border-border z-50 transition-transform lg:translate-x-0",
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex flex-col h-full">
-          {/* Logo */}
           <div className="p-6 border-b border-border">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
@@ -359,7 +404,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             </div>
           </div>
 
-          {/* Navigation */}
           <nav className="flex-1 p-4 space-y-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -394,7 +438,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             })}
           </nav>
 
-          {/* User */}
           <div className="p-4 border-t border-border">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-muted rounded-full flex items-center justify-center">
@@ -402,27 +445,25 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-foreground truncate">
-                  {user.email}
+                  Admin
                 </p>
                 <p className="text-xs text-muted-foreground">Administrator</p>
               </div>
             </div>
-            <Button 
-              variant="outline" 
-              className="w-full" 
+            <Button
+              variant="outline"
+              className="w-full"
               size="sm"
               onClick={handleLogout}
             >
               <LogOut className="w-4 h-4 mr-2" />
-              Sign Out
+              تسجيل الخروج
             </Button>
           </div>
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 min-h-screen">
-        {/* Mobile Header */}
         <header className="sticky top-0 z-30 bg-background border-b border-border lg:hidden">
           <div className="flex items-center justify-between px-4 py-3">
             <Button
@@ -438,7 +479,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
         </header>
 
         <div className="p-6 lg:p-8">
-          {/* Dashboard View */}
           {currentView === "dashboard" && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -565,13 +605,9 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             </motion.div>
           )}
 
-          {/* Link Analytics View */}
           {currentView === "analytics" && <LazyLinkAnalyticsPanel />}
-
-          {/* Programmatic SEO Engine View */}
           {currentView === "pseo" && <LazyProgrammaticSEO />}
 
-          {/* Posts View - Enhanced with Stats and Tools */}
           {currentView === "posts" && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -615,10 +651,7 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
 
                 <TabsContent value="tools">
                   <div className="space-y-6">
-                    {/* Indexing Status Manager - Smart Internal Linking */}
                     <IndexingStatusManager />
-                    
-                    {/* Article Optimizer - One-Click SEO */}
                     <LazyArticleOptimizer />
                     
                     <div className="grid md:grid-cols-2 gap-6">
@@ -654,7 +687,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             </motion.div>
           )}
 
-          {/* Edit Post View */}
           {currentView === "edit-post" && (
             <LazyBlogPostEditor 
               postId={editingPostId || undefined}
@@ -662,7 +694,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             />
           )}
 
-          {/* Edit Design View */}
           {currentView === "edit-design" && (
             <LazyDesignEditor
               design={editingDesign}
@@ -671,7 +702,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             />
           )}
 
-          {/* Designs View */}
           {currentView === "designs" && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -689,13 +719,11 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
                 </Button>
               </div>
 
-              {/* Custom Import */}
               <LazyCustomImport 
                 onImport={importFromStore}
                 isImporting={isImporting !== null}
               />
 
-              {/* Designs Grid */}
               <Card className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-semibold text-foreground">
@@ -738,7 +766,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
                           />
                         </div>
                         
-                        {/* Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
                           <div className="flex gap-2">
                             <Button
@@ -784,7 +811,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
                           </div>
                         </div>
 
-                        {/* Featured badge */}
                         {design.featured && (
                           <div className="absolute top-2 right-2 bg-amber-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
                             <Star className="w-3 h-3 fill-current" />
@@ -792,7 +818,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
                           </div>
                         )}
 
-                        {/* Source badge */}
                         {design.source && (
                           <div className={`absolute top-2 left-2 text-xs px-2 py-1 rounded-full ${
                             design.source === "redbubble" 
@@ -805,7 +830,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
                           </div>
                         )}
 
-                        {/* Info */}
                         <div className="p-3">
                           <h4 className="font-medium text-sm text-foreground line-clamp-1">
                             {design.name}
@@ -820,7 +844,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             </motion.div>
           )}
 
-          {/* Stores View */}
           {currentView === "stores" && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -872,7 +895,6 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
             </motion.div>
           )}
 
-          {/* Settings View */}
           {currentView === "settings" && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -888,12 +910,12 @@ ON CONFLICT (user_id, role) DO NOTHING;`}
                 <h3 className="font-semibold text-foreground mb-4">Account</h3>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-medium text-foreground">{user.email}</p>
-                  </div>
-                  <div>
                     <p className="text-sm text-muted-foreground">Role</p>
                     <p className="font-medium text-foreground">Administrator</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Password</p>
+                    <p className="font-medium text-foreground">••••••••</p>
                   </div>
                 </div>
               </Card>
