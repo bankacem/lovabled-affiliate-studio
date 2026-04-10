@@ -108,21 +108,23 @@ const Blog = () => {
                 <p className="mt-4 text-muted-foreground">Loading posts...</p>
               </div>
             ) : filteredPosts.length > 0 ? (
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {visiblePosts.map((post, index) => (
-                  <BlogCard key={post.id} post={post} index={Math.min(index, 5)} />
-                ))}
-              </div>
-              {hasMore && (
-                <div className="mt-10 text-center">
-                  <button
-                    onClick={() => setVisibleCount((prev) => prev + POSTS_PER_PAGE)}
-                    className="rounded-full bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-md hover:bg-primary/90 transition-all"
-                  >
-                    Load More ({filteredPosts.length - visibleCount} remaining)
-                  </button>
+              <>
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {visiblePosts.map((post, index) => (
+                    <BlogCard key={post.id} post={post} index={Math.min(index, 5)} />
+                  ))}
                 </div>
-              )}
+                {hasMore && (
+                  <div className="mt-10 text-center">
+                    <button
+                      onClick={() => setVisibleCount((prev) => prev + POSTS_PER_PAGE)}
+                      className="rounded-full bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-md hover:bg-primary/90 transition-all"
+                    >
+                      Load More ({filteredPosts.length - visibleCount} remaining)
+                    </button>
+                  </div>
+                )}
+              </>
             ) : (
               <div className="py-20 text-center">
                 <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
