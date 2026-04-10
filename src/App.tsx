@@ -5,14 +5,23 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const Index = lazy(() => import("./pages/Index"));
-const Designs = lazy(() => import("./pages/Designs"));
-const DesignDetail = lazy(() => import("./pages/DesignDetail"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-const About = lazy(() => import("./pages/About"));
-const Admin = lazy(() => import("./pages/Admin"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const lazyRetry = (importFn: () => Promise<any>) =>
+  lazy(() =>
+    importFn().catch(() => {
+      // Force reload on chunk load failure (stale cache)
+      window.location.reload();
+      return new Promise(() => {}); // Never resolves, page will reload
+    })
+  );
+
+const Index = lazyRetry(() => import("./pages/Index"));
+const Designs = lazyRetry(() => import("./pages/Designs"));
+const DesignDetail = lazyRetry(() => import("./pages/DesignDetail"));
+const Blog = lazyRetry(() => import("./pages/Blog"));
+const BlogPost = lazyRetry(() => import("./pages/BlogPost"));
+const About = lazyRetry(() => import("./pages/About"));
+const Admin = lazyRetry(() => import("./pages/Admin"));
+const NotFound = lazyRetry(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
