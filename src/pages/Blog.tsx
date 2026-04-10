@@ -29,6 +29,11 @@ const Blog = () => {
     return filtered;
   }, [posts, selectedCategory, searchQuery]);
 
+  // Reset visible count when filters change
+  useMemo(() => {
+    setVisibleCount(POSTS_PER_PAGE);
+  }, [selectedCategory, searchQuery]);
+
   const visiblePosts = filteredPosts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredPosts.length;
 
