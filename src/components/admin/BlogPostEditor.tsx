@@ -214,7 +214,6 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
       excerpt: post.excerpt,
       content: post.content,
       featured_image: post.featured_image,
-      video_url: post.video_url || null,
       category: post.category,
       tags: post.tags,
       status: status || post.status,

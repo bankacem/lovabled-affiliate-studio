@@ -6,7 +6,7 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { useBlogPosts } from "@/hooks/useBlogPosts";
 
 export function LatestPosts() {
-  const { posts, isLoading } = useBlogPosts();
+  const { posts, isLoading } = useBlogPosts({ limit: 3 });
   const latestPosts = posts.slice(0, 3);
 
   return (
