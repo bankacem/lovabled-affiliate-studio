@@ -8,7 +8,6 @@ import {
   Settings,
   LogOut,
   Menu,
-  X,
   ChevronRight,
   Users,
   BarChart3,
@@ -23,9 +22,6 @@ import {
   Upload,
   Link2,
   Rocket,
-  Lock,
-  Eye,
-  EyeOff
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -57,6 +53,7 @@ import {
 } from "./LazyComponents";
 import { IndexingStatusManager } from "./IndexingStatusManager";
 import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
@@ -87,45 +84,12 @@ interface Stats {
 export function AdminDashboard() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { signOut, user } = useAuth();
 
-  // ═══════════════════════════════════════════════════════════════
-  // نظام الدخول البسيط - بدون Supabase Auth
-  // ═══════════════════════════════════════════════════════════════
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return sessionStorage.getItem("admin_auth") === "true";
-  });
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [loginError, setLoginError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  // كلمة المرور الافتراضية
-  const ADMIN_PASSWORD = "designvault2025";
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setLoginError("");
-
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    if (password === ADMIN_PASSWORD) {
-      sessionStorage.setItem("admin_auth", "true");
-      setIsAuthenticated(true);
-      setPassword("");
-      toast.success("تم الدخول بنجاح!");
-    } else {
-      setLoginError("كلمة المرور غير صحيحة");
-    }
-    setIsLoading(false);
-  };
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("admin_auth");
-    setIsAuthenticated(false);
+  const handleLogout = async () => {
+    await signOut();
     toast.success("تم تسجيل الخروج");
   };
-  // ═══════════════════════════════════════════════════════════════
 
   const [currentView, setCurrentView] = useState<View>("dashboard");
   const [editingPostId, setEditingPostId] = useState<string | null>(null);
@@ -146,11 +110,9 @@ export function AdminDashboard() {
   const [isLoadingStats, setIsLoadingStats] = useState(true);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      fetchStats();
-      fetchDesigns();
-    }
-  }, [isAuthenticated]);
+    fetchStats();
+    fetchDesigns();
+  }, []);
 
   useEffect(() => {
     const path = location.pathname;
@@ -295,78 +257,6 @@ export function AdminDashboard() {
     fetchStats();
   };
 
-  // ═══════════════════════════════════════════════════════════════
-  // صفحة تسجيل الدخول
-  // ═══════════════════════════════════════════════════════════════
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary/50 p-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Card className="w-full max-w-md p-8 shadow-lg">
-            <div className="text-center mb-8">
-              <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                <Lock className="w-8 h-8 text-primary" />
-              </div>
-              <h1 className="font-display text-2xl font-bold text-foreground">
-                لوحة التحكم
-              </h1>
-              <p className="text-muted-foreground mt-2 text-sm">
-                أدخل كلمة المرور للوصول إلى لوحة الإدارة
-              </p>
-            </div>
-
-            <form onSubmit={handleLogin} className="space-y-4">
-              <div className="relative">
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="كلمة المرور"
-                  className="pr-10 text-right"
-                  dir="rtl"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {showPassword ? (
-                    <EyeOff className="w-4 h-4" />
-                  ) : (
-                    <Eye className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-
-              {loginError && (
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-destructive text-sm text-center"
-                >
-                  {loginError}
-                </motion.p>
-              )}
-
-              <Button
-                type="submit"
-                variant="coral"
-                className="w-full"
-                disabled={isLoading || !password}
-              >
-                {isLoading ? "جاري التحقق..." : "دخول"}
-              </Button>
-            </form>
-          </Card>
-        </motion.div>
-      </div>
-    );
-  }
-  // ═══════════════════════════════════════════════════════════════
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -445,7 +335,7 @@ export function AdminDashboard() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium text-foreground truncate">
-                  Admin
+                  {user?.email || "Admin"}
                 </p>
                 <p className="text-xs text-muted-foreground">Administrator</p>
               </div>
