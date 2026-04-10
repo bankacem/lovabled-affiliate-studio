@@ -8,14 +8,17 @@ import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
+const POSTS_PER_PAGE = 24;
+
 const Blog = () => {
   const { posts, isLoading } = useBlogPosts();
   const { categories } = useBlogCategories();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
 
   const filteredPosts = useMemo(() => {
-    return posts.filter((post) => {
+    const filtered = posts.filter((post) => {
       const matchesCategory =
         selectedCategory === "All" || post.category === selectedCategory;
       const matchesSearch =
@@ -23,7 +26,11 @@ const Blog = () => {
         (post.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false);
       return matchesCategory && matchesSearch;
     });
+    return filtered;
   }, [posts, selectedCategory, searchQuery]);
+
+  const visiblePosts = filteredPosts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredPosts.length;
 
   return (
     <Layout>
@@ -86,6 +93,13 @@ const Blog = () => {
             </div>
           </motion.div>
 
+          {/* Results count */}
+          {!isLoading && filteredPosts.length > 0 && (
+            <p className="mt-6 text-sm text-muted-foreground">
+              Showing {Math.min(visibleCount, filteredPosts.length)} of {filteredPosts.length} articles
+            </p>
+          )}
+
           {/* Results */}
           <div className="mt-10">
             {isLoading ? (
@@ -95,10 +109,20 @@ const Blog = () => {
               </div>
             ) : filteredPosts.length > 0 ? (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {filteredPosts.map((post, index) => (
-                  <BlogCard key={post.id} post={post} index={index} />
+                {visiblePosts.map((post, index) => (
+                  <BlogCard key={post.id} post={post} index={Math.min(index, 5)} />
                 ))}
               </div>
+              {hasMore && (
+                <div className="mt-10 text-center">
+                  <button
+                    onClick={() => setVisibleCount((prev) => prev + POSTS_PER_PAGE)}
+                    className="rounded-full bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-md hover:bg-primary/90 transition-all"
+                  >
+                    Load More ({filteredPosts.length - visibleCount} remaining)
+                  </button>
+                </div>
+              )}
             ) : (
               <div className="py-20 text-center">
                 <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
