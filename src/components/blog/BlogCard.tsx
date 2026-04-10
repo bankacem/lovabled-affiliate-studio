@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, FileText } from "lucide-react";
@@ -11,6 +12,7 @@ interface BlogCardProps {
 
 export function BlogCard({ post, index = 0 }: BlogCardProps) {
   const displayDate = post.published_at || post.created_at;
+  const [imgError, setImgError] = useState(false);
 
   return (
     <motion.article
@@ -23,10 +25,12 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
         <div className="overflow-hidden rounded-xl bg-card shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
           {/* Image */}
           <div className="relative aspect-[2/1] overflow-hidden bg-secondary">
-            {post.featured_image ? (
+            {post.featured_image && !imgError ? (
               <img
                 src={post.featured_image}
                 alt={post.title}
+                loading="lazy"
+                onError={() => setImgError(true)}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
