@@ -60,16 +60,43 @@ const normalizedStaticPosts = new Map(
   blogPosts.map(p => [normalizeSlug(p.slug), p])
 );
 
+const BLOG_POST_LIST_COLUMNS = [
+  "id",
+  "title",
+  "slug",
+  "excerpt",
+  "featured_image",
+  "author_name",
+  "category",
+  "tags",
+  "status",
+  "read_time",
+  "meta_title",
+  "meta_description",
+  "published_at",
+  "created_at",
+  "updated_at",
+].join(", ");
+
+const BLOG_POST_FULL_COLUMNS = `${BLOG_POST_LIST_COLUMNS}, content`;
+
+interface UseBlogPostsOptions {
+  includeContent?: boolean;
+  limit?: number;
+}
+
 // ═══════════════════════════════════════════════════════════════
 // الحصول على جميع المقالات
 // ═══════════════════════════════════════════════════════════════
-export function useBlogPosts() {
+export function useBlogPosts(options: UseBlogPostsOptions = {}) {
+  const { includeContent = false, limit } = options;
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
+    setError(null);
 
     try {
       if (!supabase || typeof supabase.from !== 'function') {
@@ -78,11 +105,17 @@ export function useBlogPosts() {
         return;
       }
 
-      const { data: dbPosts, error: dbError } = await supabase
+      let query = supabase
         .from("blog_posts")
-        .select("*")
+        .select(includeContent ? BLOG_POST_FULL_COLUMNS : BLOG_POST_LIST_COLUMNS)
         .eq("status", "published")
         .order("published_at", { ascending: false });
+
+      if (typeof limit === "number") {
+        query = query.limit(limit);
+      }
+
+      const { data: dbPosts, error: dbError } = await query;
 
       if (dbError) {
         console.error("Supabase error fetching posts:", dbError);
@@ -91,12 +124,7 @@ export function useBlogPosts() {
 
       const dbPostsList = dbPosts || [];
 
-      const dbNormalizedSlugs = new Set(dbPostsList.map((p) => normalizeSlug(p.slug)));
-      const missingStaticPosts = blogPosts.filter(
-        (p) => !dbNormalizedSlugs.has(normalizeSlug(p.slug))
-      );
-
-      const allPosts = [...dbPostsList, ...missingStaticPosts]
+      const allPosts = dbPostsList
         .map((post) => enrichPost(post as any))
         .sort((a, b) => {
           const dateA = new Date(a.published_at || a.created_at).getTime();
@@ -104,7 +132,7 @@ export function useBlogPosts() {
           return dateB - dateA;
         });
 
-      if (allPosts.length === 0) {
+      if (dbPostsList.length === 0) {
         console.warn("No posts found (DB or static). Falling back to all static data.");
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
       } else {
@@ -117,7 +145,7 @@ export function useBlogPosts() {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [includeContent, limit]);
 
   useEffect(() => {
     fetchPosts();
@@ -181,7 +209,7 @@ export function useBlogPost(rawSlug: string) {
       // ═══════════════════════════════════════════════════════════
       const { data: exactMatch, error: exactError } = await supabase
         .from("blog_posts")
-        .select("*")
+        .select(BLOG_POST_FULL_COLUMNS)
         .eq("slug", cleanSlug)
         .maybeSingle();
 
@@ -198,7 +226,7 @@ export function useBlogPost(rawSlug: string) {
       // ═══════════════════════════════════════════════════════════
       const { data: originalMatch } = await supabase
         .from("blog_posts")
-        .select("*")
+        .select(BLOG_POST_FULL_COLUMNS)
         .eq("slug", rawSlug)
         .maybeSingle();
 
@@ -216,7 +244,7 @@ export function useBlogPost(rawSlug: string) {
       if (isUUID) {
         const { data: idMatch } = await supabase
           .from("blog_posts")
-          .select("*")
+          .select(BLOG_POST_FULL_COLUMNS)
           .eq("id", cleanSlug)
           .maybeSingle();
         if (idMatch) {
@@ -229,14 +257,14 @@ export function useBlogPost(rawSlug: string) {
       // ═══════════════════════════════════════════════════════════
       // المرحلة 5: البحث التقريبي
       // ═══════════════════════════════════════════════════════════
-      const { data: similarMatch } = await supabase
+      const { data: similarMatches } = await supabase
         .from("blog_posts")
-        .select("*")
+        .select(BLOG_POST_FULL_COLUMNS)
         .ilike("slug", `%${cleanSlug}%`)
-        .maybeSingle();
+        .limit(1);
 
-      if (similarMatch) {
-        setPost(enrichPost(similarMatch as any));
+      if (similarMatches?.[0]) {
+        setPost(enrichPost(similarMatches[0] as any));
         setIsLoading(false);
         return;
       }

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, FileText } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -30,7 +30,7 @@ const Blog = () => {
   }, [posts, selectedCategory, searchQuery]);
 
   // Reset visible count when filters change
-  useMemo(() => {
+  useEffect(() => {
     setVisibleCount(POSTS_PER_PAGE);
   }, [selectedCategory, searchQuery]);
 
