@@ -2,48 +2,53 @@ import { useState, useEffect } from "react";
 import { User, Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 
-// Known admin emails — fallback if user_roles table is unreachable
-// This is safe because Supabase Auth still validates the password
+// FIX: Use lowercase comparison — Supabase stores emails lowercase but let's be safe
 const ADMIN_EMAILS = ["admin@aiprintverse.com"];
+
+function isAdminEmail(email: string | undefined | null): boolean {
+  if (!email) return false;
+  return ADMIN_EMAILS.includes(email.toLowerCase().trim());
+}
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
-  
-  // Check if Supabase is properly initialized
-  const isSupabaseReady = Boolean(supabase && typeof supabase.auth?.getSession === 'function');
 
-  /**
-   * Check admin role via:
-   * 1. Email-based whitelist (instant, no DB needed)
-   * 2. RPC has_role function
-   * 3. Direct user_roles table query (fallback)
-   * 4. Retry with backoff (handles timing issues)
-   */
-  const checkAdminRole = async (userObj: User, retryCount = 0): Promise<boolean> => {
-    const maxRetries = 3;
+  const isSupabaseReady = Boolean(
+    supabase && typeof supabase.auth?.getSession === "function"
+  );
 
-    // LAYER 1: Email whitelist — instant check, no DB roundtrip
-    if (ADMIN_EMAILS.includes(userObj.email ?? "")) {
-      // Still try to insert the role in DB asynchronously for consistency
-      // (fire and forget — don't await, don't block login)
+  // ── Layer 1: Instant email check ──────────────────────────────
+  // ── Layer 2: RPC has_role ─────────────────────────────────────
+  // ── Layer 3: Direct DB query ──────────────────────────────────
+  // ── Layer 4: Retry with backoff (max 3x) ──────────────────────
+  const checkAdminRole = async (
+    userObj: User,
+    retryCount = 0
+  ): Promise<boolean> => {
+    // LAYER 1: Email whitelist (case-insensitive) — no DB needed
+    if (isAdminEmail(userObj.email)) {
+      // Insert admin role in background (fire-and-forget)
       ensureAdminRoleInDB(userObj.id).catch(() => {});
       return true;
     }
 
+    if (!isSupabaseReady) return false;
+
+    const maxRetries = 3;
+
     try {
-      // LAYER 2: RPC function (fastest DB path)
-      const { data, error } = await supabase.rpc("has_role", {
-        _user_id: userObj.id,
-        _role: "admin",
-      });
+      // LAYER 2: RPC function
+      const { data: rpcData, error: rpcError } = await supabase.rpc(
+        "has_role",
+        { _user_id: userObj.id, _role: "admin" }
+      );
+      if (!rpcError && rpcData === true) return true;
 
-      if (!error && data === true) return true;
-
-      // LAYER 3: Direct query (handles RPC permission issues)
-      const { data: roleData, error: roleError } = await (supabase as any)
+      // LAYER 3: Direct query (fallback if RPC not available)
+      const { data: roleData, error: roleError } = await supabase
         .from("user_roles")
         .select("role")
         .eq("user_id", userObj.id)
@@ -52,14 +57,14 @@ export function useAuth() {
 
       if (!roleError && roleData) return true;
 
-      // LAYER 4: Retry with backoff
+      // LAYER 4: Retry
       if (retryCount < maxRetries) {
         await new Promise((r) => setTimeout(r, 500 * (retryCount + 1)));
         return checkAdminRole(userObj, retryCount + 1);
       }
 
       return false;
-    } catch (err) {
+    } catch {
       if (retryCount < maxRetries) {
         await new Promise((r) => setTimeout(r, 500 * (retryCount + 1)));
         return checkAdminRole(userObj, retryCount + 1);
@@ -68,26 +73,23 @@ export function useAuth() {
     }
   };
 
-  /**
-   * Silently ensure the user has admin role in DB.
-   * Called in background after email-whitelist grants access.
-   */
   const ensureAdminRoleInDB = async (userId: string) => {
     if (!isSupabaseReady) return;
     try {
       await supabase
         .from("user_roles")
-        .upsert({ user_id: userId, role: "admin" }, { onConflict: "user_id,role" })
-        .select()
+        .upsert(
+          { user_id: userId, role: "admin" },
+          { onConflict: "user_id,role" }
+        )
         .maybeSingle();
     } catch {
-      // Silently ignore — role may already exist
+      // Silently ignore — role may already exist or RLS may block it
     }
   };
 
   useEffect(() => {
     if (!isSupabaseReady) {
-      console.warn("Supabase client not ready — check environment variables");
       setIsLoading(false);
       return;
     }
@@ -96,7 +98,9 @@ export function useAuth() {
 
     const initializeAuth = async () => {
       try {
-        const { data: { session: existingSession } } = await supabase.auth.getSession();
+        const {
+          data: { session: existingSession },
+        } = await supabase.auth.getSession();
 
         if (!isMounted) return;
 
@@ -115,25 +119,25 @@ export function useAuth() {
 
     initializeAuth();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, newSession) => {
-        if (!isMounted) return;
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, newSession) => {
+      if (!isMounted) return;
 
-        setSession(newSession);
-        setUser(newSession?.user ?? null);
+      setSession(newSession);
+      setUser(newSession?.user ?? null);
 
-        if (newSession?.user) {
-          const adminResult = await checkAdminRole(newSession.user);
-          if (isMounted) {
-            setIsAdmin(adminResult);
-            setIsLoading(false);
-          }
-        } else {
-          setIsAdmin(false);
+      if (newSession?.user) {
+        const adminResult = await checkAdminRole(newSession.user);
+        if (isMounted) {
+          setIsAdmin(adminResult);
           setIsLoading(false);
         }
+      } else {
+        setIsAdmin(false);
+        setIsLoading(false);
       }
-    );
+    });
 
     return () => {
       isMounted = false;
@@ -142,20 +146,24 @@ export function useAuth() {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    if (!isSupabaseReady) return { error: new Error("Backend not available. Please refresh the page.") };
+    if (!isSupabaseReady)
+      return { error: new Error("Backend not available. Check env variables.") };
     setIsLoading(true);
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.toLowerCase().trim(),
+      password,
+    });
     if (error) setIsLoading(false);
     return { error };
   };
 
   const signUp = async (email: string, password: string) => {
-    if (!isSupabaseReady) return { error: new Error("Backend not available. Please refresh the page.") };
-    const redirectUrl = `${window.location.origin}/`;
+    if (!isSupabaseReady)
+      return { error: new Error("Backend not available.") };
     const { error } = await supabase.auth.signUp({
-      email,
+      email: email.toLowerCase().trim(),
       password,
-      options: { emailRedirectTo: redirectUrl },
+      options: { emailRedirectTo: `${window.location.origin}/` },
     });
     return { error };
   };

@@ -23,93 +23,81 @@ export interface BlogPost {
   updated_at: string;
 }
 
-// ═══════════════════════════════════════════════════════════════
-// دالة تنسيق الـ Slug
-// ═══════════════════════════════════════════════════════════════
+// ─── Slug normalisation ────────────────────────────────────────────────────
 function normalizeSlug(s: string): string {
   return s.toLowerCase().trim().replace(/[_\s]+/g, "-").replace(/[^a-z0-9-]/g, "");
 }
 
-// ═══════════════════════════════════════════════════════════════
-// دالة إغناء المقالات بالبيانات الناقصة
-// ═══════════════════════════════════════════════════════════════
+// ─── Enrich post with fallback SEO fields ─────────────────────────────────
 function enrichPost(post: any): BlogPost {
   const safeTitle = post?.title || "Untitled Post";
-  const safeSlug = post?.slug || "no-slug";
-
+  const safeSlug  = post?.slug  || "no-slug";
   return {
     ...post,
-    title: safeTitle,
-    slug: safeSlug,
-    meta_title: post?.meta_title || `${safeTitle} | AIPrintVerse`,
-    meta_description:
-      post?.meta_description ||
-      post?.excerpt ||
-      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : "No description available"),
-    canonical_url: post?.canonical_url || `/blog/${safeSlug}`,
-    tags: Array.isArray(post?.tags) ? post.tags : [],
-    status: post?.status || "draft",
-    published_at: post?.published_at || post?.created_at || new Date().toISOString(),
+    title:            safeTitle,
+    slug:             safeSlug,
+    meta_title:       post?.meta_title       || `${safeTitle} | AIPrintVerse`,
+    meta_description: post?.meta_description || post?.excerpt ||
+                      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
+    canonical_url:    post?.canonical_url    || `/blog/${safeSlug}`,
+    tags:             Array.isArray(post?.tags) ? post.tags : [],
+    status:           post?.status           || "draft",
+    published_at:     post?.published_at     || post?.created_at || new Date().toISOString(),
   } as BlogPost;
 }
 
-// ═══════════════════════════════════════════════════════════════
-// تخزين مؤقت للمقالات المحلية (للبحث السريع)
-// ═══════════════════════════════════════════════════════════════
+// ─── Normalised cache of static seed articles ────────────────────────────
 const normalizedStaticPosts = new Map(
-  blogPosts.map(p => [normalizeSlug(p.slug), p])
+  blogPosts.map((p) => [normalizeSlug(p.slug), p])
 );
 
-const BLOG_POST_LIST_COLUMNS = [
-  "id",
-  "title",
-  "slug",
-  "excerpt",
-  "featured_image",
-  "author_name",
-  "category",
-  "tags",
-  "status",
-  "read_time",
-  "meta_title",
-  "meta_description",
-  "published_at",
-  "created_at",
-  "updated_at",
+const LIST_COLS = [
+  "id","title","slug","excerpt","featured_image","author_name",
+  "category","tags","status","read_time","meta_title","meta_description",
+  "published_at","created_at","updated_at",
 ].join(", ");
 
-const BLOG_POST_FULL_COLUMNS = `${BLOG_POST_LIST_COLUMNS}, content`;
+const FULL_COLS = `${LIST_COLS}, content`;
 
 interface UseBlogPostsOptions {
   includeContent?: boolean;
   limit?: number;
+  /** When true (public blog page) only show published.
+   *  When false (admin) show ALL statuses. Default: true */
+  publicOnly?: boolean;
 }
 
-// ═══════════════════════════════════════════════════════════════
-// الحصول على جميع المقالات
-// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════════
+// useBlogPosts — list of posts
+// ═══════════════════════════════════════════════════════════════════════════
 export function useBlogPosts(options: UseBlogPostsOptions = {}) {
-  const { includeContent = false, limit } = options;
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const { includeContent = false, limit, publicOnly = true } = options;
+
+  const [posts, setPosts]       = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError]       = useState<string | null>(null);
 
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      if (!supabase || typeof supabase.from !== 'function') {
+      // No Supabase → fall back to static seed data
+      if (!supabase || typeof supabase.from !== "function") {
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
-        setIsLoading(false);
         return;
       }
 
       let query = supabase
         .from("blog_posts")
-        .select(includeContent ? BLOG_POST_FULL_COLUMNS : BLOG_POST_LIST_COLUMNS)
-        .eq("status", "published")
+        .select(includeContent ? FULL_COLS : LIST_COLS)
         .order("published_at", { ascending: false });
+
+      // FIX: public blog page shows only published articles;
+      //      admin views (publicOnly=false) see everything.
+      if (publicOnly) {
+        query = query.eq("status", "published");
+      }
 
       if (typeof limit === "number") {
         query = query.limit(limit);
@@ -118,190 +106,145 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       const { data: dbPosts, error: dbError } = await query;
 
       if (dbError) {
-        console.error("Supabase error fetching posts:", dbError);
         setError(dbError.message);
+        // Fall back to static data on error
+        setPosts(blogPosts.map((p) => enrichPost(p as any)));
+        return;
       }
 
-      const dbPostsList = dbPosts || [];
+      const list = (dbPosts || []).map((p) => enrichPost(p as any));
 
-      const allPosts = dbPostsList
-        .map((post) => enrichPost(post as any))
-        .sort((a, b) => {
-          const dateA = new Date(a.published_at || a.created_at).getTime();
-          const dateB = new Date(b.published_at || b.created_at).getTime();
-          return dateB - dateA;
-        });
-
-      if (dbPostsList.length === 0) {
-        console.warn("No posts found (DB or static). Falling back to all static data.");
+      if (list.length === 0) {
+        // Nothing in DB yet — show static seed articles so page isn't empty
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
       } else {
-        setPosts(allPosts);
+        setPosts(list);
       }
     } catch (err) {
-      console.error("Major error in fetchPosts:", err);
+      setError(err instanceof Error ? err.message : "Unexpected error");
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
-      setError(err instanceof Error ? err.message : "An unexpected error occurred");
     } finally {
       setIsLoading(false);
     }
-  }, [includeContent, limit]);
+  }, [includeContent, limit, publicOnly]);
 
-  useEffect(() => {
-    fetchPosts();
-  }, [fetchPosts]);
+  useEffect(() => { fetchPosts(); }, [fetchPosts]);
 
   return { posts, isLoading, error, refetch: fetchPosts };
 }
 
-// ═══════════════════════════════════════════════════════════════
-// الحصول على مقال واحد بالـ Slug
-// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════════
+// useBlogPost — single post by slug
+// ═══════════════════════════════════════════════════════════════════════════
 export function useBlogPost(rawSlug: string) {
-  const [post, setPost] = useState<BlogPost | null>(null);
+  const [post, setPost]         = useState<BlogPost | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError]       = useState<string | null>(null);
 
   const fetchPost = useCallback(async () => {
-    if (!rawSlug) {
-      setIsLoading(false);
-      return;
-    }
+    if (!rawSlug) { setIsLoading(false); return; }
     setIsLoading(true);
     setError(null);
 
-    // تنسيق الـ Slug
     const cleanSlug = normalizeSlug(rawSlug);
 
-    // ═══════════════════════════════════════════════════════════
-    // المرحلة 1: البحث في المقالات المحلية أولاً (الأسرع)
-    // ═══════════════════════════════════════════════════════════
-    const staticMatch = normalizedStaticPosts.get(cleanSlug);
-    if (staticMatch) {
-      setPost(enrichPost(staticMatch as any));
+    // ── Phase 1: exact hit in static seed data ─────────────────────────
+    const staticHit = normalizedStaticPosts.get(cleanSlug);
+    if (staticHit) {
+      setPost(enrichPost(staticHit as any));
       setIsLoading(false);
       return;
     }
 
-    // البحث الجزئي في المقالات المحلية
-    for (const [, staticPost] of normalizedStaticPosts) {
-      const normalizedStaticSlug = normalizeSlug(staticPost.slug);
-      if (
-        normalizedStaticSlug === cleanSlug ||
-        normalizedStaticSlug.includes(cleanSlug) ||
-        cleanSlug.includes(normalizedStaticSlug)
-      ) {
-        setPost(enrichPost(staticPost as any));
+    // ── Phase 1b: partial match in static data ──────────────────────────
+    for (const [, sp] of normalizedStaticPosts) {
+      const ns = normalizeSlug(sp.slug);
+      if (ns.includes(cleanSlug) || cleanSlug.includes(ns)) {
+        setPost(enrichPost(sp as any));
         setIsLoading(false);
         return;
       }
     }
 
-    try {
-      if (!supabase || typeof supabase.from !== 'function') {
-        setPost(null);
-        setIsLoading(false);
-        return;
-      }
+    if (!supabase || typeof supabase.from !== "function") {
+      setPost(null);
+      setError("Article not found");
+      setIsLoading(false);
+      return;
+    }
 
-      // ═══════════════════════════════════════════════════════════
-      // المرحلة 2: البحث في قاعدة البيانات بالـ Slug المنظم
-      // ═══════════════════════════════════════════════════════════
-      const { data: exactMatch, error: exactError } = await supabase
+    try {
+      // ── Phase 2: exact slug match (normalised) ───────────────────────
+      const { data: exact } = await supabase
         .from("blog_posts")
-        .select(BLOG_POST_FULL_COLUMNS)
+        .select(FULL_COLS)
         .eq("slug", cleanSlug)
         .maybeSingle();
+      if (exact) { setPost(enrichPost(exact)); setIsLoading(false); return; }
 
-      if (exactError) console.error("Error fetching exact match:", exactError);
-
-      if (exactMatch) {
-        setPost(enrichPost(exactMatch as any));
-        setIsLoading(false);
-        return;
-      }
-
-      // ═══════════════════════════════════════════════════════════
-      // المرحلة 3: البحث بالـ Slug الأصلي
-      // ═══════════════════════════════════════════════════════════
-      const { data: originalMatch } = await supabase
+      // ── Phase 3: original slug (before normalisation) ────────────────
+      const { data: original } = await supabase
         .from("blog_posts")
-        .select(BLOG_POST_FULL_COLUMNS)
+        .select(FULL_COLS)
         .eq("slug", rawSlug)
         .maybeSingle();
+      if (original) { setPost(enrichPost(original)); setIsLoading(false); return; }
 
-      if (originalMatch) {
-        setPost(enrichPost(originalMatch as any));
-        setIsLoading(false);
-        return;
-      }
-
-      // ═══════════════════════════════════════════════════════════
-      // المرحلة 4: البحث بالمعرف القديم (UUID)
-      // ═══════════════════════════════════════════════════════════
+      // ── Phase 4: UUID lookup ─────────────────────────────────────────
       const isUUID =
-        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(cleanSlug);
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(rawSlug);
       if (isUUID) {
-        const { data: idMatch } = await supabase
+        const { data: byId } = await supabase
           .from("blog_posts")
-          .select(BLOG_POST_FULL_COLUMNS)
-          .eq("id", cleanSlug)
+          .select(FULL_COLS)
+          .eq("id", rawSlug)
           .maybeSingle();
-        if (idMatch) {
-          setPost(enrichPost(idMatch as any));
-          setIsLoading(false);
-          return;
-        }
+        if (byId) { setPost(enrichPost(byId)); setIsLoading(false); return; }
       }
 
-      // ═══════════════════════════════════════════════════════════
-      // المرحلة 5: البحث التقريبي
-      // ═══════════════════════════════════════════════════════════
-      const { data: similarMatches } = await supabase
+      // ── Phase 5: fuzzy ILIKE search ──────────────────────────────────
+      // FIX: search across ALL statuses, not just published.
+      // A draft article visited directly should still render for the owner.
+      const { data: similar } = await supabase
         .from("blog_posts")
-        .select(BLOG_POST_FULL_COLUMNS)
+        .select(FULL_COLS)
         .ilike("slug", `%${cleanSlug}%`)
         .limit(1);
-
-      if (similarMatches?.[0]) {
-        setPost(enrichPost(similarMatches[0] as any));
+      if (similar?.[0]) {
+        setPost(enrichPost(similar[0]));
         setIsLoading(false);
         return;
       }
 
-      // المقالة غير موجودة
+      // ── Not found ────────────────────────────────────────────────────
       setPost(null);
-      setError("المقال غير موجود");
+      setError("Article not found");
     } catch (err) {
-      console.error("Error fetching post:", err);
-      setError(err instanceof Error ? err.message : "Post not found");
+      setError(err instanceof Error ? err.message : "Unexpected error");
       setPost(null);
     } finally {
       setIsLoading(false);
     }
   }, [rawSlug]);
 
-  useEffect(() => {
-    fetchPost();
-  }, [fetchPost]);
+  useEffect(() => { fetchPost(); }, [fetchPost]);
 
   return { post, isLoading, error };
 }
 
-// ═══════════════════════════════════════════════════════════════
-// الحصول على الفئات
-// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════════════
+// useBlogCategories
+// ═══════════════════════════════════════════════════════════════════════════
 export function useBlogCategories() {
   const [categories, setCategories] = useState<string[]>(["All"]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading]   = useState(true);
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      if (!supabase || typeof supabase.from !== 'function') {
+    const fetch = async () => {
+      if (!supabase || typeof supabase.from !== "function") {
         setIsLoading(false);
         return;
       }
-
       const { data } = await supabase
         .from("blog_categories")
         .select("name")
@@ -309,7 +252,7 @@ export function useBlogCategories() {
       if (data) setCategories(["All", ...data.map((c) => c.name)]);
       setIsLoading(false);
     };
-    fetchCategories();
+    fetch();
   }, []);
 
   return { categories, isLoading };
