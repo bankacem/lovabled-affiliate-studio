@@ -2,6 +2,9 @@ import { useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
+// Module-level variable to track the last GA4 path hit to prevent duplicates
+let lastGA4Path: string | null = null;
+
 // Generate or retrieve session ID
 const getSessionId = (): string => {
   let sessionId = sessionStorage.getItem("session_id");
@@ -18,7 +21,16 @@ export function usePageTracking(postId?: string) {
   useEffect(() => {
     const trackPageView = async () => {
       try {
-        // Insert page view record
+        // Trigger GA4 page view tracking
+        if (typeof window.gtag === "function" && lastGA4Path !== location.pathname) {
+          window.gtag("config", "G-8SDQJ1VPR5", {
+            page_path: location.pathname,
+            page_title: document.title,
+          });
+          lastGA4Path = location.pathname;
+        }
+
+        // Insert page view record in Supabase
         await supabase.from("page_views").insert({
           page_path: location.pathname,
           page_title: document.title,
