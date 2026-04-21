@@ -47,6 +47,7 @@ function enrichPost(post: any): BlogPost {
 }
 
 // ─── Normalised cache of static seed articles ────────────────────────────
+// NOTE: Used only as last-resort fallback when Supabase is unavailable.
 const normalizedStaticPosts = new Map(
   blogPosts.map((p) => [normalizeSlug(p.slug), p])
 );
@@ -148,33 +149,21 @@ export function useBlogPost(rawSlug: string) {
 
     const cleanSlug = normalizeSlug(rawSlug);
 
-    // ── Phase 1: exact hit in static seed data ─────────────────────────
-    const staticHit = normalizedStaticPosts.get(cleanSlug);
-    if (staticHit) {
-      setPost(enrichPost(staticHit as any));
-      setIsLoading(false);
-      return;
-    }
-
-    // ── Phase 1b: partial match in static data ──────────────────────────
-    for (const [, sp] of normalizedStaticPosts) {
-      const ns = normalizeSlug(sp.slug);
-      if (ns.includes(cleanSlug) || cleanSlug.includes(ns)) {
-        setPost(enrichPost(sp as any));
-        setIsLoading(false);
-        return;
-      }
-    }
-
+    // ── No Supabase → fall back to static seed data only ──────────────
     if (!supabase || typeof supabase.from !== "function") {
-      setPost(null);
-      setError("Article not found");
+      const staticHit = normalizedStaticPosts.get(cleanSlug);
+      if (staticHit) {
+        setPost(enrichPost(staticHit as any));
+      } else {
+        setPost(null);
+        setError("Article not found");
+      }
       setIsLoading(false);
       return;
     }
 
     try {
-      // ── Phase 2: exact slug match (normalised) ───────────────────────
+      // ── Phase 1: exact slug match (normalised) ───────────────────────
       const { data: exact } = await supabase
         .from("blog_posts")
         .select(FULL_COLS)
@@ -182,7 +171,7 @@ export function useBlogPost(rawSlug: string) {
         .maybeSingle();
       if (exact) { setPost(enrichPost(exact)); setIsLoading(false); return; }
 
-      // ── Phase 3: original slug (before normalisation) ────────────────
+      // ── Phase 2: original slug (before normalisation) ────────────────
       const { data: original } = await supabase
         .from("blog_posts")
         .select(FULL_COLS)
@@ -190,7 +179,7 @@ export function useBlogPost(rawSlug: string) {
         .maybeSingle();
       if (original) { setPost(enrichPost(original)); setIsLoading(false); return; }
 
-      // ── Phase 4: UUID lookup ─────────────────────────────────────────
+      // ── Phase 3: UUID lookup ─────────────────────────────────────────
       const isUUID =
         /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(rawSlug);
       if (isUUID) {
@@ -202,9 +191,7 @@ export function useBlogPost(rawSlug: string) {
         if (byId) { setPost(enrichPost(byId)); setIsLoading(false); return; }
       }
 
-      // ── Phase 5: fuzzy ILIKE search ──────────────────────────────────
-      // FIX: search across ALL statuses, not just published.
-      // A draft article visited directly should still render for the owner.
+      // ── Phase 4: fuzzy ILIKE search (all statuses) ───────────────────
       const { data: similar } = await supabase
         .from("blog_posts")
         .select(FULL_COLS)
@@ -216,12 +203,27 @@ export function useBlogPost(rawSlug: string) {
         return;
       }
 
+      // ── Phase 5: last resort — static seed data ──────────────────────
+      // Only used when article exists in static data but not yet in DB.
+      const staticHit = normalizedStaticPosts.get(cleanSlug);
+      if (staticHit) {
+        setPost(enrichPost(staticHit as any));
+        setIsLoading(false);
+        return;
+      }
+
       // ── Not found ────────────────────────────────────────────────────
       setPost(null);
       setError("Article not found");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
-      setPost(null);
+      // Fallback to static data on error for robustness
+      const staticHit = normalizedStaticPosts.get(cleanSlug);
+      if (staticHit) {
+        setPost(enrichPost(staticHit as any));
+      } else {
+        setPost(null);
+      }
     } finally {
       setIsLoading(false);
     }
