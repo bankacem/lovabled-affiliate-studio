@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Save, 
+  Archive,
   ArrowLeft, 
   Image as ImageIcon,
   Tag,
@@ -199,7 +200,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     }));
   };
 
-  const savePost = async (status?: "draft" | "published" | "scheduled", scheduledAt?: string) => {
+  const savePost = async (status?: "draft" | "published" | "scheduled" | "archived", scheduledAt?: string) => {
     if (!supabase || typeof supabase.from !== 'function') return;
     if (!post.title.trim()) {
       toast.error("Please enter a title");
@@ -312,6 +313,18 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
             <Save className="h-4 w-4 mr-2" />
             Save Draft
           </Button>
+
+          {postId && post.status !== "archived" && (
+            <Button
+              variant="outline"
+              onClick={() => savePost("archived")}
+              disabled={isSaving}
+              className="text-destructive hover:bg-destructive/10"
+            >
+              <Archive className="h-4 w-4 mr-2" />
+              Archive
+            </Button>
+          )}
           
           <Popover>
             <PopoverTrigger asChild>

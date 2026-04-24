@@ -64,7 +64,8 @@ export function useAuth() {
       }
 
       return false;
-    } catch {
+    } catch (err) {
+      console.error(`Admin check failed (attempt ${retryCount + 1}):`, err);
       if (retryCount < maxRetries) {
         await new Promise((r) => setTimeout(r, 500 * (retryCount + 1)));
         return checkAdminRole(userObj, retryCount + 1);
@@ -109,9 +110,20 @@ export function useAuth() {
           setUser(existingSession.user);
           const adminResult = await checkAdminRole(existingSession.user);
           if (isMounted) setIsAdmin(adminResult);
+        } else {
+          if (isMounted) {
+            setUser(null);
+            setSession(null);
+            setIsAdmin(false);
+          }
         }
       } catch (err) {
         console.error("Auth initialization error:", err);
+        if (isMounted) {
+          setUser(null);
+          setSession(null);
+          setIsAdmin(false);
+        }
       } finally {
         if (isMounted) setIsLoading(false);
       }

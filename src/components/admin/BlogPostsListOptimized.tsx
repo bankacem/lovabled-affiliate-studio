@@ -272,6 +272,7 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
                 <SelectItem value="generated_draft">AI Draft</SelectItem>
                 <SelectItem value="scheduled">Scheduled</SelectItem>
                 <SelectItem value="published">Published</SelectItem>
+                <SelectItem value="archived">Archived</SelectItem>
               </SelectContent>
             </Select>
             <Select value={sourceFilter} onValueChange={(v) => { setSourceFilter(v); setCurrentPage(1); }}>
