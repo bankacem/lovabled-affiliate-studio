@@ -25,11 +25,7 @@ export interface BlogPost {
 
 // ─── Slug normalisation ────────────────────────────────────────────────────
 function normalizeSlug(s: string): string {
-  return s.toLowerCase()
-    .trim()
-    .replace(/[_\s]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
+  return s.toLowerCase().trim().replace(/[_\s]+/g, "-");
 }
 
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
