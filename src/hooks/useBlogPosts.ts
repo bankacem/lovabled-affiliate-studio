@@ -25,7 +25,7 @@ export interface BlogPost {
 
 // ─── Slug normalisation ────────────────────────────────────────────────────
 function normalizeSlug(s: string): string {
-  return s.toLowerCase().trim().replace(/[_\s]+/g, "-").replace(/[^a-z0-9-]/g, "");
+  return s.toLowerCase().trim().replace(/[_\s]+/g, "-");
 }
 
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
@@ -149,6 +149,21 @@ export function useBlogPost(rawSlug: string) {
 
     const cleanSlug = normalizeSlug(rawSlug);
 
+    // ── Phase 0: البحث بالـ slug كما هو في URL بدون أي تعديل ──────────
+    // هذا يحل مشكلة الـ slugs الطويلة في DB
+    if (supabase && typeof supabase.from === "function") {
+      const { data: rawExact } = await supabase
+        .from("blog_posts")
+        .select(FULL_COLS)
+        .eq("slug", rawSlug)
+        .maybeSingle();
+      if (rawExact) {
+        setPost(enrichPost(rawExact));
+        setIsLoading(false);
+        return;
+      }
+    }
+
     // ── No Supabase → fall back to static seed data only ──────────────
     if (!supabase || typeof supabase.from !== "function") {
       const staticHit = normalizedStaticPosts.get(cleanSlug);
@@ -170,14 +185,6 @@ export function useBlogPost(rawSlug: string) {
         .eq("slug", cleanSlug)
         .maybeSingle();
       if (exact) { setPost(enrichPost(exact)); setIsLoading(false); return; }
-
-      // ── Phase 2: original slug (before normalisation) ────────────────
-      const { data: original } = await supabase
-        .from("blog_posts")
-        .select(FULL_COLS)
-        .eq("slug", rawSlug)
-        .maybeSingle();
-      if (original) { setPost(enrichPost(original)); setIsLoading(false); return; }
 
       // ── Phase 3: UUID lookup ─────────────────────────────────────────
       const isUUID =
