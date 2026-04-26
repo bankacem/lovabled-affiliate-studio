@@ -134,7 +134,7 @@ export function ArticleGenerator() {
   const generateSlug = (template: string, variables: Record<string, string>) => {
     let slug = replaceVariables(template, variables);
     slug = slug.toLowerCase()
-      .replace(/[^a-z0-9-]/g, "-")
+      ..replace(/[^a-z0-9-]/g, "-")
       .replace(/-+/g, "-")
       .replace(/^-|-$/g, "");
     
