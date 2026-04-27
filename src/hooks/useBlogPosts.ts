@@ -25,7 +25,12 @@ export interface BlogPost {
 
 // ─── Slug normalisation ────────────────────────────────────────────────────
 function normalizeSlug(s: string): string {
-  return s.toLowerCase().trim().replace(/[_\s]+/g, "-");
+  return s
+    .toLowerCase()
+    .trim()
+    .replace(/[_\s]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
@@ -149,21 +154,6 @@ export function useBlogPost(rawSlug: string) {
 
     const cleanSlug = normalizeSlug(rawSlug);
 
-    // ── Phase 0: البحث بالـ slug كما هو في URL بدون أي تعديل ──────────
-    // هذا يحل مشكلة الـ slugs الطويلة في DB
-    if (supabase && typeof supabase.from === "function") {
-      const { data: rawExact } = await supabase
-        .from("blog_posts")
-        .select(FULL_COLS)
-        .eq("slug", rawSlug)
-        .maybeSingle();
-      if (rawExact) {
-        setPost(enrichPost(rawExact));
-        setIsLoading(false);
-        return;
-      }
-    }
-
     // ── No Supabase → fall back to static seed data only ──────────────
     if (!supabase || typeof supabase.from !== "function") {
       const staticHit = normalizedStaticPosts.get(cleanSlug);
@@ -178,7 +168,16 @@ export function useBlogPost(rawSlug: string) {
     }
 
     try {
-      // ── Phase 1: exact slug match (normalised) ───────────────────────
+      // ── Phase 0: Exact slug match (raw/un-normalised) ────────────────
+      // Handles cases with long slugs or non-standard characters in DB.
+      const { data: rawExact } = await supabase
+        .from("blog_posts")
+        .select(FULL_COLS)
+        .eq("slug", rawSlug)
+        .maybeSingle();
+      if (rawExact) { setPost(enrichPost(rawExact)); setIsLoading(false); return; }
+
+      // ── Phase 1: Exact slug match (normalised) ───────────────────────
       const { data: exact } = await supabase
         .from("blog_posts")
         .select(FULL_COLS)
@@ -186,7 +185,7 @@ export function useBlogPost(rawSlug: string) {
         .maybeSingle();
       if (exact) { setPost(enrichPost(exact)); setIsLoading(false); return; }
 
-      // ── Phase 3: UUID lookup ─────────────────────────────────────────
+      // ── Phase 2: UUID lookup ─────────────────────────────────────────
       const isUUID =
         /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(rawSlug);
       if (isUUID) {
@@ -198,7 +197,7 @@ export function useBlogPost(rawSlug: string) {
         if (byId) { setPost(enrichPost(byId)); setIsLoading(false); return; }
       }
 
-      // ── Phase 4: fuzzy ILIKE search (all statuses) ───────────────────
+      // ── Phase 3: Fuzzy ILIKE search (all statuses) ───────────────────
       const { data: similar } = await supabase
         .from("blog_posts")
         .select(FULL_COLS)
@@ -210,7 +209,7 @@ export function useBlogPost(rawSlug: string) {
         return;
       }
 
-      // ── Phase 5: last resort — static seed data ──────────────────────
+      // ── Phase 4: Last resort — static seed data ──────────────────────
       // Only used when article exists in static data but not yet in DB.
       const staticHit = normalizedStaticPosts.get(cleanSlug);
       if (staticHit) {
