@@ -29,6 +29,11 @@
   ],
   "redirects": [
     {
+      "source": "/blog/:slug(.*modern-co.*)",
+      "destination": "/blog/the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-copy",
+      "permanent": true
+    },
+    {
       "source": "/blog/the-ultimate-guide-to-v-neck-shirts-style-fit-and-fashion-ma",
       "destination": "/blog/ultimate-v-neck-style-guide",
       "permanent": true
