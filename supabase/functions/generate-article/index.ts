@@ -278,7 +278,7 @@ IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. B
       .replace(/[_\s]+/g, "-")
       .replace(/-+/g, "-")
       .replace(/^-|-$/g, "")
-      .slice(0, 100);
+      .slice(0, 200);
 
     // Generate excerpt
     const excerptMatch = content.match(/<p[^>]*>(.*?)<\/p>/i);

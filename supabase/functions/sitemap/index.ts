@@ -81,7 +81,7 @@ Deno.serve(async (req) => {
     }
 
     for (const design of designs) {
-      const slug = design.slug || design.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      const slug = design.slug || design.name?.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/(^-|-$)/g, "");
       if (!slug) continue;
       const lastmod = design.updated_at ? design.updated_at.split("T")[0] : new Date().toISOString().split("T")[0];
       xml += `  <url>\n`;

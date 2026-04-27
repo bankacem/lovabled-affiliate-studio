@@ -152,21 +152,21 @@ export function BulkPostImport() {
     if (!rawTitle) return "Untitled Post";
     
     // If title contains suggestions or multiple options, try to extract the first good one
-    if (rawTitle.includes("###") || rawTitle.includes("**") || rawTitle.length > 200) {
+    if (rawTitle.includes("###") || rawTitle.includes("**") || rawTitle.length > 300) {
       // Try to find a title in bold **Title**
       const boldMatch = rawTitle.match(/\*\*([^*]+)\*\*/);
-      if (boldMatch && boldMatch[1].length < 100) {
+      if (boldMatch && boldMatch[1].length < 200) {
         return boldMatch[1].trim();
       }
       
       // Try to find title after a colon
       const colonMatch = rawTitle.match(/:\s*\*?\*?([^*\n]+)\*?\*?/);
-      if (colonMatch && colonMatch[1].length < 100) {
+      if (colonMatch && colonMatch[1].length < 200) {
         return colonMatch[1].trim();
       }
       
-      // Just take first 80 characters
-      return rawTitle.substring(0, 80).replace(/[#*]/g, "").trim() + "...";
+      // Just take first 200 characters
+      return rawTitle.substring(0, 200).replace(/[#*]/g, "").trim();
     }
     
     return rawTitle.trim();
@@ -220,10 +220,12 @@ export function BulkPostImport() {
   const generateSlug = (title: string): string => {
     return title
       .toLowerCase()
+      .trim()
       .replace(/[^\w\s-]/g, "")
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-")
-      .trim();
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 200);
   };
 
   const importPosts = async () => {
@@ -250,7 +252,7 @@ export function BulkPostImport() {
         // IMPORTANT: Import all posts as DRAFT by default
         // Users can then use the scheduling panel to publish/schedule them
         const status = "draft";
-        let publishedAt = null;
+        const publishedAt = null;
         let scheduledAt = null;
         
         // If the post has a publish date, save it as scheduled_publish_at
@@ -265,7 +267,7 @@ export function BulkPostImport() {
         
         return {
           title: post.title,
-          slug: generateSlug(post.title) + `-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          slug: generateSlug(post.title),
           excerpt: post.excerpt || null,
           content: post.content || null,
           category: post.category || "General",

@@ -91,7 +91,7 @@ export function BlogToolsPanel({ onSitemapGenerated }: BlogToolsPanelProps) {
       if (error) throw error;
 
       // Generate sitemap XML
-      const baseUrl = window.location.origin;
+      const baseUrl = "https://aiprintverse.com";
       const sitemapEntries = posts?.map(post => `
     <url>
       <loc>${baseUrl}/blog/${post.slug}</loc>

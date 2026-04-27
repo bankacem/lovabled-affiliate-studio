@@ -30,7 +30,7 @@ export function useSitemapData() {
       }
       if (designsData) {
         setDesigns(designsData.map(d => {
-          const slug = d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+          const slug = d.slug || d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
           return { id: d.id, slug, updated_at: d.updated_at };
         }));
       }

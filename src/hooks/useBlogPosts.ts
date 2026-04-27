@@ -198,6 +198,31 @@ export function useBlogPost(rawSlug: string) {
       }
 
       // ── Phase 3: Fuzzy ILIKE search (all statuses) ───────────────────
+      // Try finding by prefix (handles cases where current slug was truncated but new is longer)
+      const { data: byPrefix } = await supabase
+        .from("blog_posts")
+        .select(FULL_COLS)
+        .ilike("slug", `${cleanSlug}%`)
+        .limit(1);
+      if (byPrefix?.[0]) {
+        setPost(enrichPost(byPrefix[0]));
+        setIsLoading(false);
+        return;
+      }
+
+      // Try finding by suffix (handles truncated URLs from sitemap matching full slugs in DB)
+      const { data: bySuffix } = await supabase
+        .from("blog_posts")
+        .select(FULL_COLS)
+        .ilike("slug", `%${cleanSlug}`)
+        .limit(1);
+      if (bySuffix?.[0]) {
+        setPost(enrichPost(bySuffix[0]));
+        setIsLoading(false);
+        return;
+      }
+
+      // Final fuzzy search
       const { data: similar } = await supabase
         .from("blog_posts")
         .select(FULL_COLS)

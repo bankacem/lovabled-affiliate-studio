@@ -53,12 +53,34 @@ export function useDesign(identifier: string) {
         if (error) throw error;
         return data as Design | null;
       } else {
-        const { data, error } = await supabase.from("designs").select("*");
-        if (error) throw error;
-        const match = data?.find(d => {
-          const genSlug = d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+        // First try exact slug match in DB
+        const { data: slugExact, error: slugError } = await supabase
+          .from("designs")
+          .select("*")
+          .eq("slug", identifier)
+          .maybeSingle();
+
+        if (slugError) throw slugError;
+        if (slugExact) return slugExact as Design;
+
+        // Try fuzzy search on slug
+        const { data: slugFuzzy } = await supabase
+          .from("designs")
+          .select("*")
+          .ilike("slug", `%${identifier}%`)
+          .limit(1);
+
+        if (slugFuzzy?.[0]) return slugFuzzy[0] as Design;
+
+        // Fallback to searching all designs by generated slug (for legacy/missing slugs)
+        const { data: allDesigns, error: allDocsError } = await supabase.from("designs").select("*");
+        if (allDocsError) throw allDocsError;
+
+        const match = allDesigns?.find(d => {
+          const genSlug = d.slug || d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
           return genSlug === identifier || d.id === identifier;
         });
+
         return (match as Design | null) || null;
       }
     },

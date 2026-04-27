@@ -136,7 +136,8 @@ export function ArticleGenerator() {
       .trim()
       .replace(/[_\s]+/g, "-")
       .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "");
+      .replace(/^-|-$/g, "")
+      .slice(0, 200);
     
     if (!slug.startsWith("p-")) {
       slug = "p-" + slug;
