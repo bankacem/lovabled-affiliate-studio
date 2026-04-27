@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { blogPosts } from "@/data/blogPosts";
+import { slugify } from "@/lib/slugify";
 
 export interface BlogPost {
   id: string;
@@ -25,12 +26,7 @@ export interface BlogPost {
 
 // ─── Slug normalisation ────────────────────────────────────────────────────
 function normalizeSlug(s: string): string {
-  return s
-    .toLowerCase()
-    .trim()
-    .replace(/[_\s]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
+  return slugify(s);
 }
 
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
@@ -153,6 +149,21 @@ export function useBlogPost(rawSlug: string) {
     setError(null);
 
     const cleanSlug = normalizeSlug(rawSlug);
+
+    // ── Smart Redirect Fallback Logic ────────────────────────────────
+    // If the slug contains "modern-co", it's likely a broken legacy link.
+    if (cleanSlug.includes("modern-co")) {
+      const { data: redirectMatch } = await supabase
+        .from("blog_posts")
+        .select(FULL_COLS)
+        .eq("slug", "the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-copy")
+        .maybeSingle();
+      if (redirectMatch) {
+        setPost(enrichPost(redirectMatch));
+        setIsLoading(false);
+        return;
+      }
+    }
 
     // ── No Supabase → fall back to static seed data only ──────────────
     if (!supabase || typeof supabase.from !== "function") {

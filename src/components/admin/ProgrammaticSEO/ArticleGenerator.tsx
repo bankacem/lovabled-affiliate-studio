@@ -12,6 +12,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Rocket, Play, AlertCircle, CheckCircle2, Loader2, Calendar, Send, FileText, Clock } from "lucide-react";
 import { toast } from "sonner";
+import { slugify } from "@/lib/slugify";
 import type { Json } from "@/integrations/supabase/types";
 
 interface ArticleTemplate {
@@ -131,12 +132,8 @@ export function ArticleGenerator() {
   };
 
   const generateSlug = (template: string, variables: Record<string, string>) => {
-    let slug = replaceVariables(template, variables);
-    slug = slug.toLowerCase()
-      .trim()
-      .replace(/[_\s]+/g, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "");
+    const rawSlug = replaceVariables(template, variables);
+    let slug = slugify(rawSlug);
     
     if (!slug.startsWith("p-")) {
       slug = "p-" + slug;

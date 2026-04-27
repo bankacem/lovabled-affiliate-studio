@@ -7,6 +7,29 @@ const corsHeaders = {
 
 const PAGE_SIZE = 1000;
 
+function escapeXml(unsafe: string): string {
+  return unsafe.replace(/[<>&"']/g, (c) => {
+    switch (c) {
+      case "<": return "&lt;";
+      case ">": return "&gt;";
+      case "&": return "&amp;";
+      case "\"": return "&quot;";
+      case "'": return "&apos;";
+      default: return c;
+    }
+  });
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 async function fetchAll(supabase: any, table: string, selectCols: string, filters?: (q: any) => any) {
   const rows: any[] = [];
   let from = 0;
@@ -61,32 +84,33 @@ Deno.serve(async (req) => {
 
     for (const page of staticPages) {
       xml += `  <url>\n`;
-      xml += `    <loc>${baseUrl}${page.path}</loc>\n`;
-      xml += `    <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>\n`;
-      xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
-      xml += `    <priority>${page.priority}</priority>\n`;
+      xml += `    <loc>${escapeXml(`${baseUrl}${page.path}`)}</loc>\n`;
+      xml += `    <lastmod>${escapeXml(new Date().toISOString().split("T")[0])}</lastmod>\n`;
+      xml += `    <changefreq>${escapeXml(page.changefreq)}</changefreq>\n`;
+      xml += `    <priority>${escapeXml(page.priority)}</priority>\n`;
       xml += `  </url>\n`;
     }
 
     for (const post of posts) {
-      if (!post.slug) continue;
+      const cleanSlug = post.slug ? slugify(post.slug) : null;
+      if (!cleanSlug) continue;
       const dateStr = post.published_at || post.updated_at;
       const lastmod = dateStr ? dateStr.split("T")[0] : new Date().toISOString().split("T")[0];
       xml += `  <url>\n`;
-      xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
-      xml += `    <lastmod>${lastmod}</lastmod>\n`;
+      xml += `    <loc>${escapeXml(`${baseUrl}/blog/${cleanSlug}`)}</loc>\n`;
+      xml += `    <lastmod>${escapeXml(lastmod)}</lastmod>\n`;
       xml += `    <changefreq>weekly</changefreq>\n`;
       xml += `    <priority>0.7</priority>\n`;
       xml += `  </url>\n`;
     }
 
     for (const design of designs) {
-      const slug = design.slug || design.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-      if (!slug) continue;
+      const cleanSlug = design.slug ? slugify(design.slug) : (design.name ? slugify(design.name) : null);
+      if (!cleanSlug) continue;
       const lastmod = design.updated_at ? design.updated_at.split("T")[0] : new Date().toISOString().split("T")[0];
       xml += `  <url>\n`;
-      xml += `    <loc>${baseUrl}/designs/${slug}</loc>\n`;
-      xml += `    <lastmod>${lastmod}</lastmod>\n`;
+      xml += `    <loc>${escapeXml(`${baseUrl}/designs/${cleanSlug}`)}</loc>\n`;
+      xml += `    <lastmod>${escapeXml(lastmod)}</lastmod>\n`;
       xml += `    <changefreq>monthly</changefreq>\n`;
       xml += `    <priority>0.7</priority>\n`;
       xml += `  </url>\n`;

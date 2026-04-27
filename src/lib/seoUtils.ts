@@ -1,34 +1,21 @@
+import { slugify } from "./slugify";
+
 /**
  * SEO Utilities for URL slug optimization and content processing
  */
 
 /**
  * Generate an SEO-friendly slug from a title
- * - Converts to lowercase
- * - Removes special characters (: ? ! @ # $ % ^ & * etc.)
- * - Replaces spaces and underscores with hyphens
- * - Removes consecutive hyphens
- * - Trims leading/trailing hyphens
+ * Uses the standardized slugify utility.
  * @param title The title to convert
  * @param suffix Optional suffix to append (e.g., "-shirt")
  */
 export function generateSEOSlug(title: string, suffix?: string): string {
-  let slug = title
-    .toLowerCase()
-    // Replace Arabic/Persian numbers with English
-    .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
-    // Remove special characters except alphanumeric, spaces, and hyphens
-    .replace(/[^a-z0-9\s\-\u0600-\u06FF]/g, '')
-    // Replace spaces and underscores with hyphens
-    .replace(/[\s_]+/g, '-')
-    // Remove consecutive hyphens
-    .replace(/-+/g, '-')
-    // Remove leading and trailing hyphens
-    .replace(/^-+|-+$/g, '')
-    // Limit length for SEO (max 100 chars)
-    .slice(0, 100)
-    // Remove trailing hyphen if cut mid-word
-    .replace(/-+$/, '');
+  // Pre-process for Arabic/Persian numbers if needed
+  const processedTitle = title
+    .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)));
+
+  let slug = slugify(processedTitle).slice(0, 100).replace(/-+$/, '');
 
   if (suffix) {
     const cleanSuffix = suffix.startsWith('-') ? suffix : `-${suffix}`;
