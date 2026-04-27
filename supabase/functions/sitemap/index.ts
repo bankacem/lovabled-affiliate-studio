@@ -7,6 +7,19 @@ const corsHeaders = {
 
 const PAGE_SIZE = 1000;
 
+function escapeXml(unsafe: string): string {
+  return unsafe.replace(/[&<>"']/g, (m) => {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&apos;';
+      default: return m;
+    }
+  });
+}
+
 async function fetchAll(supabase: any, table: string, selectCols: string, filters?: (q: any) => any) {
   const rows: any[] = [];
   let from = 0;
@@ -70,10 +83,12 @@ Deno.serve(async (req) => {
 
     for (const post of posts) {
       if (!post.slug) continue;
+      // Sanitize slug to ensure no XML-breaking characters
+      const safeSlug = escapeXml(post.slug);
       const dateStr = post.published_at || post.updated_at;
       const lastmod = dateStr ? dateStr.split("T")[0] : new Date().toISOString().split("T")[0];
       xml += `  <url>\n`;
-      xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+      xml += `    <loc>${baseUrl}/blog/${safeSlug}</loc>\n`;
       xml += `    <lastmod>${lastmod}</lastmod>\n`;
       xml += `    <changefreq>weekly</changefreq>\n`;
       xml += `    <priority>0.7</priority>\n`;
@@ -83,9 +98,11 @@ Deno.serve(async (req) => {
     for (const design of designs) {
       const slug = design.slug || design.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
       if (!slug) continue;
+      // Sanitize slug
+      const safeSlug = escapeXml(slug);
       const lastmod = design.updated_at ? design.updated_at.split("T")[0] : new Date().toISOString().split("T")[0];
       xml += `  <url>\n`;
-      xml += `    <loc>${baseUrl}/designs/${slug}</loc>\n`;
+      xml += `    <loc>${baseUrl}/designs/${safeSlug}</loc>\n`;
       xml += `    <lastmod>${lastmod}</lastmod>\n`;
       xml += `    <changefreq>monthly</changefreq>\n`;
       xml += `    <priority>0.7</priority>\n`;

@@ -50,6 +50,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/integrations/supabase/client";
+import { generateSEOSlug } from "@/lib/seoUtils";
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { SchedulingPanel } from "./SchedulingPanel";
@@ -165,8 +166,8 @@ export function BulkPostImport() {
         return colonMatch[1].trim();
       }
       
-      // Just take first 80 characters
-      return rawTitle.substring(0, 80).replace(/[#*]/g, "").trim() + "...";
+      // Just take first 200 characters if it's very messy, but keep as much as possible
+      return rawTitle.substring(0, 200).replace(/[#*]/g, "").trim();
     }
     
     return rawTitle.trim();
@@ -217,15 +218,6 @@ export function BulkPostImport() {
     }
   };
 
-  const generateSlug = (title: string): string => {
-    return title
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-")
-      .trim();
-  };
-
   const importPosts = async () => {
     const postsToImport = importedPosts.filter(p => selectedPosts.has(p.id));
     
@@ -265,7 +257,7 @@ export function BulkPostImport() {
         
         return {
           title: post.title,
-          slug: generateSlug(post.title) + `-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          slug: generateSEOSlug(post.title),
           excerpt: post.excerpt || null,
           content: post.content || null,
           category: post.category || "General",

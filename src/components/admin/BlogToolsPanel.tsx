@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeXml } from "@/lib/seoUtils";
 import { toast } from "sonner";
 
 interface BlogToolsPanelProps {
@@ -92,13 +93,16 @@ export function BlogToolsPanel({ onSitemapGenerated }: BlogToolsPanelProps) {
 
       // Generate sitemap XML
       const baseUrl = window.location.origin;
-      const sitemapEntries = posts?.map(post => `
+      const sitemapEntries = posts?.map(post => {
+        const safeSlug = escapeXml(post.slug);
+        return `
     <url>
-      <loc>${baseUrl}/blog/${post.slug}</loc>
+      <loc>${baseUrl}/blog/${safeSlug}</loc>
       <lastmod>${new Date(post.updated_at || post.published_at).toISOString().split("T")[0]}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
-    </url>`).join("") || "";
+    </url>`;
+      }).join("") || "";
 
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

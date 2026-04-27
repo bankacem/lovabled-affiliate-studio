@@ -13,20 +13,23 @@
  * @param suffix Optional suffix to append (e.g., "-shirt")
  */
 export function generateSEOSlug(title: string, suffix?: string): string {
+  if (!title) return "";
+
   let slug = title
     .toLowerCase()
+    .trim()
     // Replace Arabic/Persian numbers with English
     .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
-    // Remove special characters except alphanumeric, spaces, and hyphens
-    .replace(/[^a-z0-9\s\-\u0600-\u06FF]/g, '')
-    // Replace spaces and underscores with hyphens
-    .replace(/[\s_]+/g, '-')
+    // Replace spaces, underscores and dots with hyphens
+    .replace(/[\s._]+/g, '-')
+    // Remove special characters except alphanumeric, hyphens, and Arabic characters
+    .replace(/[^a-z0-9\-\u0600-\u06FF]/g, '')
     // Remove consecutive hyphens
     .replace(/-+/g, '-')
     // Remove leading and trailing hyphens
     .replace(/^-+|-+$/g, '')
-    // Limit length for SEO (max 100 chars)
-    .slice(0, 100)
+    // Increase limit for SEO (max 200 chars) to avoid cutting mid-word
+    .slice(0, 200)
     // Remove trailing hyphen if cut mid-word
     .replace(/-+$/, '');
 
@@ -192,7 +195,23 @@ export function stripMicrodata(html: string): string {
  * - Missing featured images
  * @param posts Array of blog posts to check
  */
-export function runSEOHealthCheck(posts: any[]): void {
+/**
+ * Escape special characters for XML/HTML sitemaps
+ */
+export function escapeXml(unsafe: string): string {
+  return unsafe.replace(/[&<>"']/g, (m) => {
+    switch (m) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&apos;';
+      default: return m;
+    }
+  });
+}
+
+export function runSEOHealthCheck(posts: unknown[]): void {
   if (!posts || posts.length === 0) return;
 
   // FIXED: Diagnostic console logs removed for production hygiene.

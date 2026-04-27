@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeXml } from "@/lib/seoUtils";
 
 interface SitemapEntry {
   id: string;
@@ -67,9 +68,11 @@ export function generateSitemapXml(posts: SitemapEntry[], designs: SitemapEntry[
 
   // Blog posts
   posts.forEach((post) => {
+    if (!post.slug) return;
+    const safeSlug = escapeXml(post.slug);
     const lastmod = new Date(post.updated_at).toISOString().split("T")[0];
     xml += `  <url>\n`;
-    xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+    xml += `    <loc>${baseUrl}/blog/${safeSlug}</loc>\n`;
     xml += `    <lastmod>${lastmod}</lastmod>\n`;
     xml += `    <changefreq>weekly</changefreq>\n`;
     xml += `    <priority>0.7</priority>\n`;
@@ -78,9 +81,11 @@ export function generateSitemapXml(posts: SitemapEntry[], designs: SitemapEntry[
 
   // Designs
   designs.forEach((design) => {
+    if (!design.slug) return;
+    const safeSlug = escapeXml(design.slug);
     const lastmod = new Date(design.updated_at).toISOString().split("T")[0];
     xml += `  <url>\n`;
-    xml += `    <loc>${baseUrl}/designs/${design.slug}</loc>\n`;
+    xml += `    <loc>${baseUrl}/designs/${safeSlug}</loc>\n`;
     xml += `    <lastmod>${lastmod}</lastmod>\n`;
     xml += `    <changefreq>monthly</changefreq>\n`;
     xml += `    <priority>0.7</priority>\n`;

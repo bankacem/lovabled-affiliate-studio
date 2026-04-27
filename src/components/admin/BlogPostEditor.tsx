@@ -37,6 +37,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RichTextEditor } from "./RichTextEditor";
 import { InternalLinkingTool } from "./InternalLinkingTool";
 import { supabase } from "@/integrations/supabase/client";
+import { generateSEOSlug } from "@/lib/seoUtils";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -158,22 +159,11 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     setIsLoading(false);
   };
 
-  const generateSlug = (title: string) => {
-    return title
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-+|-+$/g, '')
-      .slice(0, 100)
-      .replace(/-+$/, '');
-  };
-
   const handleTitleChange = (title: string) => {
     setPost(prev => ({
       ...prev,
       title,
-      slug: prev.slug || generateSlug(title),
+      slug: prev.slug || generateSEOSlug(title),
       meta_title: prev.meta_title || title,
     }));
   };
@@ -211,7 +201,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     
     const postData: any = {
       title: post.title,
-      slug: post.slug || generateSlug(post.title),
+      slug: post.slug || generateSEOSlug(post.title),
       excerpt: post.excerpt,
       content: post.content,
       featured_image: post.featured_image,
