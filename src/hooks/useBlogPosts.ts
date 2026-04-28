@@ -31,6 +31,7 @@ function normalizeSlug(s: string): string {
 
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
 // DATA AGNOSTIC: Ensures that even highly partial DB records can be rendered.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function enrichPost(post: any): BlogPost {
   const safeTitle = post?.title || "Untitled Post";
   const safeSlug  = post?.slug  || "no-slug";
@@ -40,13 +41,17 @@ function enrichPost(post: any): BlogPost {
   const safeExcerpt  = post?.excerpt  || "";
   const safeCategory = post?.category || "General";
 
+  // Flexible column mapping for images and content
+  const safeImage = post?.featured_image || post?.image_url || post?.image || null;
+  const safeContent = post?.content || post?.body || "";
+
   return {
     id:               post?.id               || `temp-${Math.random().toString(36).substring(2, 11)}`,
     title:            safeTitle,
     slug:             safeSlug,
     excerpt:          safeExcerpt,
-    content:          post?.content          || "",
-    featured_image:   post?.featured_image   || null,
+    content:          safeContent,
+    featured_image:   safeImage,
     author_name:      post?.author_name      || "Admin",
     category:         safeCategory,
     tags:             Array.isArray(post?.tags) ? post.tags : [],
@@ -54,7 +59,7 @@ function enrichPost(post: any): BlogPost {
     read_time:        post?.read_time        || "5 min read",
     meta_title:       post?.meta_title       || `${safeTitle} | AIPrintVerse`,
     meta_description: post?.meta_description || post?.excerpt ||
-                      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
+                      (safeContent ? safeContent.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
     canonical_url:    post?.canonical_url    || `/blog/${safeSlug}`,
     video_url:        post?.video_url        || null,
     published_at:     post?.published_at     || post?.created_at || now,
@@ -94,7 +99,6 @@ interface UseBlogPostsOptions {
 // ═══════════════════════════════════════════════════════════════════════════
 export function useBlogPosts(options: UseBlogPostsOptions = {}) {
   const {
-    includeContent = false,
     limit,
     page,
     pageSize,
@@ -116,6 +120,7 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       // No Supabase → fall back to static seed data
       if (!supabase || typeof supabase.from !== "function") {
         console.warn("Supabase client not available, falling back to static posts.");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
         setTotalCount(blogPosts.length);
         return;
@@ -155,16 +160,19 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       if (dbError) {
         setError(dbError.message);
         // Fall back to static data on error
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
         setTotalCount(blogPosts.length);
         return;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const list = (dbPosts || []).map((p) => enrichPost(p as any));
       setPosts(list);
       setTotalCount(count || 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
       setTotalCount(blogPosts.length);
     } finally {
@@ -213,6 +221,7 @@ export function useBlogPost(rawSlug: string) {
     if (!supabase || typeof supabase.from !== "function") {
       const staticHit = normalizedStaticPosts.get(cleanSlug);
       if (staticHit) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setPost(enrichPost(staticHit as any));
       } else {
         setPost(null);
@@ -272,6 +281,7 @@ export function useBlogPost(rawSlug: string) {
       // Fallback to static data on error for robustness
       const staticHit = normalizedStaticPosts.get(cleanSlug);
       if (staticHit) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setPost(enrichPost(staticHit as any));
       } else {
         setPost(null);
