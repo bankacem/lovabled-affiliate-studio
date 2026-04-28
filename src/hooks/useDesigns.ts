@@ -22,10 +22,15 @@ export function useDesigns(category?: string) {
   return useQuery({
     queryKey: ["designs", category],
     queryFn: async () => {
-      let query = supabase
-        .from("designs")
-        .select("*")
-        .order("created_at", { ascending: false });
+      if (!supabase || typeof supabase.from !== "function") {
+        return [];
+      }
+
+      let query = supabase.from("designs").select("*");
+
+      if (typeof query.order === "function") {
+        query = query.order("created_at", { ascending: false });
+      }
 
       if (category && category !== "All") {
         query = query.eq("category", category);
@@ -70,12 +75,24 @@ export function useFeaturedDesigns() {
   return useQuery({
     queryKey: ["designs", "featured"],
     queryFn: async () => {
-      const { data, error } = await supabase
+      if (!supabase || typeof supabase.from !== "function") {
+        return [];
+      }
+
+      let query = supabase
         .from("designs")
         .select("*")
-        .eq("featured", true)
-        .order("created_at", { ascending: false })
-        .limit(4);
+        .eq("featured", true);
+
+      if (typeof query.order === "function") {
+        query = query.order("created_at", { ascending: false });
+      }
+
+      if (typeof query.limit === "function") {
+        query = query.limit(4);
+      }
+
+      const { data, error } = await query;
 
       if (error) {
         throw error;

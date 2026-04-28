@@ -14,27 +14,52 @@ export function useSitemapData() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data: postsData } = await supabase
-        .from("blog_posts")
-        .select("slug, updated_at")
-        .eq("status", "published")
-        .order("updated_at", { ascending: false });
+      try {
+        if (!supabase || typeof supabase.from !== "function") {
+          setIsLoading(false);
+          return;
+        }
 
-      const { data: designsData } = await supabase
-        .from("designs")
-        .select("id, name, updated_at")
-        .order("updated_at", { ascending: false });
+        let postsQuery = supabase
+          .from("blog_posts")
+          .select("slug, updated_at")
+          .eq("status", "published");
 
-      if (postsData) {
-        setPosts(postsData.map(p => ({ id: p.slug, slug: p.slug, updated_at: p.updated_at })));
+        if (typeof postsQuery.order === "function") {
+          postsQuery = postsQuery.order("updated_at", { ascending: false });
+        }
+
+        const { data: postsData, error: postsError } = await postsQuery;
+
+        if (postsError) {
+          console.error("Error fetching sitemap posts:", postsError);
+        } else if (postsData) {
+          setPosts(postsData.map(p => ({ id: p.slug, slug: p.slug, updated_at: p.updated_at })));
+        }
+
+        let designsQuery = supabase
+          .from("designs")
+          .select("id, name, updated_at");
+
+        if (typeof designsQuery.order === "function") {
+          designsQuery = designsQuery.order("updated_at", { ascending: false });
+        }
+
+        const { data: designsData, error: designsError } = await designsQuery;
+
+        if (designsError) {
+          console.error("Error fetching sitemap designs:", designsError);
+        } else if (designsData) {
+          setDesigns(designsData.map(d => {
+            const slug = d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+            return { id: d.id, slug, updated_at: d.updated_at };
+          }));
+        }
+      } catch (err) {
+        console.error("Unexpected error in sitemap data fetch:", err);
+      } finally {
+        setIsLoading(false);
       }
-      if (designsData) {
-        setDesigns(designsData.map(d => {
-          const slug = d.name.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
-          return { id: d.id, slug, updated_at: d.updated_at };
-        }));
-      }
-      setIsLoading(false);
     };
 
     fetchData();

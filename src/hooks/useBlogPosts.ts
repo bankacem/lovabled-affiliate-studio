@@ -101,15 +101,20 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
     try {
       // No Supabase → fall back to static seed data
       if (!supabase || typeof supabase.from !== "function") {
+        console.warn("Supabase client not available, falling back to static posts.");
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
         return;
       }
 
       // UPDATED: Temporarily select '*' to verify all data presence
-      const query = supabase
-        .from("blog_posts")
-        .select("*")
-        .order("published_at", { ascending: false });
+      let query = supabase.from("blog_posts").select("*");
+
+      // Defensive check for .order() method
+      if (typeof query.order === "function") {
+        query = query.order("created_at", { ascending: false });
+      } else {
+        console.error("Supabase query.order is not a function. Check client version.");
+      }
 
       // FIX: public blog page shows only published articles;
       //      admin views (publicOnly=false) see everything.
@@ -287,16 +292,30 @@ export function useBlogCategories() {
 
   useEffect(() => {
     const fetch = async () => {
-      if (!supabase || typeof supabase.from !== "function") {
+      try {
+        if (!supabase || typeof supabase.from !== "function") {
+          setIsLoading(false);
+          return;
+        }
+
+        let query = supabase.from("blog_categories").select("name");
+
+        if (typeof query.order === "function") {
+          query = query.order("name");
+        }
+
+        const { data, error } = await query;
+
+        if (error) {
+          console.error("Error fetching blog categories:", error);
+        } else if (data) {
+          setCategories(["All", ...data.map((c) => c.name)]);
+        }
+      } catch (err) {
+        console.error("Unexpected error fetching categories:", err);
+      } finally {
         setIsLoading(false);
-        return;
       }
-      const { data } = await supabase
-        .from("blog_categories")
-        .select("name")
-        .order("name");
-      if (data) setCategories(["All", ...data.map((c) => c.name)]);
-      setIsLoading(false);
     };
     fetch();
   }, []);
