@@ -30,7 +30,7 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
   const { post, isLoading, error } = useBlogPost(slug || "");
-  const { posts: allPostsList } = useBlogPosts({ limit: 250 });
+  const { posts: allPostsList } = useBlogPosts({ pageSize: 250, page: 1 });
 
   // Related Articles — deterministic sort using post.id as seed
   const relatedArticles = useMemo(() => {

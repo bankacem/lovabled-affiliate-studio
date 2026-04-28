@@ -1,48 +1,45 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, FileText } from "lucide-react";
+import { Search, FileText, ChevronLeft, ChevronRight } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/layout/SEO";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const POSTS_PER_PAGE = 24;
+const POSTS_PER_PAGE = 12;
 
 const Blog = () => {
-  const { posts, isLoading } = useBlogPosts();
-  const { categories } = useBlogCategories();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const filteredPosts = useMemo(() => {
-    const query = searchQuery.toLowerCase();
-    const filtered = posts.filter((post) => {
-      if (!post) return false;
+  const { posts, totalCount, isLoading } = useBlogPosts({
+    page: currentPage,
+    pageSize: POSTS_PER_PAGE,
+    category: selectedCategory,
+    search: debouncedSearch,
+  });
 
-      const matchesCategory =
-        selectedCategory === "All" || post.category === selectedCategory;
+  const { categories } = useBlogCategories();
 
-      const title = (post.title || "").toLowerCase();
-      const excerpt = (post.excerpt || "").toLowerCase();
-
-      const matchesSearch =
-        title.includes(query) || excerpt.includes(query);
-
-      return matchesCategory && matchesSearch;
-    });
-    return filtered;
-  }, [posts, selectedCategory, searchQuery]);
-
-  // Reset visible count when filters change
+  // Debounce search query
   useEffect(() => {
-    setVisibleCount(POSTS_PER_PAGE);
-  }, [selectedCategory, searchQuery]);
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchQuery);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
-  const visiblePosts = filteredPosts.slice(0, visibleCount);
-  const hasMore = visibleCount < filteredPosts.length;
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, debouncedSearch]);
+
+  const totalPages = Math.ceil(totalCount / POSTS_PER_PAGE);
 
   return (
     <Layout>
@@ -106,9 +103,9 @@ const Blog = () => {
           </motion.div>
 
           {/* Results count */}
-          {!isLoading && filteredPosts.length > 0 && (
+          {!isLoading && totalCount > 0 && (
             <p className="mt-6 text-sm text-muted-foreground">
-              Showing {Math.min(visibleCount, filteredPosts.length)} of {filteredPosts.length} articles
+              Showing page {currentPage} of {totalPages} ({totalCount} total articles)
             </p>
           )}
 
@@ -119,21 +116,65 @@ const Blog = () => {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
                 <p className="mt-4 text-muted-foreground">Loading posts...</p>
               </div>
-            ) : filteredPosts.length > 0 ? (
+            ) : posts.length > 0 ? (
               <>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {visiblePosts.map((post, index) => (
+                  {posts.map((post, index) => (
                     <BlogCard key={post.id} post={post} index={Math.min(index, 5)} />
                   ))}
                 </div>
-                {hasMore && (
-                  <div className="mt-10 text-center">
-                    <button
-                      onClick={() => setVisibleCount((prev) => prev + POSTS_PER_PAGE)}
-                      className="rounded-full bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-md hover:bg-primary/90 transition-all"
+
+                {/* Pagination Controls */}
+                {totalPages > 1 && (
+                  <div className="mt-12 flex items-center justify-center gap-4">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                      disabled={currentPage === 1}
+                      className="rounded-full"
                     >
-                      Load More ({filteredPosts.length - visibleCount} remaining)
-                    </button>
+                      <ChevronLeft className="h-4 w-4" />
+                      <span className="sr-only">Previous Page</span>
+                    </Button>
+
+                    <div className="flex items-center gap-2">
+                      {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                        let pageNum;
+                        if (totalPages <= 5) {
+                          pageNum = i + 1;
+                        } else if (currentPage <= 3) {
+                          pageNum = i + 1;
+                        } else if (currentPage >= totalPages - 2) {
+                          pageNum = totalPages - 4 + i;
+                        } else {
+                          pageNum = currentPage - 2 + i;
+                        }
+
+                        return (
+                          <Button
+                            key={pageNum}
+                            variant={currentPage === pageNum ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => setCurrentPage(pageNum)}
+                            className="w-10 rounded-full"
+                          >
+                            {pageNum}
+                          </Button>
+                        );
+                      })}
+                    </div>
+
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                      disabled={currentPage === totalPages}
+                      className="rounded-full"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                      <span className="sr-only">Next Page</span>
+                    </Button>
                   </div>
                 )}
               </>
