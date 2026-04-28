@@ -80,6 +80,10 @@ const FULL_COLS = `${LIST_COLS}, content`;
 interface UseBlogPostsOptions {
   includeContent?: boolean;
   limit?: number;
+  page?: number;
+  pageSize?: number;
+  category?: string;
+  search?: string;
   /** When true (public blog page) only show published.
    *  When false (admin) show ALL statuses. Default: true */
   publicOnly?: boolean;
@@ -89,11 +93,20 @@ interface UseBlogPostsOptions {
 // useBlogPosts — list of posts
 // ═══════════════════════════════════════════════════════════════════════════
 export function useBlogPosts(options: UseBlogPostsOptions = {}) {
-  const { includeContent = false, limit, publicOnly = true } = options;
+  const {
+    includeContent = false,
+    limit,
+    page,
+    pageSize,
+    category,
+    search,
+    publicOnly = true
+  } = options;
 
-  const [posts, setPosts]       = useState<BlogPost[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError]       = useState<string | null>(null);
+  const [posts, setPosts]           = useState<BlogPost[]>([]);
+  const [totalCount, setTotalCount] = useState<number>(0);
+  const [isLoading, setIsLoading]   = useState(true);
+  const [error, setError]           = useState<string | null>(null);
 
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
@@ -104,53 +117,66 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       if (!supabase || typeof supabase.from !== "function") {
         console.warn("Supabase client not available, falling back to static posts.");
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
+        setTotalCount(blogPosts.length);
         return;
       }
 
       // ── SAFE QUERY CHAINING ──────────────────────────────────────────
       // We explicitly check for method existence before calling to prevent
       // TypeErrors if the Supabase client returns a degraded object.
-      let query = supabase.from("blog_posts").select("*");
+      let query = supabase.from("blog_posts").select("*", { count: 'exact' });
 
       if (publicOnly && typeof query.eq === "function") {
         query = query.eq("status", "published");
+      }
+
+      if (category && category !== "All" && typeof query.eq === "function") {
+        query = query.eq("category", category);
+      }
+
+      if (search && typeof query.or === "function") {
+        query = query.or(`title.ilike.%${search}%,excerpt.ilike.%${search}%`);
       }
 
       if (typeof query.order === "function") {
         query = query.order("created_at", { ascending: false });
       }
 
-      if (typeof limit === "number" && typeof query.limit === "function") {
+      if (typeof page === "number" && typeof pageSize === "number" && typeof query.range === "function") {
+        const from = (page - 1) * pageSize;
+        const to = from + pageSize - 1;
+        query = query.range(from, to);
+      } else if (typeof limit === "number" && typeof query.limit === "function") {
         query = query.limit(limit);
       }
 
-      const { data: dbPosts, error: dbError } = await query;
-
-      // LOG: Added diagnostic log as requested
-      console.log('Total posts fetched from DB (list):', dbPosts?.length);
+      const { data: dbPosts, error: dbError, count } = await query;
 
       if (dbError) {
         setError(dbError.message);
         // Fall back to static data on error
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
+        setTotalCount(blogPosts.length);
         return;
       }
 
       const list = (dbPosts || []).map((p) => enrichPost(p as any));
       setPosts(list);
+      setTotalCount(count || 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
+      setTotalCount(blogPosts.length);
     } finally {
       setIsLoading(false);
     }
-  }, [includeContent, limit, publicOnly]);
+  }, [limit, page, pageSize, category, search, publicOnly]);
 
   useEffect(() => {
     fetchPosts();
   }, [fetchPosts]);
 
-  return { posts, isLoading, error, refetch: fetchPosts };
+  return { posts, totalCount, isLoading, error, refetch: fetchPosts };
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
