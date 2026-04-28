@@ -32,18 +32,19 @@ function normalizeSlug(s: string): string {
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
 // DATA AGNOSTIC: Ensures that even highly partial DB records can be rendered.
 // Implements flexible column mapping and safe defaults to prevent UI crashes.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function enrichPost(post: any): BlogPost {
   const safeTitle = post?.title || "Untitled Post";
   const safeSlug  = post?.slug  || "no-slug";
   const now = new Date().toISOString();
 
   // Flexible column mapping for images and content
-  const safeContent = post?.content || post?.body || post?.html_content || "";
-  const safeImage   = post?.featured_image || post?.image_url || post?.image || "";
+  const safeContent = post?.content || post?.body || post?.html_content || post?.post_content || "";
+  const safeImage   = post?.featured_image || post?.image_url || post?.image || post?.imageUrl || post?.thumbnail || "";
 
   // Ensure excerpt and category are never null for frontend robustness
   // Fallback excerpt to a snippet of content if missing
-  const safeExcerpt  = post?.excerpt ||
+  const safeExcerpt  = post?.excerpt || post?.summary ||
                       (safeContent ? safeContent.replace(/<[^>]*>/g, "").slice(0, 160).trim() : "");
   const safeCategory = post?.category || "General";
 
@@ -74,14 +75,6 @@ function enrichPost(post: any): BlogPost {
 const normalizedStaticPosts = new Map(
   blogPosts.map((p) => [normalizeSlug(p.slug), p])
 );
-
-const LIST_COLS = [
-  "id","title","slug","excerpt","featured_image","author_name",
-  "category","tags","status","read_time","meta_title","meta_description",
-  "published_at","created_at","updated_at",
-].join(", ");
-
-const FULL_COLS = `${LIST_COLS}, content`;
 
 interface UseBlogPostsOptions {
   includeContent?: boolean;
@@ -122,6 +115,7 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       // No Supabase → fall back to static seed data
       if (!supabase || typeof supabase.from !== "function") {
         console.warn("Supabase client not available, falling back to static posts.");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setPosts(blogPosts.map((p) => enrichPost(p as any)));
         setTotalCount(blogPosts.length);
         return;
@@ -163,6 +157,7 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
         // Fall back to static data ONLY if it's a connection/missing client error,
         // not if the database just returned 0 results.
         if (!dbPosts) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           setPosts(blogPosts.map((p) => enrichPost(p as any)));
           setTotalCount(blogPosts.length);
         } else {
@@ -173,12 +168,14 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       }
 
       // If we got a response from DB (even empty), we use it.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const list = (dbPosts || []).map((p) => enrichPost(p as any));
       setPosts(list);
       setTotalCount(count || 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
       // Fallback only on hard exception
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
       setTotalCount(blogPosts.length);
     } finally {
@@ -213,7 +210,7 @@ export function useBlogPost(rawSlug: string) {
     if (cleanSlug.includes("modern-co")) {
       const { data: redirectMatch } = await supabase
         .from("blog_posts")
-        .select(FULL_COLS)
+        .select("*")
         .eq("slug", "the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-copy")
         .maybeSingle();
       if (redirectMatch) {
@@ -227,6 +224,7 @@ export function useBlogPost(rawSlug: string) {
     if (!supabase || typeof supabase.from !== "function") {
       const staticHit = normalizedStaticPosts.get(cleanSlug);
       if (staticHit) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setPost(enrichPost(staticHit as any));
       } else {
         setPost(null);
@@ -241,7 +239,7 @@ export function useBlogPost(rawSlug: string) {
       // Handles cases with long slugs or non-standard characters in DB.
       const { data: rawExact } = await supabase
         .from("blog_posts")
-        .select(FULL_COLS)
+        .select("*")
         .eq("slug", rawSlug)
         .maybeSingle();
       if (rawExact) { setPost(enrichPost(rawExact)); setIsLoading(false); return; }
@@ -249,7 +247,7 @@ export function useBlogPost(rawSlug: string) {
       // ── Phase 1: Exact slug match (normalised) ───────────────────────
       const { data: exact } = await supabase
         .from("blog_posts")
-        .select(FULL_COLS)
+        .select("*")
         .eq("slug", cleanSlug)
         .maybeSingle();
       if (exact) { setPost(enrichPost(exact)); setIsLoading(false); return; }
@@ -260,7 +258,7 @@ export function useBlogPost(rawSlug: string) {
       if (isUUID) {
         const { data: byId } = await supabase
           .from("blog_posts")
-          .select(FULL_COLS)
+          .select("*")
           .eq("id", rawSlug)
           .maybeSingle();
         if (byId) { setPost(enrichPost(byId)); setIsLoading(false); return; }
@@ -269,7 +267,7 @@ export function useBlogPost(rawSlug: string) {
       // ── Phase 3: Fuzzy ILIKE search (all statuses) ───────────────────
       const { data: similar } = await supabase
         .from("blog_posts")
-        .select(FULL_COLS)
+        .select("*")
         .ilike("slug", `%${cleanSlug}%`)
         .limit(1);
       if (similar?.[0]) {
@@ -286,6 +284,7 @@ export function useBlogPost(rawSlug: string) {
       // Fallback to static data ONLY on hard exception (e.g. network/Supabase down)
       const staticHit = normalizedStaticPosts.get(cleanSlug);
       if (staticHit) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         setPost(enrichPost(staticHit as any));
       } else {
         setPost(null);
