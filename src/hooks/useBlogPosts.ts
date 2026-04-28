@@ -31,13 +31,20 @@ function normalizeSlug(s: string): string {
 
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
 // DATA AGNOSTIC: Ensures that even highly partial DB records can be rendered.
+// Implements flexible column mapping and safe defaults to prevent UI crashes.
 function enrichPost(post: any): BlogPost {
   const safeTitle = post?.title || "Untitled Post";
   const safeSlug  = post?.slug  || "no-slug";
   const now = new Date().toISOString();
 
+  // Flexible column mapping for images and content
+  const safeContent = post?.content || post?.body || post?.html_content || "";
+  const safeImage   = post?.featured_image || post?.image_url || post?.image || "";
+
   // Ensure excerpt and category are never null for frontend robustness
-  const safeExcerpt  = post?.excerpt  || "";
+  // Fallback excerpt to a snippet of content if missing
+  const safeExcerpt  = post?.excerpt ||
+                      (safeContent ? safeContent.replace(/<[^>]*>/g, "").slice(0, 160).trim() : "");
   const safeCategory = post?.category || "General";
 
   return {
@@ -45,16 +52,15 @@ function enrichPost(post: any): BlogPost {
     title:            safeTitle,
     slug:             safeSlug,
     excerpt:          safeExcerpt,
-    content:          post?.content          || "",
-    featured_image:   post?.featured_image   || null,
+    content:          safeContent,
+    featured_image:   safeImage,
     author_name:      post?.author_name      || "Admin",
     category:         safeCategory,
     tags:             Array.isArray(post?.tags) ? post.tags : [],
     status:           post?.status           || "draft",
     read_time:        post?.read_time        || "5 min read",
     meta_title:       post?.meta_title       || `${safeTitle} | AIPrintVerse`,
-    meta_description: post?.meta_description || post?.excerpt ||
-                      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
+    meta_description: post?.meta_description || safeExcerpt,
     canonical_url:    post?.canonical_url    || `/blog/${safeSlug}`,
     video_url:        post?.video_url        || null,
     published_at:     post?.published_at     || post?.created_at || now,
@@ -154,17 +160,25 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
 
       if (dbError) {
         setError(dbError.message);
-        // Fall back to static data on error
-        setPosts(blogPosts.map((p) => enrichPost(p as any)));
-        setTotalCount(blogPosts.length);
+        // Fall back to static data ONLY if it's a connection/missing client error,
+        // not if the database just returned 0 results.
+        if (!dbPosts) {
+          setPosts(blogPosts.map((p) => enrichPost(p as any)));
+          setTotalCount(blogPosts.length);
+        } else {
+          setPosts([]);
+          setTotalCount(0);
+        }
         return;
       }
 
+      // If we got a response from DB (even empty), we use it.
       const list = (dbPosts || []).map((p) => enrichPost(p as any));
       setPosts(list);
       setTotalCount(count || 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
+      // Fallback only on hard exception
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
       setTotalCount(blogPosts.length);
     } finally {
@@ -269,7 +283,7 @@ export function useBlogPost(rawSlug: string) {
       setError("Article not found");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
-      // Fallback to static data on error for robustness
+      // Fallback to static data ONLY on hard exception (e.g. network/Supabase down)
       const staticHit = normalizedStaticPosts.get(cleanSlug);
       if (staticHit) {
         setPost(enrichPost(staticHit as any));
