@@ -30,6 +30,7 @@ function normalizeSlug(s: string): string {
 }
 
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
+// DATA AGNOSTIC: Ensures that even highly partial DB records can be rendered.
 function enrichPost(post: any): BlogPost {
   const safeTitle = post?.title || "Untitled Post";
   const safeSlug  = post?.slug  || "no-slug";
@@ -40,7 +41,6 @@ function enrichPost(post: any): BlogPost {
   const safeCategory = post?.category || "General";
 
   return {
-    ...post,
     id:               post?.id               || `temp-${Math.random().toString(36).substring(2, 11)}`,
     title:            safeTitle,
     slug:             safeSlug,
@@ -56,6 +56,7 @@ function enrichPost(post: any): BlogPost {
     meta_description: post?.meta_description || post?.excerpt ||
                       (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
     canonical_url:    post?.canonical_url    || `/blog/${safeSlug}`,
+    video_url:        post?.video_url        || null,
     published_at:     post?.published_at     || post?.created_at || now,
     created_at:       post?.created_at       || now,
     updated_at:       post?.updated_at       || now,
@@ -106,31 +107,22 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
         return;
       }
 
-      // UPDATED: Temporarily select '*' to verify all data presence
+      // ── SAFE QUERY CHAINING ──────────────────────────────────────────
+      // We explicitly check for method existence before calling to prevent
+      // TypeErrors if the Supabase client returns a degraded object.
       let query = supabase.from("blog_posts").select("*");
 
-      // Defensive check for .order() method
-      if (typeof query.order === "function") {
-        query = query.order("created_at", { ascending: false });
-      } else {
-        console.error("Supabase query.order is not a function. Check client version.");
-      }
-
-      // FIX: public blog page shows only published articles;
-      //      admin views (publicOnly=false) see everything.
-      // UPDATED: Temporarily disabled status filter to verify 400+ articles
-      /*
-      if (publicOnly) {
+      if (publicOnly && typeof query.eq === "function") {
         query = query.eq("status", "published");
       }
-      */
 
-      // UPDATED: Temporarily removed limit to see full dataset
-      /*
-      if (typeof limit === "number") {
+      if (typeof query.order === "function") {
+        query = query.order("created_at", { ascending: false });
+      }
+
+      if (typeof limit === "number" && typeof query.limit === "function") {
         query = query.limit(limit);
       }
-      */
 
       const { data: dbPosts, error: dbError } = await query;
 
@@ -145,13 +137,7 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       }
 
       const list = (dbPosts || []).map((p) => enrichPost(p as any));
-
-      if (list.length === 0) {
-        // Nothing in DB yet — show static seed articles so page isn't empty
-        setPosts(blogPosts.map((p) => enrichPost(p as any)));
-      } else {
-        setPosts(list);
-      }
+      setPosts(list);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
       setPosts(blogPosts.map((p) => enrichPost(p as any)));
@@ -248,15 +234,6 @@ export function useBlogPost(rawSlug: string) {
         .limit(1);
       if (similar?.[0]) {
         setPost(enrichPost(similar[0]));
-        setIsLoading(false);
-        return;
-      }
-
-      // ── Phase 4: Last resort — static seed data ──────────────────────
-      // Only used when article exists in static data but not yet in DB.
-      const staticHit = normalizedStaticPosts.get(cleanSlug);
-      if (staticHit) {
-        setPost(enrichPost(staticHit as any));
         setIsLoading(false);
         return;
       }

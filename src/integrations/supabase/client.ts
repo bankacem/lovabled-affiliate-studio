@@ -15,7 +15,17 @@ const createSafeClient = () => {
     if (import.meta.env.DEV) {
       console.warn("Supabase credentials missing. Database features will be unavailable.");
     }
-    return {} as any;
+    // Return a minimal mock that won't throw when .from() is called
+    return {
+      from: () => ({
+        select: () => ({
+          eq: () => ({ maybeSingle: async () => ({ data: null, error: null }) }),
+          order: () => ({ limit: () => Promise.resolve({ data: [], error: null }) }),
+          limit: () => Promise.resolve({ data: [], error: null }),
+        }),
+      }),
+      auth: { onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }) },
+    } as any;
   }
 
   try {
