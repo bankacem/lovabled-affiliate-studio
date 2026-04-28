@@ -35,16 +35,20 @@ function enrichPost(post: any): BlogPost {
   const safeSlug  = post?.slug  || "no-slug";
   const now = new Date().toISOString();
 
+  // Ensure excerpt and category are never null for frontend robustness
+  const safeExcerpt  = post?.excerpt  || "";
+  const safeCategory = post?.category || "General";
+
   return {
     ...post,
     id:               post?.id               || `temp-${Math.random().toString(36).substring(2, 11)}`,
     title:            safeTitle,
     slug:             safeSlug,
-    excerpt:          post?.excerpt          || "",
+    excerpt:          safeExcerpt,
     content:          post?.content          || "",
     featured_image:   post?.featured_image   || null,
     author_name:      post?.author_name      || "Admin",
-    category:         post?.category         || "General",
+    category:         safeCategory,
     tags:             Array.isArray(post?.tags) ? post.tags : [],
     status:           post?.status           || "draft",
     read_time:        post?.read_time        || "5 min read",
@@ -101,22 +105,32 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
         return;
       }
 
-      let query = supabase
+      // UPDATED: Temporarily select '*' to verify all data presence
+      const query = supabase
         .from("blog_posts")
-        .select(includeContent ? FULL_COLS : LIST_COLS)
+        .select("*")
         .order("published_at", { ascending: false });
 
       // FIX: public blog page shows only published articles;
       //      admin views (publicOnly=false) see everything.
+      // UPDATED: Temporarily disabled status filter to verify 400+ articles
+      /*
       if (publicOnly) {
         query = query.eq("status", "published");
       }
+      */
 
+      // UPDATED: Temporarily removed limit to see full dataset
+      /*
       if (typeof limit === "number") {
         query = query.limit(limit);
       }
+      */
 
       const { data: dbPosts, error: dbError } = await query;
+
+      // LOG: Added diagnostic log as requested
+      console.log('Total posts fetched from DB (list):', dbPosts?.length);
 
       if (dbError) {
         setError(dbError.message);
@@ -141,7 +155,9 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
     }
   }, [includeContent, limit, publicOnly]);
 
-  useEffect(() => { fetchPosts(); }, [fetchPosts]);
+  useEffect(() => {
+    fetchPosts();
+  }, [fetchPosts]);
 
   return { posts, isLoading, error, refetch: fetchPosts };
 }

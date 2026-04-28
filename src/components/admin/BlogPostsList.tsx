@@ -83,6 +83,9 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
       .select("*")
       .order("created_at", { ascending: false });
 
+    // LOG: Added diagnostic log as requested
+    console.log('Admin Legacy: Total posts fetched from DB:', data?.length);
+
     if (error) {
       toast.error("Failed to load posts");
     } else {

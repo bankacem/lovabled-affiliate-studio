@@ -117,6 +117,10 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
       .order("created_at", { ascending: false })
       .range(from, to);
 
+    // LOG: Added diagnostic logs for admin panel
+    console.log('Admin Optimized: Total count from DB:', count);
+    console.log('Admin Optimized: Fetched data length:', data?.length);
+
     if (error) {
       toast.error("Failed to load posts");
     } else {
