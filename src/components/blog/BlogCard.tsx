@@ -11,8 +11,19 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, index = 0 }: BlogCardProps) {
-  const displayDate = post.published_at || post.created_at;
+  const displayDate = post.published_at || post.created_at || new Date().toISOString();
   const [imgError, setImgError] = useState(false);
+
+  // Safe date formatting
+  const formattedDate = (() => {
+    try {
+      const date = new Date(displayDate);
+      if (isNaN(date.getTime())) return "N/A";
+      return format(date, "MMM d, yyyy");
+    } catch (e) {
+      return "N/A";
+    }
+  })();
 
   return (
     <motion.article
@@ -48,7 +59,7 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <span className="flex items-center gap-1">
                 <Calendar className="h-3.5 w-3.5" />
-                {format(new Date(displayDate), "MMM d, yyyy")}
+                {formattedDate}
               </span>
               {post.read_time && (
                 <span className="flex items-center gap-1">

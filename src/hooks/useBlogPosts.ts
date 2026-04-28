@@ -33,17 +33,28 @@ function normalizeSlug(s: string): string {
 function enrichPost(post: any): BlogPost {
   const safeTitle = post?.title || "Untitled Post";
   const safeSlug  = post?.slug  || "no-slug";
+  const now = new Date().toISOString();
+
   return {
     ...post,
+    id:               post?.id               || `temp-${Math.random().toString(36).substring(2, 11)}`,
     title:            safeTitle,
     slug:             safeSlug,
+    excerpt:          post?.excerpt          || "",
+    content:          post?.content          || "",
+    featured_image:   post?.featured_image   || null,
+    author_name:      post?.author_name      || "Admin",
+    category:         post?.category         || "General",
+    tags:             Array.isArray(post?.tags) ? post.tags : [],
+    status:           post?.status           || "draft",
+    read_time:        post?.read_time        || "5 min read",
     meta_title:       post?.meta_title       || `${safeTitle} | AIPrintVerse`,
     meta_description: post?.meta_description || post?.excerpt ||
                       (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
     canonical_url:    post?.canonical_url    || `/blog/${safeSlug}`,
-    tags:             Array.isArray(post?.tags) ? post.tags : [],
-    status:           post?.status           || "draft",
-    published_at:     post?.published_at     || post?.created_at || new Date().toISOString(),
+    published_at:     post?.published_at     || post?.created_at || now,
+    created_at:       post?.created_at       || now,
+    updated_at:       post?.updated_at       || now,
   } as BlogPost;
 }
 
