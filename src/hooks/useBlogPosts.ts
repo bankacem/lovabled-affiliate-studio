@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { blogPosts } from "@/data/blogPosts";
 import { slugify } from "@/lib/slugify";
 
 export interface BlogPost {
@@ -32,29 +31,32 @@ function normalizeSlug(s: string): string {
 // ─── Enrich post with fallback SEO fields ─────────────────────────────────
 // DATA AGNOSTIC: Ensures that even highly partial DB records can be rendered.
 function enrichPost(post: any): BlogPost {
-  const safeTitle = post?.title || "Untitled Post";
-  const safeSlug  = post?.slug  || "no-slug";
   const now = new Date().toISOString();
 
-  // Ensure excerpt and category are never null for frontend robustness
-  const safeExcerpt  = post?.excerpt  || "";
-  const safeCategory = post?.category || "General";
+  // Safe defaults for mandatory fields
+  const safeId    = post?.id    || `temp-${Math.random().toString(36).substring(2, 11)}`;
+  const safeTitle = post?.title || "Untitled Post";
+  const safeSlug  = post?.slug  || slugify(safeTitle) || "no-slug";
+
+  // Flexible Column Mapping for images and content
+  const safeImage = post?.featured_image || post?.image_url || post?.image || null;
+  const safeContent = post?.content || post?.body || "";
+  const safeExcerpt = post?.excerpt || (safeContent ? safeContent.replace(/<[^>]*>/g, "").slice(0, 160) : "");
 
   return {
-    id:               post?.id               || `temp-${Math.random().toString(36).substring(2, 11)}`,
+    id:               safeId,
     title:            safeTitle,
     slug:             safeSlug,
     excerpt:          safeExcerpt,
-    content:          post?.content          || "",
-    featured_image:   post?.featured_image   || null,
+    content:          safeContent,
+    featured_image:   safeImage,
     author_name:      post?.author_name      || "Admin",
-    category:         safeCategory,
+    category:         post?.category         || "General",
     tags:             Array.isArray(post?.tags) ? post.tags : [],
     status:           post?.status           || "draft",
     read_time:        post?.read_time        || "5 min read",
     meta_title:       post?.meta_title       || `${safeTitle} | AIPrintVerse`,
-    meta_description: post?.meta_description || post?.excerpt ||
-                      (post?.content ? post.content.replace(/<[^>]*>/g, "").slice(0, 160) : ""),
+    meta_description: post?.meta_description || safeExcerpt,
     canonical_url:    post?.canonical_url    || `/blog/${safeSlug}`,
     video_url:        post?.video_url        || null,
     published_at:     post?.published_at     || post?.created_at || now,
@@ -63,19 +65,7 @@ function enrichPost(post: any): BlogPost {
   } as BlogPost;
 }
 
-// ─── Normalised cache of static seed articles ────────────────────────────
-// NOTE: Used only as last-resort fallback when Supabase is unavailable.
-const normalizedStaticPosts = new Map(
-  blogPosts.map((p) => [normalizeSlug(p.slug), p])
-);
-
-const LIST_COLS = [
-  "id","title","slug","excerpt","featured_image","author_name",
-  "category","tags","status","read_time","meta_title","meta_description",
-  "published_at","created_at","updated_at",
-].join(", ");
-
-const FULL_COLS = `${LIST_COLS}, content`;
+const FULL_COLS = "*";
 
 interface UseBlogPostsOptions {
   includeContent?: boolean;
@@ -113,11 +103,11 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
     setError(null);
 
     try {
-      // No Supabase → fall back to static seed data
+      // No Supabase → return empty
       if (!supabase || typeof supabase.from !== "function") {
-        console.warn("Supabase client not available, falling back to static posts.");
-        setPosts(blogPosts.map((p) => enrichPost(p as any)));
-        setTotalCount(blogPosts.length);
+        console.warn("Supabase client not available.");
+        setPosts([]);
+        setTotalCount(0);
         return;
       }
 
@@ -154,9 +144,8 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
 
       if (dbError) {
         setError(dbError.message);
-        // Fall back to static data on error
-        setPosts(blogPosts.map((p) => enrichPost(p as any)));
-        setTotalCount(blogPosts.length);
+        setPosts([]);
+        setTotalCount(0);
         return;
       }
 
@@ -165,8 +154,8 @@ export function useBlogPosts(options: UseBlogPostsOptions = {}) {
       setTotalCount(count || 0);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
-      setPosts(blogPosts.map((p) => enrichPost(p as any)));
-      setTotalCount(blogPosts.length);
+      setPosts([]);
+      setTotalCount(0);
     } finally {
       setIsLoading(false);
     }
@@ -209,15 +198,10 @@ export function useBlogPost(rawSlug: string) {
       }
     }
 
-    // ── No Supabase → fall back to static seed data only ──────────────
+    // ── No Supabase → return null ────────────────────────────────────
     if (!supabase || typeof supabase.from !== "function") {
-      const staticHit = normalizedStaticPosts.get(cleanSlug);
-      if (staticHit) {
-        setPost(enrichPost(staticHit as any));
-      } else {
-        setPost(null);
-        setError("Article not found");
-      }
+      setPost(null);
+      setError("Supabase client not available");
       setIsLoading(false);
       return;
     }
@@ -269,13 +253,7 @@ export function useBlogPost(rawSlug: string) {
       setError("Article not found");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Unexpected error");
-      // Fallback to static data on error for robustness
-      const staticHit = normalizedStaticPosts.get(cleanSlug);
-      if (staticHit) {
-        setPost(enrichPost(staticHit as any));
-      } else {
-        setPost(null);
-      }
+      setPost(null);
     } finally {
       setIsLoading(false);
     }
