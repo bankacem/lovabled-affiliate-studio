@@ -18,12 +18,19 @@ const Blog = () => {
   const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
 
   const filteredPosts = useMemo(() => {
+    const query = searchQuery.toLowerCase();
     const filtered = posts.filter((post) => {
+      if (!post) return false;
+
       const matchesCategory =
         selectedCategory === "All" || post.category === selectedCategory;
+
+      const title = (post.title || "").toLowerCase();
+      const excerpt = (post.excerpt || "").toLowerCase();
+
       const matchesSearch =
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (post.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false);
+        title.includes(query) || excerpt.includes(query);
+
       return matchesCategory && matchesSearch;
     });
     return filtered;

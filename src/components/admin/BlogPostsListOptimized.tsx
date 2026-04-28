@@ -127,14 +127,17 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
   };
 
   const filteredPosts = useMemo(() => {
-    if (!searchQuery) return posts;
-    
     const query = searchQuery.toLowerCase();
-    return posts.filter(post => 
-      post.title.toLowerCase().includes(query) ||
-      post.category.toLowerCase().includes(query) ||
-      post.slug.toLowerCase().includes(query)
-    );
+    return posts.filter(post => {
+      if (!post) return false;
+      const title = (post.title || "").toLowerCase();
+      const category = (post.category || "").toLowerCase();
+      const slug = (post.slug || "").toLowerCase();
+
+      return title.includes(query) ||
+             category.includes(query) ||
+             slug.includes(query);
+    });
   }, [posts, searchQuery]);
 
   const deletePost = async (id: string) => {
@@ -474,12 +477,26 @@ export function BlogPostsListOptimized({ onNewPost, onEditPost }: BlogPostsListP
                       {post.scheduled_publish_at && (
                         <span className="text-xs text-muted-foreground flex items-center gap-1">
                           <Clock className="h-3 w-3" />
-                          {format(new Date(post.scheduled_publish_at), "MMM d, HH:mm")}
+                          {(() => {
+                            try {
+                              const date = new Date(post.scheduled_publish_at);
+                              return isNaN(date.getTime()) ? "N/A" : format(date, "MMM d, HH:mm");
+                            } catch (e) {
+                              return "N/A";
+                            }
+                          })()}
                         </span>
                       )}
                       <span className="text-xs text-muted-foreground flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        {format(new Date(post.created_at), "MMM d, yyyy")}
+                        {(() => {
+                          try {
+                            const date = new Date(post.created_at || new Date());
+                            return isNaN(date.getTime()) ? "N/A" : format(date, "MMM d, yyyy");
+                          } catch (e) {
+                            return "N/A";
+                          }
+                        })()}
                       </span>
                     </div>
                   </div>

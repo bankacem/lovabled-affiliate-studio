@@ -121,8 +121,12 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
   };
 
   const filteredPosts = posts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          post.category.toLowerCase().includes(searchQuery.toLowerCase());
+    if (!post) return false;
+    const query = searchQuery.toLowerCase();
+    const title = (post.title || "").toLowerCase();
+    const category = (post.category || "").toLowerCase();
+
+    const matchesSearch = title.includes(query) || category.includes(query);
     const matchesStatus = statusFilter === "all" || post.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -302,7 +306,14 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
                       </Badge>
                       <span className="text-xs text-muted-foreground flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        {format(new Date(post.created_at), "MMM d, yyyy")}
+                        {(() => {
+                          try {
+                            const date = new Date(post.created_at || new Date());
+                            return isNaN(date.getTime()) ? "N/A" : format(date, "MMM d, yyyy");
+                          } catch (e) {
+                            return "N/A";
+                          }
+                        })()}
                       </span>
                       <span className="text-xs text-muted-foreground">
                         by {post.author_name}
