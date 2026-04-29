@@ -63,7 +63,7 @@ function enrichPost(post: any): BlogPost {
     meta_title:       post?.meta_title       || `${safeTitle} | AIPrintVerse`,
     meta_description: post?.meta_description || safeExcerpt,
     canonical_url:    post?.canonical_url    || `/blog/${safeSlug}`,
-    video_url:        post?.video_url        || null,
+    video_url:        post?.video_url        || "",
     published_at:     post?.published_at     || post?.created_at || now,
     created_at:       post?.created_at       || now,
     updated_at:       post?.updated_at       || now,
