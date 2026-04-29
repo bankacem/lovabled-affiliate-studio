@@ -33,12 +33,12 @@ function enrichDesign(design: any): Design {
     image_url:     safeImage,
     category:      design?.category      || "General",
     tags:          Array.isArray(design?.tags) ? design.tags : [],
-    teepublic_url: design?.teepublic_url || null,
-    redbubble_url: design?.redbubble_url || null,
-    amazon_url:    design?.amazon_url    || null,
-    etsy_url:      design?.etsy_url      || null,
+    teepublic_url: design?.teepublic_url || "",
+    redbubble_url: design?.redbubble_url || "",
+    amazon_url:    design?.amazon_url    || "",
+    etsy_url:      design?.etsy_url      || "",
     featured:      !!design?.featured,
-    source:        design?.source        || null,
+    source:        design?.source        || "",
     created_at:    design?.created_at    || new Date().toISOString(),
   };
 }
