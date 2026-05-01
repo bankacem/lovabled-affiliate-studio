@@ -19,16 +19,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -52,7 +42,6 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
   const [stores, setStores] = useState<StoreProfile[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [storeToDelete, setStoreToDelete] = useState<string | null>(null);
   const [newStore, setNewStore] = useState({
     name: "",
     store_url: "",
@@ -108,7 +97,8 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
   };
 
   const handleDeleteStore = async (id: string) => {
-    // FIXED: Removed window.confirm()
+    if (!confirm("Are you sure you want to delete this store?")) return;
+
     const { error } = await supabase.from("stores").delete().eq("id", id);
 
     if (error) {
@@ -288,7 +278,7 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
                   size="icon"
                   variant="ghost"
                   className="text-destructive hover:text-destructive"
-                  onClick={() => setStoreToDelete(store.id)}
+                  onClick={() => handleDeleteStore(store.id)}
                 >
                   <Trash2 className="w-4 h-4" />
                 </Button>
@@ -297,26 +287,6 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
           ))}
         </div>
       )}
-
-      <AlertDialog open={storeToDelete !== null} onOpenChange={(open) => !open && setStoreToDelete(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure you want to delete this store?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently remove this store connection.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => storeToDelete && handleDeleteStore(storeToDelete)}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-            >
-              Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </Card>
   );
 }

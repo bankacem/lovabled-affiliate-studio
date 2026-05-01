@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart, Target, Users, Sparkles } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/layout/SEO";
 
 const values = [
   {
@@ -33,11 +32,6 @@ const values = [
 const About = () => {
   return (
     <Layout>
-      <SEO
-        title="About Us"
-        description="Learn more about AIPrintVerse and our mission to make high-quality, unique print-on-demand designs accessible to everyone."
-        canonical="/about"
-      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-secondary/50 to-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
@@ -47,7 +41,7 @@ const About = () => {
             className="mx-auto max-w-3xl text-center"
           >
             <h1 className="font-display text-4xl font-bold text-foreground md:text-5xl">
-              About AIPrintVerse
+              About DesignVault
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               We're passionate about connecting design lovers with unique,
@@ -72,7 +66,7 @@ const About = () => {
                 Making Great Design Accessible
               </h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                AIPrintVerse was born from a simple idea: everyone deserves access
+                DesignVault was born from a simple idea: everyone deserves access
                 to beautiful, unique designs that express their personality. We
                 scour print-on-demand platforms to find the most creative,
                 well-crafted designs and bring them to you in one convenient place.
@@ -155,7 +149,7 @@ const About = () => {
               Affiliate Disclosure
             </h2>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              AIPrintVerse participates in affiliate programs with TeePublic,
+              DesignVault participates in affiliate programs with TeePublic,
               Redbubble, and other print-on-demand platforms. When you make a
               purchase through our links, we may earn a small commission at no
               extra cost to you. This helps us keep the site running and continue

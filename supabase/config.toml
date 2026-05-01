@@ -19,7 +19,7 @@ api_url = "http://127.0.0.1"
 [auth]
 enabled = true
 site_url = "http://127.0.0.1:3000"
-additional_redirect_urls = ["https://127.0.0.1:3000", "https://aiprintverse.com"]
+additional_redirect_urls = ["https://127.0.0.1:3000"]
 jwt_expiry = 3600
 enable_signup = true
 enable_anonymous_sign_ins = false
@@ -30,22 +30,11 @@ enable_signup = true
 double_confirm_changes = true
 enable_confirmations = false
 
-# FIXED: import-designs writes to DB + uses paid Firecrawl API — must require auth
 [functions.import-designs]
-verify_jwt = true
+verify_jwt = false
 
-# FIXED: publish-scheduled-posts publishes articles — must require auth
 [functions.publish-scheduled-posts]
-verify_jwt = true
+verify_jwt = false
 
-# FIXED: generate-article creates AI content — must require auth
-[functions.generate-article]
-verify_jwt = true
-
-# FIXED: optimize-title uses AI — must require auth
-[functions.optimize-title]
-verify_jwt = true
-
-# sitemap is public — OK to leave open
 [functions.sitemap]
 verify_jwt = false

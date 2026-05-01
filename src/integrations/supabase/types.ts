@@ -135,7 +135,6 @@ export type Database = {
           author_id: string | null
           author_name: string
           category: string
-          clicks: number | null
           content: string | null
           created_at: string
           design_id: string | null
@@ -143,7 +142,6 @@ export type Database = {
           featured_image: string | null
           generation_batch: string | null
           id: string
-          impressions: number | null
           indexing_status: string
           keywords: string[] | null
           meta_description: string | null
@@ -165,7 +163,6 @@ export type Database = {
           author_id?: string | null
           author_name?: string
           category?: string
-          clicks?: number | null
           content?: string | null
           created_at?: string
           design_id?: string | null
@@ -173,7 +170,6 @@ export type Database = {
           featured_image?: string | null
           generation_batch?: string | null
           id?: string
-          impressions?: number | null
           indexing_status?: string
           keywords?: string[] | null
           meta_description?: string | null
@@ -195,7 +191,6 @@ export type Database = {
           author_id?: string | null
           author_name?: string
           category?: string
-          clicks?: number | null
           content?: string | null
           created_at?: string
           design_id?: string | null
@@ -203,7 +198,6 @@ export type Database = {
           featured_image?: string | null
           generation_batch?: string | null
           id?: string
-          impressions?: number | null
           indexing_status?: string
           keywords?: string[] | null
           meta_description?: string | null

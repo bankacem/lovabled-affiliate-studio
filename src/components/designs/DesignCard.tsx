@@ -16,7 +16,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="group"
     >
-      <Link to={`/designs/${design.slug || design.id}`}>
+      <Link to={`/designs/${design.id}`}>
         <div className="overflow-hidden rounded-2xl bg-card shadow-card transition-all duration-500 hover:shadow-xl hover:-translate-y-2 border border-border/50">
           {/* Image */}
           <div className="relative aspect-square overflow-hidden bg-secondary">
@@ -25,8 +25,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
               alt={design.name}
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "/placeholder-design.svg";
-                (e.target as HTMLImageElement).onerror = null;
+                (e.target as HTMLImageElement).src = "https://via.placeholder.com/400?text=Design";
               }}
             />
             

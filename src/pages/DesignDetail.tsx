@@ -1,28 +1,16 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Share2, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/layout/SEO";
 import { Button } from "@/components/ui/button";
 import { DesignCard } from "@/components/designs/DesignCard";
 import { useDesign, useDesigns } from "@/hooks/useDesigns";
 import { toast } from "sonner";
 
 const DesignDetail = () => {
-  const { slug } = useParams();
-  const navigate = useNavigate();
-  const { data: design, isLoading } = useDesign(slug || "");
+  const { id } = useParams();
+  const { data: design, isLoading } = useDesign(id || "");
   const { data: allDesigns = [] } = useDesigns();
-
-  useEffect(() => {
-    if (design && slug) {
-      const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slug);
-      if (isUUID && design.slug !== slug) {
-        navigate(`/designs/${design.slug}`, { replace: true });
-      }
-    }
-  }, [design, slug, navigate]);
 
   const relatedDesigns = allDesigns
     .filter((d) => d.category === design?.category && d.id !== design?.id)
@@ -71,31 +59,6 @@ const DesignDetail = () => {
 
   return (
     <Layout>
-      <SEO
-        title={design.name}
-        description={design.description || `Check out ${design.name} - unique ${design.category} design at AIPrintVerse.`}
-        canonical={`/designs/${design.slug}`}
-        ogImage={design.image_url}
-        ogType="product"
-        jsonLd={{
-          "@type": "Product",
-          "name": design.name,
-          "image": [design.image_url],
-          "description": design.description || `Unique ${design.category} design`,
-          "brand": {
-            "@type": "Brand",
-            "name": "AIPrintVerse"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "offerCount": (design.teepublic_url ? 1 : 0) + (design.redbubble_url ? 1 : 0) + (design.amazon_url ? 1 : 0) + (design.etsy_url ? 1 : 0),
-            "lowPrice": "14.99",
-            "highPrice": "45.00",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          }
-        }}
-      />
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
           {/* Breadcrumb */}
@@ -126,8 +89,7 @@ const DesignDetail = () => {
                   alt={design.name}
                   className="h-full w-full object-cover"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/placeholder-design.svg";
-                    (e.target as HTMLImageElement).onerror = null;
+                    (e.target as HTMLImageElement).src = "https://via.placeholder.com/600?text=Design";
                   }}
                 />
               </div>

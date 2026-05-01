@@ -9,16 +9,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
@@ -109,7 +99,6 @@ export function TemplateManager() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingTemplate, setEditingTemplate] = useState<ArticleTemplate | null>(null);
   const [formData, setFormData] = useState<Partial<ArticleTemplate>>(defaultTemplate);
-  const [templateToDelete, setTemplateToDelete] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [previewTemplate, setPreviewTemplate] = useState<ArticleTemplate | null>(null);
   const [activeTab, setActiveTab] = useState("basic");
@@ -206,7 +195,8 @@ export function TemplateManager() {
   };
 
   const handleDelete = async (id: string) => {
-    // FIXED: Removed window.confirm()
+    if (!confirm("Are you sure you want to delete this template?")) return;
+
     const { error } = await supabase
       .from("article_templates")
       .delete()
@@ -609,7 +599,7 @@ export function TemplateManager() {
                     <Button variant="outline" size="sm" onClick={() => handleDuplicate(template)}>
                       <Copy className="h-3 w-3" />
                     </Button>
-                    <Button variant="outline" size="sm" className="text-destructive hover:text-destructive" onClick={() => setTemplateToDelete(template.id)}>
+                    <Button variant="outline" size="sm" className="text-destructive hover:text-destructive" onClick={() => handleDelete(template.id)}>
                       <Trash2 className="h-3 w-3" />
                     </Button>
                   </div>
@@ -619,26 +609,6 @@ export function TemplateManager() {
           })}
         </div>
       )}
-
-      <AlertDialog open={templateToDelete !== null} onOpenChange={(open) => !open && setTemplateToDelete(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure you want to delete this template?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the article template.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => templateToDelete && handleDelete(templateToDelete)}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-            >
-              Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
   );
 }

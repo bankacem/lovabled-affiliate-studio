@@ -1,53 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Search, FileText, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, FileText } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/layout/SEO";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const POSTS_PER_PAGE = 12;
-
 const Blog = () => {
+  const { posts, isLoading } = useBlogPosts();
+  const { categories } = useBlogCategories();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [debouncedSearch, setDebouncedSearch] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const { posts, totalCount, isLoading } = useBlogPosts({
-    page: currentPage,
-    pageSize: POSTS_PER_PAGE,
-    category: selectedCategory,
-    search: debouncedSearch,
-  });
-
-  const { categories } = useBlogCategories();
-
-  // Debounce search query
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(searchQuery);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, [searchQuery]);
-
-  // Reset page when filters change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, debouncedSearch]);
-
-  const totalPages = Math.ceil(totalCount / POSTS_PER_PAGE);
+  const filteredPosts = useMemo(() => {
+    return posts.filter((post) => {
+      const matchesCategory =
+        selectedCategory === "All" || post.category === selectedCategory;
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (post.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false);
+      return matchesCategory && matchesSearch;
+    });
+  }, [posts, selectedCategory, searchQuery]);
 
   return (
     <Layout>
-      <SEO
-        title={selectedCategory === "All" ? "Blog" : `${selectedCategory} Blog`}
-        description="Design tips, trends, and inspiration for your style. Read our latest articles about AI-powered print-on-demand designs."
-        canonical={selectedCategory === "All" ? "/blog" : `/blog?category=${selectedCategory}`}
-      />
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
           {/* Header */}
@@ -102,13 +80,6 @@ const Blog = () => {
             </div>
           </motion.div>
 
-          {/* Results count */}
-          {!isLoading && totalCount > 0 && (
-            <p className="mt-6 text-sm text-muted-foreground">
-              Showing page {currentPage} of {totalPages} ({totalCount} total articles)
-            </p>
-          )}
-
           {/* Results */}
           <div className="mt-10">
             {isLoading ? (
@@ -116,68 +87,12 @@ const Blog = () => {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
                 <p className="mt-4 text-muted-foreground">Loading posts...</p>
               </div>
-            ) : posts.length > 0 ? (
-              <>
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {posts.map((post, index) => (
-                    <BlogCard key={post.id} post={post} index={Math.min(index, 5)} />
-                  ))}
-                </div>
-
-                {/* Pagination Controls */}
-                {totalPages > 1 && (
-                  <div className="mt-12 flex items-center justify-center gap-4">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
-                      disabled={currentPage === 1}
-                      className="rounded-full"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                      <span className="sr-only">Previous Page</span>
-                    </Button>
-
-                    <div className="flex items-center gap-2">
-                      {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                        let pageNum;
-                        if (totalPages <= 5) {
-                          pageNum = i + 1;
-                        } else if (currentPage <= 3) {
-                          pageNum = i + 1;
-                        } else if (currentPage >= totalPages - 2) {
-                          pageNum = totalPages - 4 + i;
-                        } else {
-                          pageNum = currentPage - 2 + i;
-                        }
-
-                        return (
-                          <Button
-                            key={pageNum}
-                            variant={currentPage === pageNum ? "default" : "outline"}
-                            size="sm"
-                            onClick={() => setCurrentPage(pageNum)}
-                            className="w-10 rounded-full"
-                          >
-                            {pageNum}
-                          </Button>
-                        );
-                      })}
-                    </div>
-
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
-                      disabled={currentPage === totalPages}
-                      className="rounded-full"
-                    >
-                      <ChevronRight className="h-4 w-4" />
-                      <span className="sr-only">Next Page</span>
-                    </Button>
-                  </div>
-                )}
-              </>
+            ) : filteredPosts.length > 0 ? (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {filteredPosts.map((post, index) => (
+                  <BlogCard key={post.id} post={post} index={index} />
+                ))}
+              </div>
             ) : (
               <div className="py-20 text-center">
                 <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />

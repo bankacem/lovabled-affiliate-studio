@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, FileText } from "lucide-react";
@@ -11,19 +10,7 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, index = 0 }: BlogCardProps) {
-  const displayDate = post.published_at || post.created_at || new Date().toISOString();
-  const [imgError, setImgError] = useState(false);
-
-  // Safe date formatting
-  const formattedDate = (() => {
-    try {
-      const date = new Date(displayDate);
-      if (isNaN(date.getTime())) return "N/A";
-      return format(date, "MMM d, yyyy");
-    } catch (e) {
-      return "N/A";
-    }
-  })();
+  const displayDate = post.published_at || post.created_at;
 
   return (
     <motion.article
@@ -36,12 +23,10 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
         <div className="overflow-hidden rounded-xl bg-card shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
           {/* Image */}
           <div className="relative aspect-[2/1] overflow-hidden bg-secondary">
-            {post.featured_image && !imgError ? (
+            {post.featured_image ? (
               <img
                 src={post.featured_image}
                 alt={post.title}
-                loading="lazy"
-                onError={() => setImgError(true)}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
@@ -59,7 +44,7 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <span className="flex items-center gap-1">
                 <Calendar className="h-3.5 w-3.5" />
-                {formattedDate}
+                {format(new Date(displayDate), "MMM d, yyyy")}
               </span>
               {post.read_time && (
                 <span className="flex items-center gap-1">

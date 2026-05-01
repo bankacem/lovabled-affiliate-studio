@@ -1,22 +1,4 @@
 {
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
-      ]
-    },
-    {
-      "source": "/assets/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    }
-  ],
   "rewrites": [
     {
       "source": "/sitemap.xml",
@@ -28,41 +10,6 @@
     }
   ],
   "redirects": [
-    {
-      "source": "/blog/:slug(.*modern-co.*)",
-      "destination": "/blog/the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-copy",
-      "permanent": true
-    },
-    {
-      "source": "/blog/the-ultimate-guide-to-v-neck-shirts-style-fit-and-fashion-ma",
-      "destination": "/blog/ultimate-v-neck-style-guide",
-      "permanent": true
-    },
-    {
-      "source": "/blog/the-ultimate-guide-to-v-neck-shirts-how-to-style-them-for-an",
-      "destination": "/blog/v-neck-shirt-shopping-guide",
-      "permanent": true
-    },
-    {
-      "source": "/blog/the-architectural-staple-why-slim-fit-black-v-neck-t-shirts",
-      "destination": "/blog/v-neck-shirt-history-and-significance",
-      "permanent": true
-    },
-    {
-      "source": "/designs/5a3e0a9c-7b12-4d5e-8f90-2c3d4e5f6a7b",
-      "destination": "/designs/german-shepherd-shirt-vintage-dog-lover",
-      "permanent": true
-    },
-    {
-      "source": "/designs/9b8c7d6e-5f4a-3b2c-1d0e-9f8a7b6c5d4e",
-      "destination": "/designs/easter-bunny-shirt-retro-holiday-apparel",
-      "permanent": true
-    },
-    {
-      "source": "/designs/1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
-      "destination": "/designs/funny-doctor-quotes-shirt-medical-humor",
-      "permanent": true
-    },
     {
       "source": "/:path*",
       "has": [

@@ -254,7 +254,7 @@ serve(async (req) => {
           const imageUrl =
             metadata.ogImage ||
             metadata.image ||
-            `/placeholder-design.svg`;
+            `https://via.placeholder.com/600x600?text=${encodeURIComponent(name)}`;
 
           const design: any = {
             name: name.substring(0, 100),

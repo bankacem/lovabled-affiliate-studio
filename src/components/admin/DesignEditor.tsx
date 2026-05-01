@@ -227,7 +227,7 @@ export function DesignEditor({ design, onSave, onCancel }: DesignEditorProps) {
                     alt="Preview"
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = "/placeholder-design.svg";
+                      (e.target as HTMLImageElement).src = "https://via.placeholder.com/400?text=Invalid+URL";
                     }}
                   />
                 ) : (

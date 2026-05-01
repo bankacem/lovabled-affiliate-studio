@@ -1,30 +1,32 @@
-import { slugify } from "./slugify";
-
 /**
  * SEO Utilities for URL slug optimization and content processing
  */
 
 /**
  * Generate an SEO-friendly slug from a title
- * Uses the standardized slugify utility.
- * @param title The title to convert
- * @param suffix Optional suffix to append (e.g., "-shirt")
+ * - Converts to lowercase
+ * - Removes special characters (: ? ! @ # $ % ^ & * etc.)
+ * - Replaces spaces and underscores with hyphens
+ * - Removes consecutive hyphens
+ * - Trims leading/trailing hyphens
  */
-export function generateSEOSlug(title: string, suffix?: string): string {
-  // Pre-process for Arabic/Persian numbers if needed
-  const processedTitle = title
-    .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)));
-
-  let slug = slugify(processedTitle).slice(0, 100).replace(/-+$/, '');
-
-  if (suffix) {
-    const cleanSuffix = suffix.startsWith('-') ? suffix : `-${suffix}`;
-    if (!slug.endsWith(cleanSuffix.toLowerCase())) {
-      slug += cleanSuffix.toLowerCase();
-    }
-  }
-
-  return slug;
+export function generateSEOSlug(title: string): string {
+  return title
+    .toLowerCase()
+    // Replace Arabic/Persian numbers with English
+    .replace(/[٠-٩]/g, (d) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)))
+    // Remove special characters except alphanumeric, spaces, and hyphens
+    .replace(/[^a-z0-9\s\-\u0600-\u06FF]/g, '')
+    // Replace spaces and underscores with hyphens
+    .replace(/[\s_]+/g, '-')
+    // Remove consecutive hyphens
+    .replace(/-+/g, '-')
+    // Remove leading and trailing hyphens
+    .replace(/^-+|-+$/g, '')
+    // Limit length for SEO (max 60 chars)
+    .slice(0, 60)
+    // Remove trailing hyphen if cut mid-word
+    .replace(/-+$/, '');
 }
 
 /**
@@ -32,7 +34,7 @@ export function generateSEOSlug(title: string, suffix?: string): string {
  */
 export function extractLinksFromContent(content: string): Array<{
   url: string;
- text: string;
+  text: string;
   isInternal: boolean;
 }> {
   const links: Array<{ url: string; text: string; isInternal: boolean }> = [];
@@ -122,7 +124,7 @@ export function isValidSEOSlug(slug: string): boolean {
   if (slug !== slug.toLowerCase()) return false;
   
   // Must not contain special characters except hyphens
-  if (!/^[a-z0-9-]+$/.test(slug)) return false;
+  if (!/^[a-z0-9\-]+$/.test(slug)) return false;
   
   // Must not have consecutive hyphens
   if (/--/.test(slug)) return false;
@@ -143,58 +145,4 @@ export function calculateKeywordDensity(content: string, keyword: string): numbe
   const keywordCount = words.filter(w => w.includes(keywordLower)).length;
   
   return words.length > 0 ? (keywordCount / words.length) * 100 : 0;
-}
-
-/**
- * Remove Schema.org Microdata attributes from HTML content
- * Used to prevent duplication when providing JSON-LD.
- * Uses a tag-aware approach to avoid breaking HTML structure or removing text content.
- */
-export function stripMicrodata(html: string): string {
-  if (!html) return '';
-
-  // This regex matches HTML tags while correctly handling quotes to avoid stopping at > inside an attribute
-  const tagRegex = /<(?:[^"'>]|"[^"]*"|'[^']*')*>/g;
-
-  return html.replace(tagRegex, (tag) => {
-    // Skip closing tags as they don't have attributes
-    if (tag.startsWith('</')) return tag;
-
-    return tag
-      // Remove itemtype and itemprop with quoted values, ensuring we don't cross to another tag
-      // We use [^"'>]* to ensure we stay within the current attribute's quotes and the tag itself
-      .replace(/\s(itemtype|itemprop)=["'][^"'>]*["']/gi, '')
-      // Handle unquoted attributes (though rare for microdata)
-      .replace(/\s(itemtype|itemprop)=[^"'\s>]+/gi, '')
-      // Remove itemscope only if it's a standalone attribute (followed by space or >)
-      // This prevents accidental removal from class names like "my-itemscope"
-      .replace(/\sitemscope(?=[\s>])/gi, '');
-  });
-}
-
-/**
- * SEO Health Check Utility
- * Scans a list of blog posts for potential SEO issues:
- * - Slugs longer than 75 characters
- * - Missing featured images
- * @param posts Array of blog posts to check
- */
-export function runSEOHealthCheck(posts: any[]): void {
-  if (!posts || posts.length === 0) return;
-
-  // FIXED: Diagnostic console logs removed for production hygiene.
-  // The structure of the check remains for future expansion into UI-based reporting.
-  posts.forEach(post => {
-    const slug = post.slug || "";
-    const hasImage = !!post.featured_image;
-
-    // Check for issues but don't log to console in production
-    const isSlugTooLong = slug.length > 75;
-    const isImageMissing = !hasImage;
-
-    // Logic for reporting these to an internal state/API could go here
-    if (isSlugTooLong || isImageMissing) {
-      // Logic for internal reporting
-    }
-  });
 }

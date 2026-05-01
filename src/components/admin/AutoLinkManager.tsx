@@ -86,8 +86,8 @@ export function AutoLinkManager() {
       const postsMap = new Map(postsData.map(p => [p.id, p]));
       const enrichedKeywords = keywordsData.map(k => ({
         ...k,
-        post_title: (postsMap.get(k.target_post_id) as any)?.title,
-        post_slug: (postsMap.get(k.target_post_id) as any)?.slug,
+        post_title: postsMap.get(k.target_post_id)?.title,
+        post_slug: postsMap.get(k.target_post_id)?.slug,
       }));
       setKeywords(enrichedKeywords);
     }

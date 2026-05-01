@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Save, 
-  Archive,
+  Eye, 
   ArrowLeft, 
   Image as ImageIcon,
   Tag,
@@ -11,10 +11,10 @@ import {
   Settings,
   Send,
   Link2,
+  Sparkles,
   Code,
   Calendar,
-  Clock,
-  Youtube
+  Clock
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,7 +47,6 @@ interface BlogPost {
   excerpt: string;
   content: string;
   featured_image: string;
-  video_url: string;
   category: string;
   tags: string[];
   status: "draft" | "published" | "scheduled" | "archived";
@@ -69,11 +68,6 @@ interface BlogPostEditorProps {
   onBack: () => void;
 }
 
-const extractYoutubeId = (url: string): string => {
-  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/);
-  return match ? match[1] : '';
-};
-
 export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -81,6 +75,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [tagsInput, setTagsInput] = useState("");
   const [showLinkingTool, setShowLinkingTool] = useState(false);
+  const editorRef = useRef<{ insertLink: (url: string, text: string) => void } | null>(null);
   
   const [post, setPost] = useState<BlogPost>({
     title: "",
@@ -88,7 +83,6 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     excerpt: "",
     content: "",
     featured_image: "",
-    video_url: "",
     category: "General",
     tags: [],
     status: "draft",
@@ -108,7 +102,6 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   }, [postId]);
 
   const fetchCategories = async () => {
-    if (!supabase || typeof supabase.from !== 'function') return;
     const { data } = await supabase
       .from("blog_categories")
       .select("*")
@@ -120,7 +113,6 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
   };
 
   const fetchPost = async (id: string) => {
-    if (!supabase || typeof supabase.from !== 'function') return;
     setIsLoading(true);
     const { data, error } = await supabase
       .from("blog_posts")
@@ -132,40 +124,44 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
       toast.error("Failed to load post");
       onBack();
     } else if (data) {
-      const d = data as any;
       setPost({
-        id: d.id,
-        title: d.title,
-        slug: d.slug,
-        excerpt: d.excerpt || "",
-        content: d.content || "",
-        featured_image: d.featured_image || "",
-        video_url: d.video_url || "",
-        category: d.category,
-        tags: d.tags || [],
-        status: d.status as "draft" | "published" | "scheduled" | "archived",
-        meta_title: d.meta_title || "",
-        meta_description: d.meta_description || "",
-        read_time: d.read_time || "5 min read",
-        author_name: d.author_name,
-        scheduled_publish_at: d.scheduled_publish_at,
+        id: data.id,
+        title: data.title,
+        slug: data.slug,
+        excerpt: data.excerpt || "",
+        content: data.content || "",
+        featured_image: data.featured_image || "",
+        category: data.category,
+        tags: data.tags || [],
+        status: data.status as "draft" | "published" | "scheduled" | "archived",
+        meta_title: data.meta_title || "",
+        meta_description: data.meta_description || "",
+        read_time: data.read_time || "5 min read",
+        author_name: data.author_name,
+        scheduled_publish_at: data.scheduled_publish_at,
       });
-      setTagsInput((d.tags || []).join(", "));
-      if (d.scheduled_publish_at) {
-        setScheduleDate(d.scheduled_publish_at.slice(0, 16));
+      setTagsInput((data.tags || []).join(", "));
+      if (data.scheduled_publish_at) {
+        setScheduleDate(data.scheduled_publish_at.slice(0, 16));
       }
     }
     setIsLoading(false);
   };
 
+  // Use the SEO-optimized slug generator
   const generateSlug = (title: string) => {
     return title
       .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
+      // Remove special characters (: ? ! @ # $ % ^ & * etc.)
+      .replace(/[^a-z0-9\s\-]/g, '')
+      // Replace spaces with hyphens
       .replace(/\s+/g, '-')
+      // Remove consecutive hyphens
       .replace(/-+/g, '-')
+      // Remove leading and trailing hyphens
       .replace(/^-+|-+$/g, '')
-      .slice(0, 100)
+      // Limit length for SEO (max 60 chars)
+      .slice(0, 60)
       .replace(/-+$/, '');
   };
 
@@ -200,8 +196,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
     }));
   };
 
-  const savePost = async (status?: "draft" | "published" | "scheduled" | "archived", scheduledAt?: string) => {
-    if (!supabase || typeof supabase.from !== 'function') return;
+  const savePost = async (status?: "draft" | "published" | "scheduled", scheduledAt?: string) => {
     if (!post.title.trim()) {
       toast.error("Please enter a title");
       return;
@@ -209,7 +204,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
 
     setIsSaving(true);
     
-    const postData: any = {
+    const postData = {
       title: post.title,
       slug: post.slug || generateSlug(post.title),
       excerpt: post.excerpt,
@@ -225,7 +220,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
       published_at: status === "published" ? new Date().toISOString() : undefined,
       scheduled_publish_at: status === "scheduled" && scheduledAt 
         ? new Date(scheduledAt).toISOString() 
-        : (status === "scheduled" ? post.scheduled_publish_at : null),
+        : undefined,
     };
 
     try {
@@ -313,19 +308,8 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
             <Save className="h-4 w-4 mr-2" />
             Save Draft
           </Button>
-
-          {postId && post.status !== "archived" && (
-            <Button
-              variant="outline"
-              onClick={() => savePost("archived")}
-              disabled={isSaving}
-              className="text-destructive hover:bg-destructive/10"
-            >
-              <Archive className="h-4 w-4 mr-2" />
-              Archive
-            </Button>
-          )}
           
+          {/* Schedule Button */}
           <Popover>
             <PopoverTrigger asChild>
               <Button variant="outline" disabled={isSaving}>
@@ -375,7 +359,9 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
+          {/* Title */}
           <Card className="p-6">
             <div className="space-y-4">
               <div className="space-y-2">
@@ -404,6 +390,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
             </div>
           </Card>
 
+          {/* Content Editor */}
           <Card className="p-6">
             <Tabs defaultValue="visual">
               <TabsList className="mb-4">
@@ -459,7 +446,9 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
           </Card>
         </div>
 
+        {/* Sidebar */}
         <div className="space-y-6">
+          {/* Internal Linking Tool */}
           {showLinkingTool && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
@@ -469,13 +458,20 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
               <InternalLinkingTool
                 currentPostId={postId}
                 onInsertLink={(url, title) => {
+                  // Get selected text or use title
                   const selection = window.getSelection();
                   const selectedText = selection?.toString() || title;
+                  
+                  // Create link HTML
                   const link = `<a href="${url}" title="${title}">${selectedText}</a>`;
+                  
+                  // If there's a selection, try to replace it
                   if (selection && selection.toString()) {
+                    // For now, copy to clipboard for manual insertion
                     navigator.clipboard.writeText(link);
                     toast.success("Link copied! Paste it in your content where needed.");
                   } else {
+                    // Append to content if no selection
                     setPost(prev => ({
                       ...prev,
                       content: prev.content + ` ${link}`
@@ -487,6 +483,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
             </motion.div>
           )}
 
+          {/* Featured Image */}
           <Card className="p-6">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -524,50 +521,7 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
             </div>
           </Card>
 
-          <Card className="p-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Youtube className="h-4 w-4 text-red-500" />
-                <Label>فيديو YouTube</Label>
-              </div>
-              
-              {post.video_url ? (
-                <div className="space-y-3">
-                  <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${extractYoutubeId(post.video_url)}`}
-                      className="w-full h-full"
-                      allowFullScreen
-                      title="YouTube video preview"
-                    />
-                  </div>
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    className="w-full"
-                    onClick={() => setPost(prev => ({ ...prev, video_url: "" }))}
-                  >
-                    إزالة الفيديو
-                  </Button>
-                </div>
-              ) : (
-                <div className="aspect-video rounded-lg border-2 border-dashed border-border flex items-center justify-center bg-muted/30">
-                  <div className="text-center">
-                    <Youtube className="h-8 w-8 mx-auto text-muted-foreground mb-1" />
-                    <p className="text-sm text-muted-foreground">لم يتم إضافة فيديو</p>
-                  </div>
-                </div>
-              )}
-              
-              <Input
-                placeholder="https://www.youtube.com/watch?v=..."
-                value={post.video_url}
-                onChange={(e) => setPost(prev => ({ ...prev, video_url: e.target.value }))}
-                dir="ltr"
-              />
-            </div>
-          </Card>
-
+          {/* Category & Tags */}
           <Card className="p-6">
             <div className="space-y-4">
               <div className="space-y-2">
@@ -599,10 +553,23 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
                   value={tagsInput}
                   onChange={(e) => handleTagsChange(e.target.value)}
                 />
+                {post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {post.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-primary/10 text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </Card>
 
+          {/* SEO Settings */}
           <Card className="p-6">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
@@ -611,7 +578,9 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="meta-title" className="text-xs text-muted-foreground">Meta Title</Label>
+                <Label htmlFor="meta-title" className="text-xs text-muted-foreground">
+                  Meta Title
+                </Label>
                 <Input
                   id="meta-title"
                   placeholder="SEO title (60 chars max)"
@@ -619,10 +588,15 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
                   onChange={(e) => setPost(prev => ({ ...prev, meta_title: e.target.value }))}
                   maxLength={60}
                 />
+                <p className="text-xs text-muted-foreground text-right">
+                  {post.meta_title.length}/60
+                </p>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="meta-desc" className="text-xs text-muted-foreground">Meta Description</Label>
+                <Label htmlFor="meta-desc" className="text-xs text-muted-foreground">
+                  Meta Description
+                </Label>
                 <Textarea
                   id="meta-desc"
                   placeholder="SEO description (160 chars max)"
@@ -631,16 +605,27 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
                   maxLength={160}
                   rows={3}
                 />
+                <p className="text-xs text-muted-foreground text-right">
+                  {post.meta_description.length}/160
+                </p>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="author" className="text-xs text-muted-foreground">Author Name</Label>
+                <Label htmlFor="author" className="text-xs text-muted-foreground">
+                  Author Name
+                </Label>
                 <Input
                   id="author"
                   placeholder="Author name"
                   value={post.author_name}
                   onChange={(e) => setPost(prev => ({ ...prev, author_name: e.target.value }))}
                 />
+              </div>
+
+              <div className="pt-2 border-t border-border">
+                <p className="text-xs text-muted-foreground">
+                  Estimated read time: <strong>{post.read_time}</strong>
+                </p>
               </div>
             </div>
           </Card>

@@ -5,48 +5,13 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const PAGE_SIZE = 1000;
-
-function escapeXml(unsafe: string): string {
-  return unsafe.replace(/[<>&"']/g, (c) => {
-    switch (c) {
-      case "<": return "&lt;";
-      case ">": return "&gt;";
-      case "&": return "&amp;";
-      case "\"": return "&quot;";
-      case "'": return "&apos;";
-      default: return c;
-    }
-  });
-}
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-async function fetchAll(supabase: any, table: string, selectCols: string, filters?: (q: any) => any) {
-  const rows: any[] = [];
-  let from = 0;
-  while (true) {
-    let query = supabase.from(table).select(selectCols).range(from, from + PAGE_SIZE - 1);
-    if (filters) query = filters(query);
-    const { data, error } = await query;
-    if (error) { console.error(`Error fetching ${table}:`, error); break; }
-    if (!data || data.length === 0) break;
-    rows.push(...data);
-    if (data.length < PAGE_SIZE) break;
-    from += PAGE_SIZE;
-  }
-  return rows;
+interface SitemapEntry {
+  slug: string;
+  updated_at: string;
 }
 
 Deno.serve(async (req) => {
+  // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -58,67 +23,76 @@ Deno.serve(async (req) => {
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    // Fetch published blog posts
+    const { data: posts, error } = await supabase
+      .from("blog_posts")
+      .select("slug, updated_at")
+      .eq("status", "published")
+      .order("updated_at", { ascending: false });
+
+    if (error) {
+      console.error("Error fetching posts:", error);
+      throw error;
+    }
+
+    console.log(`Found ${posts?.length || 0} published posts`);
+
     const baseUrl = "https://aiprintverse.com";
-
-    // Fetch ALL published blog posts with pagination
-    const posts = await fetchAll(supabase, "blog_posts", "slug, updated_at, published_at", (q) =>
-      q.eq("status", "published").order("published_at", { ascending: false })
-    );
-    console.log(`Found ${posts.length} published posts`);
-
-    // Fetch ALL designs with pagination
-    const designs = await fetchAll(supabase, "designs", "slug, name, updated_at", (q) =>
-      q.order("updated_at", { ascending: false })
-    );
-    console.log(`Found ${designs.length} designs`);
-
+    
     const staticPages = [
       { path: "/", priority: "1.0", changefreq: "daily" },
-      { path: "/designs", priority: "0.9", changefreq: "daily" },
       { path: "/blog", priority: "0.9", changefreq: "daily" },
+      { path: "/designs", priority: "0.9", changefreq: "weekly" },
       { path: "/about", priority: "0.5", changefreq: "monthly" },
     ];
 
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
+    // Add static pages
     for (const page of staticPages) {
       xml += `  <url>\n`;
-      xml += `    <loc>${escapeXml(`${baseUrl}${page.path}`)}</loc>\n`;
-      xml += `    <lastmod>${escapeXml(new Date().toISOString().split("T")[0])}</lastmod>\n`;
-      xml += `    <changefreq>${escapeXml(page.changefreq)}</changefreq>\n`;
-      xml += `    <priority>${escapeXml(page.priority)}</priority>\n`;
+      xml += `    <loc>${baseUrl}${page.path}</loc>\n`;
+      xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
+      xml += `    <priority>${page.priority}</priority>\n`;
       xml += `  </url>\n`;
     }
 
-    for (const post of posts) {
-      const cleanSlug = post.slug ? slugify(post.slug) : null;
-      if (!cleanSlug) continue;
-      const dateStr = post.published_at || post.updated_at;
-      const lastmod = dateStr ? dateStr.split("T")[0] : new Date().toISOString().split("T")[0];
-      xml += `  <url>\n`;
-      xml += `    <loc>${escapeXml(`${baseUrl}/blog/${cleanSlug}`)}</loc>\n`;
-      xml += `    <lastmod>${escapeXml(lastmod)}</lastmod>\n`;
-      xml += `    <changefreq>weekly</changefreq>\n`;
-      xml += `    <priority>0.7</priority>\n`;
-      xml += `  </url>\n`;
+    // Add blog posts
+    if (posts) {
+      for (const post of posts) {
+        const lastmod = new Date(post.updated_at).toISOString().split("T")[0];
+        xml += `  <url>\n`;
+        xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+        xml += `    <lastmod>${lastmod}</lastmod>\n`;
+        xml += `    <changefreq>weekly</changefreq>\n`;
+        xml += `    <priority>0.8</priority>\n`;
+        xml += `  </url>\n`;
+      }
     }
 
-    for (const design of designs) {
-      const cleanSlug = design.slug ? slugify(design.slug) : (design.name ? slugify(design.name) : null);
-      if (!cleanSlug) continue;
-      const lastmod = design.updated_at ? design.updated_at.split("T")[0] : new Date().toISOString().split("T")[0];
-      xml += `  <url>\n`;
-      xml += `    <loc>${escapeXml(`${baseUrl}/designs/${cleanSlug}`)}</loc>\n`;
-      xml += `    <lastmod>${escapeXml(lastmod)}</lastmod>\n`;
-      xml += `    <changefreq>monthly</changefreq>\n`;
-      xml += `    <priority>0.7</priority>\n`;
-      xml += `  </url>\n`;
+    // Fetch designs
+    const { data: designs } = await supabase
+      .from("designs")
+      .select("id, updated_at")
+      .order("updated_at", { ascending: false });
+
+    if (designs) {
+      console.log(`Found ${designs.length} designs`);
+      for (const design of designs) {
+        const lastmod = new Date(design.updated_at || new Date()).toISOString().split("T")[0];
+        xml += `  <url>\n`;
+        xml += `    <loc>${baseUrl}/designs/${design.id}</loc>\n`;
+        xml += `    <lastmod>${lastmod}</lastmod>\n`;
+        xml += `    <changefreq>monthly</changefreq>\n`;
+        xml += `    <priority>0.7</priority>\n`;
+        xml += `  </url>\n`;
+      }
     }
 
     xml += "</urlset>";
 
-    console.log(`Sitemap generated: ${posts.length} posts + ${designs.length} designs`);
+    console.log("Sitemap generated successfully");
 
     return new Response(xml, {
       headers: {
@@ -131,7 +105,10 @@ Deno.serve(async (req) => {
     console.error("Error generating sitemap:", error);
     return new Response(
       JSON.stringify({ error: "Failed to generate sitemap" }),
-      { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      }
     );
   }
 });

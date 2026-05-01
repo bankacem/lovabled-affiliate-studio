@@ -47,8 +47,8 @@ export function useAutoLinking() {
       
       const enrichedKeywords = data.map(k => ({
         ...k,
-        target_slug: (postsMap.get(k.target_post_id) as any)?.slug,
-        target_title: (postsMap.get(k.target_post_id) as any)?.title,
+        target_slug: postsMap.get(k.target_post_id)?.slug,
+        target_title: postsMap.get(k.target_post_id)?.title,
       }));
 
       setKeywords(enrichedKeywords);

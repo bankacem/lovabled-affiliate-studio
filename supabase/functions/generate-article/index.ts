@@ -173,12 +173,12 @@ OUTPUT FORMAT (HTML only, no markdown):
   
   ... more sections ...
   
-  <section class="faq">
+  <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
     <h2>Frequently Asked Questions</h2>
-    <div>
-      <h3>Question?</h3>
-      <div>
-        <p>Answer...</p>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Question?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Answer...</p>
       </div>
     </div>
   </section>
@@ -271,13 +271,12 @@ IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. B
     const titleMatch = content.match(/<h1[^>]*>(.*?)<\/h1>/i);
     const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, '') : keyword;
 
-    // Generate slug using project-standard normalization
+    // Generate slug
     const slug = "p-" + title
       .toLowerCase()
-      .trim()
-      .replace(/[_\s]+/g, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "")
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
       .slice(0, 100);
 
     // Generate excerpt

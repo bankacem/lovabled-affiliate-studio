@@ -6,8 +6,8 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { useBlogPosts } from "@/hooks/useBlogPosts";
 
 export function LatestPosts() {
-  const { posts, isLoading } = useBlogPosts({ pageSize: 3, page: 1 });
-  const latestPosts = posts;
+  const { posts, isLoading } = useBlogPosts();
+  const latestPosts = posts.slice(0, 3);
 
   return (
     <section className="py-16 md:py-24">

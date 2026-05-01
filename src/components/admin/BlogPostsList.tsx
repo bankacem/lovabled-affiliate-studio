@@ -31,16 +31,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { format } from "date-fns";
@@ -70,7 +60,6 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [postToDelete, setPostToDelete] = useState<string | null>(null);
 
   useEffect(() => {
     fetchPosts();
@@ -83,9 +72,6 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
       .select("*")
       .order("created_at", { ascending: false });
 
-    // LOG: Added diagnostic log as requested
-    console.log('Admin Legacy: Total posts fetched from DB:', data?.length);
-
     if (error) {
       toast.error("Failed to load posts");
     } else {
@@ -95,13 +81,17 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
   };
 
   const deletePost = async (id: string) => {
-    // FIXED: Removed window.confirm()
-    const { error } = await supabase.from("blog_posts").delete().eq("id", id);
+    if (!confirm("Are you sure you want to delete this post?")) return;
+
+    const { error } = await supabase
+      .from("blog_posts")
+      .delete()
+      .eq("id", id);
 
     if (error) {
       toast.error("Failed to delete post");
     } else {
-      setPosts(posts.filter((p) => p.id !== id));
+      setPosts(posts.filter(p => p.id !== id));
       toast.success("Post deleted successfully");
     }
   };
@@ -124,12 +114,8 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
   };
 
   const filteredPosts = posts.filter(post => {
-    if (!post) return false;
-    const query = searchQuery.toLowerCase();
-    const title = (post.title || "").toLowerCase();
-    const category = (post.category || "").toLowerCase();
-
-    const matchesSearch = title.includes(query) || category.includes(query);
+    const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          post.category.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = statusFilter === "all" || post.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
@@ -283,7 +269,7 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
                           )}
                           <DropdownMenuSeparator />
                           <DropdownMenuItem 
-                              onClick={() => setPostToDelete(post.id)}
+                            onClick={() => deletePost(post.id)}
                             className="text-destructive focus:text-destructive"
                           >
                             <Trash2 className="h-4 w-4 mr-2" />
@@ -309,14 +295,7 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
                       </Badge>
                       <span className="text-xs text-muted-foreground flex items-center gap-1">
                         <Calendar className="h-3 w-3" />
-                        {(() => {
-                          try {
-                            const date = new Date(post.created_at || new Date());
-                            return isNaN(date.getTime()) ? "N/A" : format(date, "MMM d, yyyy");
-                          } catch (e) {
-                            return "N/A";
-                          }
-                        })()}
+                        {format(new Date(post.created_at), "MMM d, yyyy")}
                       </span>
                       <span className="text-xs text-muted-foreground">
                         by {post.author_name}
@@ -341,26 +320,6 @@ export function BlogPostsList({ onNewPost, onEditPost }: BlogPostsListProps) {
           ))}
         </div>
       )}
-
-      <AlertDialog open={postToDelete !== null} onOpenChange={(open) => !open && setPostToDelete(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure you want to delete this post?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete the blog post from the database.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              onClick={() => postToDelete && deletePost(postToDelete)}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-            >
-              Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
   );
 }
