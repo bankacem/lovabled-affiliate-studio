@@ -573,6 +573,135 @@ export function AIArticleGenerator() {
               </p>
             </div>
 
+            {/* AI Model Selector */}
+            <div className="space-y-3 border-t pt-3">
+              <Label className="text-sm flex items-center gap-2">
+                <Bot className="h-4 w-4" />
+                AI Model
+              </Label>
+              <Select value={aiProvider} onValueChange={(v: AIProvider) => { setAiProvider(v); setConnectionStatus("idle"); }}>
+                <SelectTrigger className="h-9">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="lovable">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-primary" />
+                      Lovable AI (Built-in)
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="openrouter">
+                    <div className="flex items-center gap-2">
+                      <Shield className="h-4 w-4 text-purple-500" />
+                      OpenRouter
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="groq">
+                    <div className="flex items-center gap-2">
+                      <Zap className="h-4 w-4 text-orange-500" />
+                      Groq
+                    </div>
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+
+              {aiProvider === "openrouter" && (
+                <div className="space-y-2 bg-muted/30 rounded-lg p-3">
+                  <div className="space-y-1">
+                    <Label className="text-xs">API Key</Label>
+                    <div className="flex gap-1">
+                      <Input
+                        type="password"
+                        value={openrouterKey}
+                        onChange={(e) => setOpenrouterKey(e.target.value)}
+                        placeholder="sk-or-..."
+                        className="h-8 text-xs"
+                      />
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-8 px-2"
+                        disabled={!openrouterKey || connectionStatus === "testing"}
+                        onClick={testConnection}
+                      >
+                        {connectionStatus === "testing" ? <Loader2 className="h-3 w-3 animate-spin" /> :
+                         connectionStatus === "success" ? <CheckCircle2 className="h-3 w-3 text-green-500" /> :
+                         connectionStatus === "error" ? <X className="h-3 w-3 text-red-500" /> :
+                         <Key className="h-3 w-3" />}
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Model</Label>
+                    <Select value={openrouterModel} onValueChange={setOpenrouterModel}>
+                      <SelectTrigger className="h-8 text-xs">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</SelectItem>
+                        <SelectItem value="google/gemini-pro">Gemini Pro</SelectItem>
+                        <SelectItem value="meta-llama/llama-3-70b-instruct">Llama 3 70B</SelectItem>
+                        <SelectItem value="openai/gpt-4o">GPT-4o</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Or custom model ID</Label>
+                    <Input
+                      value={customOpenrouterModel}
+                      onChange={(e) => setCustomOpenrouterModel(e.target.value)}
+                      placeholder="e.g. mistralai/mistral-large"
+                      className="h-8 text-xs"
+                    />
+                  </div>
+                  <p className="text-[10px] text-muted-foreground">🔒 Key stored in session only — never saved</p>
+                </div>
+              )}
+
+              {aiProvider === "groq" && (
+                <div className="space-y-2 bg-muted/30 rounded-lg p-3">
+                  <div className="space-y-1">
+                    <Label className="text-xs">API Key</Label>
+                    <div className="flex gap-1">
+                      <Input
+                        type="password"
+                        value={groqKey}
+                        onChange={(e) => setGroqKey(e.target.value)}
+                        placeholder="gsk_..."
+                        className="h-8 text-xs"
+                      />
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-8 px-2"
+                        disabled={!groqKey || connectionStatus === "testing"}
+                        onClick={testConnection}
+                      >
+                        {connectionStatus === "testing" ? <Loader2 className="h-3 w-3 animate-spin" /> :
+                         connectionStatus === "success" ? <CheckCircle2 className="h-3 w-3 text-green-500" /> :
+                         connectionStatus === "error" ? <X className="h-3 w-3 text-red-500" /> :
+                         <Key className="h-3 w-3" />}
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Model</Label>
+                    <Select value={groqModel} onValueChange={setGroqModel}>
+                      <SelectTrigger className="h-8 text-xs">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="llama-3.3-70b-versatile">Llama 3.3 70B</SelectItem>
+                        <SelectItem value="mixtral-8x7b-32768">Mixtral 8x7B</SelectItem>
+                        <SelectItem value="gemma2-9b-it">Gemma2 9B</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <p className="text-[10px] text-muted-foreground">🔒 Key stored in session only — never saved</p>
+                </div>
+              )}
+            </div>
+
             <div className="space-y-3 border-t pt-3">
               <Label className="text-sm text-muted-foreground">Content Options</Label>
               <div className="space-y-2">
