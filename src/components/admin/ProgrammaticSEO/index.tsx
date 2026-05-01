@@ -3,7 +3,8 @@ import { TemplateManager } from "./TemplateManager";
 import { ArticleGenerator } from "./ArticleGenerator";
 import { BatchManager } from "./BatchManager";
 import { AIArticleGenerator } from "./AIArticleGenerator";
-import { FileText, Rocket, FolderOpen, Sparkles } from "lucide-react";
+import { MissingImageGenerator } from "./MissingImageGenerator";
+import { FileText, Rocket, FolderOpen, Sparkles, Image } from "lucide-react";
 
 export function ProgrammaticSEO() {
   return (
@@ -16,7 +17,7 @@ export function ProgrammaticSEO() {
       </div>
 
       <Tabs defaultValue="ai-generator" className="space-y-4">
-        <TabsList className="grid grid-cols-4 w-full max-w-2xl">
+        <TabsList className="grid grid-cols-5 w-full max-w-3xl">
           <TabsTrigger value="ai-generator" className="flex items-center gap-2">
             <Sparkles className="h-4 w-4" />
             AI Generator
@@ -32,6 +33,10 @@ export function ProgrammaticSEO() {
           <TabsTrigger value="batches" className="flex items-center gap-2">
             <FolderOpen className="h-4 w-4" />
             Batches
+          </TabsTrigger>
+          <TabsTrigger value="images" className="flex items-center gap-2">
+            <Image className="h-4 w-4" />
+            Images
           </TabsTrigger>
         </TabsList>
 
@@ -50,6 +55,10 @@ export function ProgrammaticSEO() {
         <TabsContent value="batches">
           <BatchManager />
         </TabsContent>
+
+        <TabsContent value="images">
+          <MissingImageGenerator />
+        </TabsContent>
       </Tabs>
     </div>
   );
@@ -59,3 +68,4 @@ export { TemplateManager } from "./TemplateManager";
 export { ArticleGenerator } from "./ArticleGenerator";
 export { BatchManager } from "./BatchManager";
 export { AIArticleGenerator } from "./AIArticleGenerator";
+export { MissingImageGenerator } from "./MissingImageGenerator";
