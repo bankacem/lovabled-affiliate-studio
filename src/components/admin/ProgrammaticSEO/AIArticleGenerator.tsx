@@ -44,9 +44,12 @@ import {
   GraduationCap,
   Megaphone,
   BookOpen,
+  Key,
+  Shield,
+  Bot,
 } from "lucide-react";
 import { toast } from "sonner";
-import { format, addMinutes, addHours, addDays } from "date-fns";
+import { format as formatDate, addMinutes, addHours, addDays } from "date-fns";
 
 type WritingStyle = "professional" | "friendly" | "conversational" | "academic" | "persuasive" | "storytelling";
 
