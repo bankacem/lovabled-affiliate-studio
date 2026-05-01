@@ -202,22 +202,67 @@ export function AIArticleGenerator() {
       .filter(k => k.length > 0);
   };
 
-  const generateSingleArticle = async (keyword: string): Promise<GeneratedArticle> => {
+  const testConnection = async () => {
+    setConnectionStatus("testing");
     try {
-      const { data, error } = await supabase.functions.invoke("generate-article", {
-        body: {
-          keyword,
-          category,
-          language,
-          includeImages,
-          includeFAQ,
-          includeTOC,
-          includeComparisonTable,
-          writingStyle,
-        },
+      const functionName = aiProvider === "openrouter" ? "generate-article-openrouter" : "generate-article-groq";
+      const apiKey = aiProvider === "openrouter" ? openrouterKey : groqKey;
+      const model = aiProvider === "openrouter" 
+        ? (customOpenrouterModel || openrouterModel) 
+        : groqModel;
+
+      const { data, error } = await supabase.functions.invoke(functionName, {
+        body: { keyword: "test connection", apiKey, model, category: "General" },
       });
 
       if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      setConnectionStatus("success");
+      toast.success("Connection successful! ✅");
+    } catch (err) {
+      setConnectionStatus("error");
+      toast.error("Connection failed: " + (err instanceof Error ? err.message : "Unknown error"));
+    }
+  };
+
+  const generateSingleArticle = async (keyword: string): Promise<GeneratedArticle> => {
+    try {
+      const baseBody = {
+        keyword,
+        category,
+        language,
+        includeImages,
+        includeFAQ,
+        includeTOC,
+        includeComparisonTable,
+        writingStyle,
+      };
+
+      let data: any;
+      let error: any;
+
+      if (aiProvider === "lovable") {
+        const result = await supabase.functions.invoke("generate-article", { body: baseBody });
+        data = result.data;
+        error = result.error;
+      } else if (aiProvider === "openrouter") {
+        if (!openrouterKey) throw new Error("OpenRouter API key is required");
+        const result = await supabase.functions.invoke("generate-article-openrouter", {
+          body: { ...baseBody, apiKey: openrouterKey, model: customOpenrouterModel || openrouterModel },
+        });
+        data = result.data;
+        error = result.error;
+      } else if (aiProvider === "groq") {
+        if (!groqKey) throw new Error("Groq API key is required");
+        const result = await supabase.functions.invoke("generate-article-groq", {
+          body: { ...baseBody, apiKey: groqKey, model: groqModel },
+        });
+        data = result.data;
+        error = result.error;
+      }
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
       
       return {
         ...data,
