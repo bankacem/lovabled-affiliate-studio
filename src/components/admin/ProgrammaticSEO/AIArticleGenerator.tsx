@@ -122,7 +122,7 @@ export function AIArticleGenerator() {
   
   // Scheduling options
   const [scheduleMode, setScheduleMode] = useState<"immediate" | "draft" | "scheduled">("draft");
-  const [startDate, setStartDate] = useState(format(new Date(), "yyyy-MM-dd'T'HH:mm"));
+  const [startDate, setStartDate] = useState(formatDate(new Date(), "yyyy-MM-dd'T'HH:mm"));
   const [intervalValue, setIntervalValue] = useState(2);
   const [intervalUnit, setIntervalUnit] = useState<"minutes" | "hours" | "days">("hours");
 
@@ -677,7 +677,7 @@ export function AIArticleGenerator() {
                       return (
                         <div key={index} className="flex items-center gap-2 text-xs text-muted-foreground">
                           <Clock className="h-3 w-3" />
-                          <span>#{i + 1}: {format(publishAt, "MMM d, HH:mm")}</span>
+                          <span>#{i + 1}: {formatDate(publishAt, "MMM d, HH:mm")}</span>
                         </div>
                       );
                     })}
