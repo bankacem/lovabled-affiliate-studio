@@ -103,6 +103,16 @@ export function AIArticleGenerator() {
   const [includeComparisonTable, setIncludeComparisonTable] = useState(false);
   const [writingStyle, setWritingStyle] = useState<WritingStyle>("professional");
   
+  // Multi-model support
+  type AIProvider = "lovable" | "openrouter" | "groq";
+  const [aiProvider, setAiProvider] = useState<AIProvider>("lovable");
+  const [openrouterKey, setOpenrouterKey] = useState("");
+  const [groqKey, setGroqKey] = useState("");
+  const [openrouterModel, setOpenrouterModel] = useState("anthropic/claude-3.5-sonnet");
+  const [groqModel, setGroqModel] = useState("llama-3.3-70b-versatile");
+  const [customOpenrouterModel, setCustomOpenrouterModel] = useState("");
+  const [connectionStatus, setConnectionStatus] = useState<"idle" | "testing" | "success" | "error">("idle");
+  
   const [isGenerating, setIsGenerating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
