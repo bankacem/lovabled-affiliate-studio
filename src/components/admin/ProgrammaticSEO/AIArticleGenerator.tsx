@@ -44,9 +44,12 @@ import {
   GraduationCap,
   Megaphone,
   BookOpen,
+  Key,
+  Shield,
+  Bot,
 } from "lucide-react";
 import { toast } from "sonner";
-import { format, addMinutes, addHours, addDays } from "date-fns";
+import { format as formatDate, addMinutes, addHours, addDays } from "date-fns";
 
 type WritingStyle = "professional" | "friendly" | "conversational" | "academic" | "persuasive" | "storytelling";
 
@@ -100,6 +103,16 @@ export function AIArticleGenerator() {
   const [includeComparisonTable, setIncludeComparisonTable] = useState(false);
   const [writingStyle, setWritingStyle] = useState<WritingStyle>("professional");
   
+  // Multi-model support
+  type AIProvider = "lovable" | "openrouter" | "groq";
+  const [aiProvider, setAiProvider] = useState<AIProvider>("lovable");
+  const [openrouterKey, setOpenrouterKey] = useState("");
+  const [groqKey, setGroqKey] = useState("");
+  const [openrouterModel, setOpenrouterModel] = useState("anthropic/claude-3.5-sonnet");
+  const [groqModel, setGroqModel] = useState("llama-3.3-70b-versatile");
+  const [customOpenrouterModel, setCustomOpenrouterModel] = useState("");
+  const [connectionStatus, setConnectionStatus] = useState<"idle" | "testing" | "success" | "error">("idle");
+  
   const [isGenerating, setIsGenerating] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -119,7 +132,7 @@ export function AIArticleGenerator() {
   
   // Scheduling options
   const [scheduleMode, setScheduleMode] = useState<"immediate" | "draft" | "scheduled">("draft");
-  const [startDate, setStartDate] = useState(format(new Date(), "yyyy-MM-dd'T'HH:mm"));
+  const [startDate, setStartDate] = useState(formatDate(new Date(), "yyyy-MM-dd'T'HH:mm"));
   const [intervalValue, setIntervalValue] = useState(2);
   const [intervalUnit, setIntervalUnit] = useState<"minutes" | "hours" | "days">("hours");
 
@@ -189,22 +202,67 @@ export function AIArticleGenerator() {
       .filter(k => k.length > 0);
   };
 
-  const generateSingleArticle = async (keyword: string): Promise<GeneratedArticle> => {
+  const testConnection = async () => {
+    setConnectionStatus("testing");
     try {
-      const { data, error } = await supabase.functions.invoke("generate-article", {
-        body: {
-          keyword,
-          category,
-          language,
-          includeImages,
-          includeFAQ,
-          includeTOC,
-          includeComparisonTable,
-          writingStyle,
-        },
+      const functionName = aiProvider === "openrouter" ? "generate-article-openrouter" : "generate-article-groq";
+      const apiKey = aiProvider === "openrouter" ? openrouterKey : groqKey;
+      const model = aiProvider === "openrouter" 
+        ? (customOpenrouterModel || openrouterModel) 
+        : groqModel;
+
+      const { data, error } = await supabase.functions.invoke(functionName, {
+        body: { keyword: "test connection", apiKey, model, category: "General" },
       });
 
       if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      setConnectionStatus("success");
+      toast.success("Connection successful! ✅");
+    } catch (err) {
+      setConnectionStatus("error");
+      toast.error("Connection failed: " + (err instanceof Error ? err.message : "Unknown error"));
+    }
+  };
+
+  const generateSingleArticle = async (keyword: string): Promise<GeneratedArticle> => {
+    try {
+      const baseBody = {
+        keyword,
+        category,
+        language,
+        includeImages,
+        includeFAQ,
+        includeTOC,
+        includeComparisonTable,
+        writingStyle,
+      };
+
+      let data: any;
+      let error: any;
+
+      if (aiProvider === "lovable") {
+        const result = await supabase.functions.invoke("generate-article", { body: baseBody });
+        data = result.data;
+        error = result.error;
+      } else if (aiProvider === "openrouter") {
+        if (!openrouterKey) throw new Error("OpenRouter API key is required");
+        const result = await supabase.functions.invoke("generate-article-openrouter", {
+          body: { ...baseBody, apiKey: openrouterKey, model: customOpenrouterModel || openrouterModel },
+        });
+        data = result.data;
+        error = result.error;
+      } else if (aiProvider === "groq") {
+        if (!groqKey) throw new Error("Groq API key is required");
+        const result = await supabase.functions.invoke("generate-article-groq", {
+          body: { ...baseBody, apiKey: groqKey, model: groqModel },
+        });
+        data = result.data;
+        error = result.error;
+      }
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
       
       return {
         ...data,
@@ -515,6 +573,135 @@ export function AIArticleGenerator() {
               </p>
             </div>
 
+            {/* AI Model Selector */}
+            <div className="space-y-3 border-t pt-3">
+              <Label className="text-sm flex items-center gap-2">
+                <Bot className="h-4 w-4" />
+                AI Model
+              </Label>
+              <Select value={aiProvider} onValueChange={(v: AIProvider) => { setAiProvider(v); setConnectionStatus("idle"); }}>
+                <SelectTrigger className="h-9">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="lovable">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="h-4 w-4 text-primary" />
+                      Lovable AI (Built-in)
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="openrouter">
+                    <div className="flex items-center gap-2">
+                      <Shield className="h-4 w-4 text-purple-500" />
+                      OpenRouter
+                    </div>
+                  </SelectItem>
+                  <SelectItem value="groq">
+                    <div className="flex items-center gap-2">
+                      <Zap className="h-4 w-4 text-orange-500" />
+                      Groq
+                    </div>
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+
+              {aiProvider === "openrouter" && (
+                <div className="space-y-2 bg-muted/30 rounded-lg p-3">
+                  <div className="space-y-1">
+                    <Label className="text-xs">API Key</Label>
+                    <div className="flex gap-1">
+                      <Input
+                        type="password"
+                        value={openrouterKey}
+                        onChange={(e) => setOpenrouterKey(e.target.value)}
+                        placeholder="sk-or-..."
+                        className="h-8 text-xs"
+                      />
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-8 px-2"
+                        disabled={!openrouterKey || connectionStatus === "testing"}
+                        onClick={testConnection}
+                      >
+                        {connectionStatus === "testing" ? <Loader2 className="h-3 w-3 animate-spin" /> :
+                         connectionStatus === "success" ? <CheckCircle2 className="h-3 w-3 text-green-500" /> :
+                         connectionStatus === "error" ? <X className="h-3 w-3 text-red-500" /> :
+                         <Key className="h-3 w-3" />}
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Model</Label>
+                    <Select value={openrouterModel} onValueChange={setOpenrouterModel}>
+                      <SelectTrigger className="h-8 text-xs">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</SelectItem>
+                        <SelectItem value="google/gemini-pro">Gemini Pro</SelectItem>
+                        <SelectItem value="meta-llama/llama-3-70b-instruct">Llama 3 70B</SelectItem>
+                        <SelectItem value="openai/gpt-4o">GPT-4o</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Or custom model ID</Label>
+                    <Input
+                      value={customOpenrouterModel}
+                      onChange={(e) => setCustomOpenrouterModel(e.target.value)}
+                      placeholder="e.g. mistralai/mistral-large"
+                      className="h-8 text-xs"
+                    />
+                  </div>
+                  <p className="text-[10px] text-muted-foreground">🔒 Key stored in session only — never saved</p>
+                </div>
+              )}
+
+              {aiProvider === "groq" && (
+                <div className="space-y-2 bg-muted/30 rounded-lg p-3">
+                  <div className="space-y-1">
+                    <Label className="text-xs">API Key</Label>
+                    <div className="flex gap-1">
+                      <Input
+                        type="password"
+                        value={groqKey}
+                        onChange={(e) => setGroqKey(e.target.value)}
+                        placeholder="gsk_..."
+                        className="h-8 text-xs"
+                      />
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-8 px-2"
+                        disabled={!groqKey || connectionStatus === "testing"}
+                        onClick={testConnection}
+                      >
+                        {connectionStatus === "testing" ? <Loader2 className="h-3 w-3 animate-spin" /> :
+                         connectionStatus === "success" ? <CheckCircle2 className="h-3 w-3 text-green-500" /> :
+                         connectionStatus === "error" ? <X className="h-3 w-3 text-red-500" /> :
+                         <Key className="h-3 w-3" />}
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Model</Label>
+                    <Select value={groqModel} onValueChange={setGroqModel}>
+                      <SelectTrigger className="h-8 text-xs">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="llama-3.3-70b-versatile">Llama 3.3 70B</SelectItem>
+                        <SelectItem value="mixtral-8x7b-32768">Mixtral 8x7B</SelectItem>
+                        <SelectItem value="gemma2-9b-it">Gemma2 9B</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <p className="text-[10px] text-muted-foreground">🔒 Key stored in session only — never saved</p>
+                </div>
+              )}
+            </div>
+
             <div className="space-y-3 border-t pt-3">
               <Label className="text-sm text-muted-foreground">Content Options</Label>
               <div className="space-y-2">
@@ -674,7 +861,7 @@ export function AIArticleGenerator() {
                       return (
                         <div key={index} className="flex items-center gap-2 text-xs text-muted-foreground">
                           <Clock className="h-3 w-3" />
-                          <span>#{i + 1}: {format(publishAt, "MMM d, HH:mm")}</span>
+                          <span>#{i + 1}: {formatDate(publishAt, "MMM d, HH:mm")}</span>
                         </div>
                       );
                     })}
