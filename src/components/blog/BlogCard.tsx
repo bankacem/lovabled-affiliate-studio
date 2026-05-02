@@ -27,6 +27,9 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
               <img
                 src={post.featured_image}
                 alt={post.title}
+                loading="lazy"
+                width={600}
+                height={300}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
