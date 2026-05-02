@@ -4,12 +4,32 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useBlogPost } from "@/hooks/useBlogPosts";
 import { useAutoLinking } from "@/hooks/useAutoLinking";
 import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
- import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
+import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
 import { toast } from "sonner";
 import { format } from "date-fns";
+
+const ArticleSkeleton = () => (
+  <div className="mx-auto max-w-3xl space-y-6">
+    <Skeleton className="h-6 w-24 rounded-full" />
+    <Skeleton className="h-12 w-full" />
+    <Skeleton className="h-12 w-3/4" />
+    <div className="flex gap-4">
+      <Skeleton className="h-4 w-24" />
+      <Skeleton className="h-4 w-24" />
+      <Skeleton className="h-4 w-20" />
+    </div>
+    <Skeleton className="aspect-[2/1] w-full rounded-2xl" />
+    <div className="space-y-4">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <Skeleton key={i} className="h-4 w-full" />
+      ))}
+    </div>
+  </div>
+);
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -19,20 +39,16 @@ const BlogPost = () => {
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
   const { trackLinkClick } = useLinkTracking();
   
-  // Track page view
   usePageTracking(post?.id);
 
-  // Apply auto-linking to content
   const linkedContent = useMemo(() => {
     if (!post?.content || autoLinksLoading) return post?.content || "";
     return applyAutoLinks(post.content, post.id);
   }, [post?.content, post?.id, applyAutoLinks, autoLinksLoading]);
 
-  // Handle anchor links and track clicks
   useEffect(() => {
     if (!post || !contentRef.current) return;
 
-    // Handle initial hash on page load
     if (location.hash) {
       const targetId = location.hash.substring(1);
       setTimeout(() => {
@@ -43,7 +59,6 @@ const BlogPost = () => {
       }, 100);
     }
 
-    // Add click handlers for links
     const handleLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
@@ -52,7 +67,6 @@ const BlogPost = () => {
         const href = anchor.getAttribute("href");
         const linkText = anchor.textContent || "";
         
-        // Handle in-page anchor links (e.g., #section-id)
         if (href?.startsWith("#")) {
           e.preventDefault();
           const targetId = href.substring(1);
@@ -62,7 +76,6 @@ const BlogPost = () => {
             window.history.pushState({}, "", href);
           }
         } else if (href) {
-          // Track link clicks (internal and external)
           trackLinkClick(href, linkText, post.id);
         }
       }
@@ -91,10 +104,11 @@ const BlogPost = () => {
   if (isLoading) {
     return (
       <Layout>
-        <div className="container mx-auto px-4 py-20 text-center md:px-6">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-4 text-muted-foreground">Loading article...</p>
-        </div>
+        <article className="py-8 md:py-12">
+          <div className="container mx-auto px-4 md:px-6">
+            <ArticleSkeleton />
+          </div>
+        </article>
       </Layout>
     );
   }
@@ -120,11 +134,48 @@ const BlogPost = () => {
     );
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "image": post.featured_image || undefined,
+    "datePublished": post.published_at || post.created_at,
+    "dateModified": post.updated_at,
+    "author": { "@type": "Person", "name": post.author_name },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIPrintVerse",
+      "url": "https://aiprintverse.com"
+    },
+    "description": post.meta_description || post.excerpt || "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://aiprintverse.com/blog/${post.slug}`
+    }
+  };
+
   return (
     <Layout>
-      {/* SEO Meta Tags */}
+      {/* SEO */}
       <title>{post.meta_title || post.title}</title>
       <meta name="description" content={post.meta_description || post.excerpt || ""} />
+      <meta property="og:title" content={post.meta_title || post.title} />
+      <meta property="og:description" content={post.meta_description || post.excerpt || ""} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={`https://aiprintverse.com/blog/${post.slug}`} />
+      {post.featured_image && <meta property="og:image" content={post.featured_image} />}
+      <link rel="canonical" href={`https://aiprintverse.com/blog/${post.slug}`} />
+      
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Preload featured image */}
+      {post.featured_image && (
+        <link rel="preload" as="image" href={post.featured_image} />
+      )}
       
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
@@ -181,7 +232,6 @@ const BlogPost = () => {
                 </button>
               </div>
               
-              {/* Tags */}
               {post.tags && post.tags.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {post.tags.map((tag, index) => (
@@ -208,12 +258,15 @@ const BlogPost = () => {
                 <img
                   src={post.featured_image}
                   alt={post.title}
+                  loading="eager"
+                  width={1200}
+                  height={630}
                   className="h-full w-full object-cover"
                 />
               </motion.div>
             )}
 
-            {/* Content with auto-linking */}
+            {/* Content */}
             <motion.div
               ref={contentRef}
               initial={{ opacity: 0, y: 20 }}
@@ -223,7 +276,6 @@ const BlogPost = () => {
               dangerouslySetInnerHTML={{ __html: linkedContent }}
             />
 
-            {/* Excerpt as intro if no rich content */}
             {!post.content && post.excerpt && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -235,14 +287,13 @@ const BlogPost = () => {
               </motion.div>
             )}
 
-             {/* Smart Internal Linking Section */}
-             <InternalLinkBridge
-               currentPostId={post.id}
-               currentCategory={post.category}
-               currentTags={post.tags || []}
-               variant="end"
-               maxSuggestions={3}
-             />
+            <InternalLinkBridge
+              currentPostId={post.id}
+              currentCategory={post.category}
+              currentTags={post.tags || []}
+              variant="end"
+              maxSuggestions={3}
+            />
           </div>
         </div>
       </article>
