@@ -51,7 +51,7 @@ IMPORTANT: Write this as a real human expert would. Be natural, engaging, and pr
     if (!response.ok) {
       const errorText = await response.text();
       console.error("OpenRouter error:", response.status, errorText);
-      return new Response(JSON.stringify({ error: `OpenRouter error: ${response.status} - ${errorText}` }), { status: response.status, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+      return new Response(JSON.stringify({ error: `OpenRouter error: ${response.status} - ${errorText}` }), { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
     const data = await response.json();
