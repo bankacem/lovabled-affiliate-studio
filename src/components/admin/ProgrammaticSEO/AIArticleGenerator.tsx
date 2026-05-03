@@ -639,9 +639,9 @@ export function AIArticleGenerator() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</SelectItem>
-                        <SelectItem value="google/gemini-pro">Gemini Pro</SelectItem>
-                        <SelectItem value="meta-llama/llama-3-70b-instruct">Llama 3 70B</SelectItem>
+                        <SelectItem value="anthropic/claude-sonnet-4">Claude Sonnet 4</SelectItem>
+                        <SelectItem value="google/gemini-2.5-flash">Gemini 2.5 Flash</SelectItem>
+                        <SelectItem value="meta-llama/llama-4-maverick">Llama 4 Maverick</SelectItem>
                         <SelectItem value="openai/gpt-4o">GPT-4o</SelectItem>
                       </SelectContent>
                     </Select>
