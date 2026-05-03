@@ -108,7 +108,8 @@ export function AIArticleGenerator() {
   const [aiProvider, setAiProvider] = useState<AIProvider>("lovable");
   const [openrouterKey, setOpenrouterKey] = useState("");
   const [groqKey, setGroqKey] = useState("");
-  const [openrouterModel, setOpenrouterModel] = useState("anthropic/claude-3.5-sonnet");
+  const [openrouterModel, setOpenrouterModel] = useState("anthropic/claude-sonnet-4");
+  const [delayBetweenArticles, setDelayBetweenArticles] = useState(10);
   const [groqModel, setGroqModel] = useState("llama-3.3-70b-versatile");
   const [customOpenrouterModel, setCustomOpenrouterModel] = useState("");
   const [connectionStatus, setConnectionStatus] = useState<"idle" | "testing" | "success" | "error">("idle");
