@@ -55,7 +55,8 @@ export function MissingImageGenerator() {
   };
 
   const generateImageUrl = (post: PostWithoutImage): string => {
-    const imagePrompt = `Professional blog featured image for article titled: "${post.title}". ${post.meta_description || ''}. Style: clean, modern, editorial photography, web optimized`;
+    const shortTitle = post.title.length > 60 ? post.title.substring(0, 60) : post.title;
+    const imagePrompt = `A premium mockup photo of a stylish t-shirt on a wooden hanger against a clean minimal background. The t-shirt features a bold graphic design with the text "${shortTitle}" printed on the front. Professional product photography, soft studio lighting, print-on-demand style, high quality, modern aesthetic, 4k`;
     const encodedPrompt = encodeURIComponent(imagePrompt);
     return `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1200&height=630&model=flux&nologo=true&format=webp`;
   };
