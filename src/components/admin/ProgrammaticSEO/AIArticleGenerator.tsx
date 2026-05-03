@@ -724,8 +724,23 @@ export function AIArticleGenerator() {
                     <span className="text-sm">Comparison Table</span>
                   </div>
                   <Switch checked={includeComparisonTable} onCheckedChange={setIncludeComparisonTable} />
-                </div>
               </div>
+            </div>
+
+            <div className="space-y-3 border-t pt-3">
+              <Label className="text-sm text-muted-foreground">Delay Between Articles</Label>
+              <div className="flex items-center gap-3">
+                <Input
+                  type="number"
+                  min={3}
+                  max={120}
+                  value={delayBetweenArticles}
+                  onChange={(e) => setDelayBetweenArticles(Math.max(3, Number(e.target.value)))}
+                  className="h-8 w-20 text-xs"
+                />
+                <span className="text-xs text-muted-foreground">seconds (min 3s to avoid rate limits)</span>
+              </div>
+            </div>
             </div>
 
             {isGenerating && (
