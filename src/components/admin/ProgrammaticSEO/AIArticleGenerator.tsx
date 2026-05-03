@@ -323,7 +323,7 @@ export function AIArticleGenerator() {
       
       // Add delay between requests to avoid rate limiting
       if (i < keywordList.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, delayBetweenArticles * 1000));
       }
     }
 
