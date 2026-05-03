@@ -38,7 +38,7 @@ IMPORTANT: Write this as a real human expert would. Be natural, engaging, and pr
         "X-Title": "AI Blog Generator",
       },
       body: JSON.stringify({
-        model: model || "anthropic/claude-3.5-sonnet",
+        model: model || "anthropic/claude-sonnet-4",
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: userPrompt },
