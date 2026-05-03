@@ -108,7 +108,8 @@ export function AIArticleGenerator() {
   const [aiProvider, setAiProvider] = useState<AIProvider>("lovable");
   const [openrouterKey, setOpenrouterKey] = useState("");
   const [groqKey, setGroqKey] = useState("");
-  const [openrouterModel, setOpenrouterModel] = useState("anthropic/claude-3.5-sonnet");
+  const [openrouterModel, setOpenrouterModel] = useState("anthropic/claude-sonnet-4");
+  const [delayBetweenArticles, setDelayBetweenArticles] = useState(10);
   const [groqModel, setGroqModel] = useState("llama-3.3-70b-versatile");
   const [customOpenrouterModel, setCustomOpenrouterModel] = useState("");
   const [connectionStatus, setConnectionStatus] = useState<"idle" | "testing" | "success" | "error">("idle");
@@ -322,7 +323,7 @@ export function AIArticleGenerator() {
       
       // Add delay between requests to avoid rate limiting
       if (i < keywordList.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, delayBetweenArticles * 1000));
       }
     }
 
@@ -638,9 +639,9 @@ export function AIArticleGenerator() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</SelectItem>
-                        <SelectItem value="google/gemini-pro">Gemini Pro</SelectItem>
-                        <SelectItem value="meta-llama/llama-3-70b-instruct">Llama 3 70B</SelectItem>
+                        <SelectItem value="anthropic/claude-sonnet-4">Claude Sonnet 4</SelectItem>
+                        <SelectItem value="google/gemini-2.5-flash">Gemini 2.5 Flash</SelectItem>
+                        <SelectItem value="meta-llama/llama-4-maverick">Llama 4 Maverick</SelectItem>
                         <SelectItem value="openai/gpt-4o">GPT-4o</SelectItem>
                       </SelectContent>
                     </Select>
@@ -723,8 +724,23 @@ export function AIArticleGenerator() {
                     <span className="text-sm">Comparison Table</span>
                   </div>
                   <Switch checked={includeComparisonTable} onCheckedChange={setIncludeComparisonTable} />
-                </div>
               </div>
+            </div>
+
+            <div className="space-y-3 border-t pt-3">
+              <Label className="text-sm text-muted-foreground">Delay Between Articles</Label>
+              <div className="flex items-center gap-3">
+                <Input
+                  type="number"
+                  min={3}
+                  max={120}
+                  value={delayBetweenArticles}
+                  onChange={(e) => setDelayBetweenArticles(Math.max(3, Number(e.target.value)))}
+                  className="h-8 w-20 text-xs"
+                />
+                <span className="text-xs text-muted-foreground">seconds (min 3s to avoid rate limits)</span>
+              </div>
+            </div>
             </div>
 
             {isGenerating && (
