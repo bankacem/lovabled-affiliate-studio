@@ -7,6 +7,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Image, Search, Loader2, CheckCircle2, XCircle, AlertTriangle, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 
@@ -21,7 +22,11 @@ interface ImageResult {
   title: string;
   imageUrl: string;
   status: "pending" | "approved" | "skipped" | "saved" | "failed";
+  source: "pollinations" | "unsplash";
+  photographer?: string;
 }
+
+type ImageSource = "pollinations" | "unsplash" | "pollinations+unsplash";
 
 export function MissingImageGenerator() {
   const [posts, setPosts] = useState<PostWithoutImage[]>([]);
@@ -31,6 +36,7 @@ export function MissingImageGenerator() {
   const [results, setResults] = useState<ImageResult[]>([]);
   const [progress, setProgress] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageSource, setImageSource] = useState<ImageSource>("pollinations+unsplash");
   const [summary, setSummary] = useState<{ added: number; skipped: number; failed: number } | null>(null);
 
   const scanPosts = async () => {
@@ -54,11 +60,51 @@ export function MissingImageGenerator() {
     setIsScanning(false);
   };
 
-  const generateImageUrl = (post: PostWithoutImage): string => {
+  const generatePollinationsUrl = (post: PostWithoutImage): string => {
     const shortTitle = post.title.length > 60 ? post.title.substring(0, 60) : post.title;
     const imagePrompt = `A premium mockup photo of a stylish t-shirt on a wooden hanger against a clean minimal background. The t-shirt features a bold graphic design with the text "${shortTitle}" printed on the front. Professional product photography, soft studio lighting, print-on-demand style, high quality, modern aesthetic, 4k`;
     const encodedPrompt = encodeURIComponent(imagePrompt);
     return `https://image.pollinations.ai/prompt/${encodedPrompt}?width=1200&height=630&model=flux&nologo=true&format=webp`;
+  };
+
+  const fetchUnsplashImage = async (title: string): Promise<{ url: string; photographer?: string } | null> => {
+    try {
+      const { data, error } = await supabase.functions.invoke("search-unsplash", {
+        body: { query: title },
+      });
+
+      if (error || data?.error) return null;
+      return { url: data.imageUrl, photographer: data.photographer };
+    } catch {
+      return null;
+    }
+  };
+
+  const getImageForPost = async (post: PostWithoutImage): Promise<{ url: string; source: "pollinations" | "unsplash"; photographer?: string }> => {
+    if (imageSource === "unsplash") {
+      const unsplash = await fetchUnsplashImage(post.title);
+      if (unsplash) return { url: unsplash.url, source: "unsplash", photographer: unsplash.photographer };
+      // If unsplash-only fails, still return pollinations as last resort
+      return { url: generatePollinationsUrl(post), source: "pollinations" };
+    }
+
+    if (imageSource === "pollinations") {
+      return { url: generatePollinationsUrl(post), source: "pollinations" };
+    }
+
+    // pollinations+unsplash: try Pollinations first, fallback to Unsplash
+    const pollinationsUrl = generatePollinationsUrl(post);
+    try {
+      const testRes = await fetch(pollinationsUrl, { method: "HEAD" });
+      if (testRes.ok) return { url: pollinationsUrl, source: "pollinations" };
+    } catch {
+      // Pollinations failed, try Unsplash
+    }
+
+    const unsplash = await fetchUnsplashImage(post.title);
+    if (unsplash) return { url: unsplash.url, source: "unsplash", photographer: unsplash.photographer };
+
+    return { url: pollinationsUrl, source: "pollinations" };
   };
 
   const handleGenerateAll = async () => {
@@ -74,13 +120,15 @@ export function MissingImageGenerator() {
     for (let i = 0; i < posts.length; i++) {
       setCurrentIndex(i);
       const post = posts[i];
-      const imageUrl = generateImageUrl(post);
+      const imgData = await getImageForPost(post);
 
       const result: ImageResult = {
         postId: post.id,
         title: post.title,
-        imageUrl,
+        imageUrl: imgData.url,
         status: "pending",
+        source: imgData.source,
+        photographer: imgData.photographer,
       };
 
       if (previewMode) {
@@ -88,15 +136,12 @@ export function MissingImageGenerator() {
         newResults.push(result);
         setResults([...newResults]);
         setProgress(((i + 1) / posts.length) * 100);
-
-        // Wait for user action in preview mode - we'll process all first, then let user approve
         await new Promise(resolve => setTimeout(resolve, 300));
       } else {
-        // Auto-save mode
         try {
           const { error } = await supabase
             .from("blog_posts")
-            .update({ featured_image: imageUrl })
+            .update({ featured_image: imgData.url })
             .eq("id", post.id);
 
           if (error) {
@@ -114,7 +159,6 @@ export function MissingImageGenerator() {
         setResults([...newResults]);
         setProgress(((i + 1) / posts.length) * 100);
 
-        // 1 second delay between requests
         if (i < posts.length - 1) {
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
@@ -156,13 +200,27 @@ export function MissingImageGenerator() {
     setResults(updated);
   };
 
-  const regenerateImage = (index: number) => {
+  const regenerateImage = async (index: number) => {
     const post = posts.find(p => p.id === results[index].postId);
     if (!post) return;
     const updated = [...results];
-    // Add a random seed to force a new image
-    const imageUrl = generateImageUrl(post) + `&seed=${Date.now()}`;
-    updated[index].imageUrl = imageUrl;
+
+    // Toggle source on regenerate
+    const currentSource = updated[index].source;
+    if (currentSource === "pollinations") {
+      const unsplash = await fetchUnsplashImage(post.title);
+      if (unsplash) {
+        updated[index].imageUrl = unsplash.url;
+        updated[index].source = "unsplash";
+        updated[index].photographer = unsplash.photographer;
+      } else {
+        updated[index].imageUrl = generatePollinationsUrl(post) + `&seed=${Date.now()}`;
+      }
+    } else {
+      updated[index].imageUrl = generatePollinationsUrl(post) + `&seed=${Date.now()}`;
+      updated[index].source = "pollinations";
+      updated[index].photographer = undefined;
+    }
     updated[index].status = "pending";
     setResults(updated);
   };
@@ -171,17 +229,17 @@ export function MissingImageGenerator() {
     const post = posts.find(p => p.id === postId);
     if (!post) return;
 
-    const imageUrl = generateImageUrl(post);
+    const imgData = await getImageForPost(post);
     try {
       const { error } = await supabase
         .from("blog_posts")
-        .update({ featured_image: imageUrl })
+        .update({ featured_image: imgData.url })
         .eq("id", postId);
 
       if (error) {
         toast.error("Failed to save image");
       } else {
-        toast.success("Image generated and saved!");
+        toast.success(`Image saved from ${imgData.source}!`);
         setPosts(prev => prev.filter(p => p.id !== postId));
       }
     } catch {
@@ -202,7 +260,7 @@ export function MissingImageGenerator() {
           Generate Missing Images
         </h2>
         <p className="text-muted-foreground">
-          Auto-generate featured images for posts that don't have one using Pollinations.AI
+          Auto-generate featured images using Pollinations.AI with Unsplash fallback (WebP format)
         </p>
       </div>
 
@@ -226,6 +284,20 @@ export function MissingImageGenerator() {
                 <div className="bg-muted/50 rounded-lg p-3 text-center">
                   <p className="text-2xl font-bold text-primary">{posts.length}</p>
                   <p className="text-sm text-muted-foreground">posts without images</p>
+                </div>
+
+                <div className="space-y-2">
+                  <Label className="text-sm">Image Source</Label>
+                  <Select value={imageSource} onValueChange={(v) => setImageSource(v as ImageSource)}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="pollinations+unsplash">Pollinations + Unsplash Fallback</SelectItem>
+                      <SelectItem value="pollinations">Pollinations Only</SelectItem>
+                      <SelectItem value="unsplash">Unsplash Only</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="flex items-center justify-between">
@@ -303,19 +375,28 @@ export function MissingImageGenerator() {
                     <div key={result.postId} className="border rounded-lg p-3 space-y-2">
                       <div className="flex items-center justify-between">
                         <h4 className="text-sm font-medium line-clamp-1 flex-1">{result.title}</h4>
-                        <Badge
-                          variant={
-                            result.status === "saved" ? "default" :
-                            result.status === "skipped" ? "secondary" :
-                            result.status === "failed" ? "destructive" : "outline"
-                          }
-                        >
-                          {result.status === "saved" && <><CheckCircle2 className="h-3 w-3 mr-1" />Saved</>}
-                          {result.status === "skipped" && <><AlertTriangle className="h-3 w-3 mr-1" />Skipped</>}
-                          {result.status === "failed" && <><XCircle className="h-3 w-3 mr-1" />Failed</>}
-                          {result.status === "pending" && "Pending"}
-                        </Badge>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="outline" className="text-xs">
+                            {result.source === "unsplash" ? "📷 Unsplash" : "🎨 Pollinations"}
+                          </Badge>
+                          <Badge
+                            variant={
+                              result.status === "saved" ? "default" :
+                              result.status === "skipped" ? "secondary" :
+                              result.status === "failed" ? "destructive" : "outline"
+                            }
+                          >
+                            {result.status === "saved" && <><CheckCircle2 className="h-3 w-3 mr-1" />Saved</>}
+                            {result.status === "skipped" && <><AlertTriangle className="h-3 w-3 mr-1" />Skipped</>}
+                            {result.status === "failed" && <><XCircle className="h-3 w-3 mr-1" />Failed</>}
+                            {result.status === "pending" && "Pending"}
+                          </Badge>
+                        </div>
                       </div>
+
+                      {result.photographer && (
+                        <p className="text-xs text-muted-foreground">📸 Photo by {result.photographer} on Unsplash</p>
+                      )}
 
                       {previewMode && result.status === "pending" && (
                         <>
@@ -332,7 +413,7 @@ export function MissingImageGenerator() {
                               <CheckCircle2 className="h-3 w-3 mr-1" />Approve
                             </Button>
                             <Button size="sm" variant="outline" onClick={() => regenerateImage(index)}>
-                              <RefreshCw className="h-3 w-3 mr-1" />Regenerate
+                              <RefreshCw className="h-3 w-3 mr-1" />Try {result.source === "pollinations" ? "Unsplash" : "Pollinations"}
                             </Button>
                             <Button size="sm" variant="ghost" onClick={() => skipImage(index)}>
                               Skip
