@@ -1,0 +1,33 @@
+{
+  "headers": [
+    {
+      "source": "/blog/:path*",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=86400" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "redbubble-sable.vercel.app"
+        }
+      ],
+      "destination": "https://aiprintverse.com/:path*",
+      "permanent": true
+    }
+  ]
+}

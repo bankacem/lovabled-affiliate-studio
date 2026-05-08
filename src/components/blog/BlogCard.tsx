@@ -1,0 +1,74 @@
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Calendar, Clock, ArrowRight, FileText } from "lucide-react";
+import { format } from "date-fns";
+import type { BlogPost } from "@/hooks/useBlogPosts";
+
+interface BlogCardProps {
+  post: BlogPost;
+  index?: number;
+}
+
+export function BlogCard({ post, index = 0 }: BlogCardProps) {
+  const displayDate = post.published_at || post.created_at;
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="group"
+    >
+      <Link to={`/blog/${post.slug}`}>
+        <div className="overflow-hidden rounded-xl bg-card shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
+          {/* Image */}
+          <div className="relative aspect-[2/1] overflow-hidden bg-secondary">
+            {post.featured_image ? (
+              <img
+                src={post.featured_image}
+                alt={post.title}
+                loading="lazy"
+                width={600}
+                height={300}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : (
+              <div className="h-full w-full flex items-center justify-center">
+                <FileText className="h-12 w-12 text-muted-foreground" />
+              </div>
+            )}
+            <div className="absolute left-3 top-3 rounded-full bg-primary/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-primary-foreground">
+              {post.category}
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-5">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground">
+              <span className="flex items-center gap-1">
+                <Calendar className="h-3.5 w-3.5" />
+                {format(new Date(displayDate), "MMM d, yyyy")}
+              </span>
+              {post.read_time && (
+                <span className="flex items-center gap-1">
+                  <Clock className="h-3.5 w-3.5" />
+                  {post.read_time}
+                </span>
+              )}
+            </div>
+            <h3 className="mt-3 font-display text-xl font-semibold text-card-foreground line-clamp-2 group-hover:text-primary transition-colors">
+              {post.title}
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+              {post.excerpt || "No excerpt available"}
+            </p>
+            <div className="mt-4 flex items-center gap-2 text-sm font-medium text-primary">
+              Read More
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </div>
+          </div>
+        </div>
+      </Link>
+    </motion.article>
+  );
+}
