@@ -218,12 +218,18 @@ export function BulkPostImport() {
   };
 
   const generateSlug = (title: string): string => {
-    return title
+    const raw = title
       .toLowerCase()
-      .replace(/[^\w\s-]/g, "")
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-")
-      .trim();
+      .replace(/[^a-z0-9\s\-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+    // Truncate at word boundary (max 75 chars) to avoid cutting words mid-way
+    if (raw.length <= 75) return raw;
+    const truncated = raw.slice(0, 75);
+    const lastHyphen = truncated.lastIndexOf('-');
+    return lastHyphen > 30 ? truncated.slice(0, lastHyphen) : truncated;
   };
 
   const importPosts = async () => {

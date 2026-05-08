@@ -19,7 +19,10 @@ export function useSitemapData() {
         .order("updated_at", { ascending: false });
 
       if (data) {
-        setPosts(data);
+        const EXCLUDED_SLUGS = [
+          'decoding-the-edge-function-returned-a-non-2xx-status-code-error-a-developers-guide-to-recovery',
+        ];
+        setPosts(data.filter(post => !EXCLUDED_SLUGS.includes(post.slug)));
       }
       setIsLoading(false);
     };
@@ -41,17 +44,39 @@ export function generateSitemapXml(posts: SitemapEntry[], baseUrl: string): stri
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
+  const todayDate = new Date().toISOString().split("T")[0];
+
   // Static pages
   staticPages.forEach((page) => {
     xml += `  <url>\n`;
     xml += `    <loc>${baseUrl}${page.path}</loc>\n`;
+    xml += `    <lastmod>${todayDate}</lastmod>\n`;
     xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
     xml += `    <priority>${page.priority}</priority>\n`;
     xml += `  </url>\n`;
   });
 
+  // Deduplicate: remove slugs that start with "p-" when a clean version exists
+  const cleanedPosts = (() => {
+    const slugSet = new Set(posts.map(p => p.slug));
+    return posts.filter(post => {
+      // If this slug starts with "p-", check if a clean version exists
+      if (post.slug.startsWith('p-')) {
+        const cleanSlug = post.slug.slice(2); // remove "p-"
+        if (slugSet.has(cleanSlug)) {
+          return false; // skip the "p-" version, the clean one exists
+        }
+      }
+      return true;
+    }).map(post => ({
+      ...post,
+      // Normalize: if the slug still starts with "p-" (no clean version found), strip the prefix
+      slug: post.slug.startsWith('p-') ? post.slug.slice(2) : post.slug,
+    }));
+  })();
+
   // Blog posts
-  posts.forEach((post) => {
+  cleanedPosts.forEach((post) => {
     const lastmod = new Date(post.updated_at).toISOString().split("T")[0];
     xml += `  <url>\n`;
     xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;

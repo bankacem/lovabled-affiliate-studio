@@ -150,19 +150,18 @@ export function BlogPostEditor({ postId, onBack }: BlogPostEditorProps) {
 
   // Use the SEO-optimized slug generator
   const generateSlug = (title: string) => {
-    return title
+    const raw = title
       .toLowerCase()
-      // Remove special characters (: ? ! @ # $ % ^ & * etc.)
       .replace(/[^a-z0-9\s\-]/g, '')
-      // Replace spaces with hyphens
       .replace(/\s+/g, '-')
-      // Remove consecutive hyphens
       .replace(/-+/g, '-')
-      // Remove leading and trailing hyphens
-      .replace(/^-+|-+$/g, '')
-      // Limit length for SEO (max 60 chars)
-      .slice(0, 60)
-      .replace(/-+$/, '');
+      .replace(/^-+|-+$/g, '');
+
+    // Truncate at word boundary (max 75 chars) to avoid cutting words mid-way
+    if (raw.length <= 75) return raw;
+    const truncated = raw.slice(0, 75);
+    const lastHyphen = truncated.lastIndexOf('-');
+    return lastHyphen > 30 ? truncated.slice(0, lastHyphen) : truncated;
   };
 
   const handleTitleChange = (title: string) => {
