@@ -13,7 +13,7 @@ const TOKEN_KEY = "auth_token";
 interface User {
   id: string;
   email: string;
-  role?: string;
+  isAdmin: boolean;
 }
 
 interface AuthContextValue {
@@ -39,6 +39,14 @@ const apiBase = () =>
     ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
     : "";
 
+function normaliseUser(raw: any): User {
+  return {
+    id: raw.id ?? "",
+    email: raw.email ?? "",
+    isAdmin: raw.isAdmin === true,
+  };
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
@@ -60,7 +68,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           });
           if (res.ok) {
             const data = await res.json();
-            setUser(data.user ?? data);
+            setUser(normaliseUser(data.user ?? data));
           } else {
             await AsyncStorage.removeItem(TOKEN_KEY);
             applyToken(null);
@@ -89,7 +97,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const t: string = data.token;
       await AsyncStorage.setItem(TOKEN_KEY, t);
       applyToken(t);
-      setUser(data.user);
+      setUser(normaliseUser(data.user));
     },
     [applyToken]
   );
@@ -109,7 +117,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const t: string = data.token;
       await AsyncStorage.setItem(TOKEN_KEY, t);
       applyToken(t);
-      setUser(data.user);
+      setUser(normaliseUser(data.user));
     },
     [applyToken]
   );

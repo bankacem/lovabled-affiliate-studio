@@ -85,7 +85,7 @@ export default function ProfileScreen() {
   }
 
   if (user) {
-    const isAdmin = user.role === "admin" || user.role === "superadmin";
+    const isAdmin = user.isAdmin === true;
 
     return (
       <ScrollView
@@ -140,7 +140,7 @@ export default function ProfileScreen() {
 
           {isAdmin && (
             <Pressable
-              onPress={openAdmin}
+              onPress={() => router.push("/admin")}
               style={({ pressed }) => [
                 styles.actionBtn,
                 { backgroundColor: colors.muted, borderColor: colors.border, borderRadius: colors.radius, opacity: pressed ? 0.8 : 1 },
@@ -148,7 +148,7 @@ export default function ProfileScreen() {
             >
               <Ionicons name="settings-outline" size={18} color={colors.foreground} />
               <Text style={[styles.actionText, { color: colors.foreground }]}>Admin Dashboard</Text>
-              <Ionicons name="open-outline" size={14} color={colors.mutedForeground} style={styles.chevron} />
+              <Ionicons name="chevron-forward" size={16} color={colors.mutedForeground} style={styles.chevron} />
             </Pressable>
           )}
         </View>
