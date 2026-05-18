@@ -1,6 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
-import * as WebBrowser from "expo-web-browser";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -70,12 +69,6 @@ export default function ProfileScreen() {
     ]);
   };
 
-  const openAdmin = async () => {
-    const domain = process.env.EXPO_PUBLIC_DOMAIN;
-    if (!domain) return;
-    await WebBrowser.openBrowserAsync(`https://${domain}/admin`);
-  };
-
   if (loading) {
     return (
       <View style={[styles.center, { backgroundColor: colors.background }]}>
@@ -100,9 +93,9 @@ export default function ProfileScreen() {
           </Text>
         </View>
         <Text style={[styles.profileEmail, { color: colors.foreground }]}>{user.email}</Text>
-        {user.role && (
+        {isAdmin && (
           <View style={[styles.roleBadge, { backgroundColor: colors.primary + "18", borderRadius: 20 }]}>
-            <Text style={[styles.roleText, { color: colors.primary }]}>{user.role}</Text>
+            <Text style={[styles.roleText, { color: colors.primary }]}>Admin</Text>
           </View>
         )}
 
@@ -114,15 +107,13 @@ export default function ProfileScreen() {
               <Text style={[styles.cardValue, { color: colors.foreground }]}>{user.email}</Text>
             </View>
           </View>
-          {user.role && (
-            <View style={[styles.cardRow, { borderTopWidth: 1, borderTopColor: colors.border }]}>
-              <Ionicons name="shield-outline" size={18} color={colors.mutedForeground} />
-              <View>
-                <Text style={[styles.cardLabel, { color: colors.mutedForeground }]}>Role</Text>
-                <Text style={[styles.cardValue, { color: colors.foreground }]}>{user.role}</Text>
-              </View>
+          <View style={[styles.cardRow, { borderTopWidth: 1, borderTopColor: colors.border }]}>
+            <Ionicons name="shield-outline" size={18} color={colors.mutedForeground} />
+            <View>
+              <Text style={[styles.cardLabel, { color: colors.mutedForeground }]}>Access level</Text>
+              <Text style={[styles.cardValue, { color: colors.foreground }]}>{isAdmin ? "Admin" : "Member"}</Text>
             </View>
-          )}
+          </View>
         </View>
 
         <View style={styles.actions}>
