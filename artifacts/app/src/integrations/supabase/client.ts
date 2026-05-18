@@ -58,6 +58,7 @@ type QB = {
   neq: (col: string, val: unknown) => QB;
   is: (col: string, val: unknown) => QB;
   in: (col: string, vals: unknown[]) => QB;
+  or: (filter: string) => QB;
   gte: (col: string, val: unknown) => QB;
   lte: (col: string, val: unknown) => QB;
   gt: (col: string, val: unknown) => QB;
@@ -85,6 +86,7 @@ function buildQB(table: string): QB {
   let _isUpdate = false;
   let _isUpsert = false;
   let _isDelete = false;
+  let _orMissingImage = false;
 
   const qb: QB = {
     select(_, opts) { if (opts?.count === "exact") { /* count returned from paginated responses */ } return qb; },
@@ -96,6 +98,7 @@ function buildQB(table: string): QB {
     neq() { return qb; },
     is(col, val) { _eqFilters.push([col, val]); return qb; },
     in(col, vals) { _inFilter = [col, vals]; return qb; },
+    or(_filter) { _orMissingImage = true; return qb; },
     gte() { return qb; },
     lte() { return qb; },
     gt() { return qb; },
@@ -203,6 +206,15 @@ function buildQB(table: string): QB {
       }
 
       // ── GET ───────────────────────────────────────────────────────────────
+
+      // .or("featured_image.is.null,featured_image.eq.") on blog_posts
+      // Used by MissingImageGenerator to find posts without a featured image
+      if (_orMissingImage && table === "blog_posts") {
+        const res = await apiRequest("/blog/posts/missing-image");
+        if (!res.ok) return { data: null, error: await res.json() };
+        const d = await res.json();
+        return { data: d, count: Array.isArray(d) ? d.length : 0, error: null };
+      }
 
       // Slug existence check (.in("slug", slugs)) for duplicate detection
       if (_inFilter && _inFilter[0] === "slug" && table === "blog_posts") {

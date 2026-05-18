@@ -65,6 +65,35 @@ router.get("/blog/posts", async (req, res) => {
   res.json({ posts, total: Number(total), page: pg, pageSize: ps, totalPages: Math.ceil(Number(total) / ps) });
 });
 
+// Scan for published posts missing a featured_image (for MissingImageGenerator)
+router.get("/blog/posts/missing-image", requireAdmin, async (req, res) => {
+  const { isNull: drizzleIsNull } = await import("drizzle-orm");
+  const posts = await db.select({
+    id: blogPostsTable.id,
+    title: blogPostsTable.title,
+    meta_description: blogPostsTable.meta_description,
+  }).from(blogPostsTable).where(
+    and(
+      eq(blogPostsTable.status, "published"),
+      drizzleIsNull(blogPostsTable.featured_image),
+    )
+  );
+  // Also include posts where featured_image is empty string
+  const postsEmpty = await db.select({
+    id: blogPostsTable.id,
+    title: blogPostsTable.title,
+    meta_description: blogPostsTable.meta_description,
+  }).from(blogPostsTable).where(
+    and(
+      eq(blogPostsTable.status, "published"),
+      eq(blogPostsTable.featured_image, ""),
+    )
+  );
+  const seen = new Set<string>();
+  const combined = [...posts, ...postsEmpty].filter(p => !seen.has(p.id) && seen.add(p.id));
+  res.json(combined);
+});
+
 // Check which slugs already exist (for duplicate detection before batch insert)
 router.get("/blog/posts/slugs-exist", requireAdmin, async (req, res) => {
   const slugParam = req.query.slugs as string | undefined;

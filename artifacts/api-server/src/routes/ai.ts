@@ -199,7 +199,7 @@ router.post("/ai/search-images", requireAdmin, async (req, res) => {
   const unsplashKey = getEnv("UNSPLASH_ACCESS_KEY");
 
   if (!unsplashKey) {
-    res.json({ images: [], error: "UNSPLASH_ACCESS_KEY not configured" });
+    res.json({ images: [], imageUrl: null, photographer: null, error: "UNSPLASH_ACCESS_KEY not configured" });
     return;
   }
 
@@ -215,9 +215,15 @@ router.post("/ai/search-images", requireAdmin, async (req, res) => {
       description: img.description || img.alt_description,
       photographer: img.user?.name || "Unknown",
     }));
-    res.json({ images });
+    // Also return first-image shorthand for functions.invoke("search-unsplash") callers
+    const first = images[0] || null;
+    res.json({
+      images,
+      imageUrl: first?.url || null,
+      photographer: first?.photographer || null,
+    });
   } catch {
-    res.json({ images: [] });
+    res.json({ images: [], imageUrl: null, photographer: null });
   }
 });
 
