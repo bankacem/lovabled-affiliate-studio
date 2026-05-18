@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #EA6262; /* Coral */
+  --color-secondary: #FF8F8F;
+  --color-accent: #FFFFFF;
+
+  --color-bg-light: #1A2235;
+  --color-bg-dark: #0D1117; /* Deep navy */
+  --color-bg-muted: #161D2B;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A0AABF;
+  --color-text-muted: #6B768E;
+  --color-text-inverse: #0D1117;
+
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-bg-light: var(--color-bg-light);
+  --color-bg-dark: var(--color-bg-dark);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

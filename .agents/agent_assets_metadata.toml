@@ -1,0 +1,20 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "QnziSukoE_rg1ua_JhgzP"
+uri = "file://artifacts/promo-video/public/images/tshirt.png"
+type = "image"
+title = "t-shirt flat lay coral"
+
+[[generated]]
+id = "O19kgtyluHblWlmGx17Uc"
+uri = "file://artifacts/promo-video/public/images/dashboard.png"
+type = "image"
+title = "dashboard UI abstract"
+
+[[generated]]
+id = "jKDY-fCeaNj8ur-dLiRC3"
+uri = "file://artifacts/promo-video/public/images/mobile.png"
+type = "image"
+title = "phone mockup hand"
