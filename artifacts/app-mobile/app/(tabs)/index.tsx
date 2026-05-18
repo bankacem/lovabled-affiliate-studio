@@ -25,13 +25,23 @@ export default function HomeScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
-  // @ts-ignore
-  const { data: featuredDesigns, isLoading: loadingDesigns, refetch: refetchDesigns, isRefetching: refetchingDesigns } =
-    useListDesigns({ featured: true, limit: 10 });
+  const {
+    data: designsResp,
+    isLoading: loadingDesigns,
+    refetch: refetchDesigns,
+    isRefetching: refetchingDesigns,
+  } = useListDesigns({ featured: true, limit: 10 });
 
-  // @ts-ignore
-  const { data: recentPosts, isLoading: loadingPosts, refetch: refetchPosts, isRefetching: refetchingPosts } =
-    useListBlogPosts({ pageSize: 6, status: "published" });
+  const {
+    data: postsResp,
+    isLoading: loadingPosts,
+    refetch: refetchPosts,
+    isRefetching: refetchingPosts,
+  } = useListBlogPosts({ pageSize: 6, status: "published" } as any);
+
+  // Unwrap paginated response shapes
+  const featuredDesigns = (designsResp as any)?.designs ?? [];
+  const recentPosts = (postsResp as any)?.posts ?? [];
 
   const isRefreshing = refetchingDesigns || refetchingPosts;
   const onRefresh = () => { refetchDesigns(); refetchPosts(); };
@@ -80,14 +90,14 @@ export default function HomeScreen() {
           <ActivityIndicator color={colors.primary} style={styles.loader} />
         ) : (
           <FlatList
-            data={(featuredDesigns ?? []) as any[]}
+            data={featuredDesigns}
             keyExtractor={(item: any) => item.id}
             renderItem={({ item }: { item: any }) => <DesignCard design={item} compact />}
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.hList}
             ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
-            scrollEnabled={!!(featuredDesigns && (featuredDesigns as any[]).length > 0)}
+            scrollEnabled={!!(featuredDesigns.length > 0)}
             ListEmptyComponent={
               <Text style={[styles.empty, { color: colors.mutedForeground }]}>No designs yet</Text>
             }
@@ -104,8 +114,8 @@ export default function HomeScreen() {
         </View>
         {loadingPosts ? (
           <ActivityIndicator color={colors.primary} style={styles.loader} />
-        ) : recentPosts && (recentPosts as any[]).length > 0 ? (
-          (recentPosts as any[]).map((post: any) => <BlogCard key={post.id} post={post} horizontal />)
+        ) : recentPosts.length > 0 ? (
+          recentPosts.map((post: any) => <BlogCard key={post.id} post={post} horizontal />)
         ) : (
           <Text style={[styles.empty, { color: colors.mutedForeground }]}>No articles yet</Text>
         )}

@@ -21,13 +21,15 @@ export default function DesignsScreen() {
   const insets = useSafeAreaInsets();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-  // @ts-ignore
+  // Returns string[] directly
   const { data: categories } = useListDesignCategories();
 
-  // @ts-ignore
-  const { data: designs, isLoading, refetch, isRefetching } = useListDesigns(
+  const { data: designsResp, isLoading, refetch, isRefetching } = useListDesigns(
     selectedCategory !== "all" ? { category: selectedCategory, limit: 50 } : { limit: 50 }
   );
+
+  // Unwrap paginated object → designs array
+  const designs: any[] = (designsResp as any)?.designs ?? [];
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const allCategories = ["all", ...((categories as string[] | undefined) ?? [])];
@@ -48,19 +50,10 @@ export default function DesignsScreen() {
               <Pressable
                 key={cat}
                 onPress={() => setSelectedCategory(cat)}
-                style={[
-                  styles.pill,
-                  {
-                    backgroundColor: active ? colors.primary : colors.muted,
-                    borderRadius: 20,
-                  },
-                ]}
+                style={[styles.pill, { backgroundColor: active ? colors.primary : colors.muted, borderRadius: 20 }]}
               >
                 <Text
-                  style={[
-                    styles.pillText,
-                    { color: active ? colors.primaryForeground : colors.mutedForeground },
-                  ]}
+                  style={[styles.pillText, { color: active ? colors.primaryForeground : colors.mutedForeground }]}
                 >
                   {cat === "all" ? "All" : cat}
                 </Text>
@@ -74,7 +67,7 @@ export default function DesignsScreen() {
         <ActivityIndicator color={colors.primary} style={styles.loader} />
       ) : (
         <FlatList
-          data={(designs ?? []) as any[]}
+          data={designs}
           keyExtractor={(item: any) => item.id}
           renderItem={({ item }: { item: any }) => (
             <View style={styles.cardWrap}>
@@ -83,19 +76,14 @@ export default function DesignsScreen() {
           )}
           numColumns={2}
           columnWrapperStyle={styles.row}
-          contentContainerStyle={[
-            styles.list,
-            Platform.OS === "web" ? { paddingBottom: 34 } : {},
-          ]}
+          contentContainerStyle={[styles.list, Platform.OS === "web" ? { paddingBottom: 34 } : {}]}
           showsVerticalScrollIndicator={false}
           refreshControl={
             <RefreshControl refreshing={isRefetching} onRefresh={refetch} tintColor={colors.primary} />
           }
           ListEmptyComponent={
             <View style={styles.emptyBox}>
-              <Text style={[styles.emptyText, { color: colors.mutedForeground }]}>
-                No designs found
-              </Text>
+              <Text style={[styles.emptyText, { color: colors.mutedForeground }]}>No designs found</Text>
             </View>
           }
         />
@@ -106,12 +94,7 @@ export default function DesignsScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  header: {
-    paddingHorizontal: 20,
-    paddingBottom: 12,
-    borderBottomWidth: 1,
-    gap: 12,
-  },
+  header: { paddingHorizontal: 20, paddingBottom: 12, borderBottomWidth: 1, gap: 12 },
   title: { fontSize: 28, fontFamily: "Inter_700Bold" },
   pillsScroll: { marginHorizontal: -20 },
   pills: { gap: 8, paddingHorizontal: 20 },
