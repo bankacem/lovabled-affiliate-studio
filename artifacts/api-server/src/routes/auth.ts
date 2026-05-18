@@ -79,6 +79,24 @@ router.post("/auth/signout", (_req, res) => {
   res.json({ success: true });
 });
 
+// Bootstrap endpoint: promotes the calling user to admin IF no admins exist yet.
+// Safe to call repeatedly — once an admin exists it returns 403.
+router.post("/auth/bootstrap-admin", async (req, res) => {
+  const user = getUserFromToken(req.headers.authorization);
+  if (!user) { res.status(401).json({ error: "Must be signed in to bootstrap admin" }); return; }
+
+  // Check if any admin already exists
+  const existing = await db.select().from(userRolesTable).where(eq(userRolesTable.role, "admin"));
+  if (existing.length > 0) {
+    res.status(403).json({ error: "An admin already exists. Use the admin panel to manage roles." });
+    return;
+  }
+
+  const [inserted] = await db.insert(userRolesTable).values({ user_id: user.id, role: "admin" })
+    .onConflictDoNothing().returning();
+  res.status(201).json({ success: true, message: "You are now an admin.", role: inserted ?? { user_id: user.id, role: "admin" } });
+});
+
 router.get("/auth/roles", async (req, res) => {
   const user = getUserFromToken(req.headers.authorization);
   if (!user) { res.status(401).json({ error: "Unauthorized" }); return; }
