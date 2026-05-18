@@ -48,6 +48,12 @@ type QB = {
   neq: (col: string, val: unknown) => QB;
   is: (col: string, val: unknown) => QB;
   in: (col: string, vals: unknown[]) => QB;
+  gte: (col: string, val: unknown) => QB;
+  lte: (col: string, val: unknown) => QB;
+  gt: (col: string, val: unknown) => QB;
+  lt: (col: string, val: unknown) => QB;
+  not: (col: string, op: string, val: unknown) => QB;
+  contains: (col: string, val: unknown) => QB;
   ilike: (col: string, val: string) => QB;
   order: (col: string, opts?: { ascending?: boolean }) => QB;
   limit: (n: number) => QB;
@@ -81,6 +87,12 @@ function buildQB(table: string): QB {
     neq() { return qb; },
     is(col, val) { _eqFilters.push([col, val]); return qb; },
     in() { return qb; },
+    gte() { return qb; },
+    lte() { return qb; },
+    gt() { return qb; },
+    lt() { return qb; },
+    not() { return qb; },
+    contains() { return qb; },
     ilike() { return qb; },
     order() { return qb; },
     limit(n) { _limitN = n; return qb; },
@@ -189,6 +201,19 @@ export const supabase = {
           },
         },
       };
+    },
+
+    async getUser() {
+      const token = localStorage.getItem("auth_token");
+      if (!token) return { data: { user: null }, error: null };
+      try {
+        const res = await apiRequest("/auth/me");
+        const user = await res.json();
+        if (user.id === "anonymous") return { data: { user: null }, error: null };
+        return { data: { user }, error: null };
+      } catch {
+        return { data: { user: null }, error: null };
+      }
     },
 
     async getSession() {

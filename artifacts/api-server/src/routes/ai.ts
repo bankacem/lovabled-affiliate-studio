@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db, blogPostsTable, autoLinkKeywordsTable } from "@workspace/db";
 import { eq, desc } from "drizzle-orm";
 import { logger } from "../lib/logger";
+import { requireAdmin } from "../middleware/requireAuth";
 
 const router = Router();
 
@@ -9,7 +10,6 @@ function getEnv(key: string) {
   return process.env[key] || "";
 }
 
-// Parse article content from AI response
 function parseArticleContent(content: string, keyword: string, category: string) {
   const titleMatch = content.match(/<h1[^>]*>(.*?)<\/h1>/i);
   const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, "") : keyword;
@@ -22,7 +22,7 @@ function parseArticleContent(content: string, keyword: string, category: string)
   return { title, slug, content, excerpt, meta_title: title, meta_description: metaDescription, tags: [keyword, category], read_time: readTime };
 }
 
-router.post("/ai/generate-article", async (req, res) => {
+router.post("/ai/generate-article", requireAdmin, async (req, res) => {
   const { keyword, category = "General", language = "en", includeImages, includeFAQ, includeTOC, writingStyle = "professional", provider = "openrouter" } = req.body;
 
   const openaiKey = getEnv("OPENAI_API_KEY");
@@ -78,7 +78,7 @@ Start with an H1 title, then provide at least 1500 words of valuable content.`;
   }
 });
 
-router.post("/ai/optimize-title", async (req, res) => {
+router.post("/ai/optimize-title", requireAdmin, async (req, res) => {
   const { title, keyword, context } = req.body;
   const openrouterKey = getEnv("OPENROUTER_API_KEY");
   const openaiKey = getEnv("OPENAI_API_KEY");
@@ -116,13 +116,12 @@ router.post("/ai/optimize-title", async (req, res) => {
   }
 });
 
-router.post("/ai/internal-linking", async (req, res) => {
+router.post("/ai/internal-linking", requireAdmin, async (req, res) => {
   const { content, postId, existingLinks = [] } = req.body;
   const openrouterKey = getEnv("OPENROUTER_API_KEY");
   const openaiKey = getEnv("OPENAI_API_KEY");
 
   const posts = await db.select({ id: blogPostsTable.id, title: blogPostsTable.title, slug: blogPostsTable.slug, excerpt: blogPostsTable.excerpt }).from(blogPostsTable).where(eq(blogPostsTable.status, "published")).limit(50);
-
   const postList = posts.map(p => `${p.title} (slug: ${p.slug})`).join("\n");
   const prompt = `Given this article content and a list of available posts, suggest 5 relevant internal links.
 Available posts:\n${postList}\n\nContent snippet: ${content.slice(0, 500)}\n\nReturn JSON array: [{"keyword": "...", "targetSlug": "...", "targetTitle": "...", "relevanceScore": 0.9}]`;
@@ -142,7 +141,6 @@ Available posts:\n${postList}\n\nContent snippet: ${content.slice(0, 500)}\n\nRe
       const raw = data.choices?.[0]?.message?.content || "[]";
       suggestions = JSON.parse(raw.match(/\[[\s\S]*\]/)?.[0] || "[]");
     } else {
-      // Simple keyword matching fallback
       suggestions = posts.slice(0, 3).map(p => ({ keyword: p.title.split(" ").slice(0, 2).join(" "), targetSlug: p.slug, targetTitle: p.title, relevanceScore: 0.5 }));
     }
     res.json({ suggestions });
@@ -151,8 +149,8 @@ Available posts:\n${postList}\n\nContent snippet: ${content.slice(0, 500)}\n\nRe
   }
 });
 
-router.post("/ai/seo-analytics", async (req, res) => {
-  const { content, keyword, url } = req.body;
+router.post("/ai/seo-analytics", requireAdmin, async (req, res) => {
+  const { content, keyword } = req.body;
   const text = content.replace(/<[^>]*>/g, " ");
   const wordCount = text.split(/\s+/).filter(Boolean).length;
   const kwCount = keyword ? (text.toLowerCase().match(new RegExp(keyword.toLowerCase(), "g")) || []).length : 0;
@@ -167,7 +165,7 @@ router.post("/ai/seo-analytics", async (req, res) => {
   res.json({ score, suggestions, keywordDensity: Math.round(keywordDensity * 100) / 100, readability });
 });
 
-router.post("/ai/serp-analysis", async (req, res) => {
+router.post("/ai/serp-analysis", requireAdmin, async (req, res) => {
   const { keyword, language = "en" } = req.body;
   const openrouterKey = getEnv("OPENROUTER_API_KEY");
   const openaiKey = getEnv("OPENAI_API_KEY");
@@ -196,7 +194,7 @@ router.post("/ai/serp-analysis", async (req, res) => {
   }
 });
 
-router.post("/ai/search-images", async (req, res) => {
+router.post("/ai/search-images", requireAdmin, async (req, res) => {
   const { query, count = 10 } = req.body;
   const unsplashKey = getEnv("UNSPLASH_ACCESS_KEY");
 
@@ -223,12 +221,12 @@ router.post("/ai/search-images", async (req, res) => {
   }
 });
 
-router.post("/ai/import-designs", async (req, res) => {
-  const { storeUrl, platform, username } = req.body;
-  res.json({ imported: 0, skipped: 0, errors: 0, message: `Design import from ${platform} requires scraping integration. Configure your store URL and run the import manually.` });
+router.post("/ai/import-designs", requireAdmin, async (req, res) => {
+  const { storeUrl, platform } = req.body;
+  res.json({ imported: 0, skipped: 0, errors: 0, message: `Design import from ${platform} requires scraping integration.` });
 });
 
-router.post("/ai/publish-scheduled", async (req, res) => {
+router.post("/ai/publish-scheduled", requireAdmin, async (req, res) => {
   const now = new Date();
   const { sql } = await import("drizzle-orm");
   const scheduled = await db.select().from(blogPostsTable)

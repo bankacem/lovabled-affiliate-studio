@@ -4,14 +4,18 @@ import { db } from "@workspace/db";
 import { userRolesTable } from "@workspace/db";
 import { and, eq } from "drizzle-orm";
 
-const JWT_SECRET = process.env.JWT_SECRET || "aiprintverse-secret-key-change-in-production";
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET && process.env.NODE_ENV === "production") {
+  throw new Error("JWT_SECRET must be set in production");
+}
+const _JWT_SECRET = JWT_SECRET || "aiprintverse-dev-secret-do-not-use-in-production";
 
 export function getUserFromToken(authHeader?: string): { id: string; email: string } | null {
   if (!authHeader?.startsWith("Bearer ")) return null;
   try {
     const token = authHeader.slice(7);
     // @ts-ignore
-    return jwt.verify(token, JWT_SECRET) as { id: string; email: string };
+    return jwt.verify(token, _JWT_SECRET) as { id: string; email: string };
   } catch {
     return null;
   }

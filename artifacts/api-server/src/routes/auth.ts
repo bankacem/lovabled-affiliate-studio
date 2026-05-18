@@ -7,11 +7,15 @@ import jwt from "jsonwebtoken";
 import { getUserFromToken, requireAdmin } from "../middleware/requireAuth";
 
 const router = Router();
-const JWT_SECRET = process.env.JWT_SECRET || "aiprintverse-secret-key-change-in-production";
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET && process.env.NODE_ENV === "production") {
+  throw new Error("JWT_SECRET must be set in production");
+}
+const _JWT_SECRET = JWT_SECRET || "aiprintverse-dev-secret-do-not-use-in-production";
 
 async function makeToken(id: string, email: string) {
   // @ts-ignore
-  return jwt.sign({ id, email }, JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign({ id, email }, _JWT_SECRET, { expiresIn: "7d" });
 }
 
 async function isAdmin(userId: string) {
