@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { db, blogPostsTable, blogCategoriesTable } from "@workspace/db";
-import { eq, desc, ilike, and, sql } from "drizzle-orm";
+import { eq, desc, ilike, and, sql, inArray } from "drizzle-orm";
 import { requireAdmin, getUserFromToken } from "../middleware/requireAuth";
+import { userRolesTable } from "@workspace/db";
 
 const router = Router();
 
@@ -32,7 +33,6 @@ router.get("/blog/posts", async (req, res) => {
   const ps = Math.min(100, Math.max(1, Number(pageSize)));
   const from = (pg - 1) * ps;
 
-  // Only admins may request non-published statuses
   const requestedStatus = status || "published";
   const isPublicRequest = requestedStatus === "published";
   if (!isPublicRequest) {
@@ -41,10 +41,8 @@ router.get("/blog/posts", async (req, res) => {
       res.status(401).json({ error: "Authentication required to view non-published posts" });
       return;
     }
-    const { db: dbInst, userRolesTable } = await import("@workspace/db");
-    const { and: andOp, eq: eqOp } = await import("drizzle-orm");
-    const roles = await dbInst.select().from(userRolesTable)
-      .where(andOp(eqOp(userRolesTable.user_id, user.id), eqOp(userRolesTable.role, "admin")));
+    const roles = await db.select().from(userRolesTable)
+      .where(and(eq(userRolesTable.user_id, user.id), eq(userRolesTable.role, "admin")));
     if (!roles.length) {
       res.status(403).json({ error: "Admin access required to view non-published posts" });
       return;
@@ -65,6 +63,51 @@ router.get("/blog/posts", async (req, res) => {
     .offset(from);
 
   res.json({ posts, total: Number(total), page: pg, pageSize: ps, totalPages: Math.ceil(Number(total) / ps) });
+});
+
+// Check which slugs already exist (for duplicate detection before batch insert)
+router.get("/blog/posts/slugs-exist", requireAdmin, async (req, res) => {
+  const slugParam = req.query.slugs as string | undefined;
+  if (!slugParam) { res.json([]); return; }
+  const slugs = slugParam.split(",").filter(Boolean);
+  if (!slugs.length) { res.json([]); return; }
+  const rows = await db.select({ slug: blogPostsTable.slug }).from(blogPostsTable)
+    .where(inArray(blogPostsTable.slug, slugs));
+  res.json(rows);
+});
+
+// Get all posts for a generation batch (with optional status filter)
+router.get("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+  const { status } = req.query as Record<string, string>;
+  const conditions: ReturnType<typeof eq>[] = [eq(blogPostsTable.generation_batch, req.params.batchId)];
+  if (status) conditions.push(eq(blogPostsTable.status, status));
+  const posts = await db.select().from(blogPostsTable)
+    .where(and(...conditions))
+    .orderBy(desc(blogPostsTable.created_at))
+    .limit(500);
+  res.json(posts);
+});
+
+// Batch publish/update all posts in a generation batch (with optional current-status filter)
+router.patch("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+  const { filter_status, ...updateData } = req.body as Record<string, unknown>;
+  const update = { ...updateData, updated_at: new Date() };
+  if (update.published_at) update.published_at = new Date(update.published_at as string);
+  if (update.scheduled_publish_at) update.scheduled_publish_at = new Date(update.scheduled_publish_at as string);
+
+  const conditions: ReturnType<typeof eq>[] = [eq(blogPostsTable.generation_batch, req.params.batchId)];
+  if (filter_status) conditions.push(eq(blogPostsTable.status, filter_status as string));
+
+  const posts = await db.update(blogPostsTable).set(update)
+    .where(and(...conditions))
+    .returning();
+  res.json(posts);
+});
+
+// Delete all posts in a generation batch
+router.delete("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+  await db.delete(blogPostsTable).where(eq(blogPostsTable.generation_batch, req.params.batchId));
+  res.status(204).end();
 });
 
 router.get("/blog/posts/slug/:slug", async (req, res) => {
@@ -97,14 +140,13 @@ router.patch("/blog/posts/:id", requireAdmin, async (req, res) => {
   res.json(post);
 });
 
-// Batch update by IDs (used by SchedulingPanel and bulk operations)
+// Batch update by explicit id array (used by SchedulingPanel)
 router.patch("/blog/posts", requireAdmin, async (req, res) => {
   const { ids, data: updateData } = req.body as { ids: string[]; data: Record<string, unknown> };
   if (!Array.isArray(ids) || ids.length === 0) {
     res.status(400).json({ error: "ids array required" });
     return;
   }
-  const { inArray } = await import("drizzle-orm");
   const update = { ...updateData, updated_at: new Date() };
   if (update.published_at) update.published_at = new Date(update.published_at as string);
   const posts = await db.update(blogPostsTable).set(update).where(inArray(blogPostsTable.id, ids)).returning();
