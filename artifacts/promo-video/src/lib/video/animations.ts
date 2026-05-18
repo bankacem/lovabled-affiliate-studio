@@ -186,15 +186,17 @@ export const charVariants: Variants = {
     y: 0,
     rotateX: 0,
     transformPerspective: 800,
-    transition: { type: 'spring', stiffness: 400, damping: 25 },
-  },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    transition: { type: 'spring', stiffness: 400, damping: 25 } as any,
+  } as any,
 };
 
 export const charContainerVariants: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.03, delayChildren: 0.1 },
-  },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    transition: { staggerChildren: 0.03, delayChildren: 0.1 } as any,
+  } as any,
 };
 
 // Stagger configs
@@ -212,8 +214,9 @@ export const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: staggerConfigs.medium,
-  },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    transition: staggerConfigs.medium as any,
+  } as any,
 };
 
 export const itemVariants: Variants = {
@@ -221,8 +224,9 @@ export const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: 'circOut' },
-  },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    transition: { duration: 0.5, ease: 'circOut' } as any,
+  } as any,
 };
 
 // Utilities
