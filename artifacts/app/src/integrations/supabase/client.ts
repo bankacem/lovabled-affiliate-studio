@@ -144,7 +144,7 @@ function buildQB(table: string): QB {
         if (batchFilter && table === "blog_posts") {
           const body: Record<string, unknown> = { ...(_body as Record<string, unknown>) };
           if (statusFilter) body.filter_status = statusFilter[1];
-          const res = await apiRequest(`${basePath}/by-batch/${batchFilter[1]}`, {
+          const res = await apiRequest(`${writePath}/by-batch/${batchFilter[1]}`, {
             method: "PATCH",
             body: JSON.stringify(body),
           });
@@ -155,7 +155,7 @@ function buildQB(table: string): QB {
         // Batch update by explicit id array  (.in("id", [...]))
         if (_inFilter && _inFilter[0] === "id") {
           const ids = _inFilter[1] as string[];
-          const res = await apiRequest(basePath, {
+          const res = await apiRequest(writePath, {
             method: "PATCH",
             body: JSON.stringify({ ids, data: _body }),
           });
@@ -165,7 +165,7 @@ function buildQB(table: string): QB {
         }
         // Single update by id
         if (idFilter) {
-          const res = await apiRequest(`${basePath}/${idFilter[1]}`, {
+          const res = await apiRequest(`${writePath}/${idFilter[1]}`, {
             method: "PATCH",
             body: JSON.stringify(_body),
           });
@@ -181,21 +181,21 @@ function buildQB(table: string): QB {
       if (_isDelete) {
         // Delete all posts in a generation batch
         if (batchFilter && table === "blog_posts") {
-          const res = await apiRequest(`${basePath}/by-batch/${batchFilter[1]}`, { method: "DELETE" });
+          const res = await apiRequest(`${writePath}/by-batch/${batchFilter[1]}`, { method: "DELETE" });
           return { data: null, error: res.ok ? null : "Batch delete failed" };
         }
         // Batch delete by explicit id array (.in("id", [...]))
         if (_inFilter && _inFilter[0] === "id") {
           const ids = _inFilter[1] as string[];
           const results = await Promise.all(
-            ids.map(id => apiRequest(`${basePath}/${id}`, { method: "DELETE" }))
+            ids.map(id => apiRequest(`${writePath}/${id}`, { method: "DELETE" }))
           );
           const anyFailed = results.find(r => !r.ok);
           return { data: null, error: anyFailed ? "Some deletes failed" : null };
         }
         // Single delete by id
         if (idFilter) {
-          const res = await apiRequest(`${basePath}/${idFilter[1]}`, { method: "DELETE" });
+          const res = await apiRequest(`${writePath}/${idFilter[1]}`, { method: "DELETE" });
           return { data: null, error: res.ok ? null : "Delete failed" };
         }
         const missingFilters = _eqFilters.map(([col]) => col).join(", ");

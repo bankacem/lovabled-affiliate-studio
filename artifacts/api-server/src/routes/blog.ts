@@ -132,12 +132,16 @@ router.post("/blog/posts", requireAdmin, async (req, res) => {
 });
 
 router.patch("/blog/posts/:id", requireAdmin, async (req, res) => {
-  const data = { ...req.body, updated_at: new Date() };
-  if (data.published_at) data.published_at = new Date(data.published_at);
-  if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at);
-  const [post] = await db.update(blogPostsTable).set(data).where(eq(blogPostsTable.id, req.params.id)).returning();
-  if (!post) { res.status(404).json({ error: "Not found" }); return; }
-  res.json(post);
+  try {
+    const data = { ...req.body, updated_at: new Date() };
+    if (data.published_at) data.published_at = new Date(data.published_at);
+    if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at);
+    const [post] = await db.update(blogPostsTable).set(data).where(eq(blogPostsTable.id, req.params.id)).returning();
+    if (!post) { res.status(404).json({ error: "Not found" }); return; }
+    res.json(post);
+  } catch {
+    res.status(400).json({ error: "Invalid request" });
+  }
 });
 
 // Batch update by explicit id array (used by SchedulingPanel)
@@ -147,15 +151,23 @@ router.patch("/blog/posts", requireAdmin, async (req, res) => {
     res.status(400).json({ error: "ids array required" });
     return;
   }
-  const update = { ...updateData, updated_at: new Date() };
-  if (update.published_at) update.published_at = new Date(update.published_at as string);
-  const posts = await db.update(blogPostsTable).set(update).where(inArray(blogPostsTable.id, ids)).returning();
-  res.json(posts);
+  try {
+    const update = { ...updateData, updated_at: new Date() };
+    if (update.published_at) update.published_at = new Date(update.published_at as string);
+    const posts = await db.update(blogPostsTable).set(update).where(inArray(blogPostsTable.id, ids)).returning();
+    res.json(posts);
+  } catch {
+    res.status(400).json({ error: "Invalid request" });
+  }
 });
 
 router.delete("/blog/posts/:id", requireAdmin, async (req, res) => {
-  await db.delete(blogPostsTable).where(eq(blogPostsTable.id, req.params.id));
-  res.status(204).end();
+  try {
+    await db.delete(blogPostsTable).where(eq(blogPostsTable.id, req.params.id));
+    res.status(204).end();
+  } catch {
+    res.status(400).json({ error: "Invalid id" });
+  }
 });
 
 router.get("/blog/categories", async (_req, res) => {
