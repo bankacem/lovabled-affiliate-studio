@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { db, blogPostsTable, blogCategoriesTable } from "@workspace/db";
 import { eq, desc, ilike, and, sql } from "drizzle-orm";
-import { requireAdmin } from "../middleware/requireAuth";
+import { requireAdmin, getUserFromToken } from "../middleware/requireAuth";
 
 const router = Router();
 
-router.get("/blog/stats", async (_req, res) => {
+router.get("/blog/stats", requireAdmin, async (_req, res) => {
   const [totals] = await db.select({
     total: sql<number>`count(*)`,
     published: sql<number>`sum(case when status='published' then 1 else 0 end)`,
@@ -32,17 +32,31 @@ router.get("/blog/posts", async (req, res) => {
   const ps = Math.min(100, Math.max(1, Number(pageSize)));
   const from = (pg - 1) * ps;
 
-  const conditions = [];
-  if (status) {
-    conditions.push(eq(blogPostsTable.status, status));
-  } else {
-    conditions.push(eq(blogPostsTable.status, "published"));
+  // Only admins may request non-published statuses
+  const requestedStatus = status || "published";
+  const isPublicRequest = requestedStatus === "published";
+  if (!isPublicRequest) {
+    const user = getUserFromToken(req.headers.authorization);
+    if (!user) {
+      res.status(401).json({ error: "Authentication required to view non-published posts" });
+      return;
+    }
+    const { db: dbInst, userRolesTable } = await import("@workspace/db");
+    const { and: andOp, eq: eqOp } = await import("drizzle-orm");
+    const roles = await dbInst.select().from(userRolesTable)
+      .where(andOp(eqOp(userRolesTable.user_id, user.id), eqOp(userRolesTable.role, "admin")));
+    if (!roles.length) {
+      res.status(403).json({ error: "Admin access required to view non-published posts" });
+      return;
+    }
   }
+
+  const conditions = [eq(blogPostsTable.status, requestedStatus)];
   if (category && category !== "All") conditions.push(eq(blogPostsTable.category, category));
   if (source) conditions.push(eq(blogPostsTable.source, source));
   if (search) conditions.push(ilike(blogPostsTable.title, `%${search}%`));
 
-  const where = conditions.length > 0 ? and(...conditions) : undefined;
+  const where = and(...conditions);
   const [{ total }] = await db.select({ total: sql<number>`count(*)` }).from(blogPostsTable).where(where);
   const posts = await db.select().from(blogPostsTable)
     .where(where)
@@ -60,7 +74,7 @@ router.get("/blog/posts/slug/:slug", async (req, res) => {
   res.json(post);
 });
 
-router.get("/blog/posts/:id", async (req, res) => {
+router.get("/blog/posts/:id", requireAdmin, async (req, res) => {
   const [post] = await db.select().from(blogPostsTable).where(eq(blogPostsTable.id, req.params.id));
   if (!post) { res.status(404).json({ error: "Not found" }); return; }
   res.json(post);
@@ -81,6 +95,20 @@ router.patch("/blog/posts/:id", requireAdmin, async (req, res) => {
   const [post] = await db.update(blogPostsTable).set(data).where(eq(blogPostsTable.id, req.params.id)).returning();
   if (!post) { res.status(404).json({ error: "Not found" }); return; }
   res.json(post);
+});
+
+// Batch update by IDs (used by SchedulingPanel and bulk operations)
+router.patch("/blog/posts", requireAdmin, async (req, res) => {
+  const { ids, data: updateData } = req.body as { ids: string[]; data: Record<string, unknown> };
+  if (!Array.isArray(ids) || ids.length === 0) {
+    res.status(400).json({ error: "ids array required" });
+    return;
+  }
+  const { inArray } = await import("drizzle-orm");
+  const update = { ...updateData, updated_at: new Date() };
+  if (update.published_at) update.published_at = new Date(update.published_at as string);
+  const posts = await db.update(blogPostsTable).set(update).where(inArray(blogPostsTable.id, ids)).returning();
+  res.json(posts);
 });
 
 router.delete("/blog/posts/:id", requireAdmin, async (req, res) => {

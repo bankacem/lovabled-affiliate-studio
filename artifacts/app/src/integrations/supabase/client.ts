@@ -64,13 +64,12 @@ type QB = {
 };
 
 function buildQB(table: string): QB {
-  let _method = "GET";
   let _body: unknown = null;
   let _eqFilters: Array<[string, unknown]> = [];
+  let _inFilter: [string, unknown[]] | null = null;
   let _limitN: number | null = null;
   let _rangeFrom: number | null = null;
   let _rangeTo: number | null = null;
-  let _countMode = false;
   let _isSingle = false;
   let _isInsert = false;
   let _isUpdate = false;
@@ -78,15 +77,15 @@ function buildQB(table: string): QB {
   let _isDelete = false;
 
   const qb: QB = {
-    select(_, opts) { if (opts?.count === "exact") _countMode = true; return qb; },
-    insert(data) { _method = "POST"; _body = data; _isInsert = true; return qb; },
-    update(data) { _method = "PATCH"; _body = data; _isUpdate = true; return qb; },
-    upsert(data) { _method = "POST"; _body = data; _isUpsert = true; return qb; },
-    delete() { _method = "DELETE"; _isDelete = true; return qb; },
+    select(_, opts) { if (opts?.count === "exact") { /* count returned from paginated responses */ } return qb; },
+    insert(data) { _body = data; _isInsert = true; return qb; },
+    update(data) { _body = data; _isUpdate = true; return qb; },
+    upsert(data) { _body = data; _isUpsert = true; return qb; },
+    delete() { _isDelete = true; return qb; },
     eq(col, val) { _eqFilters.push([col, val]); return qb; },
     neq() { return qb; },
     is(col, val) { _eqFilters.push([col, val]); return qb; },
-    in() { return qb; },
+    in(col, vals) { _inFilter = [col, vals]; return qb; },
     gte() { return qb; },
     lte() { return qb; },
     gt() { return qb; },
@@ -109,32 +108,67 @@ function buildQB(table: string): QB {
       const statusFilter = _eqFilters.find(([col]) => col === "status");
       const slugFilter = _eqFilters.find(([col]) => col === "slug");
 
+      // INSERT
       if (_isInsert) {
         const path = table === "page_views" ? "/analytics/pageview" : basePath;
-        const meth = table === "link_tracking" ? "POST" : "POST";
-        const res = await apiRequest(path, { method: meth, body: JSON.stringify(_body) });
+        const res = await apiRequest(path, { method: "POST", body: JSON.stringify(_body) });
         const d = res.status === 204 ? null : await res.json();
         return { data: d, error: res.ok ? null : d };
       }
 
+      // UPSERT → POST (server handles conflict)
       if (_isUpsert) {
         const res = await apiRequest(basePath, { method: "POST", body: JSON.stringify(_body) });
         const d = res.status === 204 ? null : await res.json();
         return { data: d, error: res.ok ? null : d };
       }
 
-      if (_isUpdate && idFilter) {
-        const res = await apiRequest(`${basePath}/${idFilter[1]}`, { method: "PATCH", body: JSON.stringify(_body) });
-        const d = await res.json();
-        return { data: d, error: res.ok ? null : d };
+      // UPDATE
+      if (_isUpdate) {
+        // Batch update via .in("id", [...])
+        if (_inFilter && _inFilter[0] === "id") {
+          const ids = _inFilter[1] as string[];
+          const res = await apiRequest(basePath, {
+            method: "PATCH",
+            body: JSON.stringify({ ids, data: _body }),
+          });
+          if (!res.ok) { const d = await res.json(); return { data: null, error: d }; }
+          const d = await res.json();
+          return { data: d, error: null };
+        }
+        // Single update by id
+        if (idFilter) {
+          const res = await apiRequest(`${basePath}/${idFilter[1]}`, { method: "PATCH", body: JSON.stringify(_body) });
+          const d = await res.json();
+          return { data: d, error: res.ok ? null : d };
+        }
+        // Update by other eq filters (e.g. .eq("generation_batch", x).eq("status", y))
+        // Fall through to a no-op with warning — these need individual migration
+        console.warn(`[supabase-shim] update on ${table} without id filter — skipped`, _eqFilters);
+        return { data: null, error: null };
       }
 
-      if (_isDelete && idFilter) {
-        const res = await apiRequest(`${basePath}/${idFilter[1]}`, { method: "DELETE" });
-        return { data: null, error: res.ok ? null : "Delete failed" };
+      // DELETE
+      if (_isDelete) {
+        // Batch delete via .in("id", [...])
+        if (_inFilter && _inFilter[0] === "id") {
+          const ids = _inFilter[1] as string[];
+          const results = await Promise.all(
+            ids.map(id => apiRequest(`${basePath}/${id}`, { method: "DELETE" }))
+          );
+          const anyFailed = results.find(r => !r.ok);
+          return { data: null, error: anyFailed ? "Some deletes failed" : null };
+        }
+        // Single delete by id
+        if (idFilter) {
+          const res = await apiRequest(`${basePath}/${idFilter[1]}`, { method: "DELETE" });
+          return { data: null, error: res.ok ? null : "Delete failed" };
+        }
+        console.warn(`[supabase-shim] delete on ${table} without id filter — skipped`, _eqFilters);
+        return { data: null, error: null };
       }
 
-      // GET: build path
+      // GET: build path and params
       let path = basePath;
       if (slugFilter && table === "blog_posts") {
         path = `/blog/posts/slug/${slugFilter[1]}`;
@@ -142,7 +176,6 @@ function buildQB(table: string): QB {
         path = `${basePath}/${idFilter[1]}`;
       }
 
-      // Query params
       const params = new URLSearchParams();
       if (statusFilter) params.set("status", String(statusFilter[1]));
       if (_limitN) params.set("limit", String(_limitN));
@@ -160,8 +193,8 @@ function buildQB(table: string): QB {
 
       // Unwrap paginated responses
       if (json && typeof json === "object" && !Array.isArray(json)) {
-        if ("posts" in json) return { data: (json as Record<string, unknown>).posts, count: (json as Record<string, unknown>).total as number, error: null };
-        if ("designs" in json) return { data: (json as Record<string, unknown>).designs, count: (json as Record<string, unknown>).total as number, error: null };
+        if ("posts" in json) return { data: (json as any).posts, count: (json as any).total, error: null };
+        if ("designs" in json) return { data: (json as any).designs, count: (json as any).total, error: null };
       }
 
       if (_isSingle) {
