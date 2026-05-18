@@ -18,12 +18,13 @@ async function apiRequest(path: string, options?: RequestInit): Promise<Response
   });
 }
 
-const TABLE_TO_PATH: Record<string, string> = {
+// Write paths (POST/PATCH/DELETE) — used for mutations
+const TABLE_WRITE_PATH: Record<string, string> = {
   designs: "/designs",
   blog_posts: "/blog/posts",
   blog_categories: "/blog/categories",
   page_views: "/analytics/pageview",
-  link_tracking: "/analytics/link-click",
+  link_tracking: "/analytics/link-tracking",
   auto_link_keywords: "/seo/auto-link-keywords",
   article_templates: "/seo/article-templates",
   generation_batches: "/seo/generation-batches",
@@ -31,6 +32,15 @@ const TABLE_TO_PATH: Record<string, string> = {
   user_roles: "/auth/roles",
   ebooks: "/ebooks",
 };
+
+// Read paths (GET) — separate because analytics tables have different read vs write endpoints
+const TABLE_READ_PATH: Record<string, string> = {
+  ...TABLE_WRITE_PATH,
+  page_views: "/analytics/page-views",
+  link_tracking: "/analytics/link-tracking",
+};
+
+const TABLE_TO_PATH = TABLE_WRITE_PATH;
 
 interface QueryResult {
   data: unknown;
@@ -103,23 +113,27 @@ function buildQB(table: string): QB {
 
   async function execute(): Promise<QueryResult> {
     try {
-      const basePath = TABLE_TO_PATH[table] || `/${table}`;
+      const writePath = TABLE_TO_PATH[table] || `/${table}`;
+      const readPath = TABLE_READ_PATH[table] || `/${table}`;
       const idFilter = _eqFilters.find(([col]) => col === "id");
       const statusFilter = _eqFilters.find(([col]) => col === "status");
       const slugFilter = _eqFilters.find(([col]) => col === "slug");
       const batchFilter = _eqFilters.find(([col]) => col === "generation_batch");
+      const targetUrlFilter = _eqFilters.find(([col]) => col === "target_url");
+      const sourcePostFilter = _eqFilters.find(([col]) => col === "source_post_id");
 
       // ── INSERT ────────────────────────────────────────────────────────────
       if (_isInsert) {
-        const path = table === "page_views" ? "/analytics/pageview" : basePath;
+        const path = table === "page_views" ? "/analytics/pageview" : writePath;
         const res = await apiRequest(path, { method: "POST", body: JSON.stringify(_body) });
         const d = res.status === 204 ? null : await res.json();
         return { data: d, error: res.ok ? null : d };
       }
 
       // ── UPSERT ────────────────────────────────────────────────────────────
+      // link_tracking upsert (Scan All Articles) → POST /analytics/link-tracking (preserves click_count)
       if (_isUpsert) {
-        const res = await apiRequest(basePath, { method: "POST", body: JSON.stringify(_body) });
+        const res = await apiRequest(writePath, { method: "POST", body: JSON.stringify(_body) });
         const d = res.status === 204 ? null : await res.json();
         return { data: d, error: res.ok ? null : d };
       }
@@ -211,12 +225,24 @@ function buildQB(table: string): QB {
         return { data: d, count: Array.isArray(d) ? d.length : undefined, error: null };
       }
 
-      // Build standard GET path
-      let path = basePath;
+      // link_tracking existence check (.eq("target_url", ...).eq("source_post_id", ...).maybeSingle())
+      // Used by ArticleOptimizer to check before inserting a new link tracking row
+      if (table === "link_tracking" && targetUrlFilter) {
+        const params = new URLSearchParams();
+        params.set("target_url", String(targetUrlFilter[1]));
+        if (sourcePostFilter) params.set("source_post_id", String(sourcePostFilter[1]));
+        const res = await apiRequest(`/analytics/link-tracking/check?${params.toString()}`);
+        if (!res.ok) return { data: null, error: await res.json() };
+        const d = await res.json();
+        return { data: d, error: null };
+      }
+
+      // Build standard GET path using readPath (handles analytics table routing)
+      let path = readPath;
       if (slugFilter && table === "blog_posts") {
         path = `/blog/posts/slug/${slugFilter[1]}`;
       } else if (idFilter) {
-        path = `${basePath}/${idFilter[1]}`;
+        path = `${readPath}/${idFilter[1]}`;
       }
 
       const params = new URLSearchParams();
