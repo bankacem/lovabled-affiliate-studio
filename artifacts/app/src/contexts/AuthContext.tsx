@@ -6,12 +6,16 @@ interface AuthUser {
   isAdmin: boolean;
 }
 
+interface AuthError {
+  message: string;
+}
+
 interface AuthContextValue {
   user: AuthUser | null;
   isLoading: boolean;
   isAdmin: boolean;
-  signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string) => Promise<void>;
+  signIn: (email: string, password: string) => Promise<{ error: AuthError | null }>;
+  signUp: (email: string, password: string) => Promise<{ error: AuthError | null }>;
   signOut: () => Promise<void>;
 }
 
@@ -25,14 +29,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const token = localStorage.getItem("auth_token");
       const headers: HeadersInit = token ? { Authorization: `Bearer ${token}` } : {};
-      const res = await fetch(`${import.meta.env.BASE_URL}api/auth/me`, { headers });
+      const res = await fetch(`/api/auth/me`, { headers });
       if (res.ok) {
         const data = await res.json();
-        if (data.id === "anonymous") {
-          setUser(null);
-        } else {
-          setUser(data);
-        }
+        setUser(data.id === "anonymous" ? null : data);
       }
     } catch {
       setUser(null);
@@ -45,40 +45,50 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     fetchMe();
   }, []);
 
-  async function signIn(email: string, password: string) {
-    const res = await fetch(`${import.meta.env.BASE_URL}api/auth/signin`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.error || "Sign in failed");
+  async function signIn(email: string, password: string): Promise<{ error: AuthError | null }> {
+    try {
+      const res = await fetch(`/api/auth/signin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        return { error: { message: err.error || "Sign in failed" } };
+      }
+      const data = await res.json();
+      localStorage.setItem("auth_token", data.token);
+      setUser(data.user);
+      return { error: null };
+    } catch (e: any) {
+      return { error: { message: e?.message || "Sign in failed" } };
     }
-    const data = await res.json();
-    localStorage.setItem("auth_token", data.token);
-    setUser(data.user);
   }
 
-  async function signUp(email: string, password: string) {
-    const res = await fetch(`${import.meta.env.BASE_URL}api/auth/signup`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.error || "Sign up failed");
+  async function signUp(email: string, password: string): Promise<{ error: AuthError | null }> {
+    try {
+      const res = await fetch(`/api/auth/signup`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        return { error: { message: err.error || "Sign up failed" } };
+      }
+      const data = await res.json();
+      localStorage.setItem("auth_token", data.token);
+      setUser(data.user);
+      return { error: null };
+    } catch (e: any) {
+      return { error: { message: e?.message || "Sign up failed" } };
     }
-    const data = await res.json();
-    localStorage.setItem("auth_token", data.token);
-    setUser(data.user);
   }
 
   async function signOut() {
     localStorage.removeItem("auth_token");
     setUser(null);
-    await fetch(`${import.meta.env.BASE_URL}api/auth/signout`, { method: "POST" }).catch(() => {});
+    await fetch(`/api/auth/signout`, { method: "POST" }).catch(() => {});
   }
 
   return (

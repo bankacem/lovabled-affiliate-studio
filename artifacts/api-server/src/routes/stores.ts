@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { db, storesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
+import { requireAdmin } from "../middleware/requireAuth";
 
 const router = Router();
 
@@ -9,12 +10,12 @@ router.get("/stores", async (_req, res) => {
   res.json(stores);
 });
 
-router.post("/stores", async (req, res) => {
+router.post("/stores", requireAdmin, async (req, res) => {
   const [store] = await db.insert(storesTable).values(req.body).returning();
   res.status(201).json(store);
 });
 
-router.delete("/stores/:id", async (req, res) => {
+router.delete("/stores/:id", requireAdmin, async (req, res) => {
   await db.delete(storesTable).where(eq(storesTable.id, req.params.id));
   res.status(204).end();
 });

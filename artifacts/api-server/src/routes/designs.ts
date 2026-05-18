@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { db, designsTable } from "@workspace/db";
-import { eq, desc, ilike, and, sql } from "drizzle-orm";
+import { eq, desc, and, sql } from "drizzle-orm";
+import { requireAdmin } from "../middleware/requireAuth";
 
 const router = Router();
 
@@ -10,7 +11,10 @@ router.get("/designs/categories", async (_req, res) => {
 });
 
 router.get("/designs/stats", async (_req, res) => {
-  const [totals] = await db.select({ total: sql<number>`count(*)`, featured: sql<number>`sum(case when featured then 1 else 0 end)` }).from(designsTable);
+  const [totals] = await db.select({
+    total: sql<number>`count(*)`,
+    featured: sql<number>`sum(case when featured then 1 else 0 end)`,
+  }).from(designsTable);
   const categories = await db.select({ category: designsTable.category, count: sql<number>`count(*)` }).from(designsTable).groupBy(designsTable.category);
   const byCategory: Record<string, number> = {};
   categories.forEach(c => { byCategory[c.category] = Number(c.count); });
@@ -33,24 +37,24 @@ router.get("/designs", async (req, res) => {
   res.json({ designs, total: Number(count) });
 });
 
-router.post("/designs", async (req, res) => {
-  const [design] = await db.insert(designsTable).values(req.body).returning();
-  res.status(201).json(design);
-});
-
 router.get("/designs/:id", async (req, res) => {
   const [design] = await db.select().from(designsTable).where(eq(designsTable.id, req.params.id));
   if (!design) { res.status(404).json({ error: "Not found" }); return; }
   res.json(design);
 });
 
-router.patch("/designs/:id", async (req, res) => {
+router.post("/designs", requireAdmin, async (req, res) => {
+  const [design] = await db.insert(designsTable).values(req.body).returning();
+  res.status(201).json(design);
+});
+
+router.patch("/designs/:id", requireAdmin, async (req, res) => {
   const [design] = await db.update(designsTable).set({ ...req.body, updated_at: new Date() }).where(eq(designsTable.id, req.params.id)).returning();
   if (!design) { res.status(404).json({ error: "Not found" }); return; }
   res.json(design);
 });
 
-router.delete("/designs/:id", async (req, res) => {
+router.delete("/designs/:id", requireAdmin, async (req, res) => {
   await db.delete(designsTable).where(eq(designsTable.id, req.params.id));
   res.status(204).end();
 });

@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { db, blogPostsTable, blogCategoriesTable } from "@workspace/db";
-import { eq, desc, ilike, and, or, sql, count } from "drizzle-orm";
+import { eq, desc, ilike, and, sql } from "drizzle-orm";
+import { requireAdmin } from "../middleware/requireAuth";
 
 const router = Router();
 
@@ -32,7 +33,6 @@ router.get("/blog/posts", async (req, res) => {
   const from = (pg - 1) * ps;
 
   const conditions = [];
-  // Public: only published unless status param passed (admin)
   if (status) {
     conditions.push(eq(blogPostsTable.status, status));
   } else {
@@ -53,14 +53,6 @@ router.get("/blog/posts", async (req, res) => {
   res.json({ posts, total: Number(total), page: pg, pageSize: ps, totalPages: Math.ceil(Number(total) / ps) });
 });
 
-router.post("/blog/posts", async (req, res) => {
-  const data = { ...req.body };
-  if (data.published_at) data.published_at = new Date(data.published_at);
-  if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at);
-  const [post] = await db.insert(blogPostsTable).values(data).returning();
-  res.status(201).json(post);
-});
-
 router.get("/blog/posts/slug/:slug", async (req, res) => {
   const [post] = await db.select().from(blogPostsTable)
     .where(and(eq(blogPostsTable.slug, req.params.slug), eq(blogPostsTable.status, "published")));
@@ -74,7 +66,15 @@ router.get("/blog/posts/:id", async (req, res) => {
   res.json(post);
 });
 
-router.patch("/blog/posts/:id", async (req, res) => {
+router.post("/blog/posts", requireAdmin, async (req, res) => {
+  const data = { ...req.body };
+  if (data.published_at) data.published_at = new Date(data.published_at);
+  if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at);
+  const [post] = await db.insert(blogPostsTable).values(data).returning();
+  res.status(201).json(post);
+});
+
+router.patch("/blog/posts/:id", requireAdmin, async (req, res) => {
   const data = { ...req.body, updated_at: new Date() };
   if (data.published_at) data.published_at = new Date(data.published_at);
   if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at);
@@ -83,7 +83,7 @@ router.patch("/blog/posts/:id", async (req, res) => {
   res.json(post);
 });
 
-router.delete("/blog/posts/:id", async (req, res) => {
+router.delete("/blog/posts/:id", requireAdmin, async (req, res) => {
   await db.delete(blogPostsTable).where(eq(blogPostsTable.id, req.params.id));
   res.status(204).end();
 });
@@ -93,7 +93,7 @@ router.get("/blog/categories", async (_req, res) => {
   res.json(cats);
 });
 
-router.post("/blog/categories", async (req, res) => {
+router.post("/blog/categories", requireAdmin, async (req, res) => {
   const [cat] = await db.insert(blogCategoriesTable).values(req.body).returning();
   res.status(201).json(cat);
 });
