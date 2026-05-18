@@ -3,20 +3,36 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: AIPrintVerse API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Authentication and user roles
+  - name: designs
+    description: Design management
+  - name: blog
+    description: Blog posts and categories
+  - name: stores
+    description: Store management
+  - name: analytics
+    description: Page views and link tracking
+  - name: seo
+    description: SEO tools - article templates and generation
+  - name: ebooks
+    description: Ebook and PDF book management
+  - name: ai
+    description: AI-powered features
+
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,6 +40,976 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  # Auth
+  /auth/me:
+    get:
+      operationId: getMe
+      tags: [auth]
+      summary: Get current user info and admin status
+      responses:
+        "200":
+          description: User info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserInfo"
+
+  /auth/signin:
+    post:
+      operationId: signIn
+      tags: [auth]
+      summary: Sign in with email/password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignInInput"
+      responses:
+        "200":
+          description: Session token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthSession"
+        "401":
+          description: Invalid credentials
+
+  /auth/signup:
+    post:
+      operationId: signUp
+      tags: [auth]
+      summary: Sign up with email/password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignUpInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthSession"
+
+  /auth/signout:
+    post:
+      operationId: signOut
+      tags: [auth]
+      summary: Sign out
+      responses:
+        "200":
+          description: Signed out
+
+  /auth/roles:
+    get:
+      operationId: getUserRoles
+      tags: [auth]
+      summary: List user roles (admin only)
+      responses:
+        "200":
+          description: List of user roles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserRole"
+    post:
+      operationId: assignRole
+      tags: [auth]
+      summary: Assign role to user (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRoleInput"
+      responses:
+        "201":
+          description: Role assigned
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserRole"
+
+  # Designs
+  /designs:
+    get:
+      operationId: listDesigns
+      tags: [designs]
+      summary: List designs with optional category filter
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: featured
+          in: query
+          schema:
+            type: boolean
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of designs
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DesignListResponse"
+    post:
+      operationId: createDesign
+      tags: [designs]
+      summary: Create a design (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DesignInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Design"
+
+  /designs/{id}:
+    get:
+      operationId: getDesign
+      tags: [designs]
+      summary: Get design by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Design
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Design"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateDesign
+      tags: [designs]
+      summary: Update design (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DesignUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Design"
+    delete:
+      operationId: deleteDesign
+      tags: [designs]
+      summary: Delete design (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+
+  /designs/categories:
+    get:
+      operationId: listDesignCategories
+      tags: [designs]
+      summary: List all unique design categories
+      responses:
+        "200":
+          description: Categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+  /designs/stats:
+    get:
+      operationId: getDesignStats
+      tags: [designs]
+      summary: Get design stats summary
+      responses:
+        "200":
+          description: Stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DesignStats"
+
+  # Blog
+  /blog/posts:
+    get:
+      operationId: listBlogPosts
+      tags: [blog]
+      summary: List published blog posts
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+        - name: source
+          in: query
+          schema:
+            type: string
+        - name: search
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Paginated blog posts
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPostListResponse"
+    post:
+      operationId: createBlogPost
+      tags: [blog]
+      summary: Create blog post (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BlogPostInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPost"
+
+  /blog/posts/{id}:
+    get:
+      operationId: getBlogPost
+      tags: [blog]
+      summary: Get blog post by ID or slug
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Blog post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPost"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateBlogPost
+      tags: [blog]
+      summary: Update blog post (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BlogPostUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPost"
+    delete:
+      operationId: deleteBlogPost
+      tags: [blog]
+      summary: Delete blog post (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+
+  /blog/posts/slug/{slug}:
+    get:
+      operationId: getBlogPostBySlug
+      tags: [blog]
+      summary: Get published blog post by slug
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Blog post
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogPost"
+        "404":
+          description: Not found
+
+  /blog/categories:
+    get:
+      operationId: listBlogCategories
+      tags: [blog]
+      summary: List blog categories
+      responses:
+        "200":
+          description: Categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BlogCategory"
+    post:
+      operationId: createBlogCategory
+      tags: [blog]
+      summary: Create blog category (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BlogCategoryInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogCategory"
+
+  /blog/stats:
+    get:
+      operationId: getBlogStats
+      tags: [blog]
+      summary: Blog stats overview
+      responses:
+        "200":
+          description: Stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BlogStats"
+
+  # Stores
+  /stores:
+    get:
+      operationId: listStores
+      tags: [stores]
+      summary: List stores (admin only)
+      responses:
+        "200":
+          description: Stores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Store"
+    post:
+      operationId: createStore
+      tags: [stores]
+      summary: Create store (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StoreInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Store"
+
+  /stores/{id}:
+    delete:
+      operationId: deleteStore
+      tags: [stores]
+      summary: Delete store (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+
+  # Analytics
+  /analytics/pageview:
+    post:
+      operationId: trackPageView
+      tags: [analytics]
+      summary: Track a page view
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PageViewInput"
+      responses:
+        "201":
+          description: Tracked
+
+  /analytics/link-click:
+    post:
+      operationId: trackLinkClick
+      tags: [analytics]
+      summary: Track a link click
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LinkClickInput"
+      responses:
+        "200":
+          description: Tracked
+
+  /analytics/stats:
+    get:
+      operationId: getAnalyticsStats
+      tags: [analytics]
+      summary: Get analytics overview (admin only)
+      responses:
+        "200":
+          description: Analytics stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyticsStats"
+
+  /analytics/link-tracking:
+    get:
+      operationId: getLinkTracking
+      tags: [analytics]
+      summary: Get link tracking data (admin only)
+      responses:
+        "200":
+          description: Link tracking
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LinkTracking"
+
+  # Auto-linking keywords
+  /seo/auto-link-keywords:
+    get:
+      operationId: listAutoLinkKeywords
+      tags: [seo]
+      summary: List auto-link keywords
+      responses:
+        "200":
+          description: Keywords
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AutoLinkKeyword"
+    post:
+      operationId: createAutoLinkKeyword
+      tags: [seo]
+      summary: Create auto-link keyword (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AutoLinkKeywordInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AutoLinkKeyword"
+
+  /seo/auto-link-keywords/{id}:
+    delete:
+      operationId: deleteAutoLinkKeyword
+      tags: [seo]
+      summary: Delete auto-link keyword (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+
+  /seo/article-templates:
+    get:
+      operationId: listArticleTemplates
+      tags: [seo]
+      summary: List article templates (admin only)
+      responses:
+        "200":
+          description: Templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ArticleTemplate"
+    post:
+      operationId: createArticleTemplate
+      tags: [seo]
+      summary: Create article template (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ArticleTemplateInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArticleTemplate"
+
+  /seo/generation-batches:
+    get:
+      operationId: listGenerationBatches
+      tags: [seo]
+      summary: List generation batches (admin only)
+      responses:
+        "200":
+          description: Batches
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/GenerationBatch"
+    post:
+      operationId: createGenerationBatch
+      tags: [seo]
+      summary: Create generation batch (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerationBatchInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenerationBatch"
+
+  # AI features
+  /ai/generate-article:
+    post:
+      operationId: generateArticle
+      tags: [ai]
+      summary: Generate article with AI
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerateArticleInput"
+      responses:
+        "200":
+          description: Generated article
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GeneratedArticle"
+
+  /ai/optimize-title:
+    post:
+      operationId: optimizeTitle
+      tags: [ai]
+      summary: Optimize article title for CTR
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OptimizeTitleInput"
+      responses:
+        "200":
+          description: Optimized titles
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OptimizedTitles"
+
+  /ai/internal-linking:
+    post:
+      operationId: aiInternalLinking
+      tags: [ai]
+      summary: AI-powered internal linking suggestions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InternalLinkingInput"
+      responses:
+        "200":
+          description: Linking suggestions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InternalLinkingSuggestions"
+
+  /ai/seo-analytics:
+    post:
+      operationId: seoAnalytics
+      tags: [ai]
+      summary: Run SEO analytics on content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SEOAnalyticsInput"
+      responses:
+        "200":
+          description: SEO analysis result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SEOAnalyticsResult"
+
+  /ai/serp-analysis:
+    post:
+      operationId: serpAnalysis
+      tags: [ai]
+      summary: Analyze SERP for a keyword
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SERPAnalysisInput"
+      responses:
+        "200":
+          description: SERP analysis
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SERPAnalysisResult"
+
+  /ai/search-images:
+    post:
+      operationId: searchImages
+      tags: [ai]
+      summary: Search Unsplash for images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ImageSearchInput"
+      responses:
+        "200":
+          description: Image search results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ImageSearchResult"
+
+  /ai/import-designs:
+    post:
+      operationId: importDesigns
+      tags: [ai]
+      summary: Import designs from TeePublic/Redbubble
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ImportDesignsInput"
+      responses:
+        "200":
+          description: Import result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ImportResult"
+
+  /ai/publish-scheduled:
+    post:
+      operationId: publishScheduledPosts
+      tags: [ai]
+      summary: Publish all scheduled posts that are due
+      responses:
+        "200":
+          description: Published posts count
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublishResult"
+
+  # Ebooks
+  /ebooks:
+    get:
+      operationId: listEbooks
+      tags: [ebooks]
+      summary: List ebooks
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ebooks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Ebook"
+    post:
+      operationId: createEbook
+      tags: [ebooks]
+      summary: Create a new ebook (admin only)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EbookInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ebook"
+
+  /ebooks/{id}:
+    get:
+      operationId: getEbook
+      tags: [ebooks]
+      summary: Get ebook by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ebook
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EbookWithChapters"
+        "404":
+          description: Not found
+    patch:
+      operationId: updateEbook
+      tags: [ebooks]
+      summary: Update ebook (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EbookUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ebook"
+    delete:
+      operationId: deleteEbook
+      tags: [ebooks]
+      summary: Delete ebook (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+
+  /ebooks/{id}/chapters:
+    get:
+      operationId: listEbookChapters
+      tags: [ebooks]
+      summary: List chapters for an ebook
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Chapters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EbookChapter"
+    post:
+      operationId: addEbookChapter
+      tags: [ebooks]
+      summary: Add chapter to ebook (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EbookChapterInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EbookChapter"
+
+  /ebooks/{id}/generate-from-posts:
+    post:
+      operationId: generateEbookFromPosts
+      tags: [ebooks]
+      summary: Auto-generate ebook chapters from blog posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EbookFromPostsInput"
+      responses:
+        "200":
+          description: Generated chapters
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EbookWithChapters"
+
+  /ebooks/{id}/export-pdf:
+    post:
+      operationId: exportEbookPdf
+      tags: [ebooks]
+      summary: Export ebook as PDF
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: PDF export result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EbookExportResult"
+
+  /sitemap:
+    get:
+      operationId: getSitemap
+      tags: [blog]
+      summary: Get sitemap data
+      responses:
+        "200":
+          description: Sitemap entries
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SitemapData"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +1020,1085 @@ components:
       required:
         - status
 
+    # Auth
+    UserInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: ["string", "null"]
+        isAdmin:
+          type: boolean
+      required: [id, isAdmin]
+
+    SignInInput:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required: [email, password]
+
+    SignUpInput:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required: [email, password]
+
+    AuthSession:
+      type: object
+      properties:
+        token:
+          type: string
+        user:
+          $ref: "#/components/schemas/UserInfo"
+      required: [token, user]
+
+    UserRole:
+      type: object
+      properties:
+        id:
+          type: string
+        user_id:
+          type: string
+        role:
+          type: string
+        created_at:
+          type: string
+      required: [id, user_id, role, created_at]
+
+    UserRoleInput:
+      type: object
+      properties:
+        user_id:
+          type: string
+        role:
+          type: string
+      required: [user_id, role]
+
+    # Designs
+    Design:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: ["string", "null"]
+        image_url:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        teepublic_url:
+          type: ["string", "null"]
+        redbubble_url:
+          type: ["string", "null"]
+        amazon_url:
+          type: ["string", "null"]
+        etsy_url:
+          type: ["string", "null"]
+        featured:
+          type: boolean
+        source:
+          type: ["string", "null"]
+        external_id:
+          type: ["string", "null"]
+        created_at:
+          type: string
+        updated_at:
+          type: string
+      required: [id, name, image_url, category, featured]
+
+    DesignInput:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        image_url:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        teepublic_url:
+          type: string
+        redbubble_url:
+          type: string
+        amazon_url:
+          type: string
+        etsy_url:
+          type: string
+        featured:
+          type: boolean
+        source:
+          type: string
+        external_id:
+          type: string
+      required: [name, image_url]
+
+    DesignUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        image_url:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        teepublic_url:
+          type: string
+        redbubble_url:
+          type: string
+        amazon_url:
+          type: string
+        etsy_url:
+          type: string
+        featured:
+          type: boolean
+
+    DesignListResponse:
+      type: object
+      properties:
+        designs:
+          type: array
+          items:
+            $ref: "#/components/schemas/Design"
+        total:
+          type: integer
+      required: [designs, total]
+
+    DesignStats:
+      type: object
+      properties:
+        total:
+          type: integer
+        featured:
+          type: integer
+        byCategory:
+          type: object
+          additionalProperties:
+            type: integer
+      required: [total, featured, byCategory]
+
+    # Blog
+    BlogPost:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        excerpt:
+          type: ["string", "null"]
+        content:
+          type: ["string", "null"]
+        featured_image:
+          type: ["string", "null"]
+        author_id:
+          type: ["string", "null"]
+        author_name:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        keywords:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        read_time:
+          type: ["string", "null"]
+        meta_title:
+          type: ["string", "null"]
+        meta_description:
+          type: ["string", "null"]
+        related_designs:
+          type: array
+          items:
+            type: string
+        published_at:
+          type: ["string", "null"]
+        scheduled_publish_at:
+          type: ["string", "null"]
+        view_count:
+          type: ["integer", "null"]
+        source:
+          type: string
+        template_id:
+          type: ["string", "null"]
+        generation_batch:
+          type: ["string", "null"]
+        design_id:
+          type: ["string", "null"]
+        indexing_status:
+          type: string
+        ebook_ready:
+          type: boolean
+        created_at:
+          type: string
+        updated_at:
+          type: string
+      required: [id, title, slug, author_name, category, status]
+
+    BlogPostInput:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        excerpt:
+          type: string
+        content:
+          type: string
+        featured_image:
+          type: string
+        author_name:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        keywords:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        read_time:
+          type: string
+        meta_title:
+          type: string
+        meta_description:
+          type: string
+        related_designs:
+          type: array
+          items:
+            type: string
+        published_at:
+          type: string
+        scheduled_publish_at:
+          type: string
+        source:
+          type: string
+        template_id:
+          type: string
+        generation_batch:
+          type: string
+        design_id:
+          type: string
+        indexing_status:
+          type: string
+      required: [title, slug]
+
+    BlogPostUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        excerpt:
+          type: string
+        content:
+          type: string
+        featured_image:
+          type: string
+        author_name:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        keywords:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        read_time:
+          type: string
+        meta_title:
+          type: string
+        meta_description:
+          type: string
+        related_designs:
+          type: array
+          items:
+            type: string
+        published_at:
+          type: string
+        scheduled_publish_at:
+          type: string
+        indexing_status:
+          type: string
+        ebook_ready:
+          type: boolean
+
+    BlogPostListResponse:
+      type: object
+      properties:
+        posts:
+          type: array
+          items:
+            $ref: "#/components/schemas/BlogPost"
+        total:
+          type: integer
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalPages:
+          type: integer
+      required: [posts, total, page, pageSize, totalPages]
+
+    BlogCategory:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        description:
+          type: ["string", "null"]
+        created_at:
+          type: string
+      required: [id, name, slug, created_at]
+
+    BlogCategoryInput:
+      type: object
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+      required: [name, slug]
+
+    BlogStats:
+      type: object
+      properties:
+        total:
+          type: integer
+        published:
+          type: integer
+        draft:
+          type: integer
+        scheduled:
+          type: integer
+        byCategory:
+          type: object
+          additionalProperties:
+            type: integer
+        recentPosts:
+          type: array
+          items:
+            $ref: "#/components/schemas/BlogPost"
+      required: [total, published, draft, scheduled, byCategory, recentPosts]
+
+    # Stores
+    Store:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        store_url:
+          type: string
+        platform:
+          type: string
+        username:
+          type: ["string", "null"]
+        user_id:
+          type: string
+        created_at:
+          type: string
+        updated_at:
+          type: string
+      required: [id, name, store_url, platform, user_id, created_at, updated_at]
+
+    StoreInput:
+      type: object
+      properties:
+        name:
+          type: string
+        store_url:
+          type: string
+        platform:
+          type: string
+        username:
+          type: string
+        user_id:
+          type: string
+      required: [name, store_url, platform, user_id]
+
+    # Analytics
+    PageViewInput:
+      type: object
+      properties:
+        page_path:
+          type: string
+        page_title:
+          type: string
+        referrer:
+          type: string
+        user_agent:
+          type: string
+        session_id:
+          type: string
+        post_id:
+          type: string
+      required: [page_path]
+
+    LinkClickInput:
+      type: object
+      properties:
+        target_url:
+          type: string
+        link_text:
+          type: string
+        source_post_id:
+          type: string
+        link_type:
+          type: string
+      required: [target_url]
+
+    AnalyticsStats:
+      type: object
+      properties:
+        totalPageViews:
+          type: integer
+        uniqueSessions:
+          type: integer
+        topPages:
+          type: array
+          items:
+            type: object
+            properties:
+              path:
+                type: string
+              views:
+                type: integer
+            required: [path, views]
+        recentViews:
+          type: integer
+      required: [totalPageViews, uniqueSessions, topPages, recentViews]
+
+    LinkTracking:
+      type: object
+      properties:
+        id:
+          type: string
+        source_post_id:
+          type: ["string", "null"]
+        target_url:
+          type: string
+        link_text:
+          type: ["string", "null"]
+        link_type:
+          type: string
+        click_count:
+          type: integer
+        created_at:
+          type: string
+      required: [id, target_url, link_type, click_count, created_at]
+
+    AutoLinkKeyword:
+      type: object
+      properties:
+        id:
+          type: string
+        keyword:
+          type: string
+        target_post_id:
+          type: ["string", "null"]
+        priority:
+          type: integer
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+      required: [id, keyword, priority, is_active, created_at]
+
+    AutoLinkKeywordInput:
+      type: object
+      properties:
+        keyword:
+          type: string
+        target_post_id:
+          type: string
+        priority:
+          type: integer
+        is_active:
+          type: boolean
+      required: [keyword]
+
+    # SEO Templates
+    ArticleTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: ["string", "null"]
+        template_type:
+          type: string
+        title_template:
+          type: string
+        slug_template:
+          type: string
+        content_template:
+          type: string
+        excerpt_template:
+          type: ["string", "null"]
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+      required: [id, name, template_type, title_template, slug_template, content_template, category, is_active, created_at]
+
+    ArticleTemplateInput:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        template_type:
+          type: string
+        title_template:
+          type: string
+        slug_template:
+          type: string
+        content_template:
+          type: string
+        excerpt_template:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        is_active:
+          type: boolean
+      required: [name, title_template, slug_template, content_template]
+
+    GenerationBatch:
+      type: object
+      properties:
+        id:
+          type: string
+        batch_name:
+          type: string
+        template_id:
+          type: ["string", "null"]
+        total_articles:
+          type: integer
+        generated_count:
+          type: integer
+        published_count:
+          type: integer
+        status:
+          type: string
+        created_at:
+          type: string
+      required: [id, batch_name, total_articles, generated_count, published_count, status, created_at]
+
+    GenerationBatchInput:
+      type: object
+      properties:
+        batch_name:
+          type: string
+        template_id:
+          type: string
+        total_articles:
+          type: integer
+        variables_data:
+          type: object
+        created_by:
+          type: string
+      required: [batch_name]
+
+    # AI
+    GenerateArticleInput:
+      type: object
+      properties:
+        keyword:
+          type: string
+        category:
+          type: string
+        language:
+          type: string
+        includeImages:
+          type: boolean
+        includeFAQ:
+          type: boolean
+        includeTOC:
+          type: boolean
+        writingStyle:
+          type: string
+        provider:
+          type: string
+      required: [keyword]
+
+    GeneratedArticle:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        content:
+          type: string
+        excerpt:
+          type: string
+        meta_title:
+          type: string
+        meta_description:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        read_time:
+          type: string
+      required: [title, slug, content]
+
+    OptimizeTitleInput:
+      type: object
+      properties:
+        title:
+          type: string
+        keyword:
+          type: string
+        context:
+          type: string
+      required: [title]
+
+    OptimizedTitles:
+      type: object
+      properties:
+        suggestions:
+          type: array
+          items:
+            type: string
+      required: [suggestions]
+
+    InternalLinkingInput:
+      type: object
+      properties:
+        content:
+          type: string
+        postId:
+          type: string
+        existingLinks:
+          type: array
+          items:
+            type: string
+      required: [content]
+
+    InternalLinkingSuggestions:
+      type: object
+      properties:
+        suggestions:
+          type: array
+          items:
+            type: object
+            properties:
+              keyword:
+                type: string
+              targetSlug:
+                type: string
+              targetTitle:
+                type: string
+              relevanceScore:
+                type: number
+            required: [keyword, targetSlug, targetTitle, relevanceScore]
+      required: [suggestions]
+
+    SEOAnalyticsInput:
+      type: object
+      properties:
+        content:
+          type: string
+        keyword:
+          type: string
+        url:
+          type: string
+      required: [content]
+
+    SEOAnalyticsResult:
+      type: object
+      properties:
+        score:
+          type: number
+        suggestions:
+          type: array
+          items:
+            type: string
+        keywordDensity:
+          type: number
+        readability:
+          type: string
+      required: [score, suggestions]
+
+    SERPAnalysisInput:
+      type: object
+      properties:
+        keyword:
+          type: string
+        language:
+          type: string
+      required: [keyword]
+
+    SERPAnalysisResult:
+      type: object
+      properties:
+        keyword:
+          type: string
+        competition:
+          type: string
+        suggestions:
+          type: array
+          items:
+            type: string
+        relatedKeywords:
+          type: array
+          items:
+            type: string
+      required: [keyword, suggestions]
+
+    ImageSearchInput:
+      type: object
+      properties:
+        query:
+          type: string
+        count:
+          type: integer
+      required: [query]
+
+    ImageSearchResult:
+      type: object
+      properties:
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              url:
+                type: string
+              thumb:
+                type: string
+              description:
+                type: ["string", "null"]
+              photographer:
+                type: string
+            required: [id, url, thumb, photographer]
+      required: [images]
+
+    ImportDesignsInput:
+      type: object
+      properties:
+        storeUrl:
+          type: string
+        platform:
+          type: string
+        username:
+          type: string
+      required: [platform]
+
+    ImportResult:
+      type: object
+      properties:
+        imported:
+          type: integer
+        skipped:
+          type: integer
+        errors:
+          type: integer
+        message:
+          type: string
+      required: [imported, skipped, errors, message]
+
+    PublishResult:
+      type: object
+      properties:
+        published:
+          type: integer
+        message:
+          type: string
+      required: [published, message]
+
+    # Ebooks
+    Ebook:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        subtitle:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        author_name:
+          type: string
+        cover_image:
+          type: ["string", "null"]
+        language:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        pdf_url:
+          type: ["string", "null"]
+        epub_url:
+          type: ["string", "null"]
+        isbn:
+          type: ["string", "null"]
+        page_count:
+          type: ["integer", "null"]
+        word_count:
+          type: ["integer", "null"]
+        meta_title:
+          type: ["string", "null"]
+        meta_description:
+          type: ["string", "null"]
+        print_ready:
+          type: boolean
+        published_at:
+          type: ["string", "null"]
+        created_at:
+          type: string
+        updated_at:
+          type: string
+      required: [id, title, slug, author_name, language, category, status, print_ready, created_at, updated_at]
+
+    EbookInput:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        subtitle:
+          type: string
+        description:
+          type: string
+        author_name:
+          type: string
+        cover_image:
+          type: string
+        language:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        meta_title:
+          type: string
+        meta_description:
+          type: string
+      required: [title, slug]
+
+    EbookUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        subtitle:
+          type: string
+        description:
+          type: string
+        author_name:
+          type: string
+        cover_image:
+          type: string
+        language:
+          type: string
+        category:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+        pdf_url:
+          type: string
+        epub_url:
+          type: string
+        isbn:
+          type: string
+        print_ready:
+          type: boolean
+        meta_title:
+          type: string
+        meta_description:
+          type: string
+        published_at:
+          type: string
+
+    EbookChapter:
+      type: object
+      properties:
+        id:
+          type: string
+        ebook_id:
+          type: string
+        blog_post_id:
+          type: ["string", "null"]
+        title:
+          type: string
+        order_index:
+          type: integer
+        content:
+          type: ["string", "null"]
+        is_generated:
+          type: boolean
+        created_at:
+          type: string
+      required: [id, ebook_id, title, order_index, is_generated, created_at]
+
+    EbookChapterInput:
+      type: object
+      properties:
+        blog_post_id:
+          type: string
+        title:
+          type: string
+        order_index:
+          type: integer
+        content:
+          type: string
+        is_generated:
+          type: boolean
+      required: [title]
+
+    EbookWithChapters:
+      type: object
+      properties:
+        ebook:
+          $ref: "#/components/schemas/Ebook"
+        chapters:
+          type: array
+          items:
+            $ref: "#/components/schemas/EbookChapter"
+      required: [ebook, chapters]
+
+    EbookFromPostsInput:
+      type: object
+      properties:
+        postIds:
+          type: array
+          items:
+            type: string
+        category:
+          type: string
+        autoOrder:
+          type: boolean
+      required: [postIds]
+
+    EbookExportResult:
+      type: object
+      properties:
+        pdf_url:
+          type: ["string", "null"]
+        epub_url:
+          type: ["string", "null"]
+        message:
+          type: string
+        status:
+          type: string
+      required: [message, status]
+
+    SitemapData:
+      type: object
+      properties:
+        posts:
+          type: array
+          items:
+            type: object
+            properties:
+              slug:
+                type: string
+              updated_at:
+                type: string
+              priority:
+                type: number
+            required: [slug, updated_at]
+        designs:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              updated_at:
+                type: string
+            required: [id, updated_at]
+        ebooks:
+          type: array
+          items:
+            type: object
+            properties:
+              slug:
+                type: string
+              updated_at:
+                type: string
+            required: [slug, updated_at]
+      required: [posts, designs, ebooks]
