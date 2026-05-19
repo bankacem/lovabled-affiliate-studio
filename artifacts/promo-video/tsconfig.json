@@ -9,7 +9,7 @@
     "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
     "lib": ["es2020", "dom", "dom.iterable"],
-    "types": ["node", "vite/client", "@react-three/fiber"],
+    "types": ["node", "vite/client"],
     "paths": {
       "@/*": ["./src/*"]
     }

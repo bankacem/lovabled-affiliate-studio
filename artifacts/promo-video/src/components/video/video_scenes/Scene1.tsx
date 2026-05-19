@@ -1,10 +1,37 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Component, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore — three v0.182 ships no .d.ts; runtime types come via @react-three/fiber
+// @ts-ignore — three v0.182 ships no .d.ts; types provided via r3f.d.ts + runtime
 import * as THREE from 'three';
-import { sceneTransitions } from '@/lib/video/animations';
+
+function isWebGLAvailable(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch {
+    return false;
+  }
+}
+
+class R3FErrorBoundary extends Component<
+  { fallback: ReactNode; children: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { fallback: ReactNode; children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) return this.props.fallback;
+    return this.props.children;
+  }
+}
 
 function CoralParticleSphere() {
   const meshRef = useRef<THREE.Points>(null);
@@ -21,8 +48,7 @@ function CoralParticleSphere() {
     positions[i * 3 + 2] = r * Math.cos(phi);
     const coral = new THREE.Color('#EA6262');
     const white = new THREE.Color('#FFFFFF');
-    const t = Math.random();
-    const c = coral.clone().lerp(white, t * 0.4);
+    const c = coral.clone().lerp(white, Math.random() * 0.4);
     colors[i * 3] = c.r;
     colors[i * 3 + 1] = c.g;
     colors[i * 3 + 2] = c.b;
@@ -40,46 +66,101 @@ function CoralParticleSphere() {
 
   return (
     <points ref={meshRef} geometry={geometry}>
-      <pointsMaterial
-        vertexColors
-        size={0.028}
-        sizeAttenuation
-        transparent
-        opacity={0.7}
-      />
+      <pointsMaterial vertexColors size={0.028} sizeAttenuation transparent opacity={0.7} />
     </points>
   );
 }
 
-function ThreeBackground({ visible }: { visible: boolean }) {
+function ThreeCanvas() {
   return (
-    <div
-      className="absolute inset-0 pointer-events-none"
-      style={{ opacity: visible ? 1 : 0, transition: 'opacity 1.2s ease' }}
+    <Canvas
+      camera={{ position: [0, 0, 4.5], fov: 50 }}
+      style={{ width: '100%', height: '100%' }}
+      gl={{ antialias: true, alpha: true }}
+      onCreated={() => {}}
     >
-      <Canvas
-        camera={{ position: [0, 0, 4.5], fov: 50 }}
-        style={{ width: '100%', height: '100%' }}
-        gl={{ antialias: true, alpha: true }}
-      >
-        <ambientLight intensity={0.4} />
-        <CoralParticleSphere />
-      </Canvas>
-    </div>
+      <ambientLight intensity={0.4} />
+      <CoralParticleSphere />
+    </Canvas>
+  );
+}
+
+function CSSParticleFallback({ visible }: { visible: boolean }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+
+    const TOTAL = 320;
+    const particles = Array.from({ length: TOTAL }, () => ({
+      x: Math.random(),
+      y: Math.random(),
+      r: 1.2 + Math.random() * 1.8,
+      vx: (Math.random() - 0.5) * 0.0003,
+      vy: (Math.random() - 0.5) * 0.0003,
+      alpha: 0.3 + Math.random() * 0.6,
+      coral: Math.random() > 0.45,
+    }));
+
+    let raf: number;
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = 1;
+        if (p.x > 1) p.x = 0;
+        if (p.y < 0) p.y = 1;
+        if (p.y > 1) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x * canvas.width, p.y * canvas.height, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.coral
+          ? `rgba(234,98,98,${p.alpha})`
+          : `rgba(255,255,255,${p.alpha * 0.5})`;
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ opacity: visible ? 0.7 : 0, transition: 'opacity 1.2s ease' }}
+    />
   );
 }
 
 export function Scene1() {
   const [phase, setPhase] = useState(0);
+  const [webglOk] = useState(() => isWebGLAvailable());
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase(1), 300),   // Three.js sphere fades in
-      setTimeout(() => setPhase(2), 900),   // Coral line draws
-      setTimeout(() => setPhase(3), 1600),  // 'AI' drops in
-      setTimeout(() => setPhase(4), 2000),  // 'PrintVerse' drops in
-      setTimeout(() => setPhase(5), 3200),  // Subtitle
-      setTimeout(() => setPhase(6), 5800),  // Begin exit
+      setTimeout(() => setPhase(1), 300),
+      setTimeout(() => setPhase(2), 900),
+      setTimeout(() => setPhase(3), 1600),
+      setTimeout(() => setPhase(4), 2000),
+      setTimeout(() => setPhase(5), 3200),
+      setTimeout(() => setPhase(6), 5800),
     ];
     return () => timers.forEach(t => clearTimeout(t));
   }, []);
@@ -92,11 +173,21 @@ export function Scene1() {
       exit={{ opacity: 0, scale: 1.05, filter: 'blur(8px)' }}
       transition={{ duration: 0.8, ease: 'circOut' }}
     >
-      {/* Three.js animated particle sphere */}
-      <ThreeBackground visible={phase >= 1} />
+      {/* Particle background: Three.js/WebGL when available, CSS canvas fallback otherwise */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ opacity: phase >= 1 ? 1 : 0, transition: 'opacity 1.2s ease' }}
+      >
+        {webglOk ? (
+          <R3FErrorBoundary fallback={<CSSParticleFallback visible={phase >= 1} />}>
+            <ThreeCanvas />
+          </R3FErrorBoundary>
+        ) : (
+          <CSSParticleFallback visible={phase >= 1} />
+        )}
+      </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center w-full">
-        {/* Animated coral line */}
         <motion.div
           className="h-[2px] bg-[#EA6262] mb-8"
           initial={{ width: 0, opacity: 0 }}
