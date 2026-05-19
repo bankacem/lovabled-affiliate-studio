@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db, autoLinkKeywordsTable, articleTemplatesTable, generationBatchesTable } from "@workspace/db";
 import { eq, and, desc } from "drizzle-orm";
 import { requireAdmin } from "../middleware/requireAuth";
+import { getParam } from "../lib/params";
 
 const router = Router();
 
@@ -20,7 +21,8 @@ router.post("/seo/auto-link-keywords", requireAdmin, async (req, res) => {
 });
 
 router.delete("/seo/auto-link-keywords/:id", requireAdmin, async (req, res) => {
-  await db.delete(autoLinkKeywordsTable).where(eq(autoLinkKeywordsTable.id, req.params.id));
+  const id = getParam(req, "id");
+  await db.delete(autoLinkKeywordsTable).where(eq(autoLinkKeywordsTable.id, id));
   res.status(204).end();
 });
 

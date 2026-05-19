@@ -3,6 +3,7 @@ import { db, blogPostsTable, blogCategoriesTable } from "@workspace/db";
 import { eq, desc, ilike, and, sql, inArray } from "drizzle-orm";
 import { requireAdmin, getUserFromToken } from "../middleware/requireAuth";
 import { userRolesTable } from "@workspace/db";
+import { getParam } from "../lib/params";
 
 const router = Router();
 
@@ -107,8 +108,9 @@ router.get("/blog/posts/slugs-exist", requireAdmin, async (req, res) => {
 
 // Get all posts for a generation batch (with optional status filter)
 router.get("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+  const batchId = getParam(req, "batchId");
   const { status } = req.query as Record<string, string>;
-  const conditions: ReturnType<typeof eq>[] = [eq(blogPostsTable.generation_batch, req.params.batchId)];
+  const conditions: ReturnType<typeof eq>[] = [eq(blogPostsTable.generation_batch, batchId)];
   if (status) conditions.push(eq(blogPostsTable.status, status));
   const posts = await db.select().from(blogPostsTable)
     .where(and(...conditions))
@@ -119,12 +121,13 @@ router.get("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
 
 // Batch publish/update all posts in a generation batch (with optional current-status filter)
 router.patch("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+  const batchId = getParam(req, "batchId");
   const { filter_status, ...updateData } = req.body as Record<string, unknown>;
-  const update = { ...updateData, updated_at: new Date() };
+  const update: Record<string, unknown> = { ...updateData, updated_at: new Date() };
   if (update.published_at) update.published_at = new Date(update.published_at as string);
   if (update.scheduled_publish_at) update.scheduled_publish_at = new Date(update.scheduled_publish_at as string);
 
-  const conditions: ReturnType<typeof eq>[] = [eq(blogPostsTable.generation_batch, req.params.batchId)];
+  const conditions: ReturnType<typeof eq>[] = [eq(blogPostsTable.generation_batch, batchId)];
   if (filter_status) conditions.push(eq(blogPostsTable.status, filter_status as string));
 
   const posts = await db.update(blogPostsTable).set(update)
@@ -135,19 +138,22 @@ router.patch("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => 
 
 // Delete all posts in a generation batch
 router.delete("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
-  await db.delete(blogPostsTable).where(eq(blogPostsTable.generation_batch, req.params.batchId));
+  const batchId = getParam(req, "batchId");
+  await db.delete(blogPostsTable).where(eq(blogPostsTable.generation_batch, batchId));
   res.status(204).end();
 });
 
 router.get("/blog/posts/slug/:slug", async (req, res) => {
+  const slug = getParam(req, "slug");
   const [post] = await db.select().from(blogPostsTable)
-    .where(and(eq(blogPostsTable.slug, req.params.slug), eq(blogPostsTable.status, "published")));
+    .where(and(eq(blogPostsTable.slug, slug), eq(blogPostsTable.status, "published")));
   if (!post) { res.status(404).json({ error: "Not found" }); return; }
   res.json(post);
 });
 
 router.get("/blog/posts/:id", requireAdmin, async (req, res) => {
-  const [post] = await db.select().from(blogPostsTable).where(eq(blogPostsTable.id, req.params.id));
+  const id = getParam(req, "id");
+  const [post] = await db.select().from(blogPostsTable).where(eq(blogPostsTable.id, id));
   if (!post) { res.status(404).json({ error: "Not found" }); return; }
   res.json(post);
 });
@@ -162,10 +168,11 @@ router.post("/blog/posts", requireAdmin, async (req, res) => {
 
 router.patch("/blog/posts/:id", requireAdmin, async (req, res) => {
   try {
-    const data = { ...req.body, updated_at: new Date() };
-    if (data.published_at) data.published_at = new Date(data.published_at);
-    if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at);
-    const [post] = await db.update(blogPostsTable).set(data).where(eq(blogPostsTable.id, req.params.id)).returning();
+    const id = getParam(req, "id");
+    const data: Record<string, unknown> = { ...req.body, updated_at: new Date() };
+    if (data.published_at) data.published_at = new Date(data.published_at as string);
+    if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at as string);
+    const [post] = await db.update(blogPostsTable).set(data).where(eq(blogPostsTable.id, id)).returning();
     if (!post) { res.status(404).json({ error: "Not found" }); return; }
     res.json(post);
   } catch {
@@ -181,7 +188,7 @@ router.patch("/blog/posts", requireAdmin, async (req, res) => {
     return;
   }
   try {
-    const update = { ...updateData, updated_at: new Date() };
+    const update: Record<string, unknown> = { ...updateData, updated_at: new Date() };
     if (update.published_at) update.published_at = new Date(update.published_at as string);
     const posts = await db.update(blogPostsTable).set(update).where(inArray(blogPostsTable.id, ids)).returning();
     res.json(posts);
@@ -192,7 +199,8 @@ router.patch("/blog/posts", requireAdmin, async (req, res) => {
 
 router.delete("/blog/posts/:id", requireAdmin, async (req, res) => {
   try {
-    await db.delete(blogPostsTable).where(eq(blogPostsTable.id, req.params.id));
+    const id = getParam(req, "id");
+    await db.delete(blogPostsTable).where(eq(blogPostsTable.id, id));
     res.status(204).end();
   } catch {
     res.status(400).json({ error: "Invalid id" });

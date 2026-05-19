@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db, storesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { requireAdmin } from "../middleware/requireAuth";
+import { getParam } from "../lib/params";
 
 const router = Router();
 
@@ -16,7 +17,8 @@ router.post("/stores", requireAdmin, async (req, res) => {
 });
 
 router.delete("/stores/:id", requireAdmin, async (req, res) => {
-  await db.delete(storesTable).where(eq(storesTable.id, req.params.id));
+  const id = getParam(req, "id");
+  await db.delete(storesTable).where(eq(storesTable.id, id));
   res.status(204).end();
 });
 

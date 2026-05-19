@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db, designsTable } from "@workspace/db";
 import { eq, desc, and, sql } from "drizzle-orm";
 import { requireAdmin } from "../middleware/requireAuth";
+import { getParam } from "../lib/params";
 
 const router = Router();
 
@@ -38,7 +39,8 @@ router.get("/designs", async (req, res) => {
 });
 
 router.get("/designs/:id", async (req, res) => {
-  const [design] = await db.select().from(designsTable).where(eq(designsTable.id, req.params.id));
+  const id = getParam(req, "id");
+  const [design] = await db.select().from(designsTable).where(eq(designsTable.id, id));
   if (!design) { res.status(404).json({ error: "Not found" }); return; }
   res.json(design);
 });
@@ -49,13 +51,15 @@ router.post("/designs", requireAdmin, async (req, res) => {
 });
 
 router.patch("/designs/:id", requireAdmin, async (req, res) => {
-  const [design] = await db.update(designsTable).set({ ...req.body, updated_at: new Date() }).where(eq(designsTable.id, req.params.id)).returning();
+  const id = getParam(req, "id");
+  const [design] = await db.update(designsTable).set({ ...req.body, updated_at: new Date() }).where(eq(designsTable.id, id)).returning();
   if (!design) { res.status(404).json({ error: "Not found" }); return; }
   res.json(design);
 });
 
 router.delete("/designs/:id", requireAdmin, async (req, res) => {
-  await db.delete(designsTable).where(eq(designsTable.id, req.params.id));
+  const id = getParam(req, "id");
+  await db.delete(designsTable).where(eq(designsTable.id, id));
   res.status(204).end();
 });
 

@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db, ebooksTable, ebookChaptersTable, blogPostsTable } from "@workspace/db";
 import { eq, asc, desc, and, inArray } from "drizzle-orm";
 import { requireAdmin } from "../middleware/requireAuth";
+import { getParam } from "../lib/params";
 
 const router = Router();
 
@@ -15,15 +16,17 @@ router.get("/ebooks", async (req, res) => {
 });
 
 router.get("/ebooks/:id", async (req, res) => {
-  const [ebook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, req.params.id));
+  const id = getParam(req, "id");
+  const [ebook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, id));
   if (!ebook) { res.status(404).json({ error: "Not found" }); return; }
-  const chapters = await db.select().from(ebookChaptersTable).where(eq(ebookChaptersTable.ebook_id, req.params.id)).orderBy(asc(ebookChaptersTable.order_index));
+  const chapters = await db.select().from(ebookChaptersTable).where(eq(ebookChaptersTable.ebook_id, id)).orderBy(asc(ebookChaptersTable.order_index));
   res.json({ ebook, chapters });
 });
 
 router.get("/ebooks/:id/chapters", async (req, res) => {
+  const id = getParam(req, "id");
   const chapters = await db.select().from(ebookChaptersTable)
-    .where(eq(ebookChaptersTable.ebook_id, req.params.id))
+    .where(eq(ebookChaptersTable.ebook_id, id))
     .orderBy(asc(ebookChaptersTable.order_index));
   res.json(chapters);
 });
@@ -34,35 +37,39 @@ router.post("/ebooks", requireAdmin, async (req, res) => {
 });
 
 router.patch("/ebooks/:id", requireAdmin, async (req, res) => {
-  const [ebook] = await db.update(ebooksTable).set({ ...req.body, updated_at: new Date() }).where(eq(ebooksTable.id, req.params.id)).returning();
+  const id = getParam(req, "id");
+  const [ebook] = await db.update(ebooksTable).set({ ...req.body, updated_at: new Date() }).where(eq(ebooksTable.id, id)).returning();
   if (!ebook) { res.status(404).json({ error: "Not found" }); return; }
   res.json(ebook);
 });
 
 router.delete("/ebooks/:id", requireAdmin, async (req, res) => {
-  await db.delete(ebooksTable).where(eq(ebooksTable.id, req.params.id));
+  const id = getParam(req, "id");
+  await db.delete(ebooksTable).where(eq(ebooksTable.id, id));
   res.status(204).end();
 });
 
 router.post("/ebooks/:id/chapters", requireAdmin, async (req, res) => {
-  const [chapter] = await db.insert(ebookChaptersTable).values({ ...req.body, ebook_id: req.params.id }).returning();
+  const id = getParam(req, "id");
+  const [chapter] = await db.insert(ebookChaptersTable).values({ ...req.body, ebook_id: id }).returning();
   res.status(201).json(chapter);
 });
 
 router.post("/ebooks/:id/generate-from-posts", requireAdmin, async (req, res) => {
+  const id = getParam(req, "id");
   const { postIds, autoOrder = true } = req.body as { postIds: string[]; autoOrder?: boolean };
-  const [ebook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, req.params.id));
+  const [ebook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, id));
   if (!ebook) { res.status(404).json({ error: "Not found" }); return; }
 
   const posts = await db.select().from(blogPostsTable).where(inArray(blogPostsTable.id, postIds));
-  await db.delete(ebookChaptersTable).where(and(eq(ebookChaptersTable.ebook_id, req.params.id), eq(ebookChaptersTable.is_generated, true)));
+  await db.delete(ebookChaptersTable).where(and(eq(ebookChaptersTable.ebook_id, id), eq(ebookChaptersTable.is_generated, true)));
 
   const chapters = await Promise.all(posts.map(async (post, i) => {
     const [chapter] = await db.insert(ebookChaptersTable).values({
-      ebook_id: req.params.id,
+      ebook_id: id,
       blog_post_id: post.id,
       title: post.title,
-      order_index: i,
+      order_index: autoOrder ? i : i,
       content: post.content,
       is_generated: true,
     }).returning();
@@ -70,15 +77,16 @@ router.post("/ebooks/:id/generate-from-posts", requireAdmin, async (req, res) =>
   }));
 
   const totalWords = posts.reduce((acc, p) => acc + (p.content?.split(/\s+/).length || 0), 0);
-  await db.update(ebooksTable).set({ word_count: totalWords, updated_at: new Date() }).where(eq(ebooksTable.id, req.params.id));
-  const [updatedEbook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, req.params.id));
+  await db.update(ebooksTable).set({ word_count: totalWords, updated_at: new Date() }).where(eq(ebooksTable.id, id));
+  const [updatedEbook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, id));
   res.json({ ebook: updatedEbook, chapters });
 });
 
 router.post("/ebooks/:id/export-pdf", requireAdmin, async (req, res) => {
-  const [ebook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, req.params.id));
+  const id = getParam(req, "id");
+  const [ebook] = await db.select().from(ebooksTable).where(eq(ebooksTable.id, id));
   if (!ebook) { res.status(404).json({ error: "Not found" }); return; }
-  await db.update(ebooksTable).set({ print_ready: true, updated_at: new Date() }).where(eq(ebooksTable.id, req.params.id));
+  await db.update(ebooksTable).set({ print_ready: true, updated_at: new Date() }).where(eq(ebooksTable.id, id));
   res.json({ pdf_url: null, epub_url: null, message: "PDF export queued.", status: "queued" });
 });
 
