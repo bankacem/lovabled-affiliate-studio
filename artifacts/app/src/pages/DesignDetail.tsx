@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Share2, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -13,7 +14,7 @@ const DesignDetail = () => {
   const { data: allDesigns = [] } = useDesigns();
 
   const relatedDesigns = allDesigns
-    .filter((d) => d.category === design?.category && d.id !== design?.id)
+    .filter((d: any) => d.category === design?.category && d.id !== design?.id)
     .slice(0, 4);
 
   const handleShare = async () => {
@@ -61,17 +62,40 @@ const DesignDetail = () => {
   const designDesc = (design.description || `Shop ${design.name} - unique ${design.category} print-on-demand design on t-shirts, mugs, stickers and more at AIPrintVerse.`).slice(0, 160);
   const designUrl = `https://aiprintverse.com/designs/${design.id}`;
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": design.name,
+    "image": design.image_url,
+    "description": design.description || designDesc,
+    "brand": {
+      "@type": "Brand",
+      "name": "AIPrintVerse"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": designUrl,
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <Layout>
-      {/* SEO */}
-      <title>{designTitle}</title>
-      <meta name="description" content={designDesc} />
-      <meta property="og:title" content={designTitle} />
-      <meta property="og:description" content={designDesc} />
-      <meta property="og:type" content="product" />
-      <meta property="og:url" content={designUrl} />
-      {design.image_url && <meta property="og:image" content={design.image_url} />}
-      <link rel="canonical" href={designUrl} />
+      <Helmet>
+        <title>{designTitle}</title>
+        <meta name="description" content={designDesc} />
+        <meta property="og:title" content={designTitle} />
+        <meta property="og:description" content={designDesc} />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={designUrl} />
+        {design.image_url && <meta property="og:image" content={design.image_url} />}
+        <link rel="canonical" href={designUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        />
+      </Helmet>
 
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
@@ -143,7 +167,7 @@ const DesignDetail = () => {
               {/* Tags */}
               {design.tags && design.tags.length > 0 && (
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {design.tags.map((tag) => (
+                  {design.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="rounded-full bg-secondary px-3 py-1 text-sm text-secondary-foreground"
@@ -240,7 +264,7 @@ const DesignDetail = () => {
                 Related Designs
               </h2>
               <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {relatedDesigns.map((design, index) => (
+                {relatedDesigns.map((design: any, index: number) => (
                   <DesignCard key={design.id} design={design} index={index} />
                 ))}
               </div>

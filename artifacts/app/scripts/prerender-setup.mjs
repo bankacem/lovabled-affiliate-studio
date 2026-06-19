@@ -17,8 +17,9 @@ const BASE_URL = "https://aiprintverse.com";
 
 async function fetchAll(table, select) {
   try {
+    const sep = table.includes("?") ? "&" : "?";
     const r = await fetch(
-      `${SUPABASE_URL}/rest/v1/${table}?select=${select}&limit=2000`,
+      `${SUPABASE_URL}/rest/v1/${table}${sep}select=${select}&limit=2000`,
       {
         headers: {
           apikey: SUPABASE_ANON_KEY,

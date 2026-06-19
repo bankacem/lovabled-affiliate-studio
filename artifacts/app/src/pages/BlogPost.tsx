@@ -1,5 +1,6 @@
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -154,28 +155,30 @@ const BlogPost = () => {
     }
   };
 
+  const metaTitle = post.meta_title || `${post.title} | AIPrintVerse`;
+  const metaDescription = (post.meta_description || post.excerpt || `Explore the latest trends in ${post.category}: ${post.title}. AI-powered insights for unique print-on-demand designs.`).slice(0, 160);
+
   return (
     <Layout>
-      {/* SEO */}
-      <title>{post.meta_title || post.title}</title>
-      <meta name="description" content={post.meta_description || post.excerpt || ""} />
-      <meta property="og:title" content={post.meta_title || post.title} />
-      <meta property="og:description" content={post.meta_description || post.excerpt || ""} />
-      <meta property="og:type" content="article" />
-      <meta property="og:url" content={`https://aiprintverse.com/blog/${post.slug}`} />
-      {post.featured_image && <meta property="og:image" content={post.featured_image} />}
-      <link rel="canonical" href={`https://aiprintverse.com/blog/${post.slug}`} />
-      
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <Helmet>
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://aiprintverse.com/blog/${post.slug}`} />
+        {post.featured_image && <meta property="og:image" content={post.featured_image} />}
+        <link rel="canonical" href={`https://aiprintverse.com/blog/${post.slug}`} />
 
-      {/* Preload featured image */}
-      {post.featured_image && (
-        <link rel="preload" as="image" href={post.featured_image} />
-      )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
+        {post.featured_image && (
+          <link rel="preload" as="image" href={post.featured_image} />
+        )}
+      </Helmet>
       
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
@@ -234,7 +237,7 @@ const BlogPost = () => {
               
               {post.tags && post.tags.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {post.tags.map((tag, index) => (
+                  {post.tags.map((tag: string, index: number) => (
                     <span
                       key={index}
                       className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-secondary text-secondary-foreground"
