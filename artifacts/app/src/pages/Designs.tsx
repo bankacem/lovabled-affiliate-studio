@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, Loader2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { DesignCard } from "@/components/designs/DesignCard";
 import { useDesigns } from "@/hooks/useDesigns";
@@ -51,6 +52,11 @@ const Designs = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>جميع التصاميم | AIPrintVerse - منتجات فريدة بالذكاء الاصطناعي</title>
+        <meta name="description" content="تصفح مجموعتنا الكاملة من تصاميم الطباعة عند الطلب المنسقة بالذكاء الاصطناعي. تسوق أعمالاً فنية فريدة للقمصان، الهوديز، الأكواب، والملصقات من TeePublic و Redbubble." />
+        <link rel="canonical" href="https://aiprintverse.com/designs" />
+      </Helmet>
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
           {/* Header */}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart, Target, Users, Sparkles } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 
 const values = [
@@ -32,6 +33,11 @@ const values = [
 const About = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>من نحن | AIPrintVerse - قصتنا ورسالتنا</title>
+        <meta name="description" content="تعرف على AIPrintVerse، شغفنا بالتصاميم الفريدة المدعومة بالذكاء الاصطناعي، ورسالتنا لربط محبي التصميم بمنتجات عالية الجودة مطبوعة عند الطلب." />
+        <link rel="canonical" href="https://aiprintverse.com/about" />
+      </Helmet>
       {/* Hero */}
       <section className="bg-gradient-to-b from-secondary/50 to-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
