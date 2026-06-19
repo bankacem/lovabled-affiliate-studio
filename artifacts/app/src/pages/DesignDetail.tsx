@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Share2, Loader2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { DesignCard } from "@/components/designs/DesignCard";
@@ -58,20 +59,22 @@ const DesignDetail = () => {
   }
 
   const designTitle = `${design.name} | AIPrintVerse`;
-  const designDesc = (design.description || `Shop ${design.name} - unique ${design.category} print-on-demand design on t-shirts, mugs, stickers and more at AIPrintVerse.`).slice(0, 160);
+  const designDesc = (design.description || `تسوق ${design.name} - تصميم فريد ${design.category} للطباعة عند الطلب على القمصان، الأكواب، الملصقات والمزيد في AIPrintVerse.`).slice(0, 160);
   const designUrl = `https://aiprintverse.com/designs/${design.id}`;
 
   return (
     <Layout>
       {/* SEO */}
-      <title>{designTitle}</title>
-      <meta name="description" content={designDesc} />
-      <meta property="og:title" content={designTitle} />
-      <meta property="og:description" content={designDesc} />
-      <meta property="og:type" content="product" />
-      <meta property="og:url" content={designUrl} />
-      {design.image_url && <meta property="og:image" content={design.image_url} />}
-      <link rel="canonical" href={designUrl} />
+      <Helmet>
+        <title>{designTitle}</title>
+        <meta name="description" content={designDesc} />
+        <meta property="og:title" content={designTitle} />
+        <meta property="og:description" content={designDesc} />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={designUrl} />
+        {design.image_url && <meta property="og:image" content={design.image_url} />}
+        <link rel="canonical" href={designUrl} />
+      </Helmet>
 
       <section className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">

@@ -2,6 +2,7 @@ import { useParams, Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, User, Share2, Tag } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -157,25 +158,27 @@ const BlogPost = () => {
   return (
     <Layout>
       {/* SEO */}
-      <title>{post.meta_title || post.title}</title>
-      <meta name="description" content={post.meta_description || post.excerpt || ""} />
-      <meta property="og:title" content={post.meta_title || post.title} />
-      <meta property="og:description" content={post.meta_description || post.excerpt || ""} />
-      <meta property="og:type" content="article" />
-      <meta property="og:url" content={`https://aiprintverse.com/blog/${post.slug}`} />
-      {post.featured_image && <meta property="og:image" content={post.featured_image} />}
-      <link rel="canonical" href={`https://aiprintverse.com/blog/${post.slug}`} />
-      
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <Helmet>
+        <title>{post.meta_title || post.title}</title>
+        <meta name="description" content={post.meta_description || post.excerpt || ""} />
+        <meta property="og:title" content={post.meta_title || post.title} />
+        <meta property="og:description" content={post.meta_description || post.excerpt || ""} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://aiprintverse.com/blog/${post.slug}`} />
+        {post.featured_image && <meta property="og:image" content={post.featured_image} />}
+        <link rel="canonical" href={`https://aiprintverse.com/blog/${post.slug}`} />
 
-      {/* Preload featured image */}
-      {post.featured_image && (
-        <link rel="preload" as="image" href={post.featured_image} />
-      )}
+        {/* JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
+        {/* Preload featured image */}
+        {post.featured_image && (
+          <link rel="preload" as="image" href={post.featured_image} />
+        )}
+      </Helmet>
       
       <article className="py-8 md:py-12">
         <div className="container mx-auto px-4 md:px-6">
@@ -215,7 +218,9 @@ const BlogPost = () => {
                   <Calendar className="h-4 w-4" />
                   {post.published_at 
                     ? format(new Date(post.published_at), "MMMM d, yyyy")
-                    : format(new Date(post.created_at), "MMMM d, yyyy")}
+                    : post.created_at
+                      ? format(new Date(post.created_at), "MMMM d, yyyy")
+                      : "Recently"}
                 </span>
                 {post.read_time && (
                   <span className="flex items-center gap-1">

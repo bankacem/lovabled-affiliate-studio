@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Search, FileText, ChevronLeft, ChevronRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
@@ -66,13 +67,17 @@ const Blog = () => {
   return (
     <Layout>
       {/* SEO */}
-      {page > 1 && (
-        <link rel="prev" href={`https://aiprintverse.com/blog?page=${page - 1}`} />
-      )}
-      {page < totalPages && (
-        <link rel="next" href={`https://aiprintverse.com/blog?page=${page + 1}`} />
-      )}
-      <link rel="canonical" href={`https://aiprintverse.com/blog${page > 1 ? `?page=${page}` : ""}`} />
+      <Helmet>
+        <title>المدونة | AIPrintVerse - اتجاهات تصاميم الطباعة بالذكاء الاصطناعي</title>
+        <meta name="description" content="اقرأ مدونة AIPrintVerse لمعرفة أحدث الاتجاهات في تصاميم الطباعة عند الطلب المدعومة بالذكاء الاصطناعي، نصائح التصميم، والإلهام لمنتجاتك الفريدة القادمة." />
+        {page > 1 && (
+          <link rel="prev" href={`https://aiprintverse.com/blog?page=${page - 1}`} />
+        )}
+        {page < totalPages && (
+          <link rel="next" href={`https://aiprintverse.com/blog?page=${page + 1}`} />
+        )}
+        <link rel="canonical" href={`https://aiprintverse.com/blog${page > 1 ? `?page=${page}` : ""}`} />
+      </Helmet>
 
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
