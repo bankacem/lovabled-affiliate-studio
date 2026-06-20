@@ -1,12 +1,12 @@
-import { Router } from "express";
+import { Router, type Request, type Response } from "express";
 import { db, pageViewsTable, linkTrackingTable, blogPostsTable } from "@workspace/db";
 import { eq, desc, sql, and, isNull, gte } from "drizzle-orm";
-import { requireAdmin } from "../middleware/requireAuth";
+import { requireAdmin } from "../middleware/requireAuth.js";
 
 const router = Router();
 
 // Public: record a page view
-router.post("/analytics/pageview", async (req, res) => {
+router.post("/analytics/pageview", async (req: Request, res: Response) => {
   const { page_path, page_title, referrer, user_agent, session_id, post_id } = req.body;
   await db.insert(pageViewsTable).values({ page_path, page_title, referrer, user_agent, session_id, post_id: post_id || null });
   if (post_id) {
@@ -16,7 +16,7 @@ router.post("/analytics/pageview", async (req, res) => {
 });
 
 // Public: record a link click (increments click_count)
-router.post("/analytics/link-click", async (req, res) => {
+router.post("/analytics/link-click", async (req: Request, res: Response) => {
   const { target_url, link_text, source_post_id, link_type } = req.body;
   const conditions = [eq(linkTrackingTable.target_url, target_url)];
   if (source_post_id) {
@@ -34,7 +34,7 @@ router.post("/analytics/link-click", async (req, res) => {
 });
 
 // Admin: list/search raw page_views rows (for AnalyticsDashboard)
-router.get("/analytics/page-views", requireAdmin, async (req, res) => {
+router.get("/analytics/page-views", requireAdmin, async (req: Request, res: Response) => {
   const { since } = req.query as Record<string, string>;
   if (since) {
     const rows = await db.select().from(pageViewsTable).where(gte(pageViewsTable.created_at, new Date(since)));
@@ -46,7 +46,7 @@ router.get("/analytics/page-views", requireAdmin, async (req, res) => {
 });
 
 // Admin: aggregated stats
-router.get("/analytics/stats", requireAdmin, async (_req, res) => {
+router.get("/analytics/stats", requireAdmin, async (_req: Request, res: Response) => {
   const [totals] = await db.select({
     totalPageViews: sql<number>`count(*)`,
     uniqueSessions: sql<number>`count(distinct session_id)`,
@@ -64,13 +64,13 @@ router.get("/analytics/stats", requireAdmin, async (_req, res) => {
 });
 
 // Admin: list all link tracking rows ordered by click_count
-router.get("/analytics/link-tracking", requireAdmin, async (_req, res) => {
+router.get("/analytics/link-tracking", requireAdmin, async (_req: Request, res: Response) => {
   const links = await db.select().from(linkTrackingTable).orderBy(desc(linkTrackingTable.click_count)).limit(100);
   res.json(links);
 });
 
 // Admin: upsert a link tracking row (for "Scan All Articles" indexing — preserves click_count)
-router.post("/analytics/link-tracking", requireAdmin, async (req, res) => {
+router.post("/analytics/link-tracking", requireAdmin, async (req: Request, res: Response) => {
   const items = Array.isArray(req.body) ? req.body : [req.body];
   const results = [];
   for (const item of items) {
@@ -100,7 +100,7 @@ router.post("/analytics/link-tracking", requireAdmin, async (req, res) => {
 });
 
 // Admin: get single link tracking row by id + source_post_id (for existence check in ArticleOptimizer)
-router.get("/analytics/link-tracking/check", requireAdmin, async (req, res) => {
+router.get("/analytics/link-tracking/check", requireAdmin, async (req: Request, res: Response) => {
   const { target_url, source_post_id } = req.query as Record<string, string>;
   if (!target_url) { res.status(400).json({ error: "target_url required" }); return; }
   const conditions = [eq(linkTrackingTable.target_url, target_url)];

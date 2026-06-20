@@ -1,14 +1,14 @@
-import { Router, type IRouter } from "express";
-import healthRouter from "./health";
-import authRouter from "./auth";
-import designsRouter from "./designs";
-import blogRouter from "./blog";
-import storesRouter from "./stores";
-import analyticsRouter from "./analytics";
-import seoRouter from "./seo";
-import aiRouter from "./ai";
-import ebooksRouter from "./ebooks";
-import sitemapRouter from "./sitemap";
+import { Router, type IRouter, type Request, type Response } from "express";
+import healthRouter from "./health.js";
+import authRouter from "./auth.js";
+import designsRouter from "./designs.js";
+import blogRouter from "./blog.js";
+import storesRouter from "./stores.js";
+import analyticsRouter from "./analytics.js";
+import seoRouter from "./seo.js";
+import aiRouter from "./ai.js";
+import ebooksRouter from "./ebooks.js";
+import sitemapRouter from "./sitemap.js";
 
 const router: IRouter = Router();
 

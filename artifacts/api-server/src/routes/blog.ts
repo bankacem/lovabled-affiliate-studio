@@ -1,13 +1,13 @@
-import { Router } from "express";
+import { Router, type Request, type Response } from "express";
 import { db, blogPostsTable, blogCategoriesTable } from "@workspace/db";
 import { eq, desc, ilike, and, sql, inArray } from "drizzle-orm";
-import { requireAdmin, getUserFromToken } from "../middleware/requireAuth";
+import { requireAdmin, getUserFromToken } from "../middleware/requireAuth.js";
 import { userRolesTable } from "@workspace/db";
-import { getParam } from "../lib/params";
+import { getParam } from "../lib/params.js";
 
 const router = Router();
 
-router.get("/blog/stats", requireAdmin, async (_req, res) => {
+router.get("/blog/stats", requireAdmin, async (_req: Request, res: Response) => {
   const [totals] = await db.select({
     total: sql<number>`count(*)`,
     published: sql<number>`sum(case when status='published' then 1 else 0 end)`,
@@ -28,7 +28,7 @@ router.get("/blog/stats", requireAdmin, async (_req, res) => {
   });
 });
 
-router.get("/blog/posts", async (req, res) => {
+router.get("/blog/posts", async (req: Request, res: Response) => {
   const { page = "1", pageSize = "12", category, status, source, search } = req.query as Record<string, string>;
   const pg = Math.max(1, Number(page));
   const ps = Math.min(100, Math.max(1, Number(pageSize)));
@@ -67,7 +67,7 @@ router.get("/blog/posts", async (req, res) => {
 });
 
 // Scan for published posts missing a featured_image (for MissingImageGenerator)
-router.get("/blog/posts/missing-image", requireAdmin, async (req, res) => {
+router.get("/blog/posts/missing-image", requireAdmin, async (req: Request, res: Response) => {
   const { isNull: drizzleIsNull } = await import("drizzle-orm");
   const posts = await db.select({
     id: blogPostsTable.id,
@@ -96,7 +96,7 @@ router.get("/blog/posts/missing-image", requireAdmin, async (req, res) => {
 });
 
 // Check which slugs already exist (for duplicate detection before batch insert)
-router.get("/blog/posts/slugs-exist", requireAdmin, async (req, res) => {
+router.get("/blog/posts/slugs-exist", requireAdmin, async (req: Request, res: Response) => {
   const slugParam = req.query.slugs as string | undefined;
   if (!slugParam) { res.json([]); return; }
   const slugs = slugParam.split(",").filter(Boolean);
@@ -107,7 +107,7 @@ router.get("/blog/posts/slugs-exist", requireAdmin, async (req, res) => {
 });
 
 // Get all posts for a generation batch (with optional status filter)
-router.get("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+router.get("/blog/posts/by-batch/:batchId", requireAdmin, async (req: Request, res: Response) => {
   const batchId = getParam(req, "batchId");
   const { status } = req.query as Record<string, string>;
   const conditions: ReturnType<typeof eq>[] = [eq(blogPostsTable.generation_batch, batchId)];
@@ -120,7 +120,7 @@ router.get("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
 });
 
 // Batch publish/update all posts in a generation batch (with optional current-status filter)
-router.patch("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+router.patch("/blog/posts/by-batch/:batchId", requireAdmin, async (req: Request, res: Response) => {
   const batchId = getParam(req, "batchId");
   const { filter_status, ...updateData } = req.body as Record<string, unknown>;
   const update: Record<string, unknown> = { ...updateData, updated_at: new Date() };
@@ -137,13 +137,13 @@ router.patch("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => 
 });
 
 // Delete all posts in a generation batch
-router.delete("/blog/posts/by-batch/:batchId", requireAdmin, async (req, res) => {
+router.delete("/blog/posts/by-batch/:batchId", requireAdmin, async (req: Request, res: Response) => {
   const batchId = getParam(req, "batchId");
   await db.delete(blogPostsTable).where(eq(blogPostsTable.generation_batch, batchId));
   res.status(204).end();
 });
 
-router.get("/blog/posts/slug/:slug", async (req, res) => {
+router.get("/blog/posts/slug/:slug", async (req: Request, res: Response) => {
   const slug = getParam(req, "slug");
   const [post] = await db.select().from(blogPostsTable)
     .where(and(eq(blogPostsTable.slug, slug), eq(blogPostsTable.status, "published")));
@@ -151,14 +151,14 @@ router.get("/blog/posts/slug/:slug", async (req, res) => {
   res.json(post);
 });
 
-router.get("/blog/posts/:id", requireAdmin, async (req, res) => {
+router.get("/blog/posts/:id", requireAdmin, async (req: Request, res: Response) => {
   const id = getParam(req, "id");
   const [post] = await db.select().from(blogPostsTable).where(eq(blogPostsTable.id, id));
   if (!post) { res.status(404).json({ error: "Not found" }); return; }
   res.json(post);
 });
 
-router.post("/blog/posts", requireAdmin, async (req, res) => {
+router.post("/blog/posts", requireAdmin, async (req: Request, res: Response) => {
   const data = { ...req.body };
   if (data.published_at) data.published_at = new Date(data.published_at);
   if (data.scheduled_publish_at) data.scheduled_publish_at = new Date(data.scheduled_publish_at);
@@ -166,7 +166,7 @@ router.post("/blog/posts", requireAdmin, async (req, res) => {
   res.status(201).json(post);
 });
 
-router.patch("/blog/posts/:id", requireAdmin, async (req, res) => {
+router.patch("/blog/posts/:id", requireAdmin, async (req: Request, res: Response) => {
   try {
     const id = getParam(req, "id");
     const data: Record<string, unknown> = { ...req.body, updated_at: new Date() };
@@ -181,7 +181,7 @@ router.patch("/blog/posts/:id", requireAdmin, async (req, res) => {
 });
 
 // Batch update by explicit id array (used by SchedulingPanel)
-router.patch("/blog/posts", requireAdmin, async (req, res) => {
+router.patch("/blog/posts", requireAdmin, async (req: Request, res: Response) => {
   const { ids, data: updateData } = req.body as { ids: string[]; data: Record<string, unknown> };
   if (!Array.isArray(ids) || ids.length === 0) {
     res.status(400).json({ error: "ids array required" });
@@ -197,7 +197,7 @@ router.patch("/blog/posts", requireAdmin, async (req, res) => {
   }
 });
 
-router.delete("/blog/posts/:id", requireAdmin, async (req, res) => {
+router.delete("/blog/posts/:id", requireAdmin, async (req: Request, res: Response) => {
   try {
     const id = getParam(req, "id");
     await db.delete(blogPostsTable).where(eq(blogPostsTable.id, id));
@@ -207,12 +207,12 @@ router.delete("/blog/posts/:id", requireAdmin, async (req, res) => {
   }
 });
 
-router.get("/blog/categories", async (_req, res) => {
+router.get("/blog/categories", async (_req: Request, res: Response) => {
   const cats = await db.select().from(blogCategoriesTable).orderBy(blogCategoriesTable.name);
   res.json(cats);
 });
 
-router.post("/blog/categories", requireAdmin, async (req, res) => {
+router.post("/blog/categories", requireAdmin, async (req: Request, res: Response) => {
   const [cat] = await db.insert(blogCategoriesTable).values(req.body).returning();
   res.status(201).json(cat);
 });
