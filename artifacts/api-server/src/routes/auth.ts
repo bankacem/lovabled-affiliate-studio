@@ -1,10 +1,10 @@
-import { Router } from "express";
+import { Router, type Request, type Response } from "express";
 import { db } from "@workspace/db";
 import { usersTable, userRolesTable } from "@workspace/db";
 import { eq, and } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { getUserFromToken, requireAdmin } from "../middleware/requireAuth";
+import { getUserFromToken, requireAdmin } from "../middleware/requireAuth.js";
 
 const router = Router();
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -24,7 +24,7 @@ async function isAdmin(userId: string) {
   return roles.length > 0;
 }
 
-router.get("/auth/me", async (req, res) => {
+router.get("/auth/me", async (req: Request, res: Response) => {
   const user = getUserFromToken(req.headers.authorization);
   if (!user) {
     res.json({ id: "anonymous", email: null, isAdmin: false });
@@ -33,7 +33,7 @@ router.get("/auth/me", async (req, res) => {
   res.json({ id: user.id, email: user.email, isAdmin: await isAdmin(user.id) });
 });
 
-router.post("/auth/signin", async (req, res) => {
+router.post("/auth/signin", async (req: Request, res: Response) => {
   const { email, password } = req.body ?? {};
   if (!email || !password) {
     res.status(400).json({ error: "Email and password are required" });
@@ -53,7 +53,7 @@ router.post("/auth/signin", async (req, res) => {
   res.json({ token, user: { id: user.id, email: user.email, isAdmin: await isAdmin(user.id) } });
 });
 
-router.post("/auth/signup", async (req, res) => {
+router.post("/auth/signup", async (req: Request, res: Response) => {
   const { email, password } = req.body ?? {};
   if (!email || !password) {
     res.status(400).json({ error: "Email and password are required" });
@@ -75,13 +75,13 @@ router.post("/auth/signup", async (req, res) => {
   res.status(201).json({ token, user: { id: user.id, email: user.email, isAdmin: false } });
 });
 
-router.post("/auth/signout", (_req, res) => {
+router.post("/auth/signout", (_req: Request, res: Response) => {
   res.json({ success: true });
 });
 
 // Bootstrap endpoint: promotes the calling user to admin IF no admins exist yet.
 // Safe to call repeatedly — once an admin exists it returns 403.
-router.post("/auth/bootstrap-admin", async (req, res) => {
+router.post("/auth/bootstrap-admin", async (req: Request, res: Response) => {
   const user = getUserFromToken(req.headers.authorization);
   if (!user) { res.status(401).json({ error: "Must be signed in to bootstrap admin" }); return; }
 
@@ -97,7 +97,7 @@ router.post("/auth/bootstrap-admin", async (req, res) => {
   res.status(201).json({ success: true, message: "You are now an admin.", role: inserted ?? { user_id: user.id, role: "admin" } });
 });
 
-router.get("/auth/roles", async (req, res) => {
+router.get("/auth/roles", async (req: Request, res: Response) => {
   const user = getUserFromToken(req.headers.authorization);
   if (!user) { res.status(401).json({ error: "Unauthorized" }); return; }
   if (!(await isAdmin(user.id))) { res.status(403).json({ error: "Forbidden" }); return; }
@@ -105,7 +105,7 @@ router.get("/auth/roles", async (req, res) => {
   res.json(roles);
 });
 
-router.post("/auth/roles", requireAdmin, async (req, res) => {
+router.post("/auth/roles", requireAdmin, async (req: Request, res: Response) => {
   const { user_id, role } = req.body ?? {};
   if (!user_id || !role) { res.status(400).json({ error: "user_id and role are required" }); return; }
   const [inserted] = await db.insert(userRolesTable).values({ user_id, role })

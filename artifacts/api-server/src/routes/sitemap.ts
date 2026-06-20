@@ -1,10 +1,10 @@
-import { Router } from "express";
+import { Router, type Request, type Response } from "express";
 import { db, blogPostsTable, designsTable, ebooksTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 
 const router = Router();
 
-router.get("/sitemap", async (_req, res) => {
+router.get("/sitemap", async (_req: Request, res: Response) => {
   const posts = await db.select({ slug: blogPostsTable.slug, updated_at: blogPostsTable.updated_at }).from(blogPostsTable).where(eq(blogPostsTable.status, "published"));
   const designs = await db.select({ id: designsTable.id, updated_at: designsTable.updated_at }).from(designsTable);
   const ebooks = await db.select({ slug: ebooksTable.slug, updated_at: ebooksTable.updated_at }).from(ebooksTable).where(eq(ebooksTable.status, "published"));
