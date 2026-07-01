@@ -15,34 +15,42 @@ const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtydWdtYm92c2pqZ2ppa2d6YWNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzNzU3MzAsImV4cCI6MjA4MDk1MTczMH0.d5BKf5JTYjFQLUG62VX5lEEpLD8OnJXe14x1ickCDWQ";
 const BASE_URL = "https://aiprintverse.com";
 
-async function fetchAll(table, select) {
+async function fetchAll(table, select, extraQuery = "") {
+  // Page through PostgREST (default max 1000 rows/request) so we get ALL rows.
+  const all = [];
+  const pageSize = 1000;
+  let from = 0;
   try {
-    const r = await fetch(
-      `${SUPABASE_URL}/rest/v1/${table}?select=${select}&limit=2000`,
-      {
+    while (true) {
+      const url = `${SUPABASE_URL}/rest/v1/${table}?select=${select}${extraQuery ? `&${extraQuery}` : ""}`;
+      const r = await fetch(url, {
         headers: {
           apikey: SUPABASE_ANON_KEY,
           Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          Range: `${from}-${from + pageSize - 1}`,
+          "Range-Unit": "items",
+          Prefer: "count=exact",
         },
+      });
+      if (!r.ok) {
+        console.warn(`[prerender-setup] ${table} -> ${r.status} ${await r.text().catch(() => "")}`);
+        break;
       }
-    );
-    if (!r.ok) {
-      console.warn(`[prerender-setup] ${table} -> ${r.status}`);
-      return [];
+      const rows = await r.json();
+      all.push(...rows);
+      if (rows.length < pageSize) break;
+      from += pageSize;
+      if (from > 20000) break; // safety
     }
-    return await r.json();
   } catch (e) {
     console.warn(`[prerender-setup] ${table} failed:`, e.message);
-    return [];
   }
+  return all;
 }
 
 const staticRoutes = ["/", "/about", "/blog", "/designs"];
 
-const posts = await fetchAll(
-  "blog_posts?status=eq.published",
-  "slug,updated_at"
-);
+const posts = await fetchAll("blog_posts", "slug,updated_at", "status=eq.published");
 const designs = await fetchAll("designs", "id,updated_at");
 
 const blogRoutes = posts.map((p) => `/blog/${p.slug}`);
