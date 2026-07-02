@@ -104,8 +104,9 @@ export function AIArticleGenerator() {
   const [writingStyle, setWritingStyle] = useState<WritingStyle>("professional");
   
   // Multi-model support
-  type AIProvider = "lovable" | "openrouter" | "groq";
-  const [aiProvider, setAiProvider] = useState<AIProvider>("lovable");
+  type AIProvider = "lovable" | "bluesminds" | "openrouter" | "groq";
+  const [aiProvider, setAiProvider] = useState<AIProvider>("bluesminds");
+  const [bluesmindsModel, setBluesmindsModel] = useState("gpt-4o-mini");
   const [openrouterKey, setOpenrouterKey] = useState("");
   const [groqKey, setGroqKey] = useState("");
   const [openrouterModel, setOpenrouterModel] = useState("anthropic/claude-sonnet-4");
@@ -206,16 +207,22 @@ export function AIArticleGenerator() {
   const testConnection = async () => {
     setConnectionStatus("testing");
     try {
-      const functionName = aiProvider === "openrouter" ? "generate-article-openrouter" : "generate-article-groq";
-      const apiKey = aiProvider === "openrouter" ? openrouterKey : groqKey;
-      const model = aiProvider === "openrouter" 
-        ? (customOpenrouterModel || openrouterModel) 
-        : groqModel;
+      let functionName = "";
+      let body: any = { keyword: "test connection", category: "General" };
+      if (aiProvider === "openrouter") {
+        functionName = "generate-article-openrouter";
+        body = { ...body, apiKey: openrouterKey, model: customOpenrouterModel || openrouterModel };
+      } else if (aiProvider === "groq") {
+        functionName = "generate-article-groq";
+        body = { ...body, apiKey: groqKey, model: groqModel };
+      } else if (aiProvider === "bluesminds") {
+        functionName = "generate-article-bluesminds";
+        body = { ...body, model: bluesmindsModel };
+      } else {
+        functionName = "generate-article";
+      }
 
-      const { data, error } = await supabase.functions.invoke(functionName, {
-        body: { keyword: "test connection", apiKey, model, category: "General" },
-      });
-
+      const { data, error } = await supabase.functions.invoke(functionName, { body });
       if (error) throw error;
       if (data?.error) throw new Error(data.error);
       setConnectionStatus("success");
@@ -257,6 +264,12 @@ export function AIArticleGenerator() {
         if (!groqKey) throw new Error("Groq API key is required");
         const result = await supabase.functions.invoke("generate-article-groq", {
           body: { ...baseBody, apiKey: groqKey, model: groqModel },
+        });
+        data = result.data;
+        error = result.error;
+      } else if (aiProvider === "bluesminds") {
+        const result = await supabase.functions.invoke("generate-article-bluesminds", {
+          body: { ...baseBody, model: bluesmindsModel },
         });
         data = result.data;
         error = result.error;
@@ -591,6 +604,12 @@ export function AIArticleGenerator() {
                       Lovable AI (Built-in)
                     </div>
                   </SelectItem>
+                  <SelectItem value="bluesminds">
+                    <div className="flex items-center gap-2">
+                      <Bot className="h-4 w-4 text-blue-500" />
+                      Bluesminds (Recommended)
+                    </div>
+                  </SelectItem>
                   <SelectItem value="openrouter">
                     <div className="flex items-center gap-2">
                       <Shield className="h-4 w-4 text-purple-500" />
@@ -605,6 +624,42 @@ export function AIArticleGenerator() {
                   </SelectItem>
                 </SelectContent>
               </Select>
+
+              {aiProvider === "bluesminds" && (
+                <div className="space-y-2 bg-muted/30 rounded-lg p-3">
+                  <div className="space-y-1">
+                    <Label className="text-xs">Model</Label>
+                    <div className="flex gap-1">
+                      <Select value={bluesmindsModel} onValueChange={setBluesmindsModel}>
+                        <SelectTrigger className="h-8 text-xs">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="gpt-4o-mini">GPT-4o Mini (Fast)</SelectItem>
+                          <SelectItem value="gpt-4o">GPT-4o (Best)</SelectItem>
+                          <SelectItem value="claude-3-5-sonnet">Claude 3.5 Sonnet</SelectItem>
+                          <SelectItem value="claude-sonnet-4">Claude Sonnet 4</SelectItem>
+                          <SelectItem value="gemini-2.5-flash">Gemini 2.5 Flash</SelectItem>
+                          <SelectItem value="deepseek-chat">DeepSeek Chat</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="h-8 px-2"
+                        disabled={connectionStatus === "testing"}
+                        onClick={testConnection}
+                      >
+                        {connectionStatus === "testing" ? <Loader2 className="h-3 w-3 animate-spin" /> :
+                         connectionStatus === "success" ? <CheckCircle2 className="h-3 w-3 text-green-500" /> :
+                         connectionStatus === "error" ? <X className="h-3 w-3 text-red-500" /> :
+                         <Key className="h-3 w-3" />}
+                      </Button>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-muted-foreground">🔒 Key stored server-side (Api1 secret). Auto-fallback across models. Human-tone SEO output with internal + external links.</p>
+                </div>
+              )}
 
               {aiProvider === "openrouter" && (
                 <div className="space-y-2 bg-muted/30 rounded-lg p-3">
