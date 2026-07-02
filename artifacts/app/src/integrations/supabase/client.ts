@@ -295,16 +295,59 @@ function buildQB(table: string): QB {
 // Auth event bus
 const _authListeners: Array<(event: string, session: unknown) => void> = [];
 
+// Direct Supabase Auth (REST) — used because the /api Express server does not
+// exist in production (static SPA on Vercel), which caused HTML being returned
+// for /api/auth/signin and the classic "Unexpected token '<'" JSON error.
+const SB_URL = import.meta.env.VITE_SUPABASE_URL as string;
+const SB_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string;
+const SESSION_KEY = "sb_session";
+
+type SBSession = { access_token: string; refresh_token: string; expires_at?: number; user: { id: string; email: string | null } };
+
+function loadSession(): SBSession | null {
+  try { return JSON.parse(localStorage.getItem(SESSION_KEY) || "null"); } catch { return null; }
+}
+function saveSession(s: SBSession | null) {
+  if (s) localStorage.setItem(SESSION_KEY, JSON.stringify(s));
+  else localStorage.removeItem(SESSION_KEY);
+}
+
+async function sbAuthFetch(path: string, init?: RequestInit) {
+  return fetch(`${SB_URL}/auth/v1${path}`, {
+    ...init,
+    headers: {
+      apikey: SB_KEY,
+      "Content-Type": "application/json",
+      ...(init?.headers as Record<string, string> || {}),
+    },
+  });
+}
+
+async function checkIsAdmin(session: SBSession | null): Promise<boolean> {
+  if (!session) return false;
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/rpc/has_role`, {
+      method: "POST",
+      headers: {
+        apikey: SB_KEY,
+        Authorization: `Bearer ${session.access_token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ _user_id: session.user.id, _role: "admin" }),
+    });
+    if (!res.ok) return false;
+    return (await res.json()) === true;
+  } catch { return false; }
+}
+
 export const supabase = {
   from: (table: string) => buildQB(table),
 
   auth: {
     onAuthStateChange(cb: (event: string, session: unknown) => void) {
       _authListeners.push(cb);
-      const token = localStorage.getItem("auth_token");
-      if (token) {
-        setTimeout(() => cb("SIGNED_IN", { user: { id: "user", email: "" } }), 0);
-      }
+      const s = loadSession();
+      if (s) setTimeout(() => cb("SIGNED_IN", { user: s.user }), 0);
       return {
         data: {
           subscription: {
@@ -318,66 +361,84 @@ export const supabase = {
     },
 
     async getUser() {
-      const token = localStorage.getItem("auth_token");
-      if (!token) return { data: { user: null }, error: null };
-      try {
-        const res = await apiRequest("/auth/me");
-        const user = await res.json();
-        if (user.id === "anonymous") return { data: { user: null }, error: null };
-        return { data: { user }, error: null };
-      } catch {
-        return { data: { user: null }, error: null };
-      }
+      const s = loadSession();
+      if (!s) return { data: { user: null }, error: null };
+      return { data: { user: s.user }, error: null };
     },
 
     async getSession() {
-      const token = localStorage.getItem("auth_token");
-      if (!token) return { data: { session: null } };
-      try {
-        const res = await apiRequest("/auth/me");
-        const user = await res.json();
-        if (user.id === "anonymous") return { data: { session: null } };
-        return { data: { session: { user } } };
-      } catch {
-        return { data: { session: null } };
-      }
+      const s = loadSession();
+      return { data: { session: s ? { user: s.user, access_token: s.access_token } : null } };
     },
 
     async signInWithPassword({ email, password }: { email: string; password: string }) {
-      const res = await apiRequest("/auth/signin", { method: "POST", body: JSON.stringify({ email, password }) });
-      const data = await res.json();
-      if (!res.ok) return { data: null, error: data };
-      localStorage.setItem("auth_token", data.token);
-      _authListeners.forEach(cb => cb("SIGNED_IN", { user: data.user }));
-      return { data, error: null };
+      try {
+        const res = await sbAuthFetch("/token?grant_type=password", {
+          method: "POST",
+          body: JSON.stringify({ email, password }),
+        });
+        const data = await res.json();
+        if (!res.ok) return { data: null, error: { message: data?.error_description || data?.msg || data?.error || "Invalid login credentials" } };
+        const session: SBSession = {
+          access_token: data.access_token,
+          refresh_token: data.refresh_token,
+          expires_at: data.expires_at,
+          user: { id: data.user.id, email: data.user.email },
+        };
+        saveSession(session);
+        _authListeners.forEach(cb => cb("SIGNED_IN", { user: session.user }));
+        return { data: { user: session.user, session }, error: null };
+      } catch (e: any) {
+        return { data: null, error: { message: e?.message || "Sign in failed" } };
+      }
     },
 
     async signUp({ email, password }: { email: string; password: string; options?: Record<string, unknown> }) {
-      const res = await apiRequest("/auth/signup", { method: "POST", body: JSON.stringify({ email, password }) });
-      const data = await res.json();
-      if (!res.ok) return { data: null, error: data };
-      localStorage.setItem("auth_token", data.token);
-      _authListeners.forEach(cb => cb("SIGNED_IN", { user: data.user }));
-      return { data, error: null };
+      try {
+        const res = await sbAuthFetch("/signup", {
+          method: "POST",
+          body: JSON.stringify({ email, password }),
+        });
+        const data = await res.json();
+        if (!res.ok) return { data: null, error: { message: data?.error_description || data?.msg || data?.error || "Sign up failed" } };
+        if (data.access_token) {
+          const session: SBSession = {
+            access_token: data.access_token,
+            refresh_token: data.refresh_token,
+            expires_at: data.expires_at,
+            user: { id: data.user.id, email: data.user.email },
+          };
+          saveSession(session);
+          _authListeners.forEach(cb => cb("SIGNED_IN", { user: session.user }));
+          return { data: { user: session.user, session }, error: null };
+        }
+        return { data: { user: data.user, session: null }, error: null };
+      } catch (e: any) {
+        return { data: null, error: { message: e?.message || "Sign up failed" } };
+      }
     },
 
     async signOut() {
-      localStorage.removeItem("auth_token");
+      const s = loadSession();
+      saveSession(null);
       _authListeners.forEach(cb => cb("SIGNED_OUT", null));
-      await apiRequest("/auth/signout", { method: "POST" }).catch(() => {});
+      if (s) {
+        try {
+          await sbAuthFetch("/logout", {
+            method: "POST",
+            headers: { Authorization: `Bearer ${s.access_token}` },
+          });
+        } catch {}
+      }
       return { error: null };
     },
   },
 
   rpc: async (fn: string, args: Record<string, unknown>) => {
     if (fn === "has_role") {
-      try {
-        const res = await apiRequest("/auth/me");
-        const user = await res.json();
-        return { data: user.isAdmin && args._role === "admin", error: null };
-      } catch {
-        return { data: false, error: null };
-      }
+      const s = loadSession();
+      const isAdmin = await checkIsAdmin(s);
+      return { data: isAdmin && args._role === "admin", error: null };
     }
     return { data: null, error: null };
   },
