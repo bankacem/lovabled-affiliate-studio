@@ -598,6 +598,7 @@
   "dependencies": {
     "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.15.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "@supabase/supabase-js": "^2.110.0"
   }
 }
