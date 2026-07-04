@@ -3,6 +3,10 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap"
+    },
     { "source": "/((?!api/|assets/|.*\\..*).*)", "destination": "/index.html" }
   ],
   "headers": [
