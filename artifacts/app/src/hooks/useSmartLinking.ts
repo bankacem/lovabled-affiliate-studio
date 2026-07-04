@@ -125,5 +125,9 @@ export function useSmartLinking(currentPostId?: string) {
     return allOk;
   }, [refetch]);
 
-  return { allPosts, indexedPosts, pendingPosts, isLoading, getSuggestions, getPendingSuggestionsForIndexedPage, isCurrentPageIndexed, updateIndexingStatus, bulkUpdateIndexingStatus, refetch };
+  const refresh = useCallback(() => {
+    void refetch();
+  }, [refetch]);
+
+  return { allPosts, indexedPosts, pendingPosts, isLoading, getSuggestions, getPendingSuggestionsForIndexedPage, isCurrentPageIndexed, updateIndexingStatus, bulkUpdateIndexingStatus, refetch: refresh };
 }

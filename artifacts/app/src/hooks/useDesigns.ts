@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import type { Database } from "@/integrations/supabase/types";
+import type { Design as ApiDesign } from "@workspace/api-client-react";
 
-export type Design = Database["public"]["Tables"]["designs"]["Row"];
+export type Design = ApiDesign;
 
 export function useDesigns(category?: string) {
   const selectedCategory = category && category !== "All" ? category : undefined;
@@ -22,7 +22,7 @@ export function useDesigns(category?: string) {
 
       const { data, error } = await query;
       if (error) throw error;
-      return data ?? [];
+      return (data ?? []) as Design[];
     },
   });
 
@@ -46,7 +46,7 @@ export function useDesign(id: string) {
         .maybeSingle();
 
       if (error) throw error;
-      return data;
+      return data as Design | null;
     },
   });
 }
@@ -63,7 +63,7 @@ export function useFeaturedDesigns() {
         .limit(4);
 
       if (error) throw error;
-      return data ?? [];
+      return (data ?? []) as Design[];
     },
   });
 

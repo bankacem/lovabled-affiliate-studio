@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import type { Database } from "@/integrations/supabase/types";
+import type { BlogPost as ApiBlogPost } from "@workspace/api-client-react";
 
-export type BlogPost = Database["public"]["Tables"]["blog_posts"]["Row"];
+export type BlogPost = ApiBlogPost;
 
 function sanitizePage(value: number) {
   return Number.isFinite(value) && value > 0 ? Math.floor(value) : 1;
@@ -37,7 +37,7 @@ export function useBlogPosts(page: number = 1, pageSize: number = 12, category?:
 
       const total = count ?? 0;
       return {
-        posts: data ?? [],
+        posts: (data ?? []) as BlogPost[],
         total,
         totalPages: Math.max(1, Math.ceil(total / safePageSize)),
       };
@@ -66,7 +66,7 @@ export function useBlogPost(slug: string) {
         .maybeSingle();
 
       if (error) throw error;
-      return data;
+      return data as BlogPost | null;
     },
   });
 
