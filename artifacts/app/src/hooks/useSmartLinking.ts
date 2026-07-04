@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
-import { useListBlogPosts } from "@workspace/api-client-react";
+import { useCallback, useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 
 interface SmartLinkPost {
   id: string;
@@ -22,8 +23,22 @@ interface SmartLinkSuggestion {
 const BASE = import.meta.env.BASE_URL;
 
 export function useSmartLinking(currentPostId?: string) {
-  const { data: paginatedData, isLoading, refetch } = useListBlogPosts({ status: "published", pageSize: 200 });
-  const allPostsRaw = paginatedData?.posts ?? [];
+  const { data: allPostsRaw = [], isLoading, refetch } = useQuery({
+    queryKey: ["smart-link-posts"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("id,title,slug,category,tags,indexing_status,excerpt,featured_image,published_at")
+        .eq("status", "published")
+        .not("slug", "is", null)
+        .neq("slug", "")
+        .order("published_at", { ascending: false, nullsFirst: false })
+        .limit(500);
+
+      if (error) throw error;
+      return data ?? [];
+    },
+  });
 
   const allPosts: SmartLinkPost[] = allPostsRaw.map(post => ({
     id: post.id,
@@ -110,5 +125,9 @@ export function useSmartLinking(currentPostId?: string) {
     return allOk;
   }, [refetch]);
 
-  return { allPosts, indexedPosts, pendingPosts, isLoading, getSuggestions, getPendingSuggestionsForIndexedPage, isCurrentPageIndexed, updateIndexingStatus, bulkUpdateIndexingStatus, refetch };
+  const refresh = useCallback(() => {
+    void refetch();
+  }, [refetch]);
+
+  return { allPosts, indexedPosts, pendingPosts, isLoading, getSuggestions, getPendingSuggestionsForIndexedPage, isCurrentPageIndexed, updateIndexingStatus, bulkUpdateIndexingStatus, refetch: refresh };
 }
