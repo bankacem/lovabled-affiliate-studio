@@ -119,8 +119,8 @@
        id: string;
        title: string;
        slug: string;
-       excerpt?: string;
-       featured_image?: string;
+        excerpt?: string | null;
+        featured_image?: string | null;
        indexing_status: "indexed" | "pending";
      };
      matchReason: string[];
