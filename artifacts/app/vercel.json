@@ -8,7 +8,7 @@
       "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap"
     },
     {
-      "source": "/((?!api/|assets/|.*\\..*).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
