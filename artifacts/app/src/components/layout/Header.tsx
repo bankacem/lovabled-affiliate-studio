@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import logoImage from "@/assets/logo.png";
@@ -58,18 +58,13 @@ export function Header() {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <Link to="/admin">
-            <Button variant="outline" size="sm" className="gap-2">
-              <Shield className="h-4 w-4" />
-              Admin
-            </Button>
-          </Link>
           <Link to="/designs">
             <Button variant="coral" size="sm">
               Browse Designs
             </Button>
           </Link>
         </div>
+
 
         {/* Mobile Menu Button */}
         <button
@@ -106,13 +101,8 @@ export function Header() {
                   {link.name}
                 </Link>
               ))}
-              <Link to="/admin" onClick={() => setIsMenuOpen(false)} className="w-full">
-                <Button variant="outline" className="mt-2 w-full gap-2">
-                  <Shield className="h-4 w-4" />
-                  Admin
-                </Button>
-              </Link>
               <Link to="/designs" onClick={() => setIsMenuOpen(false)} className="w-full">
+
                 <Button variant="coral" className="mt-2 w-full">
                   Browse Designs
                 </Button>
