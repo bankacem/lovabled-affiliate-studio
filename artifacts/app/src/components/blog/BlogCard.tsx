@@ -22,25 +22,30 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
       <Link to={`/blog/${post.slug}`}>
         <div className="overflow-hidden rounded-xl bg-card shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
           {/* Image */}
-          <div className="relative aspect-[2/1] overflow-hidden bg-secondary">
+          <div className="relative aspect-[16/9] overflow-hidden bg-secondary">
             {post.featured_image ? (
               <img
                 src={post.featured_image}
                 alt={post.title}
-                loading="lazy"
-                width={600}
-                height={300}
+                loading={index < 3 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                decoding="async"
+                width={800}
+                height={450}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
-              <div className="h-full w-full flex items-center justify-center">
+              <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
                 <FileText className="h-12 w-12 text-muted-foreground" />
               </div>
             )}
-            <div className="absolute left-3 top-3 rounded-full bg-primary/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-primary-foreground">
+            {/* Gradient overlay with title for extra polish */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute left-3 top-3 rounded-full bg-primary/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-primary-foreground shadow-lg">
               {post.category}
             </div>
           </div>
+
 
           {/* Content */}
           <div className="p-5">

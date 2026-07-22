@@ -5,110 +5,100 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface SitemapEntry {
-  slug: string;
-  updated_at: string;
+const BASE_URL = "https://aiprintverse.com";
+const PAGE_SIZE = 1000;
+
+function escapeXml(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+}
+
+async function fetchAll<T>(supabase: ReturnType<typeof createClient>, table: string, select: string, filter?: (q: any) => any): Promise<T[]> {
+  const all: T[] = [];
+  let from = 0;
+  while (true) {
+    let q: any = supabase.from(table).select(select).range(from, from + PAGE_SIZE - 1);
+    if (filter) q = filter(q);
+    const { data, error } = await q;
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    all.push(...(data as T[]));
+    if (data.length < PAGE_SIZE) break;
+    from += PAGE_SIZE;
+  }
+  return all;
+}
+
+function xmlHeader(withImage = false): string {
+  const imgNs = withImage ? ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' : "";
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"${imgNs}>\n`;
 }
 
 Deno.serve(async (req) => {
-  // Handle CORS preflight
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+  if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
-  console.log("Generating sitemap...");
+  const url = new URL(req.url);
+  const path = url.pathname.split("/").pop() || "";
+  // Support: /sitemap (index), /sitemap-pages.xml, /sitemap-posts.xml, /sitemap-designs.xml
+  const kind = url.searchParams.get("kind") ||
+    (path.includes("posts") ? "posts" : path.includes("designs") ? "designs" : path.includes("pages") ? "pages" : "index");
 
   try {
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabase = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
 
-    // Fetch published blog posts
-    const { data: posts, error } = await supabase
-      .from("blog_posts")
-      .select("slug, updated_at")
-      .eq("status", "published")
-      .order("updated_at", { ascending: false });
-
-    if (error) {
-      console.error("Error fetching posts:", error);
-      throw error;
+    // Sitemap index
+    if (kind === "index") {
+      const now = new Date().toISOString().split("T")[0];
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap><loc>${BASE_URL}/sitemap-pages.xml</loc><lastmod>${now}</lastmod></sitemap>
+  <sitemap><loc>${BASE_URL}/sitemap-posts.xml</loc><lastmod>${now}</lastmod></sitemap>
+  <sitemap><loc>${BASE_URL}/sitemap-designs.xml</loc><lastmod>${now}</lastmod></sitemap>
+</sitemapindex>`;
+      return new Response(xml, { headers: { ...corsHeaders, "Content-Type": "application/xml", "Cache-Control": "public, max-age=1800" } });
     }
 
-    console.log(`Found ${posts?.length || 0} published posts`);
+    let xml = xmlHeader(kind === "posts");
 
-    const baseUrl = "https://aiprintverse.com";
-    
-    const staticPages = [
-      { path: "/", priority: "1.0", changefreq: "daily" },
-      { path: "/blog", priority: "0.9", changefreq: "daily" },
-      { path: "/designs", priority: "0.9", changefreq: "weekly" },
-      { path: "/about", priority: "0.5", changefreq: "monthly" },
-    ];
-
-    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-
-    // Add static pages
-    for (const page of staticPages) {
-      xml += `  <url>\n`;
-      xml += `    <loc>${baseUrl}${page.path}</loc>\n`;
-      xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
-      xml += `    <priority>${page.priority}</priority>\n`;
-      xml += `  </url>\n`;
-    }
-
-    // Add blog posts
-    if (posts) {
-      for (const post of posts) {
-        const lastmod = new Date(post.updated_at).toISOString().split("T")[0];
-        xml += `  <url>\n`;
-        xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
-        xml += `    <lastmod>${lastmod}</lastmod>\n`;
-        xml += `    <changefreq>weekly</changefreq>\n`;
-        xml += `    <priority>0.8</priority>\n`;
+    if (kind === "pages") {
+      const now = new Date().toISOString().split("T")[0];
+      const pages = [
+        { path: "/", priority: "1.0", changefreq: "daily" },
+        { path: "/blog", priority: "0.9", changefreq: "daily" },
+        { path: "/designs", priority: "0.9", changefreq: "weekly" },
+        { path: "/about", priority: "0.5", changefreq: "monthly" },
+      ];
+      for (const p of pages) {
+        xml += `  <url><loc>${BASE_URL}${p.path}</loc><lastmod>${now}</lastmod><changefreq>${p.changefreq}</changefreq><priority>${p.priority}</priority></url>\n`;
+      }
+    } else if (kind === "posts") {
+      const posts = await fetchAll<{ slug: string; updated_at: string; featured_image: string | null; title: string }>(
+        supabase, "blog_posts", "slug, updated_at, featured_image, title",
+        (q) => q.eq("status", "published").order("updated_at", { ascending: false }),
+      );
+      for (const p of posts) {
+        const lastmod = new Date(p.updated_at).toISOString().split("T")[0];
+        xml += `  <url>\n    <loc>${BASE_URL}/blog/${p.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n`;
+        if (p.featured_image) {
+          xml += `    <image:image>\n      <image:loc>${escapeXml(p.featured_image)}</image:loc>\n      <image:title>${escapeXml(p.title)}</image:title>\n    </image:image>\n`;
+        }
         xml += `  </url>\n`;
       }
-    }
-
-    // Fetch designs
-    const { data: designs } = await supabase
-      .from("designs")
-      .select("id, updated_at")
-      .order("updated_at", { ascending: false });
-
-    if (designs) {
-      console.log(`Found ${designs.length} designs`);
-      for (const design of designs) {
-        const lastmod = new Date(design.updated_at || new Date()).toISOString().split("T")[0];
-        xml += `  <url>\n`;
-        xml += `    <loc>${baseUrl}/designs/${design.id}</loc>\n`;
-        xml += `    <lastmod>${lastmod}</lastmod>\n`;
-        xml += `    <changefreq>monthly</changefreq>\n`;
-        xml += `    <priority>0.7</priority>\n`;
-        xml += `  </url>\n`;
+    } else if (kind === "designs") {
+      const designs = await fetchAll<{ id: string; updated_at: string }>(
+        supabase, "designs", "id, updated_at", (q) => q.order("updated_at", { ascending: false }),
+      );
+      for (const d of designs) {
+        const lastmod = new Date(d.updated_at || Date.now()).toISOString().split("T")[0];
+        xml += `  <url><loc>${BASE_URL}/designs/${d.id}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;
       }
     }
 
     xml += "</urlset>";
-
-    console.log("Sitemap generated successfully");
-
-    return new Response(xml, {
-      headers: {
-        ...corsHeaders,
-        "Content-Type": "application/xml",
-        "Cache-Control": "public, max-age=3600",
-      },
-    });
+    return new Response(xml, { headers: { ...corsHeaders, "Content-Type": "application/xml", "Cache-Control": "public, max-age=1800" } });
   } catch (error) {
-    console.error("Error generating sitemap:", error);
-    return new Response(
-      JSON.stringify({ error: "Failed to generate sitemap" }),
-      {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      }
-    );
+    console.error("Sitemap error:", error);
+    return new Response(`<?xml version="1.0"?><error>${(error as Error).message}</error>`, {
+      status: 500, headers: { ...corsHeaders, "Content-Type": "application/xml" },
+    });
   }
 });

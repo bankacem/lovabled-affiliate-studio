@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
-# Sitemap location
+# Sitemaps
 Sitemap: https://aiprintverse.com/sitemap.xml
+Sitemap: https://aiprintverse.com/sitemap-pages.xml
+Sitemap: https://aiprintverse.com/sitemap-posts.xml
+Sitemap: https://aiprintverse.com/sitemap-designs.xml

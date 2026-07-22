@@ -3,15 +3,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/sitemap.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap" },
+    { "source": "/sitemap-pages.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=pages" },
+    { "source": "/sitemap-posts.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=posts" },
+    { "source": "/sitemap-designs.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=designs" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
+
   "headers": [
     {
       "source": "/assets/(.*)",
