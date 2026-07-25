@@ -244,14 +244,14 @@ export function ArticleGenerator() {
       });
 
       // Check for existing slugs
-      const slugs = articles.map(a => a.slug);
+      const slugs = articles.map((a: any) => a.slug);
       const { data: existingSlugs } = await supabase
         .from("blog_posts")
         .select("slug")
         .in("slug", slugs);
 
       const existingSlugSet = new Set(existingSlugs?.map(s => s.slug) || []);
-      const newArticles = articles.filter(a => !existingSlugSet.has(a.slug));
+      const newArticles = articles.filter((a: any) => !existingSlugSet.has(a.slug));
       const skippedCount = articles.length - newArticles.length;
 
       if (skippedCount > 0) {

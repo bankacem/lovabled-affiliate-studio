@@ -19,7 +19,7 @@ export function useAutoLinking() {
     let linked = content;
 
     // Sort by keyword length desc so longer phrases match first (avoids partial overlaps).
-    const active = keywords
+    const active: any[] = (keywords as any[])
       .filter((k: any) => k.is_active && k.target_post_id !== currentPostId)
       .sort((a: any, b: any) => b.keyword.length - a.keyword.length);
 
@@ -31,7 +31,7 @@ export function useAutoLinking() {
       if (usedTargets.has(kw.target_post_id)) continue;
 
       // Match only outside existing anchor tags and outside HTML attributes.
-      const regex = new RegExp(`(?<!<[^>]*?)\\b(${escapeRegex(kw.keyword)})\\b(?![^<]*?>)`, "i");
+      const regex = new RegExp(`(?<!<[^>]*?)\\b(${escapeRegex(kw.keyword || "")})\\b(?![^<]*?>)`, "i");
       let replaced = false;
       linked = linked.replace(regex, (match) => {
         if (replaced) return match;

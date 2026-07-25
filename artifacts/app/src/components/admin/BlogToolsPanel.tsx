@@ -90,15 +90,20 @@ export function BlogToolsPanel({ onSitemapGenerated }: BlogToolsPanelProps) {
 
       if (error) throw error;
 
+      // Filter out posts with null, empty, or undefined slugs
+      const validPosts = (posts || []).filter(
+        post => post && post.slug && post.slug.trim() !== "" && post.slug !== "null" && post.slug !== "undefined"
+      );
+
       // Generate sitemap XML
       const baseUrl = window.location.origin;
-      const sitemapEntries = posts?.map(post => `
+      const sitemapEntries = validPosts.map(post => `
     <url>
       <loc>${baseUrl}/blog/${post.slug}</loc>
-      <lastmod>${new Date(post.updated_at || post.published_at).toISOString().split("T")[0]}</lastmod>
+      <lastmod>${new Date(post.updated_at || post.published_at || Date.now()).toISOString().split("T")[0]}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
-    </url>`).join("") || "";
+    </url>`).join("");
 
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

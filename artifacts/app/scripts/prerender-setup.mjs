@@ -50,8 +50,11 @@ async function fetchAll(table, select, extraQuery = "") {
 
 const staticRoutes = ["/", "/about", "/blog", "/designs"];
 
-const posts = await fetchAll("blog_posts", "slug,updated_at", "status=eq.published");
-const designs = await fetchAll("designs", "id,updated_at");
+const rawPosts = await fetchAll("blog_posts", "slug,updated_at", "status=eq.published");
+const posts = rawPosts.filter((p) => p && p.slug && p.slug.trim() !== "" && p.slug !== "null" && p.slug !== "undefined");
+
+const rawDesigns = await fetchAll("designs", "id,name,image_url,updated_at");
+const designs = rawDesigns.filter((d) => d && d.id && d.name && d.name.trim() !== "" && d.image_url && d.image_url.trim() !== "");
 
 const blogRoutes = posts.map((p) => `/blog/${p.slug}`);
 const designRoutes = designs.map((d) => `/designs/${d.id}`);

@@ -43,13 +43,17 @@ const DesignDetail = () => {
   if (!design) {
     return (
       <Layout>
+        <Helmet>
+          <title>Design Not Found | AIPrintVerse</title>
+          <meta name="robots" content="noindex" />
+        </Helmet>
         <div className="container mx-auto px-4 py-20 text-center md:px-6">
           <h1 className="font-display text-2xl font-bold text-foreground">
             Design Not Found
           </h1>
           <Button asChild variant="outline" className="mt-4">
             <Link to="/designs">
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Designs
             </Link>
           </Button>

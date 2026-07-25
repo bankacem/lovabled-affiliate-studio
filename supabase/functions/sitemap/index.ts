@@ -71,25 +71,27 @@ Deno.serve(async (req) => {
         xml += `  <url><loc>${BASE_URL}${p.path}</loc><lastmod>${now}</lastmod><changefreq>${p.changefreq}</changefreq><priority>${p.priority}</priority></url>\n`;
       }
     } else if (kind === "posts") {
-      const posts = await fetchAll<{ slug: string; updated_at: string; featured_image: string | null; title: string }>(
+      const rawPosts = await fetchAll<{ slug: string | null; updated_at: string; featured_image: string | null; title: string | null }>(
         supabase, "blog_posts", "slug, updated_at, featured_image, title",
         (q) => q.eq("status", "published").order("updated_at", { ascending: false }),
       );
+      const posts = rawPosts.filter((p) => p && p.slug && p.slug.trim() !== "" && p.slug !== "null" && p.slug !== "undefined");
       for (const p of posts) {
         const lastmod = new Date(p.updated_at).toISOString().split("T")[0];
-        xml += `  <url>\n    <loc>${BASE_URL}/blog/${p.slug}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n`;
+        xml += `  <url>\n    <loc>${BASE_URL}/blog/${escapeXml(p.slug!)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n`;
         if (p.featured_image) {
-          xml += `    <image:image>\n      <image:loc>${escapeXml(p.featured_image)}</image:loc>\n      <image:title>${escapeXml(p.title)}</image:title>\n    </image:image>\n`;
+          xml += `    <image:image>\n      <image:loc>${escapeXml(p.featured_image)}</image:loc>\n      <image:title>${escapeXml(p.title || "")}</image:title>\n    </image:image>\n`;
         }
         xml += `  </url>\n`;
       }
     } else if (kind === "designs") {
-      const designs = await fetchAll<{ id: string; updated_at: string }>(
-        supabase, "designs", "id, updated_at", (q) => q.order("updated_at", { ascending: false }),
+      const rawDesigns = await fetchAll<{ id: string; name: string | null; image_url: string | null; updated_at: string | null }>(
+        supabase, "designs", "id, name, image_url, updated_at", (q) => q.order("updated_at", { ascending: false }),
       );
+      const designs = rawDesigns.filter((d) => d && d.id && d.name && d.name.trim() !== "" && d.image_url && d.image_url.trim() !== "");
       for (const d of designs) {
         const lastmod = new Date(d.updated_at || Date.now()).toISOString().split("T")[0];
-        xml += `  <url><loc>${BASE_URL}/designs/${d.id}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;
+        xml += `  <url><loc>${BASE_URL}/designs/${escapeXml(d.id)}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;
       }
     }
 

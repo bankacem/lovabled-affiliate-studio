@@ -22,7 +22,10 @@ export function useSitemapData() {
         const EXCLUDED_SLUGS = [
           'decoding-the-edge-function-returned-a-non-2xx-status-code-error-a-developers-guide-to-recovery',
         ];
-        setPosts(data.filter(post => !EXCLUDED_SLUGS.includes(post.slug)));
+        const validPosts = data.filter(
+          post => post && post.slug && post.slug.trim() !== "" && post.slug !== "null" && post.slug !== "undefined"
+        );
+        setPosts(validPosts.filter(post => !EXCLUDED_SLUGS.includes(post.slug)));
       }
       setIsLoading(false);
     };
