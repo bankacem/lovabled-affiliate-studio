@@ -124,7 +124,7 @@ export function ArticleOptimizer() {
 
       // Also add 2-3 word phrases from titles
       posts.forEach(post => {
-        const words = post.title.split(/\s+/).filter(w => w.length > 3);
+        const words = post.title.split(/\s+/).filter((w: string) => w.length > 3);
         for (let i = 0; i < words.length - 1; i++) {
           keywordMap.push({
             keyword: words.slice(i, i + 2).join(' ').toLowerCase(),

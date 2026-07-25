@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { 
   LayoutDashboard, 
   FileText, 
@@ -227,18 +228,31 @@ export function AdminDashboard() {
   if (authLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       </div>
     );
   }
 
   if (!user) {
-    return <AuthPage />;
+    return (
+      <>
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <AuthPage />
+      </>
+    );
   }
 
   if (!isAdmin) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background p-4">
+        <Helmet>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <Card className="p-8 max-w-md text-center">
           <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <X className="w-8 h-8 text-destructive" />
@@ -268,6 +282,10 @@ export function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-secondary/30 flex">
+      <Helmet>
+        <title>Admin Dashboard | AIPrintVerse</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
@@ -580,7 +598,7 @@ export function AdminDashboard() {
           {/* Edit Design View */}
           {currentView === "edit-design" && (
             <LazyDesignEditor
-              design={editingDesign}
+              design={editingDesign as any}
               onSave={handleBackFromDesignEditor}
               onCancel={handleBackFromDesignEditor}
             />

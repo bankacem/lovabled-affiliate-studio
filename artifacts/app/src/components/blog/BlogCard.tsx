@@ -10,7 +10,7 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, index = 0 }: BlogCardProps) {
-  const displayDate = post.published_at || post.created_at;
+  const displayDate = post.published_at || post.created_at || new Date().toISOString();
 
   return (
     <motion.article
