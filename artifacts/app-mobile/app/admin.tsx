@@ -121,7 +121,7 @@ export default function AdminScreen() {
           />
           <StatCard
             label="Drafts"
-            value={blogStats?.drafts}
+            value={blogStats?.draft}
             loading={loadingBlogStats}
           />
           <StatCard
