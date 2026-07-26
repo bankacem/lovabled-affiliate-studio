@@ -1,5 +1,8 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useListAutoLinkKeywords } from "@workspace/api-client-react";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { calculateQualityScore } from "@/lib/seoAudit";
 
 function escapeRegex(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -15,12 +18,38 @@ const AUTHORITATIVE_HOSTS = ["wikipedia.org", "google.com", "trends.google.com",
 export function useAutoLinking() {
   const { data: keywords = [], isLoading, refetch } = useListAutoLinkKeywords();
 
+  // Fetch all published posts to determine their SEO quality score dynamically (lightweight metadata query)
+  const { data: posts = [] } = useQuery({
+    queryKey: ["auto-link-target-posts"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("id,title,meta_description,featured_image,author_name,published_at,created_at")
+        .eq("status", "published");
+      if (error) throw error;
+      return data ?? [];
+    }
+  });
+
+  // Calculate high quality post IDs (score >= 60)
+  const highQualityPostIds = useMemo(() => {
+    const ids = new Set<string>();
+    posts.forEach((post) => {
+      const score = calculateQualityScore(post, "blog");
+      if (score >= 60) {
+        ids.add(post.id);
+      }
+    });
+    return ids;
+  }, [posts]);
+
   const applyAutoLinks = useCallback((content: string, currentPostId?: string): string => {
     let linked = content;
 
     // Sort by keyword length desc so longer phrases match first (avoids partial overlaps).
+    // Filter out keywords targeting posts with low quality scores.
     const active: any[] = (keywords as any[])
-      .filter((k: any) => k.is_active && k.target_post_id !== currentPostId)
+      .filter((k: any) => k.is_active && k.target_post_id !== currentPostId && highQualityPostIds.has(k.target_post_id))
       .sort((a: any, b: any) => b.keyword.length - a.keyword.length);
 
     let linksAdded = 0;
@@ -52,7 +81,7 @@ export function useAutoLinking() {
     });
 
     return linked;
-  }, [keywords]);
+  }, [keywords, highQualityPostIds]);
 
   const generateKeywordsFromPost = useCallback(async (post: { id: string; title: string; content?: string | null }) => {
     const titleWords = post.title.split(/\s+/).filter((w) => w.length > 4).map((w) => w.replace(/[^a-zA-Z0-9]/g, "").toLowerCase());

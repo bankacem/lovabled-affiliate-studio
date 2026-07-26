@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Share2, Loader2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
@@ -6,6 +7,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { DesignCard } from "@/components/designs/DesignCard";
 import { useDesign, useDesigns } from "@/hooks/useDesigns";
+import { calculateQualityScore } from "@/lib/seoAudit";
 import { toast } from "sonner";
 
 const DesignDetail = () => {
@@ -16,6 +18,12 @@ const DesignDetail = () => {
   const relatedDesigns = allDesigns
     .filter((d) => d.category === design?.category && d.id !== design?.id)
     .slice(0, 4);
+
+  const isLowQuality = useMemo(() => {
+    if (!design) return false;
+    const score = calculateQualityScore(design, "design");
+    return score < 60;
+  }, [design]);
 
   const handleShare = async () => {
     try {
@@ -72,6 +80,7 @@ const DesignDetail = () => {
       <Helmet>
         <title>{designTitle}</title>
         <meta name="description" content={designDesc} />
+        {isLowQuality && <meta name="robots" content="noindex, nofollow" />}
         <meta property="og:title" content={designTitle} />
         <meta property="og:description" content={designDesc} />
         <meta property="og:type" content="product" />
