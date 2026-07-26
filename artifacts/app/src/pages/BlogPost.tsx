@@ -10,6 +10,7 @@ import { useBlogPost } from "@/hooks/useBlogPosts";
 import { useAutoLinking } from "@/hooks/useAutoLinking";
 import { usePageTracking, useLinkTracking } from "@/hooks/usePageTracking";
 import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
+import { calculateQualityScore } from "@/lib/seoAudit";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
@@ -46,6 +47,12 @@ const BlogPost = () => {
     if (!post?.content || autoLinksLoading) return post?.content || "";
     return applyAutoLinks(post.content, post.id);
   }, [post?.content, post?.id, applyAutoLinks, autoLinksLoading]);
+
+  const isLowQuality = useMemo(() => {
+    if (!post) return false;
+    const score = calculateQualityScore(post, "blog");
+    return score < 60;
+  }, [post]);
 
   useEffect(() => {
     if (!post || !contentRef.current) return;
@@ -165,6 +172,7 @@ const BlogPost = () => {
       <Helmet>
         <title>{post.meta_title || post.title}</title>
         <meta name="description" content={post.meta_description || post.excerpt || ""} />
+        {isLowQuality && <meta name="robots" content="noindex, nofollow" />}
         <meta property="og:title" content={post.meta_title || post.title} />
         <meta property="og:description" content={post.meta_description || post.excerpt || ""} />
         <meta property="og:type" content="article" />

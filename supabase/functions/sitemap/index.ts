@@ -12,6 +12,95 @@ function escapeXml(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 }
 
+function cleanHtmlText(html: string): string {
+  if (!html) return "";
+  let clean = html.replace(/<(script|style|iframe)[^>]*>[\s\S]*?<\/\1>/gi, " ");
+  clean = clean.replace(/<[^>]*>/g, " ");
+  return clean.replace(/\s+/g, " ").trim();
+}
+
+function calculateQualityScore(page: any, type: "blog" | "design"): number {
+  let score = 100;
+
+  if (type === "blog") {
+    const title = (page.title || "").trim();
+    if (!title || title.toLowerCase() === "untitled" || title.toLowerCase() === "draft") {
+      score -= 40;
+    }
+    const content = page.content || "";
+    const cleanText = cleanHtmlText(content);
+    const words = cleanText.split(/\s+/).filter(Boolean);
+    const wordCount = words.length;
+
+    if (wordCount === 0) {
+      score -= 100;
+    } else if (wordCount < 250) {
+      score -= 45;
+    } else if (wordCount < 500) {
+      score -= 30;
+    } else if (wordCount < 800) {
+      score -= 15;
+    }
+
+    const cleanLower = cleanText.toLowerCase();
+    const placeholders = ["lorem ipsum", "placeholder", "todo", "insert here", "text goes here", "[insert", "[your"];
+    if (placeholders.some(p => cleanLower.includes(p))) {
+      score -= 25;
+    }
+
+    const metaDesc = (page.meta_description || "").trim();
+    if (!metaDesc) {
+      score -= 15;
+    } else if (metaDesc.length < 80) {
+      score -= 5;
+    }
+
+    const ogImage = page.featured_image || page.image_url || "";
+    if (!ogImage || !ogImage.startsWith("http")) {
+      score -= 15;
+    }
+
+    if (!page.author_name) {
+      score -= 10;
+    }
+  } else if (type === "design") {
+    const name = (page.name || "").trim();
+    if (!name || name.toLowerCase().includes("untitled") || name.toLowerCase() === "no name") {
+      score -= 40;
+    }
+
+    const desc = page.description || "";
+    const cleanDesc = cleanHtmlText(desc);
+    const words = cleanDesc.split(/\s+/).filter(Boolean);
+    const wordCount = words.length;
+
+    if (wordCount === 0) {
+      score -= 40;
+    } else if (wordCount < 30) {
+      score -= 25;
+    } else if (wordCount < 80) {
+      score -= 10;
+    }
+
+    const imageUrl = page.image_url || "";
+    if (!imageUrl || !imageUrl.startsWith("http")) {
+      score -= 40;
+    }
+
+    const hasStoreLink = !!(page.teepublic_url || page.redbubble_url || page.amazon_url || page.etsy_url);
+    if (!hasStoreLink) {
+      score -= 30;
+    }
+
+    const tags = page.tags || [];
+    if (tags.length === 0) {
+      score -= 10;
+    }
+  }
+
+  return Math.max(0, Math.min(100, score));
+}
+
 async function fetchAll<T>(supabase: ReturnType<typeof createClient>, table: string, select: string, filter?: (q: any) => any): Promise<T[]> {
   const all: T[] = [];
   let from = 0;
@@ -71,11 +160,25 @@ Deno.serve(async (req) => {
         xml += `  <url><loc>${BASE_URL}${p.path}</loc><lastmod>${now}</lastmod><changefreq>${p.changefreq}</changefreq><priority>${p.priority}</priority></url>\n`;
       }
     } else if (kind === "posts") {
-      const rawPosts = await fetchAll<{ slug: string | null; updated_at: string; featured_image: string | null; title: string | null }>(
-        supabase, "blog_posts", "slug, updated_at, featured_image, title",
+      const rawPosts = await fetchAll<{
+        slug: string | null;
+        updated_at: string;
+        featured_image: string | null;
+        title: string | null;
+        content: string | null;
+        meta_description: string | null;
+        author_name: string | null;
+      }>(
+        supabase, "blog_posts", "slug, updated_at, featured_image, title, content, meta_description, author_name",
         (q) => q.eq("status", "published").order("updated_at", { ascending: false }),
       );
-      const posts = rawPosts.filter((p) => p && p.slug && p.slug.trim() !== "" && p.slug !== "null" && p.slug !== "undefined");
+
+      const posts = rawPosts.filter((p) => {
+        if (!p || !p.slug || p.slug.trim() === "" || p.slug === "null" || p.slug === "undefined") return false;
+        const score = calculateQualityScore(p, "blog");
+        return score >= 60;
+      });
+
       for (const p of posts) {
         const lastmod = new Date(p.updated_at).toISOString().split("T")[0];
         xml += `  <url>\n    <loc>${BASE_URL}/blog/${escapeXml(p.slug!)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n`;
@@ -85,10 +188,27 @@ Deno.serve(async (req) => {
         xml += `  </url>\n`;
       }
     } else if (kind === "designs") {
-      const rawDesigns = await fetchAll<{ id: string; name: string | null; image_url: string | null; updated_at: string | null }>(
-        supabase, "designs", "id, name, image_url, updated_at", (q) => q.order("updated_at", { ascending: false }),
+      const rawDesigns = await fetchAll<{
+        id: string;
+        name: string | null;
+        image_url: string | null;
+        updated_at: string | null;
+        description: string | null;
+        teepublic_url: string | null;
+        redbubble_url: string | null;
+        amazon_url: string | null;
+        etsy_url: string | null;
+        tags: string[] | null;
+      }>(
+        supabase, "designs", "id, name, image_url, updated_at, description, teepublic_url, redbubble_url, amazon_url, etsy_url, tags", (q) => q.order("updated_at", { ascending: false }),
       );
-      const designs = rawDesigns.filter((d) => d && d.id && d.name && d.name.trim() !== "" && d.image_url && d.image_url.trim() !== "");
+
+      const designs = rawDesigns.filter((d) => {
+        if (!d || !d.id || !d.name || d.name.trim() === "" || !d.image_url || d.image_url.trim() === "") return false;
+        const score = calculateQualityScore(d, "design");
+        return score >= 60;
+      });
+
       for (const d of designs) {
         const lastmod = new Date(d.updated_at || Date.now()).toISOString().split("T")[0];
         xml += `  <url><loc>${BASE_URL}/designs/${escapeXml(d.id)}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>\n`;

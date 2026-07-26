@@ -2,6 +2,7 @@
 // then updates package.json reactSnap.include and writes public/sitemap.xml.
 // Runs before react-snap so every article/design page gets pre-rendered
 // HTML with its own meta title/description for Google.
+// Dynamic Quality Filter: Excludes pages scoring below 60/100 from sitemap and prerender.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
@@ -48,13 +49,112 @@ async function fetchAll(table, select, extraQuery = "") {
   return all;
 }
 
+function cleanHtmlText(html) {
+  if (!html) return "";
+  let clean = html.replace(/<(script|style|iframe)[^>]*>[\s\S]*?<\/\1>/gi, " ");
+  clean = clean.replace(/<[^>]*>/g, " ");
+  return clean.replace(/\s+/g, " ").trim();
+}
+
+function calculateQualityScore(page, type) {
+  let score = 100;
+
+  if (type === "blog") {
+    const title = (page.title || "").trim();
+    if (!title || title.toLowerCase() === "untitled" || title.toLowerCase() === "draft") {
+      score -= 40;
+    }
+    const content = page.content || "";
+    const cleanText = cleanHtmlText(content);
+    const words = cleanText.split(/\s+/).filter(Boolean);
+    const wordCount = words.length;
+
+    if (wordCount === 0) {
+      score -= 100;
+    } else if (wordCount < 250) {
+      score -= 45;
+    } else if (wordCount < 500) {
+      score -= 30;
+    } else if (wordCount < 800) {
+      score -= 15;
+    }
+
+    const cleanLower = cleanText.toLowerCase();
+    const placeholders = ["lorem ipsum", "placeholder", "todo", "insert here", "text goes here", "[insert", "[your"];
+    if (placeholders.some(p => cleanLower.includes(p))) {
+      score -= 25;
+    }
+
+    const metaDesc = (page.meta_description || "").trim();
+    if (!metaDesc) {
+      score -= 15;
+    } else if (metaDesc.length < 80) {
+      score -= 5;
+    }
+
+    const ogImage = page.featured_image || page.image_url || "";
+    if (!ogImage || !ogImage.startsWith("http")) {
+      score -= 15;
+    }
+
+    if (!page.author_name) {
+      score -= 10;
+    }
+  } else if (type === "design") {
+    const name = (page.name || "").trim();
+    if (!name || name.toLowerCase().includes("untitled") || name.toLowerCase() === "no name") {
+      score -= 40;
+    }
+
+    const desc = page.description || "";
+    const cleanDesc = cleanHtmlText(desc);
+    const words = cleanDesc.split(/\s+/).filter(Boolean);
+    const wordCount = words.length;
+
+    if (wordCount === 0) {
+      score -= 40;
+    } else if (wordCount < 30) {
+      score -= 25;
+    } else if (wordCount < 80) {
+      score -= 10;
+    }
+
+    const imageUrl = page.image_url || "";
+    if (!imageUrl || !imageUrl.startsWith("http")) {
+      score -= 40;
+    }
+
+    const hasStoreLink = !!(page.teepublic_url || page.redbubble_url || page.amazon_url || page.etsy_url);
+    if (!hasStoreLink) {
+      score -= 30;
+    }
+
+    const tags = page.tags || [];
+    if (tags.length === 0) {
+      score -= 10;
+    }
+  }
+
+  return Math.max(0, Math.min(100, score));
+}
+
 const staticRoutes = ["/", "/about", "/blog", "/designs"];
 
-const rawPosts = await fetchAll("blog_posts", "slug,updated_at", "status=eq.published");
-const posts = rawPosts.filter((p) => p && p.slug && p.slug.trim() !== "" && p.slug !== "null" && p.slug !== "undefined");
+const rawPosts = await fetchAll("blog_posts", "slug,title,content,meta_description,featured_image,author_name,updated_at", "status=eq.published");
+// Filter out low quality blog posts and invalid slugs
+const posts = rawPosts.filter((p) => {
+  if (!p || !p.slug || p.slug.trim() === "" || p.slug === "null" || p.slug === "undefined") return false;
+  const score = calculateQualityScore(p, "blog");
+  return score >= 60;
+});
 
-const rawDesigns = await fetchAll("designs", "id,name,image_url,updated_at");
-const designs = rawDesigns.filter((d) => d && d.id && d.name && d.name.trim() !== "" && d.image_url && d.image_url.trim() !== "");
+const rawDesigns = await fetchAll("designs", "id,name,description,image_url,teepublic_url,redbubble_url,amazon_url,etsy_url,tags,updated_at");
+// Filter out low quality designs
+const designs = rawDesigns.filter((d) => {
+  if (!d || !d.id || !d.name || d.name.trim() === "" || !d.image_url || d.image_url.trim() === "") return false;
+  const score = calculateQualityScore(d, "design");
+  return score >= 60;
+});
 
 const blogRoutes = posts.map((p) => `/blog/${p.slug}`);
 const designRoutes = designs.map((d) => `/designs/${d.id}`);

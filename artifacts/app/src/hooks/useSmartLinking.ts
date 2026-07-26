@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { calculateQualityScore } from "@/lib/seoAudit";
 
 interface SmartLinkPost {
   id: string;
@@ -12,6 +13,10 @@ interface SmartLinkPost {
   excerpt?: string | null;
   featured_image?: string | null;
   published_at?: string | null;
+  content?: string | null;
+  meta_description?: string | null;
+  author_name?: string | null;
+  created_at?: string | null;
 }
 
 interface SmartLinkSuggestion {
@@ -28,7 +33,7 @@ export function useSmartLinking(currentPostId?: string) {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("blog_posts")
-        .select("id,title,slug,category,tags,indexing_status,excerpt,featured_image,published_at")
+        .select("id,title,slug,category,tags,indexing_status,excerpt,featured_image,published_at,meta_description,author_name,created_at")
         .eq("status", "published")
         .not("slug", "is", null)
         .neq("slug", "")
@@ -40,17 +45,27 @@ export function useSmartLinking(currentPostId?: string) {
     },
   });
 
-  const allPosts: SmartLinkPost[] = allPostsRaw.map(post => ({
-    id: post.id,
-    title: post.title,
-    slug: post.slug,
-    category: post.category,
-    tags: post.tags ?? [],
-    indexing_status: (post.indexing_status as "indexed" | "pending") || "pending",
-    excerpt: post.excerpt,
-    featured_image: post.featured_image,
-    published_at: post.published_at,
-  }));
+  const allPosts: SmartLinkPost[] = useMemo(() => {
+    return allPostsRaw
+      .map(post => ({
+        id: post.id,
+        title: post.title,
+        slug: post.slug,
+        category: post.category,
+        tags: post.tags ?? [],
+        indexing_status: (post.indexing_status as "indexed" | "pending") || "pending",
+        excerpt: post.excerpt,
+        featured_image: post.featured_image,
+        published_at: post.published_at,
+        meta_description: post.meta_description,
+        author_name: post.author_name,
+        created_at: post.created_at,
+      }))
+      .filter(post => {
+        const score = calculateQualityScore(post, "blog");
+        return score >= 60;
+      });
+  }, [allPostsRaw]);
 
   const indexedPosts = useMemo(() => allPosts.filter(p => p.indexing_status === "indexed"), [allPosts]);
   const pendingPosts = useMemo(() => allPosts.filter(p => p.indexing_status === "pending"), [allPosts]);

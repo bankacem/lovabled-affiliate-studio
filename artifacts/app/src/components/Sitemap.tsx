@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { calculateQualityScore } from "@/lib/seoAudit";
 
 interface SitemapEntry {
   slug: string;
   updated_at: string;
+  title?: string | null;
+  content?: string | null;
+  meta_description?: string | null;
+  featured_image?: string | null;
+  author_name?: string | null;
 }
 
 export function useSitemapData() {
@@ -14,7 +20,7 @@ export function useSitemapData() {
     const fetchPosts = async () => {
       const { data } = await supabase
         .from("blog_posts")
-        .select("slug, updated_at")
+        .select("slug, updated_at, title, content, meta_description, featured_image, author_name")
         .eq("status", "published")
         .order("updated_at", { ascending: false });
 
@@ -25,7 +31,15 @@ export function useSitemapData() {
         const validPosts = data.filter(
           post => post && post.slug && post.slug.trim() !== "" && post.slug !== "null" && post.slug !== "undefined"
         );
-        setPosts(validPosts.filter(post => !EXCLUDED_SLUGS.includes(post.slug)));
+
+        // Filter by quality score >= 60
+        const highQualityPosts = validPosts.filter((post) => {
+          if (EXCLUDED_SLUGS.includes(post.slug)) return false;
+          const score = calculateQualityScore(post, "blog");
+          return score >= 60;
+        });
+
+        setPosts(highQualityPosts);
       }
       setIsLoading(false);
     };
