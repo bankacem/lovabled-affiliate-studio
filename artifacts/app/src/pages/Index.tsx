@@ -4,14 +4,21 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { FeaturedDesigns } from "@/components/home/FeaturedDesigns";
 import { CategorySection } from "@/components/home/CategorySection";
 import { LatestPosts } from "@/components/home/LatestPosts";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { language, t } = useLanguage();
+
+  const canonicalUrl = language === "en"
+    ? "https://aiprintverse.com/"
+    : `https://aiprintverse.com/${language}`;
+
   return (
     <Layout>
       <Helmet>
-        <title>AIPrintVerse | تصاميم الطباعة عند الطلب المدعومة بالذكاء الاصطناعي</title>
-        <meta name="description" content="اكتشف تصاميم الطباعة عند الطلب المنسقة بواسطة الذكاء الاصطناعي للقمصان، الأكواب، الملصقات والمزيد. تسوق أعمالاً فنية فريدة على TeePublic و Redbubble." />
-        <link rel="canonical" href="https://aiprintverse.com/" />
+        <title>{t("meta.homeTitle")}</title>
+        <meta name="description" content={t("meta.homeDesc")} />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <HeroSection />
       <FeaturedDesigns />

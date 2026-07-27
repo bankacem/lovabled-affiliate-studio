@@ -2,42 +2,46 @@ import { motion } from "framer-motion";
 import { Heart, Target, Users, Sparkles } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
-
-const values = [
-  {
-    icon: Heart,
-    title: "Passion for Design",
-    description:
-      "We curate only the most creative and visually stunning designs that we genuinely love.",
-  },
-  {
-    icon: Target,
-    title: "Quality First",
-    description:
-      "Every design is handpicked for its artistic merit, uniqueness, and print quality.",
-  },
-  {
-    icon: Users,
-    title: "Community Driven",
-    description:
-      "We support independent artists and help connect them with design enthusiasts worldwide.",
-  },
-  {
-    icon: Sparkles,
-    title: "Always Fresh",
-    description:
-      "Our collection is constantly updated with the latest trends and timeless classics.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { language, t } = useLanguage();
+
+  const values = [
+    {
+      icon: Heart,
+      title: t("about.value1Title"),
+      description: t("about.value1Desc"),
+    },
+    {
+      icon: Target,
+      title: t("about.value2Title"),
+      description: t("about.value2Desc"),
+    },
+    {
+      icon: Users,
+      title: t("about.value3Title"),
+      description: t("about.value3Desc"),
+    },
+    {
+      icon: Sparkles,
+      title: t("about.value4Title"),
+      description: t("about.value4Desc"),
+    },
+  ];
+
+  const canonicalUrl = language === "en"
+    ? "https://aiprintverse.com/about"
+    : `https://aiprintverse.com/${language}/about`;
+
   return (
     <Layout>
       <Helmet>
-        <title>من نحن | AIPrintVerse - قصتنا ورسالتنا</title>
-        <meta name="description" content="تعرف على AIPrintVerse، شغفنا بالتصاميم الفريدة المدعومة بالذكاء الاصطناعي، ورسالتنا لربط محبي التصميم بمنتجات عالية الجودة مطبوعة عند الطلب." />
-        <link rel="canonical" href="https://aiprintverse.com/about" />
+        <title>{t("meta.aboutTitle")}</title>
+        <meta name="description" content={t("meta.aboutDesc")} />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
+
       {/* Hero */}
       <section className="bg-gradient-to-b from-secondary/50 to-background py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
@@ -47,12 +51,10 @@ const About = () => {
             className="mx-auto max-w-3xl text-center"
           >
             <h1 className="font-display text-4xl font-bold text-foreground md:text-5xl">
-              About DesignVault
+              {t("about.title")}
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              We're passionate about connecting design lovers with unique,
-              high-quality print-on-demand merchandise. Our curated collection
-              features the best designs from talented artists around the world.
+              {t("about.description")}
             </p>
           </motion.div>
         </div>
@@ -67,20 +69,15 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-sm font-medium text-primary">Our Mission</span>
+              <span className="text-sm font-medium text-primary">{t("about.mission")}</span>
               <h2 className="mt-2 font-display text-3xl font-bold text-foreground md:text-4xl">
-                Making Great Design Accessible
+                {t("about.missionTitle")}
               </h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                DesignVault was born from a simple idea: everyone deserves access
-                to beautiful, unique designs that express their personality. We
-                scour print-on-demand platforms to find the most creative,
-                well-crafted designs and bring them to you in one convenient place.
+                {t("about.missionDesc1")}
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                Whether you're looking for a statement t-shirt, a cozy hoodie, a
-                unique coffee mug, or fun stickers, our carefully curated
-                collection has something for every style and interest.
+                {t("about.missionDesc2")}
               </p>
             </motion.div>
             <motion.div
@@ -97,8 +94,8 @@ const About = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 rounded-xl bg-primary p-4 text-primary-foreground shadow-lg">
-                <p className="text-2xl font-bold">100+</p>
-                <p className="text-sm">Curated Designs</p>
+                <p className="text-2xl font-bold">{t("about.curatedCount")}</p>
+                <p className="text-sm">{t("about.curatedLabel")}</p>
               </div>
             </motion.div>
           </div>
@@ -115,10 +112,10 @@ const About = () => {
             className="text-center"
           >
             <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              Our Values
+              {t("about.valuesTitle")}
             </h2>
             <p className="mt-2 text-muted-foreground">
-              What drives us every day
+              {t("about.valuesSubtitle")}
             </p>
           </motion.div>
 
@@ -152,14 +149,10 @@ const About = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-2xl rounded-2xl bg-secondary/50 p-8 text-center">
             <h2 className="font-display text-xl font-semibold text-foreground">
-              Affiliate Disclosure
+              {t("about.disclosureTitle")}
             </h2>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              DesignVault participates in affiliate programs with TeePublic,
-              Redbubble, and other print-on-demand platforms. When you make a
-              purchase through our links, we may earn a small commission at no
-              extra cost to you. This helps us keep the site running and continue
-              discovering great designs for you. Thank you for your support!
+              {t("about.disclosureDesc")}
             </p>
           </div>
         </div>

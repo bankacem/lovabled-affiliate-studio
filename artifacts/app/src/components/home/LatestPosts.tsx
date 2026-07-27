@@ -4,10 +4,17 @@ import { ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { useBlogPosts } from "@/hooks/useBlogPosts";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function LatestPosts() {
+  const { language, t } = useLanguage();
   const { posts, isLoading } = useBlogPosts(1, 3);
   const latestPosts = posts;
+
+  const langPrefix = (path: string) => {
+    if (language === "en") return path;
+    return `/${language}${path === "/" ? "" : path}`;
+  };
 
   return (
     <section className="py-16 md:py-24">
@@ -21,15 +28,15 @@ export function LatestPosts() {
         >
           <div>
             <h2 className="font-display text-3xl font-bold text-foreground md:text-4xl">
-              Latest from the Blog
+              {t("blog.title")}
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Design tips, trends, and inspiration
+              {t("blog.subtitle")}
             </p>
           </div>
           <Button asChild variant="outline">
-            <Link to="/blog">
-              View All Posts
+            <Link to={langPrefix("/blog")}>
+              {t("blog.title")}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -51,7 +58,7 @@ export function LatestPosts() {
             <div className="py-12 text-center">
               <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
               <p className="text-muted-foreground">
-                No blog posts yet. Check back soon!
+                {t("blog.adjustSearch")}
               </p>
             </div>
           )}

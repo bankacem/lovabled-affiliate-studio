@@ -70,7 +70,7 @@ export function DesignCard({ design, index = 0 }: DesignCardProps) {
             {/* Tags */}
             {design.tags && design.tags.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {design.tags.slice(0, 3).map((tag) => (
+                {design.tags.slice(0, 3).map((tag: string) => (
                   <span
                     key={tag}
                     className="rounded-full bg-secondary px-2 py-0.5 text-xs text-secondary-foreground"

@@ -13,6 +13,7 @@ import { InternalLinkBridge } from "@/components/blog/InternalLinkBridge";
 import { calculateQualityScore } from "@/lib/seoAudit";
 import { toast } from "sonner";
 import { format } from "date-fns";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ArticleSkeleton = () => (
   <div className="mx-auto max-w-3xl space-y-6">
@@ -40,6 +41,12 @@ const BlogPost = () => {
   const { post, isLoading, error } = useBlogPost(id || "");
   const { applyAutoLinks, isLoading: autoLinksLoading } = useAutoLinking();
   const { trackLinkClick } = useLinkTracking();
+  const { language, t } = useLanguage();
+
+  const langPrefix = (path: string) => {
+    if (language === "en") return path;
+    return `/${language}${path === "/" ? "" : path}`;
+  };
   
   usePageTracking(post?.id);
 
@@ -105,7 +112,7 @@ const BlogPost = () => {
       });
     } catch {
       await navigator.clipboard.writeText(window.location.href);
-      toast.success("Link copied!");
+      toast.success(t("blog.copied"));
     }
   };
 
@@ -125,20 +132,20 @@ const BlogPost = () => {
     return (
       <Layout>
         <Helmet>
-          <title>Article Not Found | AIPrintVerse</title>
+          <title>{t("blog.notFound")} | AIPrintVerse</title>
           <meta name="robots" content="noindex" />
         </Helmet>
         <div className="container mx-auto px-4 py-20 text-center md:px-6">
           <h1 className="font-display text-2xl font-bold text-foreground">
-            Article Not Found
+            {t("blog.notFound")}
           </h1>
           <p className="mt-2 text-muted-foreground">
-            The article you're looking for doesn't exist or has been removed.
+            {t("blog.notFoundDesc")}
           </p>
           <Button asChild variant="outline" className="mt-4">
-            <Link to="/blog">
+            <Link to={langPrefix("/blog")}>
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Blog
+              {t("blog.backToBlog")}
             </Link>
           </Button>
         </div>
@@ -201,11 +208,11 @@ const BlogPost = () => {
             className="mb-6"
           >
             <Link
-              to="/blog"
+              to={langPrefix("/blog")}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to Blog
+              {t("blog.backToBlog")}
             </Link>
           </motion.div>
 
@@ -245,13 +252,13 @@ const BlogPost = () => {
                   className="flex items-center gap-1 text-primary hover:underline"
                 >
                   <Share2 className="h-4 w-4" />
-                  Share
+                  {t("blog.share")}
                 </button>
               </div>
               
               {post.tags && post.tags.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {post.tags.map((tag, index) => (
+                  {post.tags.map((tag: string, index: number) => (
                     <span
                       key={index}
                       className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-secondary text-secondary-foreground"

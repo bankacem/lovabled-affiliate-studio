@@ -9,11 +9,18 @@ import { DesignCard } from "@/components/designs/DesignCard";
 import { useDesign, useDesigns } from "@/hooks/useDesigns";
 import { calculateQualityScore } from "@/lib/seoAudit";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const DesignDetail = () => {
   const { id } = useParams();
   const { data: design, isLoading } = useDesign(id || "");
   const { data: allDesigns = [] } = useDesigns();
+  const { language, t } = useLanguage();
+
+  const langPrefix = (path: string) => {
+    if (language === "en") return path;
+    return `/${language}${path === "/" ? "" : path}`;
+  };
 
   const relatedDesigns = allDesigns
     .filter((d) => d.category === design?.category && d.id !== design?.id)
@@ -34,7 +41,7 @@ const DesignDetail = () => {
       });
     } catch {
       await navigator.clipboard.writeText(window.location.href);
-      toast.success("Link copied!");
+      toast.success(t("designs.copied"));
     }
   };
 
@@ -52,17 +59,17 @@ const DesignDetail = () => {
     return (
       <Layout>
         <Helmet>
-          <title>Design Not Found | AIPrintVerse</title>
+          <title>{t("designs.notFound")} | AIPrintVerse</title>
           <meta name="robots" content="noindex" />
         </Helmet>
         <div className="container mx-auto px-4 py-20 text-center md:px-6">
           <h1 className="font-display text-2xl font-bold text-foreground">
-            Design Not Found
+            {t("designs.notFound")}
           </h1>
           <Button asChild variant="outline" className="mt-4">
-            <Link to="/designs">
+            <Link to={langPrefix("/designs")}>
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Designs
+              {t("designs.backToDesigns")}
             </Link>
           </Button>
         </div>
@@ -98,11 +105,11 @@ const DesignDetail = () => {
             className="mb-6"
           >
             <Link
-              to="/designs"
+              to={langPrefix("/designs")}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back to Designs
+              {t("designs.backToDesigns")}
             </Link>
           </motion.div>
 
@@ -159,7 +166,7 @@ const DesignDetail = () => {
               {/* Tags */}
               {design.tags && design.tags.length > 0 && (
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {design.tags.map((tag) => (
+                  {design.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="rounded-full bg-secondary px-3 py-1 text-sm text-secondary-foreground"
@@ -184,7 +191,7 @@ const DesignDetail = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      View on TeePublic
+                      {t("designs.viewTeePublic")}
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
@@ -201,7 +208,7 @@ const DesignDetail = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      View on Redbubble
+                      {t("designs.viewRedbubble")}
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
@@ -218,7 +225,7 @@ const DesignDetail = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      View on Amazon
+                      {t("designs.viewAmazon")}
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
@@ -235,7 +242,7 @@ const DesignDetail = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      View on Etsy
+                      {t("designs.viewEtsy")}
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </Button>
@@ -244,7 +251,7 @@ const DesignDetail = () => {
 
               {/* Affiliate Notice */}
               <p className="mt-6 text-xs text-muted-foreground">
-                * Disclosure: We may earn a commission from purchases through these links at no extra cost to you.
+                {t("designs.affiliateDisclosure")}
               </p>
             </motion.div>
           </div>
@@ -253,7 +260,7 @@ const DesignDetail = () => {
           {relatedDesigns.length > 0 && (
             <div className="mt-16">
               <h2 className="font-display text-2xl font-bold text-foreground">
-                Related Designs
+                {t("designs.related")}
               </h2>
               <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {relatedDesigns.map((design, index) => (
