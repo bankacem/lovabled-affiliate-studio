@@ -1,0 +1,9 @@
+
+> workspace@0.0.0 dev /app
+> cd artifacts/app && PORT=${PORT:-8080} BASE_PATH=/ ./node_modules/.bin/vite --config vite.config.ts --host 0.0.0.0
+
+
+  VITE v7.3.3  ready in 274 ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://192.168.0.2:8080/

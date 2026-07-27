@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { initApiClient } from "@/lib/api";
 
 initApiClient();
@@ -42,18 +43,32 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/designs" element={<Designs />} />
-                <Route path="/designs/:id" element={<DesignDetail />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:id" element={<BlogPost />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/admin" element={<Admin />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
+            <LanguageProvider>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  {/* Default Routes */}
+                  <Route path="/" element={<Index />} />
+                  <Route path="/designs" element={<Designs />} />
+                  <Route path="/designs/:id" element={<DesignDetail />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:id" element={<BlogPost />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/admin" element={<Admin />} />
+
+                  {/* Multi-language Prefixed Routes */}
+                  <Route path="/:lang" element={<Index />} />
+                  <Route path="/:lang/designs" element={<Designs />} />
+                  <Route path="/:lang/designs/:id" element={<DesignDetail />} />
+                  <Route path="/:lang/blog" element={<Blog />} />
+                  <Route path="/:lang/blog/:id" element={<BlogPost />} />
+                  <Route path="/:lang/about" element={<About />} />
+                  <Route path="/:lang/admin" element={<Admin />} />
+
+                  {/* Fallback */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </LanguageProvider>
           </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>

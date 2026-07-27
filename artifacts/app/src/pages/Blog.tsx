@@ -8,6 +8,7 @@ import { useBlogPosts, useBlogCategories } from "@/hooks/useBlogPosts";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const PAGE_SIZE = 12;
 
@@ -28,6 +29,7 @@ const BlogSkeleton = () => (
 );
 
 const Blog = () => {
+  const { language, t } = useLanguage();
   const [page, setPage] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     return Number(params.get("page")) || 1;
@@ -50,9 +52,10 @@ const Blog = () => {
 
   const goToPage = useCallback((newPage: number) => {
     setPage(newPage);
-    window.history.pushState({}, "", `/blog?page=${newPage}`);
+    const langPrefix = language === "en" ? "" : `/${language}`;
+    window.history.pushState({}, "", `${langPrefix}/blog?page=${newPage}`);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [language]);
 
   const paginationPages = useMemo(() => {
     const pages: number[] = [];
@@ -64,19 +67,40 @@ const Blog = () => {
     return pages;
   }, [page, totalPages]);
 
+  const getCategoryLabel = (cat: string) => {
+    if (cat === "All") {
+      if (language === "ar") return "الكل";
+      if (language === "es") return "Todos";
+      return "All";
+    }
+    return cat;
+  };
+
+  const canonicalUrl = language === "en"
+    ? `https://aiprintverse.com/blog${page > 1 ? `?page=${page}` : ""}`
+    : `https://aiprintverse.com/${language}/blog${page > 1 ? `?page=${page}` : ""}`;
+
+  const prevUrl = language === "en"
+    ? `https://aiprintverse.com/blog?page=${page - 1}`
+    : `https://aiprintverse.com/${language}/blog?page=${page - 1}`;
+
+  const nextUrl = language === "en"
+    ? `https://aiprintverse.com/blog?page=${page + 1}`
+    : `https://aiprintverse.com/${language}/blog?page=${page + 1}`;
+
   return (
     <Layout>
       {/* SEO */}
       <Helmet>
-        <title>المدونة | AIPrintVerse - اتجاهات تصاميم الطباعة بالذكاء الاصطناعي</title>
-        <meta name="description" content="اقرأ مدونة AIPrintVerse لمعرفة أحدث الاتجاهات في تصاميم الطباعة عند الطلب المدعومة بالذكاء الاصطناعي، نصائح التصميم، والإلهام لمنتجاتك الفريدة القادمة." />
+        <title>{t("meta.blogTitle")}</title>
+        <meta name="description" content={t("meta.blogDesc")} />
         {page > 1 && (
-          <link rel="prev" href={`https://aiprintverse.com/blog?page=${page - 1}`} />
+          <link rel="prev" href={prevUrl} />
         )}
         {page < totalPages && (
-          <link rel="next" href={`https://aiprintverse.com/blog?page=${page + 1}`} />
+          <link rel="next" href={nextUrl} />
         )}
-        <link rel="canonical" href={`https://aiprintverse.com/blog${page > 1 ? `?page=${page}` : ""}`} />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
       <section className="py-12 md:py-16">
@@ -88,14 +112,14 @@ const Blog = () => {
             className="text-center"
           >
             <h1 className="font-display text-4xl font-bold text-foreground md:text-5xl">
-              Blog
+              {t("blog.title")}
             </h1>
             <p className="mt-3 text-lg text-muted-foreground">
-              Design tips, trends, and inspiration for your style
+              {t("blog.subtitle")}
             </p>
             {totalCount > 0 && (
               <p className="mt-1 text-sm text-muted-foreground">
-                {totalCount} articles
+                {totalCount} {t("blog.articlesCount")}
               </p>
             )}
           </motion.div>
@@ -111,7 +135,7 @@ const Blog = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search articles..."
+                placeholder={t("blog.searchPlaceholder")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -130,7 +154,7 @@ const Blog = () => {
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   )}
                 >
-                  {category}
+                  {getCategoryLabel(category)}
                 </button>
               ))}
             </div>
@@ -151,8 +175,8 @@ const Blog = () => {
                 <FileText className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
                 <p className="text-lg text-muted-foreground">
                   {searchQuery || selectedCategory !== "All"
-                    ? "No articles found. Try adjusting your search."
-                    : "No articles published yet. Check back soon!"}
+                    ? t("blog.noArticles")
+                    : t("blog.adjustSearch")}
                 </p>
               </div>
             )}
@@ -173,7 +197,7 @@ const Blog = () => {
                   )}
                 >
                   <ChevronLeft className="h-4 w-4" />
-                  Previous
+                  {t("blog.previous")}
                 </button>
 
                 {paginationPages[0] > 1 && (
@@ -229,13 +253,13 @@ const Blog = () => {
                       : "text-foreground hover:bg-secondary"
                   )}
                 >
-                  Next
+                  {t("blog.next")}
                   <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
 
               <p className="text-sm text-muted-foreground">
-                Page {page} of {totalPages}
+                {t("blog.pageOf", { page, totalPages })}
               </p>
             </nav>
           )}

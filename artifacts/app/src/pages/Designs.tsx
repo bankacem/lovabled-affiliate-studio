@@ -8,6 +8,7 @@ import { DesignCard } from "@/components/designs/DesignCard";
 import { useDesigns } from "@/hooks/useDesigns";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const categories = [
   "All",
@@ -24,6 +25,7 @@ const Designs = () => {
   const initialCategory = searchParams.get("category") || "All";
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState("");
+  const { language, t } = useLanguage();
 
   const { data: designs = [], isLoading } = useDesigns();
 
@@ -33,7 +35,7 @@ const Designs = () => {
         selectedCategory === "All" || design.category === selectedCategory;
       const matchesSearch =
         design.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (design.tags || []).some((tag) =>
+        (design.tags || []).some((tag: string) =>
           tag.toLowerCase().includes(searchQuery.toLowerCase())
         );
       return matchesCategory && matchesSearch;
@@ -50,12 +52,33 @@ const Designs = () => {
     setSearchParams(searchParams);
   };
 
+  const getCategoryLabel = (cat: string) => {
+    if (cat === "All") {
+      if (language === "ar") return "الكل";
+      if (language === "es") return "Todos";
+      return "All";
+    }
+    const keyMap: Record<string, string> = {
+      "T-Shirts": t("categories.tshirts"),
+      "Hoodies": t("categories.hoodies"),
+      "Mugs": t("categories.mugs"),
+      "Stickers": t("categories.stickers"),
+      "Phone Cases": t("categories.phoneCases"),
+      "Posters": t("categories.posters"),
+    };
+    return keyMap[cat] || cat;
+  };
+
+  const canonicalUrl = language === "en"
+    ? "https://aiprintverse.com/designs"
+    : `https://aiprintverse.com/${language}/designs`;
+
   return (
     <Layout>
       <Helmet>
-        <title>جميع التصاميم | AIPrintVerse - منتجات فريدة بالذكاء الاصطناعي</title>
-        <meta name="description" content="تصفح مجموعتنا الكاملة من تصاميم الطباعة عند الطلب المنسقة بالذكاء الاصطناعي. تسوق أعمالاً فنية فريدة للقمصان، الهوديز، الأكواب، والملصقات من TeePublic و Redbubble." />
-        <link rel="canonical" href="https://aiprintverse.com/designs" />
+        <title>{t("meta.designsTitle")}</title>
+        <meta name="description" content={t("meta.designsDesc")} />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
@@ -66,10 +89,10 @@ const Designs = () => {
             className="text-center"
           >
             <h1 className="font-display text-4xl font-bold text-foreground md:text-5xl">
-              All Designs
+              {t("designs.title")}
             </h1>
             <p className="mt-3 text-lg text-muted-foreground">
-              Browse our complete collection of print-on-demand designs
+              {t("designs.subtitle")}
             </p>
           </motion.div>
 
@@ -85,7 +108,7 @@ const Designs = () => {
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search designs..."
+                placeholder={t("designs.searchPlaceholder")}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10"
@@ -105,7 +128,7 @@ const Designs = () => {
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   )}
                 >
-                  {category}
+                  {getCategoryLabel(category)}
                 </button>
               ))}
             </div>
@@ -127,7 +150,7 @@ const Designs = () => {
             ) : (
               <div className="py-20 text-center">
                 <p className="text-lg text-muted-foreground">
-                  No designs found. Try adjusting your search or filters.
+                  {t("designs.noDesigns")}
                 </p>
               </div>
             )}

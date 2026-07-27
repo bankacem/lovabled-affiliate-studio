@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Star, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function HeroSection() {
+  const { language, t } = useLanguage();
+
+  const langPrefix = (path: string) => {
+    if (language === "en") return path;
+    return `/${language}${path === "/" ? "" : path}`;
+  };
+
   return (
     <section className="relative overflow-hidden py-20 md:py-32">
       {/* Background */}
@@ -26,7 +34,7 @@ export function HeroSection() {
               <Star className="w-5 h-5 text-amber-500" />
             </div>
             <div>
-              <p className="text-sm font-medium text-foreground">Featured Designs</p>
+              <p className="text-sm font-medium text-foreground">{t("nav.designs")}</p>
               <p className="text-xs text-muted-foreground">+100 designs</p>
             </div>
           </div>
@@ -60,7 +68,7 @@ export function HeroSection() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-sm font-medium text-primary border border-primary/20">
               <Sparkles className="h-4 w-4" />
-              Exclusive Design Collection
+              {t("hero.badge")}
             </span>
           </motion.div>
 
@@ -70,14 +78,14 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-8 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl text-balance"
           >
-            Discover{" "}
+            {t("hero.titleStart")}
             <span className="text-gradient relative">
-              Unique
+              {t("hero.titleHighlight")}
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
                 <path d="M2 8C50 2 150 2 198 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="text-primary/30"/>
               </svg>
-            </span>{" "}
-            Print Designs
+            </span>
+            {t("hero.titleEnd")}
           </motion.h1>
 
           <motion.p
@@ -86,7 +94,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto"
           >
-            Browse our curated collection of stunning designs for t-shirts, hoodies, mugs, and stickers. Shop from TeePublic & Redbubble
+            {t("hero.desc")}
           </motion.p>
 
           <motion.div
@@ -96,13 +104,13 @@ export function HeroSection() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button asChild variant="hero" size="xl" className="group">
-              <Link to="/designs">
-                Browse Designs
+              <Link to={langPrefix("/designs")}>
+                {t("hero.browseCTA")}
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
             <Button asChild variant="hero-outline" size="xl">
-              <Link to="/blog">Read the Blog</Link>
+              <Link to={langPrefix("/blog")}>{t("hero.blogCTA")}</Link>
             </Button>
           </motion.div>
 
@@ -119,7 +127,7 @@ export function HeroSection() {
                   <div key={i} className="w-8 h-8 rounded-full bg-secondary border-2 border-background" />
                 ))}
               </div>
-              <span className="text-sm">+500 Happy Customers</span>
+              <span className="text-sm">{t("hero.happyCustomers")}</span>
             </div>
             <div className="h-6 w-px bg-border hidden sm:block" />
             <div className="flex items-center gap-2">
@@ -128,7 +136,7 @@ export function HeroSection() {
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
-              <span className="text-sm">4.9/5 Rating</span>
+              <span className="text-sm">{t("hero.rating")}</span>
             </div>
           </motion.div>
         </div>
