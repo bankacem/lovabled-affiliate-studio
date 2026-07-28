@@ -3,7 +3,8 @@
 > cd artifacts/app && PORT=${PORT:-8080} BASE_PATH=/ ./node_modules/.bin/vite --config vite.config.ts --host 0.0.0.0
 
 
-  VITE v7.3.3  ready in 274 ms
+  VITE v7.3.3  ready in 255 ms
 
-  ➜  Local:   http://localhost:8080/
-  ➜  Network: http://192.168.0.2:8080/
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://192.168.0.2:3000/
+7:21:32 AM [vite] (client) hmr update /src/index.css, /src/contexts/LanguageContext.tsx
