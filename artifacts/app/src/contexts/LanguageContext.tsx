@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { useLocation, useNavigate } from "react-router-dom";
 import { translations, TranslationDictionary } from "@/lib/translations";
 
-export type Language = "en" | "ar" | "es";
+export type Language = "en" | "ar" | "es" | "fr";
 
 interface LanguageContextProps {
   language: Language;
@@ -19,6 +19,7 @@ export function getLanguageFromPathname(pathname: string): Language {
   const firstPart = parts[0];
   if (firstPart === "ar") return "ar";
   if (firstPart === "es") return "es";
+  if (firstPart === "fr") return "fr";
   if (firstPart === "en") return "en";
   return "en"; // default language
 }
@@ -90,7 +91,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
     // Determine current path without lang prefix
     let cleanPathParts = [...parts];
-    if (firstPart === "ar" || firstPart === "es" || firstPart === "en") {
+    if (firstPart === "ar" || firstPart === "es" || firstPart === "en" || firstPart === "fr") {
       cleanPathParts.shift();
     }
 

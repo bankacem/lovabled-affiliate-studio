@@ -79,6 +79,7 @@ export function Header() {
             <option value="en">🇺🇸 EN</option>
             <option value="es">🇪🇸 ES</option>
             <option value="ar">🇸🇦 AR</option>
+            <option value="fr">🇫🇷 FR</option>
           </select>
 
           <Link to={langPrefix("/designs")}>
@@ -99,6 +100,7 @@ export function Header() {
             <option value="en">🇺🇸 EN</option>
             <option value="es">🇪🇸 ES</option>
             <option value="ar">🇸🇦 AR</option>
+            <option value="fr">🇫🇷 FR</option>
           </select>
 
           <button
