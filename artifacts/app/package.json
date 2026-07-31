@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "node scripts/prerender-setup.mjs && vite build --config vite.config.ts && node scripts/create-static-fallbacks.mjs",
-    "postbuild": "",
+    "build": "node scripts/prerender-setup.mjs && vite build --config vite.config.ts && node scripts/create-static-fallbacks.mjs && node scripts/prerender-run.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
@@ -529,7 +528,8 @@
       "--disable-setuid-sandbox"
     ],
     "skipThirdPartyRequests": true,
-    "inlineCss": false
+    "inlineCss": false,
+    "crawl": false
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
