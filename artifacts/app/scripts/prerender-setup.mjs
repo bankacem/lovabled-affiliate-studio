@@ -193,6 +193,33 @@ try {
   writeFileSync(resolve(appRoot, "dist/public/sitemap.xml"), sitemap);
 } catch {}
 
+// 3) Write a lightweight route -> {title, description, image} map for the
+// browser-free meta-tag injector that runs after `vite build`. We already
+// have this data in memory from the quality-scoring fetch above, so this
+// costs nothing extra and needs no headless browser at all.
+const BLOG_TITLE_SUFFIX = " | AIPrintVerse Blog";
+const DESIGN_TITLE_SUFFIX = " | AIPrintVerse";
+
+const metaMap = {};
+for (const p of posts) {
+  metaMap[`/blog/${p.slug}`] = {
+    title: `${p.title}${BLOG_TITLE_SUFFIX}`,
+    description: p.meta_description || cleanHtmlText(p.content).slice(0, 160),
+    image: p.featured_image || undefined,
+  };
+}
+for (const d of designs) {
+  metaMap[`/designs/${d.id}`] = {
+    title: `${d.name}${DESIGN_TITLE_SUFFIX}`,
+    description: cleanHtmlText(d.description).slice(0, 160) || undefined,
+    image: d.image_url || undefined,
+  };
+}
+writeFileSync(resolve(appRoot, "public/prerender-meta.json"), JSON.stringify(metaMap));
+try {
+  writeFileSync(resolve(appRoot, "dist/public/prerender-meta.json"), JSON.stringify(metaMap));
+} catch {}
+
 console.log(
   `[prerender-setup] include=${include.length} (blog=${blogRoutes.length}, designs=${designRoutes.length})`
 );
