@@ -5,13 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "node scripts/prerender-setup.mjs && vite build --config vite.config.ts && node scripts/create-static-fallbacks.mjs",
-    "postbuild": "",
+    "build": "node scripts/prerender-setup.mjs && vite build --config vite.config.ts && node scripts/create-static-fallbacks.mjs && node scripts/inject-meta-tags.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "reactSnap": {
-    "source": "dist/public",
     "include": [
       "/",
       "/about",
@@ -519,17 +517,7 @@
       "/designs/7c93a25e-d1b2-496d-a654-d9ce21f2c740",
       "/designs/5c64eea1-25df-4f79-b7df-e536bcf8c354",
       "/designs/4a6f76cb-f4c3-4578-9bfb-619b847b6f50"
-    ],
-    "minifyHtml": {
-      "collapseWhitespace": false,
-      "removeComments": false
-    },
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ],
-    "skipThirdPartyRequests": true,
-    "inlineCss": false
+    ]
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -592,7 +580,6 @@
     "react-hook-form": "^7.55.0",
     "react-icons": "^5.4.0",
     "react-resizable-panels": "^2.1.7",
-    "react-snap": "^1.23.0",
     "recharts": "^2.15.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "catalog:",
