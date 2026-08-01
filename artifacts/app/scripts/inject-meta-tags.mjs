@@ -1,5 +1,5 @@
-// Bakes per-route <title>/<meta description>/<meta og:*> tags into each
-// route's static index.html — WITHOUT launching a browser.
+// Bakes per-route <title>/<meta description>/<meta og:*>/<link canonical> tags
+// into each route's static index.html — WITHOUT launching a browser.
 //
 // Why this exists instead of react-snap + Puppeteer:
 // Real-world testing on Vercel's build machine showed react-snap's bundled
@@ -46,8 +46,13 @@ function replaceTag(html, regex, replacement) {
   return regex.test(html) ? html.replace(regex, replacement) : html;
 }
 
-function injectMeta(html, { title, description, image }) {
+function injectMeta(html, { title, description, image, canonicalHref }) {
   let out = html;
+
+  if (canonicalHref) {
+    const safe = escapeHtml(canonicalHref);
+    out = replaceTag(out, /<link rel="canonical" href="[^"]*"\s*\/?>/i, `<link rel="canonical" href="${safe}" />`);
+  }
 
   if (title) {
     const safe = escapeHtml(title);
@@ -93,19 +98,42 @@ function injectMeta(html, { title, description, image }) {
 }
 
 function main() {
-  if (!existsSync(indexPath) || !existsSync(metaMapPath)) {
-    console.warn("[inject-meta-tags] missing dist/public/index.html or prerender-meta.json, skipping");
+  if (!existsSync(indexPath)) {
+    console.warn("[inject-meta-tags] missing dist/public/index.html, skipping");
     return;
   }
 
   const genericHtml = readFileSync(indexPath, "utf8");
-  const metaMap = JSON.parse(readFileSync(metaMapPath, "utf8"));
+
+  // Every generic static index.html (written by create-static-fallbacks.mjs
+  // for every route in reactSnap.include) currently carries the SAME
+  // hardcoded canonical URL — the homepage's — because they're all literal
+  // copies of the same source file. That tells search engines every route
+  // is a duplicate of the homepage. We fix this for every route, not just
+  // the ones with blog/design meta data.
+  const canonicalMatch = genericHtml.match(/<link rel="canonical" href="([^"]*)"/i);
+  let origin = null;
+  if (canonicalMatch) {
+    try {
+      origin = new URL(canonicalMatch[1]).origin;
+    } catch {}
+  }
+
+  const metaMap = existsSync(metaMapPath) ? JSON.parse(readFileSync(metaMapPath, "utf8")) : {};
+
+  const pkgPath = resolve(appRoot, "package.json");
+  const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
+  const routes = Array.isArray(pkg.reactSnap?.include) ? pkg.reactSnap.include : [];
 
   let written = 0;
-  for (const [route, meta] of Object.entries(metaMap)) {
+  for (const route of routes) {
+    if (route === "/") continue; // homepage's own canonical is already correct
     const routeIndexPath = resolve(distRoot, `.${route}`, "index.html");
     if (!existsSync(routeIndexPath)) continue; // create-static-fallbacks.mjs should have written this already
-    const html = injectMeta(genericHtml, meta);
+
+    const canonicalHref = origin ? `${origin}${route}` : undefined;
+    const meta = metaMap[route] || {};
+    const html = injectMeta(genericHtml, { ...meta, canonicalHref });
     writeFileSync(routeIndexPath, html);
     written++;
   }
@@ -113,7 +141,7 @@ function main() {
   // Internal-only file, never meant to be served publicly.
   rmSync(metaMapPath, { force: true });
 
-  console.log(`[inject-meta-tags] injected page-specific meta tags into ${written} route(s), no browser required`);
+  console.log(`[inject-meta-tags] injected page-specific meta/canonical tags into ${written} route(s), no browser required`);
 }
 
 main();
