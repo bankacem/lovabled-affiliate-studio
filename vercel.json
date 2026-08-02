@@ -3,45 +3,240 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/blog/p-the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed", "destination": "/blog/the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed", "permanent": true },
-    { "source": "/blog/p-the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history", "destination": "/blog/the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history", "permanent": true },
-    { "source": "/blog/p-beyond-the-monogram-the-definitive-guide-to-the-best-personalized-gifts-of-2026", "destination": "/blog/beyond-the-monogram-the-definitive-guide-to-the-best-personalized-gifts-of-2026", "permanent": true },
-    { "source": "/blog/p-single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication", "destination": "/blog/single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication", "permanent": true },
-    { "source": "/blog/p-the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear", "destination": "/blog/the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear", "permanent": true },
-    { "source": "/blog/p-the-v-neck-renaissance-a-definitive-guide-to-mens-most-versatile-essential", "destination": "/blog/the-v-neck-renaissance-a-definitive-guide-to-mens-most-versatile-essential", "permanent": true },
-    { "source": "/blog/p-the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets", "destination": "/blog/the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets", "permanent": true },
-    { "source": "/blog/p-the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails", "destination": "/blog/the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails", "permanent": true },
-    { "source": "/blog/p-mastering-the-v-neck-a-definitive-guide-to-matching-necklines-with-body-types", "destination": "/blog/mastering-the-v-neck-a-definitive-guide-to-matching-necklines-with-body-types", "permanent": true },
-    { "source": "/blog/p-the-v-neck-dilemma-how-men-with-large-chests-can-master-the-cut-without-looking-sloppy", "destination": "/blog/the-v-neck-dilemma-how-men-with-large-chests-can-master-the-cut-without-looking-sloppy", "permanent": true },
-    { "source": "/blog/p-the-ultimate-guide-to-gifts-for-dog-lovers-finding-the-perfect-present-for-every-pup-parent", "destination": "/blog/the-ultimate-guide-to-gifts-for-dog-lovers-finding-the-perfect-present-for-every-pup-parent", "permanent": true },
-    { "source": "/blog/p-mastering-the-v-neck-with-blazer-a-professional-guide-to-modern-smart-casual", "destination": "/blog/mastering-the-v-neck-with-blazer-a-professional-guide-to-modern-smart-casual", "permanent": true },
-    { "source": "/blog/p-the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering", "destination": "/blog/the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering", "permanent": true }
+    {
+      "source": "/blog/p-the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed",
+      "destination": "/blog/the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history",
+      "destination": "/blog/the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-beyond-the-monogram-the-definitive-guide-to-the-best-personalized-gifts-of-2026",
+      "destination": "/blog/beyond-the-monogram-the-definitive-guide-to-the-best-personalized-gifts-of-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication",
+      "destination": "/blog/single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear",
+      "destination": "/blog/the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-v-neck-renaissance-a-definitive-guide-to-mens-most-versatile-essential",
+      "destination": "/blog/the-v-neck-renaissance-a-definitive-guide-to-mens-most-versatile-essential",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets",
+      "destination": "/blog/the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails",
+      "destination": "/blog/the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-mastering-the-v-neck-a-definitive-guide-to-matching-necklines-with-body-types",
+      "destination": "/blog/mastering-the-v-neck-a-definitive-guide-to-matching-necklines-with-body-types",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-v-neck-dilemma-how-men-with-large-chests-can-master-the-cut-without-looking-sloppy",
+      "destination": "/blog/the-v-neck-dilemma-how-men-with-large-chests-can-master-the-cut-without-looking-sloppy",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-gifts-for-dog-lovers-finding-the-perfect-present-for-every-pup-parent",
+      "destination": "/blog/the-ultimate-guide-to-gifts-for-dog-lovers-finding-the-perfect-present-for-every-pup-parent",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-mastering-the-v-neck-with-blazer-a-professional-guide-to-modern-smart-casual",
+      "destination": "/blog/mastering-the-v-neck-with-blazer-a-professional-guide-to-modern-smart-casual",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering",
+      "destination": "/blog/the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-v-neck-vs-crew-neck-the-definitive-guide-to-choosing-the-right-neckline",
+      "destination": "/blog/v-neck-vs-crew-neck-the-definitive-guide-to-choosing-the-right-neckline",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-art-of-the-oversized-v-neck-why-this-wardrobe-staple-is-the-ultimate-style-chameleon",
+      "destination": "/blog/the-art-of-the-oversized-v-neck-why-this-wardrobe-staple-is-the-ultimate-style-chameleon",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-nurse-appreciation-gifts-beyond-the-stethoscope",
+      "destination": "/blog/the-ultimate-guide-to-nurse-appreciation-gifts-beyond-the-stethoscope",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-custom-photo-shirts-why-personalized-apparel-is-the-gold-standard-for-gifting",
+      "destination": "/blog/the-ultimate-guide-to-custom-photo-shirts-why-personalized-apparel-is-the-gold-standard-for-gifting",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-gifts-for-t-shirt-lovers-beyond-the-basic-graphic-tee",
+      "destination": "/blog/the-ultimate-guide-to-gifts-for-t-shirt-lovers-beyond-the-basic-graphic-tee",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-v-neck-revolution-how-to-master-the-most-versatile-cut-in-womens-fashion",
+      "destination": "/blog/the-v-neck-revolution-how-to-master-the-most-versatile-cut-in-womens-fashion",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-scouring-the-web-where-to-buy-vintage-t-shirts-online-without-getting-scammed",
+      "destination": "/blog/the-ultimate-guide-to-scouring-the-web-where-to-buy-vintage-t-shirts-online-without-getting-scammed",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-co",
+      "destination": "/blog/the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-co",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-vintage-80s-band-shirts-from-concert-floor-to-high-fashion-grail",
+      "destination": "/blog/the-ultimate-guide-to-vintage-80s-band-shirts-from-concert-floor-to-high-fashion-grail",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-ultimate-guide-to-funny-shirts-for-mom-why-humor-is-the-best-parenting-tool",
+      "destination": "/blog/the-ultimate-guide-to-funny-shirts-for-mom-why-humor-is-the-best-parenting-tool",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-art-of-appreciation-why-personalized-teacher-gifts-outshine-the-rest",
+      "destination": "/blog/the-art-of-appreciation-why-personalized-teacher-gifts-outshine-the-rest",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-beyond-the-basic-tee-the-art-and-strategy-of-the-graphic-v-neck-t-shirt",
+      "destination": "/blog/beyond-the-basic-tee-the-art-and-strategy-of-the-graphic-v-neck-t-shirt",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-beyond-the-gold-watch-a-master-guide-to-unique-retirement-gifts-that-actually-matter",
+      "destination": "/blog/beyond-the-gold-watch-a-master-guide-to-unique-retirement-gifts-that-actually-matter",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-art-of-the-eye-roll-why-funny-dad-shirts-from-daughters-are-the-ultimate-power-move",
+      "destination": "/blog/the-art-of-the-eye-roll-why-funny-dad-shirts-from-daughters-are-the-ultimate-power-move",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-crop-v-neck-top-why-this-wardrobe-workhorse-is-taking-over-modern-fashion",
+      "destination": "/blog/the-crop-v-neck-top-why-this-wardrobe-workhorse-is-taking-over-modern-fashion",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-v-neck-depth-guide-how-low-is-too-low-for-professional-and-casual-style",
+      "destination": "/blog/the-v-neck-depth-guide-how-low-is-too-low-for-professional-and-casual-style",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-art-of-the-fray-a-master-guide-on-how-to-age-a-t-shirt-to-look-vintage",
+      "destination": "/blog/the-art-of-the-fray-a-master-guide-on-how-to-age-a-t-shirt-to-look-vintage",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-art-of-the-perfect-fit-how-to-shrink-a-vintage-t-shirt-without-ruining-it",
+      "destination": "/blog/the-art-of-the-perfect-fit-how-to-shrink-a-vintage-t-shirt-without-ruining-it",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-grails-of-the-pit-a-deep-dive-into-the-most-valuable-vintage-band-tees",
+      "destination": "/blog/grails-of-the-pit-a-deep-dive-into-the-most-valuable-vintage-band-tees",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-art-of-the-archive-a-masterclass-in-styling-vintage-t-shirts",
+      "destination": "/blog/the-art-of-the-archive-a-masterclass-in-styling-vintage-t-shirts",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-renaissance-of-rebellion-retro-streetwear-brands-taking-over-2026",
+      "destination": "/blog/the-renaissance-of-rebellion-retro-streetwear-brands-taking-over-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-modern-gentlemans-guide-to-v-neck-sweater-outfits-from-office-power-moves-to-weekend-ease",
+      "destination": "/blog/the-modern-gentlemans-guide-to-v-neck-sweater-outfits-from-office-power-moves-to-weekend-ease",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-invisible-layer-why-the-v-neck-undershirt-is-the-secret-weapon-of-modern-tailoring",
+      "destination": "/blog/the-invisible-layer-why-the-v-neck-undershirt-is-the-secret-weapon-of-modern-tailoring",
+      "permanent": true
+    },
+    {
+      "source": "/blog/p-the-quest-for-the-perfect-white-v-neck-a-masterclass-in-mens-and-womens-essentials",
+      "destination": "/blog/the-quest-for-the-perfect-white-v-neck-a-masterclass-in-mens-and-womens-essentials",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/sitemap-pages.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=pages" },
-    { "source": "/sitemap-posts.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=posts" },
-    { "source": "/sitemap-designs.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=designs" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/sitemap-pages.xml",
+      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=pages"
+    },
+    {
+      "source": "/sitemap-posts.xml",
+      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=posts"
+    },
+    {
+      "source": "/sitemap-designs.xml",
+      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=designs"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ],
-
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(js|css|woff2|svg|png|jpg|jpeg|webp|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml" },
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
       ]
     }
   ]
