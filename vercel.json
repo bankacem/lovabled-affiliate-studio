@@ -18,7 +18,6 @@
     { "source": "/blog/p-the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering", "destination": "/blog/the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap" },
     { "source": "/sitemap-pages.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=pages" },
     { "source": "/sitemap-posts.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=posts" },
     { "source": "/sitemap-designs.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=designs" },
