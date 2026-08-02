@@ -2,6 +2,21 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/blog/p-the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed", "destination": "/blog/the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed", "permanent": true },
+    { "source": "/blog/p-the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history", "destination": "/blog/the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history", "permanent": true },
+    { "source": "/blog/p-beyond-the-monogram-the-definitive-guide-to-the-best-personalized-gifts-of-2026", "destination": "/blog/beyond-the-monogram-the-definitive-guide-to-the-best-personalized-gifts-of-2026", "permanent": true },
+    { "source": "/blog/p-single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication", "destination": "/blog/single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication", "permanent": true },
+    { "source": "/blog/p-the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear", "destination": "/blog/the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear", "permanent": true },
+    { "source": "/blog/p-the-v-neck-renaissance-a-definitive-guide-to-mens-most-versatile-essential", "destination": "/blog/the-v-neck-renaissance-a-definitive-guide-to-mens-most-versatile-essential", "permanent": true },
+    { "source": "/blog/p-the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets", "destination": "/blog/the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets", "permanent": true },
+    { "source": "/blog/p-the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails", "destination": "/blog/the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails", "permanent": true },
+    { "source": "/blog/p-mastering-the-v-neck-a-definitive-guide-to-matching-necklines-with-body-types", "destination": "/blog/mastering-the-v-neck-a-definitive-guide-to-matching-necklines-with-body-types", "permanent": true },
+    { "source": "/blog/p-the-v-neck-dilemma-how-men-with-large-chests-can-master-the-cut-without-looking-sloppy", "destination": "/blog/the-v-neck-dilemma-how-men-with-large-chests-can-master-the-cut-without-looking-sloppy", "permanent": true },
+    { "source": "/blog/p-the-ultimate-guide-to-gifts-for-dog-lovers-finding-the-perfect-present-for-every-pup-parent", "destination": "/blog/the-ultimate-guide-to-gifts-for-dog-lovers-finding-the-perfect-present-for-every-pup-parent", "permanent": true },
+    { "source": "/blog/p-mastering-the-v-neck-with-blazer-a-professional-guide-to-modern-smart-casual", "destination": "/blog/mastering-the-v-neck-with-blazer-a-professional-guide-to-modern-smart-casual", "permanent": true },
+    { "source": "/blog/p-the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering", "destination": "/blog/the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap" },
     { "source": "/sitemap-pages.xml", "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=pages" },
