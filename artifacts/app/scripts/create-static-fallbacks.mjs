@@ -33,9 +33,13 @@ for (const route of routes) {
   const cleanRoute = route.replace(/^\/+/, "").replace(/\/+$/, "");
   if (!cleanRoute || cleanRoute.includes(".")) continue;
 
+  const html = privateRoutes.includes(route)
+    ? indexHtml.replace("</head>", '  <meta name="robots" content="noindex, nofollow" />\n  </head>')
+    : indexHtml;
+
   const outputPath = resolve(distRoot, cleanRoute, "index.html");
   mkdirSync(dirname(outputPath), { recursive: true });
-  writeFileSync(outputPath, indexHtml);
+  writeFileSync(outputPath, html);
   written += 1;
 }
 
