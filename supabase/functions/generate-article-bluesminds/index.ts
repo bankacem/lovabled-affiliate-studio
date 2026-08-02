@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { checkAndDisambiguateSlug } from "../_shared/duplicate-check.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -36,6 +37,7 @@ serve(async (req) => {
       includeComparisonTable = false,
       writingStyle = "professional",
       model: preferredModel,
+      competitorBrief,
     } = body;
 
     // Prefer the "Api1" secret the user configured; fall back to standard env names.
@@ -52,7 +54,7 @@ serve(async (req) => {
     }
 
     const systemPrompt = buildSystemPrompt(language, writingStyle, includeComparisonTable);
-    const userPrompt = buildUserPrompt(keyword, category, includeImages, includeFAQ, includeTOC, includeComparisonTable);
+    const userPrompt = buildUserPrompt(keyword, category, includeImages, includeFAQ, includeTOC, includeComparisonTable, competitorBrief);
 
     const models = preferredModel ? [preferredModel, ...CANDIDATE_MODELS] : CANDIDATE_MODELS;
 
@@ -86,7 +88,7 @@ serve(async (req) => {
             lastError = `${base} [${model}] returned empty content`;
             continue;
           }
-          return json(parseArticleContent(content, keyword, category, model));
+          return json(await parseArticleContent(content, keyword, category, model));
         } catch (e) {
           lastError = `${base} [${model}] ${(e as Error).message}`;
         }
@@ -123,24 +125,32 @@ ${includeComparisonTable ? "- Include one detailed HTML comparison <table>." : "
 - Include descriptive image placeholders <img src="[IMAGE]" alt="..."> if images requested.`;
 }
 
-function buildUserPrompt(keyword: string, category: string, images: boolean, faq: boolean, toc: boolean, table: boolean) {
+function buildUserPrompt(keyword: string, category: string, images: boolean, faq: boolean, toc: boolean, table: boolean, competitorBrief?: string) {
   return `Write a comprehensive SEO article that ranks in the top 3 for: "${keyword}"
 Category: ${category}
 Include images: ${images}
 Include FAQ (Schema.org): ${faq}
 Include Table of Contents: ${toc}
 Include comparison table: ${table}
+${competitorBrief ? `\nCOMPETITIVE INTELLIGENCE — the top-ranking pages for this keyword were analyzed. To outrank them, this article MUST:\n${competitorBrief}\n` : ""}
 Write with genuine authority, personal-sounding voice, and unique angles competitors miss.`;
 }
 
-function parseArticleContent(content: string, keyword: string, category: string, model: string) {
+async function parseArticleContent(content: string, keyword: string, category: string, model: string) {
   const clean = content.replace(/^```html\s*/i, "").replace(/```\s*$/i, "");
   const titleMatch = clean.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, "").trim() : keyword;
-  const slug = "p-" + title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").slice(0, 100);
+  const baseSlug = title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").slice(0, 100);
   const excerptMatch = clean.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
   const excerpt = excerptMatch ? excerptMatch[1].replace(/<[^>]*>/g, "").trim().slice(0, 300) : `Comprehensive guide about ${keyword}`;
   const metaDescription = excerpt.slice(0, 155) + (excerpt.length > 155 ? "..." : "");
+
+  const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+  const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  const { slug, duplicateWarning } = supabaseUrl && supabaseKey
+    ? await checkAndDisambiguateSlug(supabaseUrl, supabaseKey, title, baseSlug)
+    : { slug: baseSlug, duplicateWarning: null };
+
   return {
     title,
     slug,
@@ -149,6 +159,7 @@ function parseArticleContent(content: string, keyword: string, category: string,
     meta_title: title.slice(0, 60),
     meta_description: metaDescription,
     category,
+    duplicateWarning,
     _model: model,
   };
 }

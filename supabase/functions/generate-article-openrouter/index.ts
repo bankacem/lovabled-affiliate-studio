@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { checkAndDisambiguateSlug } from "../_shared/duplicate-check.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -11,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { keyword, category, language, includeImages, includeFAQ, includeTOC, includeComparisonTable, writingStyle, apiKey, model } = await req.json();
+    const { keyword, category, language, includeImages, includeFAQ, includeTOC, includeComparisonTable, writingStyle, apiKey, model, competitorBrief } = await req.json();
 
     if (!keyword) {
       return new Response(JSON.stringify({ error: "Keyword is required" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
@@ -27,6 +28,7 @@ ${includeImages ? 'Include image placeholders with descriptive alt text' : 'No i
 ${includeFAQ ? 'Include FAQ section with Schema.org markup' : 'Skip FAQ section'}
 ${includeTOC ? 'Include Table of Contents' : 'Skip Table of Contents'}
 ${includeComparisonTable ? 'Include a detailed comparison table' : ''}
+${competitorBrief ? `\nCOMPETITIVE INTELLIGENCE — the top-ranking pages for this keyword were analyzed. To outrank them, this article MUST:\n${competitorBrief}\n` : ''}
 IMPORTANT: Write this as a real human expert would. Be natural, engaging, and provide genuine value.`;
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -58,7 +60,7 @@ IMPORTANT: Write this as a real human expert would. Be natural, engaging, and pr
     const content = data.choices?.[0]?.message?.content;
     if (!content) throw new Error("No content generated");
 
-    const result = parseArticleContent(content, keyword, category || "General");
+    const result = await parseArticleContent(content, keyword, category || "General");
     return new Response(JSON.stringify(result), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
   } catch (error) {
     console.error("Error:", error);
@@ -66,13 +68,19 @@ IMPORTANT: Write this as a real human expert would. Be natural, engaging, and pr
   }
 });
 
-function parseArticleContent(content: string, keyword: string, category: string) {
+async function parseArticleContent(content: string, keyword: string, category: string) {
   const titleMatch = content.match(/<h1[^>]*>(.*?)<\/h1>/i);
   const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, '') : keyword;
-  const slug = "p-" + title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').slice(0, 100);
+  const baseSlug = title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').slice(0, 100);
   const excerptMatch = content.match(/<p[^>]*>(.*?)<\/p>/i);
   const excerpt = excerptMatch ? excerptMatch[1].replace(/<[^>]*>/g, '').slice(0, 300) : `Comprehensive guide about ${keyword}`;
   const metaDescription = excerpt.slice(0, 155) + (excerpt.length > 155 ? '...' : '');
+
+  const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+  const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+  const { slug, duplicateWarning } = supabaseUrl && supabaseKey
+    ? await checkAndDisambiguateSlug(supabaseUrl, supabaseKey, title, baseSlug)
+    : { slug: baseSlug, duplicateWarning: null };
 
   return {
     title,
@@ -82,6 +90,7 @@ function parseArticleContent(content: string, keyword: string, category: string)
     meta_title: title.slice(0, 60),
     meta_description: metaDescription,
     category,
+    duplicateWarning,
   };
 }
 

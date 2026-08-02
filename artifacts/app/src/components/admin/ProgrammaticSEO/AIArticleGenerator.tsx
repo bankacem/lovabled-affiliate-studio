@@ -63,6 +63,7 @@ const WRITING_STYLES: { value: WritingStyle; label: string; icon: React.ReactNod
 ];
 
 const STORAGE_KEY = "ai_generated_articles";
+const PENDING_QUEUE_KEY = "ai_pending_keyword_queue";
 
 interface GeneratedArticle {
   id?: string;
@@ -76,6 +77,7 @@ interface GeneratedArticle {
   status: "generated" | "saved" | "error";
   error?: string;
   generatedAt?: string;
+  duplicateWarning?: string | null;
 }
 
 interface Category {
@@ -102,6 +104,8 @@ export function AIArticleGenerator() {
   const [includeTOC, setIncludeTOC] = useState(true);
   const [includeComparisonTable, setIncludeComparisonTable] = useState(false);
   const [writingStyle, setWritingStyle] = useState<WritingStyle>("professional");
+  const [analyzeCompetitorsFirst, setAnalyzeCompetitorsFirst] = useState(false);
+  const [competitorAnalysisStatus, setCompetitorAnalysisStatus] = useState<Record<string, "analyzing" | "done" | "error">>({});
   
   // Multi-model support
   type AIProvider = "lovable" | "bluesminds" | "openrouter" | "groq";
@@ -165,14 +169,40 @@ export function AIArticleGenerator() {
           }
         });
         setSelectedArticles(new Set(generatedIndices));
+        if (articles.length > 0) {
+          toast.info(
+            `Restored ${articles.length} article${articles.length === 1 ? "" : "s"} from your previous session (connection loss / page refresh protection).`,
+          );
+        }
       } catch (e) {
         console.error("Failed to load from storage:", e);
+      }
+    }
+
+    // Restore any keyword queue left unfinished by an interrupted batch —
+    // e.g. the tab was refreshed or the connection dropped mid-generation.
+    const pendingRaw = localStorage.getItem(PENDING_QUEUE_KEY);
+    if (pendingRaw) {
+      try {
+        const pending: string[] = JSON.parse(pendingRaw);
+        if (pending.length > 0) {
+          setKeywords(pending.join("\n"));
+          toast.warning(
+            `${pending.length} keyword${pending.length === 1 ? "" : "s"} from an interrupted batch ${pending.length === 1 ? "was" : "were"} restored below — press Generate to pick up where you left off.`,
+          );
+        } else {
+          localStorage.removeItem(PENDING_QUEUE_KEY);
+        }
+      } catch (e) {
+        console.error("Failed to load pending queue:", e);
+        localStorage.removeItem(PENDING_QUEUE_KEY);
       }
     }
   };
 
   const clearStorage = () => {
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(PENDING_QUEUE_KEY);
     setGeneratedArticles([]);
     setSelectedArticles(new Set());
     toast.success("Cleared all generated articles");
@@ -233,8 +263,34 @@ export function AIArticleGenerator() {
     }
   };
 
+  const analyzeCompetitors = async (keyword: string): Promise<string | undefined> => {
+    setCompetitorAnalysisStatus(prev => ({ ...prev, [keyword]: "analyzing" }));
+    try {
+      const { data, error } = await supabase.functions.invoke("analyze-competitors", {
+        body: { keyword },
+      });
+      if (error) throw error;
+      if (data?.error) {
+        // Not fatal — surface it once and continue generating without a
+        // brief rather than blocking the whole batch on a missing API key.
+        toast.warning(`Competitor analysis skipped for "${keyword}": ${data.error}`);
+        setCompetitorAnalysisStatus(prev => ({ ...prev, [keyword]: "error" }));
+        return undefined;
+      }
+      setCompetitorAnalysisStatus(prev => ({ ...prev, [keyword]: "done" }));
+      return data?.competitorBrief as string | undefined;
+    } catch (err) {
+      console.error("Competitor analysis failed:", err);
+      setCompetitorAnalysisStatus(prev => ({ ...prev, [keyword]: "error" }));
+      toast.warning(`Competitor analysis failed for "${keyword}", generating without it.`);
+      return undefined;
+    }
+  };
+
   const generateSingleArticle = async (keyword: string): Promise<GeneratedArticle> => {
     try {
+      const competitorBrief = analyzeCompetitorsFirst ? await analyzeCompetitors(keyword) : undefined;
+
       const baseBody = {
         keyword,
         category,
@@ -244,6 +300,7 @@ export function AIArticleGenerator() {
         includeTOC,
         includeComparisonTable,
         writingStyle,
+        competitorBrief,
       };
 
       let data: any;
@@ -314,26 +371,40 @@ export function AIArticleGenerator() {
     // Keep existing articles and add new ones
     const existingArticles = [...generatedArticles];
     const articles: GeneratedArticle[] = [...existingArticles];
-    
+
     for (let i = 0; i < keywordList.length; i++) {
       if (isPaused) {
         toast.info("Generation paused");
+        // Persist whatever hasn't been processed yet so a refresh or lost
+        // connection from here doesn't lose the rest of the queue.
+        localStorage.setItem(PENDING_QUEUE_KEY, JSON.stringify(keywordList.slice(i)));
         break;
       }
 
       const keyword = keywordList[i];
       setCurrentKeyword(keyword);
-      
+
+      // Before each article: persist the keywords still left in the queue
+      // (including this one, in case generation itself fails to return —
+      // e.g. the connection drops mid-request).
+      localStorage.setItem(PENDING_QUEUE_KEY, JSON.stringify(keywordList.slice(i)));
+
       const article = await generateSingleArticle(keyword);
       articles.push(article);
       setGeneratedArticles([...articles]);
-      
+
       if (article.status === "generated") {
         setSelectedArticles(prev => new Set([...prev, existingArticles.length + i]));
+        if (article.duplicateWarning) {
+          toast.warning(`"${keyword}": ${article.duplicateWarning}`, { duration: 8000 });
+        }
       }
-      
+
       setProgress(((i + 1) / keywordList.length) * 100);
-      
+
+      // This keyword is done — shrink the persisted queue to what's left.
+      localStorage.setItem(PENDING_QUEUE_KEY, JSON.stringify(keywordList.slice(i + 1)));
+
       // Add delay between requests to avoid rate limiting
       if (i < keywordList.length - 1) {
         await new Promise(resolve => setTimeout(resolve, delayBetweenArticles * 1000));
@@ -343,6 +414,7 @@ export function AIArticleGenerator() {
     setIsGenerating(false);
     setCurrentKeyword("");
     setKeywords(""); // Clear input after generation
+    localStorage.removeItem(PENDING_QUEUE_KEY); // Batch finished — nothing left to resume
     const successCount = articles.filter(a => a.status === "generated").length - existingArticles.filter(a => a.status === "generated").length;
     toast.success(`Generated ${successCount} new articles`);
     fetchStats();
@@ -780,6 +852,16 @@ export function AIArticleGenerator() {
                   </div>
                   <Switch checked={includeComparisonTable} onCheckedChange={setIncludeComparisonTable} />
               </div>
+              <div className="flex items-center justify-between rounded-md border border-primary/30 bg-primary/5 p-2">
+                <div className="flex items-center gap-2">
+                  <Target className="h-4 w-4 text-primary" />
+                  <div>
+                    <span className="text-sm font-medium">Outrank Competitors</span>
+                    <p className="text-xs text-muted-foreground">Searches the top 3 Google results for each keyword, finds their gaps, and writes the article to beat them. Adds a search + fetch step before writing (slightly slower, costs one search per keyword). Requires a SERPER_API_KEY secret.</p>
+                  </div>
+                </div>
+                <Switch checked={analyzeCompetitorsFirst} onCheckedChange={setAnalyzeCompetitorsFirst} />
+              </div>
             </div>
 
             <div className="space-y-3 border-t pt-3">
@@ -804,6 +886,11 @@ export function AIArticleGenerator() {
                   <span className="flex items-center gap-2 text-muted-foreground">
                     <Loader2 className="h-4 w-4 animate-spin" />
                     {currentKeyword}
+                    {competitorAnalysisStatus[currentKeyword] === "analyzing" && (
+                      <Badge variant="outline" className="text-xs">
+                        <Target className="h-3 w-3 mr-1" /> analyzing top 3 competitors…
+                      </Badge>
+                    )}
                   </span>
                   <span className="font-medium">{Math.round(progress)}%</span>
                 </div>

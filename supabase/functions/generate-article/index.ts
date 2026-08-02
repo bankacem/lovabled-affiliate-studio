@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { checkAndDisambiguateSlug } from "../_shared/duplicate-check.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -16,6 +17,7 @@ interface ArticleRequest {
   includeTOC?: boolean;
   includeComparisonTable?: boolean;
   writingStyle?: WritingStyle;
+  competitorBrief?: string;
 }
 
 const getStyleInstructions = (style: WritingStyle): string => {
@@ -201,7 +203,8 @@ serve(async (req) => {
       includeFAQ = true, 
       includeTOC = true,
       includeComparisonTable = false,
-      writingStyle = 'professional'
+      writingStyle = 'professional',
+      competitorBrief
     }: ArticleRequest = await req.json();
 
     if (!keyword) {
@@ -222,6 +225,7 @@ ${includeImages ? 'Include image placeholders with descriptive alt text' : 'No i
 ${includeFAQ ? 'Include FAQ section with Schema.org markup' : 'Skip FAQ section'}
 ${includeTOC ? 'Include Table of Contents' : 'Skip Table of Contents'}
 ${includeComparisonTable ? 'Include a detailed comparison table comparing relevant options/products/methods' : ''}
+${competitorBrief ? `\nCOMPETITIVE INTELLIGENCE — the top-ranking pages for this keyword were analyzed. To outrank them, this article MUST:\n${competitorBrief}\n` : ''}
 
 IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. Be natural, engaging, and provide genuine value to readers. Show personality and expertise.`;
 
@@ -272,7 +276,7 @@ IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. B
     const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g, '') : keyword;
 
     // Generate slug
-    const slug = "p-" + title
+    const baseSlug = title
       .toLowerCase()
       .replace(/[^a-z0-9\s-]/g, '')
       .replace(/\s+/g, '-')
@@ -288,6 +292,12 @@ IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. B
     // Generate meta description
     const metaDescription = excerpt.slice(0, 155) + (excerpt.length > 155 ? '...' : '');
 
+    const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+    const { slug, duplicateWarning } = supabaseUrl && supabaseKey
+      ? await checkAndDisambiguateSlug(supabaseUrl, supabaseKey, title, baseSlug)
+      : { slug: baseSlug, duplicateWarning: null };
+
     return new Response(
       JSON.stringify({
         title,
@@ -298,6 +308,7 @@ IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. B
         meta_description: metaDescription,
         category: category || "General",
         writingStyle,
+        duplicateWarning,
       }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
