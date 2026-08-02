@@ -18,7 +18,13 @@ if (!existsSync(indexPath)) {
 
 const indexHtml = readFileSync(indexPath, "utf8");
 const pkg = JSON.parse(readFileSync(packagePath, "utf8"));
-const routes = Array.isArray(pkg.reactSnap?.include) ? pkg.reactSnap.include : [];
+const includeRoutes = Array.isArray(pkg.reactSnap?.include) ? pkg.reactSnap.include : [];
+
+// Private routes: they must resolve (no host-level 404) but stay out of the
+// sitemap and out of the index (robots.txt already disallows /admin).
+const privateRoutes = ["/admin"];
+
+const routes = Array.from(new Set([...includeRoutes, ...privateRoutes]));
 
 let written = 0;
 
