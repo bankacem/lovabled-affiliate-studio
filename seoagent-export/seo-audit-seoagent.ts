@@ -42,6 +42,48 @@ function cleanHtmlText(text: string): string {
   return clean.replace(/\s+/g, " ").trim();
 }
 
+function parseFrontMatter(raw: string): any {
+  // Try YAML frontmatter first (--- ... ---)
+  const yamlMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  const metadata: any = {};
+  if (yamlMatch) {
+    const body = yamlMatch[1];
+    const lines = body.split(/\r?\n/);
+    for (const line of lines) {
+      const idx = line.indexOf(":");
+      if (idx > -1) {
+        const key = line.slice(0, idx).trim();
+        let value = line.slice(idx + 1).trim();
+        if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+          value = value.slice(1, -1);
+        }
+        metadata[key] = value;
+      }
+    }
+    return metadata;
+  }
+
+  // Fallback: look for code-block frontmatter like ```\n...\n```
+  const metadataMatch = raw.match(/```[a-z]*\r?\n([\s\S]*?)\r?\n```/i);
+  if (metadataMatch) {
+    const metadataStr = metadataMatch[1];
+    const lines = metadataStr.split(/\r?\n/);
+    for (const line of lines) {
+      const parts = line.split(":");
+      if (parts.length >= 2) {
+        const key = parts[0].trim();
+        let value = parts.slice(1).join(":").trim();
+        // Strip quotes
+        if (value.startsWith('"') && value.endsWith('"')) {
+          value = value.substring(1, value.length - 1);
+        }
+        metadata[key] = value;
+      }
+    }
+  }
+  return metadata;
+}
+
 function calculateQualityDetails(page: any): AuditDetails {
   let score = 100;
   const deductions: { reason: string; points: number }[] = [];
@@ -96,7 +138,7 @@ function calculateQualityDetails(page: any): AuditDetails {
   if (aiMatchCount > 5) {
     score -= 15;
     deductions.push({ reason: `Excessive AI boilerplate phrases (${aiMatchCount} matches) / عبارات ذكاء اصطناعي متكررة وكليشيهات (${aiMatchCount} تطابق)`, points: 15 });
-    recommendations.push("Rewrite content to sound more human-like; remove repetitive transition phrases. / أعد كتابة المحتوى ليبدو أكثر بشرية؛ وأزل العبارات الانتقالية المكررة.");
+    recommendations.push("Rewrite content to sound more human-like; remove repetitive transition phrases. / أعد كتابة المحتوى ليبدو أكثر بشرية؛ وأزل العبارات المتكررة.");
   }
 
   // 4. Placeholder text in content
@@ -118,7 +160,7 @@ function calculateQualityDetails(page: any): AuditDetails {
   if (!hasFaq && wordCount > 0) {
     score -= 5;
     deductions.push({ reason: "Missing FAQ section / قسم الأسئلة الشائعة مفقود", points: 5 });
-    recommendations.push("Add a Frequently Asked Questions (FAQ) section to target rich search snippets. / أضف قسم الأسئلة الشائعة (FAQ) لاستهداف مقتطفات البحث الغنية.");
+    recommendations.push("Add a Frequently Asked Questions (FAQ) section to target rich search snippets. / أضف قسم الأسئلة الشائعة (FAQ) لاستهداف مقتطفات البحث.");
   }
 
   // 6. Missing Meta Description
@@ -194,24 +236,7 @@ function run() {
     const rawContent = fs.readFileSync(filePath, "utf-8");
 
     // Parse Metadata/Frontmatter
-    let metadata: any = {};
-    const metadataMatch = rawContent.match(/```[a-z]*\r?\n([\s\S]*?)\r?\n```/i);
-    if (metadataMatch) {
-      const metadataStr = metadataMatch[1];
-      const lines = metadataStr.split("\n");
-      for (const line of lines) {
-        const parts = line.split(":");
-        if (parts.length >= 2) {
-          const key = parts[0].trim();
-          let value = parts.slice(1).join(":").trim();
-          // Strip quotes
-          if (value.startsWith('"') && value.endsWith('"')) {
-            value = value.substring(1, value.length - 1);
-          }
-          metadata[key] = value;
-        }
-      }
-    }
+    let metadata: any = parseFrontMatter(rawContent);
 
     // Fallbacks if metadata not parsed
     const title = metadata.title || file.replace(/-/g, " ").replace(".md", "");
@@ -225,6 +250,8 @@ function run() {
     // Remove the frontmatter and JSON-LD schema blocks from content word count
     articleContent = articleContent.replace(/#+ Frontmatter[\s\S]*?```[\s\S]*?```/gi, "");
     articleContent = articleContent.replace(/#+ JSON-LD Schema[\s\S]*?```json[\s\S]*?```/gi, "");
+    // Also remove YAML frontmatter block if present
+    articleContent = articleContent.replace(/^---\r?\n([\s\S]*?)\r?\n---/, "");
 
     const pageObj = {
       title,
