@@ -1,0 +1,53 @@
+name: توليد مقالة SEO احترافية
+
+on:
+  workflow_dispatch:
+    inputs:
+      keyword:
+        description: '🔑 الكلمة المفتاحية (مثال: أفضل طرق تعلم البرمجة)'
+        required: true
+        type: string
+      language:
+        description: '🌐 اللغة (مثال: Arabic, English, French)'
+        required: false
+        default: 'Arabic'
+        type: string
+
+jobs:
+  generate-seo-article:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # صلاحية الدفع إلى المستودع
+
+    steps:
+      - name: 📥 استنساخ المستودع
+        uses: actions/checkout@v4
+
+      - name: 🐍 إعداد بيئة Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 📦 تثبيت المكتبات المطلوبة
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+        working-directory: seoagent-export/seo-agent-pro
+
+      - name: 🤖 تشغيل وكيل SEO
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          INPUT_KEYWORD: ${{ github.event.inputs.keyword }}
+          INPUT_LANGUAGE: ${{ github.event.inputs.language }}
+        run: |
+          python seo_agent.py
+        working-directory: seoagent-export/seo-agent-pro
+
+      - name: 📤 رفع الملفات الجديدة إلى المستودع
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/ memory/
+          git commit -m "✨ إضافة مقالة جديدة: ${{ github.event.inputs.keyword }}" || echo "لا توجد تغييرات جديدة"
+          git push
+        working-directory: seoagent-export/seo-agent-pro
