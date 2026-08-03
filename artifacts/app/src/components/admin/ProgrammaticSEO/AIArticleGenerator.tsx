@@ -287,6 +287,74 @@ export function AIArticleGenerator() {
     }
   };
 
+  const callGenerator = async (baseBody: Record<string, unknown>) => {
+    let data: any;
+    let error: any;
+
+    if (aiProvider === "lovable") {
+      const result = await supabase.functions.invoke("generate-article", { body: baseBody });
+      data = result.data;
+      error = result.error;
+    } else if (aiProvider === "openrouter") {
+      if (!openrouterKey) throw new Error("OpenRouter API key is required");
+      const result = await supabase.functions.invoke("generate-article-openrouter", {
+        body: { ...baseBody, apiKey: openrouterKey, model: customOpenrouterModel || openrouterModel },
+      });
+      data = result.data;
+      error = result.error;
+    } else if (aiProvider === "groq") {
+      if (!groqKey) throw new Error("Groq API key is required");
+      const result = await supabase.functions.invoke("generate-article-groq", {
+        body: { ...baseBody, apiKey: groqKey, model: groqModel },
+      });
+      data = result.data;
+      error = result.error;
+    } else if (aiProvider === "bluesminds") {
+      const result = await supabase.functions.invoke("generate-article-bluesminds", {
+        body: { ...baseBody, model: bluesmindsModel },
+      });
+      data = result.data;
+      error = result.error;
+    }
+
+    if (error) throw error;
+    if (data?.error) throw new Error(data.error);
+    return data;
+  };
+
+  // The missing "evaluation + correction" step: score the draft (free rule
+  // checks + one AI call only if there's a competitor brief to check
+  // against), and if it falls short, ask for exactly ONE corrective
+  // rewrite with the specific feedback. Deliberately capped at a single
+  // retry — no open-ended loop, no extra tools, just one more of the same
+  // API call already being used.
+  const evaluateAndMaybeRevise = async (data: any, baseBody: Record<string, unknown>, keyword: string) => {
+    try {
+      const { data: evalData, error: evalError } = await supabase.functions.invoke("evaluate-article", {
+        body: {
+          title: data.title,
+          content: data.content,
+          keyword,
+          metaDescription: data.meta_description,
+          includeFAQ,
+          includeComparisonTable,
+          competitorBrief: (baseBody as any).competitorBrief,
+        },
+      });
+      if (evalError || !evalData) return data; // evaluation failing must never block publishing
+
+      if (!evalData.passesThreshold && evalData.revisionFeedback) {
+        toast.info(`"${keyword}" needs one revision (score ${evalData.score}/100) — rewriting once with specific feedback…`);
+        const revised = await callGenerator({ ...baseBody, revisionFeedback: evalData.revisionFeedback });
+        return revised ?? data;
+      }
+      return data;
+    } catch (e) {
+      console.error("Evaluation step failed, keeping original draft:", e);
+      return data;
+    }
+  };
+
   const generateSingleArticle = async (keyword: string): Promise<GeneratedArticle> => {
     try {
       const competitorBrief = analyzeCompetitorsFirst ? await analyzeCompetitors(keyword) : undefined;
@@ -303,38 +371,9 @@ export function AIArticleGenerator() {
         competitorBrief,
       };
 
-      let data: any;
-      let error: any;
+      let data = await callGenerator(baseBody);
+      data = await evaluateAndMaybeRevise(data, baseBody, keyword);
 
-      if (aiProvider === "lovable") {
-        const result = await supabase.functions.invoke("generate-article", { body: baseBody });
-        data = result.data;
-        error = result.error;
-      } else if (aiProvider === "openrouter") {
-        if (!openrouterKey) throw new Error("OpenRouter API key is required");
-        const result = await supabase.functions.invoke("generate-article-openrouter", {
-          body: { ...baseBody, apiKey: openrouterKey, model: customOpenrouterModel || openrouterModel },
-        });
-        data = result.data;
-        error = result.error;
-      } else if (aiProvider === "groq") {
-        if (!groqKey) throw new Error("Groq API key is required");
-        const result = await supabase.functions.invoke("generate-article-groq", {
-          body: { ...baseBody, apiKey: groqKey, model: groqModel },
-        });
-        data = result.data;
-        error = result.error;
-      } else if (aiProvider === "bluesminds") {
-        const result = await supabase.functions.invoke("generate-article-bluesminds", {
-          body: { ...baseBody, model: bluesmindsModel },
-        });
-        data = result.data;
-        error = result.error;
-      }
-
-      if (error) throw error;
-      if (data?.error) throw new Error(data.error);
-      
       return {
         ...data,
         status: "generated" as const,

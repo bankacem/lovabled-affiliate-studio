@@ -38,6 +38,7 @@ serve(async (req) => {
       writingStyle = "professional",
       model: preferredModel,
       competitorBrief,
+      revisionFeedback,
     } = body;
 
     // Prefer the "Api1" secret the user configured; fall back to standard env names.
@@ -54,7 +55,7 @@ serve(async (req) => {
     }
 
     const systemPrompt = buildSystemPrompt(language, writingStyle, includeComparisonTable);
-    const userPrompt = buildUserPrompt(keyword, category, includeImages, includeFAQ, includeTOC, includeComparisonTable, competitorBrief);
+    const userPrompt = buildUserPrompt(keyword, category, includeImages, includeFAQ, includeTOC, includeComparisonTable, competitorBrief, revisionFeedback);
 
     const models = preferredModel ? [preferredModel, ...CANDIDATE_MODELS] : CANDIDATE_MODELS;
 
@@ -125,7 +126,7 @@ ${includeComparisonTable ? "- Include one detailed HTML comparison <table>." : "
 - Include descriptive image placeholders <img src="[IMAGE]" alt="..."> if images requested.`;
 }
 
-function buildUserPrompt(keyword: string, category: string, images: boolean, faq: boolean, toc: boolean, table: boolean, competitorBrief?: string) {
+function buildUserPrompt(keyword: string, category: string, images: boolean, faq: boolean, toc: boolean, table: boolean, competitorBrief?: string, revisionFeedback?: string) {
   return `Write a comprehensive SEO article that ranks in the top 3 for: "${keyword}"
 Category: ${category}
 Include images: ${images}
@@ -133,6 +134,7 @@ Include FAQ (Schema.org): ${faq}
 Include Table of Contents: ${toc}
 Include comparison table: ${table}
 ${competitorBrief ? `\nCOMPETITIVE INTELLIGENCE — the top-ranking pages for this keyword were analyzed. To outrank them, this article MUST:\n${competitorBrief}\n` : ""}
+${revisionFeedback ? `\nREVISION REQUIRED — a quality check on a previous draft found these specific problems, fix them in this version:\n${revisionFeedback}\n` : ""}
 Write with genuine authority, personal-sounding voice, and unique angles competitors miss.`;
 }
 

@@ -18,6 +18,7 @@ interface ArticleRequest {
   includeComparisonTable?: boolean;
   writingStyle?: WritingStyle;
   competitorBrief?: string;
+  revisionFeedback?: string;
 }
 
 const getStyleInstructions = (style: WritingStyle): string => {
@@ -204,7 +205,8 @@ serve(async (req) => {
       includeTOC = true,
       includeComparisonTable = false,
       writingStyle = 'professional',
-      competitorBrief
+      competitorBrief,
+      revisionFeedback
     }: ArticleRequest = await req.json();
 
     if (!keyword) {
@@ -226,6 +228,7 @@ ${includeFAQ ? 'Include FAQ section with Schema.org markup' : 'Skip FAQ section'
 ${includeTOC ? 'Include Table of Contents' : 'Skip Table of Contents'}
 ${includeComparisonTable ? 'Include a detailed comparison table comparing relevant options/products/methods' : ''}
 ${competitorBrief ? `\nCOMPETITIVE INTELLIGENCE — the top-ranking pages for this keyword were analyzed. To outrank them, this article MUST:\n${competitorBrief}\n` : ''}
+${revisionFeedback ? `\nREVISION REQUIRED — a quality check on a previous draft found these specific problems, fix them in this version:\n${revisionFeedback}\n` : ''}
 
 IMPORTANT: Write this as a real human expert would. Avoid AI-sounding phrases. Be natural, engaging, and provide genuine value to readers. Show personality and expertise.`;
 

@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { keyword, category, language, includeImages, includeFAQ, includeTOC, includeComparisonTable, writingStyle, apiKey, model, competitorBrief } = await req.json();
+    const { keyword, category, language, includeImages, includeFAQ, includeTOC, includeComparisonTable, writingStyle, apiKey, model, competitorBrief, revisionFeedback } = await req.json();
 
     if (!keyword) {
       return new Response(JSON.stringify({ error: "Keyword is required" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
@@ -29,6 +29,7 @@ ${includeFAQ ? 'Include FAQ section with Schema.org markup' : 'Skip FAQ section'
 ${includeTOC ? 'Include Table of Contents' : 'Skip Table of Contents'}
 ${includeComparisonTable ? 'Include a detailed comparison table' : ''}
 ${competitorBrief ? `\nCOMPETITIVE INTELLIGENCE — the top-ranking pages for this keyword were analyzed. To outrank them, this article MUST:\n${competitorBrief}\n` : ''}
+${revisionFeedback ? `\nREVISION REQUIRED — a quality check on a previous draft found these specific problems, fix them in this version:\n${revisionFeedback}\n` : ''}
 IMPORTANT: Write this as a real human expert would. Be natural, engaging, and provide genuine value.`;
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
