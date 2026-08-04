@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "hello": "tsx ./src/hello.ts",
+    "audit-seo": "tsx ../seoagent-export/seo-audit-seoagent.ts",
+    "write-article": "tsx ../seoagent-export/write-article.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
