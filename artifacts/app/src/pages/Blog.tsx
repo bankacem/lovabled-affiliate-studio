@@ -94,6 +94,12 @@ const Blog = () => {
       <Helmet>
         <title>{t("meta.blogTitle")}</title>
         <meta name="description" content={t("meta.blogDesc")} />
+        {language !== "en" && (
+          // Content on this locale route is UI-translated only; the underlying
+          // post copy is still English. Keep it out of the index until real
+          // per-language content exists, to avoid thin/duplicate-content pages.
+          <meta name="robots" content="noindex, follow" />
+        )}
         {page > 1 && (
           <link rel="prev" href={prevUrl} />
         )}
