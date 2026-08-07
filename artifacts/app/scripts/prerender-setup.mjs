@@ -52,7 +52,7 @@ async function fetchAll(table, select, extraQuery = "") {
 
 const staticRoutes = ["/", "/about", "/blog", "/designs"];
 
-const rawPosts = await fetchAll("blog_posts", "slug,title,content,meta_description,excerpt,featured_image,author_name,created_at,published_at,updated_at", "status=eq.published");
+const rawPosts = await fetchAll("blog_posts", "slug,title,content,meta_description,excerpt,featured_image,author_name,category,tags,read_time,created_at,published_at,updated_at", "status=eq.published");
 // Filter out low quality blog posts and invalid slugs
 const posts = rawPosts.filter((p) => {
   if (!p || !p.slug || p.slug.trim() === "" || p.slug === "null" || p.slug === "undefined") return false;
@@ -141,6 +141,41 @@ function buildArticleJsonLd(p, description) {
   };
 }
 
+// Formats a date the same way BlogPost.tsx does client-side
+// (date-fns `format(date, "MMMM d, yyyy")`), without adding a date-fns
+// dependency to this build script.
+function formatDisplayDate(iso) {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric" }).format(d);
+}
+
+// Data needed to bake a real, readable snapshot of the article body into
+// <div id="root"> at build time (see inject-meta-tags.mjs -> injectBody),
+// instead of shipping an empty div that only fills in after the client JS
+// bundle runs. main.tsx already hydrates instead of client-rendering
+// whenever #root has content, so no client-side changes are needed for
+// this to take effect. Returns null if there's no real content to show
+// (mirrors BlogPost.tsx's own "excerpt only, no content" fallback).
+function buildArticleBody(p) {
+  if (!p.title || (!p.content && !p.excerpt)) return null;
+  return {
+    title: p.title,
+    category: p.category || null,
+    authorName: p.author_name || null,
+    dateDisplay: formatDisplayDate(p.published_at || p.created_at),
+    readTime: p.read_time || null,
+    tags: Array.isArray(p.tags) ? p.tags.filter(Boolean) : [],
+    featuredImage: p.featured_image || null,
+    // Trusted HTML from our own CMS - already rendered the same way
+    // client-side today via dangerouslySetInnerHTML in BlogPost.tsx, so
+    // baking it into the static HTML introduces no new trust boundary.
+    contentHtml: p.content || null,
+    excerpt: p.excerpt || null,
+  };
+}
+
 const metaMap = {};
 for (const p of posts) {
   const description = p.meta_description || cleanHtmlText(p.content).slice(0, 160);
@@ -149,6 +184,7 @@ for (const p of posts) {
     description,
     image: p.featured_image || undefined,
     jsonLd: buildArticleJsonLd(p, description),
+    body: buildArticleBody(p),
   };
 }
 for (const d of designs) {

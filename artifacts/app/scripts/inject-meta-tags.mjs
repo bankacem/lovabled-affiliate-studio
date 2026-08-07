@@ -110,6 +110,61 @@ function injectJsonLd(html, jsonLd) {
   return html.replace("</head>", script);
 }
 
+function renderTags(tags) {
+  if (!tags || !tags.length) return "";
+  const items = tags
+    .map((t) => `<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-secondary text-secondary-foreground">${escapeHtml(t)}</span>`)
+    .join("");
+  return `<div class="mt-4 flex flex-wrap gap-2">${items}</div>`;
+}
+
+// Renders the same article structure BlogPost.tsx renders client-side
+// (title, category, author/date/read-time row, tags, featured image,
+// content) as a plain HTML string, and returns it ready to drop into
+// <div id="root">. Framer-motion's mount-in animation attributes aren't
+// replicated here (this is plain HTML, not a live React tree) - React
+// hydrates over this on mount and takes over animation/interactivity
+// itself; any attribute mismatch here is a recoverable hydration warning,
+// not a functional break, and the crawler-visible text is unaffected.
+function renderArticleBody(body) {
+  const title = escapeHtml(body.title);
+  const category = body.category ? `<span class="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">${escapeHtml(body.category)}</span>` : "";
+  const metaRow = [
+    body.authorName ? `<span class="flex items-center gap-1">${escapeHtml(body.authorName)}</span>` : "",
+    body.dateDisplay ? `<span class="flex items-center gap-1">${escapeHtml(body.dateDisplay)}</span>` : "",
+    body.readTime ? `<span class="flex items-center gap-1">${escapeHtml(body.readTime)}</span>` : "",
+  ].join("");
+  const image = body.featuredImage
+    ? `<div class="mt-8 overflow-hidden rounded-2xl"><img src="${escapeHtml(body.featuredImage)}" alt="${title}" loading="eager" width="1200" height="630" class="h-full w-full object-cover" /></div>`
+    : "";
+  // contentHtml is trusted CMS HTML (same source already rendered via
+  // dangerouslySetInnerHTML client-side) - not escaped, inserted as-is.
+  const content = body.contentHtml
+    ? `<div class="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content">${body.contentHtml}</div>`
+    : body.excerpt
+    ? `<div class="mt-10"><p class="text-lg text-muted-foreground">${escapeHtml(body.excerpt)}</p></div>`
+    : "";
+
+  return (
+    `<article class="py-8 md:py-12"><div class="container mx-auto px-4 md:px-6"><div class="mx-auto max-w-3xl">` +
+    `<header>${category}<h1 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">${title}</h1>` +
+    `<div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">${metaRow}</div>` +
+    renderTags(body.tags) +
+    `</header>${image}${content}</div></div></article>`
+  );
+}
+
+function injectBody(html, body) {
+  if (!body) return html;
+  const snapshot = renderArticleBody(body);
+  // Only ever matches the specific empty-root marker create-static-fallbacks.mjs
+  // writes for every route; if that marker isn't found (template changed,
+  // or root already has content for some other reason) this is a no-op
+  // rather than risking a malformed replace.
+  if (!/<div id="root">\s*<\/div>/.test(html)) return html;
+  return html.replace(/<div id="root">\s*<\/div>/, `<div id="root">${snapshot}</div>`);
+}
+
 function main() {
   if (!existsSync(indexPath)) {
     console.warn("[inject-meta-tags] missing dist/public/index.html, skipping");
@@ -148,6 +203,7 @@ function main() {
     const meta = metaMap[route] || {};
     let html = injectMeta(genericHtml, { ...meta, canonicalHref });
     html = injectJsonLd(html, meta.jsonLd);
+    html = injectBody(html, meta.body);
     writeFileSync(routeIndexPath, html);
     written++;
   }
