@@ -1,6 +1,16 @@
 /**
  * SEO Content Quality Audit Utility
  * Calculates quality scores (0-100) and extracts detailed metrics for pages.
+ *
+ * NOTE ON DUPLICATION: the core 0-100 scoring rules here intentionally match
+ * supabase/functions/_shared/quality-score.mjs, which is the canonical
+ * implementation shared by the Node build script (prerender-setup.mjs) and
+ * the Deno sitemap edge function. This browser-bundled copy is NOT wired to
+ * import that file directly (Vite's dev-server file-access restrictions make
+ * reaching outside artifacts/app/ unreliable), and it also needs to return
+ * per-rule deductions/recommendations for the admin dashboard UI, which the
+ * canonical version doesn't. If you change a scoring threshold or weight,
+ * change it in BOTH places.
  */
 
 export interface AuditDetails {
