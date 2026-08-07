@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { calculateQualityScore } from "../_shared/quality-score.mjs";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -10,95 +11,6 @@ const PAGE_SIZE = 1000;
 
 function escapeXml(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
-}
-
-function cleanHtmlText(html: string): string {
-  if (!html) return "";
-  let clean = html.replace(/<(script|style|iframe)[^>]*>[\s\S]*?<\/\1>/gi, " ");
-  clean = clean.replace(/<[^>]*>/g, " ");
-  return clean.replace(/\s+/g, " ").trim();
-}
-
-function calculateQualityScore(page: any, type: "blog" | "design"): number {
-  let score = 100;
-
-  if (type === "blog") {
-    const title = (page.title || "").trim();
-    if (!title || title.toLowerCase() === "untitled" || title.toLowerCase() === "draft") {
-      score -= 40;
-    }
-    const content = page.content || "";
-    const cleanText = cleanHtmlText(content);
-    const words = cleanText.split(/\s+/).filter(Boolean);
-    const wordCount = words.length;
-
-    if (wordCount === 0) {
-      score -= 100;
-    } else if (wordCount < 250) {
-      score -= 45;
-    } else if (wordCount < 500) {
-      score -= 30;
-    } else if (wordCount < 800) {
-      score -= 15;
-    }
-
-    const cleanLower = cleanText.toLowerCase();
-    const placeholders = ["lorem ipsum", "placeholder", "todo", "insert here", "text goes here", "[insert", "[your"];
-    if (placeholders.some(p => cleanLower.includes(p))) {
-      score -= 25;
-    }
-
-    const metaDesc = (page.meta_description || "").trim();
-    if (!metaDesc) {
-      score -= 15;
-    } else if (metaDesc.length < 80) {
-      score -= 5;
-    }
-
-    const ogImage = page.featured_image || page.image_url || "";
-    if (!ogImage || !ogImage.startsWith("http")) {
-      score -= 15;
-    }
-
-    if (!page.author_name) {
-      score -= 10;
-    }
-  } else if (type === "design") {
-    const name = (page.name || "").trim();
-    if (!name || name.toLowerCase().includes("untitled") || name.toLowerCase() === "no name") {
-      score -= 40;
-    }
-
-    const desc = page.description || "";
-    const cleanDesc = cleanHtmlText(desc);
-    const words = cleanDesc.split(/\s+/).filter(Boolean);
-    const wordCount = words.length;
-
-    if (wordCount === 0) {
-      score -= 40;
-    } else if (wordCount < 30) {
-      score -= 25;
-    } else if (wordCount < 80) {
-      score -= 10;
-    }
-
-    const imageUrl = page.image_url || "";
-    if (!imageUrl || !imageUrl.startsWith("http")) {
-      score -= 40;
-    }
-
-    const hasStoreLink = !!(page.teepublic_url || page.redbubble_url || page.amazon_url || page.etsy_url);
-    if (!hasStoreLink) {
-      score -= 30;
-    }
-
-    const tags = page.tags || [];
-    if (tags.length === 0) {
-      score -= 10;
-    }
-  }
-
-  return Math.max(0, Math.min(100, score));
 }
 
 async function fetchAll<T>(supabase: ReturnType<typeof createClient>, table: string, select: string, filter?: (q: any) => any): Promise<T[]> {
