@@ -78,6 +78,12 @@ const Designs = () => {
       <Helmet>
         <title>{t("meta.designsTitle")}</title>
         <meta name="description" content={t("meta.designsDesc")} />
+        {language !== "en" && (
+          // Content on this locale route is UI-translated only; the underlying
+          // copy is still English. Keep it out of the index until real
+          // per-language content exists, to avoid thin/duplicate-content pages.
+          <meta name="robots" content="noindex, follow" />
+        )}
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
       <section className="py-12 md:py-16">
