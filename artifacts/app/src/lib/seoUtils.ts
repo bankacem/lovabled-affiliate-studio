@@ -118,20 +118,22 @@ export function applyAutoLinksToContent(
 
 /**
  * Check if a slug is SEO-friendly
+ * Allowed characters must match what generateSEOSlug() can produce:
+ * lowercase latin letters, digits, hyphens, and Arabic script (U+0600–U+06FF).
  */
 export function isValidSEOSlug(slug: string): boolean {
-  // Must be lowercase
+  // Must be lowercase (Arabic has no case, so this only affects latin chars)
   if (slug !== slug.toLowerCase()) return false;
-  
-  // Must not contain special characters except hyphens
-  if (!/^[a-z0-9\-]+$/.test(slug)) return false;
-  
+
+  // Must not contain special characters except hyphens, digits, latin letters, and Arabic script
+  if (!/^[a-z0-9\u0600-\u06FF\-]+$/.test(slug)) return false;
+
   // Must not have consecutive hyphens
   if (/--/.test(slug)) return false;
-  
+
   // Must not start or end with hyphen
   if (slug.startsWith('-') || slug.endsWith('-')) return false;
-  
+
   return true;
 }
 
