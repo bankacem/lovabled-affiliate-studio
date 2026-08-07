@@ -50,6 +50,16 @@ const BlogPost = () => {
   
   usePageTracking(post?.id);
 
+  // The static prerendered HTML for this route may already contain an
+  // Article JSON-LD <script id="prerendered-article-ld"> (see
+  // scripts/inject-meta-tags.mjs), baked in for crawlers that read the raw
+  // HTML without executing JS. Once React mounts, react-helmet-async renders
+  // its own JSON-LD below from live data, so we remove the static one to
+  // avoid two Article JSON-LD blocks coexisting on the same page.
+  useEffect(() => {
+    document.getElementById("prerendered-article-ld")?.remove();
+  }, []);
+
   const linkedContent = useMemo(() => {
     if (!post?.content || autoLinksLoading) return post?.content || "";
     return applyAutoLinks(post.content, post.id);

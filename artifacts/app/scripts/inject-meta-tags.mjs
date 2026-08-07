@@ -97,6 +97,19 @@ function injectMeta(html, { title, description, image, canonicalHref }) {
   return out;
 }
 
+// Inserts an Article JSON-LD <script> right before </head>. Only blog routes
+// carry a jsonLd object in prerender-meta.json (see prerender-setup.mjs);
+// design/static routes are left untouched. The id="prerendered-article-ld"
+// marker lets BlogPost.tsx remove this exact node on mount before
+// react-helmet-async injects its own client-side copy, so the two never
+// coexist in the live DOM.
+function injectJsonLd(html, jsonLd) {
+  if (!jsonLd) return html;
+  if (!html.includes("</head>")) return html;
+  const script = `<script type="application/ld+json" id="prerendered-article-ld">${JSON.stringify(jsonLd)}</script>\n</head>`;
+  return html.replace("</head>", script);
+}
+
 function main() {
   if (!existsSync(indexPath)) {
     console.warn("[inject-meta-tags] missing dist/public/index.html, skipping");
@@ -133,7 +146,8 @@ function main() {
 
     const canonicalHref = origin ? `${origin}${route}` : undefined;
     const meta = metaMap[route] || {};
-    const html = injectMeta(genericHtml, { ...meta, canonicalHref });
+    let html = injectMeta(genericHtml, { ...meta, canonicalHref });
+    html = injectJsonLd(html, meta.jsonLd);
     writeFileSync(routeIndexPath, html);
     written++;
   }

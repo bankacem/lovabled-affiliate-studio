@@ -52,7 +52,7 @@ async function fetchAll(table, select, extraQuery = "") {
 
 const staticRoutes = ["/", "/about", "/blog", "/designs"];
 
-const rawPosts = await fetchAll("blog_posts", "slug,title,content,meta_description,featured_image,author_name,updated_at", "status=eq.published");
+const rawPosts = await fetchAll("blog_posts", "slug,title,content,meta_description,excerpt,featured_image,author_name,created_at,published_at,updated_at", "status=eq.published");
 // Filter out low quality blog posts and invalid slugs
 const posts = rawPosts.filter((p) => {
   if (!p || !p.slug || p.slug.trim() === "" || p.slug === "null" || p.slug === "undefined") return false;
@@ -112,12 +112,43 @@ try {
 const BLOG_TITLE_SUFFIX = " | AIPrintVerse Blog";
 const DESIGN_TITLE_SUFFIX = " | AIPrintVerse";
 
+// Builds the same Article JSON-LD shape BlogPost.tsx renders client-side via
+// react-helmet-async, so crawlers that only read the static HTML (i.e. never
+// wait for/execute the client bundle) still see valid structured data.
+// Returns null (skip) if a required field for a valid Article is missing,
+// rather than emit JSON-LD Google would flag as incomplete.
+function buildArticleJsonLd(p, description) {
+  const datePublished = p.published_at || p.created_at;
+  if (!p.title || !datePublished || !p.author_name) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": p.title,
+    ...(p.featured_image ? { "image": p.featured_image } : {}),
+    "datePublished": datePublished,
+    "dateModified": p.updated_at || datePublished,
+    "author": { "@type": "Person", "name": p.author_name },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIPrintVerse",
+      "url": BASE_URL,
+    },
+    "description": description,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/blog/${p.slug}`,
+    },
+  };
+}
+
 const metaMap = {};
 for (const p of posts) {
+  const description = p.meta_description || cleanHtmlText(p.content).slice(0, 160);
   metaMap[`/blog/${p.slug}`] = {
     title: `${p.title}${BLOG_TITLE_SUFFIX}`,
-    description: p.meta_description || cleanHtmlText(p.content).slice(0, 160),
+    description,
     image: p.featured_image || undefined,
+    jsonLd: buildArticleJsonLd(p, description),
   };
 }
 for (const d of designs) {
