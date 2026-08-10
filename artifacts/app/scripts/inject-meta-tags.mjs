@@ -165,6 +165,38 @@ function injectBody(html, body) {
   return html.replace(/<div id="root">\s*<\/div>/, `<div id="root">${snapshot}</div>`);
 }
 
+// Renders a design detail page snapshot (name, category, description,
+// tags, image). Simpler than renderArticleBody: designs have no
+// long-form content field, just a short description, so no
+// dangerouslySetInnerHTML-equivalent trusted-HTML block is needed here -
+// description is plain text and gets escaped like every other text field.
+function renderDesignBody(body) {
+  const name = escapeHtml(body.name);
+  const category = body.category ? `<span class="text-sm font-medium text-primary">${escapeHtml(body.category)}</span>` : "";
+  const description = body.description
+    ? `<p class="mt-4 text-muted-foreground leading-relaxed">${escapeHtml(body.description)}</p>`
+    : "";
+  const image = body.imageUrl
+    ? `<div class="overflow-hidden rounded-2xl bg-secondary shadow-lg"><img src="${escapeHtml(body.imageUrl)}" alt="${name}" loading="eager" class="h-full w-full object-cover" /></div>`
+    : "";
+
+  return (
+    `<section class="py-8 md:py-12"><div class="container mx-auto px-4 md:px-6">` +
+    `<div class="grid gap-10 lg:grid-cols-2">` +
+    `<div>${image}</div>` +
+    `<div class="flex flex-col"><div>${category}<h1 class="mt-2 font-display text-3xl font-bold text-foreground md:text-4xl">${name}</h1></div>` +
+    description + renderTags(body.tags) +
+    `</div></div></div></section>`
+  );
+}
+
+function injectDesignBody(html, body) {
+  if (!body) return html;
+  const snapshot = renderDesignBody(body);
+  if (!/<div id="root">\s*<\/div>/.test(html)) return html;
+  return html.replace(/<div id="root">\s*<\/div>/, `<div id="root">${snapshot}</div>`);
+}
+
 function main() {
   if (!existsSync(indexPath)) {
     console.warn("[inject-meta-tags] missing dist/public/index.html, skipping");
@@ -204,6 +236,7 @@ function main() {
     let html = injectMeta(genericHtml, { ...meta, canonicalHref });
     html = injectJsonLd(html, meta.jsonLd);
     html = injectBody(html, meta.body);
+    html = injectDesignBody(html, meta.designBody);
     writeFileSync(routeIndexPath, html);
     written++;
   }

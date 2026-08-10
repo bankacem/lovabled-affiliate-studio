@@ -60,7 +60,7 @@ const posts = rawPosts.filter((p) => {
   return score >= 60;
 });
 
-const rawDesigns = await fetchAll("designs", "id,name,description,image_url,teepublic_url,redbubble_url,amazon_url,etsy_url,tags,updated_at");
+const rawDesigns = await fetchAll("designs", "id,name,description,image_url,category,teepublic_url,redbubble_url,amazon_url,etsy_url,tags,updated_at");
 // Filter out low quality designs
 const designs = rawDesigns.filter((d) => {
   if (!d || !d.id || !d.name || d.name.trim() === "" || !d.image_url || d.image_url.trim() === "") return false;
@@ -176,6 +176,21 @@ function buildArticleBody(p) {
   };
 }
 
+// Same purpose as buildArticleBody, for design detail pages. Design pages
+// have much shorter body text than articles (a short description + tags,
+// no long-form content field) - still worth baking in since the page is
+// otherwise just as empty (<div id="root"></div>) as blog posts were.
+function buildDesignBody(d) {
+  if (!d.name) return null;
+  return {
+    name: d.name,
+    category: d.category || null,
+    description: d.description || null,
+    tags: Array.isArray(d.tags) ? d.tags.filter(Boolean) : [],
+    imageUrl: d.image_url || null,
+  };
+}
+
 const metaMap = {};
 for (const p of posts) {
   const description = p.meta_description || cleanHtmlText(p.content).slice(0, 160);
@@ -192,6 +207,7 @@ for (const d of designs) {
     title: `${d.name}${DESIGN_TITLE_SUFFIX}`,
     description: cleanHtmlText(d.description).slice(0, 160) || undefined,
     image: d.image_url || undefined,
+    designBody: buildDesignBody(d),
   };
 }
 writeFileSync(resolve(appRoot, "public/prerender-meta.json"), JSON.stringify(metaMap));
