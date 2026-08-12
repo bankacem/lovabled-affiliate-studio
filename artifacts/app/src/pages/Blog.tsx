@@ -34,7 +34,7 @@ const Blog = () => {
     const params = new URLSearchParams(window.location.search);
     return Number(params.get("page")) || 1;
   });
-  const { posts, totalPages, totalCount, isLoading } = useBlogPosts(page, PAGE_SIZE);
+  const { posts, totalPages, totalCount, isLoading, error } = useBlogPosts(page, PAGE_SIZE);
   const { categories } = useBlogCategories();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -170,6 +170,20 @@ const Blog = () => {
           <div className="mt-10">
             {isLoading ? (
               <BlogSkeleton />
+            ) : error ? (
+              // Previously this branch didn't exist: a failed fetch (bad API
+              // key, RLS policy denial, network error, etc.) silently fell
+              // through to the same "no articles" empty state below, making
+              // a real backend error indistinguishable from "zero posts
+              // published". Surfacing the actual message makes the real
+              // cause visible instead of hidden.
+              <div className="py-20 text-center">
+                <FileText className="h-12 w-12 mx-auto text-destructive mb-4" />
+                <p className="text-lg text-foreground font-medium">
+                  Couldn't load articles right now.
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">{error}</p>
+              </div>
             ) : filteredPosts.length > 0 ? (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredPosts.map((post, index) => (
