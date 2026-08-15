@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /studio
 
 # Sitemaps
 Sitemap: https://aiprintverse.com/sitemap.xml
