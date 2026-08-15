@@ -1,6 +1,6 @@
 // Turns /content/blog/*.md into static JSON the app fetches at runtime:
 //   public/blog-index.json      -> lightweight list (no bodies)
-//   public/blog/<slug>.json     -> full article
+//   public/article/<slug>.json  -> full article
 // Runs before `vite build` and before `dev`, so the site never needs a database.
 
 import { mkdirSync, writeFileSync, rmSync } from "node:fs";
@@ -11,7 +11,7 @@ import { loadPosts, toListItem } from "./content.mjs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const appRoot = resolve(__dirname, "..");
 const publicDir = resolve(appRoot, "public");
-const outDir = resolve(publicDir, "blog");
+const outDir = resolve(publicDir, "article");
 
 const posts = loadPosts();
 
