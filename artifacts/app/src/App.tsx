@@ -18,6 +18,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const About = lazy(() => import("./pages/About"));
 const Admin = lazy(() => import("./pages/Admin"));
+const Studio = lazy(() => import("./pages/Studio"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
@@ -54,6 +55,7 @@ const App = () => (
                   <Route path="/blog/:id" element={<BlogPost />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/admin" element={<Admin />} />
+                  <Route path="/studio" element={<Studio />} />
 
                   {/* Multi-language Prefixed Routes */}
                   <Route path="/:lang" element={<Index />} />
