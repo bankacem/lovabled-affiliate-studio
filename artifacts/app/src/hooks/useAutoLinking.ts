@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useListAutoLinkKeywords } from "@workspace/api-client-react";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import { calculateQualityScore } from "@/lib/seoAudit";
 
 function escapeRegex(s: string): string {
@@ -21,13 +20,12 @@ export function useAutoLinking() {
   // Fetch all published posts to determine their SEO quality score dynamically (lightweight metadata query)
   const { data: posts = [] } = useQuery({
     queryKey: ["auto-link-target-posts"],
+    staleTime: 5 * 60 * 1000,
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("id,title,meta_description,featured_image,author_name,published_at,created_at")
-        .eq("status", "published");
-      if (error) throw error;
-      return data ?? [];
+      const res = await fetch("/blog-index.json", { cache: "no-cache" });
+      if (!res.ok) throw new Error(`Failed to load articles (${res.status})`);
+      const index = await res.json();
+      return index.posts ?? [];
     }
   });
 
