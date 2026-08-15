@@ -14,6 +14,13 @@ const MAX_LINKS_PER_POST = 5;
 // to any external link so we never leak PageRank to spam.
 const AUTHORITATIVE_HOSTS = ["wikipedia.org", "google.com", "trends.google.com", "shopify.com", "teepublic.com", "redbubble.com"];
 
+type IndexPost = {
+  id: string; title: string; slug: string; category: string; tags?: string[];
+  excerpt?: string | null; content?: string | null; featured_image?: string | null;
+  published_at?: string | null; meta_description?: string | null;
+  author_name?: string; created_at?: string;
+};
+
 export function useAutoLinking() {
   const { data: keywords = [], isLoading, refetch } = useListAutoLinkKeywords();
 
@@ -25,7 +32,7 @@ export function useAutoLinking() {
       const res = await fetch("/blog-index.json", { cache: "no-cache" });
       if (!res.ok) throw new Error(`Failed to load articles (${res.status})`);
       const index = await res.json();
-      return index.posts ?? [];
+      return (index.posts ?? []) as IndexPost[];
     }
   });
 

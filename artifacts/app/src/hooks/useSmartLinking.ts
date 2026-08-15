@@ -25,6 +25,13 @@ interface SmartLinkSuggestion {
   matchReason: string[];
 }
 
+type IndexPost = {
+  id: string; title: string; slug: string; category: string; tags?: string[];
+  excerpt?: string | null; content?: string | null; featured_image?: string | null;
+  published_at?: string | null; meta_description?: string | null;
+  author_name?: string; created_at?: string;
+};
+
 const BASE = import.meta.env.BASE_URL;
 
 export function useSmartLinking(currentPostId?: string) {
@@ -36,7 +43,7 @@ export function useSmartLinking(currentPostId?: string) {
       const res = await fetch("/blog-index.json", { cache: "no-cache" });
       if (!res.ok) throw new Error(`Failed to load articles (${res.status})`);
       const index = await res.json();
-      return (index.posts ?? []).slice(0, 500);
+      return ((index.posts ?? []) as IndexPost[]).slice(0, 500);
     },
   });
 
