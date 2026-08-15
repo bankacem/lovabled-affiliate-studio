@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "node scripts/prerender-setup.mjs && vite build --config vite.config.ts && node scripts/create-static-fallbacks.mjs && node scripts/inject-meta-tags.mjs",
+    "dev": "node scripts/build-content.mjs && vite --config vite.config.ts --host 0.0.0.0",
+    "build": "node scripts/build-content.mjs && node scripts/prerender-setup.mjs && vite build --config vite.config.ts && node scripts/create-static-fallbacks.mjs && node scripts/inject-meta-tags.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
