@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+
 import { calculateQualityScore } from "@/lib/seoAudit";
 
 interface SmartLinkPost {
@@ -25,23 +25,25 @@ interface SmartLinkSuggestion {
   matchReason: string[];
 }
 
+type IndexPost = {
+  id: string; title: string; slug: string; category: string; tags?: string[];
+  excerpt?: string | null; content?: string | null; featured_image?: string | null;
+  published_at?: string | null; meta_description?: string | null;
+  author_name?: string; created_at?: string;
+};
+
 const BASE = import.meta.env.BASE_URL;
 
 export function useSmartLinking(currentPostId?: string) {
   const { data: allPostsRaw = [], isLoading, refetch } = useQuery({
     queryKey: ["smart-link-posts"],
+    staleTime: 5 * 60 * 1000,
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("blog_posts")
-        .select("id,title,slug,category,tags,indexing_status,excerpt,featured_image,published_at,meta_description,author_name,created_at")
-        .eq("status", "published")
-        .not("slug", "is", null)
-        .neq("slug", "")
-        .order("published_at", { ascending: false, nullsFirst: false })
-        .limit(500);
-
-      if (error) throw error;
-      return data ?? [];
+      // Static index generated at build time from /content/blog (GitHub).
+      const res = await fetch("/blog-index.json", { cache: "no-cache" });
+      if (!res.ok) throw new Error(`Failed to load articles (${res.status})`);
+      const index = await res.json();
+      return ((index.posts ?? []) as IndexPost[]).slice(0, 500);
     },
   });
 
@@ -53,7 +55,7 @@ export function useSmartLinking(currentPostId?: string) {
         slug: post.slug,
         category: post.category,
         tags: post.tags ?? [],
-        indexing_status: (post.indexing_status as "indexed" | "pending") || "pending",
+        indexing_status: "indexed" as const,
         excerpt: post.excerpt,
         featured_image: post.featured_image,
         published_at: post.published_at,

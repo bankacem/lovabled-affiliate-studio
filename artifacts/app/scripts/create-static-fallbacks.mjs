@@ -22,7 +22,7 @@ const includeRoutes = Array.isArray(pkg.reactSnap?.include) ? pkg.reactSnap.incl
 
 // Private routes: they must resolve (no host-level 404) but stay out of the
 // sitemap and out of the index (robots.txt already disallows /admin).
-const privateRoutes = ["/admin"];
+const privateRoutes = ["/admin", "/studio"];
 
 const routes = Array.from(new Set([...includeRoutes, ...privateRoutes]));
 
