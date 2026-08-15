@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { calculateQualityScore, cleanHtmlText } from "../../../supabase/functions/_shared/quality-score.mjs";
+import { loadPosts } from "./content.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const appRoot = resolve(__dirname, "..");
