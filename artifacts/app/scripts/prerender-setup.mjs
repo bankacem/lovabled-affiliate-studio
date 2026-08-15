@@ -52,8 +52,9 @@ async function fetchAll(table, select, extraQuery = "") {
 
 const staticRoutes = ["/", "/about", "/blog", "/designs"];
 
-const rawPosts = await fetchAll("blog_posts", "slug,title,content,meta_description,excerpt,featured_image,author_name,category,tags,read_time,created_at,published_at,updated_at", "status=eq.published");
-// Filter out low quality blog posts and invalid slugs
+// Blog posts come from the GitHub-committed markdown in /content/blog — never
+// from the database — so a backend outage can never empty the sitemap again.
+const rawPosts = loadPosts();
 const posts = rawPosts.filter((p) => {
   if (!p || !p.slug || p.slug.trim() === "" || p.slug === "null" || p.slug === "undefined") return false;
   const score = calculateQualityScore(p, "blog");
