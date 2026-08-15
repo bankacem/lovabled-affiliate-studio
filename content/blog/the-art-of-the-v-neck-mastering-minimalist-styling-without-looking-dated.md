@@ -2,7 +2,7 @@
 title: "Minimalist V-Neck Styling Guide 2026: How to Look Clean & Modern"
 slug: "the-art-of-the-v-neck-mastering-minimalist-styling-without-looking-dated"
 description: "For a long time, the V-neck shirt suffered an image crisis. It was unfairly relegated to the \\\"inner-wear\\\" drawer or associated with the aggressive \\\"deep-V\\\" trends of the mid-2000s. However, when you strip away the trends, the V-neck is actually a masterpiece of geometric design. It frames the face, "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhMV31miMht4szSAgR8ZF8tplVEhY1ZfSlj3Z7YTu-kh6efez7KYpyZici3oxXukfLVjim0yEFY58YhYgK9LGHtHUeuvPfO9Ttq5pHAfDx4KPIgNGwYb9Lg24qzJmSDKjDHd_G9tJnb5hAsr1-PS29w01Y1cE3nNMrFHX_tjLu6LzN_a9mwzuV2cC2mDvc"

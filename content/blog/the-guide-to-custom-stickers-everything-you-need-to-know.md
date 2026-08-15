@@ -2,7 +2,7 @@
 title: "The Guide to Custom Stickers: Everything You Need to Know"
 slug: "the-guide-to-custom-stickers-everything-you-need-to-know"
 description: "The Ultimate Guide to Custom Stickers: Everything You Need to Know"
-category: "Guide"
+category: "Stickers"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjmG69OI87qAN1HGrsIIZBcFQRGHWIbRHlYXUkhyoghVQx37ZkIkhhU7YWin3OAhw4wsl8C_oMzJ6aUyrALg1ioFIOHAwe_sBbYXC61skceAgkYUe4ZGC3tfWVqJ32_X15W87It2gQa_T_yKdXbjHlUH75uTFYNhW9MKsFbhkLF2sSITf934ePt3pEWR2I"

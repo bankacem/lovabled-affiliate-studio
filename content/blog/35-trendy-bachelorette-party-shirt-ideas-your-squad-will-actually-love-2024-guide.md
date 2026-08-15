@@ -2,7 +2,7 @@
 title: "35+ Trendy Bachelorette Party Shirt Ideas Your Squad Will Actually Love (2026 Guide)"
 slug: "35-trendy-bachelorette-party-shirt-ideas-your-squad-will-actually-love-2024-guide"
 description: "35+ Trendy Bachelorette Party Shirt Ideas Your Squad Will Actually Love (2024 Guide)"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiFma2ftuJyjdOTdaTvRytmPj_LG48Apa_i3E81YhpjjrwECWw1FIkud23qLG9fsy23l-vIDLMMMT9yY1ukGxykCl64SJxR-a5bnrb09oTzaG6Yb_YFaxnaZUA0BzCpC9KatWTMifoqd9Ugw3cTDKULt04Zx0-a0-N3jhSXLNO2QG1cUWjXJv-gW-vhMcg"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Phone Cases: Design, Protection, and Style"
 slug: "the-ultimate-guide-to-custom-phone-cases-design-protection-and-style"
 description: "The Ultimate Guide to Custom Phone Cases: Design, Protection, and Style"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiGv62GzI36K0W7FHGFP3-Um0ZGgkhsmmxv_RkpUo-N-yAWsOXtF7IHJWaD9aJGX88eGpLDiUv8kLtGNmLXsMPHTDp7bLlh_v89ZlBW4e4CqZw4-t7k-xssrE_PYrXtUhrFV9gFOcZsb1fxaT_XLeKchNivKdNh1rTIvmTDhIMjCrsHr_76rL3rtBnMhK4"

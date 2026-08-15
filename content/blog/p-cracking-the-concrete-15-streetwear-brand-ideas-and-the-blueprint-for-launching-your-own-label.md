@@ -2,7 +2,7 @@
 title: "Cracking the Concrete: 15+ Streetwear Brand Ideas and the Blueprint for Launching Your Own Label"
 slug: "p-cracking-the-concrete-15-streetwear-brand-ideas-and-the-blueprint-for-launching-your-own-label"
 description: "Streetwear has undergone a massive identity crisis over the last decade. What started on the sidewalks of Tokyo and the skate parks of California has been swallowed by high fashion. When Louis Vuitton collaborated with Supreme, the game changed forever. Today, the market is saturated, but that doesn"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Cracking%20the%20Concrete%3A%2015%2B%20Streetwear%20Brand%20Ideas%20and%20the%20Blueprint%20for%20Launching%20Your%20Own%20Label%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=339037322"

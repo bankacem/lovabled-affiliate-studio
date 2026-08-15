@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to 40th Birthday Party Shirts: Trends, Fabrics, and Group Styling"
 slug: "p-the-ultimate-guide-to-40th-birthday-party-shirts-trends-fabrics-and-group-styling"
 description: "Turning 40 isn't just another trip around the sun; it’s a cultural transition. We’ve moved past the \\\"over the hill\\\" funeral-themed parties of the 1990s. Today, 40 is viewed as a peak performance era. In my time analyzing apparel trends, I've noticed a significant shift: people no longer want to look"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://aiprintverse.com/images/default-blog.jpg"

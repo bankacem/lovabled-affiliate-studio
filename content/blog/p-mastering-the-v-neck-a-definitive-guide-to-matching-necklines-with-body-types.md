@@ -2,7 +2,7 @@
 title: "Mastering the V-Neck: A Definitive Guide to Matching Necklines with Body Types"
 slug: "p-mastering-the-v-neck-a-definitive-guide-to-matching-necklines-with-body-types"
 description: "Style isn't just about following trends; it’s about geometry. When we look at a V-neck t-shirt, we aren't just seeing a piece of cotton. We are seeing a visual tool that redirects the eye. While a crew neck creates a horizontal line across the base of the throat—effectively \\\"cutting off\\\" the neck—th"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1597956562248-e4a13e912a03?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxNYXN0ZXJpbmclMjB0aGUlMjBWLU5lY2slM0ElMjBBJTIwRGVmaW5pdGl2ZSUyMEd1aWRlJTIwdG8lMjBNYXRjaGluZyUyME5lY2tsaW5lcyUyMHdpdGglMjBCb2R5JTIwVHlwZXMlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI1N3ww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

@@ -2,7 +2,7 @@
 title: "The Architectural Staple: Why Slim Fit Black V-Neck T-Shirts Define Modern Men’s Style"
 slug: "the-architectural-staple-why-slim-fit-black-v-neck-t-shirts-define-modern-mens-style"
 description: "Walk into any high-end boutique or a local department store, and you’ll find rows of basic tees. But here is the thing: not all basics are created equal. The slim fit black v-neck occupies a very specific niche in the sartorial world. It is the \\\"Swiss Army Knife\\\" of clothing. Unlike the crew neck, w"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEh3jfbunvGbCQUMn6i040IptX9zcpT-E6Mi7sALwHDJpybW4fSNoRS12kIgVh6VSS7N_3FFl8MrqJ2cpwRukDIcD-CHnNVqgUKxosbOQiok1fPE8FjJDM5W6SMHLm0sMa0Yyi8lVlr8Lg4uV22FJf75cb3JNhyWoRRxdUrjxrEnioXQcGswYG7emQXIeSk"

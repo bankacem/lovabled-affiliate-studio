@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Elf Christmas Tees: Spread Holiday Cheer in Style!"
 slug: "the-ultimate-guide-to-elf-christmas-tees-spread-holiday-cheer-in-style"
 description: "There’s something about slipping on a bright green shirt with a jingle bell print that just flips a switch in your brain. Suddenly, you aren't just a tired parent or a busy professional—you're a North Pole MVP. I remember the first time I convinced my grumpy brother to wear a \\\"Son of a Nutcracker\\\" t"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjwtoErQp6spncvysprQrIUXt9GfLMtgOa7Pr2_l4NweNJIohWNxC_vQBMh1gzHaX5FWlBGezk6LkGy99QoIsB93_m8yHitP6Pcs7czyPfaI-twgDZ2p3pY4CFD9dW3ASdKs0TSnuUfltIXXFpAYNe_kVpm22bpUbHXCMFe9E052L4RcOuKXoH-IBM8vWo"

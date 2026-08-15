@@ -2,7 +2,7 @@
 title: "The Definitive Guide to T-Shirt Fit: Finding Your Perfect Silhouette Without the Guesswork"
 slug: "the-definitive-guide-to-t-shirt-fit-finding-your-perfect-silhouette-without-the-guesswork"
 description: "Walk into any high-street retailer and you’ll see rows of \\\"Basic Whites.\\\" To the untrained eye, they look identical. But the moment you pull one over your head, the reality sets in: one makes you look like a Greek god, while the other makes you look like you’re wearing a discarded sack of flour. Why"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1602517623440-bd1b6dc88364?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBEZWZpbml0aXZlJTIwR3VpZGUlMjB0byUyMFQtU2hpcnQlMjBGaXQlM0ElMjBGaW5kaW5nJTIwWW91ciUyMFBlcmZlY3QlMjBTaWxob3VldHRlJTIwV2l0aG91dCUyMHRoZSUyMEd1ZXNzd29yayUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjYxfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

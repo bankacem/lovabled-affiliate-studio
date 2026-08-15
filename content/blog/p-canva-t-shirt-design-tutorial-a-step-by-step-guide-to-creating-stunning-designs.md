@@ -2,7 +2,7 @@
 title: "Canva T-Shirt Design Tutorial: A Step-by-Step Guide to Creating Stunning Designs"
 slug: "p-canva-t-shirt-design-tutorial-a-step-by-step-guide-to-creating-stunning-designs"
 description: "In this comprehensive guide, we'll walk you through the process of creating stunning t-shirt designs using Canva. From getting started with the platform to designing your first t-shirt, we'll cover everything you need to know to get started. We'll also compare Canva with other design tools, provide "
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Canva%20T-Shirt%20Design%20Tutorial%3A%20A%20Step-by-Step%20Guide%20to%20Creating%20Stunning%20Designs%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1495830709"

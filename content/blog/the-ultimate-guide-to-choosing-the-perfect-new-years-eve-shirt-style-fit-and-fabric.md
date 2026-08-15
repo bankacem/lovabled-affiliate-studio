@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Choosing the Perfect New Year's Eve Shirt: Style, Fit, and Fabric"
 slug: "the-ultimate-guide-to-choosing-the-perfect-new-years-eve-shirt-style-fit-and-fabric"
 description: "Standing in front of a closet full of clothes while the clock ticks down to December 31st is a universal experience. We’ve all been there. You want to look sharp, but you don't want to look like you're trying too hard. The \\\"perfect\\\" New Year's Eve outfit shirt isn't just about the fabric; it's about"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Choosing%20the%20Perfect%20New%20Years%20Eve%20Shirt%3A%20Style%2C%20Fit%2C%20and%20Fabric%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1577160076"

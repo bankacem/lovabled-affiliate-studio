@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Orders in Fashion: Elevating Your Style with Bespoke and Made-to-Measure"
 slug: "the-ultimate-guide-to-custom-orders-in-fashion-elevating-your-style-with-bespoke-and-made-to-measure"
 description: "In the world of fast fashion, the term \\\"custom order\\\" is often used loosely. However, for the discerning fashion enthusiast, understanding the nuances between different types of customization is essential for achieving the desired result. Generally, custom fashion falls into three primary categories"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhZ9DPTOde6wdTtAadGNwfMDnIjyVV-JHqWBtk8oQYQg4vet2_ousB14cywD3hyaDs1_RsXoo-LZClvvcYpsUSpjGGqDrKA5pJpuOox2toH-6ifkHXnrPaOEGHBznI94hV8RadBWQv8Vq6ODSZtMSvA0fJXdCdGa8XuKRtOhKNmX9hNuhhTo2xVCOOn7sU"

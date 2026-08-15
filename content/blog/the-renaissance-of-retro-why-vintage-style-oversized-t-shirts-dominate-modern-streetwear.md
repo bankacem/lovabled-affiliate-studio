@@ -2,7 +2,7 @@
 title: "The Renaissance of Retro: Why Vintage Style Oversized T-Shirts Dominate Modern Streetwear"
 slug: "the-renaissance-of-retro-why-vintage-style-oversized-t-shirts-dominate-modern-streetwear"
 description: "Walking through SoHo or Shoreditch today, you'd be forgiven for thinking you’ve stepped into a time machine set for 1994. The oversized t-shirt isn't just a garment; it's a cultural artifact that has successfully migrated from the fringes of subcultures into the mainstream luxury market. But what ex"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGjfpFRJiR2Y-5JWIbu7gwKOrOxgQyh2Q4TqJzre2hyphenhyphenkrN6ro7xGIZsBHLemMCUDHcpGQjz-zVglyC9A5jgaA4BASbteRf-Q4w4HTBq3OPxrk8xQXQKwNmBTNiDjPmTF9yHnqXAN72Z0T7yI52nfIfQZhg040G_-UW0dbV9-vT3HYhcu4A96jzrWXgGtA/s1000/1000025559.jpg"

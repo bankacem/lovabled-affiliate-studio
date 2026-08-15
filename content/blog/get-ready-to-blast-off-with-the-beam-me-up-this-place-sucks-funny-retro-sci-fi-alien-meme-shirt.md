@@ -2,7 +2,7 @@
 title: "Get Ready to Blast Off with the \"Beam Me Up This Place Sucks - Funny Retro Sci-Fi Alien Meme Shirt"
 slug: "get-ready-to-blast-off-with-the-beam-me-up-this-place-sucks-funny-retro-sci-fi-alien-meme-shirt"
 description: "Are you tired of being stuck in a place that's just not your cup of tea? Do you dream of escaping to a galaxy far, far away? Look no further than the \\\"Beam Me "
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056181641.3763/ssrco,boxy_tee,womens_01,b58374:eb4eb9740f,front,square_close_portrait,x1000.jpg"

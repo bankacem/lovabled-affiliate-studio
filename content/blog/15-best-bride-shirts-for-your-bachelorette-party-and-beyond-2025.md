@@ -2,7 +2,7 @@
 title: "15 Best Bride Shirts for Your Bachelorette Party and Beyond 2025"
 slug: "15-best-bride-shirts-for-your-bachelorette-party-and-beyond-2025"
 description: "15 Best Bride Shirts for Your Bachelorette Party and Beyond 2025 The engagement period is a distinct, fleeting chapter in your life"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjOhVk8TBOTID5H_8euMA4IN41UPc-p_WgAlkkc1h3fiD7qBniMx7GJspFSshr3Z04LG5ngj9cgqUrz1VkqhAiUs894W8vFgx9N2hxey_ThFh5P5Guk5PkVJrwsZuCAyDjjjcOHpfL6wRlO981lGjWuPcMdAL-wuqogjh_GLIjHctIs548UcvCcwTondxk"

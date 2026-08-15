@@ -2,7 +2,7 @@
 title: "2025’s Ultimate Guide to Bridesmaid Shirts: Styles, Sizing, and Trends Your Squad Will Love"
 slug: "2025s-ultimate-guide-to-bridesmaid-shirts-styles-sizing-and-trends-your-squad-will-love"
 description: "2025’s Ultimate Guide to Bridesmaid Shirts: Styles, Sizing, and Trends Your Squad Will Love"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhrV1JM6dgvzK930YgErkbH1MsrufoJ2fjrMXf2ZL5UVx_f86p6J1uK1_zrE9kj0ov47R7Tth04gnS9YZs20fvtGTWxEq34TSer6SHFVBAeQFpODUPtvCTqoozXPcmY9AV4VbQlSs4AoYAXXlSBqmZGQxuUAaAPgq3QKObtphy3QuaoMObldnrGl7W3kk0"

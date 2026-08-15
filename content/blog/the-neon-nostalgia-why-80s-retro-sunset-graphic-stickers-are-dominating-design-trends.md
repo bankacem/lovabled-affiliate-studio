@@ -2,7 +2,7 @@
 title: "80s Retro Sunset Stickers 2026: Best Neon Graphic Designs to Buy"
 slug: "the-neon-nostalgia-why-80s-retro-sunset-graphic-stickers-are-dominating-design-trends"
 description: "Walk into any specialty coffee shop or look at the back of a developer's laptop, and you'll likely spot it: a sun, halved or sliced by horizontal lines, glowing in shades of neon pink and electric orange. This isn't just a sunset; it’s a specific cultural shorthand known as the \\\"Retro Sunset\\\" or \\\"Sy"
-category: "Guide"
+category: "Stickers"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjfJ1fwsWIDPlMMxQXZaZ2sPOyvHxZeefR6Oadu0BvW34eTq-M7QcuI3gTKengyWs32VQQ8SrCyt2aw6UNM7Q4KnFurKBncaXjp8EnPmAMjCHVapGFvaPtM5pW_q0JyxEluHpPE8FlsuOcbMCq_jMFJzd_uIbXhibJjd2AL7oSxrmKmnDq5wXKa9CuaIBM"

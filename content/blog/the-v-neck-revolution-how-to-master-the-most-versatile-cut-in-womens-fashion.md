@@ -2,7 +2,7 @@
 title: "The V-Neck Revolution: How to Master the Most Versatile Cut in Women’s Fashion"
 slug: "the-v-neck-revolution-how-to-master-the-most-versatile-cut-in-womens-fashion"
 description: "Walk into any woman's closet, and you're bound to find at least three V-neck shirts. But have you ever stopped to wonder why this specific silhouette has remained a staple for decades? It isn't just a random trend. From a design perspective, the V-neck is a masterclass in geometry. By drawing the ey"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1602517623440-bd1b6dc88364?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBWLU5lY2slMjBSZXZvbHV0aW9uJTNBJTIwSG93JTIwdG8lMjBNYXN0ZXIlMjB0aGUlMjBNb3N0JTIwVmVyc2F0aWxlJTIwQ3V0JTIwaW4lMjBXb21lbiVFMiU4MCU5OXMlMjBGYXNoaW9uJTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyNjV8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

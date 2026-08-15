@@ -2,7 +2,7 @@
 title: "Why Kindness Is Cool Retro Style Apparel Is Dominating Modern Streetwear"
 slug: "why-kindness-is-cool-retro-style-apparel-is-dominating-modern-streetwear"
 description: "We've spent the better part of a decade celebrating the \\\"edgy,\\\" the \\\"exclusive,\\\" and the \\\"rebellious\\\" in fashion. But something shifted recently. Walking through any major metropolitan area, you'll likely spot someone wearing a faded, sun-kissed hoodie with a groovy 70s typeface that simply reads: K"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Why%20Kindness%20Is%20Cool%20Retro%20Style%20Apparel%20Is%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=783024651"

@@ -2,7 +2,7 @@
 title: "What is Cottagecore Fashion? The Definitive Guide to the Romantic Rural Aesthetic"
 slug: "what-is-cottagecore-fashion-the-definitive-guide-to-the-romantic-rural-aesthetic"
 description: "Walk through any city park on a Saturday afternoon, and you are bound to see it: a flurry of billowing linen, a flash of embroidery, and perhaps a straw boater hat. This isn't a reenactment of a Jane Austen novel—it is Cottagecore. But what exactly is this movement that has captured the hearts of Ge"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22What%20is%20Cottagecore%20Fashion%3F%20The%20Definitive%20Guide%20to%20the%20Romantic%20Rural%20Aesthetic%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1914353270"

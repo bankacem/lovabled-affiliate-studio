@@ -2,7 +2,7 @@
 title: "Cracking the Code: How to Score the Best Discounts on AI-Designed Graphic Apparel"
 slug: "cracking-the-code-how-to-score-the-best-discounts-on-ai-designed-graphic-apparel"
 description: "Walk down any street in a major city today and you'll likely spot someone wearing a shirt that looks like a fever dream. Maybe it’s a hyper-realistic astronaut riding a neon tiger, or a geometric pattern that seems to shift as you move. A few years ago, these designs would have cost a fortune in com"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiokG7CwG_SNwHbasOWCxQqUVDtfnIGPAdlzXJIcjY_XQA6ZzVez5Q2U8UB47zSNvaNuFxRARLi1BacFHiZQmBFEmYZ3M5_1XmqA9prMUD_MTrLzbanaHOyd_5-pc-DL9dgrYdcBk9QACKf7MJaNT0BFaip86scjeRAjPf-jrA15wLaUCSn_CSACajnGSE"

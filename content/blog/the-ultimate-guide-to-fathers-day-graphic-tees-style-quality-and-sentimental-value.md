@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Father’s Day Graphic Tees: Style, Quality, and Sentimental Value"
 slug: "the-ultimate-guide-to-fathers-day-graphic-tees-style-quality-and-sentimental-value"
 description: "Remember those \\\"World's #1 Dad\\\" shirts from the mid-90s? They were usually stiff, boxy, and featured a screen print that would crack after three washes. Thankfully, the landscape of Father’s Day apparel has undergone a massive transformation. What was once a last-minute drugstore purchase has evolve"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Father%E2%80%99s%20Day%20Graphic%20Tees%3A%20Style%2C%20Quality%2C%20and%20Sentimental%20Value%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=457456246"

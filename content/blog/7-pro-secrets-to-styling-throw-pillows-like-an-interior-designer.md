@@ -2,7 +2,7 @@
 title: "7 Pro Secrets to Styling Throw Pillows Like an Interior Designer"
 slug: "7-pro-secrets-to-styling-throw-pillows-like-an-interior-designer"
 description: "7 Pro Secrets to Styling Throw Pillows Like an Interior Designer"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEh4DFe1x0spRlCba8WFwfN_NDCN-NEpv3nuStWCUWS_Ehj2C3WFkyWpGaY1TkuoPcxj8YSSB87n8t2OZ8KRotpultPtJMnmLfVaxcVmFrsLwY4zgChGeBz39MoAbbRvTeapuZ-fsfDWTj2-V-bwjLcqMAh5Q5Dut6gWA14WSyXEoX1g8_yOS28QoI2c5qs"

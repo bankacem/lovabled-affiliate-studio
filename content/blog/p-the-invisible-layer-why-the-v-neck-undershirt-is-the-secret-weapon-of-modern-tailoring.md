@@ -2,7 +2,7 @@
 title: "Best V-Neck Undershirts for Men 2026: Top Picks That Stay Hidden"
 slug: "p-the-invisible-layer-why-the-v-neck-undershirt-is-the-secret-weapon-of-modern-tailoring"
 description: "Style, as many sartorial experts will tell you, is built from the skin out. While the world sees your crisp Egyptian cotton dress shirt or your Italian wool blazer, the unsung hero of your ensemble is the v-neck undershirt. It is a garment often treated as an afterthought—bought in bulk packs from b"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1576417677573-8454350443ec?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxCZXN0JTIwVi1OZWNrJTIwVW5kZXJzaGlydHMlMjBmb3IlMjBNZW4lMjAyMDI2JTNBJTIwVG9wJTIwUGlja3MlMjBUaGF0JTIwU3RheSUyMEhpZGRlbiUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjEzfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

@@ -2,7 +2,7 @@
 title: "The V-Neck Renaissance: A Definitive Guide to Men's Most Versatile Essential"
 slug: "p-the-v-neck-renaissance-a-definitive-guide-to-mens-most-versatile-essential"
 description: "For decades, the v-neck was the invisible workhorse of the men's wardrobe. Its primary function was strictly utilitarian: a garment designed to be hidden beneath a button-down shirt, with the \\\"V\\\" cut specifically to remain out of sight when the top button was undone. However, the last fifteen years "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20V-Neck%20Renaissance%3A%20A%20Definitive%20Guide%20to%20Mens%20Most%20Versatile%20Essential%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=90079950"

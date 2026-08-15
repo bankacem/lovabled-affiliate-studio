@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Matching Christmas Family Shirts: How to Nail the Holiday Look Without the Stress"
 slug: "the-ultimate-guide-to-matching-christmas-family-shirts-how-to-nail-the-holiday-look-without-the-stre"
 description: "Let’s be real for a second. There is something incredibly heartwarming—and okay, a little bit cheesy—about seeing a whole crew of people from toddlers to grandparents wearing the exact same shirt. I remember the first year I talked my husband into wearing a \\\"Papa Bear\\\" tee. He rolled his eyes, but a"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Matching%20Christmas%20Family%20Shirts%3A%20How%20to%20Nail%20the%20Holiday%20Look%20Without%20the%20Stress%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1143757681"

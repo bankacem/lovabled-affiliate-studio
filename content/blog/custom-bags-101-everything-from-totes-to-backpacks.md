@@ -2,7 +2,7 @@
 title: "Custom Bags 101: Everything from Totes to Backpacks"
 slug: "custom-bags-101-everything-from-totes-to-backpacks"
 description: "Master the art of custom bags. From eco-friendly totes to professional laptop bags, find the perfect fit for your custom designs."
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiVKY-RI7hNguMy3pa90p-EgWumJ32O1ct80IwFusx4U7zLfmDVOBb9DWeV5tUkvsqs_7Cllgjw6sJBKgllW7QEnC-szDlJ2NlFAiIc3_hONjixJ-WGxcUkXavndreiIp5YKDnAKs1ezm2qzzg13pFEBIm3O0GU8P-uJlIgqGinZYubKKzTnAvqJlocG2k"

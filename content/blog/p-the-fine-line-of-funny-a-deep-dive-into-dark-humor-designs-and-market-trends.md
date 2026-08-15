@@ -2,7 +2,7 @@
 title: "The Fine Line of Funny: A Deep Dive into Dark Humor Designs and Market Trends"
 slug: "p-the-fine-line-of-funny-a-deep-dive-into-dark-humor-designs-and-market-trends"
 description: "Humor is often a defense mechanism, a way for the human brain to process the absurdity of existence. When we look at dark humor designs—those t-shirts featuring a cheerful grim reaper or a coffee mug that says \\\"This could have been an email\\\" next to a guillotine—we are engaging in what psychologists"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Fine%20Line%20of%20Funny%3A%20A%20Deep%20Dive%20into%20Dark%20Humor%20Designs%20and%20Market%20Trends%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=125486732"

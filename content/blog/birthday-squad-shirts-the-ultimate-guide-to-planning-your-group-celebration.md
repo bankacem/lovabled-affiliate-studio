@@ -2,7 +2,7 @@
 title: "Birthday Squad Shirts: The Ultimate Guide to Planning Your Group Celebration"
 slug: "birthday-squad-shirts-the-ultimate-guide-to-planning-your-group-celebration"
 description: "Whether you are hitting the streets of Las Vegas for a 21st birthday, exploring a vineyard for a 40th, or simply hosting a backyard barbecue, birthday squad shirts have become a staple of modern celebrations. These coordinated outfits are more than just clothing; they are a visual declaration of fri"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhfYSqikZ8JYPa45jbiH1aAz_VZNQDfAP4nCqjn6FKk_qiOxmHfIOQqsUoLp_vFrBGO3_Ff0ErLVo4pEQbfIjxxkLl7VFOgq6xcPyAr1NtSm31k_H4uulFtYezalaoSFVRdLPDELGS_xGMKNlnuoSW_OmgeFF7wnm7nT15LuYHRlbMRdGXJSTRUIUZVcd0"

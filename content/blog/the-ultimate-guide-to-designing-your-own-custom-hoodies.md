@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Designing Your Own Custom Hoodies"
 slug: "the-ultimate-guide-to-designing-your-own-custom-hoodies"
 description: "custom hoodies"
-category: "Guide"
+category: "Hoodies & Sweatshirts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhBholecteREPQbQ9wu_PA6gvfzxToNMVzLtob-CmSMENoTtZLV31ygY7VtGZKgd4eZxoOVsTMhu2vOTCSwmToVTZZJDVqSa_47lQpzU_beX0kjkr3HkVP4dpK9kVHFryGiw1TgXB3PFr3BiGg6QK2qsxBqUgpTNbQqe93GS4jGr-VIDK8AoObm7DVAThk"

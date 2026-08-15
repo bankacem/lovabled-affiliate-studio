@@ -2,7 +2,7 @@
 title: "The Guide to Super Dad Shirts: Celebrating Every Father’s Inner Hero"
 slug: "the-guide-to-super-dad-shirts-celebrating-every-fathers-inner-hero"
 description: "In the modern era of parenting, the role of a father has evolved significantly. Dads are no longer just breadwinners; they are caregivers, coaches, chefs, and emotional anchors. The \\\"Super Dad\\\" shirt has emerged as more than just a piece of clothing—it is a cultural symbol that recognizes this multi"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEixVwfa-Oa_8FUnIe81Gx8-ru5xpDISkJ_aRDP0OAZfboMa0_p8A-cFHX3NLMbCZHcd8fetXiKwBNA857jHKSmv9aPUuTSwqOEdZB-BWy97FYLWxJ452UCZ2WpjSzbll3WEIxbbr5cKc5czRQF6mbPvCcSxKtMJPNfIF7917v-snMGvEljWJav55GsHowY"

@@ -2,7 +2,7 @@
 title: "The 10 Best Coffee Mugs of 2026: From Ceramic Classics to Travel Titans"
 slug: "the-10-best-coffee-mugs-of-2024-from-ceramic-classics-to-travel-titans"
 description: "The 10 Best Coffee Mugs of 2026: From Ceramic Classics to Travel Titans"
-category: "Guide"
+category: "Mugs & Drinkware"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhyudeQsiL4dihjf2XEjGY_rxo4ullmFae-wmZZZ95HjV6xS7MZg2RHCZPfVgdLlClMHpPFy4lSSJ0Dw95uqqcNBmqY9pjuMozHImlrAJBOuE2j5Yjqz9dGn--ARBqNHfY3kHFSPpikcaqrQWEjCGEHDJa48dAmmw2oQPamWirROW2pRqPLw6vsCjainw0"

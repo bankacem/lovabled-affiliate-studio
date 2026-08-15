@@ -2,7 +2,7 @@
 title: "The Definitive Guide to Easter Shirts: Trends, Fabrics, and Family Traditions 2026"
 slug: "the-definitive-guide-to-easter-shirts-trends-fabrics-and-family-traditions-2026"
 description: "The most comprehensive guide to Easter shirts in 2026. Explore fabric types, design trends, styling tips, and the best way to handle bulk orders with fast shipping."
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEghW3mwLrSOIsbCdp3R3_2k0PfB1BV-dw6YQDk8sHp3Qe89UEYQNIEjWxF-eb405VazeTuow27rztLatsnTc6fGfc0kyRjpZom3BEd9oeKM8xAzpqrbPlXXaEWM12rhnL_qNUe9lYn_-YU_Zt9Pr4Q-gEGTwgEF1eBTLRDH4fRAUq2xLfpxvZjnKVyfIIs"

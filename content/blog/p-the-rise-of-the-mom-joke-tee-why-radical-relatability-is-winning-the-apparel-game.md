@@ -2,7 +2,7 @@
 title: "The Rise of the Mom Joke Tee: Why Radical Relatability is Winning the Apparel Game"
 slug: "p-the-rise-of-the-mom-joke-tee-why-radical-relatability-is-winning-the-apparel-game"
 description: "Ten years ago, \\\"Mom fashion\\\" in the graphic tee space was arguably one-dimensional. You likely remember the glittery \\\"World’s Best Mom\\\" shirts or the somewhat saccharine \\\"Mommy’s Little Helper\\\" prints. But the landscape has shifted dramatically. Today’s market is fueled by a generation of parents wh"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Rise%20of%20the%20Mom%20Joke%20Tee%3A%20Why%20Radical%20Relatability%20is%20Winning%20the%20Apparel%20Game%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=107047656"

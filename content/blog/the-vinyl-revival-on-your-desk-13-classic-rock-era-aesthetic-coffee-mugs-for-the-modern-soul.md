@@ -2,7 +2,7 @@
 title: "Classic Rock Coffee Mugs 2026: 13 Best Mugs for Music Lovers"
 slug: "the-vinyl-revival-on-your-desk-13-classic-rock-era-aesthetic-coffee-mugs-for-the-modern-soul"
 description: "Walk into any high-end boutique or scroll through a curated Instagram feed lately, and you’ll notice a distinct shift. The sterile minimalism of the 2010s is fading, replaced by the warm, gritty, and vibrantly chaotic energy of the 1970s and 80s. Nowhere is this more apparent than in the humble coff"
-category: "Guide"
+category: "Mugs & Drinkware"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjajg3B5QzbVhMtTkTxjC-aMssWNZrEbPC67oWJS8DBrCfgonVAnzCFQ02CPSOwnKDmiUjT2Sbr5ccJW2t7CXDkq36Q3VKjzZnRJVffz8qclOICQdLByxSyLUTPEeMOXQmVP_THZZm4Rdhmpmz2g1Aqq42ZZksRha4XoKBM4GeCXAY3ZDtzyRoDtvyg0As"

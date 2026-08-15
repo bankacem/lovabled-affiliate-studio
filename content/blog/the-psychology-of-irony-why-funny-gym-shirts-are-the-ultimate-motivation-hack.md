@@ -2,7 +2,7 @@
 title: "Funny Gym Shirts 2026: Best Workout Tees That Actually Motivate"
 slug: "the-psychology-of-irony-why-funny-gym-shirts-are-the-ultimate-motivation-hack"
 description: "Walk into any commercial \\\"big box\\\" gym today, and you’ll notice a distinct shift in the visual landscape. The sea of monochromatic, high-compression tech gear is increasingly being interrupted by a well-placed pun or a self-deprecating joke. We aren't just talking about \\\"Suns Out, Guns Out\\\" anymore."
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1516178151140-1a27a08c417a?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxGdW5ueSUyMEd5bSUyMFNoaXJ0cyUyMDIwMjYlM0ElMjBCZXN0JTIwV29ya291dCUyMFRlZXMlMjBUaGF0JTIwQWN0dWFsbHklMjBNb3RpdmF0ZSUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjIyfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

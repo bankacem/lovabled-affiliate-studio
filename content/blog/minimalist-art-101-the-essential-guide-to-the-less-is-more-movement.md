@@ -2,7 +2,7 @@
 title: "Minimalist Art 101: The Essential Guide to the \"Less is More\" Movement"
 slug: "minimalist-art-101-the-essential-guide-to-the-less-is-more-movement"
 description: "Minimalist Art 101: The Essential Guide to the \\\"Less is More\\\" Movement"
-category: "Guide"
+category: "Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjOtCpiIjLQWTRHcMIu1lRSSTgo2akSFZYch-cQJLfXnPucB2f6OPP2BI7I2UptNt1WSlUyhSliKKT0lbEAtG2txy8Jfbh3k3JyhqgS4KAhPtEPqYjc7WaR1oanQ1Fm3U8x8v0HJJxSXPqEAqY1qVbtjjTA6dWW1PzlviOqrkSMnJ1DJzY6wc0nEJk3UVw"

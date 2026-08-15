@@ -2,7 +2,7 @@
 title: "The Modern Groom’s Guide to Casual Groomsmen Shirts: Ditching the Tux Without Losing the Style"
 slug: "the-modern-grooms-guide-to-casual-groomsmen-shirts-ditching-the-tux-without-losing-the-style"
 description: "Gone are the days when a wedding invitation automatically implied a stiff rented tuxedo and a polyester vest. In my years of observing wedding trends, I've noticed a massive pivot toward \\\"approachable elegance.\\\" According to recent industry data, nearly 40% of modern weddings now fall under the \\\"sem"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Modern%20Groom%E2%80%99s%20Guide%20to%20Casual%20Groomsmen%20Shirts%3A%20Ditching%20the%20Tux%20Without%20Losing%20the%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=716359726"

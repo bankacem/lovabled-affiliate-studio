@@ -2,7 +2,7 @@
 title: "Vintage Goose Sweater, Country Farmhouse Cottagecore Crewneck, 90s Retro Goose Shirt, Cozy Animals Folk Art Top, Cute Couple Goose Pullover: The Ultimate Guide to This Timeless Fashion Trend"
 slug: "vintage-goose-sweater-country-farmhouse-cottagecore-crewneck-90s-retro-goose-shirt-cozy-animals-folk"
 description: "Are you ready to embrace the warmth and coziness of the Vintage Goose Sweater, Country Farmhouse Cottagecore Crewneck, 90s Retro Goose Shirt, Cozy Animals Folk "
-category: "Guide"
+category: "Hoodies & Sweatshirts"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056126154.2046/ssrco,boxy_tee,womens_01,060606:b41fecf593,front,square_close_portrait,x1000.jpg"

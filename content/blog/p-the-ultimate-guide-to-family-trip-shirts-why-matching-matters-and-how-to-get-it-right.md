@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Family Trip Shirts: Why Matching Matters (and How to Get It Right)"
 slug: "p-the-ultimate-guide-to-family-trip-shirts-why-matching-matters-and-how-to-get-it-right"
 description: "Walking through a crowded terminal at Orlando International or navigating the bustle of a cruise ship terminal, you’ve likely seen them: the \\\"Smith Family Vacation 2024\\\" crew. To some, it’s a bit of kitsch. To those of us who have managed a group of twelve spanning three generations, it is a tactica"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Family%20Trip%20Shirts%3A%20Why%20Matching%20Matters%20(and%20How%20to%20Get%20It%20Right)%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1603003710"

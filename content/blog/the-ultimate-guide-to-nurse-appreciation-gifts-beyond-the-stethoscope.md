@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Nurse Appreciation Gifts: Beyond the Stethoscope"
 slug: "the-ultimate-guide-to-nurse-appreciation-gifts-beyond-the-stethoscope"
 description: "Finding the right gift for a nurse requires more than a quick trip to the card aisle. To truly hit the mark, one has to understand the sheer physical and emotional toll of the profession. According to a 2023 study by the American Nurses Foundation, nearly 56% of nurses report feeling symptoms of bur"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Nurse%20Appreciation%20Gifts%3A%20Beyond%20the%20Stethoscope%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=816180453"

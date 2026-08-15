@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to V-Neck Shirts: How to Style Them for Any Occasion"
 slug: "the-ultimate-guide-to-v-neck-shirts-how-to-style-them-for-any-occasion"
 description: "The Ultimate Guide to V-Neck Shirts: How to Style Them for Any Occasion"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiojpCFN0L-GgDb3xTTDgcdnQmxLkpK9VvnBq4CzLwLYndiY7KYfaL4TSqoWh_QyPOn8e9FQfeGO8LY2uhVfi47Edhrhc1sPG0bKk2YH3SiNLVfYhy6hoDU64lsC9VcHz1wmfgA30g8atVIKmfBKe4R7VsgLFC1Fysa8Rs01nis256hyFq9Eu65HzZPTFQ"

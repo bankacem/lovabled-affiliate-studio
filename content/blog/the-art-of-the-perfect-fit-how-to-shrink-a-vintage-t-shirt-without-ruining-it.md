@@ -2,7 +2,7 @@
 title: "The Art of the Perfect Fit: How to Shrink a Vintage T-Shirt Without Ruining It"
 slug: "the-art-of-the-perfect-fit-how-to-shrink-a-vintage-t-shirt-without-ruining-it"
 description: "Finding a grail-status 1994 Nine Inch Nails tour shirt only to realize it fits like a nightgown is a heart-wrenching experience. But before you crank the water heater to its maximum setting, you need to understand what you're actually holding. Not all vintage shirts are created equal."
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1691388773467-848a68111d6d?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBBcnQlMjBvZiUyMHRoZSUyMFBlcmZlY3QlMjBGaXQlM0ElMjBIb3clMjB0byUyMFNocmluayUyMGElMjBWaW50YWdlJTIwVC1TaGlydCUyMFdpdGhvdXQlMjBSdWluaW5nJTIwSXQlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI1Mnww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

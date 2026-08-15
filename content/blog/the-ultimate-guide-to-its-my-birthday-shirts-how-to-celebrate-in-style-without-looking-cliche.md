@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to \"It's My Birthday\" Shirts: How to Celebrate in Style Without Looking Cliche"
 slug: "the-ultimate-guide-to-its-my-birthday-shirts-how-to-celebrate-in-style-without-looking-cliche"
 description: "There is a specific kind of social permission that comes with wearing a \\\"It's My Birthday\\\" shirt. From a sociological perspective, it acts as a \\\"visible status marker.\\\" It signals to the world that for the next 24 hours, the standard rules of social engagement are slightly altered. People are more l"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEg8ZDJnNnBaLoRhTXeXqtdFwkTnNBaybFoR6Cm5tbs1c_ab4Ju6yA25dzl8jDoqYrqtBZRG4oXg7h9-OkWFh_q10J-q5dWwf5YlbGRAGMMlMY2_9aCTOiHZjxX8D4rE9oP0ytsLuF5Y8-Mqdz1JS3R1cHomgqJXoagpmwB11p_-NqPUk9fRb3qko8XQxxM"

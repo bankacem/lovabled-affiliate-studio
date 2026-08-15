@@ -2,7 +2,7 @@
 title: "Beyond the Basic Tee: Why AI-Generated Portraits Are the New Gold Standard in Personalized Gifting"
 slug: "beyond-the-basic-tee-why-ai-generated-portraits-are-the-new-gold-standard-in-personalized-gifting"
 description: "We’ve all been there. You want to give a gift that feels deeply personal, but the standard \\\"World's Best Dad\\\" mug feels a bit lazy, and a framed photo can feel a little static. This is where the intersection of generative artificial intelligence and garment printing has completely disrupted the gift"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEibVez3FTNMPkhuvmFqiaO0V3PVFQAZ1E6koXhR4u0MTaU9R1dRIDZhn9Ljaf9RPXI5hWWzT9V3JgpRwlqQDg_rSNzC1iQoKqs50KTBj6Dwliz1g8c3PILqjiwDxd9gjRlJQUas2i5pDwpyO-CWoyjNPeqTXqDtBVaxMt8GcVNn_h-ibz225KjDSNEgwUg"

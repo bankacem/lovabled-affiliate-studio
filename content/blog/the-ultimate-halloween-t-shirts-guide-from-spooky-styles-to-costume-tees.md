@@ -2,7 +2,7 @@
 title: "The Ultimate Halloween T-Shirts Guide: From Spooky Styles to Costume Tees"
 slug: "the-ultimate-halloween-t-shirts-guide-from-spooky-styles-to-costume-tees"
 description: "The most comprehensive guide to Halloween t-shirts in 2026. Learn about glow-in-the-dark skeleton shirts, funny witch designs, and how to get fast shipping for bulk orders."
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgpybjKj8Mily2JQCDQX3iplTmUrivfxs8n_ZPRSx9mwA7tc7l-p9Nfs24XyzRgdTWZW_qG1poZHU6mmKP4pOdymErK_ZstLfyNN5LKeezxP2zh1-LXB-OJ8TlChujYWtix4FYSwGYq4IEs3WutmTl4HufMylrKGbYIe-8yCyfHK9-dP4r57plrxBr9SwY"

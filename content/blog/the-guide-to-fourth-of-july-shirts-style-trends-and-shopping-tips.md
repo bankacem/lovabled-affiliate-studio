@@ -2,7 +2,7 @@
 title: "The Guide to Fourth of July Shirts: Style, Trends, and Shopping Tips"
 slug: "the-guide-to-fourth-of-july-shirts-style-trends-and-shopping-tips"
 description: "The Fourth of July, or Independence Day, is more than just a federal holiday in the United States; it is a cultural phenomenon defined by fireworks, barbecues, and a sea of red, white, and blue. The tradition of wearing patriotic apparel dates back decades, but it has seen a massive surge in the las"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiY0tqzEzTPKBSZSwffvLe87FvFhaBVwUxtzQvj_SwWAgl2RX1-jQT6shnlgLiCYa1KWTirHd5Adk-IkC9G5R8WAA7SQ0iemj6ruKzSXJ7PKYpGfY-emphMihQUAqRqGapgiRwO-_ZdnT6vH5S0cD4inrcQArO5nC03jsK4_MfPsmP7Txuqu-HxQqkO7YM"

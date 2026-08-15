@@ -2,7 +2,7 @@
 title: "The Guide to Mom Life Shirts: Style, Comfort, and Expressing Your Motherhood Journey"
 slug: "the-guide-to-mom-life-shirts-style-comfort-and-expressing-your-motherhood-journey"
 description: "In the last decade, the \\\"mom life\\\" aesthetic has moved from a niche social media hashtag to a full-blown fashion category. What started as simple graphic tees with \\\"Mama\\\" written in script has evolved into a diverse market of apparel that captures the humor, exhaustion, pride, and chaos of raising c"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj2EbHo6cQzuKlCAs9PdkzjVn4lswc6oBXX9FU7UJIy8h28rOdg3N5J5_sFEm1cLpoafmoVfv2MUeUdCdWHf5HbqxtyaVdhFEyEgCBkdJB4GLxlM6b14abKslkazLKMyRmQ6_CxjswXoy9CH8UPuGz4msW4Y7z3NMBUu4KbEg8bNNCTOjkk5SfiyZXKiGw"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Gifts for T-Shirt Lovers: Beyond the Basic Graphic Tee"
 slug: "the-ultimate-guide-to-gifts-for-t-shirt-lovers-beyond-the-basic-graphic-tee"
 description: "We’ve all seen them: the person whose wardrobe consists of 80% cotton, 15% polyester blends, and 5% items they only wear to weddings. For many, the t-shirt isn't just a casual garment; it’s a canvas for self-expression, a souvenir of a life lived, and a physical manifestation of fandom. From the \\\"ho"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1627859774205-83c1279a6382?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBVbHRpbWF0ZSUyMEd1aWRlJTIwdG8lMjBHaWZ0cyUyMGZvciUyMFQtU2hpcnQlMjBMb3ZlcnMlM0ElMjBCZXlvbmQlMjB0aGUlMjBCYXNpYyUyMEdyYXBoaWMlMjBUZWUlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI1MXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

@@ -2,7 +2,7 @@
 title: "High-End Streetwear Guide 2026: Hypebeast Brands & How to Dress"
 slug: "the-hypebeast-blueprint-a-masterclass-in-high-end-streetwear-and-cultural-currency"
 description: "To the untrained eye, a hypebeast is simply someone wearing expensive hoodies and rare sneakers. But if you've ever spent six hours in a digital queue for a Supreme drop or refreshed a SNKRS app page until your thumb went numb, you know it’s a lifestyle bordering on a religion. Originally coined as "
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22High-End%20Streetwear%20Guide%202026%3A%20Hypebeast%20Brands%20%26%20How%20to%20Dress%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=271168495"

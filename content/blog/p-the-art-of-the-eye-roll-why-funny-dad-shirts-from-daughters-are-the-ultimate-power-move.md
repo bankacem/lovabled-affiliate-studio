@@ -2,7 +2,7 @@
 title: "Funny Dad Shirts from Daughters: Best Designs & Gift Ideas 2026"
 slug: "p-the-art-of-the-eye-roll-why-funny-dad-shirts-from-daughters-are-the-ultimate-power-move"
 description: "There is a specific brand of courage required to walk into a grocery store wearing a t-shirt that says, \\\"I'm not sleeping, I'm just inspecting the insides of my eyelids.\\\" That courage is fueled by a father’s innate desire to be the funniest person in the room—even if he’s the only one laughing. When"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Funny%20Dad%20Shirts%20from%20Daughters%3A%20Best%20Designs%20%26%20Gift%20Ideas%202026%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=302339836"

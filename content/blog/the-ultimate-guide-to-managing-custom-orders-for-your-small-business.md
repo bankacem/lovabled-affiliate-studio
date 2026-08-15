@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Managing Custom Orders for Your Small Business"
 slug: "the-ultimate-guide-to-managing-custom-orders-for-your-small-business"
 description: "The Ultimate Guide:"
-category: "Guide"
+category: "Print on Demand Business"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj3h2iU-O4hOj7F1pygIl0U-v5FP3-K--6NnE9qGoeHm-PGH-gFlpe7ztLRScRa2nr8tAmzUIUNaBmOhPTP_IanzFj68SztFPBdji0d_umlcTWcjv575fczbBeI0gSFwY8XehLrV3k3Ftk2ZYCJuGhyC5KnvVIWgsSjojWDd5nubThh6N39ip7CEgHd6vw"

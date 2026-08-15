@@ -2,7 +2,7 @@
 title: "The Modern Gentleman's Guide to V-Neck Sweater Outfits: From Office Power Moves to Weekend Ease"
 slug: "p-the-modern-gentlemans-guide-to-v-neck-sweater-outfits-from-office-power-moves-to-weekend-ease"
 description: "There is a specific kind of understated confidence that comes with a well-fitted V-neck sweater. While the crew neck often feels youthful and athletic, the V-neck carries a legacy of academic and professional sophistication. Originally popularized in the 1920s as a functional sporting garment—think "
-category: "Guide"
+category: "Hoodies & Sweatshirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Modern%20Gentlemans%20Guide%20to%20V-Neck%20Sweater%20Outfits%3A%20From%20Office%20Power%20Moves%20to%20Weekend%20Ease%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=619858944"

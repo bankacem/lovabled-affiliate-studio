@@ -2,7 +2,7 @@
 title: "The Software Engineer Sarcastic Definition Mug: Why Every Dev Needs a Dose of Irony with Their Caffeine"
 slug: "the-software-engineer-sarcastic-definition-mug-why-every-dev-needs-a-dose-of-irony-with-their-caffei"
 description: "Walk into any high-growth tech firm—from the giants in Mountain View to a three-person startup in a garage—and you’ll likely see a specific brand of humor sitting on the desks. It’s dry, slightly cynical, and usually printed on a 15oz ceramic vessel. But why do software engineers gravitate toward sa"
-category: "Guide"
+category: "Mugs & Drinkware"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Software%20Engineer%20Sarcastic%20Definition%20Mug%3A%20Why%20Every%20Dev%20Needs%20a%20Dose%20of%20Irony%20with%20Their%20Caffeine%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=697094440"

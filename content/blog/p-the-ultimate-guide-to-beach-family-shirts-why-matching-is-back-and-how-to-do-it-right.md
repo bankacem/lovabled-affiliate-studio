@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Beach Family Shirts: Why Matching is Back and How to Do It Right"
 slug: "p-the-ultimate-guide-to-beach-family-shirts-why-matching-is-back-and-how-to-do-it-right"
 description: "Walking down the boardwalk, you’ve seen them: the family of six clad in identical hibiscus prints. While some might dismiss it as \\\"cheesy,\\\" there is a deep-rooted psychological driver behind the matching beach shirt phenomenon. It’s about identity and belonging. When a family dresses in a cohesive t"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Beach%20Family%20Shirts%3A%20Why%20Matching%20is%20Back%20and%20How%20to%20Do%20It%20Right%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1466287395"

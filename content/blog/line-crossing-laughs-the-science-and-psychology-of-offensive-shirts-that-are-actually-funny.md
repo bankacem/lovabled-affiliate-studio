@@ -2,7 +2,7 @@
 title: "Funny Offensive T-Shirts: What Makes Them Work & Best Picks"
 slug: "line-crossing-laughs-the-science-and-psychology-of-offensive-shirts-that-are-actually-funny"
 description: "Humor is a delicate tightrope walk. One man's rib-tickling pun is another person's reason to file a HR complaint or start a Twitter thread. When it comes to \\\"offensive\\\" apparel, the market is flooded with low-effort, mean-spirited designs that miss the mark. However, there is a specific niche of sub"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1553474432-4202a2d5f6b8?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxGdW5ueSUyME9mZmVuc2l2ZSUyMFQtU2hpcnRzJTNBJTIwV2hhdCUyME1ha2VzJTIwVGhlbSUyMFdvcmslMjAlMjYlMjBCZXN0JTIwUGlja3MlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjIyMXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

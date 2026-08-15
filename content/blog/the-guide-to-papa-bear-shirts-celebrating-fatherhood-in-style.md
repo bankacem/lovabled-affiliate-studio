@@ -2,7 +2,7 @@
 title: "The Guide to Papa Bear Shirts: Celebrating Fatherhood in Style"
 slug: "the-guide-to-papa-bear-shirts-celebrating-fatherhood-in-style"
 description: "In the world of contemporary fashion, few items have captured the essence of modern fatherhood quite like the Papa Bear shirt. What started as a simple graphic tee has evolved into a cultural symbol of the \\\"involved dad.\\\" No longer is fatherhood apparel limited to \\\"World's Best Dad\\\" mugs; today's fa"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiLZaQQr3QtnGZEAvukPlT8LlnWw5scpye5vKLq-C9zl0JnK4SwFiL7N0f2QI50raymaihgXfSWVfU7BUiyXEib_6JktV0Y-TR4kEXIkloH2caFIQ954pNDVRppxqyQ-U2kTOUMBALsDmSX30_M0crQT4R9SAVan7-yhGRjeyR0t_eLaKlsevn8x4DgHBs"

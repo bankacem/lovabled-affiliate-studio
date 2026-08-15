@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Funny Christmas Shirts: Because Your Relatives Aren't Going to Entertain Themselves"
 slug: "the-ultimate-guide-to-funny-christmas-shirts-because-your-relatives-arent-going-to-entertain-themsel"
 description: "We’ve all been there. You walk into the annual family dinner, the air smells like cinnamon and slightly burnt turkey, and your Great Aunt Martha is already asking why you’re still single. In moments like these, a well-placed joke on your chest is more than just fashion—it’s a tactical distraction. "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEh3AZufg22r6jc5c8LoI7XKUMCDuBx3aohAetzw8jfJcPyaP_NBbUDWl0Ddzcn4BfCIV7r0wJeIQ0NPGmqg3AoXkxKalpqBUSmuXEIOUpbC6WgOI-q7oKfsjEIvsVmO0w90cwaI8woi-b0pDyk3fXywDSV7gI0pLDfjcHTKLNfk4meYW0MaT8S8EWSStY0"

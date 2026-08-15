@@ -2,7 +2,7 @@
 title: "The V-Neck Depth Guide: How Low Is Too Low for Professional and Casual Style?"
 slug: "the-v-neck-depth-guide-how-low-is-too-low-for-professional-and-casual-style"
 description: "Style is often a game of inches. While a crew neck is the safe, utilitarian choice for most, the V-neck introduces a level of intentionality that can either elevate an outfit or make it look like a costume. Why does the depth matter so much? It’s about the visual \\\"anchor\\\" of your face. A well-propor"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20V-Neck%20Depth%20Guide%3A%20How%20Low%20Is%20Too%20Low%20for%20Professional%20and%20Casual%20Style%3F%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1186819840"

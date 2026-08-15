@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Tank Tops: Style, Fit, and Performance"
 slug: "the-ultimate-guide-to-tank-tops-style-fit-and-performance"
 description: "The humble tank top has come a long way from its utilitarian beginnings. The name \\\"tank top\\\" actually derives from the 1920s, referring to \\\"swimming tanks\\\" (what we now call swimming pools). Originally, these sleeveless garments were part of women's bathing suits, but they quickly transitioned into "
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhUJTK1ymdsqRk1I6HU48a28Y7C4ac7eo3_Yve2MVgiGR03IaNZbyc8m25VF6HTrBtyfvAa7Cjq6cTvElO6-wz8V4iAkO9jbYoD5jKAJDNNwm_RrrVE1USMIODUYX5sM31L0lLnE5LLA8O1ves7Kh1Wob74AQZMEDMc5F_ZYGNYU9G_E042Ew_L_Ts2lkk"

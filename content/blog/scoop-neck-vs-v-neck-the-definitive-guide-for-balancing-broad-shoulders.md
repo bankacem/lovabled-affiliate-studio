@@ -2,7 +2,7 @@
 title: "Scoop Neck vs. V-Neck: The Definitive Guide for Balancing Broad Shoulders"
 slug: "scoop-neck-vs-v-neck-the-definitive-guide-for-balancing-broad-shoulders"
 description: "Having broad shoulders is often considered a \\\"power\\\" trait, yet from a styling perspective, it presents a unique set of challenges. Whether you have an inverted triangle body shape or you’ve simply spent significant time at the gym, the goal isn't usually to \\\"hide\\\" your frame, but rather to harmoniz"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj96jnoI2ckmG7dIEP3QaA8rOkg30pywaqjG6K6XFBmOw1jYA-Z0SNmsFarUutE49C_pE8bfnTahQHC7G2QDClra3_QhKzN81DmQ2QNH1AlCzqRrdKA3-JnRw_uQsClfypS_RtHLvlzVBHcUEHGlkHvti5acbHF8PUVAUdR-aqPqH2eUHMqQ0z9J-_4ydI"

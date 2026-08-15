@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Bulk Orders: Save Money and Scale Your Business"
 slug: "the-ultimate-guide-to-bulk-orders-save-money-and-scale-your-business"
 description: "intent"
-category: "Guide"
+category: "Print on Demand Business"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgT8MkODb-B--UOnX1jQFFJGvke9dTAqEWmjHI_uAk1CEPE2Db5Jgc3pii39d28KAjqgUfJrPXK9iS6Fj1BSUSKG9vnZ2l_DQFPBJfZxZM-J1euBty00TVMfJYI1bLeHLYyUtL4CIE5U1X0KfKG3-yYiY6yezhg8M0O9-CsZn9F5r_ZVBPpIWmjsss6-eA"

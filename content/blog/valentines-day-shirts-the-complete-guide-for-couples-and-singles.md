@@ -2,7 +2,7 @@
 title: "Valentine's Day Shirts: The Complete Guide for Couples and Singles"
 slug: "valentines-day-shirts-the-complete-guide-for-couples-and-singles"
 description: "The ultimate guide to Valentine's Day fashion. Discover matching couple shirts, the best Anti-Valentine designs, and tips for personalized custom orders with fast shipping."
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgKZJazO4MAO0_1R4Tvby7yFmn53iCzJr7tTBaB2508Z2KvBLRpohuZ8XKoFCnsqNut2B8w6sUaXc_HfNfGzmmyZupsaImmry24MYW8O5QEiapVtosgf2oIPLUuEG-ohX67kMn2v74sD912iCNVgf4LFhJAFIm3OXJ5waX5nRidLsKkIWPQNsnwMDsUHGc"

@@ -2,7 +2,7 @@
 title: "The Renaissance of Retro: Why 90s Nostalgia Cartoon Print Apparel is Dominating Modern Streetwear"
 slug: "the-renaissance-of-retro-why-90s-nostalgia-cartoon-print-apparel-is-dominating-modern-streetwear"
 description: "Walk down any metropolitan street today and you’re likely to see a 25-year-old wearing a slightly faded *Rugrats* oversized tee or a high-end hoodie featuring *Ren & Stimpy*. It’s a fascinating phenomenon. We aren't just seeing a passing fad; we are witnessing a deep-seated cultural reclamation. For"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgxEMvHi4qY7RctiDLnGg8bl2Mp9Db7jeXS1vJHaKIWUrFSZD-JO495lTOwdeJ3tY9olc7Ghv8hgtHNirax34FpguwmhZIouPNXJp3-blIEbbR_oZOY0HiagS6hQZkqD-TfD0BTfYF6a_MfX6QK9pRgidn8CCLFVxfztDl_f8NFqG2V9ZPe1psCCJ-dC6M"

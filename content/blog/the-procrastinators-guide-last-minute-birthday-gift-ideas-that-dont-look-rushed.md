@@ -2,7 +2,7 @@
 title: "The Procrastinator’s Guide: Last-Minute Birthday Gift Ideas That Don’t Look Rushed"
 slug: "the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed"
 description: "We have all been there. You wake up, check your calendar, and realize with a jolt of adrenaline that it is your best friend’s or sibling’s birthday. Panic sets in. According to a study by Criteo, nearly 20% of shoppers buy gifts just 24 to 48 hours before an event. You are not alone, but the goal he"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Procrastinator%E2%80%99s%20Guide%3A%20Last-Minute%20Birthday%20Gift%20Ideas%20That%20Don%E2%80%99t%20Look%20Rushed%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1040055793"

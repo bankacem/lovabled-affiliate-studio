@@ -2,7 +2,7 @@
 title: "🐱 Cat Lover Gifts 2026: 77+ Purr-fect Ideas for Feline Fans"
 slug: "cat-lover-gifts-2026-77-purr-fect-ideas-for-feline-fans"
 description: "\"🐱 Cat Lover Gifts 2026: 77+ Purr-fect Ideas for Feline Fans 🎁 Quick Gift Guide"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhxlSjjX87EEJh3oUoEGCnJZMahPA7t-lzKIKFLtkIQZaUBTlxXoQ7ecvnOXSXlRzoubpEmthV-3DV329kaIQls1W5ODfFRmypPPBnp6rMixnJkTMBX4ZJvyVv1JQFAYggPtvh-ClDPwT0IUL_2w3nPkv18eer9pza7k86eSW2NBRXfzpMdL6_D5TmIuA8"

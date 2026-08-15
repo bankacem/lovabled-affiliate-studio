@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Bridesmaid Getting Ready Shirts: Style, Logistics, and What Actually Works"
 slug: "the-ultimate-guide-to-bridesmaid-getting-ready-shirts-style-logistics-and-what-actually-works"
 description: "Walking into a bridal suite on the morning of a wedding, there is a specific kind of organized chaos that only those who have been in the trenches truly understand. Between the scent of hairspray and the clinking of mimosa glasses, the visual aesthetic of the \\\"getting ready\\\" phase has become a corne"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Bridesmaid%20Getting%20Ready%20Shirts%3A%20Style%2C%20Logistics%2C%20and%20What%20Actually%20Works%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=678161083"

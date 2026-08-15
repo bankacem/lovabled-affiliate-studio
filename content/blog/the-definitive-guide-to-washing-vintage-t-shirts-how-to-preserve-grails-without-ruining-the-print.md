@@ -2,7 +2,7 @@
 title: "The Definitive Guide to Washing Vintage T-Shirts: How to Preserve Grails Without Ruining the Print"
 slug: "the-definitive-guide-to-washing-vintage-t-shirts-how-to-preserve-grails-without-ruining-the-print"
 description: "Whether you've just spent $300 on a 1994 Nirvana Heart-Shaped Box tee or you've unearthed a 1980s college raglan from a thrift bin, you aren't just dealing with \\\"old clothes.\\\" You're dealing with degraded organic polymers. Most vintage shirts from the 70s, 80s, and 90s utilize a mix of 50/50 poly-co"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgR6aix0KmVcw8IF54-Q6PXuA_QRyDVfmPPt9tjhlxVq2ofqBCxuHl2t2OBBBPveYLxbaqZAxYYURcDs9-UjSAKt_3ntBHVb73L-2a5CBLG4x5lMun6R54WUIqbAZ3iqjHgSoa3T4KD0m0srUSgweGwR8rT5cMfs4yXGAJt_5S2cNy4rcHr1IjDkiFA658"

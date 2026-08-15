@@ -2,7 +2,7 @@
 title: "Green Threads: Navigating Eco-Friendly Printing Methods for Custom AI-Generated Apparel"
 slug: "green-threads-navigating-eco-friendly-printing-methods-for-custom-ai-generated-apparel"
 description: "We’ve entered a strange and exciting era where a few prompts can generate hyper-realistic, intricate artwork that would have taken a human illustrator weeks to perfect. AI-generated art is exploding in the custom apparel space. But there’s a lurking contradiction: using cutting-edge, futuristic soft"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEg9__ldnOtCTJjBhISdZd6DlKdDXe_5Rm2rDDZh2LskTBiI6_TxcdPWBS3QIbgvrMkS10kY9girrCN1-IedeN9MFHQiFXlhynJ2EwLVS0k9ESK3ibjxEoi5QudZIYBcB1eQQWGhwDYg88ZOaiuqcI00GnnnUmb24apb_7nTpBmtlfQQJGx6PYdNE0-vmws"

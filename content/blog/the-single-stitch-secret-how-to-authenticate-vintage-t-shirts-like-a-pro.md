@@ -2,7 +2,7 @@
 title: "The Single Stitch Secret: How to Authenticate Vintage T-Shirts Like a Pro"
 slug: "the-single-stitch-secret-how-to-authenticate-vintage-t-shirts-like-a-pro"
 description: "If you've spent any time scouring thrift stores or browsing high-end vintage shops on Instagram, you've likely heard the term \\\"single stitch\\\" thrown around like it’s some kind of sacred relic. To the uninitiated, it sounds like technical jargon. To the collector, it’s the difference between a $5 thr"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiE03zUbwWAcaF6g-FyCHTYGHpaZFtHXWZMgKgeOBR-_QLBFlttv9hr1r2Tghfoaa3Qg5jl_NoXN1Zfun-WGM8Z7e4mD7ViXs3uinF7ICBjvZYhbQEp3l7_cNESQDhgeL4A5Y07yOJ9_jY2oKrdQ-4t8FU_wMS0W2YAt_XA5T3VbBZP5LD2kR7lr003AMk"

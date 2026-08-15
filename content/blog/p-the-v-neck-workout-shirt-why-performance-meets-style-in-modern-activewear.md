@@ -2,7 +2,7 @@
 title: "The V-Neck Workout Shirt: Why Performance Meets Style in Modern Activewear"
 slug: "p-the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear"
 description: "For decades, the humble crew neck dominated the gym floor. It was the standard, the \\\"safe\\\" choice, and frankly, a bit boring. But as fitness culture evolved into a lifestyle, the demand for apparel that performs under pressure while looking sharp at a post-workout brunch skyrocketed. Enter the V-nec"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20V-Neck%20Workout%20Shirt%3A%20Why%20Performance%20Meets%20Style%20in%20Modern%20Activewear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=691191724"

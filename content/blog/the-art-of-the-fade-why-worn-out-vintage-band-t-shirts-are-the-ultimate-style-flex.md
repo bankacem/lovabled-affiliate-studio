@@ -2,7 +2,7 @@
 title: "Worn-Out Vintage Band T-Shirts: Why They're Worth It & Where to Find Them"
 slug: "the-art-of-the-fade-why-worn-out-vintage-band-t-shirts-are-the-ultimate-style-flex"
 description: "There is a specific kind of magic in a shirt that looks like it barely survived a 1987 Metallica mosh pit. Walk into any high-end boutique in Soho or West Hollywood, and you’ll see brand-new shirts intentionally riddled with holes and faded to a charcoal grey, retailing for North of $200. It seems c"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjeNhifuuixQ5F50PGzA38BFEY-tTim2D_kRXYZdrSaMf5hphS1MxCmUkVyuVipZuEzFXNrPZGvaJA_B_7FE30AQNAAlpX2jXtb-3lDd0rCXw6Ut0i4_KVYX-EXshE39xwDoCAUmLMIagKbSYG79yus5tjHzO37vyG7ZlIR_71oFlNHEnvB8bTLHThDNSA"

@@ -2,7 +2,7 @@
 title: "25 Unique Gifts for the Person Who Has Everything (2026 Guide)"
 slug: "25-unique-gifts-for-the-person-who-has-everything-2024-guide"
 description: "25 Unique Gifts for the Person Who Has Everything (2026 Guide)"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjw6FLa44ZjUs69fywLAVKmgD8VNZjn2rSSBFH9E8bzs0nLJ8TqjB-jy9nlhGeAncd1uTnll9o6aaZijLswTOaHVsZGVEUa7oxUVdkH9YyyJ-kn8rS-dYQg7drw7u3n9-NILpaIJ_F9B4WYatmJJ_1Td911vt1mQQtju_xMzrd1Cue0Go4WkZOU--cv96g"

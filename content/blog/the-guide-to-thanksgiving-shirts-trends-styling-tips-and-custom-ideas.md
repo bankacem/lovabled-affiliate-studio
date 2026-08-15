@@ -2,7 +2,7 @@
 title: "The Guide to Thanksgiving Shirts: Trends, Styling Tips, and Custom Ideas"
 slug: "the-guide-to-thanksgiving-shirts-trends-styling-tips-and-custom-ideas"
 description: "Thanksgiving is a time for gratitude, family, and, of course, an abundance of food. Over the last decade, the tradition of wearing specific \\\"Thanksgiving shirts\\\" has evolved from a niche hobby into a mainstream holiday staple. Much like the \\\"Ugly Christmas Sweater\\\" phenomenon, Thanksgiving apparel a"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj7VLrvqiUVLRZjMCbGVNxdK5XliyssaMqkIo53I7gNLknV62pZZNhVVr-ylylJL1muZcikYQXsB15MfAPEUZzPHpcam4BxbJIoEjvqABxFTbwM4rNCR7rOTj1U98VpUvGQHinFP4Qo9cSO2x6sUUlmaSKvwaJvb250W-dt0IkmOZLVgSLMl6CP_5AHIX4"

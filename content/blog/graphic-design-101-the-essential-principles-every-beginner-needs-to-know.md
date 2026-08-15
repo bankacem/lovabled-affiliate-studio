@@ -2,7 +2,7 @@
 title: "Graphic Design 101: The Essential Principles Every Beginner Needs to Know"
 slug: "graphic-design-101-the-essential-principles-every-beginner-needs-to-know"
 description: "Graphic Design 101: The Essential Principles Every Beginner Needs to Know"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgxeJ_pjYh6ULqIsdyqf77e49U564E4xlQ6zE5GQwHra468yItC1nF-FGgImdv6o2YntwWPG8BKXKBoMV9GnCR10YN3oZj4E5F9exR9F2Kh3waClVOdMQkLll73AP7N04HyRScRkKIbwNnjGIBP_ptyZne7nedpoD9cOifgKeuxa6OPsdbCnZA-iRC3LSs"

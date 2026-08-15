@@ -2,7 +2,7 @@
 title: "Funny Work From Home Shirts 2026: Best WFH T-Shirts for Remote Workers"
 slug: "the-corporate-camouflage-why-funny-work-from-home-shirts-are-the-new-power-suit"
 description: "Remember the early days of 2020? We all tried so hard. We wore button-downs and blazers, sitting at our kitchen tables like we were about to present to the Board of Directors. But as the months turned into years, something shifted. The \\\"Zoom Shirt\\\"—that solitary crisp garment hanging on the back of "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1586991359975-54500b7d8a86?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxGdW5ueSUyMFdvcmslMjBGcm9tJTIwSG9tZSUyMFNoaXJ0cyUyMDIwMjYlM0ElMjBCZXN0JTIwV0ZIJTIwVC1TaGlydHMlMjBmb3IlMjBSZW1vdGUlMjBXb3JrZXJzJTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyMjZ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

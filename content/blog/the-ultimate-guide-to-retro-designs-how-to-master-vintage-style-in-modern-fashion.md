@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Retro Designs: How to Master Vintage Style in Modern Fashion"
 slug: "the-ultimate-guide-to-retro-designs-how-to-master-vintage-style-in-modern-fashion"
 description: "In the fast-paced world of fashion, the phrase \\\"everything old is new again\\\" isn't just a cliché—it's a business model. Retro design refers to new garments, patterns, and silhouettes that consciously derivative of or imitative of trends from the past. Generally, for a style to be considered \\\"retro,\\\""
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhH5H0Rpf85Nz27GSU6qgU__OTetXKtd8IDlgzp5TItM76wtnliQCVMfSmS1AFotGR_cQkJrFObLEwH18TTBqAl9Y6-2ZYiLRJbjcqx7hXJlNgVHQFWS7DQooCaJxXz5qajCjiqyUZl-fMvUMHOxr7NtyAa4WJy0qja4Ag9KIpgqHTrpkCfNslYTrfwI8g"

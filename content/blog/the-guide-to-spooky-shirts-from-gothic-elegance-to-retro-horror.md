@@ -2,7 +2,7 @@
 title: "The Guide to Spooky Shirts: From Gothic Elegance to Retro Horror"
 slug: "the-guide-to-spooky-shirts-from-gothic-elegance-to-retro-horror"
 description: "What used to be a niche interest reserved for the fringes of the goth subculture and the thirty-one days of October has exploded into a mainstream fashion phenomenon. Spooky shirts have transitioned from simple costume pieces to sophisticated expressions of personal identity. Today, \\\"spooky\\\" encompa"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgapXnlkDRIBlZNe9K7BH6ZfQ-ijhJKLaxUwLVtzJKmcaG5BeLedLRdaEkM9Ns4Hm7ykC6FZolMzffr-1O1a7rCrIAySmmdkigJvLIhs3WssZR3woFUgvVEghPYV0Pw4nue9IoM5SU6ZT2AiSs1Oxavw1Xx-91bYijvxXkXrAXpVMstOT4eu6tD7EKnvv0"

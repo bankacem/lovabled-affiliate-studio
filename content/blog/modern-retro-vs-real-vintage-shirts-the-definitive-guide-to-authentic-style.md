@@ -2,7 +2,7 @@
 title: "Modern Retro vs. Real Vintage Shirts: The Definitive Guide to Authentic Style"
 slug: "modern-retro-vs-real-vintage-shirts-the-definitive-guide-to-authentic-style"
 description: "Walk into any high-street retailer today, and you'll likely see racks of \\\"vintage-inspired\\\" band tees or 70s-style button-downs. But there is a massive distinction between something that looks old and something that has actually survived the decades. In the world of fashion curation, the term vintag"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhkr1-tNnSGgZY-4ftJD0GbkkY5yWKp1qvuoH2rzkNKlRV4bGI8HdQ4JaBGR01qZ-QGt8oR0E9Lq6NPM_9QrpHiaP_s5mjibPQ73I5gWc6tFU0phrS2yCOVdqtAiwpolp4kQ8WnURYoyLoEflJzOUWUYG2B8TJQRWKaVCSBX85eNdphdVjSQ-jijlTxPcM"

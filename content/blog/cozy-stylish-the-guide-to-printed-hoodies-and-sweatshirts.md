@@ -2,7 +2,7 @@
 title: "Cozy & Stylish: The  Guide to Printed Hoodies and Sweatshirts"
 slug: "cozy-stylish-the-guide-to-printed-hoodies-and-sweatshirts"
 description: "Get the best printed hoodies and sweatshirts. Explore styles, fabric quality, and custom printing options for your next order."
-category: "Guide"
+category: "Hoodies & Sweatshirts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjz8Rq8ECId3zfK3GXiVLggymZmXnIrV-96Xb0UBEQEvY77DogpfPrZx9wWoSmI69WXe_xMkQFDCDO3hOD8yLTllQke34L1Be036jkwh0jcGYVRtvox27s4YcbJIOPCQr3Vrp7cC1MiGSywg7X6fIy_SlTnpI45777kYvkJ6OWPDtrJPdB5SgWKqCM6bdw"

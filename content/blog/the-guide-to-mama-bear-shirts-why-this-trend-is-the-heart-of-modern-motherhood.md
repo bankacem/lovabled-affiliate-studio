@@ -2,7 +2,7 @@
 title: "The Guide to Mama Bear Shirts: Why This Trend Is the Heart of Modern Motherhood"
 slug: "the-guide-to-mama-bear-shirts-why-this-trend-is-the-heart-of-modern-motherhood"
 description: "In the animal kingdom, few creatures are as respected—and feared—as a mother bear protecting her cubs. This biological reality has transitioned into a powerful cultural metaphor. The term \\\"Mama Bear\\\" describes a mother who is fiercely protective of her children's well-being, education, and safety."
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiwqeWy3_Or-TY2vjgU8cKLLZfOmfO5L2IeryDD8_DUZdRouBhtnrpN0rHn4awZfxwGeVJtJZOPahURufwvwVb0jnP5HHzE00Va4-DoApYcFe1TZoDXsvXh5FEiPxYSUjaG0MSG9cXzn2u1VHlYx1JXW03d_0heJrIr7aHzkwsWAGQyQhydNWpMoE83RsU"

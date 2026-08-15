@@ -2,7 +2,7 @@
 title: "Mastering the Canvas: How to Accessorize a Plain Black V-Neck for Any Occasion"
 slug: "mastering-the-canvas-how-to-accessorize-a-plain-black-v-neck-for-any-occasion"
 description: "There is a reason why fashion icons from Audrey Hepburn to Victoria Beckham have leaned on the simplicity of a black top. It is the ultimate \\\"null hypothesis\\\" of fashion—a blank slate that demands nothing but offers everything. In my years of consulting on personal styling, I’ve found that the black"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiSvA5StizMSneRUuIz6yrR1nthrSVFnKJXIREbcH31-0OoolSrTj2gADSGM6Pjh4Nm1VRq5Jf2FYeXRLSJF7Z7W24oBqRmHH7qX4ScJ2KxkvzeslKOJp6m7BYzaamQAmL1Ncv6usv1BupUEyALs3CKLGFfSD3nbWE0d7XSkcm2AXBSt0CfFtgdaHD4Yos"

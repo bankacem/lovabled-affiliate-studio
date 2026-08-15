@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to the Best V-Neck T-Shirts for Women with Curvy Figures"
 slug: "the-ultimate-guide-to-the-best-v-neck-t-shirts-for-women-with-curvy-figures"
 description: "Finding the perfect white t-shirt shouldn't feel like a high-stakes scavenger hunt, yet for women with curvy figures, the struggle is visceral. There is a specific geometry involved in dressing a body with a larger bust or wider hips. What most fast-fashion brands fail to realize is that \\\"curvy\\\" isn"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEisi2puonsosfgGbUuzu6HG2xgSHQlhIqyQj8NLB1njMLP1AliYEJ2ruWSLHEUgbwYv0WHs4VmflzKWh3tBcibFXxZUkXR9lbBeENnDZ5m62ypltOnxzxaHO_H-nj9FKfNZIjkM_O_d4Zu14_PFlTB052b6n_xitJTU3b4aoHFMQGevbvX7My-BflBKACo"

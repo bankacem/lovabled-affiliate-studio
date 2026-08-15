@@ -2,7 +2,7 @@
 title: "Funny Dog Shirts for Humans 2026: Best Designs for Dog Lovers"
 slug: "paws-and-punchlines-the-ultimate-guide-to-funny-dog-shirts-for-humans"
 description: "Walking down the street in a shirt that reads \\\"I'm only here to pet the dogs\\\" isn't just a fashion choice; it’s a strategic social signal. For the modern dog parent, apparel has shifted from mere clothing to a form of identity signaling. What's interesting is how these shirts function as immediate \\\""
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Funny%20Dog%20Shirts%20for%20Humans%202026%3A%20Best%20Designs%20for%20Dog%20Lovers%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=631199309"

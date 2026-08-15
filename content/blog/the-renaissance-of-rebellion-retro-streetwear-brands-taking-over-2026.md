@@ -2,7 +2,7 @@
 title: "The Renaissance of Rebellion: Retro Streetwear Brands Taking Over 2026"
 slug: "the-renaissance-of-rebellion-retro-streetwear-brands-taking-over-2026"
 description: "Walking through the fashion districts of Tokyo, London, or New York lately feels like a glitch in the simulation. Everywhere you look, the oversized silhouettes of the 90s and the glossy, tech-heavy textures of the early 2000s have returned, but they aren't carbon copies of the past. What we’re seei"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/A%20premium%20mockup%20photo%20of%20a%20stylish%20t-shirt%20on%20a%20wooden%20hanger%20against%20a%20clean%20minimal%20background.%20The%20t-shirt%20features%20a%20bold%20graphic%20design%20with%20the%20text%20%22The%20Renaissance%20of%20Rebellion%3A%20Retro%20Streetwear%20Brands%20Taking%22%20printed%20on%20the%20front.%20Professional%20product%20photography%2C%20soft%20studio%20lighting%2C%20print-on-demand%20style%2C%20high%20quality%2C%20modern%20aesthetic%2C%204k?width=1200&height=630&model=flux&nologo=true&format=webp"

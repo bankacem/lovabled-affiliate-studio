@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Finding the Perfect Gift for Dad: A Comprehensive Resource"
 slug: "the-ultimate-guide-to-finding-the-perfect-gift-for-dad-a-comprehensive-resource"
 description: "Finding the perfect gift for dad is a challenge that spans generations. Whether it is for Father’s Day, a milestone birthday, or the holiday season, the struggle usually stems from one common phrase: \\\"I don't need anything.\\\""
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhTJfqUtjIDYxfszaEhaUnBMFuYoe4Bab_aQfgzFkRCojvo6xrUGaAvevZTJQJeAEyDc_x5i-YtMe9Lowc4a0XMweUvkj0aI57sTIxTJDVDWVbaGl4hCX1IM84XffxyTEbXPmCnuyiYCrphApQenrWzwz0miYpBYKRKHEPc0oRplTp0mXJc_LJH0-QhbP4"

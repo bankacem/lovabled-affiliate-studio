@@ -2,7 +2,7 @@
 title: "The Guide to Mother's Day Gifts: Thoughtful Ideas for Every Type of Mom"
 slug: "the-guide-to-mothers-day-gifts-thoughtful-ideas-for-every-type-of-mom"
 description: "Mother's Day is more than just a date on the calendar; it is a global celebration of the maternal figures who shape our lives. While the modern iteration of the holiday began in the early 20th century, the tradition of honoring mothers dates back to ancient Greek and Roman festivals. Today, it has e"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhYcPUxJoJqpuYj3kAPNjzpMFY-kK_q5b_5plXsksb9XFYxLXuRL5Rk7mjnG794ggmSqrkMgFsFnT8LmWEDPn8oVfNsy4RNyhVF5r4zHiL79AjB_JuYeFeALHWHnq3QGH_5zVQIWus-N-5HXAI4b3awyVkwkIiDk_e4Nir2PoT7Fa6l45siptez7u-G0FU"

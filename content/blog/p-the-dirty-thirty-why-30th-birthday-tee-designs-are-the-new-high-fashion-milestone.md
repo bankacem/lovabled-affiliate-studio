@@ -2,7 +2,7 @@
 title: "The Dirty Thirty: Why 30th Birthday Tee Designs Are the New High-Fashion Milestone"
 slug: "p-the-dirty-thirty-why-30th-birthday-tee-designs-are-the-new-high-fashion-milestone"
 description: "Turning 30 isn't just another candle on the cake; it’s a cultural rite of passage. In the world of custom apparel, we've seen a massive shift away from the \\\"Over the Hill\\\" black-balloon tropes of the 90s toward what designers call \\\"Empowerment Apparel.\\\" Today’s 30-year-old isn't mourning their youth"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://aiprintverse.com/images/default-blog.jpg"

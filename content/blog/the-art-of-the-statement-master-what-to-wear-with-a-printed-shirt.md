@@ -2,7 +2,7 @@
 title: "What to Wear With a Graphic T-Shirt: Outfit Ideas for Men & Women"
 slug: "the-art-of-the-statement-master-what-to-wear-with-a-printed-shirt"
 description: "Walking into a room wearing a printed shirt is a definitive power move, but it requires a level of finesse that many men find daunting. Whether it’s a bold Hawaiian floral, a sophisticated micro-dot, or a classic vertical stripe, the printed shirt serves as the \\\"hero piece\\\" of your ensemble. The gol"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1566915189815-b72e74007040?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxXaGF0JTIwdG8lMjBXZWFyJTIwV2l0aCUyMGElMjBHcmFwaGljJTIwVC1TaGlydCUzQSUyME91dGZpdCUyMElkZWFzJTIwZm9yJTIwTWVuJTIwJTI2JTIwV29tZW4lMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjIzMXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

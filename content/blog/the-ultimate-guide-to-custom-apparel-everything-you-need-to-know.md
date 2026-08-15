@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Apparel: Everything You Need to Know"
 slug: "the-ultimate-guide-to-custom-apparel-everything-you-need-to-know"
 description: "The Ultimate Guide to Custom Apparel: Everything You Need to Know"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgUFSsoG2xk5I840DPn9E7DHOtMTLKl7GXnCV9XCV94BwaeUjen8CuBglMo3e3i1nvsgo1ybcaqtuSkUs8Vm6jeFmt8HpwiNAzuXJh-hndpWcZnLDaAcB1DRWUcRk4YqfTLTVT1z9j2dhFi8h1W6qPzs2UTl9ryHdICe0_XDOPLMIM0LrF6mPJAi5RQF0E"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Dachshund Shirts: Why Your Weiner Dog Needs a Wardrobe"
 slug: "the-ultimate-guide-to-dachshund-shirts-why-your-weiner-dog-needs-a-wardrobe"
 description: "Living with a Dachshund is a unique experience. Whether you have a \\\"tweenie,\\\" a miniature, or a standard, you know these dogs are essentially 10 pounds of personality packed into a 20-inch body. But beyond the aesthetic appeal of a Doxie in a Hawaiian print, there are legitimate physiological reason"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Dachshund%20Shirts%3A%20Why%20Your%20Weiner%20Dog%20Needs%20a%20Wardrobe%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=2121403453"

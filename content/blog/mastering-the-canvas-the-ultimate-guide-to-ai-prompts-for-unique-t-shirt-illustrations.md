@@ -2,7 +2,7 @@
 title: "Mastering the Canvas: The Ultimate Guide to AI Prompts for Unique T-Shirt Illustrations"
 slug: "mastering-the-canvas-the-ultimate-guide-to-ai-prompts-for-unique-t-shirt-illustrations"
 description: "Gone are the days when you had to spend $500 on a freelance illustrator just to test a niche t-shirt idea. The barrier to entry in the apparel industry hasn't just been lowered; it's practically been dismantled. What's interesting is that while the tools are now widely available, the \\\"skill\\\" has shi"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjafQ8EO__oQaIVHfBk87rKFlbXs4VJkhCx7mtHsQa0zdn_xXQFDGkdO5iVMwxJGbHfvmxFxmk8h2rzD0xMs4IHylvs7tfJiNTkZ2sfUtBwafJGUuZD6K58AJdHo6KcL5kSobUIJiu03BWjkH3BnBg7aHSVmcySNU027fSmAduLVVDBMMC8FhsOUiMO5KU"

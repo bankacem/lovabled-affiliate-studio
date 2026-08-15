@@ -2,7 +2,7 @@
 title: "The Guide to Finding the Perfect Gift for Mom: Ideas for Every Occasion"
 slug: "the-guide-to-finding-the-perfect-gift-for-mom-ideas-for-every-occasion"
 description: "Finding the perfect \\\"gift for mom\\\" isn't just about browsing the top results on a shopping site; it’s about understanding the woman behind the title. To choose a gift that truly resonates, you should first identify her \\\"Love Language\\\"—a concept popularized by Dr. Gary Chapman. Does she value quality"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiWn2-pbJ5a97bzdUc7N-QDZssJ41ZtAilHttWiMeUTmDHncum2N4BpPWH__REQTOMl5S6-QoU9fSOV5ugi8g4av2SZgW17z1_h9b81hUZA1RKwJipWRSdn5iKewV9_5sHcPAb0bVSaRDjf-EPQSX3_nDnNohyAgB0RG-lc-xS4vJECWDBvo4ObIx9AtG8"

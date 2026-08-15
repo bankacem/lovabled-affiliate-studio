@@ -2,7 +2,7 @@
 title: "Funny Birthday Shirt Ideas: The Ultimate Guide to Being the Life of the Party"
 slug: "p-funny-birthday-shirt-ideas-the-ultimate-guide-to-being-the-life-of-the-party"
 description: "Walking into a room wearing a shirt that says \\\"I'm not 50, I'm $49.95 plus tax\\\" does more than just announce a milestone. It sets a social tone. In the world of fashion psychology, \\\"enclothed cognition\\\" suggests that what we wear influences our psychological processes. When a birthday celebrant dons"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://aiprintverse.com/images/default-blog.jpg"

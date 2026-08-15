@@ -2,7 +2,7 @@
 title: "The Foundation of Style: Why the Classic White V-Neck Is Your Wardrobe’s MVP"
 slug: "the-foundation-of-style-why-the-classic-white-v-neck-is-your-wardrobes-mvp"
 description: "Let’s be honest: the fashion industry spends billions of dollars trying to convince us that we need the \\\"next big thing.\\\" But if you peek into the closets of the world’s most effortlessly stylish people, you won’t find a mountain of fast-fashion trends. You’ll find high-quality basics. At the absolu"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiLHc4-zpU69-qpQXeWGcpgMUR6h3nQ4LlTogzsddVRipt0yT0cH9jCULDdr1YQgzGNjsSM8uA9RRd-_SjODjB_IX2iOS9AdmYvxuGviLpbI5fCU1JU7egUxzuPUmECO5AbtNtxu4ENGrDKq-bz-TJWhNu-DnrMbymxnVIwDY4lqvcNuoUtTtI8EF1bItk"

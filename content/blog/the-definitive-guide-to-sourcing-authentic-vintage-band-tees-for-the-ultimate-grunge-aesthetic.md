@@ -2,7 +2,7 @@
 title: "The Definitive Guide to Sourcing Authentic Vintage Band Tees for the Ultimate Grunge Aesthetic"
 slug: "the-definitive-guide-to-sourcing-authentic-vintage-band-tees-for-the-ultimate-grunge-aesthetic"
 description: "Walk into any thrift store in Seattle or Brooklyn today, and you’ll see the ghost of 1991 staring back at you. The grunge aesthetic wasn't originally a \\\"fashion choice\\\"—it was a byproduct of economic necessity and a blatant rejection of the 80s' neon excess. Musicians like Kurt Cobain and Eddie Vedd"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEierKCOhXEu25NKpf_7052-E5egmHad_tx0275hQpI_wpQuAzGJ3Tz1VamBRkAferVRW0GqJQD4WjccaILRUWRI6ugjghhhn5GNDFZ_dTA4sDMan8MIGWkR0XTbsgVaz37Fdg-wjNv25_-iScEvJQmfHpZj_dAcEiwevifiwdRHXuovs82ncSVsPukWVJs"

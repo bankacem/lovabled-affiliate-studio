@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Pet Shirts: Leveraging AI for the Perfect Furry Portrait"
 slug: "the-ultimate-guide-to-custom-pet-shirts-leveraging-ai-for-the-perfect-furry-portrait"
 description: "Pet owners have always been a bit obsessive—and I say that as someone who has more photos of my Golden Retriever on my phone than my actual human relatives. Historically, if you wanted to wear your pet on your sleeve (literally), you were stuck with grainy iron-on transfers or expensive hand-painted"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhm9XTK-X4L8MzFF-IVXqt3zCV4yareFWSWV3bsUMtqQcAQIF1azV7DNoCfdhRYHoCeE3TDCfC-cpOMugc6A37kE09tHOb6YN6wHWKuSeoWNawmzZqL3rC2bnobXcR7GFhWddMAffAm008P_0xwTeE0fekGhuZp6edMzzSdWRJoeCrFEBoLp7WySDiXgA/s779/1000024303.jpg"

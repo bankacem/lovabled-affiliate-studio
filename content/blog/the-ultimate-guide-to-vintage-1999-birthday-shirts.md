@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Vintage 1999 Birthday Shirts"
 slug: "the-ultimate-guide-to-vintage-1999-birthday-shirts"
 description: "Discover the best vintage 1999 birthday shirts for celebrating your special milestone."
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Content Team"
 image: "https://image.pollinations.ai/prompt/Professional%20blog%20featured%20image%20for%20article%20titled%3A%20%22The%20Ultimate%20Guide%20to%20Vintage%201999%20Birthday%20Shirts%22.%20Shop%20the%20best%20vintage%201999%20birthday%20shirts.%20Perfect%20for%20celebrating%20your%2027th%20birthday%20with%20style..%20Style%3A%20clean%2C%20modern%2C%20editorial%20photography%2C%20web%20optimized?width=1200&height=630&model=flux&nologo=true&format=webp"

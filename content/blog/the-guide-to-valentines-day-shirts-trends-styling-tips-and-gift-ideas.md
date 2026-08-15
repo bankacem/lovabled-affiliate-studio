@@ -2,7 +2,7 @@
 title: "The Guide to Valentine's Day Shirts: Trends, Styling Tips, and Gift Ideas"
 slug: "the-guide-to-valentines-day-shirts-trends-styling-tips-and-gift-ideas"
 description: "Valentine’s Day is no longer just about candlelit dinners and boxes of chocolates. Over the last decade, it has transformed into a lifestyle event where personal expression through fashion plays a significant role. Whether you are celebrating romantic love, \\\"Galentine’s\\\" with your best friends, or s"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj2ChH1HKJMlKmA36LKVs3EgtfJj08eXgT0kSLx4ENYxMB5x6aw1oI0RoMhhBxHunr6KLx8Yk0lsCiHJSl3JjSStFMvU51ZLsseGa12N0UyYUqUbdxyosqfnmbSWm0njol-7HoHnf9_pvPuYhsjY334Jh8QdQfFmODygn6qGaHqWGdm3kF9UsUc5fGH3RI"

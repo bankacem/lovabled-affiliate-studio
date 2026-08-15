@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Rescue Dog Shirts: Why What You Wear Matters for Shelter Pets"
 slug: "the-ultimate-guide-to-rescue-dog-shirts-why-what-you-wear-matters-for-shelter-pets"
 description: "Walking down a busy street wearing a shirt that says \\\"Adopt, Don't Shop\\\" might seem like a small gesture, but the psychology behind it is surprisingly powerful. In the marketing world, we call this \\\"social proof.\\\" When people see others proudly supporting animal rescue, it normalizes the behavior an"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Rescue%20Dog%20Shirts%3A%20Why%20What%20You%20Wear%20Matters%20for%20Shelter%20Pets%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=666687133"

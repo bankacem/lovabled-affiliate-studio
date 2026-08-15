@@ -2,7 +2,7 @@
 title: "The Guide to 40th Birthday Shirts: Trends, Design Tips, and Celebration Ideas"
 slug: "the-guide-to-40th-birthday-shirts-trends-design-tips-and-celebration-ideas"
 description: "Turning 40 is often described as the \\\"Lordy, Lordy, look who’s 40\\\" moment, but in the modern era, it has become a celebration of reaching one's \\\"Prime Time.\\\" No longer seen as the start of the decline, the 40th birthday is a milestone of confidence, achievement, and style. One of the most prominent "
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjCtgdTHqC1g42BXEZgYkBvhkughZImwNP3gs-TaTI5WsedVrWHyonV_tDYdfR00UfOhYNZpxBrY9cB9v4he30O5To5u0KpyW-HRV3HzcLNZeyHCMx6qTbr8zhGGZkPpigvle8rKBmgmEu-HVfpcwDIIJJfTzBXU939myd8y-vJJo-iD30icAY6sFx38d4"

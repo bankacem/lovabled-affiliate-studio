@@ -2,7 +2,7 @@
 title: "The Definitive Guide to Identifying Vintage 90s T-Shirt Tags: Spotting the Grails"
 slug: "the-definitive-guide-to-identifying-vintage-90s-t-shirt-tags-spotting-the-grails"
 description: "Walking through a thrift store and spotting a faded graphic is a rush, but the real moment of truth happens at the neckline. In the vintage world, the tag is essentially the \\\"birth certificate\\\" of the garment. If you're hunting for pieces from the 1990s—a decade defined by the explosion of streetwea"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgHh6g05Rlj0y4rFZkcrC5ueoQlKTG1fh_d9Q89yj3ms9Gf6kuU0Hboa3NUbwar9Igj6psxyL1x8RPU8UggEglTAH-IMhCzuiFcnF6Vg-cWpj-6w0azFtR_ZsfJL0-O_kS0EmbdEjplmKhpvSIrfSvtBnreSxwRABqSKUwTL6uxsFK3g3cWOoVNMqxPpGQ"

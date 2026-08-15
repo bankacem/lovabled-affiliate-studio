@@ -2,7 +2,7 @@
 title: "The Guide to Pumpkin Shirts: From Halloween Classics to Autumn Chic"
 slug: "the-guide-to-pumpkin-shirts-from-halloween-classics-to-autumn-chic"
 description: "The pumpkin is the undisputed mascot of autumn. While its roots lie in ancient harvest festivals, the \\\"pumpkin shirt\\\" as a fashion category has seen a meteoric rise over the last two decades. What started as a simple orange t-shirt with two triangles and a jagged mouth—a \\\"lazy\\\" Halloween costume—has"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjPQVymEewPx01IsMD1De3ZZJL0lQqeypaDyMumTohTr7B_EzczbgvQy4Ncejjrlpv75T6HFHEvuCCG0_Z9C24MMQuWNHQDQW5wIUck60EvJYvQLAFzVV-_DbHuq2KU6Lne_RS1pv_5BlGcYUPfE-GPgGvjRzp_jJhf4TBSC2hTQCTwEBlpkYGHORxOSYk"

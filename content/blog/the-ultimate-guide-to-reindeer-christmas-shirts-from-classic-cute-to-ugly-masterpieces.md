@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Reindeer Christmas Shirts: From Classic Cute to \"Ugly\" Masterpieces"
 slug: "the-ultimate-guide-to-reindeer-christmas-shirts-from-classic-cute-to-ugly-masterpieces"
 description: "Let’s be honest for a second. Santa gets all the credit, and the elves do all the heavy lifting in the workshop, but the reindeer? They’re the ones with the style. There’s something timeless about a reindeer silhouette that just screams \\\"holiday spirit\\\" without being quite as over-the-top as a giant"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEi9j7uUYmDJbD9UdYLNOPWyhUiaCwZzF7kRxobSFkdFUdUc6i3_O9VYQQEmS7TNI7dWiG-tiwFI7HD9zE7ljzeVocv1UhvvuiSFFURm_KGbbkOT0CCoY6DRhhjtpXRnvLUmb88c9mgqb3cH5liKpvJbHqiO_HvH--vRB-vIl9MSsJUjxci7yJwv1106THg"

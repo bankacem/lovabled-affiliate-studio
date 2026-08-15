@@ -2,7 +2,7 @@
 title: "The Definitive Vintage T-Shirt Grading Guide: How to Value Your Grails"
 slug: "p-the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails"
 description: "Walking into a flea market or scrolling through a high-end vintage app can be overwhelming. You see a 1994 Pink Floyd shirt for $300 and another for $50. Why the discrepancy? It almost always boils down to grading. In the world of vintage apparel, grading isn't just about how \\\"clean\\\" a shirt looks; "
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Definitive%20Vintage%20T-Shirt%20Grading%20Guide%3A%20How%20to%20Value%20Your%20Grails%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=820553262"

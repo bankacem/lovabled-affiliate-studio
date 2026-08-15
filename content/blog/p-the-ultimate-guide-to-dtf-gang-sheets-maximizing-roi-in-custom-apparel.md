@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to DTF Gang Sheets: Maximizing ROI in Custom Apparel"
 slug: "p-the-ultimate-guide-to-dtf-gang-sheets-maximizing-roi-in-custom-apparel"
 description: "Walk into any modern garment decoration shop today, and you’ll likely hear the rhythmic hum of a DTF printer. Direct-to-Film (DTF) has fundamentally disrupted the industry, bridging the gap between the high-volume efficiency of screen printing and the intricate detail of Direct-to-Garment (DTG). But"
-category: "Guide"
+category: "Printing Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20DTF%20Gang%20Sheets%3A%20Maximizing%20ROI%20in%20Custom%20Apparel%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=601787894"

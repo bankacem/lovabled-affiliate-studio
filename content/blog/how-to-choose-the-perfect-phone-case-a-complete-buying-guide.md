@@ -2,7 +2,7 @@
 title: "How to Choose the Perfect Phone Case: A Complete Buying Guide"
 slug: "how-to-choose-the-perfect-phone-case-a-complete-buying-guide"
 description: "\\\"search intent\\\""
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhk4SUxj2WgvpJ625c0uIyqh0FcArXAtzw472icRHuBw0ZLiInEGlXpdG99n_bsxkEq2jv8Brq4g5cofdP14yzzTpBKW_vPWy6HL131nkYPyBD9R67ylpaZSNdmWADdtso0LTO6U9AhmVX6g66iUwtaKkNhNnWQMrErYlcNIaxGtXQXl41S7y0MlQmWIcA"

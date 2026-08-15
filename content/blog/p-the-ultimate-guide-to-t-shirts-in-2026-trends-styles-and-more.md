@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to T Shirts in 2026: Trends, Styles, and More"
 slug: "p-the-ultimate-guide-to-t-shirts-in-2026-trends-styles-and-more"
 description: "In this article, we'll استكشاف تفاصيل the world of T shirts in 2026, exploring the latest trends, popular styles, and what to expect from top brands. Whether you're a fashion enthusiast or just looking for a comfortable tee, this guide has got you covered."
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20T%20Shirts%20in%202026%3A%20Trends%2C%20Styles%2C%20and%20More%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=2124745899"

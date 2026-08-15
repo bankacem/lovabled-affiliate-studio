@@ -2,7 +2,7 @@
 title: "The Ultimate Style Guide: 10 Fresh Ways to Wear Graphic Tees in 2026"
 slug: "the-ultimate-style-guide-10-fresh-ways-to-wear-graphic-tees-in-2026"
 description: "The Ultimate Style Guide: 10 Fresh Ways to Wear Graphic Tees in 2026"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgFYsmfZH_765V4QIdteFyGk4MEOox1qJCrucPwdlykF9aTUzGUDwEczJPdxtY2DM8OyUi_xybVkDFOtcHqJFpI-HUpQFJLXtN1mvIcAnX0SHCVEa6BNQCZrZrt_9EqKHxj60h5Idu1lYfWhiQHuE7jEWHEF76E7fX9R-TrZm-mASD-v7itwRH6g9Ii3MM"

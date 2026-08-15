@@ -2,7 +2,7 @@
 title: "Honoring a Lifetime of Loyalty: The Ultimate Guide to Personalized Pet Memorial Gifts"
 slug: "honoring-a-lifetime-of-loyalty-the-ultimate-guide-to-personalized-pet-memorial-gifts"
 description: "Losing a pet isn't just \\\"losing a dog\\\" or \\\"losing a cat.\\\" For many of us, it’s the loss of a family member who provided unconditional love without the complexities of human relationships. According to a study published in Society & Animals, the grief experienced after the death of a pet can be just "
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Honoring%20a%20Lifetime%20of%20Loyalty%3A%20The%20Ultimate%20Guide%20to%20Personalized%20Pet%20Memorial%20Gifts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1203759396"

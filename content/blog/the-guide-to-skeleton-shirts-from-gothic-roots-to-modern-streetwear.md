@@ -2,7 +2,7 @@
 title: "The Guide to Skeleton Shirts: From Gothic Roots to Modern Streetwear"
 slug: "the-guide-to-skeleton-shirts-from-gothic-roots-to-modern-streetwear"
 description: "The skeleton is one of the most enduring symbols in human history. Long before it became a popular graphic on a cotton t-shirt, the \\\"memento mori\\\" (remember you must die) philosophy used skeletal imagery to remind people of their mortality. In the Middle Ages, the Danse Macabre or \\\"Dance of Death\\\" d"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjjHBr9X_GZB_BjBHsld_uGiCBWDDJfIMo2nZDQq-0ntE0_y2se9OwXXSHyUhzgtriLd4deq-80htvh-R4kN8WnkLDKgUUZNWsiSn1wG815JiudUKe1qdBNC6Qme6tOCU44XLdNEw-JF1O7_5v58_tCin8m_b8o_v0-KqCIMkH5znEfHB9PuneUXBDsiiw"

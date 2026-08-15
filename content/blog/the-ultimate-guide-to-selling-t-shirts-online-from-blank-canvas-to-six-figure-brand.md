@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Selling T-Shirts Online: From Blank Canvas to Six-Figure Brand"
 slug: "the-ultimate-guide-to-selling-t-shirts-online-from-blank-canvas-to-six-figure-brand"
 description: "Let’s get one thing out of the way: the market is crowded. If you walk into this thinking a basic \\\"I Love Dogs\\\" shirt will fund your retirement, you’re in for a reality check. However, despite the saturation, the custom apparel industry is booming. According to Grand View Research, the market is exp"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Selling%20T-Shirts%20Online%3A%20From%20Blank%20Canvas%20to%20Six-Figure%20Brand%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1601117149"

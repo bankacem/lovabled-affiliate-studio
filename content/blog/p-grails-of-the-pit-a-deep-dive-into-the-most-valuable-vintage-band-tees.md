@@ -2,7 +2,7 @@
 title: "Most Valuable Vintage Band T-Shirts: Prices & What to Look For"
 slug: "p-grails-of-the-pit-a-deep-dive-into-the-most-valuable-vintage-band-tees"
 description: "Walking through a flea market a decade ago, you might have snagged a thrashed 1992 Nirvana \\\"Sliver\\\" shirt for twenty bucks. Today? That same piece of cotton could easily net you $2,000 or more. The vintage band tee market has transitioned from a subculture obsession into a high-stakes investment are"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1586583903558-bf4ae02b9f29?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxNb3N0JTIwVmFsdWFibGUlMjBWaW50YWdlJTIwQmFuZCUyMFQtU2hpcnRzJTNBJTIwUHJpY2VzJTIwJTI2JTIwV2hhdCUyMHRvJTIwTG9vayUyMEZvciUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjEwfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

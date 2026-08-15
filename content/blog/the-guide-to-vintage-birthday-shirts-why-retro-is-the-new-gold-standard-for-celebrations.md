@@ -2,7 +2,7 @@
 title: "The Guide to Vintage Birthday Shirts: Why Retro is the New Gold Standard for Celebrations"
 slug: "the-guide-to-vintage-birthday-shirts-why-retro-is-the-new-gold-standard-for-celebrations"
 description: "There is something inherently comforting about a shirt that looks like it has survived three decades of wash cycles and rock concerts. In an era dominated by fast fashion and fleeting digital trends, the \\\"vintage birthday shirt\\\" has carved out a massive niche. But why? Is it just irony, or is there "
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEipvuIoOJUJAzRE74U7qrdK6kqwt2wogIS-dkdUq9igKMAJm9Hst9JpY0cvvHDplITkjzEvCYO-KpPJXj1Rh7BUVkxNi-EooEz_3lBjU6fb8rzyE3lfs4lpa5mZAxrpSWljIk55c3c3jB8bKwMNllegIhKA9x4hs9TAvxjvschiyjZyi1BiWM4I3mpqg2w"

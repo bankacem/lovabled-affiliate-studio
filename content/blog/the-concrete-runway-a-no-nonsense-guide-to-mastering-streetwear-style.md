@@ -2,7 +2,7 @@
 title: "How to Dress Streetwear Style: Complete Beginner's Guide 2026"
 slug: "the-concrete-runway-a-no-nonsense-guide-to-mastering-streetwear-style"
 description: "Walk down any metropolitan street today, and you'll see it: the oversized graphic tees, the technical joggers, and the ubiquitous sneakers. But here is the thing about streetwear—if you treat it merely as a \\\"trend,\\\" you've already missed the point. Born from the intersection of 1980s New York hip-ho"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1597956562248-e4a13e912a03?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxIb3clMjB0byUyMERyZXNzJTIwU3RyZWV0d2VhciUyMFN0eWxlJTNBJTIwQ29tcGxldGUlMjBCZWdpbm5lciUyN3MlMjBHdWlkZSUyMDIwMjYlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjIyOXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

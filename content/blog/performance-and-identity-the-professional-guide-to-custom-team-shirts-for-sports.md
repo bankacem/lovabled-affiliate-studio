@@ -2,7 +2,7 @@
 title: "Custom Team Sports Shirts: How to Design & Order in Bulk"
 slug: "performance-and-identity-the-professional-guide-to-custom-team-shirts-for-sports"
 description: "Step onto any field, court, or pitch, and the first thing you notice isn't the skill level—it's the visual presence. There is a deep-seated psychological shift that occurs when an athlete pulls on a custom team shirt. It isn't merely about aesthetics; it's about the transition from individual to uni"
-category: "Guide"
+category: "Print on Demand Business"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1698224788579-1611962f57bf?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxDdXN0b20lMjBUZWFtJTIwU3BvcnRzJTIwU2hpcnRzJTNBJTIwSG93JTIwdG8lMjBEZXNpZ24lMjAlMjYlMjBPcmRlciUyMGluJTIwQnVsayUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjE4fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

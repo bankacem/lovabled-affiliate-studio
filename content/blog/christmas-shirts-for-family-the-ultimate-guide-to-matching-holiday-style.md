@@ -2,7 +2,7 @@
 title: "Christmas Shirts for Family: The Ultimate Guide to Matching Holiday Style"
 slug: "christmas-shirts-for-family-the-ultimate-guide-to-matching-holiday-style"
 description: "Christmas is more than just a day on the calendar; it is a season defined by traditions, warmth, and togetherness. In recent years, one specific trend has taken the holiday world by storm: matching Christmas shirts for the family. What started as a niche novelty has evolved into a cornerstone of the"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgazAJdw9Sg-841vkgmwv25JOFhaSz17_JLWYy5J4jcl4zftaNLdGPO_Fw9DpC8rssQYuNh-tmRRsMNqGLA0Nm7NEdJn-UdNXvFwyb-LfbqADagg-mIqbP7w9DbQmZXXDstrCxJMQg86H2vMtqaj5zJT0cSLlh5M-E5nz8cpHzQZ1zUmTbVUrWZATp2OqY"

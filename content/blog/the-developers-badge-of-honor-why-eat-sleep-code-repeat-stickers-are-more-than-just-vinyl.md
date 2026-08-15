@@ -2,7 +2,7 @@
 title: "The Developer’s Badge of Honor: Why \"Eat Sleep Code Repeat\" Stickers Are More Than Just Vinyl"
 slug: "the-developers-badge-of-honor-why-eat-sleep-code-repeat-stickers-are-more-than-just-vinyl"
 description: "Walk into any tech hub from San Francisco to Berlin, and you’ll see them: silver MacBooks and matte-black ThinkPads covered in layers of adhesive art. Among the logos for Kubernetes, GitHub, and React, one phrase consistently stands out: Eat Sleep Code Repeat. While it might seem like a simple desig"
-category: "Guide"
+category: "Stickers"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Developer%E2%80%99s%20Badge%20of%20Honor%3A%20Why%20Eat%20Sleep%20Code%20Repeat%20Stickers%20Are%20More%20Than%20Just%20Vinyl%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=211833884"

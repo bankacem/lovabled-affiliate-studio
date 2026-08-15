@@ -2,7 +2,7 @@
 title: "The Definitive Guide to the Bella Canvas 3001: Why It’s the Gold Standard for Custom Apparel"
 slug: "p-the-definitive-guide-to-the-bella-canvas-3001-why-its-the-gold-standard-for-custom-apparel"
 description: "Walk into any high-end boutique or scroll through a successful merch shop, and you’re likely staring at a Bella Canvas 3001. It’s the shirt that effectively ended the \\\"heavyweight, boxy t-shirt\\\" era of the 90s. Often referred to as the Unisex Jersey Short Sleeve Tee, this garment was designed to bri"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Definitive%20Guide%20to%20the%20Bella%20Canvas%203001%3A%20Why%20It%E2%80%99s%20the%20Gold%20Standard%20for%20Custom%20Apparel%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1252289934"

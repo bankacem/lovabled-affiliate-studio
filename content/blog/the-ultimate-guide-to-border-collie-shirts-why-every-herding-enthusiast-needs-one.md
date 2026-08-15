@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Border Collie Shirts: Why Every Herding Enthusiast Needs One"
 slug: "the-ultimate-guide-to-border-collie-shirts-why-every-herding-enthusiast-needs-one"
 description: "There is a specific kind of intensity that comes with owning a Border Collie. Often cited as the most intelligent dog breed in the world by canine psychologists like Stanley Coren, these dogs demand a lifestyle built on activity, mental stimulation, and a very peculiar brand of \\\"the stare.\\\" It’s no "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Border%20Collie%20Shirts%3A%20Why%20Every%20Herding%20Enthusiast%20Needs%20One%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=391481847"

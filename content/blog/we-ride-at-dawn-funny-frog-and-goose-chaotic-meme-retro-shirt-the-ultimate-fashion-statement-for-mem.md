@@ -2,7 +2,7 @@
 title: "We Ride at Dawn Funny Frog and Goose - Chaotic Meme Retro Shirt: The Ultimate Fashion Statement for Meme Lovers"
 slug: "we-ride-at-dawn-funny-frog-and-goose-chaotic-meme-retro-shirt-the-ultimate-fashion-statement-for-mem"
 description: "Are you ready to take your wardrobe to the next level with a dash of humor and a pinch of nostalgia? Look no further than the We Ride at Dawn Funny Frog and Goo"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056173059.3517/sh,small,845x845-pad,1000x1000,f8f8f8.jpg"

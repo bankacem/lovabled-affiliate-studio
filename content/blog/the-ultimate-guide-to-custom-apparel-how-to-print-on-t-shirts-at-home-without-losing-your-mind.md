@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Apparel: How to Print on T-Shirts at Home Without Losing Your Mind"
 slug: "the-ultimate-guide-to-custom-apparel-how-to-print-on-t-shirts-at-home-without-losing-your-mind"
 description: "Walking through a crowded street, you’ve likely seen someone wearing a shirt so specific, so niche, that you knew immediately it wasn't bought at a big-box retailer. Custom apparel is no longer the exclusive domain of commercial print shops with $50,000 machines. In fact, the global custom t-shirt p"
-category: "Guide"
+category: "Printing Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Custom%20Apparel%3A%20How%20to%20Print%20on%20T-Shirts%20at%20Home%20Without%20Losing%20Your%20Mind%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1640302557"

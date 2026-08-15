@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Family Squad Shirts: From Cringe to Cool in 2024"
 slug: "p-the-ultimate-guide-to-family-squad-shirts-from-cringe-to-cool-in-2024"
 description: "Walk into any major airport or theme park, and you'll see them: \\\"The Miller Family Vacation 2024\\\" or \\\"Birthday Squad\\\" emblazoned across a dozen chests. While some onlookers might chuckle, there’s a fascinating psychological reason behind the phenomenon. Humans possess an inherent \\\"tribal\\\" instinct. "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Family%20Squad%20Shirts%3A%20From%20Cringe%20to%20Cool%20in%202024%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1001403117"

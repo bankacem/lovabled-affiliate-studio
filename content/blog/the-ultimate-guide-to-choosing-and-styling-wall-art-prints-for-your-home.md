@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Choosing and Styling Wall Art Prints for Your Home"
 slug: "the-ultimate-guide-to-choosing-and-styling-wall-art-prints-for-your-home"
 description: "search intent"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgAG-cdBx_GMptSCh7oPUEOn3hLAHVz5QemcaDf79i0I7OSmADqfpUeEh_V6KBvlbErnNpg4YJNmdgNaHw9SB8weAID1UTRmPgwBJFfAeXhex-Pq7Xdn_DvETw9HpoAXFtoE4CIiWChbZZ85D7PaAJ-LOMNfohidkA3I9S4ilyQP3Or1d0yTJeUlYVuOhY"

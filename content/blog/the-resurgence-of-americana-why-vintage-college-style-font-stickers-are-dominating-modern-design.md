@@ -2,7 +2,7 @@
 title: "Vintage College Style Stickers 2026: Best Americana Font Designs"
 slug: "the-resurgence-of-americana-why-vintage-college-style-font-stickers-are-dominating-modern-design"
 description: "Walk into any local coffee shop or co-working space, and you’ll likely spot a MacBook or a Yeti tumbler adorned with bold, blocky letters. There is something fundamentally comforting about the vintage collegiate font. It’s not just about school spirit anymore; it’s about a specific brand of American"
-category: "Guide"
+category: "Stickers"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEguNUs16M2VUOiZajy_Vo0HpsWVxGFenlTzBssU7GSJw4aJvQY5jY4f4zrfv0kN5ZQszTyZQ59SIWY6LqezwMpz-_IRO8L3CjhG7zDvos-9nRVjorrsZbwXdkds6BuaWT-RalyGIqUbkDWTQ0uosvh2oOyvDx-x_kBAq_-eeGJvtOUY36Zv4LWvfr0Ic5E"

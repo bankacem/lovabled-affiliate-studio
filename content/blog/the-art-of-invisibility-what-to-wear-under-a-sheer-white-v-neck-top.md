@@ -2,7 +2,7 @@
 title: "What to Wear Under a Sheer White V-Neck Top: Best Layering Options"
 slug: "the-art-of-invisibility-what-to-wear-under-a-sheer-white-v-neck-top"
 description: "We have all been there. You find the perfect, airy, white linen V-neck. It feels like a dream, but the moment you step into natural light, you realize your choice of undergarments is on full display. White fabric—especially when it is thin or sheer—doesn't act as a shield; it acts as a lens. "
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiAEhM4QJ4w2cJC83pFkKB6j89tPFK6-RyhfgKF5SirkgbLmS0ytwWuXEe9JSa7cgHumxGrmj-5oIkhEUNHhjte6KH8u0fop0L9QEHD3ziYRAnE2Qk7EL1E3ce-jzzY4FcrGA5bimXtLlq9deONWiDDgoQpTE0YkSdMX7cMH8LxfDltmo5L3rR82Q8Dsms"

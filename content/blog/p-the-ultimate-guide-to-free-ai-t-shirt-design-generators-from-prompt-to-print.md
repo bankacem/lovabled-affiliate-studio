@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Free AI T-Shirt Design Generators: From Prompt to Print"
 slug: "p-the-ultimate-guide-to-free-ai-t-shirt-design-generators-from-prompt-to-print"
 description: "Ten years ago, starting a t-shirt brand required either a degree in Graphic Design or a significant budget to hire a freelancer. You’d spend weeks iterating on a single concept, dealing with back-and-forth emails and revisions. Today, the landscape has shifted dramatically. With the emergence of gen"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Free%20AI%20T-Shirt%20Design%20Generators%3A%20From%20Prompt%20to%20Print%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=899043410"

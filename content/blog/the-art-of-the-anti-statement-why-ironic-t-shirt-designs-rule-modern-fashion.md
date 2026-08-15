@@ -2,7 +2,7 @@
 title: "Best Ironic T-Shirt Designs 2026: Funny & Sarcastic Styles"
 slug: "the-art-of-the-anti-statement-why-ironic-t-shirt-designs-rule-modern-fashion"
 description: "Walk into any dive bar in Brooklyn or a tech hub in Austin, and you’ll inevitably spot someone wearing a shirt that makes absolutely no sense. Perhaps it’s a heavy metal font spelling out \\\"Taylor Swift,\\\" or a high-definition photo of a rotisserie chicken with the caption \\\"Graphic Design is My Passio"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1553474432-4202a2d5f6b8?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxCZXN0JTIwSXJvbmljJTIwVC1TaGlydCUyMERlc2lnbnMlMjAyMDI2JTNBJTIwRnVubnklMjAlMjYlMjBTYXJjYXN0aWMlMjBTdHlsZXMlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjIyNHww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

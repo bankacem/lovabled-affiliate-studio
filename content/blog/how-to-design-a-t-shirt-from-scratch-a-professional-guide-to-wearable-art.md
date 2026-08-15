@@ -2,7 +2,7 @@
 title: "How to Design a T-Shirt From Scratch: A Professional Guide to Wearable Art"
 slug: "how-to-design-a-t-shirt-from-scratch-a-professional-guide-to-wearable-art"
 description: "Designing a t-shirt is fundamentally different from designing for a screen or a flat piece of paper. You are creating art for a moving, three-dimensional canvas that undergoes stretching, washing, and folding. What looks stunning on a 27-inch monitor can easily look like a cluttered mess when printe"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22How%20to%20Design%20a%20T-Shirt%20From%20Scratch%3A%20A%20Professional%20Guide%20to%20Wearable%20Art%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=375412996"

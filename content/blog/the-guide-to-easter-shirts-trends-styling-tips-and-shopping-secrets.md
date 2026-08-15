@@ -2,7 +2,7 @@
 title: "The Guide to Easter Shirts: Trends, Styling Tips, and Shopping Secrets"
 slug: "the-guide-to-easter-shirts-trends-styling-tips-and-shopping-secrets"
 description: "Easter is more than just a religious holiday; it is a cultural celebration of rebirth, the arrival of warmer weather, and a time for families to gather. One of the most visible ways we celebrate this transition is through our wardrobe. Easter shirts play a pivotal role in this seasonal shift, moving"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgBDfupycaoRZuq-fqA5ifeLzu0oqEcUSC_aUbnSPKKlkACCN248Fz3Eu2M5StId6erfOqcc1Lisg0wwb924X6b6qiv1Id7NWZv_jqpHUPob4Xbb718oL4lXsaNPXwPNr4A5aI1dMZ8DfGQtqmRu2mwGfrZ0HFMv6cJpXJ5rij5o5bF7CA5UGnFgEDRC9k"

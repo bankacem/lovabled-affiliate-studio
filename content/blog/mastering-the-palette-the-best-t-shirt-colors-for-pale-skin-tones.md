@@ -2,7 +2,7 @@
 title: "Mastering the Palette: The Best T-Shirt Colors for Pale Skin Tones"
 slug: "mastering-the-palette-the-best-t-shirt-colors-for-pale-skin-tones"
 description: "We’ve all been there. You see a vibrant t-shirt on a mannequin, buy it, put it on at home, and suddenly look like you haven't slept in three weeks. Why does that happen? It isn't just because you're \\\"pale.\\\" It's because the color of the garment is clashing with your undertone."
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhyxyNtnAaIfTftDcisiQgRU3fTy87Vcgkvl3Ijp6Jtka68_WS-OlSM53hLYSGQ-vShv4zfSwTH1b7ZQUdjaeLUeR1D2ARQx8bL_icd4amchClY5u6NkHT6VIgx_tEOrG6FSZOKq9JMlHHwqkHhsp4RzcYb5rbaM2VBSqz9Apzh4eyy2wpSUx8m6d6BetQ"

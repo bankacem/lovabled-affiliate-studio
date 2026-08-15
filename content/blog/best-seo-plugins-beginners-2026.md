@@ -2,7 +2,7 @@
 title: "أفضل إضافات SEO للمبتدئين في 2026: دليل شامل لمضاعفة زوار موقعك"
 slug: "best-seo-plugins-beginners-2026"
 description: "قارن بين أفضل إضافات SEO لعام 2026 (Rank Math, Yoast SEO, SEOPress). دليل عملي للمبتدئين لتثبيت الإضافات وتصدر نتائج البحث وجلب زوار مستهدفين."
-category: "Listicle + Guide"
+category: "SEO & Marketing"
 tags: []
 author: "فريق كتابة AIPrintVerse"
 image: "https://aiprintverse.com/images/seo-plugins-guide-2026.jpg"

@@ -2,7 +2,7 @@
 title: "Tattoo Flash Art T-Shirts 2026: Old School Style Designs & Where to Buy"
 slug: "the-resurgence-of-the-old-school-tattoo-flash-art-shirt-why-heritage-design-is-dominating-modern-str"
 description: "Long before Instagram feeds were filled with minimalist fine-line tattoos, the walls of tattoo parlors were covered in \\\"flash.\\\" These hand-painted sheets of paper offered sailors and soldiers a menu of designs they could get on the fly—hence the name. It was a utilitarian way to handle high volume i"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1521308452854-e037c0062a1e?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUYXR0b28lMjBGbGFzaCUyMEFydCUyMFQtU2hpcnRzJTIwMjAyNiUzQSUyME9sZCUyMFNjaG9vbCUyMFN0eWxlJTIwRGVzaWducyUyMCUyNiUyMFdoZXJlJTIwdG8lMjBCdXklMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI0MXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

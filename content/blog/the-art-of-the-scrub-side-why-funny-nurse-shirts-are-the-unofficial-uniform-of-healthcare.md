@@ -2,7 +2,7 @@
 title: "Funny Nurse Shirts 2026: Best Scrub-Style Tees for Healthcare Workers"
 slug: "the-art-of-the-scrub-side-why-funny-nurse-shirts-are-the-unofficial-uniform-of-healthcare"
 description: "Nursing isn't just a profession; it’s an endurance sport played out in fluorescent-lit hallways. When you're managing a crashing patient in Room 4 while simultaneously fielding calls from the pharmacy, sometimes the only thing keeping you sane is a well-placed joke. It’s no surprise that the \\\"funny "
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Funny%20Nurse%20Shirts%202026%3A%20Best%20Scrub-Style%20Tees%20for%20Healthcare%20Workers%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=2019245885"

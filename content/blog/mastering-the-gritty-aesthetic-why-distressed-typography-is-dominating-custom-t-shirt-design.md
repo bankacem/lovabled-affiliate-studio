@@ -2,7 +2,7 @@
 title: "Mastering the Gritty Aesthetic: Why Distressed Typography Is Dominating Custom T-Shirt Design"
 slug: "mastering-the-gritty-aesthetic-why-distressed-typography-is-dominating-custom-t-shirt-design"
 description: "Walk into any high-end boutique or scroll through a successful streetwear drop, and you’ll notice something counterintuitive: the newest shirts look like they’ve been sitting in a thrift store bin since 1984. Distressed typography—the art of intentionally \\\"breaking\\\" or weathering lettering—has moved"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgnukHXqeCUfun-vwifWPbxxGAJvwfExjeLctm8IeYLk-VHfVDG6PN0TM9wpqJlIKHtKrVof_aTJnbd_uOl4pxQtbQDBgZbKnLQbu5-K2d5ukB0_LihUK3r1BIgk0CPtH6P8y9hd3zjpR37nznLtMq8zOyUZE4L2PAkqHIRnYRAVi1L960N-aCK__HMLho"

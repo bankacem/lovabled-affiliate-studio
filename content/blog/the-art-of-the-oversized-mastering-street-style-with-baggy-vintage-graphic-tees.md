@@ -2,7 +2,7 @@
 title: "How to Style Baggy Vintage Graphic Tees: Street Style Guide 2026"
 slug: "the-art-of-the-oversized-mastering-street-style-with-baggy-vintage-graphic-tees"
 description: "Walk through Soho, Harajuku, or Berlin’s Mitte district, and you’ll notice a recurring uniform: the heavyweight, drop-shoulder vintage graphic tee. It isn't just about laziness or \\\"comfort core.\\\" In the current fashion climate, the baggy vintage tee serves as a canvas for personal identity and a reb"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjVAe5_29pq5Ve96n3Rj85BNQKw1Yd6RISRsxyjtmpDjAYUvxDAODMU2mnyshO2oXS7Lb4R5nqu7l6JmE6eBZk4HRTY3q5mTCYI4U6t1QFq1vbY30c8gy88jHYU6EqCnN7QUPfepjSlEYMvjUtEUU5XRcJRm1TC_VfFoatQVHXFJa2-dNweGgWPjDR5Gq8"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Matching Best Friend Aesthetic T-Shirts: Beyond the \"BFF\" Cliche"
 slug: "the-ultimate-guide-to-matching-best-friend-aesthetic-t-shirts-beyond-the-bff-cliche"
 description: "There is a peculiar social phenomenon that occurs when two people walk into a room wearing coordinated outfits. It’s not just about fashion; it’s a non-verbal signal of alliance. In the industry, we call this \\\"social signaling.\\\" By choosing a matching best friend aesthetic, you are effectively telli"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Matching%20Best%20Friend%20Aesthetic%20T-Shirts%3A%20Beyond%20the%20BFF%20Cliche%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=845343354"

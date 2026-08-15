@@ -2,7 +2,7 @@
 title: "The Guide to Custom Birthday Shirts: Trends, Design Tips, and Printing Methods"
 slug: "the-guide-to-custom-birthday-shirts-trends-design-tips-and-printing-methods"
 description: "Birthdays are milestones that deserve more than just a standard celebration. In the age of social media and personalized experiences, custom birthday shirts have evolved from a niche craft to a global trend. Whether it’s a baby’s first \\\"Wild One\\\" celebration or a \\\"Dirty Thirty\\\" bash, personalized ap"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgCeq6dZwT29f08ctLF6nYJ_GGR27KcqMTuACDHYMirCBWV_H2Ujso8jK70X21izcvDjjDO7hPYFTqD6sroBcWXiylxJSpS5iQW4SG9f99gVTRemTqzfITyFO5XovUdHjbcS_lN37GU68T-kc1IO-F838KrR2IOcL-IhovcAd7tZmwGHTGPoBRrPVzU38A"

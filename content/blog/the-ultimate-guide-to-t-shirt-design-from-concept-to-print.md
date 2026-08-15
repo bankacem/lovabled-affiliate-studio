@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to T-Shirt Design: From Concept to Print"
 slug: "the-ultimate-guide-to-t-shirt-design-from-concept-to-print"
 description: "The Ultimate Guide to T-Shirt Design: From Concept to Print"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEh5kitF3eCMKNXefAXG0HAQ9ZcXOL0SBLTAc4XDHw5wGySwIsFEiTyBYFL4_B-RoKZJ294cDycaIgbYoKFh2_iz2S0fm_7b0Uia92FRKRZh4k0evcqa1TLGP0wImixaMfl3P0mmv1vSDlzbl1FAaf1o-ic6wPoZUE--LYcJ0-TvmuQUhpyoXf25sUCpbpY"

@@ -2,7 +2,7 @@
 title: "The Guide to Christmas Vacation Shirts: Trends, Styling, and Group Planning"
 slug: "the-guide-to-christmas-vacation-shirts-trends-styling-and-group-planning"
 description: "The holiday season is no longer just about the tree and the dinner table; it’s about the experience of travel and the memories made with loved ones. In recent years, Christmas vacation shirts have moved from being a niche novelty to a mainstream holiday staple. Whether you are heading to the snowy p"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgAP3bg1oQDMEZqrnMUNCwXAiq3L8d4nb6cdPpEROLWb56kIKRxRseqAu3bhRxuhyWEq86xNVkUnjMxpjjnzm8B9r2T6s1W1ujBcX5mjYrQquZLm01VXRRHzxMSdl4sdE9rIU4DiwfukR6IGj1JXyuTgukwoq2PxVUUxD8p8GkBd2gfExU5KPhCIiSZmqw"

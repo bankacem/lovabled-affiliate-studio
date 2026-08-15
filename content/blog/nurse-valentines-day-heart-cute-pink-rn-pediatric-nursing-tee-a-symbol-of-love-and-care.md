@@ -2,7 +2,7 @@
 title: "Nurse Valentine's Day Heart - Cute Pink RN Pediatric Nursing Tee: A Symbol of Love and Care"
 slug: "nurse-valentines-day-heart-cute-pink-rn-pediatric-nursing-tee-a-symbol-of-love-and-care"
 description: "As Valentine's Day approaches, nurses around the world are getting ready to show their love and care for their patients, colleagues, and the nursing profession "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjVDAnCgTn2UHDMfm3RDUCeRetR50Z82EnYtlJLUdeLgyWC2nVK73WyTmRmVz-rnheK4erE4WtZc6gs63yTH7OYSml-MFSzK_QvHF56J35PDnfn0ETDeLGszQK_33lJigZ3WdjhkiPE4KIhlw91CfQPslBp_kYBXtkjNwXlqgw1p8BAfiMhZkPq4yffrWs"

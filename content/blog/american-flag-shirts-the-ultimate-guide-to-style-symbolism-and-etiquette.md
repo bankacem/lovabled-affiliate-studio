@@ -2,7 +2,7 @@
 title: "American Flag Shirts: The Ultimate Guide to Style, Symbolism, and Etiquette"
 slug: "american-flag-shirts-the-ultimate-guide-to-style-symbolism-and-etiquette"
 description: "The American flag, the \\\"Stars and Stripes,\\\" is one of the most recognizable symbols in the world. While the flag itself dates back to the late 18th century, the trend of wearing the flag on clothing—specifically American flag shirts—gained significant cultural momentum during the mid-20th century."
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjGoLJHR90h2bJkrjzhwU8l0TnNgOUMvMJhsN8vgySdf3yokfuPFsztNcJApR8KqLr7o-A062MqnhN-akPI22Bg6ndre8d1bk_v0XpRbNtGRdW1GpOeCR7bXdEcxEjhfF7EGJqhwM4_YeVy2qfqpb-jUddi_E8yj0ZpUcNotC2XFJZeY6tZZT91C7dOq9o"

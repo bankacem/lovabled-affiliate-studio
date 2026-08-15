@@ -2,7 +2,7 @@
 title: "Why Retro Design is Making a Massive Comeback in 2026"
 slug: "why-retro-design-is-making-a-massive-comeback-in-2024"
 description: "Why Retro Design is Making a Massive Comeback in 2026"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEipF0MNRZV9KCvTg2cOhPA3VFkCRCCngF5-4OCsybmHx48JEF3Y3JFczQ6BHPCAlAZq3lz6OwZmFBZWDiia7Au7tRVBnv7EstdZkCOBbGcWB-2OIow7skhOeBLsuMxyvo3yv9rKD6eRd0D5mATeGHhePG5f6hJ2S1lskcGIEgxWXAyhEaD-KG8e3kZimuk"

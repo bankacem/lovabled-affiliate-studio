@@ -2,7 +2,7 @@
 title: "Mastering the Press: The Definitive Guide to Professional Iron-On Transfers at Home"
 slug: "mastering-the-press-the-definitive-guide-to-professional-iron-on-transfers-at-home"
 description: "There is a distinct difference between a shirt that looks like a 3rd-grade craft project and one that looks like it was pulled off a rack at a boutique. Most people assume the secret lies in expensive machinery like a $500 heat press. While those machines are great, the truth is that a standard hous"
-category: "Guide"
+category: "Printing Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Mastering%20the%20Press%3A%20The%20Definitive%20Guide%20to%20Professional%20Iron-On%20Transfers%20at%20Home%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1929181804"

@@ -2,7 +2,7 @@
 title: "Mastering the Heat: 15 Best Summer Outfits with Linen V-Neck Tops"
 slug: "mastering-the-heat-15-best-summer-outfits-with-linen-v-neck-tops"
 description: "When the mercury hits 90 degrees and the humidity feels like a wet blanket, your choice of fabric isn't just a fashion statement; it's a survival strategy. Linen, derived from the flax plant, has been the gold standard for hot climates for millennia. Ancient Egyptians didn't wear it just for the aes"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEg8q9YZalZI1qtcNSfjqjSiB0W1EGXHkF8Q6Ct1xSDsZNXxQylKRyDULBR2hZTmfwjTjROSBJdX96vgnRcPvc1cBH0qCFZ87R1UxPuE_S-LLCxjNM8jHYRUKWbn4Qi991XR3x6aLAzUm8GJMVkEs1xgbh9Vqewc-ngsKkr7xJa_C7_NiTVGQqGubticeUI"

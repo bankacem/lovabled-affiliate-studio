@@ -2,7 +2,7 @@
 title: "Best Funny Quotes for T-Shirts in 2026 – Funny Quotes Shirts That Sell & Make People Laugh"
 slug: "best-funny-quotes-for-t-shirts-in-2026-funny-quotes-shirts-that-sell-make-people-laugh"
 description: "Best Funny Quotes for T-Shirts in 2026 – Funny Quotes Shirts That Sell & Make People Laugh In the world of custom t-shirts, a hilarious quote is the secret weap"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgGD6H027_OQ3VhuqEQ5tQ2xallZiXoNQ--X4oZxXHk6BTEjLtFOsHdyeJBEkUbjg6tBOQktXx6_YpRmm9endKSaCrIyz9l4P14ke5jQlT8b9nS7edVMLnhH48agKzTYry2dsxNdlagypZ5KKIhEvo-2zW1dyZ9LeIKpxUfuTLOncliKKiUziw8LSmjLSI"

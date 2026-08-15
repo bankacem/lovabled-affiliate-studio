@@ -2,7 +2,7 @@
 title: "Best Organic Cotton White V-Neck T-Shirts for Sensitive Skin 2026"
 slug: "the-invisible-layer-why-organic-cotton-white-v-nicks-are-the-gold-standard-for-sensitive-skin"
 description: "Dealing with sensitive skin isn't just a minor inconvenience; for many, it's a daily battle against \\\"textile dermatitis.\\\" Have you ever put on a crisp, new shirt only to feel a prickling sensation at the back of your neck or across your chest within an hour? That’s not just a coincidence. Most moder"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgLGmNfpM2SH5ANxueEttLPjPerpxkyYbHO-wPE4kpAS_EC4RnX0KkEKgy-dQihBwNBN7hHsjBBthLJ-g9WWeFeEfSNFK14EPGjZ68v1ELjOL3YVkM4kNJINvclq46fCIk_tb8KnTbq5ZmQkaTCE9peePrpSQLZv49_Dkh66LeNL1e4_8P1dCSP3wfIN_Y"

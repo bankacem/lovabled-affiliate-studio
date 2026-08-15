@@ -2,7 +2,7 @@
 title: "The Guide to Anti-Valentine Shirts: Why Being Single or Cynical is the New Trend"
 slug: "the-guide-to-anti-valentine-shirts-why-being-single-or-cynical-is-the-new-trend"
 description: "For decades, February 14th has been synonymous with red roses, heart-shaped boxes of chocolates, and expensive candlelit dinners. However, a significant cultural shift has occurred. Not everyone finds the traditional hallmarks of Valentine's Day relatable or even enjoyable. Enter the Anti-Valentine "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEijhvQTUmUVO0RUBlyGnc_R8qPDwRDiVCimyVrMrAOBXSDlR965I7ZVarp7S0SdpgVNFE-xxDF8VtJMCynqEUGsPhIM6B92GoRjeay8iuFblmRgD2q3Ns5gI2XqZxszBu1-3bSujgvWshSBBKUutjcSFxO_lVSZzwh52KTLwgXshx7qo5Uplatu4umaL9I"

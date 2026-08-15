@@ -2,7 +2,7 @@
 title: "The Great Disconnect: A Definitive Guide to Vintage Clothing Sizes vs. Modern Fit"
 slug: "the-great-disconnect-a-definitive-guide-to-vintage-clothing-sizes-vs-modern-fit"
 description: "Finding a pristine 1960s wiggle dress with a \\\"Size 12\\\" tag only to realize it barely fits a modern size 4 is a rite of passage for every vintage enthusiast. It’s frustrating, sure, but there is a logical—if slightly manipulative—reason behind it. This discrepancy is largely driven by \\\"vanity sizing,"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg35g1pZms0u7FP7Geq1arqY3j3D2UmQoItMT63r_5PTeEblACudSgzEPAw8fiwwKqZZsRkUGJrf_XLuRIZqI3u6JHf4JJtuuRu_MpN4PKOoNamsJ32BwT3Lr9dL1-Pb7eLKuwNeAO_HuA86WTbqN5oMUQa6OhNaYtmwCOpnvjqq_9eOpeBW6sj6zCnaj8/s895/1000025668.jpg"

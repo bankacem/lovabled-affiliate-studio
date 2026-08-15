@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Vintage 80s Band Shirts: From Concert Floor to High-Fashion Grail"
 slug: "p-the-ultimate-guide-to-vintage-80s-band-shirts-from-concert-floor-to-high-fashion-grail"
 description: "Walking through a thrift store today, you might see a \\\"distressed\\\" Nirvana shirt produced by a fast-fashion giant. But for those who lived through the 1980s, a band shirt wasn't just a garment; it was a tribal marker. In an era before social media algorithms, wearing a 1984 Van Halen 1984 tour shirt"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Vintage%2080s%20Band%20Shirts%3A%20From%20Concert%20Floor%20to%20High-Fashion%20Grail%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1397521291"

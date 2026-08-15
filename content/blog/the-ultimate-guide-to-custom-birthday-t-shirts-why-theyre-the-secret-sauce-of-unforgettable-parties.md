@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Birthday T-Shirts: Why They’re the Secret Sauce of Unforgettable Parties"
 slug: "the-ultimate-guide-to-custom-birthday-t-shirts-why-theyre-the-secret-sauce-of-unforgettable-parties"
 description: "Think about the last time you saw a group of people wearing matching shirts at a theme park or a brewery. What was your first thought? Likely, it was: \\\"They’re together.\\\" Custom t-shirts for a birthday party act as a visual shorthand for belonging. In the events industry, we often talk about \\\"social"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Custom%20Birthday%20T-Shirts%3A%20Why%20They%E2%80%99re%20the%20Secret%20Sauce%20of%20Unforgettable%20Parties%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1056472502"

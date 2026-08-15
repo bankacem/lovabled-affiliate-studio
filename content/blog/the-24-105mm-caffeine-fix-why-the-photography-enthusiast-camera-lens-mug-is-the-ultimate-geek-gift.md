@@ -2,7 +2,7 @@
 title: "Camera Lens Mug for Photographers: Best Picks & Gift Ideas 2026"
 slug: "the-24-105mm-caffeine-fix-why-the-photography-enthusiast-camera-lens-mug-is-the-ultimate-geek-gift"
 description: "Walk into any high-end production house or a freelance photographer's home office, and you’ll likely spot a Canon or Nikon lens sitting precariously close to a computer keyboard. At first glance, it’s a heart-stopping sight—who would leave a $1,200 piece of glass open to a coffee spill? Then you not"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1657537489830-775aa133e694?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxDYW1lcmElMjBMZW5zJTIwTXVnJTIwZm9yJTIwUGhvdG9ncmFwaGVycyUzQSUyMEJlc3QlMjBQaWNrcyUyMCUyNiUyMEdpZnQlMjBJZGVhcyUyMDIwMjYlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjIzOHww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

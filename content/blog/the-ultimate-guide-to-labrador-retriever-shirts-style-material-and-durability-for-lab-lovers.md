@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Labrador Retriever Shirts: Style, Material, and Durability for Lab Lovers"
 slug: "the-ultimate-guide-to-labrador-retriever-shirts-style-material-and-durability-for-lab-lovers"
 description: "Owning a Labrador Retriever isn't just a lifestyle choice; for many, it's a core identity. As the Labrador has consistently ranked at the top of the American Kennel Club's (AKC) most popular breeds list for over three decades—only recently being nudged by the French Bulldog—the demand for Labrador-t"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Labrador%20Retriever%20Shirts%3A%20Style%2C%20Material%2C%20and%20Durability%20for%20Lab%20Lovers%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=776690836"

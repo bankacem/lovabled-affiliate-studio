@@ -2,7 +2,7 @@
 title: "The Corporate Plunge: Mastering the Deep V-Neck T-Shirt for Professional Environments"
 slug: "the-corporate-plunge-mastering-the-deep-v-neck-t-shirt-for-professional-environments"
 description: "There was a time, not too long ago, when wearing a t-shirt to the office was considered a radical act of rebellion. If you weren't a Silicon Valley wunderkind, a suit and tie (or a formal blouse) were the non-negotiable uniform. Fast forward to the post-pandemic era, and the \\\"Business Casual\\\" landsc"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhA2z52zGkqT38BmbB3mfFkGYw-I0VHMkWrX3ys_ZGpci13bG4FpI31tx_0izo10PyVpidJF1NqULTQu5wDOYV-zX98d1kcV3eCGLvuuEiTK_3zAmD2nUJCWs_F0k_gK2ekz4y3h9xmH0ne17GbL7HATrLefs9ALLoZjWC8cRUjaCwzg9ep3DfOHPOw_uM"

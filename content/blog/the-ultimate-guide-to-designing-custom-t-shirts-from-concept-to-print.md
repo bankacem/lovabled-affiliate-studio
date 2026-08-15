@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Designing Custom T-Shirts: From Concept to Print"
 slug: "the-ultimate-guide-to-designing-custom-t-shirts-from-concept-to-print"
 description: "The Ultimate Guide to Designing Custom T-Shirts: From Concept to Print There is something undeniable about the power of a perfect t-shirt. It’s the uniform of "
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiA1xl7cu4mgo00dU0_dWgBRcMGWqXi8CcUFzxnx4dQcS8yi4wc17UWbmg346drGhF-uOUUc7nOP2uMwl8G48ggdTARR2i479ET2V6IPwK3KLGP02xbX1JNJMOwmFgX-tZ6i0GJ5fym43SrhVsoicwxuZk0CCWIclQFcDL_eWAixlG73XYl6dDsGwB9N5A"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Choosing the Perfect Personalized First-Time Father’s Day Shirt"
 slug: "the-ultimate-guide-to-choosing-the-perfect-personalized-first-time-fathers-day-shirt"
 description: "There is a specific, somewhat frantic energy that accompanies the first year of parenthood. Between the sleep deprivation and the steep learning curve of diaper geometry, the first Father’s Day often arrives as the first real moment of reflection. It isn't just about a Sunday brunch; it's a mileston"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Choosing%20the%20Perfect%20Personalized%20First-Time%20Father%E2%80%99s%20Day%20Shirt%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=227106715"

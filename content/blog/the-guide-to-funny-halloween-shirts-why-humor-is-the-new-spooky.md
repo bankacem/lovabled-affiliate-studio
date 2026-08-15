@@ -2,7 +2,7 @@
 title: "The Guide to Funny Halloween Shirts: Why Humor is the New Spooky"
 slug: "the-guide-to-funny-halloween-shirts-why-humor-is-the-new-spooky"
 description: "Halloween has traditionally been the season of scares, ghouls, and psychological thrills. However, in recent years, a significant shift has occurred in how we celebrate the \\\"spooky season.\\\" While horror remains a staple, humor has carved out a massive niche in the market. Funny Halloween shirts have"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjWbRMOrH7ZvbuTguvLT9OkgpyloXcE3ZPWeFl8nmDzNhYf5nAZ0p9RycUchjMECBMrDKwkZ2ufG9tgyJFABDCw25jpeOTb-t81DCm89v_xVj_w0V23bGfaKsndcZ0IRiBL9MSyT4vPFX6yQvjODQRsNMRojwzeSrtNN9dmnE3QZyObwgxfRHUe21gHjN8"

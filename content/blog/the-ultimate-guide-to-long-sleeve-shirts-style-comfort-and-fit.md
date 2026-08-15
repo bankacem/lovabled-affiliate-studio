@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Long Sleeve Shirts: Style, Comfort, and Fit"
 slug: "the-ultimate-guide-to-long-sleeve-shirts-style-comfort-and-fit"
 description: "The Ultimate Guide to Long Sleeve Shirts: Style, Comfort, and Fit"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgoaPFxtmIgxM6lJwF_-dJaBOKXSlAlGfYyeobDnqetewEq060Ro-kohxMuwDff4fc8gaYNUoBnZihJVZEDjF3CQyU9eBbnetfchazM806mNAStj5RaGHbX4ItOc1iHaELgYqWM9jAmAPVz2RUl1JHWZix_3clW3sbd7VD71vuS3atAhJ5aFpPTML0BX8s"

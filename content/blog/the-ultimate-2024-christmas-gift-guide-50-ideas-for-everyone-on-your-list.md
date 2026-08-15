@@ -2,7 +2,7 @@
 title: "The Ultimate 2026 Christmas Gift Guide: 50+ Ideas for Everyone on Your List"
 slug: "the-ultimate-2024-christmas-gift-guide-50-ideas-for-everyone-on-your-list"
 description: "The Ultimate 2026 Christmas Gift Guide: 50+ Ideas for Everyone on Your List"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgbOxevKUuGELi-XiipDfguMsxtiXEHkA5-jsts_iEDuYFlAdU5002GUrOQg0yI0QwiyrJ5_qwY6qbNMKbiPOw9OrFFtD-m6JTTFFFmgQNf48AQAdL8OO9oS_37Qr7ByK3GSqQrSb_VXuTVBaDjh4lRoUsfbC2ItjU5BUSvB88qob7RhYU9c1nL7ITBbRE"

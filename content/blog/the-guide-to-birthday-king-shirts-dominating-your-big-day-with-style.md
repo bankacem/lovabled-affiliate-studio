@@ -2,7 +2,7 @@
 title: "The Guide to Birthday King Shirts: Dominating Your Big Day with Style"
 slug: "the-guide-to-birthday-king-shirts-dominating-your-big-day-with-style"
 description: "Walking into a room wearing a shirt that literally labels you as \\\"The King\\\" might feel bold, perhaps even a bit audacious. But there’s a psychological underpinning to why this trend has exploded over the last decade. It’s what experts call \\\"enclothed cognition.\\\" This concept suggests that the clothe"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiDb4H6PZs3ifi1W_wCcxyidvGmnlnK1qAYgnUpNya0HkAKfd8VbDgSayI2xxrKxidj7NS6_RwKriaxEexpkFA3-Sdhqy5rI5RgxeeMePbKym8XDIca12ptgyaorDmeMuYxY9ZOWKDmXM-kwl_pgLwqRfLOy9BG-jemHq6qEZwfAPDnqmTrwKEkuKb02tY"

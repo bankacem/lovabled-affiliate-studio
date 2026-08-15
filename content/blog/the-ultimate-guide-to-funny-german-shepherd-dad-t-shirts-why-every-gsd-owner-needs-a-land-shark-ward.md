@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Funny German Shepherd Dad T-Shirts: Why Every GSD Owner Needs a ‘Land Shark’ Wardrobe"
 slug: "the-ultimate-guide-to-funny-german-shepherd-dad-t-shirts-why-every-gsd-owner-needs-a-land-shark-ward"
 description: "Owning a German Shepherd isn't just a hobby; it’s a lifestyle choice that involves constant vigilance, a lot of vacuuming, and accepting that you will never go to the bathroom alone again. According to the American Kennel Club (AKC), German Shepherds consistently rank in the top four most popular do"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1G0JKTVl6EAxR8vdcTUssc-L5RUgttfuDGeQI8srDu5DjX-9wANErJk-DHTRAnQK474FFxUaOC8Ynbhp1ZzoPPQlTYpQh1_yD5CGB3ONt6bPkEnj_nwEB12VeBYAwvlTP5XoH1aqETbycmWuQi1Iy9LQk4SrsYfjIkc2tOPjL74msjDrL_kBR7BUBYFs/s842/1000025552.jpg"

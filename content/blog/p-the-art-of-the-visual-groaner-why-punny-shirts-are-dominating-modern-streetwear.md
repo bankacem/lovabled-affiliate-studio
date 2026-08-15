@@ -2,7 +2,7 @@
 title: "The Art of the Visual Groaner: Why Punny Shirts are Dominating Modern Streetwear"
 slug: "p-the-art-of-the-visual-groaner-why-punny-shirts-are-dominating-modern-streetwear"
 description: "There is a specific neurological reaction that occurs when someone reads a shirt that says \\\"I'm reading a book on anti-gravity. It's impossible to put down.\\\" It starts with a brief moment of confusion, followed by a sudden cognitive \\\"click,\\\" and usually ends with an audible groan. In the world of li"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Art%20of%20the%20Visual%20Groaner%3A%20Why%20Punny%20Shirts%20are%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1822926874"

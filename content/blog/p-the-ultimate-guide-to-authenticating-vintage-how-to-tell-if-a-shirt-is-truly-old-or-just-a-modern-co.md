@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Authenticating Vintage: How to Tell if a Shirt is Truly Old or Just a Modern Copy"
 slug: "p-the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-co"
 description: "Walking into a thrift store or browsing an online marketplace can feel like a high-stakes scavenger hunt. With the \\\"vintage\\\" aesthetic currently dominating fashion trends, the market is flooded with \\\"retro-inspired\\\" shirts that look old but were actually printed in a factory last Tuesday. Distinguis"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Authenticating%20Vintage%3A%20How%20to%20Tell%20if%20a%20Shirt%20is%20Truly%20Old%20or%20Just%20a%20Modern%20Copy%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=768946376"

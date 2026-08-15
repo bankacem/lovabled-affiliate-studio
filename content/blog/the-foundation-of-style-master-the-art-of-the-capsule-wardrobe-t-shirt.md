@@ -2,7 +2,7 @@
 title: "The Foundation of Style: Master the Art of the Capsule Wardrobe T-Shirt"
 slug: "the-foundation-of-style-master-the-art-of-the-capsule-wardrobe-t-shirt"
 description: "Walk into the average bedroom, and you’ll likely find a dresser overflowing with \\\"disposable\\\" fashion. Statistics suggest the average consumer throws away roughly 81 pounds of clothing annually. In a world of fast fashion, the capsule wardrobe isn't just a trend; it's a rebellion against mediocrity."
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Foundation%20of%20Style%3A%20Master%20the%20Art%20of%20the%20Capsule%20Wardrobe%20T-Shirt%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=331302502"

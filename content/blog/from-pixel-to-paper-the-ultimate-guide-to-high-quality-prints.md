@@ -2,7 +2,7 @@
 title: "From Pixel to Paper: The Ultimate Guide to High-Quality Prints"
 slug: "from-pixel-to-paper-the-ultimate-guide-to-high-quality-prints"
 description: "From Pixel to Paper: The Ultimate Guide to High-Quality Prints"
-category: "Guide"
+category: "Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjLPHzls4wDBX77QF9pBIJKxM-7F_81LU2OSIfbAnOvjWfpAwWAPxhBP9CZ1f3S5fv9kqyjKNMEZ3FbcWvde5FARFmTye2tuIbnk5MdqqM1ECJqPqEzpBaBnt3iR4KBNw8albbrbj6hBaTHnSMfrkXSfz3-5OTSgVf_GjhwrNY-EQZzzcjph1iNDYkmaQI"

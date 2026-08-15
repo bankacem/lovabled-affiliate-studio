@@ -2,7 +2,7 @@
 title: "Unleash Your Inner Bookworm with the Read More Books Comfort Colors Long Sleeve Shirt Librarian Bookish Tee Cute Reader Cozy Teacher Womens Tshirt Retro Literature T-Shirt Gift"
 slug: "unleash-your-inner-bookworm-with-the-read-more-books-comfort-colors-long-sleeve-shirt-librarian-book"
 description: "Are you a book lover looking for a way to express your passion for reading? Look no further than the Read More Books Comfort Colors Long Sleeve Shirt Librarian "
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056116912.1748/ssrco,oversized_sweatshirt,mens_01,4e4b4e:befaed7a59,front,square_close_portrait,x1000.jpg"

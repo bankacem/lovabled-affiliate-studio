@@ -2,7 +2,7 @@
 title: "The World's Best Mom: Defining Modern Motherhood and How to Celebrate It"
 slug: "the-worlds-best-mom-defining-modern-motherhood-and-how-to-celebrate-it"
 description: "We see the slogan everywhere: on coffee mugs, oversized t-shirts, and glittery greeting cards. But the title of \\\"World's Best Mom\\\" is more than just a marketing trope. It is a subjective, deeply personal accolade bestowed by children and partners upon the woman who anchors their world."
-category: "Guide"
+category: "Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgEwwikeQj7MgHR895DpF-Ib-8x2PMAvCa3KYV5fXCcgJT3SO6_ETe_qGr9oRTVLmQkipZA_4KWIoEsOWi6XJbel1M9nTcGPYp9dBOQQCeNQ0zadnkOgSyzDkU4J7xc1S-4jK4NvdJhYE-d8mSoB9xFiFVjfFpCd8tIzfaqd09ywO8pgqiCw43jRg2DcDE"

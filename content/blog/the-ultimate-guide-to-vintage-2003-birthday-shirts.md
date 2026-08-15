@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Vintage 2003 Birthday Shirts"
 slug: "the-ultimate-guide-to-vintage-2003-birthday-shirts"
 description: "Discover the best vintage 2003 birthday shirts for celebrating your special milestone."
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Content Team"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgGocOtdmmwAVmapJP0ziJoPGUhW-u6ySqLHdVWLAODXsjnyixWoX3iqt75N2xkn0UHQF_ZXIX_bNsdkj3sNHmMh6IDvMNP4I184RrTwRMtnjNBmhNREpCIgcWvDikzGZrMOcWpTW3t9bz3_cb5GF_ZC8Hm1kKrF__5XSdUwDZC7mezyifI5MR4-BCyWPA"

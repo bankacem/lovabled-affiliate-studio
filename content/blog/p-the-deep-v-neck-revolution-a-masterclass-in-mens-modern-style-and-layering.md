@@ -2,7 +2,7 @@
 title: "The Deep V-Neck Revolution: A Masterclass in Men’s Modern Style and Layering"
 slug: "p-the-deep-v-neck-revolution-a-masterclass-in-mens-modern-style-and-layering"
 description: "For a long time, the deep V-neck suffered from a bit of an identity crisis. In the mid-2000s, it became synonymous with \\\"club-wear\\\" and questionable fashion choices. I remember walking through Soho and seeing necklines that practically reached the navel—it was a polarizing era, to say the least. How"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Deep%20V-Neck%20Revolution%3A%20A%20Masterclass%20in%20Men%E2%80%99s%20Modern%20Style%20and%20Layering%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=563324124"

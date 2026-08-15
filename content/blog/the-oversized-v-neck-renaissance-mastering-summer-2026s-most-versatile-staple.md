@@ -2,7 +2,7 @@
 title: "The Oversized V-Neck Renaissance: Mastering Summer 2026's Most Versatile Staple"
 slug: "the-oversized-v-neck-renaissance-mastering-summer-2026s-most-versatile-staple"
 description: "If you're still reaching for 100% heavy-gauge cotton in the peak of July, you're doing it wrong. What’s interesting about the 2026 forecast is the total rejection of \\\"stiff\\\" oversized fits. We are seeing a massive shift toward Tencel™ Lyocell and Hemp-Silk blends. These fabrics offer a liquid-like d"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiZgOX5jBe0blvDIDvKIr3LIYg15Jcs2ZRj0V3duW4I1aPvRzymvdZ_yDTGUMHoHoh_kHobzJprkkASA1IE2vGDkywdZlTTxsh11hOmkFBz4q_V9PiDlZf_0I5LoEv9iZsnORIaCtFIu1PUgcA8K-m_kIhoDPt3dMsqIkIpM4cRaecgVpc5d3X30doO2VI"

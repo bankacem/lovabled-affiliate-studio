@@ -2,7 +2,7 @@
 title: "The Guide to Birthday Party Shirts: Trends, Customization, and Styling Tips"
 slug: "the-guide-to-birthday-party-shirts-trends-customization-and-styling-tips"
 description: "In the age of social media and highly curated events, the humble birthday party shirt has evolved from a simple novelty item into a central element of the celebration experience. Whether it’s a toddler’s first birthday or a grandfather’s 80th, custom apparel serves as a visual anchor for the event."
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhQM8bliocDF3-uatv6kNk9i_5kiH7XxLuFBcnps5orkAl_gScGqzpUGIW3zJ14DDDxbh4DtG-y_x7BuRrbIRVUg8Seo6TdDhSQ-on59HD_8UatJpb66RwilVZwRoeHJKaWLQq15G3TnOsp_jApJkxpOnWfTVlSuqirgAvBWgkTbPfe2Fjs-yHKGd0tfZI"

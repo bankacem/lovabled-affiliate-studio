@@ -2,7 +2,7 @@
 title: "Class of 2026 Graduation Mugs: Best Personalized Graduation Gifts"
 slug: "sipping-on-success-why-the-class-of-2026-commemorative-mug-is-the-ultimate-keepsake"
 description: "Graduation isn't just about the piece of paper you receive on stage; it’s about the four (or more) years of late-night study sessions, caffeine-fueled cramming, and the friendships forged in the trenches of academia. What’s interesting is how we choose to remember these moments. While a diploma stay"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1618355896507-61af331ed895?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxDbGFzcyUyMG9mJTIwMjAyNiUyMEdyYWR1YXRpb24lMjBNdWdzJTNBJTIwQmVzdCUyMFBlcnNvbmFsaXplZCUyMEdyYWR1YXRpb24lMjBHaWZ0cyUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjMzfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

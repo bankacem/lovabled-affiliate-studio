@@ -2,7 +2,7 @@
 title: "The Guide to 60th Birthday Shirts: How to Celebrate Six Decades in Style"
 slug: "the-guide-to-60th-birthday-shirts-how-to-celebrate-six-decades-in-style"
 description: "Turning sixty isn't just another candle on the cake; it is a profound transition. In the world of sociology, this is often viewed as the gateway to the \\\"third age.\\\" Industry data from the greeting card and gift sector shows that the 60th birthday is the second most celebrated adult milestone after t"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjLnh5kteENobLXPAV7_Hk99jRmLqbaecIMMaNfco6PhX1UBpOX-NXLUJqe4awhSrb9ZTk_ng4KqR9OLq0di1g9UNzmqvx4_mUSyXk0JembORsqcf2Hk3y-AflE05nljKbPINKwhtOTLABmFV9m94hXHfyANaSKhJKm7ndeeaFH8JLSQTN_gODyWfs25Cs"

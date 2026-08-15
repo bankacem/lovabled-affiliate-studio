@@ -2,7 +2,7 @@
 title: "Modern Graphic Design Excellence: Navigating the Evolution of Visual Communication"
 slug: "p-modern-graphic-design-excellence-navigating-the-evolution-of-visual-communication"
 description: "Think back a decade. A graphic designer was often the person you went to for a logo, a business card, or perhaps a magazine spread. Today, that definition feels incredibly reductive. In the current landscape, a graphic designer is a visual strategist, a problem solver, and a storyteller who operates"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://aiprintverse.com/images/default-blog.jpg"

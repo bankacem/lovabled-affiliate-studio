@@ -2,7 +2,7 @@
 title: "The 15 Best Personalized Gifts for Every Occasion in 2025"
 slug: "the-15-best-personalized-gifts-for-every-occasion-in-2025"
 description: "The 15 Best Personalized Gifts for Every Occasion in 2026"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiG84KXuIsxtfVxleueuBn9CUx_3YQE-tk7HGZ6bO1nhBOVXR6fo_0KbNZs-mUu4CGDRlJqG7Tqx_2BZBkYc-L7Bwkvt0t_ZYjx_7nWzJz3uDf0ST8iSywMI9cp_4tniC1UjKZJQbSza2nmq5ohWHzpjrPYoB4HSdU_ngjpV0D5Lbzp5R-tHxa6hKSDaKc"

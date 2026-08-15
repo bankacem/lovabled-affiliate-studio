@@ -2,7 +2,7 @@
 title: "Minimalist Design: The Ultimate Guide to the ‘Less is More’ Aesthetic"
 slug: "minimalist-design-the-ultimate-guide-to-the-less-is-more-aesthetic"
 description: "\"Minimalist Design: The Ultimate Guide to the ‘Less is More’ Aesthetic"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://i.ibb.co/yn3LhRnL/236c2bf64ed0.png"

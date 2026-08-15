@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to French Bulldog Shirts: Finding the Perfect Fit for Your Bat-Eared Bestie"
 slug: "the-ultimate-guide-to-french-bulldog-shirts-finding-the-perfect-fit-for-your-bat-eared-bestie"
 description: "Walk into any dog park and you'll likely see a Frenchie sporting a trendy hoodie or a striped tee. While they undeniably look like little four-legged models, there is significant biological reasoning behind the wardrobe. Unlike breeds with double coats—think Huskies or Golden Retrievers—French Bulld"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20French%20Bulldog%20Shirts%3A%20Finding%20the%20Perfect%20Fit%20for%20Your%20Bat-Eared%20Bestie%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1503571570"

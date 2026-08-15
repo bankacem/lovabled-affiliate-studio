@@ -2,7 +2,7 @@
 title: "The Psychology of Visual Environment: Why Growth Mindset Posters & Shirts Actually Work"
 slug: "the-psychology-of-visual-environment-why-growth-mindset-posters-shirts-actually-work"
 description: "Walk into any high-performing classroom or a Silicon Valley startup, and you’ll likely see them: bold, minimalist graphics reminding you that \\\"Failure is a Data Point\\\" or \\\"Your Brain is a Muscle.\\\" While cynics might dismiss these as mere wall filler, the cognitive science suggests something far more"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Psychology%20of%20Visual%20Environment%3A%20Why%20Growth%20Mindset%20Posters%20%26%20Shirts%20Actually%20Work%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1701916482"

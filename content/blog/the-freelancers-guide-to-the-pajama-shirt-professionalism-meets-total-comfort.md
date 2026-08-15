@@ -2,7 +2,7 @@
 title: "The Freelancer’s Guide to the \"Pajama Shirt\": Professionalism Meets Total Comfort"
 slug: "the-freelancers-guide-to-the-pajama-shirt-professionalism-meets-total-comfort"
 description: "Ever noticed how a deadline feels slightly less terrifying when you aren't wearing a coffee-stained t-shirt from 2012? There is a legitimate psychological reason for this. Researchers call it enclothed cognition. A study published in the Journal of Experimental Social Psychology demonstrated that th"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Freelancer%E2%80%99s%20Guide%20to%20the%20Pajama%20Shirt%3A%20Professionalism%20Meets%20Total%20Comfort%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1164546472"

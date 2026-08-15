@@ -2,7 +2,7 @@
 title: "The Guide to Funny Christmas Shirts: Spreading Holiday Cheer with a Side of Humor"
 slug: "the-guide-to-funny-christmas-shirts-spreading-holiday-cheer-with-a-side-of-humor"
 description: "For decades, the \\\"Ugly Christmas Sweater\\\" ruled supreme. However, as holiday parties move into warmer climates and indoor central heating becomes more efficient, the heavy wool sweater has faced a formidable rival: the funny Christmas shirt. These garments offer the same comedic value but with signi"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEghcVEkclXRN6Wj3ZxEOGyEMAxV4DXKz4a_dxYSXJ6UGsWMywyFJD2t7pHBCOrtjmHk97qj0kfV0bYhWV9F5RMEQYDORgR07RqBUo1ocvuoEqDs6VPfWJ6ILbIRzRJ1OcIOh_aQendsOrgw_BfOm9N_x633_sRM8BUou9zXO6_YOW2ZJm-UByyaxpk0BXs"

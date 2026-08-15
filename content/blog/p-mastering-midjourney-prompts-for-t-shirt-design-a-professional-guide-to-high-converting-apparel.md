@@ -2,7 +2,7 @@
 title: "Mastering Midjourney Prompts for T-Shirt Design: A Professional Guide to High-Converting Apparel"
 slug: "p-mastering-midjourney-prompts-for-t-shirt-design-a-professional-guide-to-high-converting-apparel"
 description: "Not long ago, launching a t-shirt brand required either a high-level mastery of Adobe Illustrator or a significant budget for freelance designers. The barrier to entry was high, and the iteration speed was slow. Today, the landscape has shifted. Generative AI, specifically Midjourney, has democratiz"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Mastering%20Midjourney%20Prompts%20for%20T-Shirt%20Design%3A%20A%20Professional%20Guide%20to%20High-Converting%20Apparel%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=2121418101"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to the Best Dad Shirts: Style, Comfort, and Sentiment"
 slug: "the-ultimate-guide-to-the-best-dad-shirts-style-comfort-and-sentiment"
 description: "The term \\\"Dad Shirt\\\" has evolved significantly over the last decade. What once referred to oversized, stained lawn-mowing tees has transformed into a diverse fashion category that celebrates fatherhood in all its forms. Today, the best dad shirts blend functionality with personality, allowing father"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEisjScvnY2qbzOf6boUXn88Vp203fRvZZFYfbPQqRIXkP5mZV-lynAB_SOAs82-1vZuxogXv15W-sq9j4AClg7cDXalG-zBJ_n48kf7lRbtrrsAP4OKlNDrTG6Mm3-w3FMQSNaSEjn21yYe6LvN4tMNEnWX1Ir4jK4TbJfFsQXHZRUrCU2tSm4ggOfM4Dw"

@@ -2,7 +2,7 @@
 title: "The Holy Grail of Cotton: Most Valuable Vintage T-Shirts to Collect in 2026"
 slug: "the-holy-grail-of-cotton-most-valuable-vintage-t-shirts-to-collect-in-2026"
 description: "Walking through a high-end vintage showroom today feels more like visiting a fine art gallery than a clothing store. What started as a niche hobby for thrift store enthusiasts has matured into a multi-billion dollar alternative asset class. According to recent resale market reports, the vintage t-sh"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCV1LxTOayHdt_BWz7rgl4iX8ehvK2xn13ZAQV5h65y0CWAbm2McQpHZhtYBnNHNU7EkaoUl87pqvWT_29tScYx09LMmz4FUxNfghuc4lWb74OOJEBPADpd7tYR3vNEAwB1xLH0oY9YybctMW8NBSA-ORuFT8xye1cHxnNlWHV1Ig_J2LiwALIcMJxlzE/s824/1000025646.jpg"

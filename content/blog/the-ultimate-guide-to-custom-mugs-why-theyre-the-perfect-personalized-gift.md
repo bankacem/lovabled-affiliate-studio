@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Mugs: Why They’re the Perfect Personalized Gift"
 slug: "the-ultimate-guide-to-custom-mugs-why-theyre-the-perfect-personalized-gift"
 description: "angle"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgDmxSEsuWlL-cn7zZyB8jgvS1agjWOlAY2QpurPxafwX5GVA7-3xfxkb1L7I8VfaTJd-Vwgtt9YZpOQq_aG2cde9PJ2waDHOz4qmnQn68YJY7HjQlBgDg3Hp6lLFQluS-NZ3O4KRlOcuQxPOkgUh7b13UstaDnBACk6ePbTR1q5rj-bj-P2YXbrweZUsI"

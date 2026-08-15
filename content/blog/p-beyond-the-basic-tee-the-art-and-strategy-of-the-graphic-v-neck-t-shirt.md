@@ -2,7 +2,7 @@
 title: "Beyond the Basic Tee: The Art and Strategy of the Graphic V-Neck T-Shirt"
 slug: "p-beyond-the-basic-tee-the-art-and-strategy-of-the-graphic-v-neck-t-shirt"
 description: "For the longest time, the V-neck was relegated to the status of an \\\"undershirt.\\\" It was the invisible layer hidden beneath a dress shirt, designed specifically so the collar wouldn't peek out. But fashion has a funny way of turning utility into a statement. By the mid-2000s, the V-neck exploded into"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Beyond%20the%20Basic%20Tee%3A%20The%20Art%20and%20Strategy%20of%20the%20Graphic%20V-Neck%20T-Shirt%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1933480429"

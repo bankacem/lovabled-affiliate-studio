@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to the Crew Neck: Style, Fit, and History"
 slug: "the-ultimate-guide-to-the-crew-neck-style-fit-and-history"
 description: "crew necks"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgJKU138eVLp3E1rQ_zVgzjBpEXCwHeldv0tBiAVnw9qw9IN-WIDa2-7DxdGsSLolJmATLYZtJD_2DdOmYxC4U8mEwFk9zgpZD1msTFc85hUUXNxBNRLhv_OQXc2X04-UNnmW0LvwvQPvHfLvFJ-kkSYVBtmNUfdMzOD1XyNa4nGHjHyZPZB-NHnP1nCzs"

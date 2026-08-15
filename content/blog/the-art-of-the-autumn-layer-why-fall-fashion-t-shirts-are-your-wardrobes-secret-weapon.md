@@ -2,7 +2,7 @@
 title: "Fall Fashion T-Shirts 2026: Best Autumn Tees & How to Style Them"
 slug: "the-art-of-the-autumn-layer-why-fall-fashion-t-shirts-are-your-wardrobes-secret-weapon"
 description: "Most people treat the t-shirt as a summer relic, something to be tossed into the back of the closet once the first leaf hits the pavement. What's interesting is that the t-shirt is actually more critical in October than it is in July. In the industry, we call this the \\\"anchor piece.\\\" It's the layer "
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Fall%20Fashion%20T-Shirts%202026%3A%20Best%20Autumn%20Tees%20%26%20How%20to%20Style%20Them%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=2113725896"

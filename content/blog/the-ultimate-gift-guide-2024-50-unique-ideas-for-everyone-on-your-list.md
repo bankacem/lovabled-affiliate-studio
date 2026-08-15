@@ -2,7 +2,7 @@
 title: "The Ultimate Gift Guide 2026: 50+ Unique Ideas for Everyone on Your List"
 slug: "the-ultimate-gift-guide-2024-50-unique-ideas-for-everyone-on-your-list"
 description: "The Ultimate Gift Guide 2026: 50+ Unique Ideas for Everyone on Your List"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjEJ0YgVkSQ-FFboWLmlRzmSndw1MH-Gl5dUZZKZWHnNLTtRd531NtpIKnWE4TTmnd10j2jKJk1O7Gw7Q-Ie1tbqUk3WLnBEgqulZiqvgne_rEOpPxMdmpG1mZBmc81YHa74u1gSBth5OO1jgURHoQs3N9BopX4za6M4RMmc86pM5favfvZr-DrCquxao0"

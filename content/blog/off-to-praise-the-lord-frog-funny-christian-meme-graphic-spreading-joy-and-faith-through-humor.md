@@ -2,7 +2,7 @@
 title: "Off To Praise The Lord Frog - Funny Christian Meme Graphic: Spreading Joy and Faith through Humor"
 slug: "off-to-praise-the-lord-frog-funny-christian-meme-graphic-spreading-joy-and-faith-through-humor"
 description: "Are you looking for a way to share your Christian faith with others in a lighthearted and humorous way? Look no further than the \\\"Off To Praise The Lord Frog - "
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056190360.4043/ssrco,oversized_sweatshirt,mens_01,111112:1f01311efe,front,square_close_portrait,x1000.jpg"

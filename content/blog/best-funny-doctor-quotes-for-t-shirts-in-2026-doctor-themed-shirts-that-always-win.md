@@ -2,7 +2,7 @@
 title: "Best Funny Doctor Quotes for T-Shirts in 2026 – Doctor-Themed Shirts That Always Win"
 slug: "best-funny-doctor-quotes-for-t-shirts-in-2026-doctor-themed-shirts-that-always-win"
 description: "Best Funny Doctor Quotes for T-Shirts in 2026 – Doctor-Themed Shirts That Always Win stress world of healthcare, humor is the best medicine. Funny doctor shirts"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgZmZzDT6bmh5tl0_XawXj1B4d8TwPWjquYpfcbnLqUrghz847PuTLhRZrsbO6U5ZnCgOP1WVhz5YNEmtLNBtk5k-Ghp2LKEHHosSkgO2Dv79FOdpWs-szuAOMVZyA9Yk2Ma3zFTbFcsND33IN5_EBrU4QEZmtwEWEROFqna4BUu3PKZeuTV0EuM3MQm8A"

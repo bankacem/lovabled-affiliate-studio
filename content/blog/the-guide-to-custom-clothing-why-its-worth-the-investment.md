@@ -2,7 +2,7 @@
 title: "The Guide to Custom Clothing: Why It’s Worth the Investment"
 slug: "the-guide-to-custom-clothing-why-its-worth-the-investment"
 description: "The Ultimate Guide to Custom Clothing: Why It’s Worth the Investment"
-category: "Guide"
+category: "Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj7epKJZXp7hjbpMgzP4TQxjPz9RNjG5EBCFfSAoY9Uja06vgHThq2T6PZve8Ad5Cb8JfXGJTwlTxxQ1t0b-NKO1h0R1ZgNIJu1hNqDkoPS5p50-S3ZqBYddCMI1sRhzte7OkHdP0SKloaIgCha7JdbzNrF-7f3A3gIVbtN6mJsbhMvt7UnZgBl87u_Efw"

@@ -2,7 +2,7 @@
 title: "Summer Essentials: Custom Tank Tops and V-Neck Shirts"
 slug: "summer-essentials-custom-tank-tops-and-v-neck-shirts"
 description: "Stay cool with custom tank tops and v-neck shirts. Perfect for gyms, events, and summer fashion. High quality at bulk prices."
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj77ZkmrZhwM_nPnoYa2LmVVC8543c9UHfRphIDB_oanO0brOSk2KhD0K1YeSBkTQdBw-AtlJr_ZqtvlI5jS82sPc1q3n4rO5C_Vmp1m6A4gXnnuJB2gHCY9uT-KCwglHKdGE6YWe5EVFioq7n5nS4GxUfwBZBwGCbBqJ85zqt9HD423iJbVudmZjgxECY"

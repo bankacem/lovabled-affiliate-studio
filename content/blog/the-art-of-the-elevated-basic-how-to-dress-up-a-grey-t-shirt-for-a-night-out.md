@@ -2,7 +2,7 @@
 title: "How to Dress Up a Grey T-Shirt for a Night Out: Outfit Ideas 2026"
 slug: "the-art-of-the-elevated-basic-how-to-dress-up-a-grey-t-shirt-for-a-night-out"
 description: "Grey is often unfairly labeled as the \\\"boring\\\" middle child of the color spectrum. However, in the عالم وآفاق وتطبيقات high fashion and street style, grey is a strategic powerhouse. Unlike a stark white tee, which can sometimes feel too casual or athletic, or a black tee, which can absorb too much visual detai"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEibM0tPmltDe29KH8otXSIyi-6iAmE9nv0sfp-fTOInSucPenNJJt9c4e5jPjoe6z6QM0LNnPUnF48fC1-x2Jnl_4TMV98SvoXw37q34LAs07npB4CEWCvfVb1dx0WMpnKiNQUwE2VE2a1wldQXu4eD7MIoRZzU7azT-v-HMD1cqzsaVHjHEKqe1WFbypo"

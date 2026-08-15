@@ -2,7 +2,7 @@
 title: "Beyond the Pumpkin Spice: The Ultimate Guide to Halloween Spooky Season Coffee Mugs"
 slug: "beyond-the-pumpkin-spice-the-ultimate-guide-to-halloween-spooky-season-coffee-mugs"
 description: "There is a specific, almost visceral satisfaction that comes with wrapping your hands around a warm ceramic vessel as the leaves begin to turn. While some might dismiss the obsession with Halloween mugs as mere consumerism, the data suggests otherwise. According to retail trend reports, the \\\"seasona"
-category: "Guide"
+category: "Mugs & Drinkware"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Beyond%20the%20Pumpkin%20Spice%3A%20The%20Ultimate%20Guide%20to%20Halloween%20Spooky%20Season%20Coffee%20Mugs%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1258125872"

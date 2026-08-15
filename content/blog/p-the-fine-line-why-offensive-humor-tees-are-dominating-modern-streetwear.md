@@ -2,7 +2,7 @@
 title: "The Fine Line: Why Offensive Humor Tees Are Dominating Modern Streetwear"
 slug: "p-the-fine-line-why-offensive-humor-tees-are-dominating-modern-streetwear"
 description: "Walk through any major metropolitan area—be it Shoreditch in London or the Lower East Side in Manhattan—and you’ll inevitably spot someone wearing a shirt that makes you double-take. Maybe it’s a bootleg logo of a defunct corporation paired with a nihilistic slogan, or perhaps a cartoon character pe"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Fine%20Line%3A%20Why%20Offensive%20Humor%20Tees%20Are%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=93754255"

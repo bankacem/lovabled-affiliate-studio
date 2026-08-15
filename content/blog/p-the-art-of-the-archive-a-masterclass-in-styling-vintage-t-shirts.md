@@ -2,7 +2,7 @@
 title: "How to Style Vintage T-Shirts: Outfit Ideas for Men and Women"
 slug: "p-the-art-of-the-archive-a-masterclass-in-styling-vintage-t-shirts"
 description: "There is a specific kind of magic found in the thin, slightly cracked graphic of a 1994 concert tee or the perfectly faded heather gray of an 80s collegiate shirt. Unlike modern \\\"distressed\\\" fast fashion, true vintage carries a tangible history. But here is the challenge: without the right approach,"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1566915189815-b72e74007040?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxIb3clMjB0byUyMFN0eWxlJTIwVmludGFnZSUyMFQtU2hpcnRzJTNBJTIwT3V0Zml0JTIwSWRlYXMlMjBmb3IlMjBNZW4lMjBhbmQlMjBXb21lbiUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjEyfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

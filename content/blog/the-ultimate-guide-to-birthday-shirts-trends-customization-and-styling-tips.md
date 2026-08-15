@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Birthday Shirts: Trends, Customization, and Styling Tips"
 slug: "the-ultimate-guide-to-birthday-shirts-trends-customization-and-styling-tips"
 description: "In the world of modern celebrations, the \\\"birthday shirt\\\" has evolved from a simple novelty item into a cornerstone of party planning. Whether it’s a toddler’s first birthday \\\"One-derful\\\" onesie or a coordinated set of \\\"Birthday Squad\\\" tees for a Vegas weekend, these garments do more than just cover"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEig7mOADUdckbGg84JuaBUiPviGH_ymOgdop0_21bBj-vccOPT3AYiJBoH0wYpRWZCfTS_fI-dXGxzshRMeQPmKBg_sdW1HSTUlrPnX66F5ALXdcS0KD8BStOcrWb8V4984VlTDo7qkUXPBfKlpW_WAk-6ccIrn9rlBh8_5eUTGdeZTJvzUf5sdWBx7MkA"

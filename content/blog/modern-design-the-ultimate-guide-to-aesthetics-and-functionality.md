@@ -2,7 +2,7 @@
 title: "Modern Design: The Ultimate Guide to Aesthetics and Functionality"
 slug: "modern-design-the-ultimate-guide-to-aesthetics-and-functionality"
 description: "Modern Design: The Ultimate Guide to Aesthetics and Functionality"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj3fsZAKTVxNUOAdlQ_PIVzBo2yY9px5SZAwlSqteHn_WWIZNsdxnScviMipapW4EH0sxQMIvq67XBrC6xu5Ax2KrQyreO7kKkIcN8qMdXbNPbWtvBUf8Rv1aUyid44ZyGIcN-7eerHr3e73KRW5LBuUR5y91KcUM3OSlLlSLBWVcztsc1bcnb_rwpVkO8"

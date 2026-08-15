@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Personalized Family Reunion Shirts: Design, Quality, and Logistics"
 slug: "the-ultimate-guide-to-personalized-family-reunion-shirts-design-quality-and-logistics"
 description: "Walk into any state park or hotel lobby in July, and you’ll likely spot them: a sea of matching neon green or royal blue shirts emblazoned with a family crest or a pun about \\\"Deep Roots.\\\" While some might dismiss personalized family reunion shirts as a cliché, there is a profound psychological eleme"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1584365132623-e273491c69d2?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBVbHRpbWF0ZSUyMEd1aWRlJTIwdG8lMjBQZXJzb25hbGl6ZWQlMjBGYW1pbHklMjBSZXVuaW9uJTIwU2hpcnRzJTNBJTIwRGVzaWduJTJDJTIwUXVhbGl0eSUyQyUyMGFuZCUyMExvZ2lzdGljcyUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjU4fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

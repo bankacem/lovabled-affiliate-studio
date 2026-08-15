@@ -2,7 +2,7 @@
 title: "The Hunt for History: Where to Find Authentic Vintage Graphic Tees Online"
 slug: "the-hunt-for-history-where-to-find-authentic-vintage-graphic-tees-online"
 description: "There was a time, not so long ago, when finding a 1994 Pink Floyd \\\"Division Bell\\\" tour shirt meant spending a Saturday morning digging through dusty bins at a local Goodwill. Those days are largely gone. Today, vintage graphic tees have transitioned from thrift store cast-offs to legitimate alternat"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj0rZMX1WN0cmnJGXSIDDbnbq09oSIPdwuWsALmkBN_KSaNi3rV0dE1ETjFvTeK7QIFivLmhUqnHVvFT934MQqKo86TzoLwENJ09n3aziNfCp13u5jPtcoLbytQ4gMpqSiuqYso98oLjzrTyn2jCfVWUslRBn2CRucgU69tLuyOxv6wMOrb2oODZlYu5yk"

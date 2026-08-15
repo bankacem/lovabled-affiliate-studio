@@ -2,7 +2,7 @@
 title: "Summer Outfit Ideas with Graphic Tees: Refresh Your Style"
 slug: "p-summer-outfit-ideas-with-graphic-tees-refresh-your-style"
 description: "Looking for a way to refresh your summer style? Graphic tees are a great starting point. In this article, we'll explore various summer outfit ideas that feature graphic tees as the main attraction. From casual to dressy, we'll cover it all. Whether you're a fan of bold graphics or subtle designs, we"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Summer%20Outfit%20Ideas%20with%20Graphic%20Tees%3A%20Refresh%20Your%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=453361712"

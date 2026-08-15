@@ -2,7 +2,7 @@
 title: "The Crop V Neck Top: Why This Wardrobe Workhorse Is Taking Over Modern Fashion"
 slug: "the-crop-v-neck-top-why-this-wardrobe-workhorse-is-taking-over-modern-fashion"
 description: "Fashion cycles are notoriously fickle, but every once in a while, a silhouette emerges that manages to bridge the gap between high-street trends and timeless staples. Enter the crop v neck top. While the traditional V-neck has been a mainstay in wardrobes since the early 20th century—originally popu"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Crop%20V%20Neck%20Top%3A%20Why%20This%20Wardrobe%20Workhorse%20Is%20Taking%20Over%20Modern%20Fashion%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=495012106"

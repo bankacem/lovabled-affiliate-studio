@@ -2,7 +2,7 @@
 title: "Mastering the Art: How to Layer a V-Neck Sweater Over a Collared Shirt for Women"
 slug: "mastering-the-art-how-to-layer-a-v-neck-sweater-over-a-collared-shirt-for-women"
 description: "There is something inherently powerful about a well-executed layered outfit. It sits at the intersection of \\\"I have my life together\\\" and \\\"I just threw this on.\\\" For women, layering a v-neck sweater over a collared shirt is a sartorial cheat code. It works for the boardroom, the brunch table, and th"
-category: "Guide"
+category: "Hoodies & Sweatshirts"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjwhRQ01L0qTqMuhYcAv2GKz0PxLjp8KeqIeCIL_WfBpfsa-7cM-yVQsszaCcf-MKof7SprPtJT139yYe-0O2jagc6QFhBomdwUawQQZbWNY8Dz4vbpLlK9r300WZiyXsy_mlgFhO0xY9GKgR1si4yOOgIW7VZGV7YT0wtSn68nf3JzMxeTnsWHGRw4NN4"

@@ -2,7 +2,7 @@
 title: "Mastering the Canvas: Why High-Quality DTG Printing is the Gold Standard for AI Artworks"
 slug: "mastering-the-canvas-why-high-quality-dtg-printing-is-the-gold-standard-for-ai-artworks"
 description: "When we talk about Direct-to-Garment (DTG) printing, we’re essentially discussing a giant, highly sophisticated inkjet printer designed specifically for textiles. For those coming from the world of digital art, think of it as the bridge between your monitor and a wearable canvas. Unlike screen print"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhqAD-ndf_UD3a3pmJr26cEj8JkbYB7SN5nXC_IFg9NVxoGcJ1m_gvX5ubmFzmeyQC5qDKrtAkpmHflmeZWXWm4tXJXaX_MyhSk-C81fIyv85wVQca2KwGKuEk3bIWk_EFX4tlA9scmISU7QFnkpCtBv12evaMiGO_X600Dk5Pcm3_voFWajWEW9IiBrN8"

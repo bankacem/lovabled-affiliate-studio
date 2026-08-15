@@ -2,7 +2,7 @@
 title: "The Guide to Matching Christmas Shirts: Traditions, Trends, and Styling Tips"
 slug: "the-guide-to-matching-christmas-shirts-traditions-trends-and-styling-tips"
 description: "In recent years, the trend of wearing matching Christmas shirts has evolved from a niche family tradition into a global phenomenon. What started as a quirky way for families to show unity during holiday portraits has transformed into a multi-million dollar industry. But beyond the commercial aspect,"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiZpU5Ruqqgk81PfsFLj3I9vPmPEyEqmdKKk5YA3UmLx7Q1UKUJtmNR9TM4YX-hs9oqWAs7krnpGYYBxvpcRTghPUWiY7A7yWVlmo4qNwWpiL-admNN1r01CU9rvtObyG6qW7ivm61QyJsx_ym5qkQPDtxekrcpFzu17AvBPFWlAX8qyJnleamb1J-d9mg"

@@ -2,7 +2,7 @@
 title: "Off To Cause A Kerfuffle Frog - Funny Sarcastic Meme Graphic: The Ultimate Guide to Creating and Sharing Humor Online"
 slug: "off-to-cause-a-kerfuffle-frog-funny-sarcastic-meme-graphic-the-ultimate-guide-to-creating-and-sharin"
 description: "Are you ready to cause a kerfuffle and bring some humor to the online world? Look no further than the Off To Cause A Kerfuffle Frog - Funny Sarcastic Meme Graph"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgDPBg4jac29BJzgOAytMCi7H7pCZQkwVpZqODVnHLEHqrVn6bcH4d30DKZ85eD3kHXOf2xSNVozqL02kvMiTyLALCc8mlcYVfiUr_j1rFoQNnUwzcp9sti2tTrFqSIwKYUsWUxv77jcU9olao38eEhcpAnO44OhkuoOCzGGIZTVTidJ3SCUkXPfv0hyxw"

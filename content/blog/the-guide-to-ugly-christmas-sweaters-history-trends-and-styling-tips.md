@@ -2,7 +2,7 @@
 title: "The Guide to Ugly Christmas Sweaters: History, Trends, and Styling Tips"
 slug: "the-guide-to-ugly-christmas-sweaters-history-trends-and-styling-tips"
 description: "What we now affectionately call the \\\"Ugly Christmas Sweater\\\" didn't start out as a joke. In the 1950s, as Christmas became increasingly commercialized, mass-produced festive knitwear first hit the market. At the time, they were known as \\\"Jingle Bell Sweaters\\\" and were intended to be genuinely artist"
-category: "Guide"
+category: "Hoodies & Sweatshirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiuJoZyJPVPDYWNaoSFXt_9FzZIW6_Tru6Mbw0EvvJhmYhb1htlqHZFNCtYaDwX2lbKYrfs084CuRkrr1UsVlsa1AothRTo3AgAO8FLewN1Jy44Nn4N-Isj7eHY8myMgYTXQAo5jFIPhXZz2CdJZZwsHPtwBjLKK8sU14k7dw-fOso8lZiY2_G-ZQz7STQ"

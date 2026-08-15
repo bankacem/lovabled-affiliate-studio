@@ -2,7 +2,7 @@
 title: "Last-Minute Christmas Gift Mugs for Your Boss: Best Options 2026"
 slug: "the-eleven-hour-executive-best-last-minute-christmas-gift-mugs-for-your-boss"
 description: "Finding yourself in a panic on December 23rd is practically a holiday tradition. You realize everyone in the department is chipping in for a group gift, or worse, your boss just handed you a thoughtful card and you’ve got nothing but a \\\"Merry Christmas\\\" and a sheepish grin. This is where the humble "
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Last-Minute%20Christmas%20Gift%20Mugs%20for%20Your%20Boss%3A%20Best%20Options%202026%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=344876166"

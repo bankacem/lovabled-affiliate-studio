@@ -2,7 +2,7 @@
 title: "The Guide to Witch Shirts: Style, Symbolism, and Modern Mysticism"
 slug: "the-guide-to-witch-shirts-style-symbolism-and-modern-mysticism"
 description: "In recent years, the \\\"Witchcore\\\" aesthetic has transcended niche internet subcultures to become a dominant force in mainstream fashion. At the heart of this movement is the witch shirt—a versatile piece of clothing that allows individuals to express their affinity for the occult, nature, and persona"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjOQU_jLUtd1krwyWuZkctiCnVBUO00pOc4A6UZCgBpgnO4edPr2tpSGrJgbvgFhafacqURNSTU4o8KvkrUQIN_3M9HBAIJrJp4Dbn1pc9OQMFzUAMpUkqKwSyA-w3o74VMiSImttIZcPolO8pFWKyornCjZCJYty7Jz5t79sYM1aIP6PDKmlRd-qvwMEw"

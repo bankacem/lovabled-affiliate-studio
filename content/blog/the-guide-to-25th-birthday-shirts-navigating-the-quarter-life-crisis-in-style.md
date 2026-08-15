@@ -2,7 +2,7 @@
 title: "The Guide to 25th Birthday Shirts: Navigating the \"Quarter-Life Crisis\" in Style"
 slug: "the-guide-to-25th-birthday-shirts-navigating-the-quarter-life-crisis-in-style"
 description: "Turning 25 is a weirdly significant milestone. In the eyes of the government, you’re finally old enough to rent a car without a massive surcharge. In the eyes of your insurance company, you’re suddenly a \\\"mature driver.\\\" But for most of us, it’s the year the \\\"Quarter-Life Crisis\\\" stops being a meme "
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiiRwfTQeYv_O-cTxJbqaspz6XZ4RvwwNhyqqOOdFKmNNO25Dw8VNbOHGhU7Fwq2LEkG8xWxiJUKy725BLoqBjc0YUe992A2nz6VKk845FYKmpRn2dkjDDO8-Kq70f_7nYU7-WK_K15ZFazLfzov9Q1cF8vzPljpqCKBAQZHXAJu9xVvHvRJNIVMTTmeYQ"

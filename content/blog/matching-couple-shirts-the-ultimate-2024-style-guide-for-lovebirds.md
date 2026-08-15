@@ -2,7 +2,7 @@
 title: "💕 Matching Couple Shirts: The Ultimate 2026 Style Guide for Lovebirds"
 slug: "matching-couple-shirts-the-ultimate-2024-style-guide-for-lovebirds"
 description: "💕 Matching Couple Shirts: The Ultimate 2024 Style Guide for Lovebirds"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgZZtZVfwdH85se81dh-1si_KPtDm31GUAdXQkB1jAbkV_B2djMWJgM3SvO2Il9xQFU-XCJkR9VWptsRZR81ZZL-Wl3KtJrPqIRtbWr38B9ar5U6noZyskHAqrH6mX0884LO1mkU4HRTD3wpAerHK6dMUVVD8i5u70AOHjk1GXDOEaYUa6yOrBhLp2TxnI"

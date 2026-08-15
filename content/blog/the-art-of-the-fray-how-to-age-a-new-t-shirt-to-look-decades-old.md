@@ -2,7 +2,7 @@
 title: "How to Make a New T-Shirt Look Old and Worn: Easy DIY Methods"
 slug: "the-art-of-the-fray-how-to-age-a-new-t-shirt-to-look-decades-old"
 description: "There is a specific kind of frustration that comes with buying a brand-new band tee or a heavy-weight cotton blank. It’s too stiff. The collar is too tight. The colors are aggressively vibrant, screaming \\\"I just bought this yesterday.\\\" In the world of high-end streetwear and curated thrift culture, "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil9aMkszsomu0UIeAtPrSNgGYkWA1BURYHBSIHZOty17SgX8mg2JvbHqMjaBjcL-Sf9A_jTc2BYIOfq9NriU35hfoLuohH2hUZs-RDNFy_pJsM4A5MfaVUQbO2CMIKSpG_r3B6zuu09RP6z_OMDp4rl0FrX8igp5AxFhaQ1AlnC1Qa4K-QeT_nX-sGhLY/s938/1000025626.jpg"

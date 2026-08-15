@@ -2,7 +2,7 @@
 title: "Silly Teachers Build Character - Funny Goose Teacher SEL Aesthetic Shirt: The Ultimate Guide to Spreading Positivity in the Classroom"
 slug: "silly-teachers-build-character-funny-goose-teacher-sel-aesthetic-shirt-the-ultimate-guide-to-spreadi"
 description: "Are you a teacher looking for a fun and creative way to build character in your students? Look no further than the Silly Teachers Build Character - Funny Goose "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056186920.3933/ssrco,oversized_sweatshirt,mens_01,273242:8ba09ca44c,front,square_close_portrait,x1000.jpg"

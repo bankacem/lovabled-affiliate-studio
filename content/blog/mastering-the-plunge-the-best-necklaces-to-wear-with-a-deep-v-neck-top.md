@@ -2,7 +2,7 @@
 title: "Mastering the Plunge: The Best Necklaces to Wear With a Deep V-Neck Top"
 slug: "mastering-the-plunge-the-best-necklaces-to-wear-with-a-deep-v-neck-top"
 description: "There is something inherently powerful about a deep V-neck. It elongates the torso, draws attention to the face, and offers a canvas that is both daring and sophisticated. However, that expansive \\\"negative space\\\" created by the neckline can often feel like a styling trap. Is it too bare? Is the neck"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjYiHmqR3gSbr60eAFSw-OP21fU2kxyKrR8mMaOgBJxDrZc-bbx2j3z2AudLrUnG7l5rPQfRSoUbkSnCMdAlscKeWgCUQQR_eDySrALnzuA2gsyekpu6TIDPdiinjMVhX4xZKzF2FZETXvaQvvVFv8ri0yYkPo8HpCIo-NvXkMoRGySNG9reFQ_7rgYKpU"

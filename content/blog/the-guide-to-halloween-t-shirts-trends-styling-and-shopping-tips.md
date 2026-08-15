@@ -2,7 +2,7 @@
 title: "The Guide to Halloween T-Shirts: Trends, Styling, and Shopping Tips"
 slug: "the-guide-to-halloween-t-shirts-trends-styling-and-shopping-tips"
 description: "Halloween is no longer just a single night of trick-or-treating; it has transformed into a month-long celebration of the macabre, the whimsical, and the nostalgic. At the heart of this seasonal shift is the humble Halloween t-shirt. While full costumes are reserved for parties and October 31st, a we"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhcAGC3u0fQ5VMSeP9tKUPPfKowbENtWt047au9rB5nXobRI7F73yIGESBuRRWSPMdcQxpYL49dmiKGbTCU593IW6kReWj-flrRIIt6Txs9V1hhtGeBHoxh80_l9FcLNiK7AlbTMopvldnW4rRpbJAKVX5Pt7bBofTsXIJmlDWdcCvGrjXgk_GTsAW2hvI"

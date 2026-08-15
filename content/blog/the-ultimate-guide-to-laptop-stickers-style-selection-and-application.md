@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Laptop Stickers: Style, Selection, and Application"
 slug: "the-ultimate-guide-to-laptop-stickers-style-selection-and-application"
 description: "The Ultimate Guide to Laptop Stickers: Style, Selection, and Application"
-category: "Guide"
+category: "Stickers"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgIpTCPFjrRumLjcThoK6JEivHAQBUbO7Tv36uLVQEpyMmdpz15eY5Fon7dMeJLAtq1bfmP-eSxkuX9z593BAbEVr7UTXeZpVPuEOWYun0lfHlqodTwT6ekoMfw3xLdkTUgZZEkG3tiMjUjR5DLrgNDSiMFe0lliuD7iMHMKX7pLaVym7kugTjvaHdc4GY"

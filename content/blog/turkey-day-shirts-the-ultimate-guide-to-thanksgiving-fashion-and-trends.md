@@ -2,7 +2,7 @@
 title: "Turkey Day Shirts: The Ultimate Guide to Thanksgiving Fashion and Trends"
 slug: "turkey-day-shirts-the-ultimate-guide-to-thanksgiving-fashion-and-trends"
 description: "Thanksgiving, affectionately known by many as \\\"Turkey Day,\\\" has undergone a fashion transformation over the last decade. Gone are the days when the only option was a formal dress or a stiff button-down shirt. Today, the Turkey Day shirt has become a cultural staple, allowing individuals to express t"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEinC7kdt67dWqgckwsaB0L8n7pJyhDYlBzojzAMySyJYNyNMyX4sIuHE52jlJ8y_Z4_NDzDyu8rOYjUyEVaDpJ8zJe81_IZaomDsfwY6SNALygrsmFPzjiMd45TtyQsnC3cQ-1Ph4HM63y4C8tUFN69_1BD21QAiV4qrTe5n0FLyKNqp9BPrYe8MPSH4oo"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Tucking: When to Let Your T-Shirt Fly and When to Reel It In"
 slug: "the-ultimate-guide-to-tucking-when-to-let-your-t-shirt-fly-and-when-to-reel-it-in"
 description: "Style is rarely about the clothes themselves and almost always about the message they send. For decades, the tucked-in t-shirt was the hallmark of the \\\"nerd\\\" or the \\\"dad at a barbecue.\\\" It felt rigid, forced, and frankly, a bit dated. But look at any high-end menswear lookbook today, and you’ll see "
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Tucking%3A%20When%20to%20Let%20Your%20T-Shirt%20Fly%20and%20When%20to%20Reel%20It%20In%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=487376777"

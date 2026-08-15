@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Just Married Shirts: How to Celebrate Your New Status in Style"
 slug: "the-ultimate-guide-to-just-married-shirts-how-to-celebrate-your-new-status-in-style"
 description: "Stepping out of the reception and into the world as a married unit is a surreal experience. While the wedding gown and tuxedo are the stars of the ceremony, the \\\"Just Married\\\" shirt has become the unofficial uniform of the post-wedding glow. It’s more than just fabric; it’s a public declaration of a"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Just%20Married%20Shirts%3A%20How%20to%20Celebrate%20Your%20New%20Status%20in%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=238296803"

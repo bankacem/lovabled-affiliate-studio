@@ -2,7 +2,7 @@
 title: "The Fine Line of Offense: A Deep Dive into the World of Inappropriate Funny Shirts"
 slug: "p-the-fine-line-of-offense-a-deep-dive-into-the-world-of-inappropriate-funny-shirts"
 description: "Humor is a strange beast. What makes one person belly-laugh makes another call for a manager. In the world of fashion, specifically the niche of inappropriate funny shirts, we operate on what psychologists call the Benign Violation Theory. For a joke to be funny, it has to violate a norm, but it has"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Fine%20Line%20of%20Offense%3A%20A%20Deep%20Dive%20into%20the%20World%20of%20Inappropriate%20Funny%20Shirts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1858208434"

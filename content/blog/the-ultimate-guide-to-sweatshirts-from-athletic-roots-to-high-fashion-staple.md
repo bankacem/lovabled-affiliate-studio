@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Sweatshirts: From Athletic Roots to High-Fashion Staple"
 slug: "the-ultimate-guide-to-sweatshirts-from-athletic-roots-to-high-fashion-staple"
 description: "Few garments have undergone a transformation as radical as the sweatshirt. What began as a utilitarian piece of athletic equipment has evolved into a cornerstone of the modern wardrobe, appearing on international runways and in corporate boardrooms alike."
-category: "Guide"
+category: "Hoodies & Sweatshirts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgCw1Dt952ZFdbunJ6DbITE05rA4YR0tBUUvsgDUOpFeFzjPqLDPDcYkrqFu8c8FCNZpx32tDa-EpEgicmgZAzDcKiQRc0_cFY4IWcA7wRKfyBfT7lV2wYfm0HrB3GGG-kkBsjfrjOLpbT9VFSO6ytfJ33tM0O4xvgySzZmZUvQgg6yt6UX3JyLDnj8DBM"

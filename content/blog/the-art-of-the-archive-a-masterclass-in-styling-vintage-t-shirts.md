@@ -2,7 +2,7 @@
 title: "The Art of the Archive: A Masterclass in Styling Vintage T-Shirts"
 slug: "the-art-of-the-archive-a-masterclass-in-styling-vintage-t-shirts"
 description: "There is a specific kind of magic found in the thin, slightly cracked graphic of a 1994 concert tee or the perfectly faded heather gray of an 80s collegiate shirt. Unlike modern \\\"distressed\\\" fast fashion, true vintage carries a tangible history. But here is the challenge: without the right approach,"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Art%20of%20the%20Archive%3A%20A%20Masterclass%20in%20Styling%20Vintage%20T-Shirts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=40582920"

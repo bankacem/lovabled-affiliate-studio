@@ -2,7 +2,7 @@
 title: "Oversized V-Neck T-Shirts: How to Style Them for Any Look"
 slug: "p-the-art-of-the-oversized-v-neck-why-this-wardrobe-staple-is-the-ultimate-style-chameleon"
 description: "There is a specific kind of confidence that comes from wearing something twice your size and looking like you own the room. For years, the fashion industry pushed \\\"body-con\\\" as the gold standard for femininity. However, the shift toward oversized garments—specifically the oversized V-neck—represents"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1730289802373-e54616059384?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxPdmVyc2l6ZWQlMjBWLU5lY2slMjBULVNoaXJ0cyUzQSUyMEhvdyUyMHRvJTIwU3R5bGUlMjBUaGVtJTIwZm9yJTIwQW55JTIwTG9vayUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjE1fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

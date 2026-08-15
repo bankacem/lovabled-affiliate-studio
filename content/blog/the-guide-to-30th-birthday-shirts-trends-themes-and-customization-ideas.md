@@ -2,7 +2,7 @@
 title: "The Guide to 30th Birthday Shirts: Trends, Themes, and Customization Ideas"
 slug: "the-guide-to-30th-birthday-shirts-trends-themes-and-customization-ideas"
 description: "Entering your thirties is often described as the \\\"true\\\" transition into adulthood. While 21 is about freedom, 30 is about coming into one's own. In recent years, the trend of wearing 30th birthday shirts has evolved from a simple novelty into a significant part of the celebration ritual. Whether it’"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEis0jUzfAGDqSVg4kDVAxHyYOuiw_ta-Z9UuYLtiwrTTP0CPt8dj7GAsnpBQO2byf-_snnvl7ZQtEXVIfk6Oo-LJhQP469bi1bgdv3fFvuZtACCT1slRAUK-ev0xGW_ngCWPt91UuV98Und8Lx3Nw5HPAEprs_cWO9kN-iBLs1nUD3PtNqD3kKqCh11ABE"

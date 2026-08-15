@@ -2,7 +2,7 @@
 title: "Single Stitch vs Double Stitch: The Ultimate Guide to Vintage Tee Authentication"
 slug: "single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication"
 description: "Walking through a thrift store or browsing curated vintage shops on Grailed, you’ll often see sellers shouting \\\"SINGLE STITCH\\\" in all caps as if they’ve found a gold bar. To the uninitiated, it sounds like technical jargon. However, in the world of textile archaeology, these tiny threads are the DNA"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1614904301802-53243f11a17c?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxTaW5nbGUlMjBTdGl0Y2glMjB2cyUyMERvdWJsZSUyMFN0aXRjaCUzQSUyMFRoZSUyMFVsdGltYXRlJTIwR3VpZGUlMjB0byUyMFZpbnRhZ2UlMjBUZWUlMjBBdXRoZW50aWNhdGlvbiUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjQ1fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

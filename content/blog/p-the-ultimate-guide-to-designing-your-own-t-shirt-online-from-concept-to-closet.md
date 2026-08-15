@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Designing Your Own T-Shirt Online: From Concept to Closet"
 slug: "p-the-ultimate-guide-to-designing-your-own-t-shirt-online-from-concept-to-closet"
 description: "Let’s be honest: the retail market is saturated with \\\"fast fashion\\\" that lacks soul. While walking into a big-box store and grabbing a $10 graphic tee is easy, there is a distinct lack of personality in mass-produced apparel. In my years of exploring the intersection of tech and fashion, I’ve found "
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Designing%20Your%20Own%20T-Shirt%20Online%3A%20From%20Concept%20to%20Closet%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=386159399"

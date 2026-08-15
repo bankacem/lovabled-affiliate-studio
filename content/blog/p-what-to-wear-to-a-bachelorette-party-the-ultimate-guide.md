@@ -2,7 +2,7 @@
 title: "What to Wear to a Bachelorette Party: The Ultimate Guide"
 slug: "p-what-to-wear-to-a-bachelorette-party-the-ultimate-guide"
 description: "Getting ready for a bachelorette party can be both exciting and overwhelming, especially when it comes to deciding what to wear. With so many options and factors to consider, it's easy to feel lost. In this guide, we'll walk you through the essentials of bachelorette party attire, from understanding"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
 image: "https://aiprintverse.com/images/default-blog.jpg"

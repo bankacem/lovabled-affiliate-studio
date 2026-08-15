@@ -2,7 +2,7 @@
 title: "Rock Your Holiday Spirit: The Ultimate Guide to Santa Claus Tee Designs for Every Vibe"
 slug: "rock-your-holiday-spirit-the-ultimate-guide-to-santa-claus-tee-designs-for-every-vibe"
 description: "Let’s be honest: there’s nothing quite like that feeling when the first chill hits the air and you realize it’s officially \\\"Christmas shirt season.\\\" Whether you're heading to a chaotic family gathering, a corporate white elephant party, or just want to feel festive while sipping a peppermint mocha, "
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1640140938988-410c4f92c8d2?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxSb2NrJTIwWW91ciUyMEhvbGlkYXklMjBTcGlyaXQlM0ElMjBUaGUlMjBVbHRpbWF0ZSUyMEd1aWRlJTIwdG8lMjBTYW50YSUyMENsYXVzJTIwVGVlJTIwRGVzaWducyUyMGZvciUyMEV2ZXJ5JTIwVmliZSUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjUwfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

@@ -2,7 +2,7 @@
 title: "The Art of the Groan: Why Dad Joke Shirts are Dominating Modern Streetwear"
 slug: "p-the-art-of-the-groan-why-dad-joke-shirts-are-dominating-modern-streetwear"
 description: "There is a specific, almost scientific frequency to a good dad joke. It’s that sweet spot between clever and catastrophic. For years, these jokes were confined to the dinner table or car rides, but we’ve seen a massive shift. According to recent consumer behavior data in the apparel industry, \\\"humor"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Art%20of%20the%20Groan%3A%20Why%20Dad%20Joke%20Shirts%20are%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1318574869"

@@ -2,7 +2,7 @@
 title: "Canvas Prints 101: Everything You Need to Know Before You Buy"
 slug: "canvas-prints-101-everything-you-need-to-know-before-you-buy"
 description: "Canvas Prints 101: Everything You Need to Know Before You Buy"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjZiN2jtCylYtKTmpZUCVkb47J4VKlKeTAdpPgOlWoNsEq3iWYjdv89ogAgxqQuFK_cy0QSOyS3BRI0nfHdQVDV5gDFMiob_Pq8gjupxcR5NCcpmgzNf_OiwW4SkN389fehnBdnaYcs4FO0nAYZLNsE-Nipv_-VBPv8POSih2A74SRJslBEUM_qfU86fxU"

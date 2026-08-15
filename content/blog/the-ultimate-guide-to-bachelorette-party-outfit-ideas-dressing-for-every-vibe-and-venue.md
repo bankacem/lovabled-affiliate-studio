@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Bachelorette Party Outfit Ideas: Dressing for Every Vibe and Venue"
 slug: "the-ultimate-guide-to-bachelorette-party-outfit-ideas-dressing-for-every-vibe-and-venue"
 description: "Planning a bachelorette party used to be as simple as ordering a few \\\"Bride Tribe\\\" t-shirts and calling it a day. Times have changed. In my experience, the modern bachelorette has shifted toward curated aesthetics that feel more like a high-fashion editorial and less like a fraternity social. Accord"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Bachelorette%20Party%20Outfit%20Ideas%3A%20Dressing%20for%20Every%20Vibe%20and%20Venue%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1065337219"

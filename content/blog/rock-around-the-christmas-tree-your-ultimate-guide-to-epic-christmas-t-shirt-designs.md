@@ -2,7 +2,7 @@
 title: "Rock Around the Christmas Tree: Your Ultimate Guide to Epic Christmas T-Shirt Designs"
 slug: "rock-around-the-christmas-tree-your-ultimate-guide-to-epic-christmas-t-shirt-designs"
 description: "Let’s be honest for a second. As much as we all love the idea of a scratchy wool sweater with a 3D reindeer nose, most of us end up sweating bullets five minutes after the oven turns on. That’s where the Christmas t-shirt saves the day. It’s the unofficial uniform of the \\\"cool aunt,\\\" the \\\"laid-back "
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjdyP2MU7YwOp0RH2TdrN2kFCdGw8ool8mZ5tpcpvjCwGMrNjsa53a4c7Bw3fyDxmABAza15iXZzlZjqAgjYpByxCCJZOpryC2e-5YQjw7WtL-xsdfxgYFp-skmPb3xlQq9BDoC2j7UIHDV5Yk3fjPcIH4AY02E7T6G8xR7ZrnX8iRZnjvlszplEug4e8w"

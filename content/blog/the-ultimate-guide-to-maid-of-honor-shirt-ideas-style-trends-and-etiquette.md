@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Maid of Honor Shirt Ideas: Style, Trends, and Etiquette"
 slug: "the-ultimate-guide-to-maid-of-honor-shirt-ideas-style-trends-and-etiquette"
 description: "Being chosen as the Maid of Honor is a massive vote of confidence. It’s a role that bridges the gap between \\\"best friend\\\" and \\\"unpaid event coordinator.\\\" While the focus is rightfully on the bride, the apparel the bridal party wears during the bachelorette party, the bridal shower, or the morning of"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1550005800-602985c66ed7?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBVbHRpbWF0ZSUyMEd1aWRlJTIwdG8lMjBNYWlkJTIwb2YlMjBIb25vciUyMFNoaXJ0JTIwSWRlYXMlM0ElMjBTdHlsZSUyQyUyMFRyZW5kcyUyQyUyMGFuZCUyMEV0aXF1ZXR0ZSUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjExfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

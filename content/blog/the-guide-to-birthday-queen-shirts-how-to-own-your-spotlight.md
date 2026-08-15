@@ -2,7 +2,7 @@
 title: "The Guide to Birthday Queen Shirts: How to Own Your Spotlight"
 slug: "the-guide-to-birthday-queen-shirts-how-to-own-your-spotlight"
 description: "Let’s be honest: there is a certain thrill in being the center of attention on your birthday. Whether you are turning 21 or 60, the \\\"Birthday Queen\\\" shirt has evolved from a cheesy party favor into a legitimate fashion statement. Why? Because it serves as a social passport. When you walk into a bar,"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjbCEt04oamTQjlBlGyNaN74yOfZ6PAyYt9fuqGAkrBovYXnLtDL2ORmHJ76wsex_5iAis4qw4NIW--F7ok7L0QmlPIGSOW0D478qLbwL3HaZojqppINaeFwC9y_co6klHYOZ2B9tQvRsbUeH2lKWqEHnv0SZZBm1eaolfaNlJ5jgZK0FaVuroCU2qGiXM"

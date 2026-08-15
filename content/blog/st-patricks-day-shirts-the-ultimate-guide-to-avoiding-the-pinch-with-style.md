@@ -2,7 +2,7 @@
 title: "St. Patrick’s Day Shirts: The Ultimate Guide to Avoiding the Pinch with Style"
 slug: "st-patricks-day-shirts-the-ultimate-guide-to-avoiding-the-pinch-with-style"
 description: "Walk into any bar or parade on March 17th without a hint of emerald, and you’re asking for trouble. But where did this \\\"pinch\\\" tradition actually come from? Folklore suggests that wearing green makes one invisible to leprechauns—cranky celestial creatures who take delight in pinching anyone they can"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22St.%20Patrick%E2%80%99s%20Day%20Shirts%3A%20The%20Ultimate%20Guide%20to%20Avoiding%20the%20Pinch%20with%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1216580960"

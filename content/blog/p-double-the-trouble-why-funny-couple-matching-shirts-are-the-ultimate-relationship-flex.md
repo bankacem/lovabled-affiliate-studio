@@ -2,7 +2,7 @@
 title: "Double the Trouble: Why Funny Couple Matching Shirts are the Ultimate Relationship Flex"
 slug: "p-double-the-trouble-why-funny-couple-matching-shirts-are-the-ultimate-relationship-flex"
 description: "Let’s be honest: walking into a room wearing matching outfits takes a certain level of audacity. It’s loud, it’s visible, and if done poorly, it can be incredibly cringeworthy. But here is the thing: research suggests that couples who laugh together stay together. According to a study published in t"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Double%20the%20Trouble%3A%20Why%20Funny%20Couple%20Matching%20Shirts%20are%20the%20Ultimate%20Relationship%20Flex%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1818646144"

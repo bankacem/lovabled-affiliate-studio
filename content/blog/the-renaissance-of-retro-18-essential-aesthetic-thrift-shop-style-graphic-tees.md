@@ -2,7 +2,7 @@
 title: "The Renaissance of Retro: 18 Essential Aesthetic Thrift Shop Style Graphic Tees"
 slug: "the-renaissance-of-retro-18-essential-aesthetic-thrift-shop-style-graphic-tees"
 description: "Walking into a dimly lit thrift store and pulling a perfectly faded, 1994 world tour tee from a crowded rack feels like winning the lottery. It’s a specific dopamine hit that fast fashion simply cannot replicate. However, as the vintage market becomes increasingly saturated and prices for \\\"true vint"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Renaissance%20of%20Retro%3A%2018%20Essential%20Aesthetic%20Thrift%20Shop%20Style%20Graphic%20Tees%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1278284144"

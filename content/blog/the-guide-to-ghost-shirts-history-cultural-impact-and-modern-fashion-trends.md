@@ -2,7 +2,7 @@
 title: "The Guide to Ghost Shirts: History, Cultural Impact, and Modern Fashion Trends"
 slug: "the-guide-to-ghost-shirts-history-cultural-impact-and-modern-fashion-trends"
 description: "The term \\\"ghost shirt\\\" carries profound weight, bridging the gap between spiritual mysticism, tragic history, and contemporary aesthetics. Depending on the context, a ghost shirt can refer to a sacred garment worn by Native American warriors during the late 19th century or a specialized technique us"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgt14-lxZaCXFfDpptiidgQDyMdnmfq9fqO0V83UEsn6LCt2RGyYlXv4n9yOuhAC0LnCRCWB8Dn8vDlDBNiCrGHcIlkCu-T16IebpnIF8R6_e4EDlUJnmrZw8MZmlAKaoLTdAB1OZ6pD7KkjGaSanVU9Y4BQYyiGrKzFpwF9fyKVKEJt8kfm23mgteBtFI"

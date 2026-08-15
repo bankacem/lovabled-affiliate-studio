@@ -2,7 +2,7 @@
 title: "Big Fan of Human Rights - Radicalized by Basic Decency Retro T-Shirt: A Symbol of Solidarity and Activism"
 slug: "big-fan-of-human-rights-radicalized-by-basic-decency-retro-t-shirt-a-symbol-of-solidarity-and-activi"
 description: ""
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056177187.3622/ssrco,boxy_tee,womens_01,060606:b41fecf593,front,square_close_portrait,x1000.jpg"

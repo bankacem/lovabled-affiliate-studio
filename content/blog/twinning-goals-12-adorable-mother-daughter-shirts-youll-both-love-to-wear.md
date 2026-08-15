@@ -2,7 +2,7 @@
 title: "Twinning Goals: 12 Adorable Mother-Daughter Shirts You’ll Both Love to Wear"
 slug: "twinning-goals-12-adorable-mother-daughter-shirts-youll-both-love-to-wear"
 description: "Twinning Goals: 12 Adorable Mother-Daughter Shirts You’ll Both Love to Wear"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEh_RhfjEYFwiKkrajk4WHH2bEUh8oJDkdsVceP6Rk6Cvy4o1DM9StJme5eMyi226KiLPd22O7RlMnAU-vBgrXGeGuAXPJ2fO3Elo_tGR4gUNq9NfIGcYZzAEu2Z8z703odGRHkQCOKiWU5sxwVNdSt1-lxrokTcwWiw34TGOuOXxS_juxOUgzlSLgAQ3kQ"

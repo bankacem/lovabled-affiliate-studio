@@ -2,7 +2,7 @@
 title: "Ditch the Itch: 7 Refreshing Ugly Christmas Sweater Alternatives That Actually Look Good"
 slug: "ditch-the-itch-7-refreshing-ugly-christmas-sweater-alternatives-that-actually-look-good"
 description: "We’ve all been there. You get an invite to an \\\"Ugly Christmas Sweater Party,\\\" and suddenly you’re scouring the clearance rack for a polyester monstrosity with 3D pom-poms and battery-operated lights that stop working after twenty minutes. Here’s the thing: while the trend was hilarious in 2012, many"
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjsO9dZR21_AXq4TY03qAnA962-3EKtxiE3g5zc2ppgFoFdu6kyHq9Tl1Xva6_ruF6Zq4rX-tsILlhfJAvgs6TKd-NsjGqMSeesMwyWhQQ9-cbsEX4RQukZ_1M0zE5571EL7-SQyTMzye1w3flVPqgpwS_TfNKCSdGDCSfMUB4WMupHO5racN2h0blYCcE"

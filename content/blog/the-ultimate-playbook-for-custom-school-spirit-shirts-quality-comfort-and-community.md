@@ -2,7 +2,7 @@
 title: "The Ultimate Playbook for Custom School Spirit Shirts: Quality, Comfort, and Community"
 slug: "the-ultimate-playbook-for-custom-school-spirit-shirts-quality-comfort-and-community"
 description: "Walking into a gymnasium during a Friday night rivalry game, the first thing you notice isn't the score—it's the sea of color. Whether it's a deep crimson or a vibrant royal blue, those custom school spirit shirts serve a purpose far beyond simple fashion. They are social identifiers. Research in ed"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1761258772640-db5be45f7208?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBVbHRpbWF0ZSUyMFBsYXlib29rJTIwZm9yJTIwQ3VzdG9tJTIwU2Nob29sJTIwU3Bpcml0JTIwU2hpcnRzJTNBJTIwUXVhbGl0eSUyQyUyMENvbWZvcnQlMkMlMjBhbmQlMjBDb21tdW5pdHklMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI1Nnww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

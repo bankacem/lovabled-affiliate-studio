@@ -2,7 +2,7 @@
 title: "How to Use AI to Create Vintage Graphics for T-Shirts (Step by Step)"
 slug: "the-digital-time-machine-how-to-use-ai-to-create-authentic-vintage-graphics"
 description: "There is a peculiar irony in using the world’s most advanced artificial intelligence to recreate the look of a 19th-century lithograph or a 1950s travel poster. But here we are. In my years tracking design trends, I’ve noticed that as our screens get sharper and our pixels more perfect, the human so"
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhRlpGM2p30ZIK_E2TE5GdaO4rY3p3mAUdyx-snZIAK2J7lUoZypOAzI3MoJnHL4XsNVgq_sidVjCbwmdq09_KInrO8CY74nySS1IU30JxFeWcXePFEE0wIOijT6QZmq5_dF0pEYEeVtMdunOCa6gNnqzxW_P_O4wp7EnBthv6Ut-GKGMnRmThy_iWJ178"

@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom AI-Generated T-Shirt Designs for Couples: Wearable Art for Two"
 slug: "the-ultimate-guide-to-custom-ai-generated-t-shirt-designs-for-couples-wearable-art-for-two"
 description: "Let’s be honest. We’ve all seen those cringey \\\"I'm with Stupid\\\" or \\\"King and Queen\\\" shirts at tourist traps. While the sentiment is sweet, the execution often lacks... well, style. For years, couples were limited to whatever templates a local screen printer had on file. But the landscape changed alm"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhXCqnvvFlMAZkGhCJ_XS3AGN3HBUGiOCG9q_Gg3JJMcn9wot4g1yzdNZICaIW3syGt3QoXVJz9kpxAaG2LlZXgpCJ_yp2Y-173mTqRWXqzMAnwnrGRK96CUSm48dGTZXWZzOLgf7aElQaT1zcVc1eZmUpXXdk4rKFqnCMj3Qy5g1ks90pVKbF3Gd2tQRY"

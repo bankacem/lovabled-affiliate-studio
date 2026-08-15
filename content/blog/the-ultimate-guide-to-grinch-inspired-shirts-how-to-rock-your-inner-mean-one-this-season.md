@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Grinch-Inspired Shirts: How to Rock Your Inner Mean One This Season"
 slug: "the-ultimate-guide-to-grinch-inspired-shirts-how-to-rock-your-inner-mean-one-this-season"
 description: "Let’s be real for a second. We all love Cindy Lou Who, but there’s something incredibly relatable about a guy who just wants to stay home with his dog and avoid the crowds. Over the last few years, the Grinch has transitioned from a holiday villain to a total mood. Whether you’re a genuine holiday h"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhYstQxkNIkCIDWK9SsdHCReaGOXXy37SU4C1x78YvhQhJreoBrH0UtY3HKeu-IK3rSIaF3EuFWbRzw4Cf4vB00hJsqDafZV2jnWYJzPvO_CuKNMZlsum4WBsVdq7O5sr9Wft6o1DGsS8Ra-J0HgM4qFRGMm7trhTp0aHV-4MSrZSZ2LBHWfSUVwwxqRSo"

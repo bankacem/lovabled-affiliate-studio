@@ -2,7 +2,7 @@
 title: "The Modern Blueprint for Father-Son Bonding: Beyond the Catch and Play"
 slug: "p-the-modern-blueprint-for-father-son-bonding-beyond-the-catch-and-play"
 description: "For decades, the narrative surrounding the father-son dynamic was centered on \\\"providing\\\" and \\\"toughening up.\\\" However, contemporary developmental psychology has pivoted. We now understand that a father’s role is not just to be a pillar of strength, but to be a mirror of emotional regulation. Accord"
-category: "Guide"
+category: "Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Modern%20Blueprint%20for%20Father-Son%20Bonding%3A%20Beyond%20the%20Catch%20and%20Play%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=572971846"

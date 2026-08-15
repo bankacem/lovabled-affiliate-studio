@@ -2,7 +2,7 @@
 title: "Matching Friend Shirts: The Ultimate Guide to Friendship Fashion in 2026"
 slug: "matching-friend-shirts-the-ultimate-guide-to-friendship-fashion-in-2024"
 description: "Matching Friend Shirts: The Ultimate Guide to Friendship Fashion in 2024"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEg-Yg_MgpPbzGCjk4gf4iArYV9FUteFSORBLa3g7D6EqeDsJorvwy0tGwYSRaxwIykdsymmQ_QTkVSpxqci2YX7FgLfoBjkRTcAHAAmQqTXDn5LySCPvO4ufpZ-Cg4q3cHqrYftyUxdD6OB9lNJzrZGrRBhrJycyjaPB2045NkRSQMNRfl6Iiqq3VlfcDo"

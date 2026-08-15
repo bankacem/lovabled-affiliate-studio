@@ -2,7 +2,7 @@
 title: "Decoding the \"Edge Function Returned a Non-2xx Status Code\" Error: A Developer’s Guide to Recovery"
 slug: "decoding-the-edge-function-returned-a-non-2xx-status-code-error-a-developers-guide-to-recovery"
 description: "Staring at a console log that simply reads \\\"Edge Function returned a non-2xx status code\\\" is a rite of passage for modern web developers. It’s frustratingly vague, isn't it? One moment your Vercel or Netlify site is blazing fast, and the next, your API route is throwing a 500 error that seems to van"
-category: "Guide"
+category: "Guides"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1593720213681-e9a8778330a7?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxEZWNvZGluZyUyMHRoZSUyMCUyMkVkZ2UlMjBGdW5jdGlvbiUyMFJldHVybmVkJTIwYSUyME5vbi0yeHglMjBTdGF0dXMlMjBDb2RlJTIyJTIwRXJyb3IlM0ElMjBBJTIwRGV2ZWxvcGVyJUUyJTgwJTk5cyUyMEd1aWRlJTIwdG8lMjBSZWNvdmVyeSUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjU5fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

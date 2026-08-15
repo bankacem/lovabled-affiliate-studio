@@ -2,7 +2,7 @@
 title: "Best Graphic Tees Under $30: Unbeatable Style Without Breaking the Bank"
 slug: "p-best-graphic-tees-under-30-unbeatable-style-without-breaking-the-bank"
 description: "Looking for a stylish graphic tee without breaking the bank? You're in luck! We've rounded up the best graphic tees under $30, featuring a range of designs, materials, and styles to suit every taste and preference. From casual wear to statement pieces, we'll guide you through the top picks and what "
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Best%20Graphic%20Tees%20Under%20%2430%3A%20Unbeatable%20Style%20Without%20Breaking%20the%20Bank%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1881568700"

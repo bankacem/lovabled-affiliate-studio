@@ -2,7 +2,7 @@
 title: "The Digital Hand-Drawn Revolution: Mastering the 30 Best Aesthetic Sticker Styles for Digital Artists"
 slug: "the-digital-hand-drawn-revolution-mastering-the-30-best-aesthetic-sticker-styles-for-digital-artists"
 description: "There is a peculiar irony in the digital art world: we spend thousands of dollars on high-precision tablets and styluses just to make our work look like it was done with a leaky ballpoint pen on a coffee-stained napkin. This \\\"hand-drawn aesthetic\\\" isn't about a lack of skill; it's a deliberate rebel"
-category: "Guide"
+category: "Stickers"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1774918700967-8fdf52b5663f?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBEaWdpdGFsJTIwSGFuZC1EcmF3biUyMFJldm9sdXRpb24lM0ElMjBNYXN0ZXJpbmclMjB0aGUlMjAzMCUyMEJlc3QlMjBBZXN0aGV0aWMlMjBTdGlja2VyJTIwU3R5bGVzJTIwZm9yJTIwRGlnaXRhbCUyMEFydGlzdHMlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI1M3ww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

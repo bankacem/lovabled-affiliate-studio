@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Custom Print: Everything You Need to Know"
 slug: "the-ultimate-guide-to-custom-print-everything-you-need-to-know"
 description: "custom print"
-category: "Guide"
+category: "Guides"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEioN41lWN4GJhHpNP13jNWAYD3rPKI0Z06-0w1X8rrwso2_NtaRNFhnady2XaCZ6VzHv5sWfeZLtM6dT6gTbRFRYz04j3IbIPJ-1nCUyfe1rQWPxcZwnQM-rj-0UgvU4na1MP4bkCi79TE_JcjohUakdoI4qwI209t8GsmdnZbnhhpOwLPq3ooxdTVdxQY"

@@ -2,7 +2,7 @@
 title: "The Guide to Independence Day Tees: Style, History, and Shopping Tips"
 slug: "the-guide-to-independence-day-tees-style-history-and-shopping-tips"
 description: "Independence Day, celebrated annually on July 4th, has been a cornerstone of American culture since the late 18th century. However, the tradition of wearing specific \\\"Independence Day tees\\\" is a relatively modern phenomenon. In the early 19th century, celebrations were formal affairs involving parad"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjQpGng-by35F70_-9nsa4KF2SFgKO9MwaMfRR54DO2Bk864Zkupmyjn7Cs1j6ZNjLq7clVpaVV8ddZLBa0EIljH9bkrrVb9LRZOBT275LYCvBegKZ1IhZ2h8uhQgtY9aTjM0kKWzjpNAawMFJ296S0hZCBxEW6IRDBoe67jDy-gIflShl96kGcF3XZoI8"

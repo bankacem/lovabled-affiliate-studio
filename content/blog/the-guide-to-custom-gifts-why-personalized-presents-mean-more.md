@@ -2,7 +2,7 @@
 title: "The  Guide to Custom Gifts: Why Personalized Presents Mean More"
 slug: "the-guide-to-custom-gifts-why-personalized-presents-mean-more"
 description: "The Ultimate Guide to Custom Gifts: Why Personalized Presents Mean More"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgFonZBxIreswH_-rhsBh8aIHnjs-_lzVrtos3geL4LE96bclrN9QwlUqte_UDefW2cVmVUK81bz7B17M4xjjm0sHXtiEoyBILKaOMFpUJF10-BIP4W2OvqrSG4p19SfDLpithG6nVJ-BZtD94x3JINOxM_T6nyPNprPET03PtxyA5RjdXNvqc1bz2Jtcw"

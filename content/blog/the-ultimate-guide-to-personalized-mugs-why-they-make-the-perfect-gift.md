@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Personalized Mugs: Why They Make the Perfect Gift"
 slug: "the-ultimate-guide-to-personalized-mugs-why-they-make-the-perfect-gift"
 description: "The Ultimate Guide to Personalized Mugs: Why They Make the Perfect Gift"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhB9T81yBwFKFGO6I1MEalEt8RCuBH24HbuxdNzmXatTVt0Qv0ynuwcLjCYrGXDnUHApaSUVKAv2TIKFFKqPo8gfWUFHVBINpY-GDhkg7TBdW4zNjFQmgwUiu3rMsHdZs5eeAncv8pXsKoM8t_7Z7OiaQ8GvO27n2yXIfFRpTJz5HcP8H25ujPN6BB532Y"

@@ -2,7 +2,7 @@
 title: "Wedding Party T-Shirts: How to Design & Order for Your Whole Squad"
 slug: "squad-goals-the-ultimate-guide-to-designing-and-buying-wedding-party-t-shirts"
 description: "Walk through any airport on a Friday morning and you’ll likely spot them: a group of six to ten women in matching \\\"Bride Squad\\\" shirts or a pack of groomsmen in \\\"Team Groom\\\" tanks. While some critics call it \\\"cheesy,\\\" there is a psychological element at play here. Custom apparel acts as a social lub"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1624260417537-a08c660314c0?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxXZWRkaW5nJTIwUGFydHklMjBULVNoaXJ0cyUzQSUyMEhvdyUyMHRvJTIwRGVzaWduJTIwJTI2JTIwT3JkZXIlMjBmb3IlMjBZb3VyJTIwV2hvbGUlMjBTcXVhZCUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjM0fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

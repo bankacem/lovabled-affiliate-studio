@@ -2,7 +2,7 @@
 title: "The Guide to Sweet 16 Shirts: Customizing the Milestone"
 slug: "the-guide-to-sweet-16-shirts-customizing-the-milestone"
 description: "Turning sixteen has always occupied a unique space in the American cultural landscape. For decades, it was defined by the transition from childhood to the driver’s seat—a literal and metaphorical rite of passage. While the \\\"Super Sweet 16\\\" era of the early 2000s emphasized excess and designer gowns,"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgMmjmmb22kNMpVBqpwNbmCPBP9wYU43ahQEsZTIm-5K1F2L7ktDRlK6Mjcjvv_uNXsJbIYCLDy1ZIhg6s3ICUJ__JTxXIKnrd_6pRg_J14oH10JW0jPgg992N1OwB7gGG6YoHB_JwrHjrHdktV_FEDL93dbd_C3wOWoiay825gP9Tk5yJ9GIg6BidqoSU"

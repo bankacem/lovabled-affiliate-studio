@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Golden Retriever Shirts: From High-Performance Apparel to Everyday Style"
 slug: "the-ultimate-guide-to-golden-retriever-shirts-from-high-performance-apparel-to-everyday-style"
 description: "Walk into any local park on a Saturday morning, and you’ll inevitably spot them: the Golden Retriever enthusiasts. These aren't just dog owners; they are members of a dedicated community centered around one of the world's most beloved breeds. According to American Kennel Club (AKC) registration data"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Golden%20Retriever%20Shirts%3A%20From%20High-Performance%20Apparel%20to%20Everyday%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=123937720"

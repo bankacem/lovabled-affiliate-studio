@@ -2,7 +2,7 @@
 title: "The Guide to Birthday Month Shirts: Why Personalized Apparel is Taking Over the Celebration Industry"
 slug: "the-guide-to-birthday-month-shirts-why-personalized-apparel-is-taking-over-the-celebration-industry"
 description: "We’ve all seen them: those bold shirts declaring that \\\"Queens are born in October\\\" or \\\"Legends were made in June.\\\" While some might call them kitschy, there is a fascinating psychological driver behind the \\\"Birthday Month\\\" phenomenon. It taps into our innate desire for social identity and belonging."
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgbLIzEACr7drc4zAC2N3_7alylgcml_QBk2FilWpEIkSImopeIfC7kRMtOnWZpGkqKqNq8nWNrgeyfAfo3rxfk-SVYmniCkqgrhczDGZLJGK9X8fTpzUVVx62xKAABjMXvwL_9uxs_4CazvSjc9WJ8RQzSLhAe5C7tCuZdp3flZdaOG2PN-L9LoYrbfZs"

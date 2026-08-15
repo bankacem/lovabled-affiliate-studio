@@ -2,7 +2,7 @@
 title: "The Psychology of Stationery: Why Daily Affirmations Stickers for Planners Actually Work"
 slug: "the-psychology-of-stationery-why-daily-affirmations-stickers-for-planners-actually-work"
 description: "Psychology has long debated the efficacy of positive self-talk. However, recent advancements in neuroimaging have given us a clearer picture of what happens when we engage with positive stimuli. According to a study published in the journal Social Cognitive and Affective Neuroscience, practicing sel"
-category: "Guide"
+category: "Stickers"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Psychology%20of%20Stationery%3A%20Why%20Daily%20Affirmations%20Stickers%20for%20Planners%20Actually%20Work%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=405723415"

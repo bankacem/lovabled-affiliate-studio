@@ -2,7 +2,7 @@
 title: "Mastering the V-Neck with Blazer: A Professional Guide to Modern Smart-Casual"
 slug: "p-mastering-the-v-neck-with-blazer-a-professional-guide-to-modern-smart-casual"
 description: "There was a time, perhaps in the mid-2000s, when the V-neck and blazer combination became the \\\"uniform\\\" of the tech-bro and the off-duty executive. It was a reaction against the stifling nature of the necktie. While fashion trends are notoriously cyclical, this specific pairing hasn't just returned;"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Mastering%20the%20V-Neck%20with%20Blazer%3A%20A%20Professional%20Guide%20to%20Modern%20Smart-Casual%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=557519756"

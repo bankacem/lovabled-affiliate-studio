@@ -2,7 +2,7 @@
 title: "Bachelorette Party Shirt Ideas 2026: The Ultimate Guide to Trends, Fabrics, and Custom Designs"
 slug: "bachelorette-party-shirt-ideas-2026-the-ultimate-guide-to-trends-fabrics-and-custom-designs"
 description: "Let’s be honest: we’ve all seen enough \\\"Bride Tribe\\\" and \\\"I Do Crew\\\" shirts to last a lifetime. While those classics will always have a place in the back of a closet, 2026 is ushering in a more sophisticated, tongue-in-cheek era of bachelorette fashion. What’s interesting is the shift toward \\\"re-wea"
-category: "Guide"
+category: "Weddings & Bridal"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjmjvOr2R9wTaVjcOsoot3xxdDyloy68Z_qChbS6nzf20u4A24lDMOROwID744rsXA64PzPDEN4TFjU8n4FnlvOFlwlpnOqd7J5HbJYkP3126o7Vm5jM11E6cHp4tH-zY88_dcC9fAs4_SRCdZnwkde5Ji_XtO0qqZDIhV_U-GK_UITmsJ8nbdDoAodewE"

@@ -2,7 +2,7 @@
 title: "Wear Your Wit: Why Sarcastic Quote Tees Are Dominating Modern Streetwear"
 slug: "p-wear-your-wit-why-sarcastic-quote-tees-are-dominating-modern-streetwear"
 description: "Walk into any local coffee shop or tech hub, and you’re bound to see it: a crisp black t-shirt that says something like, \\\"I’m not arguing, I’m just explaining why I’m right.\\\" It’s a classic. But why do we, as a collective society, have such an obsession with wearing our cynicism on our sleeves—liter"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Wear%20Your%20Wit%3A%20Why%20Sarcastic%20Quote%20Tees%20Are%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=891727069"

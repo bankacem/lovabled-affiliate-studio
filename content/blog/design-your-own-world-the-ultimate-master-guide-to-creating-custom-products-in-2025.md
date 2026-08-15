@@ -2,7 +2,7 @@
 title: "Design Your Own World: The Ultimate Master Guide to Creating Custom Products in 2025"
 slug: "design-your-own-world-the-ultimate-master-guide-to-creating-custom-products-in-2025"
 description: "what"
-category: "Guide"
+category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhjmhoklnUmAtQ9eFN3UQupIzoWX4IIAoaFlnkVeRulkh9NgZa39qtulsXI7RFbgKyrMwX9du7qTEmG6sBxUlAKhkoGRkBxXp_JMVyC2khz92L7Jmp894Crf9Fyt5ARbs_WXVMNDhT6DTwvpP5qg53uYAFDbCo5ARRu8ZLb566FrrXPOPpq8onN3gid3k8"

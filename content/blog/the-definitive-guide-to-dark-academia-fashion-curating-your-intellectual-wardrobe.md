@@ -2,7 +2,7 @@
 title: "The Definitive Guide to Dark Academia Fashion: Curating Your Intellectual Wardrobe"
 slug: "the-definitive-guide-to-dark-academia-fashion-curating-your-intellectual-wardrobe"
 description: "Walk into any historic library, and you’ll feel it—the scent of decaying paper, the hushed whispers of history, and the weight of intellectual pursuit. This is the heart of Dark Academia. While many see it as a \\\"TikTok trend,\\\" those of us who have lived in these circles know it’s a lifestyle rooted "
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Definitive%20Guide%20to%20Dark%20Academia%20Fashion%3A%20Curating%20Your%20Intellectual%20Wardrobe%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1392074394"

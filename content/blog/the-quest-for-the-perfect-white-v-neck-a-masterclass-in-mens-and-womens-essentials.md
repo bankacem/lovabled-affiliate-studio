@@ -2,7 +2,7 @@
 title: "The Quest for the Perfect White V-Neck: A Masterclass in Men's and Women's Essentials"
 slug: "the-quest-for-the-perfect-white-v-neck-a-masterclass-in-mens-and-womens-essentials"
 description: "Finding a white v-neck t-shirt sounds simple enough until you’re standing in a fitting room realizing you can see your skin through the fabric or that the collar looks like a wilted piece of bacon after one wash. To avoid these pitfalls, we have to look at the technical specifications of the garment"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Quest%20for%20the%20Perfect%20White%20V-Neck%3A%20A%20Masterclass%20in%20Mens%20and%20Womens%20Essentials%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=620043611"

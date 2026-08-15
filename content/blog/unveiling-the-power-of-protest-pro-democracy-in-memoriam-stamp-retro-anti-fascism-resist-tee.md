@@ -2,7 +2,7 @@
 title: "Unveiling the Power of Protest: Pro-Democracy In Memoriam Stamp - Retro Anti-Fascism Resist Tee"
 slug: "unveiling-the-power-of-protest-pro-democracy-in-memoriam-stamp-retro-anti-fascism-resist-tee"
 description: "As we navigate the complexities of our modern world, it's essential to remember the significance of democracy and the importance of standing up against fascism."
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "Admin"
 image: "https://ih1.redbubble.net/image.6056133763.2295/ssrco,boxy_tee,womens_01,060606:b41fecf593,front,square_close_portrait,x1000.jpg"

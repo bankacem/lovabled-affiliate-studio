@@ -2,7 +2,7 @@
 title: "Beyond the Sombrero: The Ultimate Guide to Cinco de Mayo Shirts That Don't Suck"
 slug: "beyond-the-sombrero-the-ultimate-guide-to-cinco-de-mayo-shirts-that-dont-suck"
 description: "Walk into any big-box retailer in late April, and you're hit with a sea of lime-green polyester and \\\"Nacho Average\\\" puns. But here’s the thing: most people wearing these shirts couldn't tell you what they're actually celebrating. Contrary to popular belief, Cinco de Mayo is not Mexican Independence "
-category: "Guide"
+category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Beyond%20the%20Sombrero%3A%20The%20Ultimate%20Guide%20to%20Cinco%20de%20Mayo%20Shirts%20That%20Dont%20Suck%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=393658555"

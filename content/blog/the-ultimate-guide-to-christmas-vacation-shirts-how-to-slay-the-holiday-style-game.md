@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Christmas Vacation Shirts: How to Slay the Holiday Style Game"
 slug: "the-ultimate-guide-to-christmas-vacation-shirts-how-to-slay-the-holiday-style-game"
 description: "Let’s be real for a second. We’ve all been there—standing in the middle of a crowded airport or a busy Disney park, trying to find our family members in a sea of beige jackets. It’s chaotic! That’s where the magic of a dedicated Christmas vacation shirt comes in. It’s not just about looking festive;"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: " Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEhIYHIoE1XZu6iGH-uiQEXcyhNb_Mz-fHDEXu5vpeF2Fjj3_EflHUQDrP8nf_J-OoiLxEpaBZ6e2DVMJn3QKrDXy7fvz2IcaFzgGdNTjpOKxKw8m60pXJnMczAWJZ5WMj8oG_WjbO1jI6YNGy9pxtoX1xJf0cMt1l4Pj0UyfEAc-yDXQcnLvk1DO0ATcFc"

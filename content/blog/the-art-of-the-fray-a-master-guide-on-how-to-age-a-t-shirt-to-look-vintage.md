@@ -2,7 +2,7 @@
 title: "The Art of the Fray: A Master Guide on How to Age a T-Shirt to Look Vintage"
 slug: "the-art-of-the-fray-a-master-guide-on-how-to-age-a-t-shirt-to-look-vintage"
 description: "There is something inherently soul-less about a crisp, stiff, brand-new heavy cotton t-shirt. It lacks history. In the world of high-end streetwear and heritage fashion, the \\\"vintage\\\" aesthetic isn't just about looking old; it’s about the tactile experience of a garment that has survived decades of "
-category: "Guide"
+category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1621446511130-0ed6519bfeb6?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBBcnQlMjBvZiUyMHRoZSUyMEZyYXklM0ElMjBBJTIwTWFzdGVyJTIwR3VpZGUlMjBvbiUyMEhvdyUyMHRvJTIwQWdlJTIwYSUyMFQtU2hpcnQlMjB0byUyMExvb2slMjBWaW50YWdlJTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyMjN8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

@@ -2,7 +2,7 @@
 title: "20 Creative Gender Reveal Shirts for an Unforgettable Announcement"
 slug: "20-creative-gender-reveal-shirts-for-an-unforgettable-announcement"
 description: "20 Creative Gender Reveal Shirts for an Unforgettable Announcement"
-category: "Guide"
+category: "Birthdays & Parties"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjd2yb2dJTi5NwhzObsNOs2UAOSmeS2LC1_lZrCBZFqIH8_7ri1plZLMtIqBXZh8tOvwSY3km18Ca5DhLQOs3tf0s4V912i5_Qc62lx53eKpzRg-NtQngG1YDNuNrZHrTfx8oltD9W6dFTKeaGe7hf3c4p9IopVMvIAOrz3z0LXsCtAUcCB8DYSChXKRmA"

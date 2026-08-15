@@ -2,7 +2,7 @@
 title: "The  Guide to Dad Joke Shirts: Why Punny Fashion is the King of Men’s Style"
 slug: "the-guide-to-dad-joke-shirts-why-punny-fashion-is-the-king-of-mens-style"
 description: "In the vast landscape of men's fashion, few items have experienced a more surprising \\\"glow-up\\\" than the humble dad joke shirt. Once relegated to the back of the closet or reserved for awkward family barbecues, these pun-filled garments have become a legitimate trend in the world of streetwear and ca"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiuuSEhHfmWwgUWE2L3ywB5mzsTM8fxGX7lNME4FTbF1GZLaEd0OlDvOfuVSQOdkdPHPTZ_rMoWlrRMC8EUPaHWPwgimhERPYlvDSQJ8Qeq4lnZG_U0v4vAPPZIyCxcZsMc794rmZuoMX3xu4-3KlLx4wUUDj91SvitNZBeR-zAwGYKVg2yISg8ov4iX6M"

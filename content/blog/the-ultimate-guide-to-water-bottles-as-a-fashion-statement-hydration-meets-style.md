@@ -2,7 +2,7 @@
 title: "The Ultimate Guide to Water Bottles as a Fashion Statement: Hydration Meets Style"
 slug: "the-ultimate-guide-to-water-bottles-as-a-fashion-statement-hydration-meets-style"
 description: "For decades, the water bottle was nothing more than a functional vessel—a piece of plastic tucked away in a gym bag or a rugged thermos used for camping. However, the mid-2010s saw a seismic shift in how we perceive hydration. Driven by the \\\"athleisure\\\" movement and an increased focus on wellness, t"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiDWDSV-YSZpXRjkL9ovUJCXNfMBVZlkxwgs5ll0W227wKjSiPPd9nPLYOXAsfVNepg0hKQfaDg30N-OZIWTrLqmHCPtWAQOV41At9WNaK_8oA0p-I-wAzr8tvVPaWKagw6Y1GTVnaD06cXcpRh1gP6HWQn47eJpHQaanUvOUv5sVPkPiMJoKVF66sqH8U"

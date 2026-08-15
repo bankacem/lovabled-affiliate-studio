@@ -2,7 +2,7 @@
 title: "The Guide to Patriotic Shirts: Style, Symbolism, and Quality"
 slug: "the-guide-to-patriotic-shirts-style-symbolism-and-quality"
 description: "In the world of fashion, few items carry as much weight, history, and personal sentiment as patriotic shirts. More than just a piece of fabric, these garments serve as a canvas for expressing one's values, honoring heritage, and showing solidarity with a nation. Whether it is for a national holiday,"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEg9Q4vCFfRfhXK6kn6LRKJ_u3TfstJQM-GrGAAmsLFOaWis4rgroe7CFprOo-NSdadr1deHwhdDh54gdbcEhJmGwasq-yPT60rUibjBGhEOjMpUPRjwUXm3JJUpxNBTfR3H-62kx0R7wJeFQfH2iu54xGJ3x5z3ylUrAyj4hrnuP9qB2LGNLj0YNPR_pIY"

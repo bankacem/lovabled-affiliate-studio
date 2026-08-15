@@ -2,7 +2,7 @@
 title: "The Guide to Halloween Costume Shirts: Style, Convenience, and Creativity"
 slug: "the-guide-to-halloween-costume-shirts-style-convenience-and-creativity"
 description: "Halloween has evolved. While the tradition of elaborate, head-to-toe transformations remains a staple of the holiday, a new trend has taken center stage: the Halloween costume shirt. No longer relegated to the \\\"lazy\\\" category, these shirts have become a sophisticated, witty, and practical choice for"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEixFPmecgAoi1EXxrXI5SIBrqZUQS_IPtoIvwxpmB7aotX9CcUl1LspdroEORuDk-j9ms8CJ29NtAT565r27FAZFp0a_mfj7zWBuPtKBqxdAT6GSz01ggQ671kIJFtq7pd1WfyX_bTkT2lwj48L2bKLQA6NcnQvcCxszrugbQ9DL1AAzlsvil8bQz337cg"

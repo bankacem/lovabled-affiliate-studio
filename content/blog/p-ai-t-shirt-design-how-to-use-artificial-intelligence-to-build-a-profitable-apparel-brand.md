@@ -2,7 +2,7 @@
 title: "AI T-Shirt Design: How to Use Artificial Intelligence to Build a Profitable Apparel Brand"
 slug: "p-ai-t-shirt-design-how-to-use-artificial-intelligence-to-build-a-profitable-apparel-brand"
 description: "Ten years ago, starting a t-shirt brand required a very specific set of skills: you either had to be a wizard in Adobe Illustrator or have the budget to hire one. If you wanted to test a niche—say, \\\"cyberpunk cats drinking coffee\\\"—you’d spend days perfecting the vector lines or $200 on a freelance d"
-category: "Guide"
+category: "Print on Demand Business"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22AI%20T-Shirt%20Design%3A%20How%20to%20Use%20Artificial%20Intelligence%20to%20Build%20a%20Profitable%20Apparel%20Brand%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1959801622"

@@ -2,7 +2,7 @@
 title: "The Guide to Mother’s Day T-Shirts: Trends, Personalization, and Gift Ideas"
 slug: "the-guide-to-mothers-day-t-shirts-trends-personalization-and-gift-ideas"
 description: "Mother’s Day is a global celebration of the women who raise us, support us, and shape our lives. While flowers and chocolates are traditional, they are fleeting. A Mother’s Day t-shirt, however, is a wearable memory. It serves as a badge of honor, a comfortable staple in her wardrobe, and a constant"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "AI Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEiehpzy3As5hK0tddTuw-frK7-GerKSO_O_U3aeosodOW7S_ppa1vuUEpdQAxdjpwZmvS8F1-7jmlN5gChzMFYYGJrbw0glZ8OPO1TCSvI4ZcuL_BETf4QkeSTIU6k4hU18mML_fOiuQ3NFqTxk0ZCD_pPokqk0KHugW9Y_S2N7fRY847WPcbSfHCCf3wA"

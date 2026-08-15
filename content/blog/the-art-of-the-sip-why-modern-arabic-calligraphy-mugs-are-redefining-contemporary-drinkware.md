@@ -2,7 +2,7 @@
 title: "Arabic Calligraphy Coffee Mugs 2026: Best Designs & Where to Buy"
 slug: "the-art-of-the-sip-why-modern-arabic-calligraphy-mugs-are-redefining-contemporary-drinkware"
 description: "There is something inherently grounding about holding a warm mug on a cold morning. But when that mug is adorned with centuries-old script reimagined through a modern lens, the experience shifts from a mere caffeine fix to a moment of cultural reflection. Arabic calligraphy, or khatt, is not just a "
-category: "Guide"
+category: "Mugs & Drinkware"
 tags: []
 author: "AI Writer"
 image: "https://images.unsplash.com/photo-1617363114066-19daacf12eda?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxBcmFiaWMlMjBDYWxsaWdyYXBoeSUyMENvZmZlZSUyME11Z3MlMjAyMDI2JTNBJTIwQmVzdCUyMERlc2lnbnMlMjAlMjYlMjBXaGVyZSUyMHRvJTIwQnV5JTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyNjJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"

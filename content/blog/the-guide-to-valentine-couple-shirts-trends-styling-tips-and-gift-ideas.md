@@ -2,7 +2,7 @@
 title: "The Guide to Valentine Couple Shirts: Trends, Styling Tips, and Gift Ideas"
 slug: "the-guide-to-valentine-couple-shirts-trends-styling-tips-and-gift-ideas"
 description: "In the عالم وآفاق وتطبيقات modern romance, expressing affection has evolved far beyond traditional chocolates and roses. Enter the world of Valentine couple shirts—a vibrant, wearable expression of partnership that has taken social media and street fashion by storm. Often referred to as \\\"matching sets\\\" or \\\"twi"
-category: "Guide"
+category: "Gifts"
 tags: []
 author: "Writer"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEgek3NN0rqqDFXsKqsgS6XZroSp5Z6kLo3LYz6G7SCglV0kggirCu3MKJ9719rlts7n1IMqazaxsmpmnleeBhaQxO32ZGSNz6bIv2ghHpZAPjHy5374OcqS8EZH7HK_x7IUvuthkxEV_N8iGuc-2UwsHrdJLMKnKux7wcFVgIpFJQKIiMjl8EjW_ZrJbFs"

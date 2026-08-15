@@ -2,7 +2,7 @@
 title: "10 Creative Ways to Style Poster Prints for a Stunning Gallery Wall"
 slug: "10-creative-ways-to-style-poster-prints-for-a-stunning-gallery-wall"
 description: "10 Creative Ways to Style Poster Prints for a Stunning Gallery Wall"
-category: "Guide"
+category: "Home Decor"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEjytot4DcCCkVsf6iIYLf8EocCEcX3Dqntyqxw0ek1qjjEWpDa2FS2QylcdNe1pFCOIZ2aMDBfYV--5IvrGz91siBVbCmvUOcJxBbpd23bSr6vDmzO77RDQnAw_VSy2aCkncWad7ikOKKfBas0_mrpxJqwtSMxSYIERk0c7tiudx-Jk-4n23iIApuwbUw4"

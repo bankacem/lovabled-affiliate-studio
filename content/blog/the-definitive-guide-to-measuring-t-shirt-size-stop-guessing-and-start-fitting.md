@@ -2,7 +2,7 @@
 title: "The Definitive Guide to Measuring T-Shirt Size: Stop Guessing and Start Fitting"
 slug: "the-definitive-guide-to-measuring-t-shirt-size-stop-guessing-and-start-fitting"
 description: "We’ve all been there: you order a \\\"Large\\\" from a new brand, expecting that perfect, slightly relaxed fit, only to receive a garment that looks like it was designed for a toddler—or perhaps a giant. The reality of modern fashion is that a \\\"Medium\\\" is not a universal constant. In fact, research into a"
-category: "Guide"
+category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Definitive%20Guide%20to%20Measuring%20T-Shirt%20Size%3A%20Stop%20Guessing%20and%20Start%20Fitting%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=620124447"

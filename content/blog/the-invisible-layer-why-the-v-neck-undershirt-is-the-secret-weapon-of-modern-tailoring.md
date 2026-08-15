@@ -2,7 +2,7 @@
 title: "The Invisible Layer: Why the V-Neck Undershirt is the Secret Weapon of Modern Tailoring"
 slug: "the-invisible-layer-why-the-v-neck-undershirt-is-the-secret-weapon-of-modern-tailoring"
 description: "Style, as many sartorial experts will tell you, is built from the skin out. While the world sees your crisp Egyptian cotton dress shirt or your Italian wool blazer, the unsung hero of your ensemble is the v-neck undershirt. It is a garment often treated as an afterthought—bought in bulk packs from b"
-category: "Guide"
+category: "T-Shirts"
 tags: []
 author: "AI Writer"
 image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Invisible%20Layer%3A%20Why%20the%20V-Neck%20Undershirt%20is%20the%20Secret%20Weapon%20of%20Modern%20Tailoring%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=149376274"

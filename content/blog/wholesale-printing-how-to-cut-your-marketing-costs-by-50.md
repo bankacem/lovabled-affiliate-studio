@@ -2,7 +2,7 @@
 title: "Wholesale Printing: How to Cut Your Marketing Costs by 50%"
 slug: "wholesale-printing-how-to-cut-your-marketing-costs-by-50"
 description: "Wholesale Printing: How to Cut Your Marketing Costs by 50%"
-category: "Guide"
+category: "Print on Demand Business"
 tags: []
 author: "Admin"
 image: "https://blogger.googleusercontent.com/img/a/AVvXsEj5bsKykSScYmLfUY88y4tiGJvLBdCMhT-2VxFiGy9oU6wMynlrF8A0v2AOPV-LD2ppCLAaL1ox2wHp1FJoqRCvn0eDtaoV7GIHoB-xRyhVQr1SwPwsWA8D6lt8shh5wCsp37YjBQlZOWoruwSNQlrF7nktLlUleuwZP3UZOjlmpdtw8BH41nqL_TSj3bg"
