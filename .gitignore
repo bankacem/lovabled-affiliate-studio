@@ -47,3 +47,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Generated blog JSON (built from content/blog at build time)
+artifacts/app/public/blog/
+artifacts/app/public/blog-index.json
