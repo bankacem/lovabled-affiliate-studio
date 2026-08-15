@@ -1,80 +1,38 @@
-# خطة تحسين شاملة لـ aiprintverse.com
+# نقل المقالات إلى GitHub (بدون قاعدة بيانات)
 
-سأقسّم العمل إلى 5 محاور مترابطة، ويتم تنفيذها كلها في هذه الجلسة.
+الهدف: تصبح المقالات ملفات داخل مستودع GitHub، والموقع يقرأها منها مباشرة عند البناء على Vercel. لا اعتماد على قاعدة البيانات (المتوقفة حالياً) ولا عليّ في تخزين المحتوى، ولا تضارب بين مصدرين.
 
-## 1) صور احترافية لكل المقالات (Featured Images)
+## 1. مصدر واحد للحقيقة: مجلد المحتوى في المستودع
 
-- تشغيل `MissingImageGenerator` على كل المقالات التي `featured_image IS NULL` عبر Edge Function جديد `bulk-generate-images`.
-- المصدر الأساسي: **Pollinations.AI** (مجاني، بدون مفتاح) بـ prompt احترافي:
-  - Print-on-demand t-shirt mockup, studio lighting, article title printed on shirt.
-- الاحتياطي: **Unsplash** (عبر `search-unsplash` الموجود) عند فشل Pollinations.
-- تخزين الرابط الخارجي مباشرة في `blog_posts.featured_image` (لا تخزين محلي — احتراماً لقاعدة الذاكرة).
-- عرض العنوان فوق الصورة بـ CSS overlay في `BlogCard` كطبقة إضافية للاحتراف البصري.
+- إنشاء `content/blog/<slug>.md` داخل المستودع (465 مقال من الأرشيف المُصدَّر).
+- كل ملف = frontmatter YAML نظيف + جسم المقال:
+  `title, slug, description, category, tags, author, image, image_alt, date, updated, status (published|draft|scheduled), scheduled_at, read_time`
+- تنظيف ملفات الأرشيف الحالية: حذف التكرار (بلوكات frontmatter/JSON-LD المكررة) والاحتفاظ بالمحتوى الفعلي فقط.
 
-## 2) سايت ماب عالمي المستوى
+## 2. الموقع يقرأ من الملفات
 
-- التحقق من أن `supabase/functions/sitemap/index.ts` يُخرج:
-  - كل مقال منشور (`status=published`)
-  - كل تصميم
-  - الصفحات الثابتة (/, /blog, /designs, /about)
-  - `<lastmod>` من `updated_at`
-  - `<image:image>` من `featured_image` (Google Image sitemap)
-- إضافة `sitemap-index.xml` يشير إلى:
-  - `sitemap-posts.xml` (مقسّم لكل 1000 مقال)
-  - `sitemap-designs.xml`
-  - `sitemap-pages.xml`
-- إضافة `<lastmod>` و `changefreq` و `priority` صحيحة.
-- تحديث `robots.txt` ليشير إلى `sitemap-index.xml`.
+- سكربت بناء يولّد `blog-index.json` خفيف (slug/عنوان/وصف/صورة/تصنيف/تاريخ) + ملف JSON لكل مقال.
+- `Blog.tsx` و`BlogPost.tsx` و`LatestPosts.tsx` تقرأ من هذه الملفات بدل الاستعلام من قاعدة البيانات — لا `Failed to fetch` بعد اليوم.
+- الجدولة: مقال بحالة `scheduled` وتاريخ في الماضي يُنشر تلقائياً عند أي بناء (Vercel يبني يومياً عبر cron).
+- تحديث `prerender-setup.mjs` / `create-static-fallbacks.mjs` / `sitemap` لتعتمد على المحتوى المحلي بدل قاعدة البيانات، مع صفحات HTML ثابتة وميتا كاملة لكل مقال (SEO أقوى من الآن).
 
-## 3) روابط داخلية وخارجية احترافية
+## 3. لوحة التحكم تنشر إلى GitHub مباشرة
 
-- **داخلية**: تحسين `useAutoLinking` ليقوم بـ:
-  - إدراج 3–5 روابط داخلية طبيعية داخل نص المقال (على أول ذكر لكلمة مفتاحية فقط).
-  - anchor text طبيعي مأخوذ من عنوان المقال المستهدف.
-  - تجنّب التكرار في نفس المقال.
-- **خارجية**: إضافة روابط `rel="noopener nofollow"` تلقائياً للاقتباسات (Wikipedia, Google Trends, industry sources).
-- **باكلينك داخلي**: قسم "Related Articles" أسفل كل مقال (موجود عبر `InternalLinkBridge`) + "Related Designs" جديد لربط المقالات بالتصاميم.
+- الدخول للوحة التحكم يصبح بكلمة مرور محلية بسيطة (بدون قاعدة بيانات) — يحل مشكلة تعذّر الدخول الحالية.
+- محرّر المقالات يكتب/يعدّل الملف عبر GitHub REST API مباشرة (commit إلى `main`) باستخدام **GitHub Personal Access Token** تُدخله أنت مرة واحدة ويُحفظ في متصفحك فقط.
+- كل حفظ = commit → Vercel يبني تلقائياً → المقال يظهر على aiprintverse.com. بدون أي وسيط.
+- مولّد المقالات بالذكاء الاصطناعي: يبقى كما هو لكن الحفظ يذهب إلى GitHub بدل قاعدة البيانات.
 
-## 4) واجهة أكثر احترافية
+## 4. ما يبقى على قاعدة البيانات
 
-- **Header**: إزالة زر Admin (تم ✅).
-- **Home**: تحسين Hero (تباين أعلى، CTA أوضح، صور أكبر).
-- **Blog Cards**: هوفر أنعم، صور أكبر، عرض تاريخ + وقت القراءة + التصنيف بشكل مرتب.
-- **Typography**: زيادة `line-height` وسبيسينغ في `BlogPost.tsx` لقراءة مريحة.
-- **Footer**: تنظيم الروابط وإضافة social + سنة ديناميكية.
-- **Dark mode polish**: مراجعة التباين على tokens.
+التصاميم (designs) والإحصائيات تبقى كما هي حالياً؛ المقالات فقط تنتقل إلى GitHub. لن يكون هناك مصدران للمقالات، فلا تضارب.
 
-## 5) سيو + أداء (خارق)
+## ما أحتاجه منك
 
-- **SEO**:
-  - Canonical + og:image + Twitter Card صحيحة لكل مقال (موجودة، سأتحقق).
-  - JSON-LD: `Article` + `BreadcrumbList` + `Organization`.
-  - `hreflang="en"` (الموقع إنجليزي).
-  - Meta descriptions مضمونة (fallback من excerpt أو أول 155 حرف من content).
-- **الأداء**:
-  - `preconnect` لـ Supabase وPollinations.
-  - `loading="lazy"` + `decoding="async"` على كل الصور.
-  - `fetchpriority="high"` على الصورة الرئيسية فوق الطية.
-  - تقسيم Vite chunks (موجود بالفعل).
-  - إزالة أي framer-motion من فوق الطية (استبدال بـ CSS animations).
+**GitHub Personal Access Token** (fine-grained، صلاحية Contents: Read and write على مستودع `bankacem/lovabled-affiliate-studio`) — يُدخل داخل لوحة التحكم لاحقاً، لا حاجة لإرساله لي الآن.
 
-## الملفات المتأثرة (تقنياً)
+## تفاصيل تقنية
 
-- `supabase/functions/sitemap/index.ts` — إعادة كتابة كاملة (sitemap-index + image sitemap).
-- `supabase/functions/bulk-generate-images/index.ts` — جديد.
-- `artifacts/app/public/robots.txt` — تحديث.
-- `artifacts/app/src/hooks/useAutoLinking.ts` — منطق طبيعي.
-- `artifacts/app/src/pages/Blog.tsx` + `Index.tsx` — تحسينات UI.
-- `artifacts/app/src/pages/BlogPost.tsx` — schema + typography.
-- `artifacts/app/src/components/layout/Footer.tsx` — تنظيم.
-- `artifacts/app/src/components/blog/BlogCard.tsx` — تصميم أنيق.
-- `vercel.json` — routes للـ sitemap-index والفرعية.
-
-## ملاحظات مهمة
-
-- **لا يتم حذف أي ميزة موجودة** (احتراماً لقاعدة الذاكرة).
-- **الأدمن لا يزال متاحاً** عبر `/admin` مباشرة (فقط الزر مخفي من الواجهة).
-- توليد الصور دفعة واحدة قد يستغرق وقتاً — يعمل في الخلفية عبر Edge Function مع rate limiting.
-- بعد الانتهاء يجب عمل **Publish** لإعادة نشر Vercel والسايت ماب.
-
-هل أبدأ التنفيذ؟
+- المسار: `content/blog/*.md`، تحويل بسكربت `scripts/migrate-export-to-content.mjs`.
+- قراءة المحتوى في وقت البناء بـ Node (لا `import.meta.glob` بحجم كامل) لتجنّب تضخم الحزمة: `public/blog-index.json` + `public/blog/<slug>.json`.
+- النشر من اللوحة: `PUT /repos/:owner/:repo/contents/content/blog/<slug>.md` مع `sha` للتعديل.
