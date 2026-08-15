@@ -49,5 +49,5 @@ Thumbs.db
 .local/
 
 # Generated blog JSON (built from content/blog at build time)
-artifacts/app/public/blog/
+artifacts/app/public/article/
 artifacts/app/public/blog-index.json

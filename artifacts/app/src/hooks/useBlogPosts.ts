@@ -80,7 +80,7 @@ export function useBlogPost(slug: string) {
     enabled: !!slug,
     staleTime: 5 * 60 * 1000,
     queryFn: async () => {
-      const res = await fetch(`/blog/${encodeURIComponent(slug)}.json`, { cache: "no-cache" });
+      const res = await fetch(`/article/${encodeURIComponent(slug)}.json`, { cache: "no-cache" });
       if (res.status === 404) return null;
       if (!res.ok) throw new Error(`Failed to load article (${res.status})`);
       const contentType = res.headers.get("content-type") || "";
