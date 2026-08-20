@@ -24,7 +24,7 @@
 // link previews, which is the problem we set out to fix — the page body is
 // still rendered client-side exactly as it is today, unchanged.
 
-import { readFileSync, writeFileSync, existsSync, rmSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, rmSync, readdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -44,6 +44,14 @@ function escapeHtml(str) {
 
 function replaceTag(html, regex, replacement) {
   return regex.test(html) ? html.replace(regex, replacement) : html;
+}
+
+// Vercel/Cloudflare returns 404 for same-origin static assets when the browser
+// sends an Origin header from a `crossorigin` module/link tag. Vite adds this
+// attribute by default. Remove it from the final HTML; same-origin assets do
+// not need CORS, and this keeps the production bootstrap executable.
+function stripSameOriginCrossorigin(html) {
+  return html.replace(/\s+crossorigin(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi, "");
 }
 
 function injectMeta(html, { title, description, image, canonicalHref }) {
@@ -203,7 +211,8 @@ function main() {
     return;
   }
 
-  const genericHtml = readFileSync(indexPath, "utf8");
+  const genericHtml = stripSameOriginCrossorigin(readFileSync(indexPath, "utf8"));
+  writeFileSync(indexPath, genericHtml);
 
   // Every generic static index.html (written by create-static-fallbacks.mjs
   // for every route in reactSnap.include) currently carries the SAME
@@ -243,6 +252,24 @@ function main() {
 
   // Internal-only file, never meant to be served publicly.
   rmSync(metaMapPath, { force: true });
+
+  // Also sanitize fallback pages that are intentionally excluded from the
+  // public SEO route list, such as /admin and /studio.
+  const htmlFiles = [];
+  const pending = [distRoot];
+  while (pending.length) {
+    const current = pending.pop();
+    for (const entry of readdirSync(current, { withFileTypes: true })) {
+      const fullPath = resolve(current, entry.name);
+      if (entry.isDirectory()) pending.push(fullPath);
+      else if (entry.isFile() && entry.name.endsWith(".html")) htmlFiles.push(fullPath);
+    }
+  }
+  for (const htmlPath of htmlFiles) {
+    const html = readFileSync(htmlPath, "utf8");
+    const sanitized = stripSameOriginCrossorigin(html);
+    if (sanitized !== html) writeFileSync(htmlPath, sanitized);
+  }
 
   console.log(`[inject-meta-tags] injected page-specific meta/canonical tags into ${written} route(s), no browser required`);
 }
