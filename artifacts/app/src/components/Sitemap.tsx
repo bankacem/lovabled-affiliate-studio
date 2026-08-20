@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { calculateQualityScore } from "@/lib/seoAudit";
+import { useBlogIndex } from "@/hooks/useBlogPosts";
 
 interface SitemapEntry {
   slug: string;
@@ -13,41 +11,19 @@ interface SitemapEntry {
 }
 
 export function useSitemapData() {
-  const [posts, setPosts] = useState<SitemapEntry[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const result = useBlogIndex();
+  const posts = (result.data?.posts ?? [])
+    .filter((post) => post.status === "published" && Boolean(post.slug?.trim()))
+    .map((post) => ({
+      slug: post.slug,
+      updated_at: post.updated_at || post.published_at || post.created_at || new Date().toISOString(),
+      title: post.title,
+      meta_description: post.meta_description,
+      featured_image: post.featured_image,
+      author_name: post.author_name,
+    }));
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const { data } = await supabase
-        .from("blog_posts")
-        .select("slug, updated_at, title, content, meta_description, featured_image, author_name")
-        .eq("status", "published")
-        .order("updated_at", { ascending: false });
-
-      if (data) {
-        const EXCLUDED_SLUGS = [
-          'decoding-the-edge-function-returned-a-non-2xx-status-code-error-a-developers-guide-to-recovery',
-        ];
-        const validPosts = data.filter(
-          post => post && post.slug && post.slug.trim() !== "" && post.slug !== "null" && post.slug !== "undefined"
-        );
-
-        // Filter by quality score >= 60
-        const highQualityPosts = validPosts.filter((post) => {
-          if (EXCLUDED_SLUGS.includes(post.slug)) return false;
-          const score = calculateQualityScore(post, "blog");
-          return score >= 60;
-        });
-
-        setPosts(highQualityPosts);
-      }
-      setIsLoading(false);
-    };
-
-    fetchPosts();
-  }, []);
-
-  return { posts, isLoading };
+  return { posts, isLoading: result.isLoading };
 }
 
 export function generateSitemapXml(posts: SitemapEntry[], baseUrl: string): string {
@@ -62,8 +38,6 @@ export function generateSitemapXml(posts: SitemapEntry[], baseUrl: string): stri
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
   const todayDate = new Date().toISOString().split("T")[0];
-
-  // Static pages
   staticPages.forEach((page) => {
     xml += `  <url>\n`;
     xml += `    <loc>${baseUrl}${page.path}</loc>\n`;
@@ -73,30 +47,21 @@ export function generateSitemapXml(posts: SitemapEntry[], baseUrl: string): stri
     xml += `  </url>\n`;
   });
 
-  // Deduplicate: remove slugs that start with "p-" when a clean version exists
-  const cleanedPosts = (() => {
-    const slugSet = new Set(posts.map(p => p.slug));
-    return posts.filter(post => {
-      // If this slug starts with "p-", check if a clean version exists
-      if (post.slug.startsWith('p-')) {
-        const cleanSlug = post.slug.slice(2); // remove "p-"
-        if (slugSet.has(cleanSlug)) {
-          return false; // skip the "p-" version, the clean one exists
-        }
-      }
-      return true;
-    }).map(post => ({
-      ...post,
-      // Normalize: if the slug still starts with "p-" (no clean version found), strip the prefix
-      slug: post.slug.startsWith('p-') ? post.slug.slice(2) : post.slug,
-    }));
-  })();
+  const uniqueBySlug = new Map<string, SitemapEntry>();
+  for (const post of posts) {
+    if (!uniqueBySlug.has(post.slug)) uniqueBySlug.set(post.slug, post);
+  }
+  const cleanedPosts = [...uniqueBySlug.values()].filter((post) => {
+    if (!post.slug.startsWith("p-")) return true;
+    return !uniqueBySlug.has(post.slug.slice(2));
+  });
 
-  // Blog posts
   cleanedPosts.forEach((post) => {
-    const lastmod = new Date(post.updated_at).toISOString().split("T")[0];
+    const lastmodDate = new Date(post.updated_at);
+    const lastmod = Number.isNaN(lastmodDate.getTime()) ? todayDate : lastmodDate.toISOString().split("T")[0];
+    const slug = post.slug.startsWith("p-") ? post.slug.slice(2) : post.slug;
     xml += `  <url>\n`;
-    xml += `    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+    xml += `    <loc>${baseUrl}/blog/${slug}</loc>\n`;
     xml += `    <lastmod>${lastmod}</lastmod>\n`;
     xml += `    <changefreq>weekly</changefreq>\n`;
     xml += `    <priority>0.8</priority>\n`;
@@ -107,27 +72,15 @@ export function generateSitemapXml(posts: SitemapEntry[], baseUrl: string): stri
   return xml;
 }
 
-// Component to display sitemap (for debugging)
 export function SitemapPage() {
   const { posts, isLoading } = useSitemapData();
-  const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://aiprintverse.replit.app";
+  const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://aiprintverse.com";
 
-  if (isLoading) {
-    return <div>Loading sitemap...</div>;
-  }
-
-  const xml = generateSitemapXml(posts, baseUrl);
+  if (isLoading) return <div>Loading sitemap...</div>;
 
   return (
-    <pre
-      style={{
-        whiteSpace: "pre-wrap",
-        fontFamily: "monospace",
-        padding: "20px",
-        backgroundColor: "#f5f5f5",
-      }}
-    >
-      {xml}
+    <pre style={{ whiteSpace: "pre-wrap", fontFamily: "monospace", padding: "20px", backgroundColor: "#f5f5f5" }}>
+      {generateSitemapXml(posts, baseUrl)}
     </pre>
   );
 }

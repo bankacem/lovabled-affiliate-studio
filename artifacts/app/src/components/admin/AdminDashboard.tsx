@@ -29,21 +29,15 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/hooks/useAuth";
 import { AuthPage } from "./AuthPage";
-import { BlogPostsListOptimized } from "./BlogPostsListOptimized";
-import { BlogStatsOverview } from "./BlogStatsOverview";
+import Studio from "@/pages/Studio";
 import { StoreManager } from "./StoreManager";
 import {
-  LazyBlogPostEditor,
-  LazyBlogToolsPanel,
-  LazyBulkPostImport,
   LazyDesignEditor,
   LazyLinkAnalyticsPanel,
   LazyCustomImport,
-  LazyArticleOptimizer,
-  LazyProgrammaticSEO,
+  LazyAIArticleGenerator,
 } from "./LazyComponents";
-import { IndexingStatusManager } from "./IndexingStatusManager";
-import { supabase } from "@/integrations/supabase/client";
+import { adminFetch, deleteDesign as deleteDesignApi, listDesigns, listStores, loadBlogIndex, updateDesign } from "@/lib/adminApi";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
@@ -97,53 +91,49 @@ export function AdminDashboard() {
   }, [user, isAdmin]);
 
   const fetchStats = async () => {
-    const [postsResult, designsResult, storesResult] = await Promise.all([
-      supabase.from("blog_posts").select("status"),
-      supabase.from("designs").select("featured"),
-      supabase.from("stores").select("id"),
-    ]);
-
-    const posts = postsResult.data || [];
-    const designsData = designsResult.data || [];
-    const stores = storesResult.data || [];
-
-    setStats({
-      totalPosts: posts.length,
-      publishedPosts: posts.filter(p => p.status === "published").length,
-      draftPosts: posts.filter(p => p.status === "draft").length,
-      totalDesigns: designsData.length,
-      featuredDesigns: designsData.filter(d => d.featured).length,
-      totalStores: stores.length,
-    });
+    try {
+      const [index, designsData, stores] = await Promise.all([
+        loadBlogIndex(),
+        listDesigns<Design>(),
+        listStores<{ id: string }>(),
+      ]);
+      const posts = index.posts || [];
+      setStats({
+        totalPosts: posts.length,
+        publishedPosts: posts.filter((p) => p.status === "published").length,
+        draftPosts: posts.filter((p) => p.status === "draft").length,
+        totalDesigns: designsData.length,
+        featuredDesigns: designsData.filter((d) => d.featured).length,
+        totalStores: stores.length,
+      });
+    } catch (error) {
+      toast.error(`Failed to load dashboard stats: ${(error as Error).message}`);
+    }
   };
 
   const fetchDesigns = async () => {
     setIsLoadingDesigns(true);
-    const { data, error } = await supabase
-      .from("designs")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (!error && data) {
-      setDesigns(data as Design[]);
+    try {
+      setDesigns(await listDesigns<Design>());
+    } catch (error) {
+      toast.error(`Failed to load designs: ${(error as Error).message}`);
+    } finally {
+      setIsLoadingDesigns(false);
     }
-    setIsLoadingDesigns(false);
   };
 
   const importFromStore = async (storeUrl: string, source: "redbubble" | "teepublic") => {
     setIsImporting(source);
 
     try {
-      const { data, error } = await supabase.functions.invoke("import-designs", {
-        body: { storeUrl, source }
+      const data = await adminFetch<{ success: boolean; designs?: number; error?: string; imported?: number }>("/ai/import-designs", {
+        method: "POST",
+        body: JSON.stringify({ storeUrl, platform: source }),
       });
-
-      if (error) throw new Error(error.message);
-      
       if (data.success) {
-        toast.success(`Imported ${data.designs} designs from ${source === "redbubble" ? "Redbubble" : "TeePublic"}!`);
-        fetchDesigns();
-        fetchStats();
+        toast.success(`Imported ${data.designs ?? data.imported ?? 0} designs from ${source === "redbubble" ? "Redbubble" : "TeePublic"}!`);
+        await fetchDesigns();
+        await fetchStats();
       } else {
         toast.error(data.error || "Import failed");
       }
@@ -155,36 +145,26 @@ export function AdminDashboard() {
   };
 
   const toggleFeatured = async (id: string, featured: boolean) => {
-    const { error } = await supabase
-      .from("designs")
-      .update({ featured: !featured })
-      .eq("id", id);
-
-    if (error) {
-      toast.error("Failed to update design");
-    } else {
-      setDesigns(designs.map(d => 
-        d.id === id ? { ...d, featured: !featured } : d
-      ));
-      fetchStats();
+    try {
+      await updateDesign(id, { featured: !featured });
+      setDesigns(designs.map((d) => d.id === id ? { ...d, featured: !featured } : d));
+      await fetchStats();
       toast.success(featured ? "Removed from featured" : "Added to featured");
+    } catch (error) {
+      toast.error(`Failed to update design: ${(error as Error).message}`);
     }
   };
 
   const deleteDesign = async (id: string) => {
     if (!confirm("Are you sure you want to delete this design?")) return;
 
-    const { error } = await supabase
-      .from("designs")
-      .delete()
-      .eq("id", id);
-
-    if (error) {
-      toast.error("Failed to delete design");
-    } else {
-      setDesigns(designs.filter(d => d.id !== id));
-      fetchStats();
+    try {
+      await deleteDesignApi(id);
+      setDesigns(designs.filter((d) => d.id !== id));
+      await fetchStats();
       toast.success("Design deleted");
+    } catch (error) {
+      toast.error(`Failed to delete design: ${(error as Error).message}`);
     }
   };
 
@@ -193,14 +173,14 @@ export function AdminDashboard() {
     toast.success("Logged out successfully");
   };
 
-  const handleEditPost = (id: string) => {
-    setEditingPostId(id);
-    setCurrentView("edit-post");
+  const handleEditPost = (_id: string) => {
+    setEditingPostId(null);
+    setCurrentView("posts");
   };
 
   const handleNewPost = () => {
     setEditingPostId(null);
-    setCurrentView("edit-post");
+    setCurrentView("posts");
   };
 
   const handleBackFromEditor = () => {
@@ -502,7 +482,7 @@ export function AdminDashboard() {
           {currentView === "analytics" && <LazyLinkAnalyticsPanel />}
 
           {/* Programmatic SEO Engine View */}
-          {currentView === "pseo" && <LazyProgrammaticSEO />}
+          {currentView === "pseo" && <LazyAIArticleGenerator />}
 
           {/* Posts View - Enhanced with Stats and Tools */}
           {currentView === "posts" && (
@@ -512,87 +492,17 @@ export function AdminDashboard() {
               className="space-y-6"
             >
               <Tabs defaultValue="articles" className="w-full">
-                <TabsList className="grid w-full grid-cols-4 mb-6">
+                <TabsList className="grid w-full grid-cols-1 mb-6">
                   <TabsTrigger value="articles">
                     <FileText className="h-4 w-4 mr-2" />
-                    Articles
-                  </TabsTrigger>
-                  <TabsTrigger value="import">
-                    <Upload className="h-4 w-4 mr-2" />
-                    Import
-                  </TabsTrigger>
-                  <TabsTrigger value="stats">
-                    <BarChart3 className="h-4 w-4 mr-2" />
-                    Stats
-                  </TabsTrigger>
-                  <TabsTrigger value="tools">
-                    <Wrench className="h-4 w-4 mr-2" />
-                    Tools
+                    Git Articles Studio
                   </TabsTrigger>
                 </TabsList>
-
                 <TabsContent value="articles">
-                  <BlogPostsListOptimized 
-                    onNewPost={handleNewPost}
-                    onEditPost={handleEditPost}
-                  />
-                </TabsContent>
-
-                <TabsContent value="import">
-                  <LazyBulkPostImport />
-                </TabsContent>
-
-                <TabsContent value="stats">
-                  <BlogStatsOverview />
-                </TabsContent>
-
-                <TabsContent value="tools">
-                  <div className="space-y-6">
-                    {/* Indexing Status Manager - Smart Internal Linking */}
-                    <IndexingStatusManager />
-                    
-                    {/* Article Optimizer - One-Click SEO */}
-                    <LazyArticleOptimizer />
-                    
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <LazyBlogToolsPanel />
-                      <Card className="p-6">
-                        <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                          <Settings className="h-5 w-5" />
-                          SEO Best Practices
-                        </h3>
-                        <div className="space-y-3 text-sm text-muted-foreground">
-                          <div className="p-3 rounded-lg bg-muted/50">
-                            <p className="font-medium text-foreground mb-1">URL Slugs</p>
-                            <p>Use lowercase, hyphens only, no special characters</p>
-                          </div>
-                          <div className="p-3 rounded-lg bg-muted/50">
-                            <p className="font-medium text-foreground mb-1">Meta Description</p>
-                            <p>Write 150-160 chars with call-to-action</p>
-                          </div>
-                          <div className="p-3 rounded-lg bg-muted/50">
-                            <p className="font-medium text-foreground mb-1">Internal Links</p>
-                            <p>Add 2-5 links to related articles per post</p>
-                          </div>
-                          <div className="p-3 rounded-lg bg-muted/50">
-                            <p className="font-medium text-foreground mb-1">Featured Image</p>
-                            <p>Use high-quality images with descriptive alt text</p>
-                          </div>
-                        </div>
-                      </Card>
-                    </div>
-                  </div>
+                  <Studio />
                 </TabsContent>
               </Tabs>
             </motion.div>
-          )}
-
-          {/* Edit Post View */}
-          {currentView === "edit-post" && (
-            <LazyBlogPostEditor 
-              postId={editingPostId || undefined}
-              onBack={handleBackFromEditor}
-            />
           )}
 
           {/* Edit Design View */}

@@ -17,7 +17,7 @@ jobs:
   generate-seo-article:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # صلاحية الدفع إلى المستودع
+      contents: write  # إنشاء فرع وPull Request للمراجعة
 
     steps:
       - name: 📥 استنساخ المستودع
@@ -43,11 +43,15 @@ jobs:
           python seo_agent.py
         working-directory: seoagent-export/seo-agent-pro
 
-      - name: 📤 رفع الملفات الجديدة إلى المستودع
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f outputs/ memory/
-          git commit -m "✨ إضافة مقالة جديدة: ${{ github.event.inputs.keyword }}" || echo "لا توجد تغييرات جديدة"
-          git push
-        working-directory: seoagent-export/seo-agent-pro
+      - name: 📤 فتح Pull Request للمخرجات الجديدة
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "content: add generated SEO article"
+          title: "content: add generated SEO article"
+          body: "تم توليد المحتوى آليًا. يرجى مراجعة الملفات قبل الدمج في المصدر الرسمي للمقالات."
+          branch: "automation/generated-seo-article"
+          delete-branch: true
+          add-paths: |
+            seoagent-export/seo-agent-pro/outputs/**
+            seoagent-export/seo-agent-pro/memory/**

@@ -14,7 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { supabase } from "@/integrations/supabase/client";
+import { adminFetch } from "@/lib/adminApi";
 import { toast } from "sonner";
 
 interface Design {
@@ -101,26 +101,18 @@ export function DesignEditor({ design, onSave, onCancel }: DesignEditorProps) {
       source: formData.source || "manual",
     };
 
-    let error;
-
-    if (design?.id) {
-      const result = await supabase
-        .from("designs")
-        .update(dataToSave)
-        .eq("id", design.id);
-      error = result.error;
-    } else {
-      const result = await supabase.from("designs").insert(dataToSave);
-      error = result.error;
-    }
-
-    setIsSaving(false);
-
-    if (error) {
-      toast.error("Failed to save design: " + error.message);
-    } else {
+    try {
+      if (design?.id) {
+        await adminFetch(`/designs/${encodeURIComponent(design.id)}`, { method: "PATCH", body: JSON.stringify(dataToSave) });
+      } else {
+        await adminFetch("/designs", { method: "POST", body: JSON.stringify(dataToSave) });
+      }
       toast.success(design?.id ? "Design updated!" : "Design created!");
       onSave();
+    } catch (error) {
+      toast.error("Failed to save design: " + (error as Error).message);
+    } finally {
+      setIsSaving(false);
     }
   };
 

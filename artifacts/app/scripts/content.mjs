@@ -56,9 +56,11 @@ function toPost(slug, raw) {
     return Number.isNaN(t.getTime()) ? null : t.toISOString();
   };
   const publishedAt = iso(date);
+  const rawSlug = data.slug || slug;
+  const canonicalSlug = String(rawSlug).replace(/^p-/, "");
   return {
     id: slug,
-    slug: data.slug || slug,
+    slug: canonicalSlug,
     title: data.title || slug,
     content: body,
     excerpt: data.description || stripHtml(body).slice(0, 200),
@@ -94,8 +96,20 @@ export function loadPosts({ includeDrafts = false } = {}) {
     return [];
   }
   const files = readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".md"));
-  const posts = files.map((f) => toPost(basename(f, ".md"), readFileSync(join(CONTENT_DIR, f), "utf8")));
-  const live = includeDrafts ? posts : posts.filter((p) => isLive(p));
+  const posts = files.map((f) => {
+    const fileSlug = basename(f, ".md");
+    const post = toPost(fileSlug, readFileSync(join(CONTENT_DIR, f), "utf8"));
+    return { ...post, source_file: f, is_legacy_slug: fileSlug.startsWith("p-") };
+  });
+  // When both p-legacy.md and canonical.md exist, publish the canonical file
+  // only. Keep the legacy file on disk for review and redirect old URLs to the
+  // canonical route instead of deleting content automatically.
+  const canonicalPosts = new Map();
+  for (const post of posts) {
+    const current = canonicalPosts.get(post.slug);
+    if (!current || (current.is_legacy_slug && !post.is_legacy_slug)) canonicalPosts.set(post.slug, post);
+  }
+  const live = includeDrafts ? [...canonicalPosts.values()] : [...canonicalPosts.values()].filter((p) => isLive(p));
   return live.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
 }
 

@@ -3,8 +3,5 @@ Allow: /
 Disallow: /admin
 Disallow: /studio
 
-# Sitemaps
+# Sitemap index (contains pages, posts, and designs)
 Sitemap: https://aiprintverse.com/sitemap.xml
-Sitemap: https://aiprintverse.com/sitemap-pages.xml
-Sitemap: https://aiprintverse.com/sitemap-posts.xml
-Sitemap: https://aiprintverse.com/sitemap-designs.xml

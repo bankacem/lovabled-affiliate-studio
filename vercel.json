@@ -174,6 +174,11 @@
       "permanent": true
     },
     {
+      "source": "/blog/p-:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
       "source": "/blog/p-the-modern-gentlemans-guide-to-v-neck-sweater-outfits-from-office-power-moves-to-weekend-ease",
       "destination": "/blog/the-modern-gentlemans-guide-to-v-neck-sweater-outfits-from-office-power-moves-to-weekend-ease",
       "permanent": true
@@ -190,18 +195,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/sitemap-pages.xml",
-      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=pages"
-    },
-    {
-      "source": "/sitemap-posts.xml",
-      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=posts"
-    },
-    {
-      "source": "/sitemap-designs.xml",
-      "destination": "https://krugmbovsjjgjikgzacl.supabase.co/functions/v1/sitemap?kind=designs"
-    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

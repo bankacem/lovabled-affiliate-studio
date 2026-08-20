@@ -19,7 +19,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { supabase } from "@/integrations/supabase/client";
+import { adminFetch, listStores } from "@/lib/adminApi";
 import { toast } from "sonner";
 
 type Platform = "redbubble" | "teepublic" | "amazon" | "etsy";
@@ -55,15 +55,13 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
 
   const fetchStores = async () => {
     setIsLoading(true);
-    const { data, error } = await supabase
-      .from("stores")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (!error && data) {
-      setStores(data as StoreProfile[]);
+    try {
+      setStores(await listStores<StoreProfile>());
+    } catch (error) {
+      toast.error(`Failed to load stores: ${(error as Error).message}`);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   const handleAddStore = async () => {
@@ -72,40 +70,34 @@ export function StoreManager({ onImport, isImporting }: StoreManagerProps) {
       return;
     }
 
-    const { data: user } = await supabase.auth.getUser();
-    if (!user.user) {
-      toast.error("You must be logged in");
-      return;
-    }
-
-    const { error } = await supabase.from("stores").insert({
-      name: newStore.name,
-      store_url: newStore.store_url,
-      platform: newStore.platform,
-      username: newStore.username || null,
-      user_id: user.user.id,
-    });
-
-    if (error) {
-      toast.error("Failed to add store: " + error.message);
-    } else {
+    try {
+      await adminFetch("/stores", {
+        method: "POST",
+        body: JSON.stringify({
+          name: newStore.name,
+          store_url: newStore.store_url,
+          platform: newStore.platform,
+          username: newStore.username || null,
+        }),
+      });
       toast.success("Store added successfully!");
       setNewStore({ name: "", store_url: "", platform: "redbubble", username: "" });
       setIsDialogOpen(false);
-      fetchStores();
+      await fetchStores();
+    } catch (error) {
+      toast.error("Failed to add store: " + (error as Error).message);
     }
   };
 
   const handleDeleteStore = async (id: string) => {
     if (!confirm("Are you sure you want to delete this store?")) return;
 
-    const { error } = await supabase.from("stores").delete().eq("id", id);
-
-    if (error) {
-      toast.error("Failed to delete store");
-    } else {
+    try {
+      await adminFetch(`/stores/${encodeURIComponent(id)}`, { method: "DELETE" });
       setStores(stores.filter((s) => s.id !== id));
       toast.success("Store deleted");
+    } catch (error) {
+      toast.error(`Failed to delete store: ${(error as Error).message}`);
     }
   };
 
