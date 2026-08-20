@@ -61,8 +61,8 @@ function sanitizeBuiltHtml(html) {
 }
 
 function sanitizeBuiltJavaScript(source) {
-  return source.replace(/import\((["'])(\.\/[^"']+\.js)\1\)/g, (_, quote, chunkPath) =>
-    `import(${quote}${chunkPath}?v=${assetVersion}${quote})`,
+  return source.replace(/(["'])(\.\/[^"']+\.js)(?!\?[^"']*)\1/g, (_, quote, chunkPath) =>
+    `${quote}${chunkPath}?v=${assetVersion}${quote}`,
   );
 }
 
