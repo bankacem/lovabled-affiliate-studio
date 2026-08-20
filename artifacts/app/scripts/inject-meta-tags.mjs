@@ -60,6 +60,12 @@ function sanitizeBuiltHtml(html) {
   return withoutCors.replace(/((?:src|href)="\/assets\/[^"?]+)"/gi, `$1?v=${assetVersion}"`);
 }
 
+function sanitizeBuiltJavaScript(source) {
+  return source.replace(/import\((["'])(\.\/[^"']+\.js)\1\)/g, (_, quote, chunkPath) =>
+    `import(${quote}${chunkPath}?v=${assetVersion}${quote})`,
+  );
+}
+
 function injectMeta(html, { title, description, image, canonicalHref }) {
   let out = html;
 
@@ -275,6 +281,23 @@ function main() {
     const html = readFileSync(htmlPath, "utf8");
     const sanitized = sanitizeBuiltHtml(html);
     if (sanitized !== html) writeFileSync(htmlPath, sanitized);
+  }
+
+  const jsFiles = [];
+  const jsPending = [resolve(distRoot, "assets")];
+  while (jsPending.length) {
+    const current = jsPending.pop();
+    if (!existsSync(current)) continue;
+    for (const entry of readdirSync(current, { withFileTypes: true })) {
+      const fullPath = resolve(current, entry.name);
+      if (entry.isDirectory()) jsPending.push(fullPath);
+      else if (entry.isFile() && entry.name.endsWith(".js")) jsFiles.push(fullPath);
+    }
+  }
+  for (const jsPath of jsFiles) {
+    const source = readFileSync(jsPath, "utf8");
+    const sanitized = sanitizeBuiltJavaScript(source);
+    if (sanitized !== source) writeFileSync(jsPath, sanitized);
   }
 
   console.log(`[inject-meta-tags] injected page-specific meta/canonical tags into ${written} route(s), no browser required`);
