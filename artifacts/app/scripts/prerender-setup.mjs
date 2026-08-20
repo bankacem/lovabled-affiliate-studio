@@ -13,42 +13,27 @@ import { loadPosts } from "./content.mjs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const appRoot = resolve(__dirname, "..");
 
-const SUPABASE_URL = "https://krugmbovsjjgjikgzacl.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtydWdtYm92c2pqZ2ppa2d6YWNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzNzU3MzAsImV4cCI6MjA4MDk1MTczMH0.d5BKf5JTYjFQLUG62VX5lEEpLD8OnJXe14x1ickCDWQ";
-const BASE_URL = "https://aiprintverse.com";
+const BASE_URL = process.env.PUBLIC_BASE_URL || "https://aiprintverse.com";
+const CONTENT_API_BASE_URL = (process.env.CONTENT_API_BASE_URL || process.env.API_BASE_URL || "").replace(/\/$/, "");
 
-async function fetchAll(table, select, extraQuery = "") {
-  // Page through PostgREST (default max 1000 rows/request) so we get ALL rows.
-  const all = [];
-  const pageSize = 1000;
-  let from = 0;
-  try {
-    while (true) {
-      const url = `${SUPABASE_URL}/rest/v1/${table}?select=${select}${extraQuery ? `&${extraQuery}` : ""}`;
-      const r = await fetch(url, {
-        headers: {
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-          Range: `${from}-${from + pageSize - 1}`,
-          "Range-Unit": "items",
-          Prefer: "count=exact",
-        },
-      });
-      if (!r.ok) {
-        console.warn(`[prerender-setup] ${table} -> ${r.status} ${await r.text().catch(() => "")}`);
-        break;
-      }
-      const rows = await r.json();
-      all.push(...rows);
-      if (rows.length < pageSize) break;
-      from += pageSize;
-      if (from > 20000) break; // safety
-    }
-  } catch (e) {
-    console.warn(`[prerender-setup] ${table} failed:`, e.message);
+async function fetchAll(table) {
+  if (!CONTENT_API_BASE_URL || table !== "designs") {
+    console.warn(`[prerender-setup] no CONTENT_API_BASE_URL configured; skipping ${table} prerender data`);
+    return [];
   }
-  return all;
+  try {
+    const url = `${CONTENT_API_BASE_URL}/api/designs?limit=500&offset=0`;
+    const response = await fetch(url, { headers: { Accept: "application/json" } });
+    if (!response.ok) {
+      console.warn(`[prerender-setup] ${table} -> ${response.status} ${await response.text().catch(() => "")}`);
+      return [];
+    }
+    const payload = await response.json();
+    return Array.isArray(payload) ? payload : payload.designs || [];
+  } catch (error) {
+    console.warn(`[prerender-setup] ${table} failed:`, error.message);
+    return [];
+  }
 }
 
 const staticRoutes = ["/", "/about", "/blog", "/designs"];
@@ -62,7 +47,7 @@ const posts = rawPosts.filter((p) => {
   return score >= 60;
 });
 
-const rawDesigns = await fetchAll("designs", "id,name,description,image_url,category,teepublic_url,redbubble_url,amazon_url,etsy_url,tags,updated_at");
+const rawDesigns = await fetchAll("designs");
 // Filter out low quality designs
 const designs = rawDesigns.filter((d) => {
   if (!d || !d.id || !d.name || d.name.trim() === "" || !d.image_url || d.image_url.trim() === "") return false;
@@ -83,29 +68,47 @@ const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
 pkg.reactSnap = { ...(pkg.reactSnap || {}), include };
 writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
 
-// 2) Write public/sitemap.xml
-const urls = include
-  .map((path) => {
-    const row =
-      path.startsWith("/blog/")
-        ? posts.find((p) => `/blog/${p.slug}` === path)
-        : path.startsWith("/designs/")
-        ? designs.find((d) => `/designs/${d.id}` === path)
-        : null;
-    const lastmod = row?.updated_at
-      ? `    <lastmod>${new Date(row.updated_at).toISOString()}</lastmod>\n`
+// 2) Write static sitemaps from Git content. These files must not depend on
+// Supabase or a runtime API: Google fetches them independently of the app.
+function escapeXml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function buildUrlset(paths, rowsByPath = new Map()) {
+  const urls = paths.map((path) => {
+    const row = rowsByPath.get(path);
+    const parsedLastmod = row?.updated_at ? new Date(row.updated_at) : null;
+    const lastmod = parsedLastmod && !Number.isNaN(parsedLastmod.getTime())
+      ? `    <lastmod>${parsedLastmod.toISOString()}</lastmod>\n`
       : "";
     const priority = path === "/" ? "1.0" : path.startsWith("/blog/") || path.startsWith("/designs/") ? "0.7" : "0.8";
-    return `  <url>\n    <loc>${BASE_URL}${path}</loc>\n${lastmod}    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
-  })
-  .join("\n");
+    return `  <url>\n    <loc>${escapeXml(`${BASE_URL}${path}`)}</loc>\n${lastmod}    <changefreq>weekly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  }).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
 
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
-writeFileSync(resolve(appRoot, "public/sitemap.xml"), sitemap);
-// Also write to dist so the published build serves it without a rebuild of public/
-try {
-  writeFileSync(resolve(appRoot, "dist/public/sitemap.xml"), sitemap);
-} catch {}
+function writePublicFile(filename, content) {
+  writeFileSync(resolve(appRoot, "public", filename), content);
+  try {
+    writeFileSync(resolve(appRoot, "dist/public", filename), content);
+  } catch {}
+}
+
+const postsByPath = new Map(blogRoutes.map((path) => [path, posts.find((p) => `/blog/${p.slug}` === path)]));
+const designsByPath = new Map(designRoutes.map((path) => [path, designs.find((d) => `/designs/${d.id}` === path)]));
+const pagesSitemap = buildUrlset(staticRoutes);
+const postsSitemap = buildUrlset(blogRoutes, postsByPath);
+const designsSitemap = buildUrlset(designRoutes, designsByPath);
+const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap><loc>${escapeXml(`${BASE_URL}/sitemap-pages.xml`)}</loc></sitemap>\n  <sitemap><loc>${escapeXml(`${BASE_URL}/sitemap-posts.xml`)}</loc></sitemap>\n  <sitemap><loc>${escapeXml(`${BASE_URL}/sitemap-designs.xml`)}</loc></sitemap>\n</sitemapindex>\n`;
+writePublicFile("sitemap.xml", sitemapIndex);
+writePublicFile("sitemap-pages.xml", pagesSitemap);
+writePublicFile("sitemap-posts.xml", postsSitemap);
+writePublicFile("sitemap-designs.xml", designsSitemap);
 
 // 3) Write a lightweight route -> {title, description, image} map for the
 // browser-free meta-tag injector that runs after `vite build`. We already

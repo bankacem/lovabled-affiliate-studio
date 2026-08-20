@@ -149,6 +149,38 @@ Available posts:\n${postList}\n\nContent snippet: ${content.slice(0, 500)}\n\nRe
   }
 });
 
+router.post("/ai/analyze-competitors", requireAdmin, async (req: Request, res: Response) => {
+  const keyword = typeof req.body?.keyword === "string" ? req.body.keyword.trim() : "";
+  if (!keyword) { res.status(400).json({ error: "keyword is required" }); return; }
+  const openrouterKey = getEnv("OPENROUTER_API_KEY");
+  if (!openrouterKey) {
+    res.json({ competitorBrief: `Competitor analysis is unavailable without an AI provider. Focus on search intent, topical completeness, original examples, and clear product relevance for: ${keyword}.` });
+    return;
+  }
+  try {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${openrouterKey}`, "Content-Type": "application/json", "HTTP-Referer": "https://aiprintverse.com" },
+      body: JSON.stringify({ model: "anthropic/claude-haiku-4", messages: [{ role: "user", content: `Give a concise SEO competitor brief for the keyword: ${keyword}. Include search intent, content gaps, and differentiation opportunities.` }], max_tokens: 700 }),
+    });
+    const data = await response.json() as any;
+    res.json({ competitorBrief: data.choices?.[0]?.message?.content || "" });
+  } catch {
+    res.json({ competitorBrief: "" });
+  }
+});
+
+router.post("/ai/evaluate-article", requireAdmin, async (req: Request, res: Response) => {
+  const content = typeof req.body?.content === "string" ? req.body.content : "";
+  const keyword = typeof req.body?.keyword === "string" ? req.body.keyword.trim().toLowerCase() : "";
+  const text = content.replace(/<[^>]*>/g, " ").replace(/\\s+/g, " ").trim();
+  const wordCount = text ? text.split(" ").length : 0;
+  const keywordCount = keyword ? (text.toLowerCase().match(new RegExp(keyword.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&"), "g")) || []).length : 0;
+  const score = Math.min(100, Math.round(35 + (wordCount >= 1200 ? 30 : wordCount >= 700 ? 20 : 5) + (keywordCount > 0 ? 15 : 0) + (content.includes("<h2") ? 10 : 0) + (content.includes("<ul") || content.includes("<ol") ? 10 : 0)));
+  const passesThreshold = score >= 60;
+  res.json({ score, passesThreshold, revisionFeedback: passesThreshold ? "" : "Increase depth, add structured headings and practical examples, and use the target keyword naturally." });
+});
+
 router.post("/ai/seo-analytics", requireAdmin, async (req: Request, res: Response) => {
   const { content, keyword } = req.body;
   const text = content.replace(/<[^>]*>/g, " ");

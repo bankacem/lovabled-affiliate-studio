@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { invokeAI } from "@/lib/aiApi";
+import { saveArticle } from "@/lib/githubContent";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -64,6 +65,7 @@ const WRITING_STYLES: { value: WritingStyle; label: string; icon: React.ReactNod
 
 const STORAGE_KEY = "ai_generated_articles";
 const PENDING_QUEUE_KEY = "ai_pending_keyword_queue";
+const today = () => new Date().toISOString().slice(0, 10);
 
 interface GeneratedArticle {
   id?: string;
@@ -78,6 +80,7 @@ interface GeneratedArticle {
   error?: string;
   generatedAt?: string;
   duplicateWarning?: string | null;
+  read_time?: string;
 }
 
 interface Category {
@@ -209,21 +212,30 @@ export function AIArticleGenerator() {
   };
 
   const fetchCategories = async () => {
-    const { data } = await supabase.from("blog_categories").select("*").order("name");
-    if (data) setCategories(data);
+    try {
+      const response = await fetch("/blog-index.json", { cache: "no-cache" });
+      const index = await response.json();
+      const names = Array.from(new Set((index.posts || []).map((post: { category?: string }) => post.category).filter(Boolean))).sort();
+      setCategories(names.map((name) => { const value = String(name); return { id: value, name: value, slug: value.toLowerCase().replace(/\\s+/g, "-") }; }));
+    } catch (error) {
+      console.error("Failed to load categories", error);
+    }
   };
 
   const fetchStats = async () => {
-    const { data } = await supabase.from("blog_posts").select("status, source");
-    if (data) {
-      const aiGenerated = data.filter(p => p.source === "ai_generated");
+    try {
+      const response = await fetch("/blog-index.json", { cache: "no-cache" });
+      const index = await response.json();
+      const posts = index.posts || [];
       setStats({
         totalGenerated: generatedArticles.length,
-        totalSaved: aiGenerated.length,
-        totalPublished: aiGenerated.filter(p => p.status === "published").length,
-        totalScheduled: aiGenerated.filter(p => p.status === "scheduled").length,
-        totalDraft: aiGenerated.filter(p => p.status === "draft").length,
+        totalSaved: posts.length,
+        totalPublished: posts.filter((p: { status?: string }) => p.status === "published").length,
+        totalScheduled: posts.filter((p: { status?: string }) => p.status === "scheduled").length,
+        totalDraft: posts.filter((p: { status?: string }) => p.status === "draft").length,
       });
+    } catch (error) {
+      console.error("Failed to load article stats", error);
     }
   };
 
@@ -252,9 +264,8 @@ export function AIArticleGenerator() {
         functionName = "generate-article";
       }
 
-      const { data, error } = await supabase.functions.invoke(functionName, { body });
-      if (error) throw error;
-      if (data?.error) throw new Error(data.error);
+      const data = await invokeAI(functionName, body);
+      if ((data as any)?.error) throw new Error((data as any).error);
       setConnectionStatus("success");
       toast.success("Connection successful! ✅");
     } catch (err) {
@@ -266,10 +277,7 @@ export function AIArticleGenerator() {
   const analyzeCompetitors = async (keyword: string): Promise<string | undefined> => {
     setCompetitorAnalysisStatus(prev => ({ ...prev, [keyword]: "analyzing" }));
     try {
-      const { data, error } = await supabase.functions.invoke("analyze-competitors", {
-        body: { keyword },
-      });
-      if (error) throw error;
+      const data = await invokeAI<{ competitorBrief?: string; error?: string }>("analyze-competitors", { keyword });
       if (data?.error) {
         // Not fatal — surface it once and continue generating without a
         // brief rather than blocking the whole batch on a missing API key.
@@ -292,29 +300,15 @@ export function AIArticleGenerator() {
     let error: any;
 
     if (aiProvider === "lovable") {
-      const result = await supabase.functions.invoke("generate-article", { body: baseBody });
-      data = result.data;
-      error = result.error;
+      data = await invokeAI("generate-article", baseBody);
     } else if (aiProvider === "openrouter") {
       if (!openrouterKey) throw new Error("OpenRouter API key is required");
-      const result = await supabase.functions.invoke("generate-article-openrouter", {
-        body: { ...baseBody, apiKey: openrouterKey, model: customOpenrouterModel || openrouterModel },
-      });
-      data = result.data;
-      error = result.error;
+      data = await invokeAI("generate-article-openrouter", { ...baseBody, apiKey: openrouterKey, model: customOpenrouterModel || openrouterModel });
     } else if (aiProvider === "groq") {
       if (!groqKey) throw new Error("Groq API key is required");
-      const result = await supabase.functions.invoke("generate-article-groq", {
-        body: { ...baseBody, apiKey: groqKey, model: groqModel },
-      });
-      data = result.data;
-      error = result.error;
+      data = await invokeAI("generate-article-groq", { ...baseBody, apiKey: groqKey, model: groqModel });
     } else if (aiProvider === "bluesminds") {
-      const result = await supabase.functions.invoke("generate-article-bluesminds", {
-        body: { ...baseBody, model: bluesmindsModel },
-      });
-      data = result.data;
-      error = result.error;
+      data = await invokeAI("generate-article-bluesminds", { ...baseBody, model: bluesmindsModel });
     }
 
     if (error) throw error;
@@ -330,17 +324,16 @@ export function AIArticleGenerator() {
   // API call already being used.
   const evaluateAndMaybeRevise = async (data: any, baseBody: Record<string, unknown>, keyword: string) => {
     try {
-      const { data: evalData, error: evalError } = await supabase.functions.invoke("evaluate-article", {
-        body: {
-          title: data.title,
-          content: data.content,
-          keyword,
-          metaDescription: data.meta_description,
-          includeFAQ,
-          includeComparisonTable,
-          competitorBrief: (baseBody as any).competitorBrief,
-        },
+      const evalData = await invokeAI<any>("evaluate-article", {
+        title: data.title,
+        content: data.content,
+        keyword,
+        metaDescription: data.meta_description,
+        includeFAQ,
+        includeComparisonTable,
+        competitorBrief: (baseBody as any).competitorBrief,
       });
+      const evalError = null;
       if (evalError || !evalData) return data; // evaluation failing must never block publishing
 
       if (!evalData.passesThreshold && evalData.revisionFeedback) {
@@ -500,29 +493,28 @@ export function AIArticleGenerator() {
         }
       }
 
-      const { error } = await supabase.from("blog_posts").insert({
-        title: article.title,
-        slug: article.slug,
-        content: article.content,
-        excerpt: article.excerpt,
-        meta_title: article.meta_title,
-        meta_description: article.meta_description,
-        category: article.category,
-        status,
-        source: "ai_generated",
-        author_name: "AI Writer",
-        published_at: status === "published" ? publishAt?.toISOString() : null,
-        scheduled_publish_at: status === "scheduled" ? publishAt?.toISOString() : null,
-        tags: [],
-      });
-
-      if (!error) {
+      try {
+        await saveArticle({
+          title: article.title,
+          slug: article.slug,
+          description: article.excerpt || article.meta_description || "",
+          category: article.category || category,
+          tags: [],
+          author: "AI Writer",
+          image: "",
+          image_alt: article.title,
+          date: publishAt?.toISOString().slice(0, 10) || today(),
+          updated: today(),
+          status: status as "published" | "draft" | "scheduled",
+          scheduled_at: status === "scheduled" ? publishAt?.toISOString() || "" : "",
+          read_time: article.read_time || "6 min read",
+          content: article.content,
+        });
         savedCount++;
-        // Update the status in the array using the original index
         updatedArticles[originalIndex] = { ...updatedArticles[originalIndex], status: "saved" };
-      } else {
-        console.error("Error saving article:", error);
-        toast.error(`Failed to save: ${article.title}`);
+      } catch (error) {
+        console.error("Error creating article Pull Request:", error);
+        toast.error(`Failed to create PR: ${article.title}`);
       }
     }
     

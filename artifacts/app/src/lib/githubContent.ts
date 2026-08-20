@@ -1,11 +1,7 @@
-// Direct GitHub commits for blog content. The repository is the single source
-// of truth for articles: every save is a commit to content/blog/<slug>.md,
-// which triggers a Vercel deploy and puts the article live. No database, no
-// middle layer.
+import { supabase } from "@/integrations/supabase/client";
 
 export const GITHUB_REPO = "bankacem/lovabled-affiliate-studio";
 export const CONTENT_PATH = "content/blog";
-const TOKEN_KEY = "aipv_github_token";
 
 export interface ArticleFrontmatter {
   title: string;
@@ -28,26 +24,17 @@ export interface Article extends ArticleFrontmatter {
   sha?: string;
 }
 
-export function getToken(): string {
-  return localStorage.getItem(TOKEN_KEY) || "";
-}
-
-export function setToken(token: string) {
-  if (token) localStorage.setItem(TOKEN_KEY, token.trim());
-  else localStorage.removeItem(TOKEN_KEY);
-}
-
-function headers() {
-  const token = getToken();
-  if (!token) throw new Error("Add your GitHub token first (Settings tab).");
-  return {
-    Authorization: `Bearer ${token}`,
-    Accept: "application/vnd.github+json",
-    "Content-Type": "application/json",
+export interface PullRequestResult {
+  code: string;
+  slug: string;
+  pullRequest: {
+    number: number;
+    url: string;
+    title: string;
+    branch?: string;
   };
 }
 
-// btoa() throws on non-Latin1 characters (Arabic titles, emojis…), so encode UTF-8 first.
 function toBase64(text: string) {
   const bytes = new TextEncoder().encode(text);
   let binary = "";
@@ -55,14 +42,9 @@ function toBase64(text: string) {
   return btoa(binary);
 }
 
-function fromBase64(b64: string) {
-  const binary = atob(b64.replace(/\n/g, ""));
-  const bytes = Uint8Array.from(binary, (c) => c.charCodeAt(0));
-  return new TextDecoder().decode(bytes);
-}
-
 export function slugify(value: string) {
   return value
+    .normalize("NFKC")
     .toLowerCase()
     .trim()
     .replace(/[^\p{L}\p{N}]+/gu, "-")
@@ -119,60 +101,52 @@ export function parseMarkdown(raw: string, fallbackSlug: string): Article {
   return { ...empty, ...(data as Partial<Article>), content: body, slug: (data.slug as string) || fallbackSlug };
 }
 
-async function ghFetch(url: string, init?: RequestInit) {
-  const res = await fetch(url, { ...init, headers: headers() });
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    throw new Error(`GitHub ${res.status}: ${detail.slice(0, 200)}`);
+async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  const response = await fetch(`/api${path}`, {
+    ...init,
+    credentials: "include",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(init?.headers || {}),
+    },
+  });
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) {
+    const message = payload && typeof payload.error === "string" ? payload.error : `API request failed (${response.status})`;
+    throw new Error(message);
   }
-  return res.json();
+  return payload as T;
 }
 
 export async function verifyToken(): Promise<{ login: string; canWrite: boolean }> {
-  const repo = await ghFetch(`https://api.github.com/repos/${GITHUB_REPO}`);
-  const user = await ghFetch("https://api.github.com/user").catch(() => ({ login: "token" }));
-  return { login: user.login ?? "token", canWrite: Boolean(repo?.permissions?.push ?? true) };
+  const result = await apiFetch<{ repo: string; branch: string; canCreatePullRequest: boolean }>("/content/github/status");
+  return { login: result.repo, canWrite: result.canCreatePullRequest };
 }
 
 export async function loadArticle(slug: string): Promise<Article> {
-  const data = await ghFetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${CONTENT_PATH}/${slug}.md`);
-  const article = parseMarkdown(fromBase64(data.content), slug);
-  article.sha = data.sha;
-  return article;
+  return apiFetch<Article>(`/content/articles/${encodeURIComponent(slug)}`);
 }
 
-export async function saveArticle(article: Article, message?: string) {
-  const path = `${CONTENT_PATH}/${article.slug}.md`;
-  let sha = article.sha;
-  if (!sha) {
-    try {
-      const existing = await ghFetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`);
-      sha = existing.sha;
-    } catch { /* new file */ }
-  }
-  return ghFetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`, {
-    method: "PUT",
-    body: JSON.stringify({
-      message: message || `content: ${sha ? "update" : "add"} ${article.slug}`,
-      content: toBase64(buildMarkdown(article)),
-      ...(sha ? { sha } : {}),
-    }),
+export async function saveArticle(article: Article): Promise<PullRequestResult> {
+  return apiFetch<PullRequestResult>("/content/articles/pull-request", {
+    method: "POST",
+    body: JSON.stringify({ article }),
   });
 }
 
-export async function deleteArticle(slug: string) {
-  const path = `${CONTENT_PATH}/${slug}.md`;
-  const existing = await ghFetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`);
-  return ghFetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${path}`, {
+export async function deleteArticle(slug: string): Promise<PullRequestResult> {
+  return apiFetch<PullRequestResult>(`/content/articles/${encodeURIComponent(slug)}/pull-request`, {
     method: "DELETE",
-    body: JSON.stringify({ message: `content: remove ${slug}`, sha: existing.sha }),
   });
 }
 
-// Articles committed but not yet in the deployed static index (pending build).
 export async function listRepoArticles(): Promise<string[]> {
-  const data = await ghFetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${CONTENT_PATH}?per_page=1000`);
-  return (Array.isArray(data) ? data : [])
-    .filter((f: { name: string }) => f.name.endsWith(".md"))
-    .map((f: { name: string }) => f.name.replace(/\.md$/, ""));
+  const data = await apiFetch<Array<{ slug: string }>>("/content/articles");
+  return data.map((item) => item.slug);
 }
+
+export { toBase64 };

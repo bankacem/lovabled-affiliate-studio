@@ -12,11 +12,9 @@ import {
   type Article,
   buildMarkdown,
   deleteArticle,
-  getToken,
   listRepoArticles,
   loadArticle,
   saveArticle,
-  setToken,
   slugify,
   verifyToken,
   GITHUB_REPO,
@@ -49,7 +47,6 @@ interface IndexPost {
 }
 
 export default function Studio() {
-  const [token, setTokenState] = useState(getToken());
   const [account, setAccount] = useState<string | null>(null);
   const [checking, setChecking] = useState(false);
 
@@ -68,8 +65,7 @@ export default function Studio() {
   }, []);
 
   useEffect(() => {
-    if (!getToken()) return;
-    refreshRepo();
+    void connect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -84,10 +80,9 @@ export default function Studio() {
   async function connect() {
     setChecking(true);
     try {
-      setToken(token);
       const info = await verifyToken();
       setAccount(info.login);
-      toast.success(`Connected to GitHub as ${info.login}`);
+      toast.success(`GitHub repository ready: ${info.login}`);
       await refreshRepo();
     } catch (e) {
       setAccount(null);
@@ -132,8 +127,9 @@ export default function Studio() {
     }
     setBusy(true);
     try {
-      await saveArticle({ ...draft, slug });
-      toast.success("Committed to GitHub — Vercel is deploying it now.");
+      const result = await saveArticle({ ...draft, slug });
+      toast.success(`Pull Request #${result.pullRequest.number} created for review.`);
+      if (result.pullRequest.url) window.open(result.pullRequest.url, "_blank", "noopener,noreferrer");
       setDraft(null);
       await refreshRepo();
     } catch (e) {
@@ -147,8 +143,9 @@ export default function Studio() {
     if (!window.confirm(`Delete ${slug}.md from GitHub?`)) return;
     setBusy(true);
     try {
-      await deleteArticle(slug);
-      toast.success("Deleted. It disappears from the site on the next deploy.");
+      const result = await deleteArticle(slug);
+      toast.success(`Delete Pull Request #${result.pullRequest.number} created for review.`);
+      if (result.pullRequest.url) window.open(result.pullRequest.url, "_blank", "noopener,noreferrer");
       await refreshRepo();
     } catch (e) {
       toast.error((e as Error).message);
@@ -181,23 +178,17 @@ export default function Studio() {
 
       <main className="container mx-auto space-y-6 px-4 py-6">
         {/* Connection */}
-        <Card className="p-4">
-          <Label htmlFor="gh-token">GitHub token (Contents: Read and write)</Label>
-          <div className="mt-2 flex flex-col gap-2 sm:flex-row">
-            <Input
-              id="gh-token"
-              type="password"
-              value={token}
-              placeholder="github_pat_..."
-              onChange={(e) => setTokenState(e.target.value)}
-            />
-            <Button onClick={connect} disabled={checking || !token}>
-              {checking ? <Loader2 className="h-4 w-4 animate-spin" /> : "Connect"}
-            </Button>
+        <Card className="flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-medium text-foreground">GitHub publishing</p>
+            <p className="text-xs text-muted-foreground">
+              {account ? `Connected to ${account}. Saves create Pull Requests; nothing is committed directly from the browser.` : "Checking the protected GitHub publishing service…"}
+            </p>
           </div>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Stored only in this browser. Every save is a commit that triggers a Vercel deploy.
-          </p>
+          <Button variant="outline" onClick={connect} disabled={checking}>
+            {checking ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
+            {checking ? "Checking" : "Check connection"}
+          </Button>
         </Card>
 
         {draft ? (
@@ -293,7 +284,7 @@ export default function Studio() {
                 <Input className="pl-10" placeholder="Search articles" value={query} onChange={(e) => setQuery(e.target.value)} />
               </div>
               <div className="flex gap-2">
-                <Button variant="outline" onClick={refreshRepo} disabled={!getToken()}>
+                <Button variant="outline" onClick={refreshRepo} disabled={checking || !account}>
                   <RefreshCw className="h-4 w-4" /> Refresh
                 </Button>
                 <Button onClick={() => setDraft(emptyArticle())}>
