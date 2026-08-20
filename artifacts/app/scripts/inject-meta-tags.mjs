@@ -33,6 +33,7 @@ const appRoot = resolve(__dirname, "..");
 const distRoot = resolve(appRoot, "dist", "public");
 const indexPath = resolve(distRoot, "index.html");
 const metaMapPath = resolve(distRoot, "prerender-meta.json");
+const assetVersion = (process.env.VERCEL_GIT_COMMIT_SHA || Date.now().toString()).slice(0, 12);
 
 function escapeHtml(str) {
   return String(str)
@@ -52,6 +53,11 @@ function replaceTag(html, regex, replacement) {
 // not need CORS, and this keeps the production bootstrap executable.
 function stripSameOriginCrossorigin(html) {
   return html.replace(/\s+crossorigin(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi, "");
+}
+
+function sanitizeBuiltHtml(html) {
+  const withoutCors = stripSameOriginCrossorigin(html);
+  return withoutCors.replace(/((?:src|href)="\/assets\/[^"?]+)"/gi, `$1?v=${assetVersion}"`);
 }
 
 function injectMeta(html, { title, description, image, canonicalHref }) {
@@ -211,7 +217,7 @@ function main() {
     return;
   }
 
-  const genericHtml = stripSameOriginCrossorigin(readFileSync(indexPath, "utf8"));
+  const genericHtml = sanitizeBuiltHtml(readFileSync(indexPath, "utf8"));
   writeFileSync(indexPath, genericHtml);
 
   // Every generic static index.html (written by create-static-fallbacks.mjs
@@ -267,7 +273,7 @@ function main() {
   }
   for (const htmlPath of htmlFiles) {
     const html = readFileSync(htmlPath, "utf8");
-    const sanitized = stripSameOriginCrossorigin(html);
+    const sanitized = sanitizeBuiltHtml(html);
     if (sanitized !== html) writeFileSync(htmlPath, sanitized);
   }
 
