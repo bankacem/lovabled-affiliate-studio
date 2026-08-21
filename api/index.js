@@ -1,3 +1,1 @@
-import app from "../artifacts/api-server/dist/serverless.mjs";
-
-export default app;
+export { default } from "../vercel-api-handler.mjs";
