@@ -1,7 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { db, userRolesTable } from "@workspace/db";
-import { and, eq } from "drizzle-orm";
+import { and, db, eq, userRolesTable } from "@workspace/db";
 import { requireSupabaseAdmin, supabaseAuthConfigured } from "./requireSupabaseAdmin.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;

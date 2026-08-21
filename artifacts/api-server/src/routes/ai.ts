@@ -1,6 +1,5 @@
 import { Router, type Request, type Response } from "express";
-import { db, blogPostsTable, autoLinkKeywordsTable } from "@workspace/db";
-import { eq, desc } from "drizzle-orm";
+import { blogPostsTable, autoLinkKeywordsTable, db, desc, eq } from "@workspace/db";
 import { logger } from "../lib/logger.js";
 import { requireAdmin } from "../middleware/requireAuth.js";
 

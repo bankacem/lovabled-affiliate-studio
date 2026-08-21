@@ -1,7 +1,5 @@
 import { Router, type Request, type Response } from "express";
-import { db } from "@workspace/db";
-import { usersTable, userRolesTable } from "@workspace/db";
-import { eq, and } from "drizzle-orm";
+import { and, db, eq, userRolesTable, usersTable } from "@workspace/db";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { getUserFromToken, requireAdmin } from "../middleware/requireAuth.js";
