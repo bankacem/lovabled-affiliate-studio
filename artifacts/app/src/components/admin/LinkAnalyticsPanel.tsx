@@ -25,7 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { supabase } from "@/integrations/supabase/client";
+import { adminFetch } from "@/lib/adminApi";
 import { toast } from "sonner";
 import { extractLinksFromContent } from "@/lib/seoUtils";
 
@@ -59,6 +59,35 @@ interface DiscoveredLink {
   isTracked: boolean;
 }
 
+interface PublishedPost {
+  id: string;
+  title: string;
+  slug: string;
+  content: string | null;
+}
+
+interface PublishedPostsResponse {
+  posts: PublishedPost[];
+  totalPages?: number;
+}
+
+async function loadPublishedPosts(): Promise<PublishedPost[]> {
+  const firstPage = await adminFetch<PublishedPostsResponse>(
+    "/blog/posts?status=published&page=1&pageSize=100",
+  );
+  const posts = [...(firstPage.posts ?? [])];
+  const totalPages = Math.max(1, Number(firstPage.totalPages ?? 1));
+
+  for (let page = 2; page <= totalPages; page += 1) {
+    const nextPage = await adminFetch<PublishedPostsResponse>(
+      `/blog/posts?status=published&page=${page}&pageSize=100`,
+    );
+    posts.push(...(nextPage.posts ?? []));
+  }
+
+  return posts;
+}
+
 export function LinkAnalyticsPanel() {
   const [links, setLinks] = useState<LinkData[]>([]);
   const [discoveredLinks, setDiscoveredLinks] = useState<DiscoveredLink[]>([]);
@@ -83,99 +112,96 @@ export function LinkAnalyticsPanel() {
     setIsLoading(true);
 
     try {
-      // Fetch all link tracking data
-      const { data: linksData, error: linksError } = await supabase
-        .from("link_tracking")
-        .select("*")
-        .order("click_count", { ascending: false });
+      // Analytics rows remain server-side data, while article metadata/content is
+      // read through the authenticated API rather than Supabase in the browser.
+      const [linksResult, postsResult] = await Promise.allSettled([
+        adminFetch<LinkData[]>("/analytics/link-tracking"),
+        loadPublishedPosts(),
+      ]);
 
-      if (linksError) throw linksError;
+      const linksData = linksResult.status === "fulfilled" ? linksResult.value : [];
+      const posts = postsResult.status === "fulfilled" ? postsResult.value : [];
 
-      // Fetch blog posts for reference
-      const { data: posts } = await supabase
-        .from("blog_posts")
-        .select("id, title, slug, content")
-        .eq("status", "published");
+      if (linksResult.status === "rejected") {
+        console.warn("Link tracking data is unavailable:", linksResult.reason);
+      }
+      if (postsResult.status === "rejected") {
+        console.warn("Published article data is unavailable:", postsResult.reason);
+      }
+      if (linksResult.status === "rejected" && postsResult.status === "rejected") {
+        toast.info("Link analytics is unavailable until the server database is configured.");
+      }
 
-      const postsMap = new Map(posts?.map((p) => [p.id, p]) || []);
-      const trackedUrls = new Set(linksData?.map(l => `${l.target_url}|${l.source_post_id}`) || []);
+      const postsMap = new Map(posts.map((post) => [post.id, post]));
+      const trackedUrls = new Set(
+        linksData.map((link) => `${link.target_url}|${link.source_post_id}`),
+      );
 
-      // Enrich links with post info
-      const enrichedLinks =
-        linksData?.map((link) => ({
-          ...link,
-          source_post_title: link.source_post_id
-            ? postsMap.get(link.source_post_id)?.title
-            : null,
-        })) || [];
-
+      const enrichedLinks = linksData.map((link) => ({
+        ...link,
+        source_post_title: link.source_post_id
+          ? postsMap.get(link.source_post_id)?.title
+          : undefined,
+      }));
       setLinks(enrichedLinks);
 
-      // Discover all links from article content (Link Inventory)
       const allDiscovered: DiscoveredLink[] = [];
-      posts?.forEach(post => {
-        if (post.content) {
-          const extracted = extractLinksFromContent(post.content);
-          extracted.forEach(link => {
-            const trackKey = `${link.url}|${post.id}`;
-            allDiscovered.push({
-              url: link.url,
-              text: link.text,
-              isInternal: link.isInternal,
-              postId: post.id,
-              postTitle: post.title,
-              isTracked: trackedUrls.has(trackKey),
-            });
+      posts.forEach((post) => {
+        if (!post.content) return;
+        const extracted = extractLinksFromContent(post.content);
+        extracted.forEach((link) => {
+          const trackKey = `${link.url}|${post.id}`;
+          allDiscovered.push({
+            url: link.url,
+            text: link.text,
+            isInternal: link.isInternal,
+            postId: post.id,
+            postTitle: post.title,
+            isTracked: trackedUrls.has(trackKey),
           });
-        }
+        });
       });
-
       setDiscoveredLinks(allDiscovered);
 
-      // Calculate stats per post
       const postStatsMap = new Map<string, PostLinkStats>();
-
-      // Include discovered links in stats
       allDiscovered.forEach((link) => {
         const post = postsMap.get(link.postId);
-        if (post) {
-          const existing = postStatsMap.get(link.postId) || {
-            post_id: link.postId,
-            post_title: post.title,
-            post_slug: post.slug,
-            internal_links: 0,
-            external_links: 0,
-            total_clicks: 0,
-          };
-
-          if (link.isInternal) {
-            existing.internal_links += 1;
-          } else {
-            existing.external_links += 1;
-          }
-
-          postStatsMap.set(link.postId, existing);
-        }
+        if (!post) return;
+        const existing = postStatsMap.get(link.postId) || {
+          post_id: link.postId,
+          post_title: post.title,
+          post_slug: post.slug,
+          internal_links: 0,
+          external_links: 0,
+          total_clicks: 0,
+        };
+        if (link.isInternal) existing.internal_links += 1;
+        else existing.external_links += 1;
+        postStatsMap.set(link.postId, existing);
       });
 
-      // Add click counts from tracking
       enrichedLinks.forEach((link) => {
-        if (link.source_post_id && postStatsMap.has(link.source_post_id)) {
-          const existing = postStatsMap.get(link.source_post_id)!;
-          existing.total_clicks += link.click_count;
-          postStatsMap.set(link.source_post_id, existing);
-        }
+        if (!link.source_post_id || !postStatsMap.has(link.source_post_id)) return;
+        const existing = postStatsMap.get(link.source_post_id)!;
+        existing.total_clicks += link.click_count;
+        postStatsMap.set(link.source_post_id, existing);
       });
 
-      setPostStats(Array.from(postStatsMap.values()).sort((a, b) => 
-        (b.internal_links + b.external_links) - (a.internal_links + a.external_links)
-      ));
+      setPostStats(
+        Array.from(postStatsMap.values()).sort(
+          (a, b) =>
+            b.internal_links + b.external_links -
+            (a.internal_links + a.external_links),
+        ),
+      );
 
-      // Calculate total stats
-      const internal = allDiscovered.filter((l) => l.isInternal);
-      const external = allDiscovered.filter((l) => !l.isInternal);
-      const totalClicks = enrichedLinks.reduce((sum, l) => sum + l.click_count, 0);
-      const untracked = allDiscovered.filter(l => !l.isTracked).length;
+      const internal = allDiscovered.filter((link) => link.isInternal);
+      const external = allDiscovered.filter((link) => !link.isInternal);
+      const totalClicks = enrichedLinks.reduce(
+        (sum, link) => sum + Number(link.click_count || 0),
+        0,
+      );
+      const untracked = allDiscovered.filter((link) => !link.isTracked).length;
 
       setTotalStats({
         totalLinks: allDiscovered.length,
@@ -186,6 +212,16 @@ export function LinkAnalyticsPanel() {
       });
     } catch (error) {
       console.error("Error fetching link data:", error);
+      setLinks([]);
+      setDiscoveredLinks([]);
+      setPostStats([]);
+      setTotalStats({
+        totalLinks: 0,
+        totalClicks: 0,
+        internalLinks: 0,
+        externalLinks: 0,
+        untracked: 0,
+      });
       toast.error("Failed to load link analytics");
     } finally {
       setIsLoading(false);
@@ -194,41 +230,35 @@ export function LinkAnalyticsPanel() {
 
   const scanAndIndexLinks = useCallback(async () => {
     setIsScanning(true);
-    
+
     try {
-      const { data: posts } = await supabase
-        .from("blog_posts")
-        .select("id, title, content")
-        .eq("status", "published");
+      const posts = await loadPublishedPosts();
+      const items = posts.flatMap((post) => {
+        if (!post.content) return [];
+        return extractLinksFromContent(post.content).map((link) => ({
+          target_url: link.url,
+          link_text: link.text || null,
+          link_type: link.isInternal ? "internal" : "external",
+          source_post_id: post.id,
+          click_count: 0,
+        }));
+      });
 
-      let indexed = 0;
-      
-      for (const post of posts || []) {
-        if (!post.content) continue;
-        
-        const links = extractLinksFromContent(post.content);
-        for (const link of links) {
-          const { error } = await supabase
-            .from("link_tracking")
-            .upsert({
-              target_url: link.url,
-              link_text: link.text || null,
-              link_type: link.isInternal ? "internal" : "external",
-              source_post_id: post.id,
-              click_count: 0,
-            }, {
-              onConflict: "target_url,source_post_id",
-              ignoreDuplicates: true,
-            });
-
-          if (!error) indexed++;
-        }
+      if (!items.length) {
+        toast.info("No article links were found to index.");
+        return;
       }
 
-      toast.success(`Indexed ${indexed} links from all articles!`);
+      await adminFetch<LinkData | LinkData[]>("/analytics/link-tracking", {
+        method: "POST",
+        body: JSON.stringify(items),
+      });
+
+      toast.success(`Indexed ${items.length} links from all articles!`);
       await fetchData();
-    } catch (error: any) {
-      toast.error("Failed to scan links: " + error.message);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Unknown error";
+      toast.error("Failed to scan links: " + message);
     } finally {
       setIsScanning(false);
     }
