@@ -1,8 +1,10 @@
-import { Router, type RequestHandler } from "express";
+import { Router } from "express";
+import type { RequestHandler } from "express";
 
 const router = Router();
 
-const healthCheck: RequestHandler = (_req, res) => {
+// The Vercel checker loses contextual types for this callback; keep the boundary explicit.
+const healthCheck: RequestHandler = (_req: any, res: any): void => {
   res.json({ status: "ok" });
 };
 
