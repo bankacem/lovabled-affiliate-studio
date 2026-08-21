@@ -12,7 +12,7 @@ function lazyWithLoading<T extends ComponentType<any>>(
   importFn: () => Promise<{ default: T }>
 ) {
   const LazyComponent = lazy(importFn);
-  
+
   return function LazyWrapper(props: React.ComponentProps<T>) {
     return (
       <Suspense fallback={<LoadingSpinner />}>
@@ -22,47 +22,21 @@ function lazyWithLoading<T extends ComponentType<any>>(
   };
 }
 
-// Lazy load heavy components
-export const LazyRichTextEditor = lazyWithLoading(
-  () => import("./RichTextEditor").then(m => ({ default: m.RichTextEditor }))
-);
-
+// These are the only lazy components currently mounted by AdminDashboard.
+// Legacy article tools remain in the repository for a later Git/PR migration,
+// but are intentionally not included in the active bundle until migrated.
 export const LazyLinkAnalyticsPanel = lazyWithLoading(
-  () => import("./LinkAnalyticsPanel").then(m => ({ default: m.LinkAnalyticsPanel }))
-);
-
-export const LazyAnalyticsDashboard = lazyWithLoading(
-  () => import("./AnalyticsDashboard").then(m => ({ default: m.AnalyticsDashboard }))
-);
-
-export const LazyBlogPostEditor = lazyWithLoading(
-  () => import("./BlogPostEditor").then(m => ({ default: m.BlogPostEditor }))
-);
-
-export const LazyBlogToolsPanel = lazyWithLoading(
-  () => import("./BlogToolsPanel").then(m => ({ default: m.BlogToolsPanel }))
-);
-
-export const LazyBulkPostImport = lazyWithLoading(
-  () => import("./BulkPostImport").then(m => ({ default: m.BulkPostImport }))
+  () => import("./LinkAnalyticsPanel").then((m) => ({ default: m.LinkAnalyticsPanel }))
 );
 
 export const LazyDesignEditor = lazyWithLoading(
-  () => import("./DesignEditor").then(m => ({ default: m.DesignEditor }))
+  () => import("./DesignEditor").then((m) => ({ default: m.DesignEditor }))
 );
 
 export const LazyCustomImport = lazyWithLoading(
-  () => import("./CustomImport").then(m => ({ default: m.CustomImport }))
-);
-
-export const LazyArticleOptimizer = lazyWithLoading(
-  () => import("./ArticleOptimizer").then(m => ({ default: m.ArticleOptimizer }))
-);
-
-export const LazyProgrammaticSEO = lazyWithLoading(
-  () => import("./ProgrammaticSEO").then(m => ({ default: m.ProgrammaticSEO }))
+  () => import("./CustomImport").then((m) => ({ default: m.CustomImport }))
 );
 
 export const LazyAIArticleGenerator = lazyWithLoading(
-  () => import("./ProgrammaticSEO/AIArticleGenerator").then(m => ({ default: m.AIArticleGenerator }))
+  () => import("./ProgrammaticSEO/AIArticleGenerator").then((m) => ({ default: m.AIArticleGenerator }))
 );
