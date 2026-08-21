@@ -1,6 +1,5 @@
 import { Router, type Request, type Response } from "express";
-import { db, storesTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { db, eq, storesTable } from "@workspace/db";
 import { requireAdmin } from "../middleware/requireAuth.js";
 import { getParam } from "../lib/params.js";
 

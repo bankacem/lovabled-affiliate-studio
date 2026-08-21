@@ -1,6 +1,5 @@
 import { Router, type Request, type Response } from "express";
-import { db, pageViewsTable, linkTrackingTable, blogPostsTable } from "@workspace/db";
-import { eq, desc, sql, and, isNull, gte } from "drizzle-orm";
+import { and, blogPostsTable, db, desc, eq, gte, isNull, linkTrackingTable, pageViewsTable, sql } from "@workspace/db";
 import { requireAdmin } from "../middleware/requireAuth.js";
 
 const router = Router();

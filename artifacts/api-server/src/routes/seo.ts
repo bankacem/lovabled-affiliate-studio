@@ -1,6 +1,5 @@
 import { Router, type Request, type Response } from "express";
-import { db, autoLinkKeywordsTable, articleTemplatesTable, generationBatchesTable } from "@workspace/db";
-import { eq, and, desc } from "drizzle-orm";
+import { and, articleTemplatesTable, autoLinkKeywordsTable, db, desc, eq, generationBatchesTable } from "@workspace/db";
 import { requireAdmin } from "../middleware/requireAuth.js";
 import { getParam } from "../lib/params.js";
 

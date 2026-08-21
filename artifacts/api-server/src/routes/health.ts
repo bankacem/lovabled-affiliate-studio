@@ -1,11 +1,13 @@
-import { Router, type IRouter, type Request, type Response } from "express";
-import { HealthCheckResponse } from "@workspace/api-zod";
+import { Router } from "express";
+import type { RequestHandler } from "express";
 
-const router: IRouter = Router();
+const router = Router();
 
-router.get("/healthz", (_req: Request, res: Response) => {
-  const data = HealthCheckResponse.parse({ status: "ok" });
-  res.json(data);
-});
+// The Vercel checker loses contextual types for this callback; keep the boundary explicit.
+const healthCheck: RequestHandler = (_req: any, res: any): void => {
+  res.json({ status: "ok" });
+};
+
+router.get("/healthz", healthCheck);
 
 export default router;
