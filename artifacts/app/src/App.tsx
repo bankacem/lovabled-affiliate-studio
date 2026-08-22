@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { initApiClient } from "@/lib/api";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 initApiClient();
 
@@ -44,6 +45,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <GoogleAnalytics />
             <LanguageProvider>
               <Suspense fallback={<PageLoader />}>
                 <Routes>
