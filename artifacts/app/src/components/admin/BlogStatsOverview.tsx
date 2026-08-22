@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { supabase } from "@/integrations/supabase/client";
 
 interface BlogStats {
   totalPosts: number;
@@ -39,41 +38,28 @@ export function BlogStatsOverview() {
 
   const fetchStats = async () => {
     try {
-      const { data: posts, error } = await supabase
-        .from("blog_posts")
-        .select("title, status, category, created_at, published_at")
-        .order("created_at", { ascending: false });
+      const response = await fetch("/blog-stats.json", { cache: "no-cache" });
+      if (!response.ok) throw new Error(`Failed to load Git blog stats (${response.status})`);
 
-      if (error) throw error;
-
-      const now = new Date();
-      const categoryCounts: { [key: string]: number } = {};
-
-      posts?.forEach(post => {
-        categoryCounts[post.category] = (categoryCounts[post.category] || 0) + 1;
-      });
-
-      const scheduled = posts?.filter(post => {
-        if (post.status === "published" && post.published_at) {
-          return new Date(post.published_at) > now;
-        }
-        return false;
-      }).length || 0;
-
+      const gitStats = (await response.json()) as BlogStats;
       setStats({
-        totalPosts: posts?.length || 0,
-        publishedPosts: posts?.filter(p => p.status === "published").length || 0,
-        draftPosts: posts?.filter(p => p.status === "draft").length || 0,
-        scheduledPosts: scheduled,
-        categoryCounts,
-        recentPosts: posts?.slice(0, 5).map(p => ({
-          title: p.title,
-          status: p.status,
-          created_at: p.created_at
-        })) || []
+        totalPosts: Number(gitStats.totalPosts || 0),
+        publishedPosts: Number(gitStats.publishedPosts || 0),
+        draftPosts: Number(gitStats.draftPosts || 0),
+        scheduledPosts: Number(gitStats.scheduledPosts || 0),
+        categoryCounts: gitStats.categoryCounts || {},
+        recentPosts: Array.isArray(gitStats.recentPosts) ? gitStats.recentPosts : [],
       });
     } catch (error) {
-      console.error("Failed to fetch stats:", error);
+      console.error("Failed to load Git blog stats:", error);
+      setStats({
+        totalPosts: 0,
+        publishedPosts: 0,
+        draftPosts: 0,
+        scheduledPosts: 0,
+        categoryCounts: {},
+        recentPosts: [],
+      });
     } finally {
       setIsLoading(false);
     }
