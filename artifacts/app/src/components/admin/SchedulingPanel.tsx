@@ -30,7 +30,7 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { supabase } from "@/integrations/supabase/client";
+import { adminFetch } from "@/lib/adminApi";
 import { toast } from "sonner";
 import { format, addMinutes, addHours, addDays } from "date-fns";
 
@@ -49,9 +49,41 @@ export function SchedulingPanel({ selectedPostIds, onScheduleComplete }: Schedul
   const [startDate, setStartDate] = useState(format(new Date(), "yyyy-MM-dd'T'HH:mm"));
   const [scheduledCount, setScheduledCount] = useState(0);
 
+  const loadGitArticle = async (slug: string) =>
+    adminFetch<Record<string, unknown>>(
+      `/content/articles/${encodeURIComponent(slug)}`,
+    );
+
+  const createArticlePullRequest = async (
+    slug: string,
+    patch: Record<string, unknown>,
+  ) => {
+    const article = await loadGitArticle(slug);
+    return adminFetch<{ pullRequest?: { url?: string } }>(
+      "/content/articles/pull-request",
+      {
+        method: "POST",
+        body: JSON.stringify({ article: { ...article, ...patch, slug } }),
+      },
+    );
+  };
+
+  const getPublishAt = (startDateTime: Date, index: number) => {
+    switch (intervalUnit) {
+      case "minutes":
+        return addMinutes(startDateTime, index * intervalValue);
+      case "hours":
+        return addHours(startDateTime, index * intervalValue);
+      case "days":
+        return addDays(startDateTime, index * intervalValue);
+      default:
+        return addHours(startDateTime, index * intervalValue);
+    }
+  };
+
   const handleSchedule = async () => {
     if (selectedPostIds.length === 0) {
-      toast.error("No posts selected for scheduling");
+      toast.error("No Git articles selected for scheduling");
       return;
     }
 
@@ -61,47 +93,28 @@ export function SchedulingPanel({ selectedPostIds, onScheduleComplete }: Schedul
     try {
       const startDateTime = new Date(startDate);
       let successCount = 0;
+      const updatedDate = new Date().toISOString().slice(0, 10);
 
-      for (let i = 0; i < selectedPostIds.length; i++) {
-        const postId = selectedPostIds[i];
-        
-        // Calculate publish time based on interval
-        let publishAt: Date;
-        switch (intervalUnit) {
-          case "minutes":
-            publishAt = addMinutes(startDateTime, i * intervalValue);
-            break;
-          case "hours":
-            publishAt = addHours(startDateTime, i * intervalValue);
-            break;
-          case "days":
-            publishAt = addDays(startDateTime, i * intervalValue);
-            break;
-          default:
-            publishAt = addHours(startDateTime, i * intervalValue);
-        }
-
-        const { error } = await supabase
-          .from("blog_posts")
-          .update({
-            status: "scheduled",
-            scheduled_publish_at: publishAt.toISOString(),
-            updated_at: new Date().toISOString(),
-          })
-          .eq("id", postId);
-
-        if (!error) {
-          successCount++;
-          setScheduledCount(successCount);
-        }
+      for (let i = 0; i < selectedPostIds.length; i += 1) {
+        const publishAt = getPublishAt(startDateTime, i);
+        await createArticlePullRequest(selectedPostIds[i], {
+          status: "scheduled",
+          scheduled_at: publishAt.toISOString(),
+          updated: updatedDate,
+        });
+        successCount += 1;
+        setScheduledCount(successCount);
       }
 
-      toast.success(`Scheduled ${successCount} posts successfully!`);
+      toast.success(
+        `Created ${successCount} scheduling pull request${successCount === 1 ? "" : "s"}.`,
+      );
       setIsOpen(false);
       onScheduleComplete?.();
     } catch (error) {
-      console.error("Scheduling error:", error);
-      toast.error("Failed to schedule posts");
+      console.error("Scheduling PR error:", error);
+      const message = error instanceof Error ? error.message : "Unknown error";
+      toast.error(`Failed to create scheduling pull request: ${message}`);
     } finally {
       setIsScheduling(false);
     }
@@ -109,29 +122,33 @@ export function SchedulingPanel({ selectedPostIds, onScheduleComplete }: Schedul
 
   const handlePublishNow = async () => {
     if (selectedPostIds.length === 0) {
-      toast.error("No posts selected");
+      toast.error("No Git articles selected");
       return;
     }
 
     setIsScheduling(true);
 
     try {
-      const { error } = await supabase
-        .from("blog_posts")
-        .update({
+      let successCount = 0;
+      const updatedDate = new Date().toISOString().slice(0, 10);
+      for (const slug of selectedPostIds) {
+        await createArticlePullRequest(slug, {
           status: "published",
-          published_at: new Date().toISOString(),
-          updated_at: new Date().toISOString(),
-        })
-        .in("id", selectedPostIds);
+          scheduled_at: "",
+          date: updatedDate,
+          updated: updatedDate,
+        });
+        successCount += 1;
+      }
 
-      if (error) throw error;
-
-      toast.success(`Published ${selectedPostIds.length} posts!`);
+      toast.success(
+        `Created ${successCount} publication pull request${successCount === 1 ? "" : "s"}.`,
+      );
       onScheduleComplete?.();
     } catch (error) {
-      console.error("Publish error:", error);
-      toast.error("Failed to publish posts");
+      console.error("Publish PR error:", error);
+      const message = error instanceof Error ? error.message : "Unknown error";
+      toast.error(`Failed to create publication pull request: ${message}`);
     } finally {
       setIsScheduling(false);
     }
@@ -139,19 +156,18 @@ export function SchedulingPanel({ selectedPostIds, onScheduleComplete }: Schedul
 
   const handleRunScheduler = async () => {
     try {
-      const { data, error } = await supabase.functions.invoke("publish-scheduled-posts");
-      
-      if (error) throw error;
-
-      if (data.published > 0) {
-        toast.success(`Published ${data.published} scheduled posts!`);
-        onScheduleComplete?.();
+      const status = await adminFetch<{ canCreatePullRequest?: boolean }>(
+        "/content/github/status",
+      );
+      if (status.canCreatePullRequest) {
+        toast.success("GitHub scheduler is configured. Due articles are published by GitHub Actions.");
       } else {
-        toast.info("No scheduled posts ready to publish yet");
+        toast.info("GitHub scheduler is not configured yet.");
       }
     } catch (error) {
-      console.error("Scheduler error:", error);
-      toast.error("Failed to run scheduler");
+      console.error("GitHub scheduler status error:", error);
+      const message = error instanceof Error ? error.message : "Unknown error";
+      toast.error(`Failed to check GitHub scheduler: ${message}`);
     }
   };
 
@@ -202,7 +218,7 @@ export function SchedulingPanel({ selectedPostIds, onScheduleComplete }: Schedul
 
         <Button variant="secondary" onClick={handleRunScheduler}>
           <RefreshCw className="h-4 w-4 mr-2" />
-          Run Scheduler
+          Check GitHub Scheduler
         </Button>
       </div>
 
