@@ -29,7 +29,8 @@ export function loadGoogleAnalytics(): Promise<void> {
       `script[src*="googletagmanager.com/gtag/js?id=${measurementId}"]`,
     );
     if (existingScript) {
-      googleWindow.gtag("config", measurementId, { send_page_view: false });
+      // The static HTML snippet already queued js/config before React mounted.
+      // Do not call config again or the initial page view may be duplicated.
       resolve();
       return;
     }
