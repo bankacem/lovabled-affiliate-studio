@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import {
   loadGoogleAnalytics,
@@ -11,9 +11,12 @@ function isPrivateRoute(pathname: string): boolean {
 
 export function GoogleAnalytics() {
   const location = useLocation();
+  const hasMounted = useRef(false);
 
   useEffect(() => {
-    if (isPrivateRoute(location.pathname)) return;
+    const isFirstRender = !hasMounted.current;
+    hasMounted.current = true;
+    if (isPrivateRoute(location.pathname) || isFirstRender) return;
 
     let cancelled = false;
     void loadGoogleAnalytics().then(() => {
