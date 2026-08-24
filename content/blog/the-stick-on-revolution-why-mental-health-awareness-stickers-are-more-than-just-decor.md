@@ -14,7 +14,6 @@ scheduled_at: ""
 read_time: "5 min read"
 ---
 <article>
-  <h1>The Stick-on Revolution: Why Mental Health Awareness Stickers Are <a href="/blog/the-12-hour-shift-lifeline-why-a-nurse-life-survival-kit-coffee-mug-is-more-than-just-ceramic" class="auto-link internal-link" title="The 12-Hour Shift Lifeline: Why a "Nurse Life Survival Kit" Coffee Mug is More Than Just Ceramic">More Than Just</a> Decor</h1>
 
   <div class="toc">
     <h3>Table of Contents</h3>

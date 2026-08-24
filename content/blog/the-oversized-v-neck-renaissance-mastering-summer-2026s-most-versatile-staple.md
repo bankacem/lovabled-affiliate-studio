@@ -14,7 +14,6 @@ scheduled_at: ""
 read_time: "5 min read"
 ---
 <article>
-  <h1>The Oversized V-Neck Renaissance: Mastering Summer 2026's <a href="/blog/the-v-neck-revolution-how-to-master-the-most-versatile-cut-in-womens-fashion" class="auto-link internal-link" title="The V-Neck Revolution: How to Master the Most Versatile Cut in Women’s Fashion">Most Versatile</a> Staple</h1>
 
   <div class="toc">
     <h3>Table of Contents</h3>
