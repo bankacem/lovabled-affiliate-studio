@@ -14,8 +14,6 @@ scheduled_at: ""
 read_time: "5 min read"
 ---
 <article>
-  <h1>ChatGPT for Etsy Sellers: The <a href="/blog/mastering-woocommerce-print-on-demand-the-ultimate-guide-to" class="auto-link internal-link" title="Mastering WooCommerce Print on Demand: The Ultimate Guide to Passive E-commerce Growth">Ultimate Guide</a> to <a href="/blog/mastering-amazon-merch-the-definite-guide-to-scaling-your-pr" class="auto-link internal-link" title="Mastering Amazon Merch: The Definite Guide to Scaling Your Print-on-Demand Empire">Scaling Your</a> Shop Without the Burnout</h1>
-
   <div class="toc">
     <h3>Table of Contents</h3>
     <ul>
