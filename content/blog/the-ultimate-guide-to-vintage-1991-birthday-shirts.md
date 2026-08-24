@@ -13,7 +13,6 @@ status: "published"
 scheduled_at: ""
 read_time: "4 min read"
 ---
-<h1>Vintage 1991 Birthday Shirts: Retro Design Ideas for a Milestone</h1>
 <p>Turning 35 in 2026 or celebrating someone who was born in 1991? A birthday shirt can turn the year into a personal design rather than a generic number. The strongest 1991 shirts combine readable typography with a small visual reference to the early 1990s, so the result feels nostalgic without looking like a costume.</p>
 <h2>What makes 1991 a useful shirt theme?</h2>
 <p>The year works as both a birthday marker and a simple identity statement. It can appear as a large front graphic, a small chest emblem, or a supporting detail such as “est. 1991.” Because the number is short and visually balanced, it is easy to print on a tee, hoodie, mug, or tote without crowding the design.</p>

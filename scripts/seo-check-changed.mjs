@@ -61,7 +61,8 @@ for (const file of files) {
   if (title.length > 70) warnings.push(`${label}: title is ${title.length} characters`);
   if (description.length > 180) warnings.push(`${label}: description is ${description.length} characters`);
   if (description.length < 100) warnings.push(`${label}: description is only ${description.length} characters`);
-  if ((body.match(/<h1\b/gi) || []).length !== 1) errors.push(`${label}: expected exactly one H1`);
+  const bodyH1Count = (body.match(/<h1\b/gi) || []).length;
+  if (bodyH1Count > 1) errors.push(`${label}: duplicate H1 tags in Markdown body; the page template supplies the primary H1`);
   if (body.includes('href="#"') || body.includes("href='#'")) errors.push(`${label}: placeholder href="#" found`);
   if (/دليل إرشادي إضافي وتحسينات|سطر البحث|تجاوز 1500 كلمة|Google Keyword Planner/.test(body)) errors.push(`${label}: generic SEO boilerplate detected`);
   if (/[\u0600-\u06ff]/.test(body)) warnings.push(`${label}: Arabic text detected; verify language intent manually`);

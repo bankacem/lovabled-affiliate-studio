@@ -13,7 +13,6 @@ status: "published"
 scheduled_at: ""
 read_time: "4 min read"
 ---
-<h1>Funny T-Shirt Quotes: Original Ideas That Make Great Designs</h1>
 <p>A funny t-shirt works when the joke is easy to understand, readable from a short distance, and connected to a real interest or situation. Instead of filling a shirt with random slogans, start with the audience: coffee lovers, pet owners, coworkers, parents, students, or anyone who enjoys dry humor.</p>
 <h2>Funny quote categories that translate well to shirts</h2>
 <ul>
