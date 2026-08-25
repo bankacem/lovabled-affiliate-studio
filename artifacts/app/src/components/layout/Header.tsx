@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoImage from "@/assets/logo.png";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 
 export function Header() {
@@ -32,13 +32,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-black/5 bg-[#f8f6f1]/90 backdrop-blur-xl dark:border-white/10 dark:bg-[#111318]/90">
       <div className="container mx-auto flex h-[76px] items-center justify-between px-4 md:px-6">
-        <Link to={langPrefix("/")} className="group flex items-center gap-3">
-          <span className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-[14px] bg-[#111318] shadow-lg transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105">
-            <img src={logoImage} alt="AIPrintVerse Logo" className="h-8 w-8 rounded-full object-cover" />
-          </span>
-          <span className="font-display text-[1.15rem] font-semibold tracking-[-0.03em] text-[#111318] dark:text-white">
-            AIPrintVerse<span className="text-primary">.</span>
-          </span>
+        <Link to={langPrefix("/")} className="group transition-transform duration-300 hover:-translate-y-0.5">
+          <BrandLogo />
         </Link>
 
         <nav className="hidden items-center gap-1 rounded-full border border-black/5 bg-white/70 p-1 shadow-sm md:flex dark:border-white/10 dark:bg-white/5">

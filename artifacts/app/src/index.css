@@ -506,3 +506,65 @@
 .auto-link:hover {
   color: hsl(var(--primary) / 0.8);
 }
+
+/* AIPrintVerse brand motion */
+.brand-mark {
+  transform-origin: center;
+  transition: transform 320ms cubic-bezier(0.34, 1.56, 0.64, 1), filter 320ms ease;
+}
+
+.brand-mark:hover,
+.group:hover .brand-mark {
+  transform: rotate(-3deg) scale(1.06);
+  filter: drop-shadow(0 8px 14px hsl(0 76% 65% / 0.22));
+}
+
+.brand-layer {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.brand-layer-back {
+  animation: brand-layer-back 6s ease-in-out infinite;
+}
+
+.brand-layer-mid {
+  animation: brand-layer-mid 6s ease-in-out infinite;
+}
+
+.brand-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: brand-spark 2.8s ease-in-out infinite;
+}
+
+@keyframes brand-layer-back {
+  0%, 100% { transform: translate(0, 0); opacity: .32; }
+  50% { transform: translate(2px, -1px); opacity: .48; }
+}
+
+@keyframes brand-layer-mid {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-1px, 1px); }
+}
+
+@keyframes brand-spark {
+  0%, 100% { transform: rotate(0deg) scale(.9); opacity: .7; }
+  50% { transform: rotate(18deg) scale(1.12); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-layer-back,
+  .brand-layer-mid,
+  .brand-spark {
+    animation: none;
+  }
+
+  .brand-mark,
+  .brand-mark:hover,
+  .group:hover .brand-mark {
+    transform: none;
+    transition: none;
+    filter: none;
+  }
+}
