@@ -1,3 +1,20 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" fill="none">
+  <defs>
+    <linearGradient id="coral" x1="9" y1="8" x2="48" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF9A83"/>
+      <stop offset="1" stop-color="#F07167"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="14" y1="12" x2="43" y2="45" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8E8"/>
+      <stop offset="1" stop-color="#E8DDBD"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="54" height="54" rx="17" fill="#111318"/>
+  <rect x="1" y="1" width="54" height="54" rx="17" stroke="#F8F6F1" stroke-opacity=".14" stroke-width="2"/>
+  <path d="M17.2 13.5h18.4c5.3 0 9.6 4.3 9.6 9.6v9.7c0 5.3-4.3 9.6-9.6 9.6H17.2V13.5Z" fill="#F8F6F1" fill-opacity=".28"/>
+  <path d="M13.8 16.9h18.4c5.3 0 9.6 4.3 9.6 9.6v9.7c0 5.3-4.3 9.6-9.6 9.6H13.8V16.9Z" fill="url(#coral)"/>
+  <path d="M18.8 22h11.4a5 5 0 0 1 5 5v1.4a5 5 0 0 1-5 5H18.8V22Z" fill="#F8F6F1"/>
+  <path d="M18.8 22h6.1a5 5 0 0 1 5 5v1.4a5 5 0 0 1-5 5h-6.1V22Z" fill="#111318"/>
+  <path d="M13.8 36.2h16.4" stroke="url(#paper)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="m42.3 11.2.95 2.6 2.55.95-2.55.95-.95 2.6-.95-2.6-2.55-.95 2.55-.95.95-2.6Z" fill="url(#paper)"/>
 </svg>

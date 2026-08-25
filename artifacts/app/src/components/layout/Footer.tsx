@@ -1,6 +1,6 @@
 import { Instagram, Mail, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoImage from "@/assets/logo.png";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Footer() {
@@ -12,9 +12,8 @@ export function Footer() {
       <div className="container mx-auto px-4 py-14 md:px-6 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr]">
           <div className="max-w-sm space-y-5">
-            <Link to={langPrefix("/")} className="group flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-[14px] bg-white"><img src={logoImage} alt="AIPrintVerse Logo" className="h-8 w-8 rounded-full object-cover" /></span>
-              <span className="font-display text-xl font-semibold tracking-[-0.03em]">AIPrintVerse<span className="text-primary">.</span></span>
+            <Link to={langPrefix("/")} className="group transition-transform duration-300 hover:-translate-y-0.5">
+              <BrandLogo light />
             </Link>
             <p className="text-sm leading-6 text-white/55">{t("footer.brandDesc")}</p>
             <div className="flex items-center gap-3 pt-2">
