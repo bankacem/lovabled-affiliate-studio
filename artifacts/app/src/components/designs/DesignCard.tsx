@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ExternalLink, Eye } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { Design } from "@/hooks/useDesigns";
 
 interface DesignCardProps {
@@ -9,80 +9,31 @@ interface DesignCardProps {
 }
 
 export function DesignCard({ design, index = 0 }: DesignCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group"
-    >
-      <Link to={`/designs/${design.id}`}>
-        <div className="overflow-hidden rounded-2xl bg-card shadow-card transition-all duration-500 hover:shadow-xl hover:-translate-y-2 border border-border/50">
-          {/* Image */}
-          <div className="relative aspect-square overflow-hidden bg-secondary">
-            <img
-              src={design.image_url}
-              alt={design.name}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://via.placeholder.com/400?text=Design";
-              }}
-            />
-            
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 transition-all duration-300 group-hover:opacity-100" />
-            
-            {/* Featured badge */}
-            {design.featured && (
-              <div className="absolute left-3 top-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-3 py-1 text-xs font-medium text-white shadow-lg">
-                ⭐ Featured
-              </div>
-            )}
+  const sourceLabel = design.source === "redbubble" ? "Redbubble" : design.source === "teepublic" ? "TeePublic" : null;
 
-            {/* Source badge */}
-            {design.source && (
-              <div className={`absolute right-3 top-3 rounded-full px-2.5 py-1 text-xs font-medium shadow-lg ${
-                design.source === 'redbubble' 
-                  ? 'bg-red-500 text-white' 
-                  : 'bg-blue-500 text-white'
-              }`}>
-                {design.source === 'redbubble' ? 'RB' : 'TP'}
-              </div>
-            )}
-            
-            {/* Hover content */}
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between opacity-0 transition-all duration-300 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
-              <span className="flex items-center gap-2 text-sm font-medium text-white">
-                <Eye className="h-4 w-4" />
-                View Details
-              </span>
-              <ExternalLink className="h-4 w-4 text-white" />
+  return (
+    <motion.article initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: Math.min(index * 0.045, 0.36) }} className="group">
+      <Link to={`/designs/${design.id}`} className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f07167] focus-visible:ring-offset-4 dark:focus-visible:ring-offset-[#111318]">
+        <div className="overflow-hidden rounded-[1.35rem] border border-black/5 bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1.5 group-hover:shadow-xl group-focus-visible:-translate-y-1.5 group-focus-visible:shadow-xl dark:border-white/10 dark:bg-[#191b21]">
+          <div className="relative aspect-[4/4.5] overflow-hidden bg-[#e9e5dc] dark:bg-white/10">
+            <img src={design.image_url} alt={design.name} loading={index < 4 ? "eager" : "lazy"} decoding="async" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]" onError={(event) => { event.currentTarget.src = "/logo.png"; }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#17191e]/75 via-[#17191e]/5 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
+            <div className="absolute inset-x-4 top-4 flex items-start justify-between gap-3">
+              {design.featured ? <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#20232b] shadow-sm backdrop-blur"><Sparkles className="h-3 w-3 text-[#f07167]" />Featured</span> : <span />}
+              {sourceLabel && <span className="rounded-full border border-white/20 bg-[#20232b]/65 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur">{sourceLabel}</span>}
+            </div>
+            <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 text-white">
+              <div><p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65">{design.category}</p><p className="mt-1 text-sm font-semibold">Explore this design</p></div>
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#20232b] transition-transform duration-300 group-hover:rotate-[-8deg]"><ArrowUpRight className="h-4 w-4" /></span>
             </div>
           </div>
-
-          {/* Content */}
-          <div className="p-4">
-            <h3 className="font-display text-lg font-semibold text-card-foreground line-clamp-1 group-hover:text-primary transition-colors">
-              {design.name}
-            </h3>
-            <p className="mt-1 text-sm text-muted-foreground">{design.category}</p>
-            
-            {/* Tags */}
-            {design.tags && design.tags.length > 0 && (
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {design.tags.slice(0, 3).map((tag: string) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-secondary px-2 py-0.5 text-xs text-secondary-foreground"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
+          <div className="p-4 md:p-5">
+            <div className="flex items-start justify-between gap-3"><h2 className="line-clamp-2 font-display text-lg font-semibold leading-tight text-[#20232b] transition-colors group-hover:text-[#c95b54] dark:text-white dark:group-hover:text-[#ff9a91]">{design.name}</h2><ExternalLink className="mt-1 h-4 w-4 shrink-0 text-[#a5a1a3] transition-colors group-hover:text-[#f07167]" /></div>
+            {design.description && <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#77747a] dark:text-white/50">{design.description}</p>}
+            {design.tags && design.tags.length > 0 && <div className="mt-4 flex flex-wrap gap-1.5">{design.tags.slice(0, 3).map((tag) => <span key={tag} className="rounded-full bg-[#f4f1eb] px-2.5 py-1 text-[11px] font-medium text-[#77747a] dark:bg-white/10 dark:text-white/55">{tag}</span>)}</div>}
           </div>
         </div>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }
