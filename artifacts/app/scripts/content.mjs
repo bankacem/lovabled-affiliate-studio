@@ -41,10 +41,31 @@ export function parseFrontmatter(raw) {
 
 function stripHtml(html) {
   return String(html || "")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]*>/g, " ")
     .replace(/&nbsp;/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+// The article template owns the single page-level H1. Demote any H1 present
+// in committed article HTML so the rendered page has one clear H1 while
+// preserving the heading text as an H2 section heading.
+function sanitizeArticleBody(body) {
+  let sanitized = String(body || "");
+  sanitized = sanitized.replace(/<h1(\s[^>]*)?>/gi, "<h2$1>");
+  sanitized = sanitized.replace(/<\/h1>/gi, "</h2>");
+
+  // Auto-linking must never inject anchor markup into JSON-LD strings. Remove
+  // HTML tags from JSON-LD script payloads so legacy FAQ blocks become valid
+  // JSON without changing their visible text.
+  sanitized = sanitized.replace(
+    /(<script\b[^>]*type=["']application\/ld\+json["'][^>]*>)([\s\S]*?)(<\/script>)/gi,
+    (_match, open, payload, close) => `${open}${payload.replace(/<[^>]*>/g, "")}${close}`,
+  );
+
+  return sanitized;
 }
 
 function toPost(slug, raw) {
@@ -62,7 +83,7 @@ function toPost(slug, raw) {
     id: slug,
     slug: canonicalSlug,
     title: data.title || slug,
-    content: body,
+    content: sanitizeArticleBody(body),
     excerpt: data.description || stripHtml(body).slice(0, 200),
     meta_description: data.description || stripHtml(body).slice(0, 160),
     meta_title: data.meta_title || data.title || slug,

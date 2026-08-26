@@ -1,7 +1,7 @@
 ---
 title: "The Ultimate Guide to Designing Your Own Custom Hoodies"
 slug: "the-ultimate-guide-to-designing-your-own-custom-hoodies"
-description: "custom hoodies"
+description: "Design custom hoodies from concept to print with practical guidance on artwork, sizing, colors, fabric choices, placement, mockups, and preparing production-ready files."
 category: "Hoodies & Sweatshirts"
 tags: []
 author: "Admin"

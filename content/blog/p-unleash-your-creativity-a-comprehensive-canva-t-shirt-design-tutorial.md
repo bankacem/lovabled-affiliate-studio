@@ -1,7 +1,7 @@
 ---
-title: "Canva T-Shirt Design Tutorial for Beginners"
+title: "Unleash Your Creativity: A Comprehensive Canva T-Shirt Design Tutorial"
 slug: "p-unleash-your-creativity-a-comprehensive-canva-t-shirt-design-tutorial"
-description: "Follow a practical Canva t-shirt design workflow covering canvas size, typography, layers, transparent exports, mockups, and print-ready artwork."
+description: "Follow a beginner-friendly Canva workflow for creating original t-shirt designs, from canvas setup and typography to transparent exports, mockups, and print-ready files."
 category: "Design & AI Tools"
 tags: ["Canva t-shirt design", "shirt design tutorial", "print-ready art"]
 author: "AI Writer"

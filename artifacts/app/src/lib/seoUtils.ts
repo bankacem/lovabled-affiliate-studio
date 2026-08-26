@@ -91,26 +91,36 @@ export function applyAutoLinksToContent(
   const linkedKeywords = new Set<string>();
 
   sortedKeywords.forEach(({ keyword, targetSlug, targetTitle }) => {
-    // Skip if already linked this keyword
+    // Skip if already linked this keyword.
     if (linkedKeywords.has(keyword.toLowerCase())) return;
-    
-    // Create regex that:
-    // 1. Does not match inside HTML tags
-    // 2. Does not match inside existing links
-    // 3. Matches whole words only
-    const regex = new RegExp(
-      `(?<!<[^>]*)(?<!<a[^>]*>)\\b(${escapeRegex(keyword)})\\b(?![^<]*>)(?![^<]*</a>)`,
-      'gi'
-    );
 
-    // Replace only first occurrence
+    // Protect complete blocks where anchor markup must never be injected:
+    // existing links, headings, style blocks, and JSON-LD scripts. This also
+    // prevents legacy FAQ JSON strings from being corrupted by auto-linking.
+    const protectedBlocks: string[] = [];
+    const protectedBlockRegex = /<(a|script|style|h[1-6])\b[^>]*>[\s\S]*?<\/\1>/gi;
+    const placeholderPrefix = "__AUTO_LINK_PROTECTED_";
+    let safeContent = linkedContent.replace(protectedBlockRegex, (block) => {
+      const placeholder = `${placeholderPrefix}${protectedBlocks.length}__`;
+      protectedBlocks.push(block);
+      return placeholder;
+    });
+
+    const regex = new RegExp(`\\b(${escapeRegex(keyword)})\\b`, "gi");
     let replaced = false;
-    linkedContent = linkedContent.replace(regex, (match) => {
+    safeContent = safeContent.replace(regex, (match, _group, offset, source) => {
       if (replaced) return match;
+      const before = source.slice(Math.max(0, offset - 1), offset);
+      if (before === "<" || before === "&") return match;
       replaced = true;
       linkedKeywords.add(keyword.toLowerCase());
       return `<a href="/blog/${targetSlug}" class="auto-link internal-link" title="${targetTitle}">${match}</a>`;
     });
+
+    linkedContent = safeContent.replace(
+      new RegExp(`${placeholderPrefix}(\\d+)__`, "g"),
+      (_placeholder, index) => protectedBlocks[Number(index)],
+    );
   });
 
   return linkedContent;
