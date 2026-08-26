@@ -1,7 +1,7 @@
 ---
 title: "The Ultimate Guide to Custom Print: Everything You Need to Know"
 slug: "the-ultimate-guide-to-custom-print-everything-you-need-to-know"
-description: "custom print"
+description: "Learn how custom printing works, from choosing the right artwork and colors to selecting materials, print methods, file formats, and a reliable production workflow."
 category: "Guides"
 tags: []
 author: "Admin"

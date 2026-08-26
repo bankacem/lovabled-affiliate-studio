@@ -1,7 +1,7 @@
 ---
 title: "The Ultimate Guide to Choosing and Styling Wall Art Prints for Your Home"
 slug: "the-ultimate-guide-to-choosing-and-styling-wall-art-prints-for-your-home"
-description: "search intent"
+description: "Learn how to choose wall art prints by room, size, color, style, and frame, then combine pieces into a balanced gallery wall that feels personal and polished."
 category: "Home Decor"
 tags: []
 author: "Admin"
