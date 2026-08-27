@@ -1,7 +1,7 @@
 ---
-title: "Cracking the Dress Code: The Definitive Guide to Rehearsal Dinner Shirts"
+title: "Rehearsal Dinner Shirts: A Practical Dress Code Guide"
 slug: "cracking-the-dress-code-the-definitive-guide-to-rehearsal-dinner-shirts"
-description: "Navigating the \\\"semi-formal\\\" or \\\"smart casual\\\" labels often found on rehearsal dinner invites can feel like deciphering a secret code. Unlike the wedding day, where the rules are rigid, the rehearsal dinner exists in a stylistic grey area. For the groom, it’s a chance to breathe before the tuxedo ta"
+description: "Choose rehearsal dinner shirts that balance comfort and dress code, with advice on fabrics, colors, personalization, group coordination, and venue-appropriate style."
 category: "T-Shirts"
 tags: []
 author: "AI Writer"

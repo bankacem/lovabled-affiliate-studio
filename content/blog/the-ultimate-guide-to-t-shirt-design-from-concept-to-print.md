@@ -1,7 +1,7 @@
 ---
-title: "The Ultimate Guide to T-Shirt Design: From Concept to Print"
+title: "T-Shirt Design: From Concept to Print-Ready File"
 slug: "the-ultimate-guide-to-t-shirt-design-from-concept-to-print"
-description: "The Ultimate Guide to T-Shirt Design: From Concept to Print"
+description: "Learn the full t-shirt design process, from concept and audience research to layout, typography, color, mockups, and print-ready file preparation."
 category: "Design & AI Tools"
 tags: []
 author: "Admin"

@@ -1,7 +1,7 @@
 ---
-title: "The Ultimate Guide to Choosing the Perfect Groomsmen Shirts"
+title: "How to Choose the Perfect Groomsmen Shirts"
 slug: "the-ultimate-guide-to-choosing-the-perfect-groomsmen-shirts"
-description: "The Ultimate Guide to Choosing the Perfect Groomsmen Shirts"
+description: "Choose groomsmen shirts that fit your wedding style, budget, season, and group, with practical guidance on fabrics, colors, personalization, sizing, and ordering."
 category: "Weddings & Bridal"
 tags: []
 author: "Admin"
