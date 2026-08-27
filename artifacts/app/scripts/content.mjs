@@ -68,6 +68,64 @@ function sanitizeArticleBody(body) {
   return sanitized;
 }
 
+function unwrapNestedAnchors(html) {
+  const anchorTagRegex = /<\/?a\b[^>]*>/gi;
+  const stack = [];
+  const removals = [];
+
+  for (const match of html.matchAll(anchorTagRegex)) {
+    const start = match.index ?? 0;
+    const end = start + match[0].length;
+    if (match[0][1] === "/") {
+      const frame = stack.pop();
+      if (frame?.remove) {
+        removals.push([frame.openStart, frame.openEnd], [start, end]);
+      }
+      continue;
+    }
+
+    // HTML anchors cannot be nested. When legacy content contains nested
+    // anchors, unwrap the outer anchors and preserve the innermost link.
+    for (const frame of stack) frame.remove = true;
+    stack.push({ openStart: start, openEnd: end, remove: false });
+  }
+
+  return removals
+    .sort((a, b) => b[0] - a[0])
+    .reduce((result, [start, end]) => result.slice(0, start) + result.slice(end), html);
+}
+
+function sanitizeInternalBlogLinks(content, canonicalSlugs) {
+  const knownSlugs = new Set([...canonicalSlugs].map(String));
+  const internalAnchorRegex = /<a(\s[^>]*?)href=(['"])\/blog\/([^'"]+)\2([^>]*)>((?:(?!<a\b)[\s\S])*?)<\/a>/gi;
+  let sanitized = unwrapNestedAnchors(String(content || ""));
+
+  // Process innermost anchors first so malformed nested anchors cannot hide
+  // an invalid inner URL from the allowlist check.
+  let previous;
+  do {
+    previous = sanitized;
+    sanitized = sanitized.replace(
+      internalAnchorRegex,
+      (_match, before, quote, rawSlug, after, inner) => {
+        let decodedSlug = rawSlug;
+        try {
+          decodedSlug = decodeURIComponent(rawSlug);
+        } catch {
+          // Keep the raw slug; it will be removed if it is not in the allowlist.
+        }
+
+        const canonicalSlug = decodedSlug.replace(/^p-/, "");
+        if (!knownSlugs.has(canonicalSlug)) return inner;
+
+        return `<a${before}href=${quote}/blog/${canonicalSlug}${quote}${after}>${inner}</a>`;
+      },
+    );
+  } while (sanitized !== previous);
+
+  return sanitized;
+}
+
 function toPost(slug, raw) {
   const { data, body } = parseFrontmatter(raw);
   const date = data.date || "";
@@ -131,7 +189,12 @@ export function loadPosts({ includeDrafts = false } = {}) {
     if (!current || (current.is_legacy_slug && !post.is_legacy_slug)) canonicalPosts.set(post.slug, post);
   }
   const live = includeDrafts ? [...canonicalPosts.values()] : [...canonicalPosts.values()].filter((p) => isLive(p));
-  return live.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
+  const canonicalSlugs = new Set(live.map((post) => post.slug));
+  const sanitized = live.map((post) => ({
+    ...post,
+    content: sanitizeInternalBlogLinks(post.content, canonicalSlugs),
+  }));
+  return sanitized.sort((a, b) => new Date(b.published_at || 0) - new Date(a.published_at || 0));
 }
 
 export function toListItem(p) {
