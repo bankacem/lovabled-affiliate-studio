@@ -1,0 +1,12 @@
+# Runtime output and local state; keep the repository code-only.
+output/
+__pycache__/
+*.py[cod]
+seo_memory.json
+daily_article_state.json
+keyword_queue.txt
+agentic/memory/cycle_log.json
+agentic/memory/refined_articles.json
+.env
+.env.*
+!.env.example
