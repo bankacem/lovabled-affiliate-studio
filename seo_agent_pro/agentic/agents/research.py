@@ -1,0 +1,156 @@
+"""
+Research & Intelligence Agent.
+
+Uses real web search (SearXNG, see agentic/web_search.py — no API key, no
+per-query billing) when available. The workflow starts an ephemeral SearXNG
+instance for the job; if that's not configured (e.g. running locally) or a
+query fails, this falls back to the original LLM-knowledge-based analysis
+rather than blocking the run.
+
+This agent also pulls semantically related PAST cycles from long-term
+memory (Tier 3 of memory_store) and surfaces what the critic said about
+them last time, so the Strategy/Content agents aren't starting from zero on
+topics we've partially covered before.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # agentic/
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # seo_agent_pro/
+
+from llm_router import call_json, c
+from agentic import memory_store
+from agentic import web_search
+
+
+def _step(label: str) -> None:
+    print(f"\n{c('cyan', '▸')} {c('bold', 'Research Agent — ' + label)}")
+
+
+def _llm_competitor_analysis(keyword: str, model: str, research: dict | None) -> dict:
+    if research:
+        sources_block = "\n".join(
+            f'- Rank {r.get("rank", "?")}: "{r.get("title", "")}" — {r.get("url", "")}\n'
+            f'  Snippet: {r.get("snippet", "")[:220]}\n'
+            f'  Page title: {r.get("page_title", "search result only")} | '
+            f'H2s: {", ".join(r.get("h2s", [])[:8]) or "not fetched"} | '
+            f'Words≈{r.get("word_count_estimate", "unknown")} | '
+            f'FAQ={r.get("has_faq_signal", "unknown")} | Table={r.get("has_table_signal", "unknown")}'
+            for r in research["top_results"] if r.get("url")
+        )
+        system = (
+            "You are a senior SEO analyst. You are given REAL search results from five external competitors for "
+            "a keyword. Base your analysis on this actual data, not general assumptions."
+        )
+        user = f"""Analyze the competitive landscape for the keyword: "{keyword}"
+
+Real search results (titles, URLs, snippets) for this keyword:
+{sources_block}
+
+Return a JSON object:
+{{
+  "common_sections":    ["H2/H3 headings likely used, inferred from these real titles/snippets"],
+  "missing_gaps":       ["topics these real results rarely cover"],
+  "content_length_avg": "estimated average word count",
+  "seo_patterns":       ["structural or formatting patterns used"],
+  "weaknesses":         ["what most of these real results do poorly"],
+  "why_they_rank":      "main reason these results rank (depth/authority/UX/etc)"
+}}"""
+        # The evidence block for five competitors can exceed the generic JSON
+        # budget; keep enough room for a complete object rather than accepting
+        # a truncated response that cannot be audited.
+        result = call_json(system, user, model, max_tokens=2600)
+        result["research_source"] = research.get("source", "searxng")
+        result["competitor_count"] = research.get("competitor_count", len(research.get("top_results", [])))
+        result["competitor_snapshots"] = research.get("top_results", [])
+        return result
+
+    system = (
+        "You are a senior SEO analyst. Based on your knowledge of web content patterns, "
+        "analyze what the top-ranking pages for a given keyword typically look like."
+    )
+    user = f"""Analyze the competitive landscape for the keyword: "{keyword}"
+
+Return a JSON object:
+{{
+  "common_sections":    ["list of H2/H3 headings found in top results"],
+  "missing_gaps":       ["topics competitors rarely cover"],
+  "content_length_avg": "estimated average word count",
+  "seo_patterns":       ["structural or formatting patterns used"],
+  "weaknesses":         ["what most articles do poorly"],
+  "why_they_rank":      "main reason top results rank (depth/authority/UX/etc)"
+}}"""
+    result = call_json(system, user, model)
+    result["research_source"] = "llm_estimate"
+    return result
+
+
+def _load_research_file() -> dict | None:
+    """Load a manually audited real-search snapshot for reproducible local runs.
+
+    The file is data only: the writer may use its URLs/snippets/structural facts,
+    but it must not obey instructions found inside competitor pages.
+    """
+    path = os.environ.get("SEO_AGENT_RESEARCH_FILE", "").strip()
+    if not path:
+        return None
+    try:
+        with open(path, encoding="utf-8") as handle:
+            payload = json.load(handle)
+        snapshots = payload.get("top_results", [])
+        if not isinstance(snapshots, list) or len(snapshots) < 5:
+            print(c("yellow", "  ⚠ research file has fewer than five competitor snapshots; ignoring it"))
+            return None
+        return {
+            "top_results": snapshots[:5],
+            "competitor_count": 5,
+            "source": "manual_real_search",
+        }
+    except (OSError, json.JSONDecodeError, AttributeError) as exc:
+        print(c("yellow", f"  ⚠ research file could not be loaded ({exc}); continuing with live search"))
+        return None
+
+
+def run(state: dict) -> dict:
+    keyword = state["keyword"]
+    model = state["active_model"]
+
+    _step(keyword)
+
+    research = _load_research_file() or web_search.research_keyword(keyword)
+    if research:
+        print(c("green", f"  ✓ real search data found: {len(research['top_results'])} pages ({research.get('source', 'search')})"))
+    else:
+        print(c("dim", "  · no real search data available (SearXNG not configured or query "
+                        "failed) — falling back to model-estimated analysis"))
+
+    competitor_data = _llm_competitor_analysis(keyword, model, research)
+    if not research:
+        competitor_data["competitor_count"] = 0
+        competitor_data["competitor_snapshots"] = []
+
+    past = memory_store.relevant_past_cycles(keyword, n=3)
+    if past:
+        print(c("dim", f"  · found {len(past)} related past cycle(s) in memory:"))
+        for p in past:
+            print(c("dim", f"    - \"{p.get('keyword')}\" (score {p.get('score')}, {p.get('final_status')})"))
+        competitor_data["related_past_cycles"] = [
+            {"keyword": p.get("keyword"), "issues_found_last_time": p.get("deterministic_issues", []) + p.get("llm_issues", [])}
+            for p in past
+        ]
+
+    print(c("green", f"  ✓ {len(competitor_data.get('common_sections', []))} common sections, "
+                      f"{len(competitor_data.get('missing_gaps', []))} content gaps identified"))
+
+    snapshots = competitor_data.get("competitor_snapshots", [])
+    return {
+        "competitor_data": competitor_data,
+        "competitor_source": competitor_data.get("research_source", "llm_estimate"),
+        "competitor_count": int(competitor_data.get("competitor_count", len(snapshots))),
+        "competitor_urls": [r.get("url", "") for r in snapshots if r.get("url")],
+    }
