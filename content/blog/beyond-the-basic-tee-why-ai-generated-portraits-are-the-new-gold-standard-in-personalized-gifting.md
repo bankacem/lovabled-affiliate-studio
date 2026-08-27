@@ -1,7 +1,7 @@
 ---
-title: "Beyond the Basic Tee: Why AI-Generated Portraits Are the New Gold Standard in Personalized Gifting"
+title: "AI-Generated Portrait Shirts: Personalized Gift Ideas and Tips"
 slug: "beyond-the-basic-tee-why-ai-generated-portraits-are-the-new-gold-standard-in-personalized-gifting"
-description: "We’ve all been there. You want to give a gift that feels deeply personal, but the standard \\\"World's Best Dad\\\" mug feels a bit lazy, and a framed photo can feel a little static. This is where the intersection of generative artificial intelligence and garment printing has completely disrupted the gift"
+description: "Explore how AI-generated portraits can become personalized apparel gifts, with guidance on choosing photos, reviewing artwork, print quality, privacy, and presentation."
 category: "Gifts"
 tags: []
 author: " Writer"

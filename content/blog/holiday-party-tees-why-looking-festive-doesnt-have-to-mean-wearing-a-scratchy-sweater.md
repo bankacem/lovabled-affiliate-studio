@@ -1,7 +1,7 @@
 ---
-title: "Holiday Party Tees: Why Looking Festive Doesn't Have to Mean Wearing a Scratchy Sweater"
+title: "Holiday Party Tees: Festive Style Without the Bulk"
 slug: "holiday-party-tees-why-looking-festive-doesnt-have-to-mean-wearing-a-scratchy-sweater"
-description: "We’ve all been there. You’re at a holiday house party, the heater is cranking, the oven is full of appetizers, and you’re trapped inside a heavy, wool-blend \\\"Ugly Christmas Sweater.\\\" Within twenty minutes, you’re not just festive—you’re glowing. And by glowing, I mean sweating. It’s not a great look"
+description: "Find comfortable holiday party tee ideas that feel festive without a heavy sweater, with tips on graphics, layering, fit, fabrics, colors, and seasonal styling."
 category: "Birthdays & Parties"
 tags: []
 author: "Writer"

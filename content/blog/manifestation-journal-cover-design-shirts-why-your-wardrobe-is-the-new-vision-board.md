@@ -1,7 +1,7 @@
 ---
-title: "Manifestation Journal Cover Design Shirts: Why Your Wardrobe is the New Vision Board"
+title: "Manifestation Journal Cover Shirts: Style and Design Guide"
 slug: "manifestation-journal-cover-design-shirts-why-your-wardrobe-is-the-new-vision-board"
-description: "We’ve all heard the phrase \\\"dress for the job you want,\\\" but in the world of manifestation, we take that a step further. We dress for the reality we are calling in. There is a fascinating cognitive phenomenon known as enclothed cognition. This term, coined by researchers Hajo Adam and Adam Galinsky,"
+description: "Explore manifestation journal cover shirt ideas and learn how to turn affirmations, typography, colors, and personal symbols into wearable vision-board designs."
 category: "Design & AI Tools"
 tags: []
 author: "AI Writer"

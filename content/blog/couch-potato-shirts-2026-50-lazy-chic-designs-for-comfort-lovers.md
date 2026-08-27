@@ -1,7 +1,7 @@
 ---
-title: "🥔 Couch Potato Shirts 2026: 50+ Lazy-Chic Designs for Comfort Lovers"
+title: "Couch Potato Shirts 2026: Lazy-Chic Designs for Comfort Lovers"
 slug: "couch-potato-shirts-2026-50-lazy-chic-designs-for-comfort-lovers"
-description: "🥔 Couch Potato Shirts 2026: 50+ Lazy-Chic Designs for Comfort Lovers"
+description: "Discover couch potato shirt ideas for 2026, from funny lazy-chic graphics to cozy designs that celebrate comfort, casual style, and everyday lounging."
 category: "Design & AI Tools"
 tags: []
 author: "Admin"

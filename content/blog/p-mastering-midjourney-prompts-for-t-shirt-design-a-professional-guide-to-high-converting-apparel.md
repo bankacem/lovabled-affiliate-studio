@@ -1,7 +1,7 @@
 ---
-title: "Mastering Midjourney Prompts for T-Shirt Design: A Professional Guide to High-Converting Apparel"
+title: "Midjourney Prompts for T-Shirt Design: A Practical Guide"
 slug: "p-mastering-midjourney-prompts-for-t-shirt-design-a-professional-guide-to-high-converting-apparel"
-description: "Not long ago, launching a t-shirt brand required either a high-level mastery of Adobe Illustrator or a significant budget for freelance designers. The barrier to entry was high, and the iteration speed was slow. Today, the landscape has shifted. Generative AI, specifically Midjourney, has democratiz"
+description: "Create stronger Midjourney prompts for t-shirt designs with practical guidance on subjects, composition, typography, transparent artwork, print limitations, and mockups."
 category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
