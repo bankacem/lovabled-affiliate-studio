@@ -170,13 +170,14 @@ const Designs = () => {
 
   const canonicalUrl = language === "en" ? "https://aiprintverse.com/designs" : `https://aiprintverse.com/${language}/designs`;
   const hasFilters = Boolean(searchQuery.trim()) || selectedCategory !== "All";
+  const shouldNoIndex = language !== "en" || hasFilters;
 
   return (
     <Layout>
       <Helmet>
         <title>{t("meta.designsTitle")}</title>
         <meta name="description" content={t("meta.designsDesc")} />
-        {language !== "en" && <meta name="robots" content="noindex, follow" />}
+        {shouldNoIndex && <meta name="robots" content="noindex, follow" />}
         <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 

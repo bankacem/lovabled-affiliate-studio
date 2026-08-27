@@ -48,6 +48,11 @@ export function useAutoLinking() {
     return ids;
   }, [posts]);
 
+  const canonicalSlugById = useMemo(
+    () => new Map(posts.map((post) => [post.id, post.slug] as const)),
+    [posts],
+  );
+
   const applyAutoLinks = useCallback((content: string, currentPostId?: string): string => {
     let linked = content;
 
@@ -64,6 +69,11 @@ export function useAutoLinking() {
       if (linksAdded >= MAX_LINKS_PER_POST) break;
       if (usedTargets.has(kw.target_post_id)) continue;
 
+      // Never trust a stale target_slug from the legacy keyword store. Resolve
+      // the destination from the current Git-derived blog index instead.
+      const canonicalSlug = canonicalSlugById.get(kw.target_post_id);
+      if (!canonicalSlug) continue;
+
       // Match only outside existing anchor tags and outside HTML attributes.
       const regex = new RegExp(`(?<!<[^>]*?)\\b(${escapeRegex(kw.keyword || "")})\\b(?![^<]*?>)`, "i");
       let replaced = false;
@@ -72,8 +82,7 @@ export function useAutoLinking() {
         replaced = true;
         linksAdded++;
         usedTargets.add(kw.target_post_id);
-        const slugOrId = kw.target_slug || kw.target_post_id;
-        return `<a href="/blog/${slugOrId}" class="auto-link text-primary underline-offset-2 hover:underline">${match}</a>`;
+        return `<a href="/blog/${canonicalSlug}" class="auto-link text-primary underline-offset-2 hover:underline">${match}</a>`;
       });
     }
 
@@ -86,7 +95,7 @@ export function useAutoLinking() {
     });
 
     return linked;
-  }, [keywords, highQualityPostIds]);
+  }, [keywords, highQualityPostIds, canonicalSlugById]);
 
   const generateKeywordsFromPost = useCallback(async (post: { id: string; title: string; content?: string | null }) => {
     const titleWords = post.title.split(/\s+/).filter((w) => w.length > 4).map((w) => w.replace(/[^a-zA-Z0-9]/g, "").toLowerCase());
