@@ -17,14 +17,8 @@ import urllib.request
 from typing import Any
 
 DEFAULT_BASE = "https://kiosapi.com/v1"
-DEFAULT_MODELS = [
-    "gpt-4o-mini",
-    "gemini-2.5-flash",
-    "claude-3-5-haiku-20241022",
-    "deepseek-chat",
-    "qwen2.5-72b-instruct",
-    "llama-3.3-70b-instruct",
-]
+DEFAULT_MODELS = []
+PREFERRED_HINTS = ("mini", "flash", "haiku", "small", "lite", "deepseek", "qwen", "llama")
 
 
 def request_json(url: str, api_key: str, method: str = "GET", payload: dict[str, Any] | None = None) -> tuple[int, dict[str, Any]]:
@@ -53,6 +47,20 @@ def request_json(url: str, api_key: str, method: str = "GET", payload: dict[str,
         return exc.code, data
 
 
+def extract_model_ids(data: Any) -> set[str]:
+    found: set[str] = set()
+    if isinstance(data, dict):
+        model_id = data.get("id") or data.get("model") or data.get("model_id")
+        if isinstance(model_id, str) and model_id and " " not in model_id:
+            found.add(model_id)
+        for value in data.values():
+            found.update(extract_model_ids(value))
+    elif isinstance(data, list):
+        for value in data:
+            found.update(extract_model_ids(value))
+    return found
+
+
 def error_summary(data: dict[str, Any]) -> str:
     text = json.dumps(data, ensure_ascii=False)
     text = re.sub(r"sk-[A-Za-z0-9_-]+", "[REDACTED]", text)
@@ -74,20 +82,18 @@ def main() -> int:
         return 2
 
     model_status, model_payload = request_json(f"{base_url}/models", api_key)
-    accessible = {
-        str(item.get("id"))
-        for item in model_payload.get("data", [])
-        if isinstance(item, dict) and item.get("id")
-    }
+    accessible = extract_model_ids(model_payload)
     requested = [item.strip() for item in args.models.split(",") if item.strip()]
-    if accessible:
+    if requested:
         selected = [model for model in requested if model in accessible]
         skipped = [model for model in requested if model not in accessible]
     else:
-        selected, skipped = requested, []
+        selected = [model for model in sorted(accessible) if any(hint in model.lower() for hint in PREFERRED_HINTS)][:8]
+        skipped = []
 
     print(f"models_endpoint_status={model_status}")
     print(f"accessible_models={len(accessible)}")
+    print("accessible_model_ids=" + ",".join(sorted(accessible)[:80]))
     print(f"selected_models={len(selected)}")
     if skipped:
         print("skipped_not_listed=" + ",".join(skipped))
@@ -127,7 +133,7 @@ def main() -> int:
     with open(args.output, "w", encoding="utf-8") as handle:
         json.dump(summary, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
-    return 0 if any(item["ok"] for item in results) else 1
+    return 0 if results and any(item["ok"] for item in results) else 1
 
 
 if __name__ == "__main__":
