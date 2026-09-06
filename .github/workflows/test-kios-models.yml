@@ -1,0 +1,48 @@
+name: Test KiosAPI models
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: 'Comma-separated model IDs; leave blank for the safe default list'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  probe-models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Probe selected KiosAPI models
+        env:
+          KIOS_API_KEY: ${{ secrets.seo }}
+          KIOS_API_BASE: https://kiosapi.com/v1
+          KIOS_MODELS_INPUT: ${{ inputs.models }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ -n "$KIOS_MODELS_INPUT" ]; then
+            args+=(--models "$KIOS_MODELS_INPUT")
+          fi
+          python seo_agent_pro/test_kios_models.py "${args[@]}" --output kios-model-results.json
+
+      - name: Upload sanitized test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kios-model-results
+          path: kios-model-results.json
+          if-no-files-found: ignore
+          retention-days: 7
