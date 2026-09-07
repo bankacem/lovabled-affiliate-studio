@@ -163,7 +163,7 @@ function formatDisplayDate(iso) {
 // whenever #root has content, so no client-side changes are needed for
 // this to take effect. Returns null if there's no real content to show
 // (mirrors BlogPost.tsx's own "excerpt only, no content" fallback).
-function buildArticleBody(p) {
+function buildArticleBody(p, relatedPosts = []) {
   if (!p.title || (!p.content && !p.excerpt)) return null;
   return {
     title: p.title,
@@ -178,6 +178,10 @@ function buildArticleBody(p) {
     // baking it into the static HTML introduces no new trust boundary.
     contentHtml: p.content || null,
     excerpt: p.excerpt || null,
+    relatedPosts: relatedPosts.map((related) => ({
+      href: `/blog/${related.slug}`,
+      title: related.title,
+    })),
   };
 }
 
@@ -196,15 +200,39 @@ function buildDesignBody(d) {
   };
 }
 
-const metaMap = {};
+const metaMap = {
+  "/": {
+    title: "AIPrintVerse | AI-Powered Print-on-Demand Designs",
+    description: "Discover practical print-on-demand design ideas, apparel guides, and AI-curated artwork for t-shirts, mugs, stickers, and more.",
+    body: {
+      kind: "landing",
+      title: "AI-powered print-on-demand designs and practical guides",
+      intro: "Explore original design inspiration and useful guides for creating, choosing, and selling print-on-demand products.",
+      links: posts.slice(0, 8).map((p) => ({ href: `/blog/${p.slug}`, title: p.title, excerpt: p.excerpt })),
+    },
+  },
+  "/blog": {
+    title: "Print-on-Demand Design Guides | AIPrintVerse Blog",
+    description: "Read practical guides about t-shirt designs, print-on-demand products, custom apparel, gifts, and AI-assisted creative workflows.",
+    body: {
+      kind: "landing",
+      title: "Print-on-demand design guides",
+      intro: "Browse practical, focused articles about custom apparel, product design, print methods, gifts, and building a print-on-demand brand.",
+      links: posts.slice(0, 12).map((p) => ({ href: `/blog/${p.slug}`, title: p.title, excerpt: p.excerpt })),
+    },
+  },
+};
 for (const p of posts) {
   const description = p.meta_description || cleanHtmlText(p.content).slice(0, 160);
+  const relatedPosts = posts
+    .filter((candidate) => candidate.slug !== p.slug && candidate.category && candidate.category === p.category)
+    .slice(0, 3);
   metaMap[`/blog/${p.slug}`] = {
     title: `${p.title}${BLOG_TITLE_SUFFIX}`,
     description,
     image: p.featured_image || undefined,
     jsonLd: buildArticleJsonLd(p, description),
-    body: buildArticleBody(p),
+    body: buildArticleBody(p, relatedPosts),
   };
 }
 for (const d of designs) {

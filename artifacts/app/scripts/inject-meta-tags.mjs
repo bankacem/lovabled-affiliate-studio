@@ -164,19 +164,32 @@ function renderArticleBody(body) {
     : body.excerpt
     ? `<div class="mt-10"><p class="text-lg text-muted-foreground">${escapeHtml(body.excerpt)}</p></div>`
     : "";
+  const related = body.relatedPosts?.length
+    ? `<nav class="mt-12 border-t border-border pt-8" aria-label="Related articles"><h2 class="font-display text-2xl font-semibold text-foreground">Related articles</h2><ul class="mt-4 space-y-2">${body.relatedPosts.map((post) => `<li><a class="text-primary hover:underline" href="${escapeHtml(post.href)}">${escapeHtml(post.title)}</a></li>`).join("")}</ul></nav>`
+    : "";
 
   return (
     `<article class="py-8 md:py-12"><div class="container mx-auto px-4 md:px-6"><div class="mx-auto max-w-3xl">` +
     `<header>${category}<h1 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">${title}</h1>` +
     `<div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">${metaRow}</div>` +
     renderTags(body.tags) +
-    `</header>${image}${content}</div></div></article>`
+    `</header>${image}${content}${related}</div></div></article>`
   );
+}
+
+function renderLandingBody(body) {
+  const title = escapeHtml(body.title);
+  const intro = body.intro ? `<p class="mt-4 text-lg text-muted-foreground">${escapeHtml(body.intro)}</p>` : "";
+  const links = (body.links || []).map((post) =>
+    `<li><a class="text-primary hover:underline" href="${escapeHtml(post.href)}">${escapeHtml(post.title)}</a><p class="mt-1 text-sm text-muted-foreground">${escapeHtml(post.excerpt || "")}</p></li>`,
+  ).join("");
+  const list = links ? `<section class="mt-10"><h2 class="font-display text-2xl font-semibold text-foreground">Latest articles</h2><ul class="mt-4 grid gap-6 md:grid-cols-2">${links}</ul></section>` : "";
+  return `<main class="py-12 md:py-16"><div class="container mx-auto px-4 md:px-6"><div class="mx-auto max-w-5xl"><h1 class="font-display text-4xl font-bold text-foreground md:text-5xl">${title}</h1>${intro}${list}</div></div></main>`;
 }
 
 function injectBody(html, body) {
   if (!body) return html;
-  const snapshot = renderArticleBody(body);
+  const snapshot = body.kind === "landing" ? renderLandingBody(body) : renderArticleBody(body);
   // Only ever matches the specific empty-root marker create-static-fallbacks.mjs
   // writes for every route; if that marker isn't found (template changed,
   // or root already has content for some other reason) this is a no-op
@@ -248,11 +261,10 @@ function main() {
 
   let written = 0;
   for (const route of routes) {
-    if (route === "/") continue; // homepage's own canonical is already correct
-    const routeIndexPath = resolve(distRoot, `.${route}`, "index.html");
+    const routeIndexPath = route === "/" ? indexPath : resolve(distRoot, `.${route}`, "index.html");
     if (!existsSync(routeIndexPath)) continue; // create-static-fallbacks.mjs should have written this already
 
-    const canonicalHref = origin ? `${origin}${route}` : undefined;
+    const canonicalHref = origin ? `${origin}${route === "/" ? "/" : route}` : undefined;
     const meta = metaMap[route] || {};
     let html = injectMeta(genericHtml, { ...meta, canonicalHref });
     html = injectJsonLd(html, meta.jsonLd);
