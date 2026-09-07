@@ -27,6 +27,10 @@ export function BlogCard({ post, index = 0 }: BlogCardProps) {
               <img
                 src={post.featured_image}
                 alt={post.title}
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = "/placeholder.svg";
+                }}
                 loading={index < 3 ? "eager" : "lazy"}
                 fetchPriority={index === 0 ? "high" : "auto"}
                 decoding="async"

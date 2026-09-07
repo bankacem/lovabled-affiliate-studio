@@ -33,6 +33,7 @@ const ArticleSkeleton = () => (
     </div>
   </div>
 );
+const FALLBACK_IMAGE = "/placeholder.svg";
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -64,6 +65,20 @@ const BlogPost = () => {
     if (!post?.content || autoLinksLoading) return post?.content || "";
     return applyAutoLinks(post.content, post.id);
   }, [post?.content, post?.id, applyAutoLinks, autoLinksLoading]);
+
+  useEffect(() => {
+    const container = contentRef.current;
+    if (!container) return;
+    const handleImageError = (event: Event) => {
+      const image = event.currentTarget as HTMLImageElement;
+      if (image.src.endsWith(FALLBACK_IMAGE)) return;
+      image.onerror = null;
+      image.src = FALLBACK_IMAGE;
+    };
+    const images = Array.from(container.querySelectorAll("img"));
+    images.forEach((image) => image.addEventListener("error", handleImageError));
+    return () => images.forEach((image) => image.removeEventListener("error", handleImageError));
+  }, [linkedContent]);
 
   const isLowQuality = useMemo(() => {
     if (!post) return false;
@@ -292,6 +307,10 @@ const BlogPost = () => {
                 <img
                   src={post.featured_image}
                   alt={post.title}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = FALLBACK_IMAGE;
+                  }}
                   loading="eager"
                   width={1200}
                   height={630}

@@ -155,12 +155,15 @@ function renderArticleBody(body) {
     body.readTime ? `<span class="flex items-center gap-1">${escapeHtml(body.readTime)}</span>` : "",
   ].join("");
   const image = body.featuredImage
-    ? `<div class="mt-8 overflow-hidden rounded-2xl"><img src="${escapeHtml(body.featuredImage)}" alt="${title}" loading="eager" width="1200" height="630" class="h-full w-full object-cover" /></div>`
+    ? `<div class="mt-8 overflow-hidden rounded-2xl"><img src="${escapeHtml(body.featuredImage)}" alt="${title}" loading="eager" width="1200" height="630" onerror="this.onerror=null;this.src='/placeholder.svg'" class="h-full w-full object-cover" /></div>`
     : "";
   // contentHtml is trusted CMS HTML (same source already rendered via
   // dangerouslySetInnerHTML client-side) - not escaped, inserted as-is.
-  const content = body.contentHtml
-    ? `<div class="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content">${body.contentHtml}</div>`
+  const contentHtml = body.contentHtml
+    ? body.contentHtml.replace(/<img\b(?![^>]*\bonerror=)([^>]*)>/gi, `<img$1 onerror="this.onerror=null;this.src='/placeholder.svg'">`)
+    : null;
+  const content = contentHtml
+    ? `<div class="prose prose-lg mt-10 max-w-none text-foreground prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-blockquote:text-muted-foreground prose-blockquote:border-primary article-content">${contentHtml}</div>`
     : body.excerpt
     ? `<div class="mt-10"><p class="text-lg text-muted-foreground">${escapeHtml(body.excerpt)}</p></div>`
     : "";
