@@ -221,6 +221,26 @@ const metaMap = {
       links: posts.slice(0, 12).map((p) => ({ href: `/blog/${p.slug}`, title: p.title, excerpt: p.excerpt })),
     },
   },
+  "/about": {
+    title: "About AIPrintVerse | Print-on-Demand Design Inspiration",
+    description: "Learn how AIPrintVerse helps creators, small businesses, and print-on-demand sellers discover better design ideas and practical product guides.",
+    body: {
+      kind: "landing",
+      title: "About AIPrintVerse",
+      intro: "AIPrintVerse helps creators and small businesses turn ideas into better print-on-demand products through practical guides, design inspiration, and useful creative resources.",
+      links: posts.slice(0, 6).map((p) => ({ href: `/blog/${p.slug}`, title: p.title, excerpt: p.excerpt })),
+    },
+  },
+  "/designs": {
+    title: "Print-on-Demand Design Ideas | AIPrintVerse",
+    description: "Explore print-on-demand design inspiration for t-shirts, gifts, stickers, mugs, and custom products created for modern sellers and creators.",
+    body: {
+      kind: "landing",
+      title: "Print-on-demand design ideas",
+      intro: "Explore design inspiration for custom apparel, gifts, stickers, mugs, and other products you can create or sell through print-on-demand.",
+      links: posts.slice(0, 8).map((p) => ({ href: `/blog/${p.slug}`, title: p.title, excerpt: p.excerpt })),
+    },
+  },
 };
 for (const p of posts) {
   const description = p.meta_description || cleanHtmlText(p.content).slice(0, 160);
