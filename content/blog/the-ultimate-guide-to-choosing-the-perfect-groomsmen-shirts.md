@@ -5,7 +5,7 @@ description: "Choose groomsmen shirts that fit your wedding style, budget, seaso
 category: "Weddings & Bridal"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgtEo9YWwA7WQiSJdw1naVerGH4RM4q21K7FZae-aIbojzFo00U92Yym0YDDnR4vNKEIaZb3Lv-Q-K1dOqXCpHkk6GpbW8S6ghVhJME1J0UKuJw2PwL_IG8FqM-KQCvTcfMlVYBlxyEasJmRxI2OfHoVfe-NzLxRlliQDaOLd3NFL95uVlKHVjPvfx3Xls"
+image: "/blog-images/b8ecf8efa1642939e02d.webp"
 image_alt: "The Ultimate Guide to Choosing the Perfect Groomsmen Shirts"
 date: "2026-03-01"
 updated: "2026-06-19"

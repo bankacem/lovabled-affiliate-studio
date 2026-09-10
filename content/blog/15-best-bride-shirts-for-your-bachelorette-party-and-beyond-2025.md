@@ -5,7 +5,7 @@ description: "Explore 15 bride shirt ideas for bachelorette weekends, wedding ev
 category: "Weddings & Bridal"
 tags: ["bride shirts", "bachelorette shirts", "bridal party apparel"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjOhVk8TBOTID5H_8euMA4IN41UPc-p_WgAlkkc1h3fiD7qBniMx7GJspFSshr3Z04LG5ngj9cgqUrz1VkqhAiUs894W8vFgx9N2hxey_ThFh5P5Guk5PkVJrwsZuCAyDjjjcOHpfL6wRlO981lGjWuPcMdAL-wuqogjh_GLIjHctIs548UcvCcwTondxk"
+image: "/blog-images/8736f07b05542b7cc833.webp"
 image_alt: "Bride shirt ideas for a bachelorette party and wedding events"
 date: "2026-01-17"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Being a mother is one of the most demanding, rewarding, and transf
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEinpbVt9RwBOKYmXT9iHQGjgv3xL7rLzI0zsL8Vty8srl7zTXCpx6x4qwfTXoCzzF6ILuTx5KBWgxRhZ-0h_zmtocK72CUVf77aYisFGgReG3eB06Upqa2beTbWTHFOj5ONOzg7WLMXU2RTv8Jif3IPWiANIBEnY9ZT7XMeKfoTs2xynQ4QCBU2BGBvhug"
+image: "/blog-images/0da2ee7801f87213e2e4.webp"
 image_alt: "The Guide to the Best Mom Shirts: Style, Comfort, and Sentiment"
 date: "2026-04-05"
 updated: "2026-05-20"

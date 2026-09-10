@@ -5,7 +5,7 @@ description: "Explore funny doctor shirt ideas for clinic teams, medical student
 category: "T-Shirts"
 tags: ["doctor shirts", "medical gifts", "funny t-shirts"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgZmZzDT6bmh5tl0_XawXj1B4d8TwPWjquYpfcbnLqUrghz847PuTLhRZrsbO6U5ZnCgOP1WVhz5YNEmtLNBtk5k-Ghp2LKEHHosSkgO2Dv79FOdpWs-szuAOMVZyA9Yk2Ma3zFTbFcsND33IN5_EBrU4QEZmtwEWEROFqna4BUu3PKZeuTV0EuM3MQm8A"
+image: "/blog-images/64b9d3299894fb861d86.webp"
 image_alt: "Funny Doctor T-Shirt Ideas for Medical Professionals and Students"
 date: "2026-02-03"
 updated: "2026-05-20"

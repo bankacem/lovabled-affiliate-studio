@@ -5,7 +5,7 @@ description: "Walk down any metropolitan street today and you’re likely to see
 category: "Vintage & Retro"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgxEMvHi4qY7RctiDLnGg8bl2Mp9Db7jeXS1vJHaKIWUrFSZD-JO495lTOwdeJ3tY9olc7Ghv8hgtHNirax34FpguwmhZIouPNXJp3-blIEbbR_oZOY0HiagS6hQZkqD-TfD0BTfYF6a_MfX6QK9pRgidn8CCLFVxfztDl_f8NFqG2V9ZPe1psCCJ-dC6M"
+image: "/blog-images/f4ba2dbef69ad3526d03.webp"
 image_alt: "The Renaissance of Retro: Why 90s Nostalgia Cartoon Print Apparel is Dominating Modern Streetwear"
 date: "2026-03-17"
 updated: "2026-06-19"

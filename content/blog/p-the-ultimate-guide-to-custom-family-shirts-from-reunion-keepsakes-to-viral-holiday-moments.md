@@ -5,7 +5,7 @@ description: "There is something undeniably powerful about a group of people mov
 category: "Gifts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Custom%20Family%20Shirts%3A%20From%20Reunion%20Keepsakes%20to%20Viral%20Holiday%20Moments%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1841987821"
+image: "/blog-images/a9e3df6e2382726d3d67.webp"
 image_alt: "The Ultimate Guide to Custom Family Shirts: From Reunion Keepsakes to Viral Holiday Moments"
 date: "2026-07-11"
 updated: "2026-07-22"
@@ -48,7 +48,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is how the "aesthetic" of these shirts has shifted. We are moving away from the generic "Smith Family Reunion 2024" in Comic Sans and toward minimalist typography, hand-drawn illustrations, and high-end fabric blends. If you're planning an event, you aren't just buying shirts; you're commissioning a uniform for your family's history.</p>
 
-    <img src="[IMAGE_]" alt="A multi-generational family wearing coordinated custom navy blue t-shirts at an outdoor picnic.">
+    <img src="/placeholder.svg" alt="A multi-generational family wearing coordinated custom navy blue t-shirts at an outdoor picnic.">
   </section>
 
   <section id="printing-methods">
@@ -77,7 +77,7 @@ read_time: "5 min read"
       <li><strong>Tri-Blends:</strong> A mix of polyester, cotton, and rayon. These are the "vintage soft" shirts that everyone fights over. They have a great drape and won't shrink, though they are more expensive.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Close up of fabric textures showing the difference between standard cotton and a soft tri-blend weave.">
+    <img src="/placeholder.svg" alt="Close up of fabric textures showing the difference between standard cotton and a soft tri-blend weave.">
   </section>
 
   <section id="comparison" class="comparison-section">

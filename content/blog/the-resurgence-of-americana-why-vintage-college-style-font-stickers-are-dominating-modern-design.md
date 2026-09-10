@@ -5,7 +5,7 @@ description: "Walk into any local coffee shop or co-working space, and you’ll 
 category: "Stickers"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEguNUs16M2VUOiZajy_Vo0HpsWVxGFenlTzBssU7GSJw4aJvQY5jY4f4zrfv0kN5ZQszTyZQ59SIWY6LqezwMpz-_IRO8L3CjhG7zDvos-9nRVjorrsZbwXdkds6BuaWT-RalyGIqUbkDWTQ0uosvh2oOyvDx-x_kBAq_-eeGJvtOUY36Zv4LWvfr0Ic5E"
+image: "/blog-images/6fe88081cb3da2744f47.webp"
 image_alt: "Vintage College Style Stickers 2026: Best Americana Font Designs"
 date: "2026-03-17"
 updated: "2026-06-19"

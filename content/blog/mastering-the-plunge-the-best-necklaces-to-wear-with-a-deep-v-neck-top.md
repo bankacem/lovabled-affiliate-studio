@@ -5,7 +5,7 @@ description: "There is something inherently powerful about a deep V-neck. It elo
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjYiHmqR3gSbr60eAFSw-OP21fU2kxyKrR8mMaOgBJxDrZc-bbx2j3z2AudLrUnG7l5rPQfRSoUbkSnCMdAlscKeWgCUQQR_eDySrALnzuA2gsyekpu6TIDPdiinjMVhX4xZKzF2FZETXvaQvvVFv8ri0yYkPo8HpCIo-NvXkMoRGySNG9reFQ_7rgYKpU"
+image: "/blog-images/5de0b1a6f4c736ee23aa.webp"
 image_alt: "Mastering the Plunge: The Best Necklaces to Wear With a Deep V-Neck Top"
 date: "2026-02-21"
 updated: "2026-05-19"

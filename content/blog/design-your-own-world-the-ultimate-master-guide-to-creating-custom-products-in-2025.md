@@ -5,7 +5,7 @@ description: "Learn a practical workflow for designing custom shirts, mugs, hood
 category: "Design & AI Tools"
 tags: ["custom products", "product design", "print on demand"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhjmhoklnUmAtQ9eFN3UQupIzoWX4IIAoaFlnkVeRulkh9NgZa39qtulsXI7RFbgKyrMwX9du7qTEmG6sBxUlAKhkoGRkBxXp_JMVyC2khz92L7Jmp894Crf9Fyt5ARbs_WXVMNDhT6DTwvpP5qg53uYAFDbCo5ARRu8ZLb566FrrXPOPpq8onN3gid3k8"
+image: "/blog-images/5459d79a9a25dfc96d94.webp"
 image_alt: "Custom product design workflow from concept to print"
 date: "2026-01-19"
 updated: "2026-06-19"

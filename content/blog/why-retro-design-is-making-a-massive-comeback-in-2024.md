@@ -5,7 +5,7 @@ description: "Explore why retro design is returning, including color palettes, t
 category: "Design & AI Tools"
 tags: ["retro design", "vintage style", "graphic design"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEipF0MNRZV9KCvTg2cOhPA3VFkCRCCngF5-4OCsybmHx48JEF3Y3JFczQ6BHPCAlAZq3lz6OwZmFBZWDiia7Au7tRVBnv7EstdZkCOBbGcWB-2OIow7skhOeBLsuMxyvo3yv9rKD6eRd0D5mATeGHhePG5f6hJ2S1lskcGIEgxWXAyhEaD-KG8e3kZimuk"
+image: "/blog-images/63f2e0e31a04c74d4dd9.webp"
 image_alt: "Retro graphic design with vintage-inspired colors"
 date: "2026-01-18"
 updated: "2026-06-19"

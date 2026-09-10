@@ -5,7 +5,7 @@ description: "Learn the essential graphic design principles of hierarchy, contra
 category: "Design & AI Tools"
 tags: ["graphic design basics", "design principles", "print design"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgxeJ_pjYh6ULqIsdyqf77e49U564E4xlQ6zE5GQwHra468yItC1nF-FGgImdv6o2YntwWPG8BKXKBoMV9GnCR10YN3oZj4E5F9exR9F2Kh3waClVOdMQkLll73AP7N04HyRScRkKIbwNnjGIBP_ptyZne7nedpoD9cOifgKeuxa6OPsdbCnZA-iRC3LSs"
+image: "/blog-images/3f63688e8c85a4d1b277.webp"
 image_alt: "Graphic design principles illustrated for beginners"
 date: "2026-02-23"
 updated: "2026-06-19"

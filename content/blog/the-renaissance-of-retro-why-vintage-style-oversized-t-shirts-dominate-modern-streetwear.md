@@ -5,7 +5,7 @@ description: "Walking through SoHo or Shoreditch today, you'd be forgiven for th
 category: "Vintage & Retro"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGjfpFRJiR2Y-5JWIbu7gwKOrOxgQyh2Q4TqJzre2hyphenhyphenkrN6ro7xGIZsBHLemMCUDHcpGQjz-zVglyC9A5jgaA4BASbteRf-Q4w4HTBq3OPxrk8xQXQKwNmBTNiDjPmTF9yHnqXAN72Z0T7yI52nfIfQZhg040G_-UW0dbV9-vT3HYhcu4A96jzrWXgGtA/s1000/1000025559.jpg"
+image: "/blog-images/6f78b31df0df1002a169.webp"
 image_alt: "The Renaissance of Retro: Why Vintage Style Oversized T-Shirts Dominate Modern Streetwear"
 date: "2026-03-06"
 updated: "2026-05-19"
@@ -67,7 +67,7 @@ read_time: "5 min read"
       <li><strong>The Neck Ribbing:</strong> A genuine <a href="/blog/the-ultimate-guide-to-retro-designs-how-to-master-vintage-st" class="auto-link internal-link" title="The Ultimate Guide to Retro Designs: How to Master Vintage Style in Modern Fashion">vintage style</a> tee must have a tight, high-neck rib. A 1-inch thick collar is the industry standard for that 90s look. If the neck is loose or "bacon-like," it fails the streetwear test immediately.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Close up of a 300 GSM heavyweight cotton t-shirt showing thick neck ribbing and drop shoulder seams">
+    <img src="/placeholder.svg" alt="Close up of a 300 GSM heavyweight cotton t-shirt showing thick neck ribbing and drop shoulder seams">
   </section>
 
   <section id="styling-guide">

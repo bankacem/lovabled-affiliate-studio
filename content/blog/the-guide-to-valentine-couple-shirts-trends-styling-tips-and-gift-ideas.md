@@ -5,7 +5,7 @@ description: "In the عالم وآفاق وتطبيقات modern romance, expres
 category: "Gifts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgek3NN0rqqDFXsKqsgS6XZroSp5Z6kLo3LYz6G7SCglV0kggirCu3MKJ9719rlts7n1IMqazaxsmpmnleeBhaQxO32ZGSNz6bIv2ghHpZAPjHy5374OcqS8EZH7HK_x7IUvuthkxEV_N8iGuc-2UwsHrdJLMKnKux7wcFVgIpFJQKIiMjl8EjW_ZrJbFs"
+image: "/blog-images/fa11f8caa5e90d4b119e.webp"
 image_alt: "The Guide to Valentine Couple Shirts: Trends, Styling Tips, and Gift Ideas"
 date: "2026-03-28"
 updated: "2026-06-06"

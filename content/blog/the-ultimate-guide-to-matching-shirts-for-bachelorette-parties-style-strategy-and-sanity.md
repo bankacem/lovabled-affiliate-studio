@@ -5,7 +5,7 @@ description: "Walk down Broadway in Nashville or the Strip in Vegas on a Saturda
 category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Matching%20Shirts%20for%20Bachelorette%20Parties%3A%20Style%2C%20Strategy%2C%20and%20Sanity%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=488312269"
+image: "/blog-images/7561f1725ac02b2fe5fc.webp"
 image_alt: "The Ultimate Guide to Matching Shirts for Bachelorette Parties: Style, Strategy, and Sanity"
 date: "2026-07-24"
 updated: "2026-07-22"

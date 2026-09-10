@@ -5,7 +5,7 @@ description: "In recent years, the trend of wearing matching Christmas shirts ha
 category: "T-Shirts"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiZpU5Ruqqgk81PfsFLj3I9vPmPEyEqmdKKk5YA3UmLx7Q1UKUJtmNR9TM4YX-hs9oqWAs7krnpGYYBxvpcRTghPUWiY7A7yWVlmo4qNwWpiL-admNN1r01CU9rvtObyG6qW7ivm61QyJsx_ym5qkQPDtxekrcpFzu17AvBPFWlAX8qyJnleamb1J-d9mg"
+image: "/blog-images/5ca9bfa4b410d4972d03.webp"
 image_alt: "The Guide to Matching Christmas Shirts: Traditions, Trends, and Styling Tips"
 date: "2026-04-17"
 updated: "2026-06-19"

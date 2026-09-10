@@ -5,7 +5,7 @@ description: "Valentine’s Day is no longer just about candlelit dinners and bo
 category: "Gifts"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj2ChH1HKJMlKmA36LKVs3EgtfJj08eXgT0kSLx4ENYxMB5x6aw1oI0RoMhhBxHunr6KLx8Yk0lsCiHJSl3JjSStFMvU51ZLsseGa12N0UyYUqUbdxyosqfnmbSWm0njol-7HoHnf9_pvPuYhsjY334Jh8QdQfFmODygn6qGaHqWGdm3kF9UsUc5fGH3RI"
+image: "/blog-images/e31d6c53445d7afa9480.webp"
 image_alt: "The Guide to Valentine's Day Shirts: Trends, Styling Tips, and Gift Ideas"
 date: "2026-03-30"
 updated: "2026-06-19"

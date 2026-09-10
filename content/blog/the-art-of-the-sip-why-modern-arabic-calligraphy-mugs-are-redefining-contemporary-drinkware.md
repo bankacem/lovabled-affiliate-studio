@@ -5,7 +5,7 @@ description: "There is something inherently grounding about holding a warm mug o
 category: "Mugs & Drinkware"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1617363114066-19daacf12eda?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxBcmFiaWMlMjBDYWxsaWdyYXBoeSUyMENvZmZlZSUyME11Z3MlMjAyMDI2JTNBJTIwQmVzdCUyMERlc2lnbnMlMjAlMjYlMjBXaGVyZSUyMHRvJTIwQnV5JTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyNjJ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/06f6b6d139a21a8b4b00.webp"
 image_alt: "Arabic Calligraphy Coffee Mugs 2026: Best Designs & Where to Buy"
 date: "2026-04-02"
 updated: "2026-05-03"

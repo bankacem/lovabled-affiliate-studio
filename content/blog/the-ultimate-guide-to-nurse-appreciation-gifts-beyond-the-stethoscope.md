@@ -5,7 +5,7 @@ description: "Finding the right gift for a nurse requires more than a quick trip
 category: "Gifts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Nurse%20Appreciation%20Gifts%3A%20Beyond%20the%20Stethoscope%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=816180453"
+image: "/blog-images/242cde526a633373fb3a.webp"
 image_alt: "The Ultimate Guide to Nurse Appreciation Gifts: Beyond the Stethoscope"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What's interesting is that the most appreciated gifts often fall into two categories: things that solve a workplace problem and things that help them forget about work entirely. You might be wondering if a simple gift card is too "easy." In my experience, a $25 Starbucks card or a DoorDash credit is often preferred over a decorative knick-knack that will just collect dust on a shelf. Why? Because it fuels them through a double shift or provides a meal they didn't have to cook after 13 hours on their feet.</p>
 
-    <img src="[IMAGE_]" alt="A close-up of a nurse's station with a handwritten thank you note and a high-quality insulated tumbler.">
+    <img src="/placeholder.svg" alt="A close-up of a nurse's station with a handwritten thank you note and a high-quality insulated tumbler.">
   </section>
 
   <section id="practical-essentials">
@@ -70,7 +70,7 @@ read_time: "5 min read"
       <li><strong>Subscription Services:</strong> Think beyond physical goods. A subscription to a meditation app like Calm or Headspace can help a nurse decompress after a particularly traumatic shift.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="A relaxation gift basket featuring lavender candles, premium hand cream, and a plush eye mask.">
+    <img src="/placeholder.svg" alt="A relaxation gift basket featuring lavender candles, premium hand cream, and a plush eye mask.">
   </section>
 
   <section id="comparison" class="comparison-section">

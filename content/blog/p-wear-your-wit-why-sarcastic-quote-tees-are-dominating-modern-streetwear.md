@@ -5,7 +5,7 @@ description: "Walk into any local coffee shop or tech hub, and you’re bound to
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Wear%20Your%20Wit%3A%20Why%20Sarcastic%20Quote%20Tees%20Are%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=891727069"
+image: "/blog-images/eff777bac9ddb85ca823.webp"
 image_alt: "Wear Your Wit: Why Sarcastic Quote Tees Are Dominating Modern Streetwear"
 date: "2026-07-15"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>There is a distinct psychological "shielding" that happens with sarcastic apparel. For many, it’s a form of <strong>Enclothed Cognition</strong>—a psychological phenomenon where the clothes we wear influence our psychological processes. When you wear a shirt that mocks social awkwardness, you’re essentially taking the power away from the situation. You aren't just being awkward; you're being <em>ironic</em>. It’s a subtle but powerful distinction.</p>
 
-    <img src="[IMAGE_]" alt="Model wearing a minimalist white t-shirt with black serif font reading 'Professional Overthinker'">
+    <img src="/placeholder.svg" alt="Model wearing a minimalist white t-shirt with black serif font reading 'Professional Overthinker'">
 
     <p>What I've found over years of tracking design trends is that these shirts act as a low-stakes social litmus test. If someone laughs at your "I survived another meeting that should have been an email" shirt, you’ve instantly found a kindred spirit. If they look confused, well, you’ve successfully filtered out a person who probably wouldn't get your humor anyway. It's efficient social engineering at $25 a pop.</p>
   </section>
@@ -122,7 +122,7 @@ read_time: "5 min read"
 
     <p>Try pairing a "My Favorite Childhood Memory is Not Going to School" tee with a structured Italian blazer and dark selvedge denim. This creates a "balanced irony." You look like someone who understands the rules of fashion well enough to break them. Avoid the "full-slouch" look—baggy cargo shorts and a sarcastic tee—unless you’re specifically going for the '90s slacker aesthetic (which, to be fair, is making a comeback).</p>
 
-    <img src="[IMAGE_]" alt="A flat-lay image showing a sarcastic tee paired with a leather jacket, Chelsea boots, and high-quality sunglasses">
+    <img src="/placeholder.svg" alt="A flat-lay image showing a sarcastic tee paired with a leather jacket, Chelsea boots, and high-quality sunglasses">
   </section>
 
   <section id="market-data">

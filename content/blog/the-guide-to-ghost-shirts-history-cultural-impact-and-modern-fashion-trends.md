@@ -5,7 +5,7 @@ description: "The term \\\"ghost shirt\\\" carries profound weight, bridging the
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgt14-lxZaCXFfDpptiidgQDyMdnmfq9fqO0V83UEsn6LCt2RGyYlXv4n9yOuhAC0LnCRCWB8Dn8vDlDBNiCrGHcIlkCu-T16IebpnIF8R6_e4EDlUJnmrZw8MZmlAKaoLTdAB1OZ6pD7KkjGaSanVU9Y4BQYyiGrKzFpwF9fyKVKEJt8kfm23mgteBtFI"
+image: "/blog-images/cb324f09870dfe88e641.webp"
 image_alt: "The Guide to Ghost Shirts: History, Cultural Impact, and Modern Fashion Trends"
 date: "2026-04-05"
 updated: "2026-06-06"

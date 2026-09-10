@@ -5,7 +5,7 @@ description: "Ten years ago, \\\"Mom fashion\\\" in the graphic tee space was ar
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Rise%20of%20the%20Mom%20Joke%20Tee%3A%20Why%20Radical%20Relatability%20is%20Winning%20the%20Apparel%20Game%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=107047656"
+image: "/blog-images/e71f840be15108e23f52.webp"
 image_alt: "The Rise of the Mom Joke Tee: Why Radical Relatability is Winning the Apparel Game"
 date: "2026-07-17"
 updated: "2026-07-22"
@@ -47,7 +47,7 @@ read_time: "5 min read"
     <p>What’s interesting is how this mirrors the broader cultural shift toward "real talk" on social media platforms like TikTok and Instagram. When a mother wears a shirt that says <em>"Mamasaurus: Before Coffee"</em> or <em>"I survived another meeting that should have been an email (and a toddler tantrum),"</em> she isn't just wearing fabric; she's wearing a badge of shared experience. It's a silent nod to other parents in the grocery store aisle—a tactical signal of solidarity.</p>
 
     <div class="image-">
-      <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c" alt="A woman wearing a stylish graphic tee with a humorous slogan, sitting in a modern cafe setting">
+      <img src="/blog-images/be09a2a967b72310a1c0.webp" alt="A woman wearing a stylish graphic tee with a humorous slogan, sitting in a modern cafe setting">
     </div>
 
     <p>According to recent retail data, the personalized and niche graphic tee market is expected to grow at a CAGR of 9.5% through 2030. Within this, the "lifestyle and parenting" segment represents a significant portion of the Print-on-Demand (POD) industry’s revenue. We are seeing a move away from mass-produced big-box store designs toward unique, artist-driven pieces found on platforms like Etsy or independent Shopify boutiques.</p>
@@ -71,7 +71,7 @@ read_time: "5 min read"
     </ul>
 
     <div class="image-">
-      <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254" alt="Close up of high-quality screen printed typography on a soft cotton t-shirt">
+      <img src="/blog-images/95b756540bc29b243917.webp" alt="Close up of high-quality screen printed typography on a soft cotton t-shirt">
     </div>
   </section>
 

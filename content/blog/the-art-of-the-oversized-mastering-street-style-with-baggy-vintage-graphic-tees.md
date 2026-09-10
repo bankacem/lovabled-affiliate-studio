@@ -5,7 +5,7 @@ description: "Walk through Soho, Harajuku, or Berlin’s Mitte district, and you
 category: "Phone Cases & Accessories"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjVAe5_29pq5Ve96n3Rj85BNQKw1Yd6RISRsxyjtmpDjAYUvxDAODMU2mnyshO2oXS7Lb4R5nqu7l6JmE6eBZk4HRTY3q5mTCYI4U6t1QFq1vbY30c8gy88jHYU6EqCnN7QUPfepjSlEYMvjUtEUU5XRcJRm1TC_VfFoatQVHXFJa2-dNweGgWPjDR5Gq8"
+image: "/blog-images/f92986e86ca556d216b8.webp"
 image_alt: "How to Style Baggy Vintage Graphic Tees: Street Style Guide 2026"
 date: "2026-03-16"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Let’s be honest. We’ve all seen those cringey \\\"I'm with Stu
 category: "Design & AI Tools"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhXCqnvvFlMAZkGhCJ_XS3AGN3HBUGiOCG9q_Gg3JJMcn9wot4g1yzdNZICaIW3syGt3QoXVJz9kpxAaG2LlZXgpCJ_yp2Y-173mTqRWXqzMAnwnrGRK96CUSm48dGTZXWZzOLgf7aElQaT1zcVc1eZmUpXXdk4rKFqnCMj3Qy5g1ks90pVKbF3Gd2tQRY"
+image: "/blog-images/4de9e7504d0a99a67bc2.webp"
 image_alt: "The Ultimate Guide to Custom AI-Generated T-Shirt Designs for Couples: Wearable Art for Two"
 date: "2026-03-15"
 updated: "2026-06-19"

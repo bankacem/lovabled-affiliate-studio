@@ -5,7 +5,7 @@ description: "Explore funny birthday shirt styles and gift ideas, from clever sa
 category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjmFUn6oBAiGjNnYouQ6iP9PiayeyB4JcQYQjMatm1kpI1KHzKW2RD_wnBnNVMPsiUIY5WMvUX__aoI8MalHCgrMG7ZtcpCHSwvNPvQSTqUAlksC-Q22PjcXhNi8jl40J9knDConyhJSzr8UOXNk_UOQfCNam492A7xr0I3vJsCLJIR2qiMEoyl_2eNBBw"
+image: "/blog-images/7e86418bda54d4795fe2.webp"
 image_alt: "Funny Birthday Shirts: The Ultimate Guide to Humor, Styles, and Gifting"
 date: "2026-03-24"
 updated: "2026-04-28"

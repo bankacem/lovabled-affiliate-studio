@@ -5,7 +5,7 @@ description: "Standing in front of a closet full of clothes while the clock tick
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Choosing%20the%20Perfect%20New%20Years%20Eve%20Shirt%3A%20Style%2C%20Fit%2C%20and%20Fabric%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1577160076"
+image: "/blog-images/9d7ed8248217a25d094b.webp"
 image_alt: "The Ultimate Guide to Choosing the Perfect New Year's Eve Shirt: Style, Fit, and Fabric"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>If you’re heading to a high-end gala, a <strong>silk-blend dress shirt</strong> offers a subtle sheen that catches the disco ball or chandelier light perfectly. However, if you’re prone to overheating, steer clear of pure polyester. It’s a sweat trap. Instead, look for Tencel or Lyocell blends. These semi-synthetic fibers provide the drape of silk with the breathability of cotton—a lifesaver when the countdown begins and the room temperature rises.</p>
 
-    <img src="[IMAGE_]" alt="Close-up of different shirt fabrics including velvet, silk, and textured cotton for New Year's Eve">
+    <img src="/placeholder.svg" alt="Close-up of different shirt fabrics including velvet, silk, and textured cotton for New Year's Eve">
 
     <h3>The Rise of the Velvet Shirt</h3>
     <p>Velvet is no longer reserved for your grandfather’s smoking jacket. A slim-fit velvet button-down in a deep forest green or midnight blue is a powerhouse move. It provides "tactile interest," which is fancy industry talk for "people will want to touch your arm." Just remember: velvet adds bulk. If you’re layering it under a blazer, ensure the jacket has enough room in the sleeves to prevent that restricted, sausage-casing feeling.</p>
@@ -130,7 +130,7 @@ read_time: "5 min read"
       <li><strong>The Collar:</strong> You should be able to fit two fingers between the collar and your neck. Any more and it looks like a hand-me-down; any less and you’ll be miserable by 10:00 PM.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Diagram showing the proper fit of a men's dress shirt at the collar, shoulders, and cuffs">
+    <img src="/placeholder.svg" alt="Diagram showing the proper fit of a men's dress shirt at the collar, shoulders, and cuffs">
   </section>
 
   <section id="layering">

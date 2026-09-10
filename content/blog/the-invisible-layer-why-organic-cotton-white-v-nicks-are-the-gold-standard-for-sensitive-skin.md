@@ -5,7 +5,7 @@ description: "Dealing with sensitive skin isn't just a minor inconvenience; for 
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgLGmNfpM2SH5ANxueEttLPjPerpxkyYbHO-wPE4kpAS_EC4RnX0KkEKgy-dQihBwNBN7hHsjBBthLJ-g9WWeFeEfSNFK14EPGjZ68v1ELjOL3YVkM4kNJINvclq46fCIk_tb8KnTbq5ZmQkaTCE9peePrpSQLZv49_Dkh66LeNL1e4_8P1dCSP3wfIN_Y"
+image: "/blog-images/049d3209fa2dfd324f78.webp"
 image_alt: "Best Organic Cotton White V-Neck T-Shirts for Sensitive Skin 2026"
 date: "2026-02-13"
 updated: "2026-06-04"

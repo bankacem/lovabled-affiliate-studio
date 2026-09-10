@@ -5,7 +5,7 @@ description: "Learn seven practical ways to style throw pillows using size, text
 category: "Home Decor"
 tags: ["throw pillows", "home styling", "interior decor"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEh4DFe1x0spRlCba8WFwfN_NDCN-NEpv3nuStWCUWS_Ehj2C3WFkyWpGaY1TkuoPcxj8YSSB87n8t2OZ8KRotpultPtJMnmLfVaxcVmFrsLwY4zgChGeBz39MoAbbRvTeapuZ-fsfDWTj2-V-bwjLcqMAh5Q5Dut6gWA14WSyXEoX1g8_yOS28QoI2c5qs"
+image: "/blog-images/db977a77a83314cd94c3.webp"
 image_alt: "Throw pillows arranged in a layered interior design"
 date: "2026-02-07"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Walk into any CrossFit box, tech startup, or creative studio, and 
 category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Anatomy%20of%20an%20Icon%3A%20Why%20the%20Stay%20Humble%20Hustle%20Hard%20Graphic%20Tee%20Dominates%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=464547775"
+image: "/blog-images/b4e755647ef52e93928f.webp"
 image_alt: "The Anatomy of an Icon: Why the \\\"Stay Humble Hustle Hard\\\" Graphic Tee Dominates Modern Streetwear"
 date: "2026-03-31"
 updated: "2026-07-22"

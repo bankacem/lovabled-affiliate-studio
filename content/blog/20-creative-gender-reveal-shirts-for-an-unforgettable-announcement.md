@@ -5,7 +5,7 @@ description: "Discover 20 gender reveal shirt ideas for parents, siblings, and g
 category: "Weddings & Bridal"
 tags: ["gender reveal shirts", "announcement shirts", "family shirts"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjd2yb2dJTi5NwhzObsNOs2UAOSmeS2LC1_lZrCBZFqIH8_7ri1plZLMtIqBXZh8tOvwSY3km18Ca5DhLQOs3tf0s4V912i5_Qc62lx53eKpzRg-NtQngG1YDNuNrZHrTfx8oltD9W6dFTKeaGe7hf3c4p9IopVMvIAOrz3z0LXsCtAUcCB8DYSChXKRmA"
+image: "/blog-images/e6681e2c7b28fce7bd22.webp"
 image_alt: "Gender Reveal Shirts: 20 Ideas for a Memorable Announcement"
 date: "2026-02-25"
 updated: "2026-06-19"

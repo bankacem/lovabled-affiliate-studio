@@ -5,7 +5,7 @@ description: "Planning a bachelorette party used to be as simple as ordering a f
 category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Bachelorette%20Party%20Outfit%20Ideas%3A%20Dressing%20for%20Every%20Vibe%20and%20Venue%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1065337219"
+image: "/blog-images/1e045fe1fc3b5d127f1e.webp"
 image_alt: "The Ultimate Guide to Bachelorette Party Outfit Ideas: Dressing for Every Vibe and Venue"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What's interesting is how the "uniform" has evolved. We aren't just seeing pink anymore. We’re seeing "Coastal Grandmother" in the Hamptons, "Space Cowboy" in Nashville, and "Old Money" in Charleston. The goal is to create a visual narrative that looks incredible in photos while making the bride feel like the absolute center of the universe.</p>
 
-    <img src="https://images.unsplash.com/photo-example-bachelorette-group" alt="A group of women in coordinated champagne-colored silk dresses laughing on a rooftop bar at sunset">
+    <img src="/placeholder.svg" alt="A group of women in coordinated champagne-colored silk dresses laughing on a rooftop bar at sunset">
   </section>
 
   <section id="classic-bride">
@@ -64,7 +64,7 @@ read_time: "5 min read"
 
     <p>Feathers are having a major moment right now. A satin slip dress with a feathered hemline adds a playful, vintage-Vegas vibe that is perfect for a bachelorette party. Just be wary of the "shedding" factor—cheaper feather trims can end up all over the dance floor by midnight.</p>
 
-    <img src="https://images.unsplash.com/photo-example-sequin-dress" alt="Close up of a white sequin dress and a bride holding a glass of sparkling wine">
+    <img src="/placeholder.svg" alt="Close up of a white sequin dress and a bride holding a glass of sparkling wine">
   </section>
 
   <section id="destination-vibes">

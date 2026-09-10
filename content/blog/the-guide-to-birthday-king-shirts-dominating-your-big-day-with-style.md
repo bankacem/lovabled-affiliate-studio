@@ -5,7 +5,7 @@ description: "Walking into a room wearing a shirt that literally labels you as \
 category: "Birthdays & Parties"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiDb4H6PZs3ifi1W_wCcxyidvGmnlnK1qAYgnUpNya0HkAKfd8VbDgSayI2xxrKxidj7NS6_RwKriaxEexpkFA3-Sdhqy5rI5RgxeeMePbKym8XDIca12ptgyaorDmeMuYxY9ZOWKDmXM-kwl_pgLwqRfLOy9BG-jemHq6qEZwfAPDnqmTrwKEkuKb02tY"
+image: "/blog-images/accf749ea4eb9adff51f.webp"
 image_alt: "The Guide to Birthday King Shirts: Dominating Your Big Day with Style"
 date: "2026-02-28"
 updated: "2026-06-19"

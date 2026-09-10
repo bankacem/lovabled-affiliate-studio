@@ -5,7 +5,7 @@ description: "In the world of modern parenting and social media, the \\\"Birthda
 category: "Birthdays & Parties"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEim-IepPFJUgci0Dmpp3QP07kQXM7a7HNg4uYVIvQXjnzdQQzfgSM33B_o483CF1xh1lrUhdwTXzc7WFO2zvtOAPwcfFrVeWVBtQRAXmTZRxC3qmF-RFh2OF8IyB76kdHxxbsdxtU6p4jDeBEVkGrK2vaxVunZbG1KvHsmXg9TqtTXVQVZbBc2KCqTJm-M"
+image: "/blog-images/cd09d3166bd566baeac9.webp"
 image_alt: "The Guide to Birthday Boy Shirts: Trends, Themes, and Styling Tips"
 date: "2026-03-28"
 updated: "2026-06-19"

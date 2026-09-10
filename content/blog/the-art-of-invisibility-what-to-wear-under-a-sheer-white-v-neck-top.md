@@ -5,7 +5,7 @@ description: "We have all been there. You find the perfect, airy, white linen V-
 category: "Phone Cases & Accessories"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiAEhM4QJ4w2cJC83pFkKB6j89tPFK6-RyhfgKF5SirkgbLmS0ytwWuXEe9JSa7cgHumxGrmj-5oIkhEUNHhjte6KH8u0fop0L9QEHD3ziYRAnE2Qk7EL1E3ce-jzzY4FcrGA5bimXtLlq9deONWiDDgoQpTE0YkSdMX7cMH8LxfDltmo5L3rR82Q8Dsms"
+image: "/blog-images/0fb5f149d89b7273f1cb.webp"
 image_alt: "What to Wear Under a Sheer White V-Neck Top: Best Layering Options"
 date: "2026-03-16"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Few garments have undergone a transformation as radical as the swe
 category: "Hoodies & Sweatshirts"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgCw1Dt952ZFdbunJ6DbITE05rA4YR0tBUUvsgDUOpFeFzjPqLDPDcYkrqFu8c8FCNZpx32tDa-EpEgicmgZAzDcKiQRc0_cFY4IWcA7wRKfyBfT7lV2wYfm0HrB3GGG-kkBsjfrjOLpbT9VFSO6ytfJ33tM0O4xvgySzZmZUvQgg6yt6UX3JyLDnj8DBM"
+image: "/blog-images/eea61e7702130be8bd4b.webp"
 image_alt: "The Ultimate Guide to Sweatshirts: From Athletic Roots to High-Fashion Staple"
 date: "2026-01-26"
 updated: "2026-05-08"

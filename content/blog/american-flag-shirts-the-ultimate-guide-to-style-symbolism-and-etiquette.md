@@ -5,7 +5,7 @@ description: "Learn how to choose and style an American flag shirt respectfully,
 category: "Style Guides"
 tags: ["American flag shirts", "patriotic clothing", "shirt care"]
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjGoLJHR90h2bJkrjzhwU8l0TnNgOUMvMJhsN8vgySdf3yokfuPFsztNcJApR8KqLr7o-A062MqnhN-akPI22Bg6ndre8d1bk_v0XpRbNtGRdW1GpOeCR7bXdEcxEjhfF7EGJqhwM4_YeVy2qfqpb-jUddi_E8yj0ZpUcNotC2XFJZeY6tZZT91C7dOq9o"
+image: "/blog-images/869c86f47e8e38a4a705.webp"
 image_alt: "American Flag Shirts: Respectful Styles, Fabrics, and Care"
 date: "2026-04-11"
 updated: "2026-05-19"

@@ -5,7 +5,7 @@ description: "Walk into any bar or parade on March 17th without a hint of emeral
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22St.%20Patrick%E2%80%99s%20Day%20Shirts%3A%20The%20Ultimate%20Guide%20to%20Avoiding%20the%20Pinch%20with%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1216580960"
+image: "/blog-images/63b7fa74949c75747a89.webp"
 image_alt: "St. Patrick’s Day Shirts: The Ultimate Guide to Avoiding the Pinch with Style"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What's interesting is that blue was originally the color associated with St. Patrick. However, following the Irish Rebellion of 1798, the clover and the color green became symbols of nationalism. Today, the St. Patrick's Day apparel market is a behemoth. According to the <strong>National Retail Federation (NRF)</strong>, consumers spent approximately $6.9 billion on St. Patrick’s Day in 2023, with 80% of celebrants planning to wear green to show their spirit.</p>
 
-    <img src="[IMAGE_]" alt="A group of friends wearing various shades of green St. Patrick's Day t-shirts at an outdoor festival">
+    <img src="/placeholder.svg" alt="A group of friends wearing various shades of green St. Patrick's Day t-shirts at an outdoor festival">
 
     <p>In my experience, the "perfect" shirt isn't just about the color; it's about the message. Whether you’re leaning into your Irish heritage or you’re just "Irish for the day," the shirt acts as a social uniform that lowers barriers and builds community. You aren't just wearing a garment; you're wearing a conversation starter.</p>
   </section>
@@ -76,7 +76,7 @@ read_time: "5 min read"
       <li><strong>Humorous Hyper-Niche:</strong> "I'm not Irish, but my cat is" or "Technically, St. Patrick was Italian." These subvert expectations and always get a laugh.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Flat lay of a vintage style green t-shirt with distressed Irish typography and a pint of stout">
+    <img src="/placeholder.svg" alt="Flat lay of a vintage style green t-shirt with distressed Irish typography and a pint of stout">
   </section>
 
   <section id="comparison" class="comparison-section">
@@ -156,7 +156,7 @@ read_time: "5 min read"
 
     <p><strong>Expert Tip:</strong> If you're between sizes, always size up for St. Patrick's Day. You'll likely be wearing a thermal undershirt if it's cold, and the extra room allows for better air circulation when you're doing the Jig.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a high-quality screen printed shamrock design on a soft cotton fabric texture">
+    <img src="/placeholder.svg" alt="Close up of a high-quality screen printed shamrock design on a soft cotton fabric texture">
   </section>
 
   <section class="faq" itemscope itemtype="https://schema.org/FAQPage">

@@ -5,7 +5,7 @@ description: "There is a specific kind of magic found in the thin, slightly crac
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Art%20of%20the%20Archive%3A%20A%20Masterclass%20in%20Styling%20Vintage%20T-Shirts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=40582920"
+image: "/blog-images/150fa8e0ba058beb3b0b.webp"
 image_alt: "The Art of the Archive: A Masterclass in Styling Vintage T-Shirts"
 date: "2026-04-22"
 updated: "2026-07-22"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>What's interesting is the material composition. You’ll often find the "50/50 blend" (polyester and cotton). This blend is the <a href="/blog/the-holy-grail-of-cotton-most-valuable-vintage-t-shirts-to-collect-in-2026" class="auto-link internal-link" title="The Holy Grail of Cotton: Most Valuable Vintage T-Shirts to Collect in 2026">holy grail</a> for many collectors because it thins out over decades, becoming incredibly soft and draping over the body in a way that 100% heavy cotton simply cannot. When styling these, you have to account for that drape. A thin, sheer vintage tee requires a different structural approach than a heavy-weight 90s streetwear piece.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a faded 1980s graphic tee showing cracked ink and thin fabric texture">
+    <img src="/placeholder.svg" alt="Close up of a faded 1980s graphic tee showing cracked ink and thin fabric texture">
 
     <p><strong>Pro Tip:</strong> When buying online, ignore the tag size. A medium from 1982 is often a modern small or even an extra-small. Always ask for pit-to-pit (P2P) and length measurements. [Internal Link: Guide to Vintage Sizing]</p>
   </section>
@@ -71,7 +71,7 @@ read_time: "5 min read"
 
     <p>What I’ve found is that a crisp, white button-down shirt worn *under* a <a href="/blog/p-the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails" class="auto-link internal-link" title="The Definitive Vintage T-Shirt Grading Guide: How to Value Your Grails">vintage t-shirt</a> is an underrated move. Let the collar and the cuffs show. This adds a preppy structure to a piece that might otherwise look too slouchy. Alternatively, try a mesh or sheer turtleneck underneath during transition seasons. It adds a stylistic "barrier" and makes the graphic on the shirt pop.</p>
 
-    <img src="[IMAGE_]" alt="A person wearing a vintage band tee layered over a white collared shirt with trousers">
+    <img src="/placeholder.svg" alt="A person wearing a vintage band tee layered over a white collared shirt with trousers">
   </section>
 
   <section id="comparison" class="comparison-section">

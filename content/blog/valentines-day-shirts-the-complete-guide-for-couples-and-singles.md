@@ -5,7 +5,7 @@ description: "Choose Valentine’s Day shirts for couples or singles with practi
 category: "T-Shirts"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgKZJazO4MAO0_1R4Tvby7yFmn53iCzJr7tTBaB2508Z2KvBLRpohuZ8XKoFCnsqNut2B8w6sUaXc_HfNfGzmmyZupsaImmry24MYW8O5QEiapVtosgf2oIPLUuEG-ohX67kMn2v74sD912iCNVgf4LFhJAFIm3OXJ5waX5nRidLsKkIWPQNsnwMDsUHGc"
+image: "/blog-images/1de6b6b3baba24cfb484.webp"
 image_alt: "Valentine's Day Shirts: The Complete Guide for Couples and Singles"
 date: "2026-02-23"
 updated: "2026-04-28"

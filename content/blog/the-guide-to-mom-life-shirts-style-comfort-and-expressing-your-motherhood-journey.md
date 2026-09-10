@@ -5,7 +5,7 @@ description: "In the last decade, the \\\"mom life\\\" aesthetic has moved from 
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj2EbHo6cQzuKlCAs9PdkzjVn4lswc6oBXX9FU7UJIy8h28rOdg3N5J5_sFEm1cLpoafmoVfv2MUeUdCdWHf5HbqxtyaVdhFEyEgCBkdJB4GLxlM6b14abKslkazLKMyRmQ6_CxjswXoy9CH8UPuGz4msW4Y7z3NMBUu4KbEg8bNNCTOjkk5SfiyZXKiGw"
+image: "/blog-images/ae62b48e129c280db51a.webp"
 image_alt: "The Guide to Mom Life Shirts: Style, Comfort, and Expressing Your Motherhood Journey"
 date: "2026-04-03"
 updated: "2026-06-19"

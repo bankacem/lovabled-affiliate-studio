@@ -5,7 +5,7 @@ description: "Halloween has traditionally been the season of scares, ghouls, and
 category: "T-Shirts"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjWbRMOrH7ZvbuTguvLT9OkgpyloXcE3ZPWeFl8nmDzNhYf5nAZ0p9RycUchjMECBMrDKwkZ2ufG9tgyJFABDCw25jpeOTb-t81DCm89v_xVj_w0V23bGfaKsndcZ0IRiBL9MSyT4vPFX6yQvjODQRsNMRojwzeSrtNN9dmnE3QZyObwgxfRHUe21gHjN8"
+image: "/blog-images/fb322a506662d6a3ad57.webp"
 image_alt: "The Guide to Funny Halloween Shirts: Why Humor is the New Spooky"
 date: "2026-04-11"
 updated: "2026-06-19"

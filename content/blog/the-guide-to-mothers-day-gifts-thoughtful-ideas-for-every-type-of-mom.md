@@ -5,7 +5,7 @@ description: "Mother's Day is more than just a date on the calendar; it is a glo
 category: "Gifts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhYcPUxJoJqpuYj3kAPNjzpMFY-kK_q5b_5plXsksb9XFYxLXuRL5Rk7mjnG794ggmSqrkMgFsFnT8LmWEDPn8oVfNsy4RNyhVF5r4zHiL79AjB_JuYeFeALHWHnq3QGH_5zVQIWus-N-5HXAI4b3awyVkwkIiDk_e4Nir2PoT7Fa6l45siptez7u-G0FU"
+image: "/blog-images/880af1705d6321f94230.webp"
 image_alt: "The Guide to Mother's Day Gifts: Thoughtful Ideas for Every Type of Mom"
 date: "2026-04-07"
 updated: "2026-05-31"

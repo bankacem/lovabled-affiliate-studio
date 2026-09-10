@@ -5,7 +5,7 @@ description: "Find thoughtful nurse appreciation shirt ideas with advice on word
 category: "Gifts"
 tags: ["nurse gifts", "nurse appreciation shirts", "healthcare gifts"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjVDAnCgTn2UHDMfm3RDUCeRetR50Z82EnYtlJLUdeLgyWC2nVK73WyTmRmVz-rnheK4erE4WtZc6gs63yTH7OYSml-MFSzK_QvHF56J35PDnfn0ETDeLGszQK_33lJigZ3WdjhkiPE4KIhlw91CfQPslBp_kYBXtkjNwXlqgw1p8BAfiMhZkPq4yffrWs"
+image: "/blog-images/3811b6ccb9341a4ea969.webp"
 image_alt: "Nurse appreciation shirt with a thoughtful heart design"
 date: "2026-01-21"
 updated: "2026-05-09"

@@ -5,7 +5,7 @@ description: "Walk into any dive bar in Brooklyn or a tech hub in Austin, and yo
 category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1553474432-4202a2d5f6b8?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxCZXN0JTIwSXJvbmljJTIwVC1TaGlydCUyMERlc2lnbnMlMjAyMDI2JTNBJTIwRnVubnklMjAlMjYlMjBTYXJjYXN0aWMlMjBTdHlsZXMlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjIyNHww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/378426171cf44ca48d21.webp"
 image_alt: "Best Ironic T-Shirt Designs 2026: Funny & Sarcastic Styles"
 date: "2026-07-24"
 updated: "2026-05-26"
@@ -46,7 +46,7 @@ read_time: "5 min read"
     <p>What's interesting is how irony serves as a "shibboleth"—a custom or tradition that distinguishes a particular group of people. When you wear an ironic shirt, you are effectively filtering your social interactions. You're saying, "If you get this joke, we’re on the same wavelength." According to a 2022 consumer behavior study, nearly 44% of Gen Z shoppers prioritize "humor and personality" when selecting apparel brands over traditional status symbols.</p>
 
     <div class="-img">
-      <img src="/api//800/400" alt="A person wearing a t-shirt with a Windows 95 logo but the text says 'Macintosh' in a comic sans font.">
+      <img src="/placeholder.svg" alt="A person wearing a t-shirt with a Windows 95 logo but the text says 'Macintosh' in a comic sans font.">
     </div>
 
     <p>In my experience, the shift toward irony is a direct reaction to the "Instagram-perfect" era of the mid-2010s. We spent years trying to look polished; now, the most authentic thing you can do is look like you don't care at all. It’s a concept known as <em>counter-signaling</em>. By wearing something objectively "ugly" or confusing, you demonstrate enough social capital that you don't need to dress conventionally to be respected.</p>
@@ -77,7 +77,7 @@ read_time: "5 min read"
     </ul>
 
     <div class="-img">
-      <img src="/api//800/400" alt="Close up of t-shirt fabric showing a low-resolution print of a mundane object like a toaster, highlighting the pixelation.">
+      <img src="/placeholder.svg" alt="Close up of t-shirt fabric showing a low-resolution print of a mundane object like a toaster, highlighting the pixelation.">
     </div>
   </section>
 

@@ -5,7 +5,7 @@ description: "Plan coordinated birthday squad shirts with ideas for wording, col
 category: "Birthdays & Parties"
 tags: ["birthday squad shirts", "group shirts", "birthday party ideas"]
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhfYSqikZ8JYPa45jbiH1aAz_VZNQDfAP4nCqjn6FKk_qiOxmHfIOQqsUoLp_vFrBGO3_Ff0ErLVo4pEQbfIjxxkLl7VFOgq6xcPyAr1NtSm31k_H4uulFtYezalaoSFVRdLPDELGS_xGMKNlnuoSW_OmgeFF7wnm7nT15LuYHRlbMRdGXJSTRUIUZVcd0"
+image: "/blog-images/5799ae2d79fb2ecb21fd.webp"
 image_alt: "Coordinated birthday squad shirt design ideas"
 date: "2026-03-14"
 updated: "2026-04-28"

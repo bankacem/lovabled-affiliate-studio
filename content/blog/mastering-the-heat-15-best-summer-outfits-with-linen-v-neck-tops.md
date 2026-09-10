@@ -5,7 +5,7 @@ description: "When the mercury hits 90 degrees and the humidity feels like a wet
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEg8q9YZalZI1qtcNSfjqjSiB0W1EGXHkF8Q6Ct1xSDsZNXxQylKRyDULBR2hZTmfwjTjROSBJdX96vgnRcPvc1cBH0qCFZ87R1UxPuE_S-LLCxjNM8jHYRUKWbn4Qi991XR3x6aLAzUm8GJMVkEs1xgbh9Vqewc-ngsKkr7xJa_C7_NiTVGQqGubticeUI"
+image: "/blog-images/53a8c8d75946d787efdb.webp"
 image_alt: "Mastering the Heat: 15 Best Summer Outfits with Linen V-Neck Tops"
 date: "2026-03-16"
 updated: "2026-04-28"

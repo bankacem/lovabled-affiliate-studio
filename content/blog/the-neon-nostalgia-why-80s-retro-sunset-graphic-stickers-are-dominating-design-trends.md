@@ -5,7 +5,7 @@ description: "Walk into any specialty coffee shop or look at the back of a devel
 category: "Stickers"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjfJ1fwsWIDPlMMxQXZaZ2sPOyvHxZeefR6Oadu0BvW34eTq-M7QcuI3gTKengyWs32VQQ8SrCyt2aw6UNM7Q4KnFurKBncaXjp8EnPmAMjCHVapGFvaPtM5pW_q0JyxEluHpPE8FlsuOcbMCq_jMFJzd_uIbXhibJjd2AL7oSxrmKmnDq5wXKa9CuaIBM"
+image: "/blog-images/3ee66e5b23cb000a9453.webp"
 image_alt: "80s Retro Sunset Stickers 2026: Best Neon Graphic Designs to Buy"
 date: "2026-03-16"
 updated: "2026-06-09"

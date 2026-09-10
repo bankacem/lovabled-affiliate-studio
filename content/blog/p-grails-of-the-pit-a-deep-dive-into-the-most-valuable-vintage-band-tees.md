@@ -5,7 +5,7 @@ description: "Walking through a flea market a decade ago, you might have snagged
 category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1586583903558-bf4ae02b9f29?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxNb3N0JTIwVmFsdWFibGUlMjBWaW50YWdlJTIwQmFuZCUyMFQtU2hpcnRzJTNBJTIwUHJpY2VzJTIwJTI2JTIwV2hhdCUyMHRvJTIwTG9vayUyMEZvciUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjEwfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/8d0d19a2cd79112851d1.webp"
 image_alt: "Most Valuable Vintage Band T-Shirts: Prices & What to Look For"
 date: "2026-07-24"
 updated: "2026-06-07"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>What’s fascinating is the psychological shift in what we value. Collectors aren't looking for pristine, "deadstock" items anymore. They want the "thrashed" look—the dry rot, the holes, the cracked ink, and the "paper-thin" feel that only comes from thirty years of wear and wash cycles. This "patina" tells a story that a modern reprint simply cannot replicate.</p>
 
-    <img src="[IMAGE_]" alt="A rack of faded vintage band t-shirts showing various rock and metal graphics from the 1980s and 1990s">
+    <img src="/placeholder.svg" alt="A rack of faded vintage band t-shirts showing various rock and metal graphics from the 1980s and 1990s">
   </section>
 
   <section id="what-makes-value">
@@ -63,7 +63,7 @@ read_time: "5 min read"
     <h3>3. Graphic Complexity</h3>
     <p>All-over prints (AOP) are the undisputed kings of the market. These are shirts where the graphic covers the entire front, back, and sometimes the sleeves. Brands like <em>Liquid Blue</em> mastered this in the 90s, and their Grateful Dead and Iron Maiden prints are now legendary. The more ink on the shirt, the higher the price tag.</p>
 
-    <img src="[IMAGE_]" alt="Close-up of a single-stitch hem and a vintage Giant brand tag on a black t-shirt">
+    <img src="/placeholder.svg" alt="Close-up of a single-stitch hem and a vintage Giant brand tag on a black t-shirt">
   </section>
 
   <section id="heavy-hitters">
@@ -140,7 +140,7 @@ read_time: "5 min read"
 
     <p>Another red flag? The smell. Authentic vintage has a specific "old" scent—a mix of dust and aged cotton. If a shirt looks 30 years old but smells like fresh factory chemicals, walk away.</p>
 
-    <img src="[IMAGE_]" alt="Difference between a real vintage screen print crackle and a modern fake distressing">
+    <img src="/placeholder.svg" alt="Difference between a real vintage screen print crackle and a modern fake distressing">
   </section>
 
   <section id="preservation">

@@ -5,7 +5,7 @@ description: "Explore how AI-generated portraits can become personalized apparel
 category: "Gifts"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEibVez3FTNMPkhuvmFqiaO0V3PVFQAZ1E6koXhR4u0MTaU9R1dRIDZhn9Ljaf9RPXI5hWWzT9V3JgpRwlqQDg_rSNzC1iQoKqs50KTBj6Dwliz1g8c3PILqjiwDxd9gjRlJQUas2i5pDwpyO-CWoyjNPeqTXqDtBVaxMt8GcVNn_h-ibz225KjDSNEgwUg"
+image: "/blog-images/5aaac6908cef777780a7.webp"
 image_alt: "Beyond the Basic Tee: Why AI-Generated Portraits Are the New Gold Standard in Personalized Gifting"
 date: "2026-03-16"
 updated: "2026-06-14"

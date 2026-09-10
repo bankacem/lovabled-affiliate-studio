@@ -5,7 +5,7 @@ description: "Celebrate a 2001 birthday with Y2K-inspired shirt ideas, including
 category: "Birthdays & Parties"
 tags: ["2001 birthday shirts", "Y2K birthday", "milestone shirts"]
 author: "Content Team"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Vintage%202001%20Birthday%20Shirts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1509474886"
+image: "/blog-images/125a3c2c5960793adeca.webp"
 image_alt: "Born in 2001 Birthday Shirts: Y2K-Inspired Design Ideas"
 date: "2026-02-01"
 updated: "2026-07-22"

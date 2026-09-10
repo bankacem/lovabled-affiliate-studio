@@ -5,7 +5,7 @@ description: "Walking into a gymnasium during a Friday night rivalry game, the f
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1761258772640-db5be45f7208?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBVbHRpbWF0ZSUyMFBsYXlib29rJTIwZm9yJTIwQ3VzdG9tJTIwU2Nob29sJTIwU3Bpcml0JTIwU2hpcnRzJTNBJTIwUXVhbGl0eSUyQyUyMENvbWZvcnQlMkMlMjBhbmQlMjBDb21tdW5pdHklMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI1Nnww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/4c852e1fe7035e52eaa5.webp"
 image_alt: "The Ultimate Playbook for Custom School Spirit Shirts: Quality, Comfort, and Community"
 date: "2026-07-24"
 updated: "2026-06-06"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>What's interesting is how this sense of belonging translates to the community at large. Parents, alumni, and local business owners wear these shirts as a badge of honor. In my experience working with athletic directors, the most successful programs are those that treat their spirit wear like a lifestyle brand rather than a mandatory uniform. When a shirt is soft enough to sleep in but stylish enough to wear to the grocery store, you’ve hit the sweet spot of branding.</p>
 
-    <img src="[IMAGE__1]" alt="Group of diverse high school students wearing matching navy blue spirit shirts at a pep rally">
+    <img src="/placeholder.svg" alt="Group of diverse high school students wearing matching navy blue spirit shirts at a pep rally">
 
     <p>Statistics from the National Association of Secondary School Principals (NASSP) indicate that 75% of students feel more connected to their school when they participate in "spirit days." This isn't just about fluff; it's about building a culture where students feel seen and valued. A well-designed shirt is the simplest tool in a school's culture-building arsenal.</p>
   </section>
@@ -60,7 +60,7 @@ read_time: "5 min read"
     <h3>2. Tri-Blends: The <a href="/blog/the-ultimate-guide-to-custom-photo-shirts-why-personalized-apparel-is-the-gold-standard-for-gifting" class="auto-link internal-link" title="The Ultimate Guide to Custom Photo Shirts: Why Personalized Apparel is the Gold Standard for Gifting">Gold Standard</a></h3>
     <p>A tri-blend usually consists of 50% polyester, 25% cotton, and 25% rayon. This combination offers the durability of polyester, the comfort of cotton, and the luxurious drape of rayon. In the world of custom school spirit shirts, tri-blends are often the highest-selling items because they mimic the "vintage" feel that is currently dominating the market.</p>
 
-    <img src="[IMAGE__2]" alt="Close-up comparison of screen printing on 100% cotton vs. a tri-blend fabric showing texture differences">
+    <img src="/placeholder.svg" alt="Close-up comparison of screen printing on 100% cotton vs. a tri-blend fabric showing texture differences">
   </section>
 
   <section id="comparison" class="comparison-section">
@@ -130,7 +130,7 @@ read_time: "5 min read"
 
     <p>What I've found is that "pre-order" models are significantly more effective than "inventory" models. By using an online pop-up shop, you eliminate the risk of being left with 50 size Small <a href="/blog/p-line-crossing-laughs-the-science-and-psychology-of-offensive-shirts-that-are-actually-funny" class="auto-link internal-link" title="Line-Crossing Laughs: The Science and Psychology of Offensive Shirts That Are Actually Funny">shirts that</a> nobody wants. You collect the money upfront, order exactly what you need, and keep the profit. It's cleaner, faster, and much better for your bottom line.</p>
 
-    <img src="[IMAGE__3]" alt="Infographic showing the breakdown of a school spirit wear fundraiser profit margin">
+    <img src="/placeholder.svg" alt="Infographic showing the breakdown of a school spirit wear fundraiser profit margin">
 
     <h3>Tips for Higher Margins:</h3>
     <ol>

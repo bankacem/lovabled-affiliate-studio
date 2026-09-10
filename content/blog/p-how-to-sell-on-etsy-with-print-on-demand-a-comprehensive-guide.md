@@ -5,7 +5,7 @@ description: "Build an Etsy print-on-demand workflow by choosing products, prepa
 category: "Ecommerce & Marketing"
 tags: ["Etsy print on demand", "Etsy seller guide", "online apparel business"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22How%20to%20Sell%20on%20Etsy%20with%20Print%20on%20Demand%3A%20A%20Comprehensive%20Guide%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1856206601"
+image: "/blog-images/4b30ea8f9e526de9b486.webp"
 image_alt: "Etsy print-on-demand workflow from design to listing"
 date: "2026-06-13"
 updated: "2026-07-22"

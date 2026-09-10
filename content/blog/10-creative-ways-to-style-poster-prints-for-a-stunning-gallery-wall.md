@@ -5,7 +5,7 @@ description: "Learn how to combine poster prints into a cohesive gallery wall us
 category: "Home Decor"
 tags: ["poster prints", "gallery wall", "home decor"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjytot4DcCCkVsf6iIYLf8EocCEcX3Dqntyqxw0ek1qjjEWpDa2FS2QylcdNe1pFCOIZ2aMDBfYV--5IvrGz91siBVbCmvUOcJxBbpd23bSr6vDmzO77RDQnAw_VSy2aCkncWad7ikOKKfBas0_mrpxJqwtSMxSYIERk0c7tiudx-Jk-4n23iIApuwbUw4"
+image: "/blog-images/c88efc24a83a38e381d0.webp"
 image_alt: "10 Poster Print Styling Ideas for a Cohesive Gallery Wall"
 date: "2026-02-09"
 updated: "2026-06-19"

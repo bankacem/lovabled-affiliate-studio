@@ -5,7 +5,7 @@ description: "Walking into a room wearing a printed shirt is a definitive power 
 category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1566915189815-b72e74007040?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxXaGF0JTIwdG8lMjBXZWFyJTIwV2l0aCUyMGElMjBHcmFwaGljJTIwVC1TaGlydCUzQSUyME91dGZpdCUyMElkZWFzJTIwZm9yJTIwTWVuJTIwJTI2JTIwV29tZW4lMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjIzMXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/d3108d539c7b321d9676.webp"
 image_alt: "What to Wear With a Graphic T-Shirt: Outfit Ideas for Men & Women"
 date: "2026-07-24"
 updated: "2026-06-19"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>Statistically, the global men's apparel market has seen a 14% rise in "expressive menswear" sales over the last three years, according to retail data analysts. This suggests a shift away from the monotonous "uniform" of navy and grey. However, the nuance lies in color theory. If your shirt has a navy base with orange flowers, pulling that navy color into your trousers creates a cohesive, intentional look rather than a chaotic one.</p>
 
-    <img src="https://images.unsplash.com/photo--mens-printed-shirt-styling" alt="A man wearing a navy floral printed shirt with khaki chinos and clean white sneakers in an outdoor setting.">
+    <img src="/placeholder.svg" alt="A man wearing a navy floral printed shirt with khaki chinos and clean white sneakers in an outdoor setting.">
 
     <p>You might be wondering if you can mix prints. While advanced style icons do it, it's a high-wire act. If you're just starting out, stick to one pattern at a time. What I’ve found in years of styling is that confidence comes from fit first, then pattern. A poorly fitted printed shirt looks like a costume; a perfectly tailored one looks like a curated choice.</p>
   </section>
@@ -74,7 +74,7 @@ read_time: "5 min read"
       <li><strong>The Blazer Combo:</strong> When wearing a blazer, ensure the collar of the printed shirt stays tucked inside the lapels unless you’re intentionally going for a vintage 70s aesthetic.</li>
     </ul>
 
-    <img src="https://images.unsplash.com/photo--printed-shirt-under-blazer" alt="Close up of a man wearing a grey wool blazer with a small geometric print shirt peaking through.">
+    <img src="/placeholder.svg" alt="Close up of a man wearing a grey wool blazer with a small geometric print shirt peaking through.">
   </section>
 
   <section id="comparison" class="comparison-section">

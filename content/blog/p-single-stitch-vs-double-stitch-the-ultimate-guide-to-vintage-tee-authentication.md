@@ -5,7 +5,7 @@ description: "Walking through a thrift store or browsing curated vintage shops o
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1614904301802-53243f11a17c?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxTaW5nbGUlMjBTdGl0Y2glMjB2cyUyMERvdWJsZSUyMFN0aXRjaCUzQSUyMFRoZSUyMFVsdGltYXRlJTIwR3VpZGUlMjB0byUyMFZpbnRhZ2UlMjBUZWUlMjBBdXRoZW50aWNhdGlvbiUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjQ1fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/dbbf9cb8e89a61956a1d.webp"
 image_alt: "Single Stitch vs Double Stitch: The Ultimate Guide to Vintage Tee Authentication"
 date: "2026-07-24"
 updated: "2026-06-03"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>Historically, T-shirt construction was a simpler affair. Before the mid-1990s, the machinery used to finish hems—the bottom of the shirt and the ends of the sleeves—typically utilized a single needle. This produced a visible line of thread on the outside and a "blind stitch" or overlock pattern on the inside. As global manufacturing scaled and consumer demand for "rugged" clothing grew, brands shifted toward the double-needle coverstitch. This change wasn't just a stylistic choice; it was an industrial evolution.</p>
 
-    <img src="[IMAGE_]" alt="Close-up comparison of a single stitch hem versus a double stitch hem on a cotton T-shirt">
+    <img src="/placeholder.svg" alt="Close-up comparison of a single stitch hem versus a double stitch hem on a cotton T-shirt">
   </section>
 
   <section id="what-is-single-stitch">
@@ -144,7 +144,7 @@ read_time: "5 min read"
       <li><strong>International Manufacturing:</strong> Some smaller factories in Southeast Asia continued using single-needle machines well into the 2000s for local markets.</li>
     </ol>
 
-    <img src="[IMAGE_]" alt="Internal view of a blind stitch hem showing the interlocking overlock pattern found on vintage shirts">
+    <img src="/placeholder.svg" alt="Internal view of a blind stitch hem showing the interlocking overlock pattern found on vintage shirts">
   </section>
 
   <section id="collectors-perspective">

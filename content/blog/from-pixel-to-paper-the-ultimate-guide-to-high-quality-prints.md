@@ -5,7 +5,7 @@ description: "Prepare digital artwork for high-quality prints by checking resolu
 category: "Printing Guides"
 tags: ["print quality", "artwork preparation", "printing guide"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjLPHzls4wDBX77QF9pBIJKxM-7F_81LU2OSIfbAnOvjWfpAwWAPxhBP9CZ1f3S5fv9kqyjKNMEZ3FbcWvde5FARFmTye2tuIbnk5MdqqM1ECJqPqEzpBaBnt3iR4KBNw8albbrbj6hBaTHnSMfrkXSfz3-5OTSgVf_GjhwrNY-EQZzzcjph1iNDYkmaQI"
+image: "/blog-images/48271230f5c41c994da7.webp"
 image_alt: "Digital artwork being prepared for a high-quality print"
 date: "2026-01-17"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Gone are the days when a wedding invitation automatically implied 
 category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Modern%20Groom%E2%80%99s%20Guide%20to%20Casual%20Groomsmen%20Shirts%3A%20Ditching%20the%20Tux%20Without%20Losing%20the%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=716359726"
+image: "/blog-images/8bfc9e5ac28fa4d80108.webp"
 image_alt: "The Modern Groom’s Guide to Casual Groomsmen Shirts: Ditching the Tux Without Losing the Style"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>What's interesting is that "casual" is often harder to pull off than formal. When everyone is in a black suit, mistakes are hidden. In a casual setting, the quality of the fabric, the crispness of the collar, and the way the shirt drapes over the shoulders are all under the microscope. You want your groomsmen to look like a cohesive unit, not a group of guys who just wandered in from a backyard BBQ.</p>
 
-    <img src="[IMAGE_]" alt="A group of groomsmen wearing coordinated light blue linen shirts with sleeves rolled up at a beach wedding">
+    <img src="/placeholder.svg" alt="A group of groomsmen wearing coordinated light blue linen shirts with sleeves rolled up at a beach wedding">
 
     <p>Choosing the right casual shirt involves balancing the venue's vibe with the groom's personal style. Whether it’s a destination beach wedding in Tulum or a rustic barn celebration in the Cotswolds, the shirt sets the tone for the entire <a href="/blog/p-squad-goals-the-ultimate-guide-to-designing-and-buying-wedding-party-t-shirts" class="auto-link internal-link" title="Squad Goals: The Ultimate Guide to Designing and Buying Wedding Party T-Shirts">wedding party</a>'s aesthetic.</p>
   </section>
@@ -60,7 +60,7 @@ read_time: "5 min read"
     <h3>The Oxford (OCBD)</h3>
     <p>The Oxford Cloth Button Down is a staple for a reason. Its heavier weave makes it durable and less transparent than poplin. It’s perfect for fall weddings where there’s a slight chill in the air. From an SEO perspective, "casual <a href="/blog/the-ultimate-guide-to-choosing-the-perfect-groomsmen-shirts" class="auto-link internal-link" title="The Ultimate Guide to Choosing the Perfect Groomsmen Shirts">groomsmen shirts</a>" often point toward the Oxford because it bridges the gap between workwear and formalwear so seamlessly.</p>
 
-    <img src="[IMAGE_]" alt="Close up of different shirt fabric textures including linen, oxford cloth, and chambray">
+    <img src="/placeholder.svg" alt="Close up of different shirt fabric textures including linen, oxford cloth, and chambray">
   </section>
 
   <section id="style-profiles">

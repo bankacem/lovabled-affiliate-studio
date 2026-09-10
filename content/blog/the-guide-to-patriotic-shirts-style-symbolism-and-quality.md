@@ -5,7 +5,7 @@ description: "In the world of fashion, few items carry as much weight, history, 
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEg9Q4vCFfRfhXK6kn6LRKJ_u3TfstJQM-GrGAAmsLFOaWis4rgroe7CFprOo-NSdadr1deHwhdDh54gdbcEhJmGwasq-yPT60rUibjBGhEOjMpUPRjwUXm3JJUpxNBTfR3H-62kx0R7wJeFQfH2iu54xGJ3x5z3ylUrAyj4hrnuP9qB2LGNLj0YNPR_pIY"
+image: "/blog-images/da92b656837ef76f62a8.webp"
 image_alt: "The Guide to Patriotic Shirts: Style, Symbolism, and Quality"
 date: "2026-04-13"
 updated: "2026-05-11"

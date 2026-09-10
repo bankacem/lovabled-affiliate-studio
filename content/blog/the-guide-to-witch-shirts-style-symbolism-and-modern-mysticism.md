@@ -5,7 +5,7 @@ description: "In recent years, the \\\"Witchcore\\\" aesthetic has transcended n
 category: "Style Guides"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjOQU_jLUtd1krwyWuZkctiCnVBUO00pOc4A6UZCgBpgnO4edPr2tpSGrJgbvgFhafacqURNSTU4o8KvkrUQIN_3M9HBAIJrJp4Dbn1pc9OQMFzUAMpUkqKwSyA-w3o74VMiSImttIZcPolO8pFWKyornCjZCJYty7Jz5t79sYM1aIP6PDKmlRd-qvwMEw"
+image: "/blog-images/72b8625fcc0147fb5e5a.webp"
 image_alt: "The Guide to Witch Shirts: Style, Symbolism, and Modern Mysticism"
 date: "2026-04-07"
 updated: "2026-04-28"

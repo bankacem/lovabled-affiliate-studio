@@ -5,7 +5,7 @@ description: "We’ve all been there: you order a \\\"Large\\\" from a new brand
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Definitive%20Guide%20to%20Measuring%20T-Shirt%20Size%3A%20Stop%20Guessing%20and%20Start%20Fitting%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=620124447"
+image: "/blog-images/cc9ad843ea9bbc2a30ca.webp"
 image_alt: "The Definitive Guide to Measuring T-Shirt Size: Stop Guessing and Start Fitting"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is that this discrepancy isn't just a mistake; it’s often a result of "vanity sizing" or specific brand "blocks" (the baseline patterns used for manufacturing). If you want to stop the endless cycle of returns and the disappointment of a poorly fitting collar, you have to master the art of the tape measure. It sounds tedious, but once you have your numbers, you become a much more powerful consumer.</p>
 
-    <img src="[IMAGE_]" alt="A person measuring a t-shirt laid flat on a wooden table with a yellow measuring tape.">
+    <img src="/placeholder.svg" alt="A person measuring a t-shirt laid flat on a wooden table with a yellow measuring tape.">
   </section>
 
   <section id="tools">
@@ -76,7 +76,7 @@ read_time: "5 min read"
     <h3>3. Torso Length</h3>
     <p>Start the tape at the highest point of your shoulder (where the neck seam would be) and let it drop straight down to where you want the shirt to end. For a standard fit, this is usually mid-fly on your jeans. If you're tall, this "HPS" (High Point Shoulder) measurement is the difference between a shirt that stays tucked and one that turns into a crop top the moment you reach for something on a high shelf.</p>
 
-    <img src="[IMAGE_]" alt="Diagram showing exactly where to place the measuring tape for chest, shoulder, and length measurements.">
+    <img src="/placeholder.svg" alt="Diagram showing exactly where to place the measuring tape for chest, shoulder, and length measurements.">
   </section>
 
   <section id="garment-method">

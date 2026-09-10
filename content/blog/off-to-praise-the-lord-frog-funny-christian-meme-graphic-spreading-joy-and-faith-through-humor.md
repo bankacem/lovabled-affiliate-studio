@@ -5,7 +5,7 @@ description: "Are you looking for a way to share your Christian faith with other
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
-image: "https://ih1.redbubble.net/image.6056190360.4043/ssrco,oversized_sweatshirt,mens_01,111112:1f01311efe,front,square_close_portrait,x1000.jpg"
+image: "/blog-images/3df2129d573e667c4084.webp"
 image_alt: "Off To Praise The Lord Frog - Funny Christian Meme Graphic: Spreading Joy and Faith through Humor"
 date: "2026-01-22"
 updated: "2026-04-28"

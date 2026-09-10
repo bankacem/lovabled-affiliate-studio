@@ -5,7 +5,7 @@ description: "Father's Day is more than just a date on the calendar; it is a $20
 category: "Gifts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhfOelqzooD3JjWPMenenliDaWAn2OEqqhKNi5zkhQUtHiH67sQC53U1QG2YZZ2fc1lSLSxYQcHHNOHYFiwPB5Io4bEWIGX1n7SBBcOyd0UQhi5LFmCPakxI0Mx_pMIOTtpia-P1jBrb9tNyyjX0LL1bzbCgq05z_QvmKn-g7x6-drZ8lgO4eYj_ykMIGU"
+image: "/blog-images/3fc0b3f12784786d588e.webp"
 image_alt: "The Guide to Father's Day Gifts: Finding the Perfect Present for Every Type of Dad"
 date: "2026-03-28"
 updated: "2026-06-19"

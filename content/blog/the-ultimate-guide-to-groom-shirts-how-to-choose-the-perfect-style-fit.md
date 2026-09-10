@@ -5,7 +5,7 @@ description: "\"The Ultimate Guide to Groom Shirts: How to Choose the Perfect St
 category: "Weddings & Bridal"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjla4Uq0VeHHrXvBWsLMVNPty0e5xGBNj6cDDvT3ZrdlTwhAMqpYwI17vvV1OxwL8yzUPAvFs4kgE0oWmx9B_zvQ-vlIEGuufcMIpQpK_uxtk4ofw4XGD6413J2IEy9n0mI2AJBLm_AcjDTq_pgzM5hfdBGerNQvq42Wzf8AwzZ-79RIuY6nWz2T0aAHts"
+image: "/blog-images/feada75915236842656d.webp"
 image_alt: "The Ultimate Guide to Groom Shirts: How to Choose the Perfect Style & Fit"
 date: "2026-03-07"
 updated: "2026-04-28"

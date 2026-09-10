@@ -5,7 +5,7 @@ description: "Turning 50 is often referred to as the \\\"Golden Jubilee\\\" of o
 category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjiBzcAMDADU2R6g3pZJixXQVeuMgUc4l-fooLvluYvwfZQUz6tE2c-CssYESEMkBZlVwSrN0g01Cks2OXLHOLCY43dcEvSI-Cb-_lgiwNyDuPNlC4elCczfCMs8Zf2epFETV_cLC3tevqXH0w1_R-S84yCm1cgZJLRhPeql0wSr1x0XCHyYRfzeOybWjQ"
+image: "/blog-images/fbc9c5755ceff20afb0c.webp"
 image_alt: "The Guide to 50th Birthday Shirts: Trends, Themes, and Customization Ideas"
 date: "2026-03-16"
 updated: "2026-06-19"

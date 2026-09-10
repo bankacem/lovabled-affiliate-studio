@@ -5,7 +5,7 @@ description: "Learn how to shop for vintage t-shirts online by checking authenti
 category: "T-Shirts"
 tags: ["vintage t-shirts", "vintage shopping", "shirt collecting"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Scouring%20the%20Web%3A%20Where%20to%20Buy%20Vintage%20T-Shirts%20Online%20Without%20Getting%20Scammed%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=466134901"
+image: "/blog-images/c7c8e3b4ef1980f9883e.webp"
 image_alt: "Vintage t-shirt shopping guide for online buyers"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is how the definition of "vintage" has shifted. In professional circles, an item must be at least 20 years old to earn the title. This means we are now firmly in the era where early 2000s "Y2K" era tees are as sought after as 70s rock shirts were a decade ago. But with high demand comes a flood of high-quality fakes. You’ve likely seen them on social media—perfectly aged "vintage" shirts that are actually produced in a factory last Tuesday.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a stack of colorful vintage 90s graphic t-shirts showing various neck tags">
+    <img src="/placeholder.svg" alt="Close up of a stack of colorful vintage 90s graphic t-shirts showing various neck tags">
 
     <p>In my experience, the biggest hurdle for new collectors isn't finding shirts; it's finding <em>authentic</em> shirts. The internet has democratized access, but it has also created a "Wild West" environment where a blurry photo can hide a multitude of sins.</p>
   </section>
@@ -71,7 +71,7 @@ read_time: "5 min read"
     <h3>3. Depop: The Y2K Goldmine</h3>
     <p>If you are looking for 90s and 2000s aesthetics, Depop is unrivaled. It functions like Instagram; you follow shops and scroll through a visual feed. It’s an younger demographic, which means you’ll find plenty of "baby tees" and pop-culture relics from the Britney Spears era. However, be wary of the "vintage-inspired" tag—many sellers use it to describe modern fast-fashion items.</p>
 
-    <img src="[IMAGE_]" alt="Mobile phone screen showing the interface of a vintage shopping app with various t-shirt listings">
+    <img src="/placeholder.svg" alt="Mobile phone screen showing the interface of a vintage shopping app with various t-shirt listings">
 
     <h3>4. Etsy: The Hidden Gem for 70s and 80s</h3>
     <p>Etsy isn't just for handmade jewelry. It is a massive hub for serious vintage dealers who treat their shops like high-end boutiques. You’ll find incredible 1970s raglan tees and 80s collegiate wear here. The sellers on Etsy typically provide the most detailed measurements, which is crucial since vintage sizing is notoriously erratic.</p>

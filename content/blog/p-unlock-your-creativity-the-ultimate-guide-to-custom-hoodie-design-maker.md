@@ -5,7 +5,7 @@ description: "Design custom hoodies with practical guidance on artwork size, typ
 category: "Design & AI Tools"
 tags: ["custom hoodies", "hoodie design", "apparel design"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Unlock%20Your%20Creativity%3A%20The%20Ultimate%20Guide%20to%20Custom%20Hoodie%20Design%20Maker%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=419885173"
+image: "/blog-images/e5566fd893a2ca902159.webp"
 image_alt: "Custom hoodie artwork prepared for printing"
 date: "2026-06-16"
 updated: "2026-07-22"

@@ -5,7 +5,7 @@ description: "Are you a teacher looking for a fun and creative way to build char
 category: "T-Shirts"
 tags: []
 author: "Admin"
-image: "https://ih1.redbubble.net/image.6056186920.3933/ssrco,oversized_sweatshirt,mens_01,273242:8ba09ca44c,front,square_close_portrait,x1000.jpg"
+image: "/blog-images/c6d6248cc5a5ec408f23.webp"
 image_alt: "Silly Teachers Build Character - Funny Goose Teacher SEL Aesthetic Shirt: The Ultimate Guide to Spreading Positivity in the Classroom"
 date: "2026-01-24"
 updated: "2026-06-09"

@@ -5,7 +5,7 @@ description: "There is a reason why fashion icons from Audrey Hepburn to Victori
 category: "Home Decor"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiSvA5StizMSneRUuIz6yrR1nthrSVFnKJXIREbcH31-0OoolSrTj2gADSGM6Pjh4Nm1VRq5Jf2FYeXRLSJF7Z7W24oBqRmHH7qX4ScJ2KxkvzeslKOJp6m7BYzaamQAmL1Ncv6usv1BupUEyALs3CKLGFfSD3nbWE0d7XSkcm2AXBSt0CfFtgdaHD4Yos"
+image: "/blog-images/e6ae5eece1caa5af8a56.webp"
 image_alt: "Mastering the Canvas: How to Accessorize a Plain Black V-Neck for Any Occasion"
 date: "2026-03-16"
 updated: "2026-04-28"

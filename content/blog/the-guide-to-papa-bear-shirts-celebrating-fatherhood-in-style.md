@@ -5,7 +5,7 @@ description: "In the world of contemporary fashion, few items have captured the 
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiLZaQQr3QtnGZEAvukPlT8LlnWw5scpye5vKLq-C9zl0JnK4SwFiL7N0f2QI50raymaihgXfSWVfU7BUiyXEib_6JktV0Y-TR4kEXIkloH2caFIQ954pNDVRppxqyQ-U2kTOUMBALsDmSX30_M0crQT4R9SAVan7-yhGRjeyR0t_eLaKlsevn8x4DgHBs"
+image: "/blog-images/d9feba6d5378780a15c2.webp"
 image_alt: "The Guide to Papa Bear Shirts: Celebrating Fatherhood in Style"
 date: "2026-03-10"
 updated: "2026-04-28"

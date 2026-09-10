@@ -5,7 +5,7 @@ description: "The holiday season is no longer just about the tree and the dinner
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgAP3bg1oQDMEZqrnMUNCwXAiq3L8d4nb6cdPpEROLWb56kIKRxRseqAu3bhRxuhyWEq86xNVkUnjMxpjjnzm8B9r2T6s1W1ujBcX5mjYrQquZLm01VXRRHzxMSdl4sdE9rIU4DiwfukR6IGj1JXyuTgukwoq2PxVUUxD8p8GkBd2gfExU5KPhCIiSZmqw"
+image: "/blog-images/41743f2bcf6bff1eef9a.webp"
 image_alt: "The Guide to Christmas Vacation Shirts: Trends, Styling, and Group Planning"
 date: "2026-04-19"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Walk into any thrift store in Seattle or Brooklyn today, and youâ€
 category: "Vintage & Retro"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEierKCOhXEu25NKpf_7052-E5egmHad_tx0275hQpI_wpQuAzGJ3Tz1VamBRkAferVRW0GqJQD4WjccaILRUWRI6ugjghhhn5GNDFZ_dTA4sDMan8MIGWkR0XTbsgVaz37Fdg-wjNv25_-iScEvJQmfHpZj_dAcEiwevifiwdRHXuovs82ncSVsPukWVJs"
+image: "/blog-images/33afbd18932b01367931.webp"
 image_alt: "The Definitive Guide to Sourcing Authentic Vintage Band Tees for the Ultimate Grunge Aesthetic"
 date: "2026-02-21"
 updated: "2026-05-20"

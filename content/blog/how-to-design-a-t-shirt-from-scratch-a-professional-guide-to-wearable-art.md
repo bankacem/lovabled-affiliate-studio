@@ -5,7 +5,7 @@ description: "Follow a practical t-shirt design process from concept and audienc
 category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22How%20to%20Design%20a%20T-Shirt%20From%20Scratch%3A%20A%20Professional%20Guide%20to%20Wearable%20Art%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=375412996"
+image: "/blog-images/4ace19ca3f6191a3f4fc.webp"
 image_alt: "How to Design a T-Shirt From Scratch: A Professional Guide to Wearable Art"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>Before you even open a software program, you have to consider the "hand" of the print—that's industry speak for how the ink feels on the fabric. A massive, solid block of ink (a "sweat shield") is uncomfortable to wear. <a href="/blog/the-resurgence-of-americana-why-vintage-college-style-font-stickers-are-dominating-modern-design" class="auto-link internal-link" title="The Resurgence of Americana: Why Vintage College Style Font Stickers are Dominating Modern Design">Modern design</a> is as much about the negative space—the color of the shirt itself—as it is about the ink you lay down.</p>
 
-    <img src="[IMAGE_]" alt="A professional designer sketching t-shirt concepts on a tablet with fabric swatches nearby">
+    <img src="/placeholder.svg" alt="A professional designer sketching t-shirt concepts on a tablet with fabric swatches nearby">
   </section>
 
   <section id="concept">
@@ -84,7 +84,7 @@ read_time: "5 min read"
     <h3>Step 3: Refining and Inking</h3>
     <p>Once your sketch is solid, create your final lines. If you're doing screen printing, keep your color count low. Every new color requires a new screen, which increases production costs. For Direct-to-Garment (DTG) printing, you have more freedom with gradients and unlimited colors.</p>
 
-    <img src="[IMAGE_]" alt="Infographic showing the difference between Vector and Raster graphics for t-shirt printing">
+    <img src="/placeholder.svg" alt="Infographic showing the difference between Vector and Raster graphics for t-shirt printing">
   </section>
 
   <section id="comparison">

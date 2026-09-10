@@ -5,7 +5,7 @@ description: "There was a time, not so long ago, when finding a 1994 Pink Floyd 
 category: "Vintage & Retro"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj0rZMX1WN0cmnJGXSIDDbnbq09oSIPdwuWsALmkBN_KSaNi3rV0dE1ETjFvTeK7QIFivLmhUqnHVvFT934MQqKo86TzoLwENJ09n3aziNfCp13u5jPtcoLbytQ4gMpqSiuqYso98oLjzrTyn2jCfVWUslRBn2CRucgU69tLuyOxv6wMOrb2oODZlYu5yk"
+image: "/blog-images/ad2f503b315e30c873af.webp"
 image_alt: "The Hunt for History: Where to Find Authentic Vintage Graphic Tees Online"
 date: "2026-02-21"
 updated: "2026-06-19"

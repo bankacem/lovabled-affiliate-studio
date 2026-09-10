@@ -5,7 +5,7 @@ description: "We’ve all seen them: those bold shirts declaring that \\\"Queens
 category: "Birthdays & Parties"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgbLIzEACr7drc4zAC2N3_7alylgcml_QBk2FilWpEIkSImopeIfC7kRMtOnWZpGkqKqNq8nWNrgeyfAfo3rxfk-SVYmniCkqgrhczDGZLJGK9X8fTpzUVVx62xKAABjMXvwL_9uxs_4CazvSjc9WJ8RQzSLhAe5C7tCuZdp3flZdaOG2PN-L9LoYrbfZs"
+image: "/blog-images/def81e3d8f66ac9767e0.webp"
 image_alt: "The Guide to Birthday Month Shirts: Why Personalized Apparel is Taking Over the Celebration Industry"
 date: "2026-02-24"
 updated: "2026-05-20"

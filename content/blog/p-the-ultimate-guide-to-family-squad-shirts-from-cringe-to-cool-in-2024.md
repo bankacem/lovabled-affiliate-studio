@@ -5,7 +5,7 @@ description: "Create family squad shirts that feel coordinated rather than force
 category: "T-Shirts"
 tags: ["family squad shirts", "family group shirts", "matching shirts"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Family%20Squad%20Shirts%3A%20From%20Cringe%20to%20Cool%20in%202024%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1001403117"
+image: "/blog-images/e6ef34421ee668ca6cb4.webp"
 image_alt: "Family squad shirt designs with coordinated colors and lettering"
 date: "2026-07-10"
 updated: "2026-07-22"
@@ -43,7 +43,7 @@ read_time: "5 min read"
 
     <p>From a practical standpoint, it's about safety. According to security experts, having a "uniform" makes it significantly easier to spot a wandering toddler or a grandparent who took a wrong turn at a crowded intersection. In my years of observing family dynamics at scale, the families who lean into the "squad shirt" culture often report a higher sense of collective excitement. It marks the transition from "daily life" to "vacation mode."</p>
 
-    <img src="[IMAGE_]" alt="Large multi-generational family wearing matching teal squad shirts at a reunion park setting">
+    <img src="/placeholder.svg" alt="Large multi-generational family wearing matching teal squad shirts at a reunion park setting">
 
     <p>What's interesting is how the terminology has shifted. We've moved away from the stiff "Family Reunion 1998" vibe into the "Squad" and "Crew" era. This shift reflects a desire for the clothing to feel more like streetwear and less like a mandatory work uniform. You want your teenagers to actually wear the shirt without rolling their eyes so hard they see their brains, right?</p>
   </section>
@@ -122,7 +122,7 @@ read_time: "5 min read"
 
     <p><strong>Pro Tip:</strong> Always order two "blank" shirts in common sizes (one Large, one XL). Someone will inevitably spill coffee on themselves before the group photo, or a cousin will show up who forgot to RSVP. Having a backup makes you the hero of the trip.</p>
 
-    <img src="[IMAGE_]" alt="Infographic showing a timeline for ordering family shirts: Design 6 weeks out, Order 4 weeks out, Distribute 1 week out">
+    <img src="/placeholder.svg" alt="Infographic showing a timeline for ordering family shirts: Design 6 weeks out, Order 4 weeks out, Distribute 1 week out">
   </section>
 
   <section id="sustainability">

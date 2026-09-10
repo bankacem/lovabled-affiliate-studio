@@ -5,7 +5,7 @@ description: "For decades, February 14th has been synonymous with red roses, hea
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEijhvQTUmUVO0RUBlyGnc_R8qPDwRDiVCimyVrMrAOBXSDlR965I7ZVarp7S0SdpgVNFE-xxDF8VtJMCynqEUGsPhIM6B92GoRjeay8iuFblmRgD2q3Ns5gI2XqZxszBu1-3bSujgvWshSBBKUutjcSFxO_lVSZzwh52KTLwgXshx7qo5Uplatu4umaL9I"
+image: "/blog-images/54ca4475c91c37e92875.webp"
 image_alt: "The Guide to Anti-Valentine Shirts: Why Being Single or Cynical is the New Trend"
 date: "2026-03-26"
 updated: "2026-06-19"

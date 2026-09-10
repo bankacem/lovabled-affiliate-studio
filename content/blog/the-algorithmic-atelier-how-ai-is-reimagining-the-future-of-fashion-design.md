@@ -5,7 +5,7 @@ description: "Fashion has always been a mirror of the tools we use to create it.
 category: "Design & AI Tools"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjYph8qQiVijOMwZ2lop_v-U1DpT6BKMqXRk-mNu_9jDOVJbSPWiXThSxBjU2JXnoulHY6nWLlbaUekOkczqPBpmcMvLf3TTcPZTvni9Yw776WVVfspsCvJdjaijrNAVjNcvBaM4iYJ1wuCOKPqrwZGypzGCOmIUIJ17NXyIknQkVpsJO62y4GRgAZM-W0"
+image: "/blog-images/67cd222fa583019c6e76.webp"
 image_alt: "AI in Fashion Design 2026: How Artificial Intelligence is Changing Clothing"
 date: "2026-03-15"
 updated: "2026-05-01"

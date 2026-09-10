@@ -5,7 +5,7 @@ description: "Thanksgiving is a time for gratitude, family, and, of course, an a
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj7VLrvqiUVLRZjMCbGVNxdK5XliyssaMqkIo53I7gNLknV62pZZNhVVr-ylylJL1muZcikYQXsB15MfAPEUZzPHpcam4BxbJIoEjvqABxFTbwM4rNCR7rOTj1U98VpUvGQHinFP4Qo9cSO2x6sUUlmaSKvwaJvb250W-dt0IkmOZLVgSLMl6CP_5AHIX4"
+image: "/blog-images/d3fc65fe663bc2bc9484.webp"
 image_alt: "The Guide to Thanksgiving Shirts: Trends, Styling Tips, and Custom Ideas"
 date: "2026-03-20"
 updated: "2026-06-19"

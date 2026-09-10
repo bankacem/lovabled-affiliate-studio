@@ -5,7 +5,7 @@ description: "Style is often a game of inches. While a crew neck is the safe, ut
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20V-Neck%20Depth%20Guide%3A%20How%20Low%20Is%20Too%20Low%20for%20Professional%20and%20Casual%20Style%3F%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1186819840"
+image: "/blog-images/884e36a6adf38212bfa6.webp"
 image_alt: "The V-Neck Depth Guide: How Low Is Too Low for Professional and Casual Style?"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>Historically, the V-neck was designed as an undershirt. The goal was to hide the collar of the undershirt when the top button of a dress shirt was undone. Fast forward to today, and it has evolved into a standalone staple. However, the rise of "fast fashion" has led to a wild variance in what manufacturers consider a standard depth. You might buy three medium shirts from three different brands and end up with three entirely different levels of sternum exposure.</p>
 
-    <img src="/api//800/450" alt="Illustration showing different V-neck depths from shallow to deep on a male torso">
+    <img src="/placeholder.svg" alt="Illustration showing different V-neck depths from shallow to deep on a male torso">
   </section>
 
   <section id="golden-rule">
@@ -128,7 +128,7 @@ read_time: "5 min read"
       <li><strong>Summer Holidays:</strong> Linen V-necks often run deeper because the fabric is meant to drape. A 3.5-inch drop is acceptable here, as the context is leisure.</li>
     </ul>
 
-    <img src="/api//800/400" alt="Comparison of a man in a professional blazer with a shallow V-neck vs a casual setting with a slightly deeper V-neck">
+    <img src="/placeholder.svg" alt="Comparison of a man in a professional blazer with a shallow V-neck vs a casual setting with a slightly deeper V-neck">
   </section>
 
   <section id="layering">

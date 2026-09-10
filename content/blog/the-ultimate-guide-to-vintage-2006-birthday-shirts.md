@@ -5,7 +5,7 @@ description: "Discover the best vintage 2006 birthday shirts for celebrating you
 category: "Birthdays & Parties"
 tags: []
 author: "Content Team"
-image: "https://images.unsplash.com/photo-1586583903558-bf4ae02b9f29?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBVbHRpbWF0ZSUyMEd1aWRlJTIwdG8lMjBWaW50YWdlJTIwMjAwNiUyMEJpcnRoZGF5JTIwU2hpcnRzJTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyNjZ8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/a4e3e61084bac386bad0.webp"
 image_alt: "The Ultimate Guide to Vintage 2006 Birthday Shirts"
 date: "2026-02-01"
 updated: "2026-06-17"

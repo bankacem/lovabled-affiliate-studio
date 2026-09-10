@@ -5,7 +5,7 @@ description: "There is a specific, almost scientific frequency to a good dad jok
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Art%20of%20the%20Groan%3A%20Why%20Dad%20Joke%20Shirts%20are%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1318574869"
+image: "/blog-images/90dc83d546af97527493.webp"
 image_alt: "The Art of the Groan: Why Dad Joke Shirts are Dominating Modern Streetwear"
 date: "2026-07-16"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is the "ironic cool" factor. In a world of high-fashion logos and hyper-serious branding, wearing a shirt that says <em>"I'm exhausted"</em> next to a picture of a car exhaust pipe serves as a social disarmer. It tells the world you don't take yourself too seriously. In my experience, these shirts act as the ultimate icebreaker. You can’t stand in line at a coffee shop wearing a "Hi Hungry, I'm Dad" shirt without someone acknowledging the audacity of your fashion choice.</p>
 
-    <img src="[IMAGE_]" alt="A father laughing while wearing a 'Dad Joke Loading' graphic t-shirt in a backyard setting">
+    <img src="/placeholder.svg" alt="A father laughing while wearing a 'Dad Joke Loading' graphic t-shirt in a backyard setting">
 
     <p>From a sociological perspective, the "Dad Joke" represents a safe form of rebellion. It’s wholesome yet subversive. While fast fashion brands like <a href="#internal-link-h-m-analysis">H&M and Zara</a> occasionally dip their toes into humor, the real heart of this trend lies in independent print-on-demand creators who understand the nuance of a well-timed pun.</p>
   </section>
@@ -126,7 +126,7 @@ read_time: "5 min read"
       <li><strong>The New Dad:</strong> "New to the Crew" or "Poop! There it is." These are sentimental but keep that necessary edge.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="A collection of folded graphic tees with various punny slogans like 'I'm reading a book on anti-gravity, it's impossible to put down'">
+    <img src="/placeholder.svg" alt="A collection of folded graphic tees with various punny slogans like 'I'm reading a book on anti-gravity, it's impossible to put down'">
   </section>
 
   <section id="styling">

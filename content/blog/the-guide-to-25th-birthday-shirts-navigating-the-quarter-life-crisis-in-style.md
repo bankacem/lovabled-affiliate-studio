@@ -5,7 +5,7 @@ description: "Plan a 25th birthday shirt with practical ideas for wording, humor
 category: "Birthdays & Parties"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiiRwfTQeYv_O-cTxJbqaspz6XZ4RvwwNhyqqOOdFKmNNO25Dw8VNbOHGhU7Fwq2LEkG8xWxiJUKy725BLoqBjc0YUe992A2nz6VKk845FYKmpRn2dkjDDO8-Kq70f_7nYU7-WK_K15ZFazLfzov9Q1cF8vzPljpqCKBAQZHXAJu9xVvHvRJNIVMTTmeYQ"
+image: "/blog-images/fe50d6abcb81da2eb7dc.webp"
 image_alt: "The Guide to 25th Birthday Shirts: Navigating the \\\"Quarter-Life Crisis\\\" in Style"
 date: "2026-03-06"
 updated: "2026-06-19"

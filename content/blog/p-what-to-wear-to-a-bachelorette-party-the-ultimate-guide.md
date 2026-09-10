@@ -5,7 +5,7 @@ description: "Getting ready for a bachelorette party can be both exciting and ov
 category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
-image: "https://aiprintverse.com/images/default-blog.jpg"
+image: "/blog-images/2b918d16e27f4a9ba794.webp"
 image_alt: "What to Wear to a Bachelorette Party: The Ultimate Guide"
 date: "2026-06-17"
 updated: "2026-06-17"

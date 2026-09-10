@@ -5,7 +5,7 @@ description: "\"🐕 German Shepherd Shirts 2026: 60+ Premium Designs for GSD Lo
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgl4Ivli_v96iY3n8r8oa0NVsuWCiC9uHv25QPToamHQCc8OGq1rSLxKTuB0d7WdZk91D5kCPmSqr2nIzar9WBZ3pUPV4Z599IQP8nMY4Ra0YTypFt4y10S1EI-qZo7_5Zfh96QiUKlncDiiwxN0Z4O48bjzuZbLZsq0hsMJJrQuF7ZSqFhbZ6oUx9pjPs"
+image: "/blog-images/9be7f5adcca2766a3fde.webp"
 image_alt: "🐕 German Shepherd Shirts 2026: 60+ Premium Designs for GSD Lovers"
 date: "2026-02-13"
 updated: "2026-06-19"

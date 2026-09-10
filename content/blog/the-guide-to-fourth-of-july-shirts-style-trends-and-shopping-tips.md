@@ -5,7 +5,7 @@ description: "The Fourth of July, or Independence Day, is more than just a feder
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiY0tqzEzTPKBSZSwffvLe87FvFhaBVwUxtzQvj_SwWAgl2RX1-jQT6shnlgLiCYa1KWTirHd5Adk-IkC9G5R8WAA7SQ0iemj6ruKzSXJ7PKYpGfY-emphMihQUAqRqGapgiRwO-_ZdnT6vH5S0cD4inrcQArO5nC03jsK4_MfPsmP7Txuqu-HxQqkO7YM"
+image: "/blog-images/9b8f7a3d03dd454653e9.webp"
 image_alt: "The Guide to Fourth of July Shirts: Style, Trends, and Shopping Tips"
 date: "2026-04-15"
 updated: "2026-06-19"

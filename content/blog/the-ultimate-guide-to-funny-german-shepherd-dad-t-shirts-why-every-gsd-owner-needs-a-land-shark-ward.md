@@ -5,7 +5,7 @@ description: "Explore funny German Shepherd dad shirt ideas and practical design
 category: "T-Shirts"
 tags: ["German Shepherd shirts", "dog dad gifts", "funny dog shirts"]
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1G0JKTVl6EAxR8vdcTUssc-L5RUgttfuDGeQI8srDu5DjX-9wANErJk-DHTRAnQK474FFxUaOC8Ynbhp1ZzoPPQlTYpQh1_yD5CGB3ONt6bPkEnj_nwEB12VeBYAwvlTP5XoH1aqETbycmWuQi1Iy9LQk4SrsYfjIkc2tOPjL74msjDrL_kBR7BUBYFs/s842/1000025552.jpg"
+image: "/blog-images/952d3f8b8450a2ef8e09.webp"
 image_alt: "Funny German Shepherd dad shirt design idea"
 date: "2026-03-06"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "For a long time, the deep V-neck suffered from a bit of an identit
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Deep%20V-Neck%20Revolution%3A%20A%20Masterclass%20in%20Men%E2%80%99s%20Modern%20Style%20and%20Layering%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=563324124"
+image: "/blog-images/71f15034b9203861f66f.webp"
 image_alt: "The Deep V-Neck Revolution: A Masterclass in Men’s Modern Style and Layering"
 date: "2026-03-25"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What changed? The focus shifted from "showing skin" to "functional elegance." Today, the deep V-neck serves two primary purposes: a sleek, minimalist standalone piece for the fit-conscious man, and the ultimate invisible undershirt. Statistics from the fashion retail industry show a 15% year-over-year increase in "low-profile" men's innerwear, proving that men are becoming more tactical about their layering.</p>
 
-    <img src="/api//800/450" alt="Evolution of men's necklines showing the transition from standard crew neck to deep V-neck styles">
+    <img src="/placeholder.svg" alt="Evolution of men's necklines showing the transition from standard crew neck to deep V-neck styles">
   </section>
 
   <section id="anatomy">
@@ -79,7 +79,7 @@ read_time: "5 min read"
       <li><strong>The Layered Look:</strong> Wear a deep V under an unbuttoned flannel shirt or a lightweight bomber jacket. It provides more visual interest than a standard tee.</li>
     </ul>
 
-    <img src="/api//800/500" alt="Man wearing a charcoal deep V-neck shirt with a leather jacket and denim">
+    <img src="/placeholder.svg" alt="Man wearing a charcoal deep V-neck shirt with a leather jacket and denim">
   </section>
 
   <section id="comparison" class="comparison-section">

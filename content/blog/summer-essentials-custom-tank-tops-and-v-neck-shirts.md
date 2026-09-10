@@ -5,7 +5,7 @@ description: "Stay cool with custom tank tops and v-neck shirts. Perfect for gym
 category: "T-Shirts"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj77ZkmrZhwM_nPnoYa2LmVVC8543c9UHfRphIDB_oanO0brOSk2KhD0K1YeSBkTQdBw-AtlJr_ZqtvlI5jS82sPc1q3n4rO5C_Vmp1m6A4gXnnuJB2gHCY9uT-KCwglHKdGE6YWe5EVFioq7n5nS4GxUfwBZBwGCbBqJ85zqt9HD423iJbVudmZjgxECY"
+image: "/blog-images/6c0cdd8ff5d1afc892f6.webp"
 image_alt: "Summer Essentials: Custom Tank Tops and V-Neck Shirts"
 date: "2026-03-03"
 updated: "2026-06-19"

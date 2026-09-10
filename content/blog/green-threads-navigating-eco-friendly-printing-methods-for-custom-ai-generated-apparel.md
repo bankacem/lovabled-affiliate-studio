@@ -5,7 +5,7 @@ description: "Learn how to make AI-generated apparel more sustainable by compari
 category: "Design & AI Tools"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEg9__ldnOtCTJjBhISdZd6DlKdDXe_5Rm2rDDZh2LskTBiI6_TxcdPWBS3QIbgvrMkS10kY9girrCN1-IedeN9MFHQiFXlhynJ2EwLVS0k9ESK3ibjxEoi5QudZIYBcB1eQQWGhwDYg88ZOaiuqcI00GnnnUmb24apb_7nTpBmtlfQQJGx6PYdNE0-vmws"
+image: "/blog-images/773e318daa360c7dfb3c.webp"
 image_alt: "Green Threads: Navigating Eco-Friendly Printing Methods for Custom AI-Generated Apparel"
 date: "2026-03-16"
 updated: "2026-04-28"

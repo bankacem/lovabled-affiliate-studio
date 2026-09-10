@@ -5,7 +5,7 @@ description: "Walk into any high-end boutique in SoHo or Silver Lake today, and 
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Definitive%20Guide%20to%20Vintage%2090s%20T-Shirt%20Brands%3A%20From%20Thrift%20Store%20Grails%20to%20Investment%20Assets%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=895236197"
+image: "/blog-images/6ecdc872f95cab1f8611.webp"
 image_alt: "The Definitive Guide to Vintage 90s T-Shirt Brands: From Thrift Store Grails to Investment Assets"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is that the 90s occupied a sweet spot where screen printing technology became advanced enough to handle complex, oversized graphics (the "all-over print"), yet the base garments were still built to last. According to industry resale data from platforms like Gem and eBay, the <a href="/blog/p-the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails" class="auto-link internal-link" title="The Definitive Vintage T-Shirt Grading Guide: How to Value Your Grails">vintage t-shirt</a> market has seen a 450% increase in search volume over the last five years. We aren't just buying old clothes; we’re buying "wearable real estate."</p>
 
-    <img src="[IMAGE_]" alt="A collection of faded 90s vintage t-shirts hanging on a rack showing various brand tags like Giant and Brockum">
+    <img src="/placeholder.svg" alt="A collection of faded 90s vintage t-shirts hanging on a rack showing various brand tags like Giant and Brockum">
 
     <p>In my experience, the appeal lies in the <strong>hand-feel</strong>. A 30-year-old cotton shirt has undergone thousands of microscopic structural changes. The fibers have relaxed, the neck ribbing has softened, and the ink has integrated into the fabric rather than sitting on top of it. You simply cannot replicate this with modern "distressed" replicas.</p>
   </section>
@@ -126,7 +126,7 @@ read_time: "5 min read"
 
     <p>Here's the thing: 90s streetwear was characterized by the "oversized" movement. In the late 90s, brands shifted away from the standard blanks and started "cut and sew" operations. This meant the fits became much larger. A 1998 <strong>Ecko Unltd</strong> or <strong>Tommy Hilfiger</strong> shirt in size Large will often fit like a modern XXL. This "big fit" is currently the most sought-after silhouette in the vintage community.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a 1990s Stüssy tag with the signature script logo">
+    <img src="/placeholder.svg" alt="Close up of a 1990s Stüssy tag with the signature script logo">
 
     <p>You might be wondering: <em>"Why do people care about a Tommy Hilfiger t-shirt?"</em> It’s about the cultural crossover. In the 90s, Hilfiger was adopted by the hip-hop community (famously by Grand Puba and Aaliyah), turning a "preppy" sailing brand into an urban staple. That friction—between the brand's intended audience and its actual users—is what gives 90s vintage its soul.</p>
   </section>

@@ -5,7 +5,7 @@ description: "Learn the full t-shirt design process, from concept and audience r
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEh5kitF3eCMKNXefAXG0HAQ9ZcXOL0SBLTAc4XDHw5wGySwIsFEiTyBYFL4_B-RoKZJ294cDycaIgbYoKFh2_iz2S0fm_7b0Uia92FRKRZh4k0evcqa1TLGP0wImixaMfl3P0mmv1vSDlzbl1FAaf1o-ic6wPoZUE--LYcJ0-TvmuQUhpyoXf25sUCpbpY"
+image: "/blog-images/20e9b64985cff4da73cf.webp"
 image_alt: "The Ultimate Guide to T-Shirt Design: From Concept to Print"
 date: "2026-03-05"
 updated: "2026-06-19"

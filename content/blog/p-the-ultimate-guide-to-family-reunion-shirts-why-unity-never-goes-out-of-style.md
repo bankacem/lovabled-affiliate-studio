@@ -5,7 +5,7 @@ description: "Plan family reunion shirts with practical advice on themes, wordin
 category: "Birthdays & Parties"
 tags: ["family reunion shirts", "group shirts", "family event ideas"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Family%20Reunion%20Shirts%3A%20Why%20Unity%20Never%20Goes%20Out%20of%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1605030741"
+image: "/blog-images/aa6564704b5520abd08c.webp"
 image_alt: "Coordinated family reunion shirt design ideas"
 date: "2026-07-04"
 updated: "2026-07-22"
@@ -44,7 +44,7 @@ read_time: "5 min read"
 
     <p>When you put on that shirt, you’re adopting a temporary uniform that says, "I belong here." In sociology, this is known as <i>in-group signaling</i>. For children, it provides a sense of security in large crowds. For the elders, it’s a point of pride. From a practical standpoint, if you’re hosting a reunion at a theme park like Disney World or a crowded beach in Destin, these shirts are a tactical necessity. Spotting a wandering toddler or a stray uncle becomes exponentially easier when they are wearing a bright, identifiable design.</p>
 
-    <img src="[IMAGE_]" alt="Large multi-generational family wearing matching blue shirts laughing during a backyard barbecue">
+    <img src="/placeholder.svg" alt="Large multi-generational family wearing matching blue shirts laughing during a backyard barbecue">
 
     <p>What's interesting is how these garments evolve into heirlooms. A shirt from the 1998 Miller Family Reunion isn't just old cotton; it’s a time capsule. It represents the last time Great-Grandpa Joe was at the head of the table. In my years of consulting on group apparel, I’ve found that the most successful reunions are those where the shirt design tells a story rather than just listing names.</p>
   </section>
@@ -70,7 +70,7 @@ read_time: "5 min read"
       <li><strong>Heat Transfer/Vinyl:</strong> Best for "DIY" projects or adding individual names to the back of shirts. It’s durable but can feel like a "plastic plate" on your chest if the design is too large.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Close up of a screen printing press with yellow ink being applied to a navy t-shirt">
+    <img src="/placeholder.svg" alt="Close up of a screen printing press with yellow ink being applied to a navy t-shirt">
   </section>
 
   <section id="comparison" class="comparison-section">

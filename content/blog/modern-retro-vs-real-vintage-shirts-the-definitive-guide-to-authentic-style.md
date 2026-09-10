@@ -5,7 +5,7 @@ description: "Walk into any high-street retailer today, and you'll likely see ra
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhkr1-tNnSGgZY-4ftJD0GbkkY5yWKp1qvuoH2rzkNKlRV4bGI8HdQ4JaBGR01qZ-QGt8oR0E9Lq6NPM_9QrpHiaP_s5mjibPQ73I5gWc6tFU0phrS2yCOVdqtAiwpolp4kQ8WnURYoyLoEflJzOUWUYG2B8TJQRWKaVCSBX85eNdphdVjSQ-jijlTxPcM"
+image: "/blog-images/8dc03b6d8db28f61c9e1.webp"
 image_alt: "Modern Retro vs. Real Vintage Shirts: The Definitive Guide to Authentic Style"
 date: "2026-02-21"
 updated: "2026-04-28"

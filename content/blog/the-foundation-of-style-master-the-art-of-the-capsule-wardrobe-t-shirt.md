@@ -5,7 +5,7 @@ description: "Walk into the average bedroom, and you’ll likely find a dresser 
 category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Foundation%20of%20Style%3A%20Master%20the%20Art%20of%20the%20Capsule%20Wardrobe%20T-Shirt%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=331302502"
+image: "/blog-images/c4dd486b91fc02612c9c.webp"
 image_alt: "The Foundation of Style: Master the Art of the Capsule Wardrobe T-Shirt"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What's interesting is how we've been conditioned to view t-shirts as "basic" or "replaceable." In my experience, the t-shirt is the most difficult piece to get right. If your blazer is the architectural frame, the t-shirt is the foundation. If the foundation is cracked—pilling, transparent, or misshapen—the entire aesthetic crumbles. A true capsule wardrobe t-shirt must withstand 50+ washes <a href="/blog/p-the-ultimate-guide-to-custom-apparel-how-to-print-on-t-shirts-at-home-without-losing-your-mind" class="auto-link internal-link" title="The Ultimate Guide to Custom Apparel: How to Print on T-Shirts at Home Without Losing Your Mind">without losing</a> its structural integrity.</p>
 
-    <img src="[IMAGE_]" alt="A stack of neatly folded high-quality organic cotton t-shirts in neutral tones on a wooden shelf">
+    <img src="/placeholder.svg" alt="A stack of neatly folded high-quality organic cotton t-shirts in neutral tones on a wooden shelf">
   </section>
 
   <section id="fabric-science">
@@ -72,7 +72,7 @@ read_time: "5 min read"
     <h3>The V-Neck</h3>
     <p>V-necks are polarizing. While they are excellent for elongating the neck and acting as an invisible undershirt, they've fallen out of fashion favor recently. If you choose a V-neck, ensure the "V" isn't too deep; it should terminate no lower than the top of your armpits.</p>
 
-    <img src="[IMAGE_]" alt="Comparison of crew neck versus V-neck t-shirt styles on a mannequin">
+    <img src="/placeholder.svg" alt="Comparison of crew neck versus V-neck t-shirt styles on a mannequin">
   </section>
 
   <section id="color-theory">

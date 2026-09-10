@@ -5,7 +5,7 @@ description: "Walk into any high-end boutique or scroll through a curated Instag
 category: "Mugs & Drinkware"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjajg3B5QzbVhMtTkTxjC-aMssWNZrEbPC67oWJS8DBrCfgonVAnzCFQ02CPSOwnKDmiUjT2Sbr5ccJW2t7CXDkq36Q3VKjzZnRJVffz8qclOICQdLByxSyLUTPEeMOXQmVP_THZZm4Rdhmpmz2g1Aqq42ZZksRha4XoKBM4GeCXAY3ZDtzyRoDtvyg0As"
+image: "/blog-images/f6dd449e98d576bb6496.webp"
 image_alt: "Classic Rock Coffee Mugs 2026: 13 Best Mugs for Music Lovers"
 date: "2026-03-16"
 updated: "2026-06-19"

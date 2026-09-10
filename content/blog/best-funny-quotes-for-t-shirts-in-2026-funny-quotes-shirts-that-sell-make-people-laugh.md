@@ -5,7 +5,7 @@ description: "Find original funny t-shirt quote ideas, from coffee and pet humor
 category: "T-Shirts"
 tags: ["funny t-shirts", "shirt quotes", "t-shirt design ideas"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgGD6H027_OQ3VhuqEQ5tQ2xallZiXoNQ--X4oZxXHk6BTEjLtFOsHdyeJBEkUbjg6tBOQktXx6_YpRmm9endKSaCrIyz9l4P14ke5jQlT8b9nS7edVMLnhH48agKzTYry2dsxNdlagypZ5KKIhEvo-2zW1dyZ9LeIKpxUfuTLOncliKKiUziw8LSmjLSI"
+image: "/blog-images/d2489bd7a5908dfeec89.webp"
 image_alt: "Funny T-Shirt Quotes: Original Ideas That Make Great Designs"
 date: "2026-02-09"
 updated: "2026-05-02"

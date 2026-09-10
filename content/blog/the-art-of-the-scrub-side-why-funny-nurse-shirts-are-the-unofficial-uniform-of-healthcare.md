@@ -5,7 +5,7 @@ description: "Nursing isn't just a profession; it’s an endurance sport played 
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Funny%20Nurse%20Shirts%202026%3A%20Best%20Scrub-Style%20Tees%20for%20Healthcare%20Workers%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=2019245885"
+image: "/blog-images/d35da9a426647eb0802e.webp"
 image_alt: "Funny Nurse Shirts 2026: Best Scrub-Style Tees for Healthcare Workers"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>Research published in the <em>Journal of Clinical Nursing</em> suggests that humor among medical staff reduces burnout and improves team cohesion. A shirt that reads "Safety First: Drink with a Nurse" or "I Can't Fix Stupid, But I Can Sedate It" acts as a silent handshake between peers. It signals that you’re part of the "in-group" that understands the specific chaos of the bedside. What's interesting is how these shirts act as social icebreakers, humanizing the clinician in the eyes of nervous patients—provided the humor is appropriate for the setting.</p>
 
-    <img src="https://example.com/images/nurse-laughing-with-colleague.jpg" alt="Two nurses in a hospital breakroom laughing while wearing decorative graphic t-shirts under their lab coats.">
+    <img src="/placeholder.svg" alt="Two nurses in a hospital breakroom laughing while wearing decorative graphic t-shirts under their lab coats.">
   </section>
 
   <section id="trends">
@@ -129,7 +129,7 @@ read_time: "5 min read"
 
     <p>When buying for a seasoned veteran, go for the dark humor. They’ve seen it all, and their sense of humor has likely evolved to a level of "salty" that only a specific shirt can capture. Statistics from retail surveys show that 65% of nurses prefer receiving <a href="/blog/p-beyond-the-gold-watch-a-master-guide-to-unique-retirement-gifts-that-actually-matter" class="auto-link internal-link" title="Beyond the Gold Watch: A Master Guide to Unique Retirement Gifts That Actually Matter">gifts that</a> acknowledge their specific department rather than "general" nursing gifts.</p>
 
-    <img src="https://example.com/images/nurse-gift-box.jpg" alt="A flat-lay image of a gift box including a funny nurse t-shirt, a custom stethoscope tag, and a high-quality water bottle.">
+    <img src="/placeholder.svg" alt="A flat-lay image of a gift box including a funny nurse t-shirt, a custom stethoscope tag, and a high-quality water bottle.">
   </section>
 
   <section id="workplace-etiquette">

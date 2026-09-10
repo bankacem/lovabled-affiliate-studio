@@ -5,7 +5,7 @@ description: "Finding the perfect \\\"gift for mom\\\" isn't just about browsing
 category: "Gifts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiWn2-pbJ5a97bzdUc7N-QDZssJ41ZtAilHttWiMeUTmDHncum2N4BpPWH__REQTOMl5S6-QoU9fSOV5ugi8g4av2SZgW17z1_h9b81hUZA1RKwJipWRSdn5iKewV9_5sHcPAb0bVSaRDjf-EPQSX3_nDnNohyAgB0RG-lc-xS4vJECWDBvo4ObIx9AtG8"
+image: "/blog-images/a611178b3586186de6ae.webp"
 image_alt: "The Guide to Finding the Perfect Gift for Mom: Ideas for Every Occasion"
 date: "2026-03-30"
 updated: "2026-06-07"

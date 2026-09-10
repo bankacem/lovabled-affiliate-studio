@@ -5,7 +5,7 @@ description: "In the fast-paced world of fashion, the phrase \\\"everything old 
 category: "Vintage & Retro"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhH5H0Rpf85Nz27GSU6qgU__OTetXKtd8IDlgzp5TItM76wtnliQCVMfSmS1AFotGR_cQkJrFObLEwH18TTBqAl9Y6-2ZYiLRJbjcqx7hXJlNgVHQFWS7DQooCaJxXz5qajCjiqyUZl-fMvUMHOxr7NtyAa4WJy0qja4Ag9KIpgqHTrpkCfNslYTrfwI8g"
+image: "/blog-images/aa82a6d75e3fc6fef5ee.webp"
 image_alt: "The Ultimate Guide to Retro Designs: How to Master Vintage Style in Modern Fashion"
 date: "2026-01-20"
 updated: "2026-06-19"

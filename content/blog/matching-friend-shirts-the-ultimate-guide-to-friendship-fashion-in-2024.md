@@ -5,7 +5,7 @@ description: "Create matching friend shirts with practical guidance on themes, c
 category: "T-Shirts"
 tags: ["matching friend shirts", "group shirts", "friendship gifts"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEg-Yg_MgpPbzGCjk4gf4iArYV9FUteFSORBLa3g7D6EqeDsJorvwy0tGwYSRaxwIykdsymmQ_QTkVSpxqci2YX7FgLfoBjkRTcAHAAmQqTXDn5LySCPvO4ufpZ-Cg4q3cHqrYftyUxdD6OB9lNJzrZGrRBhrJycyjaPB2045NkRSQMNRfl6Iiqq3VlfcDo"
+image: "/blog-images/b9398d99f52450565418.webp"
 image_alt: "Matching friend shirt ideas for a coordinated group"
 date: "2026-02-21"
 updated: "2026-06-19"

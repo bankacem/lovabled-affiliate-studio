@@ -5,7 +5,7 @@ description: "In the age of social media and highly curated events, the humble b
 category: "Birthdays & Parties"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhQM8bliocDF3-uatv6kNk9i_5kiH7XxLuFBcnps5orkAl_gScGqzpUGIW3zJ14DDDxbh4DtG-y_x7BuRrbIRVUg8Seo6TdDhSQ-on59HD_8UatJpb66RwilVZwRoeHJKaWLQq15G3TnOsp_jApJkxpOnWfTVlSuqirgAvBWgkTbPfe2Fjs-yHKGd0tfZI"
+image: "/blog-images/dedce43bfa69a41f81fb.webp"
 image_alt: "The Guide to Birthday Party Shirts: Trends, Customization, and Styling Tips"
 date: "2026-03-12"
 updated: "2026-06-19"

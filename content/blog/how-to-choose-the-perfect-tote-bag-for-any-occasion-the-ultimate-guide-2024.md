@@ -5,7 +5,7 @@ description: "Choose the right tote bag by comparing canvas weight, size, handle
 category: "Bags & Accessories"
 tags: ["tote bags", "custom bags", "everyday carry"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhPXOUwEGTxhRY5CcSJvbSz8mBqw4KeQb5YYlUhMyvvRPz6uz3e7rU0EMLjRV3m-MkbvEGII8HnNgaKDVAJ7ZUy933qiRtZEdjYw0cqxinFiPbWYcQ6jRSo0RqMQkxCBDX0Vd0_mU-mWf70eLNhHWgQbZB7q5pk-Rflb8jgS1bMG-OlTRAIWx_P3Lw4gH0"
+image: "/blog-images/29d00d19ca46fb4a8ff2.webp"
 image_alt: "Tote bag materials, sizes, and styling choices"
 date: "2026-03-05"
 updated: "2026-06-19"

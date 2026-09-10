@@ -5,7 +5,7 @@ description: "The pumpkin is the undisputed mascot of autumn. While its roots li
 category: "T-Shirts"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjPQVymEewPx01IsMD1De3ZZJL0lQqeypaDyMumTohTr7B_EzczbgvQy4Ncejjrlpv75T6HFHEvuCCG0_Z9C24MMQuWNHQDQW5wIUck60EvJYvQLAFzVV-_DbHuq2KU6Lne_RS1pv_5BlGcYUPfE-GPgGvjRzp_jJhf4TBSC2hTQCTwEBlpkYGHORxOSYk"
+image: "/blog-images/e3c94f52813450c1ba4d.webp"
 image_alt: "The Guide to Pumpkin Shirts: From Halloween Classics to Autumn Chic"
 date: "2026-04-03"
 updated: "2026-06-17"

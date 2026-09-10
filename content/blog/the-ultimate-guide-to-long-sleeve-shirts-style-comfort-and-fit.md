@@ -5,7 +5,7 @@ description: "Choose long-sleeve shirts by comparing fabrics, fit, sleeve length
 category: "Fashion & Style"
 tags: ["long-sleeve shirts", "shirt fit", "fashion basics"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgoaPFxtmIgxM6lJwF_-dJaBOKXSlAlGfYyeobDnqetewEq060Ro-kohxMuwDff4fc8gaYNUoBnZihJVZEDjF3CQyU9eBbnetfchazM806mNAStj5RaGHbX4ItOc1iHaELgYqWM9jAmAPVz2RUl1JHWZix_3clW3sbd7VD71vuS3atAhJ5aFpPTML0BX8s"
+image: "/blog-images/8e85b8f65974fdac8dca.webp"
 image_alt: "Long-sleeve shirt fit and styling guide"
 date: "2026-01-19"
 updated: "2026-06-19"

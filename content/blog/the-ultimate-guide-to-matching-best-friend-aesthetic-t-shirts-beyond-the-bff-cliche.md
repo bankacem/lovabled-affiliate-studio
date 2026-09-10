@@ -5,7 +5,7 @@ description: "There is a peculiar social phenomenon that occurs when two people 
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Matching%20Best%20Friend%20Aesthetic%20T-Shirts%3A%20Beyond%20the%20BFF%20Cliche%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=845343354"
+image: "/blog-images/5d70bc62ea6a01d6eba5.webp"
 image_alt: "The Ultimate Guide to Matching Best Friend Aesthetic T-Shirts: Beyond the \\\"BFF\\\" Cliche"
 date: "2026-04-20"
 updated: "2026-07-22"

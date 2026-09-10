@@ -5,7 +5,7 @@ description: "Discover couch potato shirt ideas for 2026, from funny lazy-chic g
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEghtuGRXsjzRDhtzeP5OA0JuNcoo_kJMvRCd31xG77jBUYf0mpYM152lUNeSVMxv1dXiV4hqhMmiYIM86WB5OT_hwSSQyIO5gDyW13FxjHfYX09V0O5G8ZEP-z0TYzWRVFeo_CpTe_sjcrJHvfuVEGv8SsEeS0JYWwR6duEVBrZmBLn1DwnXMhIMEQJVWo"
+image: "/blog-images/82d0e8ee50b036a80e43.webp"
 image_alt: "🥔 Couch Potato Shirts 2026: 50+ Lazy-Chic Designs for Comfort Lovers"
 date: "2026-02-05"
 updated: "2026-06-19"

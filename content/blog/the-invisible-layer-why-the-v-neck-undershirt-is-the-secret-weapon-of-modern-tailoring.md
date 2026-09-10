@@ -5,7 +5,7 @@ description: "Style, as many sartorial experts will tell you, is built from the 
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Invisible%20Layer%3A%20Why%20the%20V-Neck%20Undershirt%20is%20the%20Secret%20Weapon%20of%20Modern%20Tailoring%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=149376274"
+image: "/blog-images/0cbaebe1f566797abd8a.webp"
 image_alt: "The Invisible Layer: Why the V-Neck Undershirt is the Secret Weapon of Modern Tailoring"
 date: "2026-04-10"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>Historically, undershirts were strictly utilitarian. In the early 20th century, they were designed to keep perspiration away from expensive, hard-to-wash outer garments. What’s interesting is how the v-neck specifically solved a visual problem that the crew neck created. As fashion moved away from the rigid "button-up-to-the-chin" aesthetic, men needed a base layer that didn't peek out like a stray piece of laundry. In my years of consulting on professional wardrobes, I’ve found that nothing ruins a $200 shirt faster than a thick, white crew neck collar poking out from underneath.</p>
 
-    <img src="[IMAGE__1]" alt="A man wearing a light blue dress shirt with the top button open, showing no visible undershirt underneath thanks to a deep v-neck design.">
+    <img src="/placeholder.svg" alt="A man wearing a light blue dress shirt with the top button open, showing no visible undershirt underneath thanks to a deep v-neck design.">
 
     <p>According to market data, the global innerwear market is projected to reach over $250 billion by 2027. This growth isn't just about quantity; it's about engineering. We are seeing a massive shift toward "invisible" tones—nude, tan, and grey—that disappear under white shirts more effectively than white undershirts ever could. It’s a bit of optical science: white on white actually creates a high-contrast line against your skin, whereas a grey or flesh-toned v-neck blends into your natural complexion.</p>
   </section>
@@ -83,7 +83,7 @@ read_time: "5 min read"
       <li><strong>The "Invisible" Armhole:</strong> The armholes should be cut high. This prevents the "batwing" effect and ensures that the fabric is close enough to your armpit to actually catch sweat before it hits your dress shirt.</li>
     </ol>
 
-    <img src="[IMAGE__2]" alt="Diagram showing the fit of a high-quality v-neck undershirt with callouts for flat seams, tapered waist, and deep v-neckline.">
+    <img src="/placeholder.svg" alt="Diagram showing the fit of a high-quality v-neck undershirt with callouts for flat seams, tapered waist, and deep v-neckline.">
   </section>
 
   <section id="comparison" class="comparison-section">

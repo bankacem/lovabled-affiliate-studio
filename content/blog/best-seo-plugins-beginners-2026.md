@@ -5,7 +5,7 @@ description: "Compare beginner-friendly SEO plugins by setup, metadata controls,
 category: "SEO & Marketing"
 tags: ["SEO plugins", "WordPress SEO", "technical SEO"]
 author: "فريق كتابة AIPrintVerse"
-image: "https://aiprintverse.com/images/seo-plugins-guide-2026.jpg"
+image: "/blog-images/2b918d16e27f4a9ba794.webp"
 image_alt: "SEO plugin settings for a beginner website"
 date: "2026-07-24"
 updated: "2026-07-24"

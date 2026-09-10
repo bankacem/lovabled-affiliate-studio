@@ -5,7 +5,7 @@ description: "For decades, the \\\"Ugly Christmas Sweater\\\" ruled supreme. How
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEghcVEkclXRN6Wj3ZxEOGyEMAxV4DXKz4a_dxYSXJ6UGsWMywyFJD2t7pHBCOrtjmHk97qj0kfV0bYhWV9F5RMEQYDORgR07RqBUo1ocvuoEqDs6VPfWJ6ILbIRzRJ1OcIOh_aQendsOrgw_BfOm9N_x633_sRM8BUou9zXO6_YOW2ZJm-UByyaxpk0BXs"
+image: "/blog-images/a88de263b1d4183cc15b.webp"
 image_alt: "The Guide to Funny Christmas Shirts: Spreading Holiday Cheer with a Side of Humor"
 date: "2026-04-21"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Humor is a strange beast. What makes one person belly-laugh makes 
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Fine%20Line%20of%20Offense%3A%20A%20Deep%20Dive%20into%20the%20World%20of%20Inappropriate%20Funny%20Shirts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1858208434"
+image: "/blog-images/74366a4eb3e2c60fe7e3.webp"
 image_alt: "The Fine Line of Offense: A Deep Dive into the World of Inappropriate Funny Shirts"
 date: "2026-07-18"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>When you see a shirt that features a dark-humor pun about existential dread or a slightly-too-graphic double entendre, your brain experiences a momentary shock. If that shock is followed by the realization that "it's just a joke," the result is laughter. According to a 2023 consumer behavior study, nearly 64% of Gen Z shoppers prefer apparel that expresses a "unique or subversive" personality over traditional brand logos. We aren't just wearing clothes; we're wearing our cynicism on our sleeves.</p>
 
-    <img src="https://via..com/800x450" alt="A person wearing a minimalist t-shirt with a subversive dark humor quote in a modern urban setting">
+    <img src="/placeholder.svg" alt="A person wearing a minimalist t-shirt with a subversive dark humor quote in a modern urban setting">
 
     <p>Think about the "Sarcasm: Just one of the many services I offer" shirts of the 90s. Today, that's evolved into something far more granular and often, far more offensive. We've moved from "I'm with Stupid" to complex political satires and "dark academia" jokes that require a degree in philosophy to understand. The goal? Signaling. We wear these shirts to find our "tribe"—the people who get the joke and, by extension, get us.</p>
   </section>
@@ -132,7 +132,7 @@ read_time: "5 min read"
 
     <p>For high-graphic, inappropriate designs, look for <strong>30-singles combed ringspun cotton</strong>. This provides a smooth surface for the ink to bond with. If the design uses a lot of solid blacks or vibrant reds (common in "horror" or "edgy" humor), screen printing is superior to digital printing. According to industry data, screen-printed garments last 40-50 washes before significant fading, whereas low-end DTG can start to peel in as few as 10.</p>
 
-    <img src="https://via..com/800x450" alt="Close up of high quality screen printing on a black cotton t-shirt showing fine detail">
+    <img src="/placeholder.svg" alt="Close up of high quality screen printing on a black cotton t-shirt showing fine detail">
   </section>
 
   <section id="social-impact">

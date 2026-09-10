@@ -5,7 +5,7 @@ description: "Finding a grail-status 1994 Nine Inch Nails tour shirt only to rea
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1691388773467-848a68111d6d?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBBcnQlMjBvZiUyMHRoZSUyMFBlcmZlY3QlMjBGaXQlM0ElMjBIb3clMjB0byUyMFNocmluayUyMGElMjBWaW50YWdlJTIwVC1TaGlydCUyMFdpdGhvdXQlMjBSdWluaW5nJTIwSXQlMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI1Mnww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/020bbe6a027559509c02.webp"
 image_alt: "The Art of the Perfect Fit: How to Shrink a Vintage T-Shirt Without Ruining It"
 date: "2026-07-24"
 updated: "2026-05-20"
@@ -49,7 +49,7 @@ read_time: "5 min read"
 
     <p>Polyester, on the other hand, is essentially plastic. It is heat-set. If you have a thin, scratchy 50/50 blend from the 80s, it is significantly harder to shrink than a beefy 90s All Sport or Brockum tag 100% cotton tee. If you try to force a poly-blend to shrink with extreme heat, you risk "scorching" the fibers, which gives the fabric a shiny, plastic-like sheen and a brittle hand-feel.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a vintage 100 percent cotton single stitch t-shirt tag showing fabric composition">
+    <img src="/placeholder.svg" alt="Close up of a vintage 100 percent cotton single stitch t-shirt tag showing fabric composition">
   </section>
 
   <section id="preparation">
@@ -86,7 +86,7 @@ read_time: "5 min read"
 
     <p>The dryer is where the magic (or the tragedy) happens. Turn the shirt inside out. Use the "High Heat" setting. Check the shirt every 10 minutes. <strong>Pro tip:</strong> Don't let it bone-dry until it's crispy. Pull it out while it's still 5% damp and let it air dry the rest of the way to prevent the fabric from becoming "crunchy."</p>
 
-    <img src="[IMAGE_]" alt="Vintage t-shirt inside a modern front-load dryer showing the inside-out graphic">
+    <img src="/placeholder.svg" alt="Vintage t-shirt inside a modern front-load dryer showing the inside-out graphic">
   </section>
 
   <section id="comparison" class="comparison-section">

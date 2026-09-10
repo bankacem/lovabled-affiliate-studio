@@ -5,7 +5,7 @@ description: "There is a specific kind of elegance in a single, unbroken stroke 
 category: "Design & AI Tools"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjKe1_e3RLdJHrQZtXJm6E0UT23BY9ozzxnXhiVZ0JlRn4cFZwJwne2vW7BMrKRzR-g7IJ-O9CeOBE3O4O4DBjSDN3TZ9fp5TmeyqhlqCqm86GzxbrrY1Y2D36PFleQZVSsny4DKR2J9mxSeyCAhJGCi0OerpSR8BzxrUSAnV-zdbYK55jx6Uwk_I9TDmw"
+image: "/blog-images/d561c0087c9196dac07e.webp"
 image_alt: "Custom AI Minimalist Line Art T-Shirts 2026: Best Designs & Platforms"
 date: "2026-03-16"
 updated: "2026-05-01"

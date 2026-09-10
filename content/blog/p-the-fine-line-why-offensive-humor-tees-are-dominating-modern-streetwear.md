@@ -5,7 +5,7 @@ description: "Create memorable humor t-shirts without crossing the line by balan
 category: "T-Shirts"
 tags: ["humor t-shirts", "streetwear", "shirt design"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Fine%20Line%3A%20Why%20Offensive%20Humor%20Tees%20Are%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=93754255"
+image: "/blog-images/d13880d8965b866003f8.webp"
 image_alt: "Humor t-shirt design with responsible messaging"
 date: "2026-07-19"
 updated: "2026-07-22"
@@ -43,7 +43,7 @@ read_time: "5 min read"
 
     <p>The reality is that offensive humor tees aren't just about being "mean." In the world of fashion psychology, this is known as "Enclothed Cognition." By wearing something that risks social friction, the wearer signals high confidence and an "in-group" status with those who "get" the joke. It’s a filter. If the shirt offends you, the wearer probably didn't want to talk to you anyway. In my years tracking design trends, I've noticed that the more sanitized our public discourse becomes, the more the pendulum swings toward aggressive, unfiltered self-expression in streetwear.</p>
 
-    <img src="[IMAGE__1]" alt="Close-up of a vintage-style graphic tee with a subversive slogan, showing high-quality screen print texture">
+    <img src="/placeholder.svg" alt="Close-up of a vintage-style graphic tee with a subversive slogan, showing high-quality screen print texture">
   </section>
 
   <section id="market-trends">
@@ -65,7 +65,7 @@ read_time: "5 min read"
     </ul>
     </p>
 
-    <img src="[IMAGE__2]" alt="A rack of streetwear shirts in a boutique, featuring various subversive and dark humor graphics">
+    <img src="/placeholder.svg" alt="A rack of streetwear shirts in a boutique, featuring various subversive and dark humor graphics">
   </section>
 
   <section id="comparison" class="comparison-section">

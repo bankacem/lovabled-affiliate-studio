@@ -5,7 +5,7 @@ description: "We’ve all been there. You see a vibrant t-shirt on a mannequin, 
 category: "T-Shirts"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhyxyNtnAaIfTftDcisiQgRU3fTy87Vcgkvl3Ijp6Jtka68_WS-OlSM53hLYSGQ-vShv4zfSwTH1b7ZQUdjaeLUeR1D2ARQx8bL_icd4amchClY5u6NkHT6VIgx_tEOrG6FSZOKq9JMlHHwqkHhsp4RzcYb5rbaM2VBSqz9Apzh4eyy2wpSUx8m6d6BetQ"
+image: "/blog-images/06a817d790195f8df249.webp"
 image_alt: "Mastering the Palette: The Best T-Shirt Colors for Pale Skin Tones"
 date: "2026-03-16"
 updated: "2026-06-19"

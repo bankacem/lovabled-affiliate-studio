@@ -5,7 +5,7 @@ description: "Compare printed hoodie and sweatshirt styles, fabrics, fits, and c
 category: "Hoodies & Sweatshirts"
 tags: ["printed hoodies", "sweatshirts", "cozy style"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjz8Rq8ECId3zfK3GXiVLggymZmXnIrV-96Xb0UBEQEvY77DogpfPrZx9wWoSmI69WXe_xMkQFDCDO3hOD8yLTllQke34L1Be036jkwh0jcGYVRtvox27s4YcbJIOPCQr3Vrp7cC1MiGSywg7X6fIy_SlTnpI45777kYvkJ6OWPDtrJPdB5SgWKqCM6bdw"
+image: "/blog-images/d86cdf3fcd8ffb7ca4c1.webp"
 image_alt: "Cozy printed hoodie and sweatshirt style ideas"
 date: "2026-03-01"
 updated: "2026-04-28"

@@ -5,7 +5,7 @@ description: "Style graphic tees for summer with breathable layers, balanced pro
 category: "Style Guides"
 tags: ["summer outfits", "graphic tees", "casual style"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Summer%20Outfit%20Ideas%20with%20Graphic%20Tees%3A%20Refresh%20Your%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=453361712"
+image: "/blog-images/789445d99c0ad7ff2876.webp"
 image_alt: "Summer outfit styled with a graphic tee"
 date: "2026-06-09"
 updated: "2026-07-22"

@@ -5,7 +5,7 @@ description: "Finding the perfect gift for dad is a challenge that spans generat
 category: "Gifts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhTJfqUtjIDYxfszaEhaUnBMFuYoe4Bab_aQfgzFkRCojvo6xrUGaAvevZTJQJeAEyDc_x5i-YtMe9Lowc4a0XMweUvkj0aI57sTIxTJDVDWVbaGl4hCX1IM84XffxyTEbXPmCnuyiYCrphApQenrWzwz0miYpBYKRKHEPc0oRplTp0mXJc_LJH0-QhbP4"
+image: "/blog-images/7266a2b304c792567ff7.webp"
 image_alt: "The Ultimate Guide to Finding the Perfect Gift for Dad: A Comprehensive Resource"
 date: "2026-03-20"
 updated: "2026-06-19"

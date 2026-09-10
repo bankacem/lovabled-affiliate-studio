@@ -5,7 +5,7 @@ description: "Learn how to layer a V-neck sweater over a collared shirt by balan
 category: "Hoodies & Sweatshirts"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjwhRQ01L0qTqMuhYcAv2GKz0PxLjp8KeqIeCIL_WfBpfsa-7cM-yVQsszaCcf-MKof7SprPtJT139yYe-0O2jagc6QFhBomdwUawQQZbWNY8Dz4vbpLlK9r300WZiyXsy_mlgFhO0xY9GKgR1si4yOOgIW7VZGV7YT0wtSn68nf3JzMxeTnsWHGRw4NN4"
+image: "/blog-images/b7220827ed8bc3ed7385.webp"
 image_alt: "Mastering the Art: How to Layer a V-Neck Sweater Over a Collared Shirt for Women"
 date: "2026-02-16"
 updated: "2026-05-20"

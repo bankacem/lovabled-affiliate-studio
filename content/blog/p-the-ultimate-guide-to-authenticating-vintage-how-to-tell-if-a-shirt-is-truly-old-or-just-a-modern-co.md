@@ -5,7 +5,7 @@ description: "Walking into a thrift store or browsing an online marketplace can 
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Authenticating%20Vintage%3A%20How%20to%20Tell%20if%20a%20Shirt%20is%20Truly%20Old%20or%20Just%20a%20Modern%20Copy%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=768946376"
+image: "/blog-images/917e27f9bc3a30969787.webp"
 image_alt: "The Ultimate Guide to Authenticating Vintage: How to Tell if a Shirt is Truly Old or Just a Modern Copy"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>What's interesting is that the vintage market has seen an unprecedented surge in value. A rare 1990s Grateful Dead shirt can fetch upwards of $1,000, while a modern reproduction is worth essentially nothing to a collector. To navigate this world, you need to look at the "bones" of the shirt—the stitching, the fabric weight, and the specific brand of the blank tag used. This isn't just about fashion; it's about historical preservation and investment.</p>
 
-    <img src="[IMAGE_]" alt="A close-up of a vintage t-shirt collection showing various faded colors and cracked graphics.">
+    <img src="/placeholder.svg" alt="A close-up of a vintage t-shirt collection showing various faded colors and cracked graphics.">
   </section>
 
   <section id="single-stitch">
@@ -67,7 +67,7 @@ read_time: "5 min read"
     <h3>Screen Stars and Blue Bars</h3>
     <p>Screen Stars is perhaps the most famous vintage blank brand. Their "Best" line (usually 50/50 cotton-poly) and the "blue bar" Champion tags are synonymous with the 1980s. By the 90s, tags became larger, often featuring more colorful branding and "Made in USA" prominently displayed. What I've found is that if the tag is printed directly onto the neck (tagless), the shirt is almost certainly made after 2005.</p>
 
-    <img src="[IMAGE_]" alt="Comparison of a 1980s Screen Stars tag versus a modern 2020s printed neck label.">
+    <img src="/placeholder.svg" alt="Comparison of a 1980s Screen Stars tag versus a modern 2020s printed neck label.">
   </section>
 
   <section id="fabric-composition">
@@ -136,7 +136,7 @@ read_time: "5 min read"
 
     <p>For example, if you buy a Pink Floyd <i>Dark Side of the Moon</i> shirt at a mall today, the copyright will still say 1973. To verify the date of the shirt, you must cross-reference the copyright date with the stitching and the tag. If you see a 1980 copyright on a shirt with a "Made in Honduras" tag and double stitching, you are looking at a modern reprint of a classic design.</p>
 
-    <img src="[IMAGE_]" alt="A close-up of a copyright date at the bottom of a graphic, showing small text next to the artist's signature.">
+    <img src="/placeholder.svg" alt="A close-up of a copyright date at the bottom of a graphic, showing small text next to the artist's signature.">
   </section>
 
   <section class="faq" itemscope itemtype="https://schema.org/FAQPage">

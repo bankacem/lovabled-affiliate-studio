@@ -5,7 +5,7 @@ description: "Birthdays are more than just a date on the calendar; they are mile
 category: "Birthdays & Parties"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhNNeiOY4EMNvwK8UYm7DOsdn8bcTgz98Z6T9mJEiYZ4or_tLBGMHaNyMIy2G4-DptKMad6k6cVCZXBu7TZcs6sAzfTeHCtt9rkU3gh-YGoc6w9THcGPviwuK6yExVBlVnZH8hCftBOte5X1BQTWyd1OoXI5-1MjD8dx685SgtiBxvLHjF-hRp_I1EiAP4"
+image: "/blog-images/5a82472474a8251295e1.webp"
 image_alt: "The Guide to Birthday Girl Shirts: Trends, Styling, and Customization"
 date: "2026-03-30"
 updated: "2026-05-31"

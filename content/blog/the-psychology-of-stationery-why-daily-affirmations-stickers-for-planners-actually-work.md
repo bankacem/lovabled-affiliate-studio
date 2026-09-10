@@ -5,7 +5,7 @@ description: "Psychology has long debated the efficacy of positive self-talk. Ho
 category: "Stickers"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Psychology%20of%20Stationery%3A%20Why%20Daily%20Affirmations%20Stickers%20for%20Planners%20Actually%20Work%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=405723415"
+image: "/blog-images/49e6ebbd89b1be5ea4e0.webp"
 image_alt: "The Psychology of Stationery: Why Daily Affirmations Stickers for Planners Actually Work"
 date: "2026-04-12"
 updated: "2026-07-22"

@@ -5,7 +5,7 @@ description: "Finding a grail-status 1994 Nine Inch Nails tour shirt only to rea
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22How%20to%20Shrink%20a%20Vintage%20T-Shirt%20Without%20Ruining%20It%20(Safe%20Methods)%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=168751301"
+image: "/blog-images/c7317128d38e5d1b340f.webp"
 image_alt: "How to Shrink a Vintage T-Shirt Without Ruining It (Safe Methods)"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -49,7 +49,7 @@ read_time: "5 min read"
 
     <p>Polyester, on the other hand, is essentially plastic. It is heat-set. If you have a thin, scratchy 50/50 blend from the 80s, it is significantly harder to shrink than a beefy 90s All Sport or Brockum tag 100% cotton tee. If you try to force a poly-blend to shrink with extreme heat, you risk "scorching" the fibers, which gives the fabric a shiny, plastic-like sheen and a brittle hand-feel.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a vintage 100 percent cotton single stitch t-shirt tag showing fabric composition">
+    <img src="/placeholder.svg" alt="Close up of a vintage 100 percent cotton single stitch t-shirt tag showing fabric composition">
   </section>
 
   <section id="preparation">
@@ -86,7 +86,7 @@ read_time: "5 min read"
 
     <p>The dryer is where the magic (or the tragedy) happens. Turn the shirt inside out. Use the "High Heat" setting. Check the shirt every 10 minutes. <strong>Pro tip:</strong> Don't let it bone-dry until it's crispy. Pull it out while it's still 5% damp and let it air dry the rest of the way to prevent the fabric from becoming "crunchy."</p>
 
-    <img src="[IMAGE_]" alt="Vintage t-shirt inside a modern front-load dryer showing the inside-out graphic">
+    <img src="/placeholder.svg" alt="Vintage t-shirt inside a modern front-load dryer showing the inside-out graphic">
   </section>
 
   <section id="comparison" class="comparison-section">

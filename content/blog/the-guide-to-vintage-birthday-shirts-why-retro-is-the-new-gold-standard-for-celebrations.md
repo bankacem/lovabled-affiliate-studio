@@ -5,7 +5,7 @@ description: "There is something inherently comforting about a shirt that looks 
 category: "Birthdays & Parties"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEipvuIoOJUJAzRE74U7qrdK6kqwt2wogIS-dkdUq9igKMAJm9Hst9JpY0cvvHDplITkjzEvCYO-KpPJXj1Rh7BUVkxNi-EooEz_3lBjU6fb8rzyE3lfs4lpa5mZAxrpSWljIk55c3c3jB8bKwMNllegIhKA9x4hs9TAvxjvschiyjZyi1BiWM4I3mpqg2w"
+image: "/blog-images/7cb088d44d1984c74c94.webp"
 image_alt: "The Guide to Vintage Birthday Shirts: Why Retro is the New Gold Standard for Celebrations"
 date: "2026-02-26"
 updated: "2026-06-18"

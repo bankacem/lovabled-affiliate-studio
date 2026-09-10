@@ -5,7 +5,7 @@ description: "Choose rehearsal dinner shirts that balance comfort and dress code
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Cracking%20the%20Dress%20Code%3A%20The%20Definitive%20Guide%20to%20Rehearsal%20Dinner%20Shirts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=307505550"
+image: "/blog-images/0ea7ba0d2a8cc1697156.webp"
 image_alt: "Cracking the Dress Code: The Definitive Guide to Rehearsal Dinner Shirts"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is how much the "rules" have shifted. Data from bridal surveys suggests that over 65% of modern couples are opting for non-traditional venues like breweries, backyards, or upscale bistros. This shift means the standard stiff-collared dress shirt isn't always the right answer. However, showing up in a polo to a high-end steakhouse is a mistake you don't want to make. The goal is <strong>intentionality</strong>. Every stitch of your shirt should suggest you put thought into the evening.</p>
 
-    <img src="https://example.com/rehearsal-dinner-atmosphere.jpg" alt="A group of men at a rehearsal dinner wearing various styles of button-down shirts in a warm, lit outdoor setting">
+    <img src="/placeholder.svg" alt="A group of men at a rehearsal dinner wearing various styles of button-down shirts in a warm, lit outdoor setting">
   </section>
 
   <section id="shirt-types">
@@ -139,7 +139,7 @@ read_time: "5 min read"
       <li><strong>The Sleeve Length:</strong> With your arms at your sides, the cuff should hit the base of your thumb. You want about half an inch of shirt cuff to show if you're wearing a blazer.</li>
     </ol>
 
-    <img src="https://example.com/shirt-fit-comparison.jpg" alt="A side-by-side comparison showing a poorly fitted shirt versus a tailored dress shirt">
+    <img src="/placeholder.svg" alt="A side-by-side comparison showing a poorly fitted shirt versus a tailored dress shirt">
   </section>
 
   <section id="color-theory">

@@ -5,7 +5,7 @@ description: "Walking through a flea market a decade ago, you might have snagged
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Grails%20of%20the%20Pit%3A%20A%20Deep%20Dive%20Into%20the%20Most%20Valuable%20Vintage%20Band%20Tees%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=580065842"
+image: "/blog-images/85e7d2b0d0d15a411c49.webp"
 image_alt: "Grails of the Pit: A Deep Dive Into the Most Valuable Vintage Band Tees"
 date: "2026-04-24"
 updated: "2026-07-22"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>What’s fascinating is the psychological shift in what we value. Collectors aren't looking for pristine, "deadstock" items anymore. They want the "thrashed" look—the dry rot, the holes, the cracked ink, and the "paper-thin" feel that only comes from thirty years of wear and wash cycles. This "patina" tells a story that a modern reprint simply cannot replicate.</p>
 
-    <img src="[IMAGE_]" alt="A rack of faded vintage band t-shirts showing various rock and metal graphics from the 1980s and 1990s">
+    <img src="/placeholder.svg" alt="A rack of faded vintage band t-shirts showing various rock and metal graphics from the 1980s and 1990s">
   </section>
 
   <section id="what-makes-value">
@@ -63,7 +63,7 @@ read_time: "5 min read"
     <h3>3. Graphic Complexity</h3>
     <p>All-over prints (AOP) are the undisputed kings of the market. These are shirts where the graphic covers the entire front, back, and sometimes the sleeves. Brands like <em>Liquid Blue</em> mastered this in the 90s, and their Grateful Dead and Iron Maiden prints are now legendary. The more ink on the shirt, the higher the price tag.</p>
 
-    <img src="[IMAGE_]" alt="Close-up of a single-stitch hem and a vintage Giant brand tag on a black t-shirt">
+    <img src="/placeholder.svg" alt="Close-up of a single-stitch hem and a vintage Giant brand tag on a black t-shirt">
   </section>
 
   <section id="heavy-hitters">
@@ -140,7 +140,7 @@ read_time: "5 min read"
 
     <p>Another red flag? The smell. <a href="/blog/the-digital-time-machine-how-to-use-ai-to-create-authentic-vintage-graphics" class="auto-link internal-link" title="The Digital Time Machine: How to Use AI to Create Authentic Vintage Graphics">Authentic vintage</a> has a specific "old" scent—a mix of dust and aged cotton. If a shirt looks 30 years old but smells like fresh factory chemicals, walk away.</p>
 
-    <img src="[IMAGE_]" alt="Difference between a real vintage screen print crackle and a modern fake distressing">
+    <img src="/placeholder.svg" alt="Difference between a real vintage screen print crackle and a modern fake distressing">
   </section>
 
   <section id="preservation">

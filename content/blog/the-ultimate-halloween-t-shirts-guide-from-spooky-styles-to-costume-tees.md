@@ -5,7 +5,7 @@ description: "Plan Halloween t-shirts with ideas for spooky graphics, group cost
 category: "Style Guides"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgpybjKj8Mily2JQCDQX3iplTmUrivfxs8n_ZPRSx9mwA7tc7l-p9Nfs24XyzRgdTWZW_qG1poZHU6mmKP4pOdymErK_ZstLfyNN5LKeezxP2zh1-LXB-OJ8TlChujYWtix4FYSwGYq4IEs3WutmTl4HufMylrKGbYIe-8yCyfHK9-dP4r57plrxBr9SwY"
+image: "/blog-images/c5c4051fc9d388f54bc8.webp"
 image_alt: "The Ultimate Halloween T-Shirts Guide: From Spooky Styles to Costume Tees"
 date: "2026-02-25"
 updated: "2026-04-28"

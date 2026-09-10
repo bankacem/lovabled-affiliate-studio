@@ -5,7 +5,7 @@ description: "Turning 40 is often described as the \\\"Lordy, Lordy, look who’
 category: "Birthdays & Parties"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjCtgdTHqC1g42BXEZgYkBvhkughZImwNP3gs-TaTI5WsedVrWHyonV_tDYdfR00UfOhYNZpxBrY9cB9v4he30O5To5u0KpyW-HRV3HzcLNZeyHCMx6qTbr8zhGGZkPpigvle8rKBmgmEu-HVfpcwDIIJJfTzBXU939myd8y-vJJo-iD30icAY6sFx38d4"
+image: "/blog-images/28a55c45977e73465835.webp"
 image_alt: "The Guide to 40th Birthday Shirts: Trends, Design Tips, and Celebration Ideas"
 date: "2026-03-18"
 updated: "2026-06-19"

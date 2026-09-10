@@ -5,7 +5,7 @@ description: "Browse 35 bachelorette party shirt ideas for different themes and 
 category: "Weddings & Bridal"
 tags: ["bachelorette party shirts", "bridal party shirts", "group outfit ideas"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiFma2ftuJyjdOTdaTvRytmPj_LG48Apa_i3E81YhpjjrwECWw1FIkud23qLG9fsy23l-vIDLMMMT9yY1ukGxykCl64SJxR-a5bnrb09oTzaG6Yb_YFaxnaZUA0BzCpC9KatWTMifoqd9Ugw3cTDKULt04Zx0-a0-N3jhSXLNO2QG1cUWjXJv-gW-vhMcg"
+image: "/blog-images/8694905d7fc69f4dc26f.webp"
 image_alt: "Bachelorette party shirt ideas for a coordinated group outfit"
 date: "2026-01-19"
 updated: "2026-06-19"

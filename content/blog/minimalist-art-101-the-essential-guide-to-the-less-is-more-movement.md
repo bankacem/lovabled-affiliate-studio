@@ -5,7 +5,7 @@ description: "Minimalist Art 101: The Essential Guide to the \\\"Less is More\\\
 category: "Guides"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjOtCpiIjLQWTRHcMIu1lRSSTgo2akSFZYch-cQJLfXnPucB2f6OPP2BI7I2UptNt1WSlUyhSliKKT0lbEAtG2txy8Jfbh3k3JyhqgS4KAhPtEPqYjc7WaR1oanQ1Fm3U8x8v0HJJxSXPqEAqY1qVbtjjTA6dWW1PzlviOqrkSMnJ1DJzY6wc0nEJk3UVw"
+image: "/blog-images/6bcd458da83700cdcae7.webp"
 image_alt: "Minimalist Art 101: The Essential Guide to the \\\"Less is More\\\" Movement"
 date: "2026-03-11"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Gone are the days when a simple phone call or a casual brunch ment
 category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1584799035157-79049b76090c?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxCcmlkZXNtYWlkJTIwUHJvcG9zYWwlMjBTdGlja2VycyUyMDIwMjYlM0ElMjBDdXRlJTIwJTI2JTIwVW5pcXVlJTIwSWRlYXMlMjB0byUyMEFzayUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjM1fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/a873ab28f56be2edaec3.webp"
 image_alt: "Bridesmaid Proposal Stickers 2026: Cute & Unique Ideas to Ask"
 date: "2026-04-16"
 updated: "2026-06-19"

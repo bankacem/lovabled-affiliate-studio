@@ -5,7 +5,7 @@ description: "Thanksgiving, affectionately known by many as \\\"Turkey Day,\\\" 
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEinC7kdt67dWqgckwsaB0L8n7pJyhDYlBzojzAMySyJYNyNMyX4sIuHE52jlJ8y_Z4_NDzDyu8rOYjUyEVaDpJ8zJe81_IZaomDsfwY6SNALygrsmFPzjiMd45TtyQsnC3cQ-1Ph4HM63y4C8tUFN69_1BD21QAiV4qrTe5n0FLyKNqp9BPrYe8MPSH4oo"
+image: "/blog-images/6ad1e5ce7ed151a3654e.webp"
 image_alt: "Turkey Day Shirts: The Ultimate Guide to Thanksgiving Fashion and Trends"
 date: "2026-03-18"
 updated: "2026-06-19"

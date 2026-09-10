@@ -5,7 +5,7 @@ description: "There is a specific kind of magic in a shirt that looks like it ba
 category: "Vintage & Retro"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjeNhifuuixQ5F50PGzA38BFEY-tTim2D_kRXYZdrSaMf5hphS1MxCmUkVyuVipZuEzFXNrPZGvaJA_B_7FE30AQNAAlpX2jXtb-3lDd0rCXw6Ut0i4_KVYX-EXshE39xwDoCAUmLMIagKbSYG79yus5tjHzO37vyG7ZlIR_71oFlNHEnvB8bTLHThDNSA"
+image: "/blog-images/61a04956bbc215e09fe0.webp"
 image_alt: "Worn-Out Vintage Band T-Shirts: Why They're Worth It & Where to Find Them"
 date: "2026-03-16"
 updated: "2026-05-01"

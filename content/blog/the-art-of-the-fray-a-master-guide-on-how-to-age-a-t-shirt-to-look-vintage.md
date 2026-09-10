@@ -5,7 +5,7 @@ description: "There is something inherently soul-less about a crisp, stiff, bran
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1621446511130-0ed6519bfeb6?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBBcnQlMjBvZiUyMHRoZSUyMEZyYXklM0ElMjBBJTIwTWFzdGVyJTIwR3VpZGUlMjBvbiUyMEhvdyUyMHRvJTIwQWdlJTIwYSUyMFQtU2hpcnQlMjB0byUyMExvb2slMjBWaW50YWdlJTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyMjN8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/cbc898cacda5301fd596.webp"
 image_alt: "The Art of the Fray: A Master Guide on How to Age a T-Shirt to Look Vintage"
 date: "2026-07-24"
 updated: "2026-05-20"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>Achieving that perfect "thrashed" <a href="/blog/the-ultimate-guide-to-matching-christmas-family-shirts-how-to-nail-the-holiday-look-without-the-stre" class="auto-link internal-link" title="The Ultimate Guide to Matching Christmas Family Shirts: How to Nail the Holiday Look Without the Stress">look without</a> spending $300 at a curated boutique requires a mix of chemistry, elbow grease, and patience. You aren't just ruining a shirt; you are accelerating the natural degradation of textile fibers in a controlled manner. What’s interesting is that the most sought-after vintage tees—those thin, almost translucent 80s screen prints—achieved their status through literal decades of neglect. We're going to do it in a weekend.</p>
 
-    <img src="[IMAGE_]" alt="Close-up of a distressed vintage t-shirt neckline showing natural fraying and faded dye">
+    <img src="/placeholder.svg" alt="Close-up of a distressed vintage t-shirt neckline showing natural fraying and faded dye">
   </section>
 
   <section id="fabric-science">
@@ -72,7 +72,7 @@ read_time: "5 min read"
     <h3>Controlled Bleach Fading</h3>
     <p>Instead of straight bleach, use a 1:10 ratio of bleach to water. Submerge the shirt for no <a href="/blog/the-quiet-revolution-why-the-choose-peace-over-chaos-minimalist-shirt-is-more-than-a-fashion-stateme" class="auto-link internal-link" title="The Quiet Revolution: Why the 'Choose Peace Over Chaos' Minimalist Shirt is More Than a Fashion Statement">more than</a> 10-15 minutes. The goal is a subtle "sun-bleached" look, not a tie-dye disaster. <strong>Crucial Step:</strong> Immediately after removing the shirt, soak it in a mixture of water and hydrogen peroxide. Peroxide neutralizes the sodium hypochlorite in the bleach, stopping the chemical reaction instantly.</p>
 
-    <img src="[IMAGE_]" alt="A t-shirt soaking in a plastic bin for salt weathering process">
+    <img src="/placeholder.svg" alt="A t-shirt soaking in a plastic bin for salt weathering process">
   </section>
 
   <section id="mechanical-distressing">
@@ -143,7 +143,7 @@ read_time: "5 min read"
 
     <p>Lay your shirt flat on a roof or a clean concrete driveway. Secure the corners with stones. Leave it for 3-5 days, flipping it once. To accelerate this, spray the shirt with a light mist of lemon juice and water. The acidity of the lemon reacts with the UV rays to bleach the fabric more aggressively but still looks more natural than any chemical bath could achieve.</p>
 
-    <img src="[IMAGE_]" alt="A black t-shirt laid out in the sun to naturally fade the pigment">
+    <img src="/placeholder.svg" alt="A black t-shirt laid out in the sun to naturally fade the pigment">
   </section>
 
   <section id="finishing-touches">

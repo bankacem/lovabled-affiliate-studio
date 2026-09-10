@@ -5,7 +5,7 @@ description: "Walk through any city park on a Saturday afternoon, and you are bo
 category: "Phone Cases & Accessories"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22What%20is%20Cottagecore%20Fashion%3F%20The%20Definitive%20Guide%20to%20the%20Romantic%20Rural%20Aesthetic%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1914353270"
+image: "/blog-images/e13634d7ed30af48a4b9.webp"
 image_alt: "What is Cottagecore Fashion? The Definitive Guide to the Romantic Rural Aesthetic"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -48,7 +48,7 @@ read_time: "5 min read"
 
     <p>What's interesting is how the movement grew. While it technically originated on Tumblr in the mid-2010s, it exploded during the 2020 lockdowns. When the world became chaotic and digital-heavy, people sought solace in the idea of baking sourdough, tending to window-box gardens, and wearing clothes that felt like a soft hug from a grandmother. According to Google Trends, searches for "Cottagecore" spiked by over 150% in the spring of 2020, and the hashtag now boasts billions of views on TikTok.</p>
 
-    <img src="[IMAGE_]" alt="A woman in a flowy floral midi dress sitting in a field of wildflowers, embodying the cottagecore aesthetic.">
+    <img src="/placeholder.svg" alt="A woman in a flowy floral midi dress sitting in a field of wildflowers, embodying the cottagecore aesthetic.">
   </section>
 
   <section id="history-evolution">
@@ -143,7 +143,7 @@ read_time: "5 min read"
       <li><strong>Natural Beauty:</strong> Keep makeup minimal. The goal is a "sun-kissed" look—think flushed cheeks and soft, un-styled hair often tied back with a simple clip or scarf.</li>
     </ol>
 
-    <img src="[IMAGE_]" alt="A close-up of cottagecore accessories: a wicker basket, a straw hat with a ribbon, and a vintage leather-bound book.">
+    <img src="/placeholder.svg" alt="A close-up of cottagecore accessories: a wicker basket, a straw hat with a ribbon, and a vintage leather-bound book.">
   </section>
 
   <section id="sustainability">

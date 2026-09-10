@@ -5,7 +5,7 @@ description: "Create a memorable 2010 birthday shirt with playful Y2K-era graphi
 category: "Birthdays & Parties"
 tags: ["2010 birthday shirts", "birthday shirt ideas", "Y2K style"]
 author: "Content Team"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Vintage%202010%20Birthday%20Shirts%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=435110360"
+image: "/blog-images/f93b6c475c47b50ecd0c.webp"
 image_alt: "Born in 2010 Birthday Shirts: Y2K-Era Design Ideas"
 date: "2026-01-31"
 updated: "2026-07-22"

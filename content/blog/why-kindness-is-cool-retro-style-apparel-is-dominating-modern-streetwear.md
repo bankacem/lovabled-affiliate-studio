@@ -5,7 +5,7 @@ description: "We've spent the better part of a decade celebrating the \\\"edgy,\
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Why%20Kindness%20Is%20Cool%20Retro%20Style%20Apparel%20Is%20Dominating%20Modern%20Streetwear%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=783024651"
+image: "/blog-images/77312549c3208fc93b3e.webp"
 image_alt: "Why Kindness Is Cool Retro Style Apparel Is Dominating Modern Streetwear"
 date: "2026-04-10"
 updated: "2026-07-22"
@@ -63,7 +63,7 @@ read_time: "5 min read"
       <li><strong>Sage Green:</strong> A color scientifically linked to feelings of peace and renewal.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Model wearing a vintage-style cream t-shirt with orange and brown retro typography saying Kindness Is Cool">
+    <img src="/placeholder.svg" alt="Model wearing a vintage-style cream t-shirt with orange and brown retro typography saying Kindness Is Cool">
   </section>
 
   <section id="fabric-psychology">

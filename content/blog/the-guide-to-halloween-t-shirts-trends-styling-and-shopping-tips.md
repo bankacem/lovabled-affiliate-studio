@@ -5,7 +5,7 @@ description: "Halloween is no longer just a single night of trick-or-treating; i
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhcAGC3u0fQ5VMSeP9tKUPPfKowbENtWt047au9rB5nXobRI7F73yIGESBuRRWSPMdcQxpYL49dmiKGbTCU593IW6kReWj-flrRIIt6Txs9V1hhtGeBHoxh80_l9FcLNiK7AlbTMopvldnW4rRpbJAKVX5Pt7bBofTsXIJmlDWdcCvGrjXgk_GTsAW2hvI"
+image: "/blog-images/cc3366a6570760f44bb3.webp"
 image_alt: "The Guide to Halloween T-Shirts: Trends, Styling, and Shopping Tips"
 date: "2026-04-13"
 updated: "2026-06-19"

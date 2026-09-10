@@ -5,7 +5,7 @@ description: "Find 25 thoughtful gift ideas for someone who seems to have everyt
 category: "Gifts"
 tags: ["unique gifts", "personalized gifts", "gift ideas"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjw6FLa44ZjUs69fywLAVKmgD8VNZjn2rSSBFH9E8bzs0nLJ8TqjB-jy9nlhGeAncd1uTnll9o6aaZijLswTOaHVsZGVEUa7oxUVdkH9YyyJ-kn8rS-dYQg7drw7u3n9-NILpaIJ_F9B4WYatmJJ_1Td911vt1mQQtju_xMzrd1Cue0Go4WkZOU--cv96g"
+image: "/blog-images/ff682830109034cfee12.webp"
 image_alt: "Selection of unique gift ideas for someone who has everything"
 date: "2026-02-19"
 updated: "2026-06-19"

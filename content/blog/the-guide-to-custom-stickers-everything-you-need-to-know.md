@@ -5,7 +5,7 @@ description: "Learn how to plan custom stickers by comparing materials, finishes
 category: "Stickers & Accessories"
 tags: ["custom stickers", "sticker design", "vinyl stickers"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjmG69OI87qAN1HGrsIIZBcFQRGHWIbRHlYXUkhyoghVQx37ZkIkhhU7YWin3OAhw4wsl8C_oMzJ6aUyrALg1ioFIOHAwe_sBbYXC61skceAgkYUe4ZGC3tfWVqJ32_X15W87It2gQa_T_yKdXbjHlUH75uTFYNhW9MKsFbhkLF2sSITf934ePt3pEWR2I"
+image: "/blog-images/6743d9917616b21a9cad.webp"
 image_alt: "Custom sticker materials and design options"
 date: "2026-03-17"
 updated: "2026-06-19"

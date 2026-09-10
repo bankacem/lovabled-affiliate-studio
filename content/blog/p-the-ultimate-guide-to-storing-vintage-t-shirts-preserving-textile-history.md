@@ -5,7 +5,7 @@ description: "Owning a 1980s Screen Stars single-stitch tee isn't just a fashion
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Storing%20Vintage%20T-Shirts%3A%20Preserving%20Textile%20History%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=477264811"
+image: "/blog-images/2f0354c590bc48e6d9dc.webp"
 image_alt: "The Ultimate Guide to Storing Vintage T-Shirts: Preserving Textile History"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -46,7 +46,7 @@ read_time: "5 min read"
 
     <p>What's interesting is that the very thing we love—that paper-thin feel—is actually the result of microscopic fiber loss over decades. In my experience, the most common killer of vintage collections isn't wear; it's neglectful storage. According to textile conservationists, chemical degradation doubles with every 10-degree increase in temperature. If you’re keeping your collection in a hot attic, you are essentially fast-forwarding the aging process by years.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a vintage t-shirt showing 50/50 blend texture and single stitch hem details">
+    <img src="/placeholder.svg" alt="Close up of a vintage t-shirt showing 50/50 blend texture and single stitch hem details">
   </section>
 
   <section id="cleaning-first">
@@ -121,7 +121,7 @@ read_time: "5 min read"
       <li><strong>Airflow:</strong> While you want to keep dust out, fabric needs to "breathe." Total airtight sealing can sometimes trap residual moisture, leading to "dry rot"—the nightmare scenario where the fabric literally turns to dust.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Graphic showing the ideal temperature and humidity range for textile storage">
+    <img src="/placeholder.svg" alt="Graphic showing the ideal temperature and humidity range for textile storage">
   </section>
 
   <section id="archival-methods">

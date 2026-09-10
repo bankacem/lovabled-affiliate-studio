@@ -5,7 +5,7 @@ description: "Understand crew neck shirts through their history, neckline propor
 category: "Fashion & Style"
 tags: ["crew neck shirts", "shirt fit", "fashion history"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgJKU138eVLp3E1rQ_zVgzjBpEXCwHeldv0tBiAVnw9qw9IN-WIDa2-7DxdGsSLolJmATLYZtJD_2DdOmYxC4U8mEwFk9zgpZD1msTFc85hUUXNxBNRLhv_OQXc2X04-UNnmW0LvwvQPvHfLvFJ-kkSYVBtmNUfdMzOD1XyNa4nGHjHyZPZB-NHnP1nCzs"
+image: "/blog-images/b330a334d1427d0b3bdb.webp"
 image_alt: "Crew neck shirt fit and styling guide"
 date: "2026-03-17"
 updated: "2026-06-19"

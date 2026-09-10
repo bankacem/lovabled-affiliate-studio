@@ -5,7 +5,7 @@ description: "Turning sixty isn't just another candle on the cake; it is a profo
 category: "Birthdays & Parties"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjLnh5kteENobLXPAV7_Hk99jRmLqbaecIMMaNfco6PhX1UBpOX-NXLUJqe4awhSrb9ZTk_ng4KqR9OLq0di1g9UNzmqvx4_mUSyXk0JembORsqcf2Hk3y-AflE05nljKbPINKwhtOTLABmFV9m94hXHfyANaSKhJKm7ndeeaFH8JLSQTN_gODyWfs25Cs"
+image: "/blog-images/5732036e402ad4297be8.webp"
 image_alt: "The Guide to 60th Birthday Shirts: How to Celebrate Six Decades in Style"
 date: "2026-03-04"
 updated: "2026-06-19"

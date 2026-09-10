@@ -5,7 +5,7 @@ description: "There is a specific kind of frustration that comes with buying a b
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEil9aMkszsomu0UIeAtPrSNgGYkWA1BURYHBSIHZOty17SgX8mg2JvbHqMjaBjcL-Sf9A_jTc2BYIOfq9NriU35hfoLuohH2hUZs-RDNFy_pJsM4A5MfaVUQbO2CMIKSpG_r3B6zuu09RP6z_OMDp4rl0FrX8igp5AxFhaQ1AlnC1Qa4K-QeT_nX-sGhLY/s938/1000025626.jpg"
+image: "/blog-images/aad6525319990635fbff.webp"
 image_alt: "How to Make a New T-Shirt Look Old and Worn: Easy DIY Methods"
 date: "2026-03-07"
 updated: "2026-05-20"

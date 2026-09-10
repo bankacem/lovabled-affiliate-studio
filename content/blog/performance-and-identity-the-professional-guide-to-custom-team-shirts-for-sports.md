@@ -5,7 +5,7 @@ description: "Step onto any field, court, or pitch, and the first thing you noti
 category: "Print on Demand Business"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1698224788579-1611962f57bf?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxDdXN0b20lMjBUZWFtJTIwU3BvcnRzJTIwU2hpcnRzJTNBJTIwSG93JTIwdG8lMjBEZXNpZ24lMjAlMjYlMjBPcmRlciUyMGluJTIwQnVsayUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjE4fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/ff4ce1835e24d6a95465.webp"
 image_alt: "Custom Team Sports Shirts: How to Design & Order in Bulk"
 date: "2026-07-24"
 updated: "2026-05-31"
@@ -46,7 +46,7 @@ read_time: "5 min read"
     <p>Research in sports psychology suggests that "enclothed cognition"—the influence that clothes have on the wearer's psychological processes—can actually impact performance. When you look like a pro, you tend to hold yourself to a higher standard. ومن زاوية أخرى مكملة, a cohesive look acts as a visual shorthand for opponents, signaling discipline and organization before the first whistle even blows.</p>
 
     <div class="image-">
-      <img src="/images/team-huddle-custom-jerseys.jpg" alt="A unified basketball team in a huddle wearing matching moisture-wicking custom jerseys with bold typography">
+      <img src="/placeholder.svg" alt="A unified basketball team in a huddle wearing matching moisture-wicking custom jerseys with bold typography">
     </div>
   </section>
 
@@ -135,7 +135,7 @@ read_time: "5 min read"
     <p><strong>Pro Tip:</strong> Always use a high-contrast stroke (outline) around numbers. A white number on a light grey heather shirt is a referee's nightmare. According to NCAA guidelines—which serve as a great benchmark for any level—numbers should be at least 6 inches on the front and 8 inches on the back for maximum visibility.</p>
 
     <div class="image-">
-      <img src="/images/color-contrast-sports-design.jpg" alt="A split screen showing poor vs. good color contrast for sports jersey numbers">
+      <img src="/placeholder.svg" alt="A split screen showing poor vs. good color contrast for sports jersey numbers">
     </div>
 
     <h3>Vector vs. Raster</h3>

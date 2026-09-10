@@ -5,7 +5,7 @@ description: "We’ve all been there. You find the perfect vintage band tee or a
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/A%20premium%20mockup%20photo%20of%20a%20stylish%20t-shirt%20on%20a%20wooden%20hanger%20against%20a%20clean%20minimal%20background.%20The%20t-shirt%20features%20a%20bold%20graphic%20design%20with%20the%20text%20%22How%20to%20Make%20a%20Shirt%20Smaller%20Without%20Sewing%3A%205%20Easy%20Methods%22%20printed%20on%20the%20front.%20Professional%20product%20photography%2C%20soft%20studio%20lighting%2C%20print-on-demand%20style%2C%20high%20quality%2C%20modern%20aesthetic%2C%204k?width=1200&height=630&model=flux&nologo=true&format=webp&seed=1777806259847"
+image: "/blog-images/314b4e926b054805f19d.webp"
 image_alt: "How to Make a Shirt Smaller Without Sewing: 5 Easy Methods"
 date: "2026-07-24"
 updated: "2026-06-19"
@@ -59,7 +59,7 @@ read_time: "5 min read"
     <p><em>A word of caution:</em> This is a one-way street. Once you've shrunk those fibers, "un-shrinking" them is a tedious process involving baby shampoo and a lot of prayer. If the shirt has a screen-printed graphic, turn it inside out to prevent the design from cracking under the intense heat.</p>
 
     <div class="image-">
-      <img src="/api//800/400" alt="Close up of cotton fabric fibers showing the weave density before and after shrinking">
+      <img src="/placeholder.svg" alt="Close up of cotton fabric fibers showing the weave density before and after shrinking">
     </div>
   </section>
 
@@ -88,7 +88,7 @@ read_time: "5 min read"
     </ul>
 
     <div class="image-">
-      <img src="/api//800/400" alt="Demonstration of using a cinch clip on the back of an oversized linen shirt to create a fitted waist">
+      <img src="/placeholder.svg" alt="Demonstration of using a cinch clip on the back of an oversized linen shirt to create a fitted waist">
     </div>
   </section>
 

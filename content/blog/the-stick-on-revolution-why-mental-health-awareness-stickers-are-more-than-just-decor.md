@@ -5,7 +5,7 @@ description: "Explore how mental health awareness stickers can communicate suppo
 category: "Stickers"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1668089968509-c7703dd9a0e0?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxNZW50YWwlMjBIZWFsdGglMjBBd2FyZW5lc3MlMjBTdGlja2VycyUyMDIwMjYlM0ElMjBCZXN0JTIwRGVzaWducyUyMGZvciUyMExhcHRvcHMlMjAlMjYlMjBQbGFubmVycyUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjM3fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/027695fad5fc24daaf99.webp"
 image_alt: "Mental Health Awareness Stickers 2026: Best Designs for Laptops & Planners"
 date: "2026-03-29"
 updated: "2026-06-02"

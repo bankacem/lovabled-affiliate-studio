@@ -5,7 +5,7 @@ description: "There is a peculiar irony in using the world’s most advanced art
 category: "Vintage & Retro"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhRlpGM2p30ZIK_E2TE5GdaO4rY3p3mAUdyx-snZIAK2J7lUoZypOAzI3MoJnHL4XsNVgq_sidVjCbwmdq09_KInrO8CY74nySS1IU30JxFeWcXePFEE0wIOijT6QZmq5_dF0pEYEeVtMdunOCa6gNnqzxW_P_O4wp7EnBthv6Ut-GKGMnRmThy_iWJ178"
+image: "/blog-images/8a69a1e2e40fb48534c7.webp"
 image_alt: "How to Use AI to Create Vintage Graphics for T-Shirts (Step by Step)"
 date: "2026-03-15"
 updated: "2026-05-22"

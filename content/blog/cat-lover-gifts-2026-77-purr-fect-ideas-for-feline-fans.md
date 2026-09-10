@@ -5,7 +5,7 @@ description: "Find 77 cat lover gift ideas across personalized apparel, home dec
 category: "Gifts"
 tags: ["cat lover gifts", "cat gifts", "personalized gifts"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhxlSjjX87EEJh3oUoEGCnJZMahPA7t-lzKIKFLtkIQZaUBTlxXoQ7ecvnOXSXlRzoubpEmthV-3DV329kaIQls1W5ODfFRmypPPBnp6rMixnJkTMBX4ZJvyVv1JQFAYggPtvh-ClDPwT0IUL_2w3nPkv18eer9pza7k86eSW2NBRXfzpMdL6_D5TmIuA8"
+image: "/blog-images/10b032fed8d03d856b63.webp"
 image_alt: "Cat lover gift ideas for feline fans"
 date: "2026-02-15"
 updated: "2026-06-19"

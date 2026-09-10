@@ -5,7 +5,7 @@ description: "Learn how to style V-neck shirts with practical guidance on fit, l
 category: "Fashion & Style"
 tags: ["V-neck shirts", "shirt styling", "fashion tips"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiojpCFN0L-GgDb3xTTDgcdnQmxLkpK9VvnBq4CzLwLYndiY7KYfaL4TSqoWh_QyPOn8e9FQfeGO8LY2uhVfi47Edhrhc1sPG0bKk2YH3SiNLVfYhy6hoDU64lsC9VcHz1wmfgA30g8atVIKmfBKe4R7VsgLFC1Fysa8Rs01nis256hyFq9Eu65HzZPTFQ"
+image: "/blog-images/b8ccc83f3e4a61820bd1.webp"
 image_alt: "V-neck shirt styling ideas for different occasions"
 date: "2026-01-18"
 updated: "2026-06-19"

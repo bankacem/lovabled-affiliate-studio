@@ -5,7 +5,7 @@ description: "Use this Christmas gift guide to find 50 ideas across personalized
 category: "Gifts"
 tags: ["Christmas gifts", "holiday gifts", "personalized gifts"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgbOxevKUuGELi-XiipDfguMsxtiXEHkA5-jsts_iEDuYFlAdU5002GUrOQg0yI0QwiyrJ5_qwY6qbNMKbiPOw9OrFFtD-m6JTTFFFmgQNf48AQAdL8OO9oS_37Qr7ByK3GSqQrSb_VXuTVBaDjh4lRoUsfbC2ItjU5BUSvB88qob7RhYU9c1nL7ITBbRE"
+image: "/blog-images/356ebf551c97bf00ec34.webp"
 image_alt: "Christmas gift guide with personalized and practical gift ideas"
 date: "2026-03-07"
 updated: "2026-06-19"

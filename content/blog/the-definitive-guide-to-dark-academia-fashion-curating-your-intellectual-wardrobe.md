@@ -5,7 +5,7 @@ description: "Build a dark academia wardrobe with guidance on color, texture, la
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Definitive%20Guide%20to%20Dark%20Academia%20Fashion%3A%20Curating%20Your%20Intellectual%20Wardrobe%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1392074394"
+image: "/blog-images/9d8aac49a06664860c12.webp"
 image_alt: "The Definitive Guide to Dark Academia Fashion: Curating Your Intellectual Wardrobe"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is how this style has evolved. According to recent search data, interest in "Dark Academia" surged by over 150% during the global lockdowns. Why? Because it offers a sense of structure and romanticism in a world that feels increasingly digital and detached. It emphasizes <strong>substance over speed</strong>. You aren't just wearing a blazer; you're wearing the uniform of a person who spends their Saturday nights translating Ovid by candlelight.</p>
 
-    <img src="/api//800/500" alt="A person sitting in a dimly lit library wearing a brown tweed blazer and holding an old leather-bound book.">
+    <img src="/placeholder.svg" alt="A person sitting in a dimly lit library wearing a brown tweed blazer and holding an old leather-bound book.">
 
     <p>In my experience, the mistake most beginners make is thinking the look is just "preppy." It’s not. Preppy is bright, athletic, and optimistic. Dark Academia is moody, nostalgic, and a little bit existential. It’s about the "dark" side of learning—the obsession, the late nights, and the melancholy of the past.</p>
   </section>
@@ -63,7 +63,7 @@ read_time: "5 min read"
     <h3>3. Bottoms: Plaid Trousers and Pleated Skirts</h3>
     <p>High-waisted trousers are the <a href="/blog/the-ultimate-guide-to-custom-photo-shirts-why-personalized-apparel-is-the-gold-standard-for-gifting" class="auto-link internal-link" title="The Ultimate Guide to Custom Photo Shirts: Why Personalized Apparel is the Gold Standard for Gifting">gold standard</a>. Look for cigarette pants or wide-leg wool trousers. If you prefer skirts, go for midi-length pleated options or shorter plaid skirts paired with thick, opaque tights. Avoid anything too "fast fashion" shiny; the fabric should look matte and expensive.</p>
 
-    <img src="/api//800/450" alt="Close up of various textures: wool trousers, a silk tie, and a leather satchel.">
+    <img src="/placeholder.svg" alt="Close up of various textures: wool trousers, a silk tie, and a leather satchel.">
   </section>
 
   <section id="comparison" class="comparison-section">
@@ -146,7 +146,7 @@ read_time: "5 min read"
       <li><strong>Reading Glasses:</strong> Even if you have 20/20 vision, a pair of blue-light blocking glasses in a tortoiseshell frame can complete the look.</li>
     </ul>
 
-    <img src="/api//800/400" alt="A flat lay of dark academia accessories including a gold watch, tortoiseshell glasses, and a fountain pen.">
+    <img src="/placeholder.svg" alt="A flat lay of dark academia accessories including a gold watch, tortoiseshell glasses, and a fountain pen.">
   </section>
 
   <section class="faq" itemscope itemtype="https://schema.org/FAQPage">

@@ -5,7 +5,7 @@ description: "There was a time, not too long ago, when wearing a t-shirt to the 
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhA2z52zGkqT38BmbB3mfFkGYw-I0VHMkWrX3ys_ZGpci13bG4FpI31tx_0izo10PyVpidJF1NqULTQu5wDOYV-zX98d1kcV3eCGLvuuEiTK_3zAmD2nUJCWs_F0k_gK2ekz4y3h9xmH0ne17GbL7HATrLefs9ALLoZjWC8cRUjaCwzg9ep3DfOHPOw_uM"
+image: "/blog-images/2e01c07fbfe6746780f9.webp"
 image_alt: "The Corporate Plunge: Mastering the Deep V-Neck T-Shirt for Professional Environments"
 date: "2026-02-13"
 updated: "2026-05-17"

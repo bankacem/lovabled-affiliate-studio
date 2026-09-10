@@ -5,7 +5,7 @@ description: "Learn a practical AI t-shirt design workflow covering prompts, com
 category: "Design & AI Tools"
 tags: ["AI t-shirt design", "print-ready artwork", "apparel design"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22AI%20T-Shirt%20Design%3A%20How%20to%20Use%20Artificial%20Intelligence%20to%20Build%20a%20Profitable%20Apparel%20Brand%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1959801622"
+image: "/blog-images/2b64042fc1bc39740dad.webp"
 image_alt: "AI-assisted t-shirt design prepared for printing"
 date: "2026-06-30"
 updated: "2026-07-22"
@@ -44,7 +44,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is that AI hasn't just made things faster; it has democratized creativity. We are seeing a shift from <em>artistic execution</em> to <em>artistic direction</em>. In my experience, the most successful apparel brands launching today aren't necessarily run by traditional artists, but by "curators" who know how to guide AI to produce commercially viable aesthetics.</p>
 
-    <img src="https://images.unsplash.com/photo--ai-tshirt-design-mockup" alt="A high-quality mockup of a t-shirt featuring a complex AI-generated floral skull design">
+    <img src="/placeholder.svg" alt="A high-quality mockup of a t-shirt featuring a complex AI-generated floral skull design">
 
     <p>According to recent industry data, the global custom t-shirt printing market was valued at approximately $4.31 billion in 2022 and is expected to expand at a compound annual growth rate (CAGR) of 11.1% through 2030. AI is the fuel for this growth, allowing creators to flood marketplaces like Etsy, Redbubble, and Amazon Merch on Demand with hyper-targeted designs that would have been too expensive to produce manually.</p>
   </section>
@@ -135,7 +135,7 @@ read_time: "5 min read"
       <li><strong>The "Cute" Look:</strong> "Kawaii aesthetic, pastel colors, thick outlines, sticker art style, white background."</li>
     </ul>
 
-    <img src="https://images.unsplash.com/photo--ai-prompting-interface" alt="A screenshot of a prompt being entered into an AI tool with the resulting t-shirt graphic">
+    <img src="/placeholder.svg" alt="A screenshot of a prompt being entered into an AI tool with the resulting t-shirt graphic">
   </section>
 
   <section id="legalities">

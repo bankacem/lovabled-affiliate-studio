@@ -5,7 +5,7 @@ description: "\"Minimalist Design: The Ultimate Guide to the ‘Less is More’ 
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
-image: "https://i.ibb.co/yn3LhRnL/236c2bf64ed0.png"
+image: "/blog-images/0b922feb04472a510990.webp"
 image_alt: "Minimalist Design: The Ultimate Guide to the ‘Less is More’ Aesthetic"
 date: "2026-01-17"
 updated: "2026-06-19"

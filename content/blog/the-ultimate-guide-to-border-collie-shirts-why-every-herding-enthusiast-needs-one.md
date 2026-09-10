@@ -5,7 +5,7 @@ description: "There is a specific kind of intensity that comes with owning a Bor
 category: "T-Shirts"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Border%20Collie%20Shirts%3A%20Why%20Every%20Herding%20Enthusiast%20Needs%20One%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=391481847"
+image: "/blog-images/385ca93c321901cbbce4.webp"
 image_alt: "The Ultimate Guide to Border Collie Shirts: Why Every Herding Enthusiast Needs One"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>What’s interesting is how these garments serve as social icebreakers. Walk into a park wearing a shirt featuring a "herding crouch" silhouette, and you’ll inevitably find yourself in a conversation about agility trials or Frisbee obsession. In my experience, Border Collie people are a tribe. We don't just own dogs; we manage athletes. The apparel we choose reflects that intensity.</p>
 
-    <img src="https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47" alt="A black and white Border Collie looking intently at its owner wearing a dog-themed t-shirt">
+    <img src="/blog-images/2ecf4bd72d10e14d937e.webp" alt="A black and white Border Collie looking intently at its owner wearing a dog-themed t-shirt">
   </section>
 
   <section id="materials">
@@ -139,7 +139,7 @@ read_time: "5 min read"
 
     <p>DTG works much like an inkjet printer for clothes. It allows for incredible detail—perfect for capturing the intricate fur patterns of a Blue Merle Border Collie. The downside? If the printer doesn't use a high-quality "pretreat" solution, the image can fade. To prevent this, always wash your dog shirts inside out in cold water. It’s a small step, but it doubles the life of the print.</p>
 
-    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e" alt="Close up of a high quality t-shirt print featuring a dog design">
+    <img src="/blog-images/06c5223204dc61cebeba.webp" alt="Close up of a high quality t-shirt print featuring a dog design">
   </section>
 
   <section id="gifting">

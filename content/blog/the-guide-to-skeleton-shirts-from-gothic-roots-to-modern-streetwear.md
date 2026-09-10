@@ -5,7 +5,7 @@ description: "The skeleton is one of the most enduring symbols in human history.
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjjHBr9X_GZB_BjBHsld_uGiCBWDDJfIMo2nZDQq-0ntE0_y2se9OwXXSHyUhzgtriLd4deq-80htvh-R4kN8WnkLDKgUUZNWsiSn1wG815JiudUKe1qdBNC6Qme6tOCU44XLdNEw-JF1O7_5v58_tCin8m_b8o_v0-KqCIMkH5znEfHB9PuneUXBDsiiw"
+image: "/blog-images/a7fa7c46e7d6ffc000cd.webp"
 image_alt: "The Guide to Skeleton Shirts: From Gothic Roots to Modern Streetwear"
 date: "2026-04-01"
 updated: "2026-06-17"

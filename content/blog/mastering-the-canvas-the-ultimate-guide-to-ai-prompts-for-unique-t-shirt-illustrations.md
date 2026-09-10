@@ -5,7 +5,7 @@ description: "Gone are the days when you had to spend $500 on a freelance illust
 category: "Home Decor"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjafQ8EO__oQaIVHfBk87rKFlbXs4VJkhCx7mtHsQa0zdn_xXQFDGkdO5iVMwxJGbHfvmxFxmk8h2rzD0xMs4IHylvs7tfJiNTkZ2sfUtBwafJGUuZD6K58AJdHo6KcL5kSobUIJiu03BWjkH3BnBg7aHSVmcySNU027fSmAduLVVDBMMC8FhsOUiMO5KU"
+image: "/blog-images/3082687f19250935c6e3.webp"
 image_alt: "Mastering the Canvas: The Ultimate Guide to AI Prompts for Unique T-Shirt Illustrations"
 date: "2026-03-15"
 updated: "2026-06-15"

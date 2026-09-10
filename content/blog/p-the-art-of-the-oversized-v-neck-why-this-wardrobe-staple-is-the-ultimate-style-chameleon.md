@@ -5,7 +5,7 @@ description: "There is a specific kind of confidence that comes from wearing som
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1730289802373-e54616059384?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxPdmVyc2l6ZWQlMjBWLU5lY2slMjBULVNoaXJ0cyUzQSUyMEhvdyUyMHRvJTIwU3R5bGUlMjBUaGVtJTIwZm9yJTIwQW55JTIwTG9vayUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjE1fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/333e8e074864ba83a56b.webp"
 image_alt: "Oversized V-Neck T-Shirts: How to Style Them for Any Look"
 date: "2026-07-24"
 updated: "2026-05-29"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>Statistically, the "relaxed fit" market has grown by over 25% since 2020, according to retail analytics. Why? Because we’ve collectively decided that breathing room is a non-negotiable. But here’s the thing: an oversized V-neck isn't just a baggy sweater. The "V" serves a critical anatomical purpose. By exposing the collarbones and the vertical line of the chest, it creates a point of focus that prevents the wearer from looking "swallowed" by the fabric. It’s a masterclass in visual balance.</p>
 
-    <img src="https://images.unsplash.com/photo--oversized-vneck-lifestyle" alt="A woman wearing a cream-colored oversized cashmere v-neck sweater walking down a city street, showcasing a relaxed but professional vibe.">
+    <img src="/placeholder.svg" alt="A woman wearing a cream-colored oversized cashmere v-neck sweater walking down a city street, showcasing a relaxed but professional vibe.">
   </section>
 
   <section id="fabrics">
@@ -70,7 +70,7 @@ read_time: "5 min read"
 
     <p>For a more daring look, try layering. A crisp white button-down under a deep V-neck adds a layer of "preppy-intellectual" charm. The collar of the shirt provides a structured frame for the softness of the knit. It’s a classic move that never feels dated.</p>
 
-    <img src="https://images.unsplash.com/photo--vneck-styling-details" alt="Close-up of a French tuck on a grey oversized v-neck sweater paired with high-waisted denim and a leather belt.">
+    <img src="/placeholder.svg" alt="Close-up of a French tuck on a grey oversized v-neck sweater paired with high-waisted denim and a leather belt.">
   </section>
 
   <section id="body-types">

@@ -5,7 +5,7 @@ description: "Follow a beginner-friendly Canva workflow for creating original t-
 category: "Design & AI Tools"
 tags: ["Canva t-shirt design", "shirt design tutorial", "print-ready art"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Unleash%20Your%20Creativity%3A%20A%20Comprehensive%20Canva%20T-Shirt%20Design%20Tutorial%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1822586818"
+image: "/blog-images/3d7693662b29a5d1eaba.webp"
 image_alt: "Canva workflow for creating t-shirt artwork"
 date: "2026-06-12"
 updated: "2026-07-22"

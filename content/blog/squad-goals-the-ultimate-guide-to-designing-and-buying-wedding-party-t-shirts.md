@@ -5,7 +5,7 @@ description: "Walk through any airport on a Friday morning and you’ll likely s
 category: "Weddings & Bridal"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1624260417537-a08c660314c0?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxXZWRkaW5nJTIwUGFydHklMjBULVNoaXJ0cyUzQSUyMEhvdyUyMHRvJTIwRGVzaWduJTIwJTI2JTIwT3JkZXIlMjBmb3IlMjBZb3VyJTIwV2hvbGUlMjBTcXVhZCUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjM0fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/9c527587eb795df25cf6.webp"
 image_alt: "Wedding Party T-Shirts: How to Design & Order for Your Whole Squad"
 date: "2026-07-24"
 updated: "2026-05-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>Beyond the sentiment, there's the practical side. Logistics during a wedding weekend are chaotic. Having your bridal party in distinctive shirts during the rehearsal or the morning-of setup allows the wedding planner or venue staff to identify the "inner circle" instantly. Statistics from the promotional products industry suggest that 85% of people remember the advertiser that gave them a shirt, but in a wedding context, that "advertiser" is the couple. It’s a tangible memory of a high-stress, high-joy event.</p>
 
-    <img src="[IMAGE__1]" alt="A group of bridesmaids wearing matching silk-screened t-shirts during a champagne toast">
+    <img src="/placeholder.svg" alt="A group of bridesmaids wearing matching silk-screened t-shirts during a champagne toast">
   </section>
 
   <section id="choosing-the-right-fabric">
@@ -86,7 +86,7 @@ read_time: "5 min read"
     <h3>Heat Transfer Vinyl (HTV)</h3>
     <p>This is common for many Etsy sellers using Cricut machines. It involves cutting the design out of a sheet of vinyl and pressing it onto the shirt with heat. It allows for those shiny, metallic, or glitter finishes that ink can't replicate. The risk here is "peeling." If not applied with the correct pressure and temperature, the letters may start to lift after a few trips through the dryer.</p>
 
-    <img src="[IMAGE__2]" alt="Close-up comparison of screen printed ink vs. heat transfer vinyl texture">
+    <img src="/placeholder.svg" alt="Close-up comparison of screen printed ink vs. heat transfer vinyl texture">
   </section>
 
   <section id="comparison" class="comparison-section">

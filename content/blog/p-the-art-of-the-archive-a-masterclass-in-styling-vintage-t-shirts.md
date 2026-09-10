@@ -5,7 +5,7 @@ description: "There is a specific kind of magic found in the thin, slightly crac
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1566915189815-b72e74007040?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxIb3clMjB0byUyMFN0eWxlJTIwVmludGFnZSUyMFQtU2hpcnRzJTNBJTIwT3V0Zml0JTIwSWRlYXMlMjBmb3IlMjBNZW4lMjBhbmQlMjBXb21lbiUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjEyfDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/972170584c6abbcabedc.webp"
 image_alt: "How to Style Vintage T-Shirts: Outfit Ideas for Men and Women"
 date: "2026-07-24"
 updated: "2026-05-25"
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <p>What's interesting is the material composition. You’ll often find the "50/50 blend" (polyester and cotton). This blend is the holy grail for many collectors because it thins out over decades, becoming incredibly soft and draping over the body in a way that 100% heavy cotton simply cannot. When styling these, you have to account for that drape. A thin, sheer vintage tee requires a different structural approach than a heavy-weight 90s streetwear piece.</p>
 
-    <img src="[IMAGE_]" alt="Close up of a faded 1980s graphic tee showing cracked ink and thin fabric texture">
+    <img src="/placeholder.svg" alt="Close up of a faded 1980s graphic tee showing cracked ink and thin fabric texture">
 
     <p><strong>Pro Tip:</strong> When buying online, ignore the tag size. A medium from 1982 is often a modern small or even an extra-small. Always ask for pit-to-pit (P2P) and length measurements. [Internal Link: Guide to Vintage Sizing]</p>
   </section>
@@ -71,7 +71,7 @@ read_time: "5 min read"
 
     <p>What I’ve found is that a crisp, white button-down shirt worn *under* a vintage t-shirt is an underrated move. Let the collar and the cuffs show. This adds a preppy structure to a piece that might otherwise look too slouchy. Alternatively, try a mesh or sheer turtleneck underneath during transition seasons. It adds a stylistic "barrier" and makes the graphic on the shirt pop.</p>
 
-    <img src="[IMAGE_]" alt="A person wearing a vintage band tee layered over a white collared shirt with trousers">
+    <img src="/placeholder.svg" alt="A person wearing a vintage band tee layered over a white collared shirt with trousers">
   </section>
 
   <section id="comparison" class="comparison-section">

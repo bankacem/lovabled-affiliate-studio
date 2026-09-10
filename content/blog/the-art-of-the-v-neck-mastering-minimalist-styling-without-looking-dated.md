@@ -5,7 +5,7 @@ description: "For a long time, the V-neck shirt suffered an image crisis. It was
 category: "T-Shirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhMV31miMht4szSAgR8ZF8tplVEhY1ZfSlj3Z7YTu-kh6efez7KYpyZici3oxXukfLVjim0yEFY58YhYgK9LGHtHUeuvPfO9Ttq5pHAfDx4KPIgNGwYb9Lg24qzJmSDKjDHd_G9tJnb5hAsr1-PS29w01Y1cE3nNMrFHX_tjLu6LzN_a9mwzuV2cC2mDvc"
+image: "/blog-images/58e7eff3e259a7ecbd20.webp"
 image_alt: "Minimalist V-Neck Styling Guide 2026: How to Look Clean & Modern"
 date: "2026-03-16"
 updated: "2026-05-01"

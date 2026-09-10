@@ -5,7 +5,7 @@ description: "Style printed shirts with practical advice on color balance, layer
 category: "Fashion & Style"
 tags: ["printed shirts", "shirt styling", "graphic tees"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj9Om2yq6KjHY2gIEiOA78zjhv-vECwxjFwb08y0f8YAAM4F_qYnON69ay3jl5qy72Htar13vPPrrfUVoqjIPKxBMYkT_G2Hl1JyoEQ-_jgeh_5RRIYUoixU4HAyqICR5ZbHGHAZbxqygQ4PdVtZOOb1v_8qiHFsRaSdLEzeK1K6m0SFLnrRnbrahabXqU"
+image: "/blog-images/ca5e7b15096a0c46db06.webp"
 image_alt: "Printed shirt styling with balanced colors and layers"
 date: "2026-02-21"
 updated: "2026-06-19"

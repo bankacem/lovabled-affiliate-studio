@@ -5,7 +5,7 @@ description: "Find Easter bunny shirt ideas for adults, kids, and families, with
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgnweOpRYOuhD60KwpMA44BHYl0s0s0z2RJ7l185bDNP1SGa4DH122QNjv8WjrS6ly_qTCXGhRD8sfAdxJUFe2phToEuziM7E35iwLg-zdW-VURH0-yGiCnw1hQkANFJcSP0nLMs5SA5oMeoe8TYYo2LlHBFfn_lPkhYi2VhgueVWT1I8Sp4_noo06KGNs"
+image: "/blog-images/de5c4756b4963e50fb05.webp"
 image_alt: "Easter Bunny Shirts: The Ultimate Guide to Style, Trends, and Shopping in 2026"
 date: "2026-03-22"
 updated: "2026-06-19"

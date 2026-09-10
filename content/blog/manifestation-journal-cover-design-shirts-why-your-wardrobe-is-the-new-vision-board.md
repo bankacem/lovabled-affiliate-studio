@@ -5,7 +5,7 @@ description: "Explore manifestation journal cover shirt ideas and learn how to t
 category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Manifestation%20Journal%20Cover%20Design%20Shirts%3A%20Why%20Your%20Wardrobe%20is%20the%20New%20Vision%20Board%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=842173941"
+image: "/blog-images/8702e3b1ae945f0ae6db.webp"
 image_alt: "Manifestation Journal Cover Design Shirts: Why Your Wardrobe is the New Vision Board"
 date: "2026-04-06"
 updated: "2026-07-22"

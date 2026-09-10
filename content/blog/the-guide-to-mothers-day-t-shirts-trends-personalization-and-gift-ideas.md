@@ -5,7 +5,7 @@ description: "Mother’s Day is a global celebration of the women who raise us, 
 category: "Gifts"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiehpzy3As5hK0tddTuw-frK7-GerKSO_O_U3aeosodOW7S_ppa1vuUEpdQAxdjpwZmvS8F1-7jmlN5gChzMFYYGJrbw0glZ8OPO1TCSvI4ZcuL_BETf4QkeSTIU6k4hU18mML_fOiuQ3NFqTxk0ZCD_pPokqk0KHugW9Y_S2N7fRY847WPcbSfHCCf3wA"
+image: "/blog-images/8365fe282a8c8586a4b6.webp"
 image_alt: "The Guide to Mother’s Day T-Shirts: Trends, Personalization, and Gift Ideas"
 date: "2026-04-01"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Plan matching couple shirts with coordinated colors, complementary
 category: "Gifts"
 tags: ["matching couple shirts", "couple gifts", "personalized apparel"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgZZtZVfwdH85se81dh-1si_KPtDm31GUAdXQkB1jAbkV_B2djMWJgM3SvO2Il9xQFU-XCJkR9VWptsRZR81ZZL-Wl3KtJrPqIRtbWr38B9ar5U6noZyskHAqrH6mX0884LO1mkU4HRTD3wpAerHK6dMUVVD8i5u70AOHjk1GXDOEaYUa6yOrBhLp2TxnI"
+image: "/blog-images/b41e41c2c6a26f3e2ec5.webp"
 image_alt: "Matching couple shirt design ideas with coordinated artwork"
 date: "2026-02-19"
 updated: "2026-06-19"

@@ -5,7 +5,7 @@ description: "Shop for graphic tees under $30 by comparing fabric, print quality
 category: "T-Shirts"
 tags: ["graphic tees", "affordable fashion", "t-shirt shopping"]
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22Best%20Graphic%20Tees%20Under%20%2430%3A%20Unbeatable%20Style%20Without%20Breaking%20the%20Bank%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1881568700"
+image: "/blog-images/5a2fdcd860409f102ef4.webp"
 image_alt: "Affordable graphic tee styles under thirty dollars"
 date: "2026-06-14"
 updated: "2026-07-22"

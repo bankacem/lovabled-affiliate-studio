@@ -5,7 +5,7 @@ description: "Walking through a thrift store and spotting a faded graphic is a r
 category: "Vintage & Retro"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgHh6g05Rlj0y4rFZkcrC5ueoQlKTG1fh_d9Q89yj3ms9Gf6kuU0Hboa3NUbwar9Igj6psxyL1x8RPU8UggEglTAH-IMhCzuiFcnF6Vg-cWpj-6w0azFtR_ZsfJL0-O_kS0EmbdEjplmKhpvSIrfSvtBnreSxwRABqSKUwTL6uxsFK3g3cWOoVNMqxPpGQ"
+image: "/blog-images/2f59a8dbcba019f060db.webp"
 image_alt: "The Definitive Guide to Identifying Vintage 90s T-Shirt Tags: Spotting the Grails"
 date: "2026-02-21"
 updated: "2026-05-20"

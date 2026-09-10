@@ -5,7 +5,7 @@ description: "Choose bridesmaid shirts by comparing styles, fabrics, sizing, per
 category: "Weddings & Bridal"
 tags: ["bridesmaid shirts", "bridal party", "wedding planning"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEhrV1JM6dgvzK930YgErkbH1MsrufoJ2fjrMXf2ZL5UVx_f86p6J1uK1_zrE9kj0ov47R7Tth04gnS9YZs20fvtGTWxEq34TSer6SHFVBAeQFpODUPtvCTqoozXPcmY9AV4VbQlSs4AoYAXXlSBqmZGQxuUAaAPgq3QKObtphy3QuaoMObldnrGl7W3kk0"
+image: "/blog-images/81aab56ee1a2e22ba9ed.webp"
 image_alt: "Coordinated bridesmaid shirt styles and sizing ideas"
 date: "2026-03-03"
 updated: "2026-06-19"

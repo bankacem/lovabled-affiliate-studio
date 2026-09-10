@@ -5,7 +5,7 @@ description: "Plan matching Christmas shirts for the family with ideas for color
 category: "Style Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgazAJdw9Sg-841vkgmwv25JOFhaSz17_JLWYy5J4jcl4zftaNLdGPO_Fw9DpC8rssQYuNh-tmRRsMNqGLA0Nm7NEdJn-UdNXvFwyb-LfbqADagg-mIqbP7w9DbQmZXXDstrCxJMQg86H2vMtqaj5zJT0cSLlh5M-E5nz8cpHzQZ1zUmTbVUrWZATp2OqY"
+image: "/blog-images/2b1d3856f382fc04b761.webp"
 image_alt: "Christmas Shirts for Family: The Ultimate Guide to Matching Holiday Style"
 date: "2026-04-25"
 updated: "2026-06-19"

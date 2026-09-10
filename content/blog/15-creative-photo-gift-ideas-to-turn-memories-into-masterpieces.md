@@ -5,7 +5,7 @@ description: "Discover 15 creative photo gift ideas for birthdays, anniversaries
 category: "Gifts"
 tags: ["photo gifts", "personalized gifts", "memory keepsakes"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEi0SqzAuoj39xp7FX9KKxnoXGcOJLx0UUo-4ZlBzLxm-_R7lMwyEyH1QL5qvBzxq8ZSFhqZjDO0VQx_fjtpzcsvn4sb7qOZ2NPOWfa7BYafsOB3HI_-XuOil3j3kRsKo96yxGkXDIy1Qz5XPAYGmXXm0Y6iax48gbRRC0faZJpIdzHMDtIDKVTZGCbGN3s"
+image: "/blog-images/f08d093d2cd4066f78f6.webp"
 image_alt: "Personalized photo gift ideas arranged as meaningful keepsakes"
 date: "2026-02-05"
 updated: "2026-06-19"

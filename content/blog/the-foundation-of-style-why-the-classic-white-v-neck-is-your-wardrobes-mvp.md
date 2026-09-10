@@ -5,7 +5,7 @@ description: "Let’s be honest: the fashion industry spends billions of dollars
 category: "Style Guides"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiLHc4-zpU69-qpQXeWGcpgMUR6h3nQ4LlTogzsddVRipt0yT0cH9jCULDdr1YQgzGNjsSM8uA9RRd-_SjODjB_IX2iOS9AdmYvxuGviLpbI5fCU1JU7egUxzuPUmECO5AbtNtxu4ENGrDKq-bz-TJWhNu-DnrMbymxnVIwDY4lqvcNuoUtTtI8EF1bItk"
+image: "/blog-images/3c9b749ebc714000183e.webp"
 image_alt: "The Foundation of Style: Why the Classic White V-Neck Is Your Wardrobe’s MVP"
 date: "2026-03-16"
 updated: "2026-06-19"

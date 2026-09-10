@@ -5,7 +5,7 @@ description: "Long before Instagram feeds were filled with minimalist fine-line 
 category: "Design & AI Tools"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1521308452854-e037c0062a1e?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUYXR0b28lMjBGbGFzaCUyMEFydCUyMFQtU2hpcnRzJTIwMjAyNiUzQSUyME9sZCUyMFNjaG9vbCUyMFN0eWxlJTIwRGVzaWducyUyMCUyNiUyMFdoZXJlJTIwdG8lMjBCdXklMjB0LXNoaXJ0JTIwcHJpbnQlMjBkZXNpZ258ZW58MHwwfHx8MTc3NzgwNjI0MXww&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/d635ab94d58be6cee103.webp"
 image_alt: "Tattoo Flash Art T-Shirts 2026: Old School Style Designs & Where to Buy"
 date: "2026-03-09"
 updated: "2026-05-19"

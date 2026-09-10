@@ -5,7 +5,7 @@ description: "What we now affectionately call the \\\"Ugly Christmas Sweater\\\"
 category: "Hoodies & Sweatshirts"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiuJoZyJPVPDYWNaoSFXt_9FzZIW6_Tru6Mbw0EvvJhmYhb1htlqHZFNCtYaDwX2lbKYrfs084CuRkrr1UsVlsa1AothRTo3AgAO8FLewN1Jy44Nn4N-Isj7eHY8myMgYTXQAo5jFIPhXZz2CdJZZwsHPtwBjLKK8sU14k7dw-fOso8lZiY2_G-ZQz7STQ"
+image: "/blog-images/f3e4962c1d858d9a0e4d.webp"
 image_alt: "The Guide to Ugly Christmas Sweaters: History, Trends, and Styling Tips"
 date: "2026-04-23"
 updated: "2026-06-09"

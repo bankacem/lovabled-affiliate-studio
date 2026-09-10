@@ -5,7 +5,7 @@ description: "Designing for a V-neck isn't just about slapping a logo on a shirt
 category: "Design & AI Tools"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibh4Ksd8TUrpVJDh_8nsXkohoz53-Kp9hdQy5UMDd8-87ypdAv4h8SYwB0l5Tm_thoOAgJ5C8AngizZpGGT6_8HLWXqbIzKjuPOXwmmrQjAtl3xTnOv65bhfOkm9EQb5gcHdaR8vJQNKVf1YA6KmLr7-gbDQVXa_d_wQ32PDarcWUVRdLzjJe7CIMcmCM/s1018/1000025547.jpg"
+image: "/blog-images/3dc6193d40685cb67c1e.webp"
 image_alt: "Deep V-Neck T-Shirt Designs for Graphic Printing: Full Guide"
 date: "2026-03-06"
 updated: "2026-06-15"

@@ -5,7 +5,7 @@ description: "Staring at a console log that simply reads \\\"Edge Function retur
 category: "Guides"
 tags: []
 author: "AI Writer"
-image: "https://images.unsplash.com/photo-1593720213681-e9a8778330a7?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxEZWNvZGluZyUyMHRoZSUyMCUyMkVkZ2UlMjBGdW5jdGlvbiUyMFJldHVybmVkJTIwYSUyME5vbi0yeHglMjBTdGF0dXMlMjBDb2RlJTIyJTIwRXJyb3IlM0ElMjBBJTIwRGV2ZWxvcGVyJUUyJTgwJTk5cyUyMEd1aWRlJTIwdG8lMjBSZWNvdmVyeSUyMHQtc2hpcnQlMjBwcmludCUyMGRlc2lnbnxlbnwwfDB8fHwxNzc3ODA2MjU5fDA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/e4bed5dfe33c3055d5b6.webp"
 image_alt: "Decoding the \\\"Edge Function Returned a Non-2xx Status Code\\\" Error: A Developer’s Guide to Recovery"
 date: "2026-07-24"
 updated: "2026-06-18"

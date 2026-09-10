@@ -5,7 +5,7 @@ description: "Finding a pristine 1960s wiggle dress with a \\\"Size 12\\\" tag o
 category: "Vintage & Retro"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg35g1pZms0u7FP7Geq1arqY3j3D2UmQoItMT63r_5PTeEblACudSgzEPAw8fiwwKqZZsRkUGJrf_XLuRIZqI3u6JHf4JJtuuRu_MpN4PKOoNamsJ32BwT3Lr9dL1-Pb7eLKuwNeAO_HuA86WTbqN5oMUQa6OhNaYtmwCOpnvjqq_9eOpeBW6sj6zCnaj8/s895/1000025668.jpg"
+image: "/blog-images/914f2c6e92efb5562bbc.webp"
 image_alt: "The Great Disconnect: A Definitive Guide to Vintage Clothing Sizes vs. Modern Fit"
 date: "2026-03-08"
 updated: "2026-05-24"

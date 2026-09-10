@@ -5,7 +5,7 @@ description: "Discover the best vintage 2004 birthday shirts for celebrating you
 category: "Birthdays & Parties"
 tags: []
 author: "Content Team"
-image: "https://images.unsplash.com/photo-1522724514897-24b0eb7ba3ea?ixid=M3w5NDE0ODd8MHwxfHNlYXJjaHwxfHxUaGUlMjBVbHRpbWF0ZSUyMEd1aWRlJTIwdG8lMjBWaW50YWdlJTIwMjAwNCUyMEJpcnRoZGF5JTIwU2hpcnRzJTIwdC1zaGlydCUyMHByaW50JTIwZGVzaWdufGVufDB8MHx8fDE3Nzc4MDYyNjR8MA&ixlib=rb-4.1.0&w=1200&h=630&fit=crop&fm=webp&q=80"
+image: "/blog-images/cb49ee97d7c2c1a5dbc5.webp"
 image_alt: "The Ultimate Guide to Vintage 2004 Birthday Shirts"
 date: "2026-01-31"
 updated: "2026-06-12"

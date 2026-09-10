@@ -5,7 +5,7 @@ description: "If you've spent any time scouring thrift stores or browsing high-e
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiE03zUbwWAcaF6g-FyCHTYGHpaZFtHXWZMgKgeOBR-_QLBFlttv9hr1r2Tghfoaa3Qg5jl_NoXN1Zfun-WGM8Z7e4mD7ViXs3uinF7ICBjvZYhbQEp3l7_cNESQDhgeL4A5Y07yOJ9_jY2oKrdQ-4t8FU_wMS0W2YAt_XA5T3VbBZP5LD2kR7lr003AMk"
+image: "/blog-images/0516c69805888123c886.webp"
 image_alt: "The Single Stitch Secret: How to Authenticate Vintage T-Shirts Like a Pro"
 date: "2026-02-22"
 updated: "2026-06-14"

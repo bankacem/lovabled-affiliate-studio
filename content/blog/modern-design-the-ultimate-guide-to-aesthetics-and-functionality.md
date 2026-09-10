@@ -5,7 +5,7 @@ description: "Explore modern design principles through balance, typography, colo
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj3fsZAKTVxNUOAdlQ_PIVzBo2yY9px5SZAwlSqteHn_WWIZNsdxnScviMipapW4EH0sxQMIvq67XBrC6xu5Ax2KrQyreO7kKkIcN8qMdXbNPbWtvBUf8Rv1aUyid44ZyGIcN-7eerHr3e73KRW5LBuUR5y91KcUM3OSlLlSLBWVcztsc1bcnb_rwpVkO8"
+image: "/blog-images/e90653d5b9133a65baf2.webp"
 image_alt: "Modern Design: The Ultimate Guide to Aesthetics and Functionality"
 date: "2026-03-15"
 updated: "2026-06-19"

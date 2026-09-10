@@ -5,7 +5,7 @@ description: "Learn how to style oversized V-neck shirts with guidance on propor
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEiZgOX5jBe0blvDIDvKIr3LIYg15Jcs2ZRj0V3duW4I1aPvRzymvdZ_yDTGUMHoHoh_kHobzJprkkASA1IE2vGDkywdZlTTxsh11hOmkFBz4q_V9PiDlZf_0I5LoEv9iZsnORIaCtFIu1PUgcA8K-m_kIhoDPt3dMsqIkIpM4cRaecgVpc5d3X30doO2VI"
+image: "/blog-images/0c7779b48c2beaa067b1.webp"
 image_alt: "The Oversized V-Neck Renaissance: Mastering Summer 2026's Most Versatile Staple"
 date: "2026-02-13"
 updated: "2026-06-13"

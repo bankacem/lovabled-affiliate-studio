@@ -5,7 +5,7 @@ description: "What used to be a niche interest reserved for the fringes of the g
 category: "Vintage & Retro"
 tags: []
 author: " Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgapXnlkDRIBlZNe9K7BH6ZfQ-ijhJKLaxUwLVtzJKmcaG5BeLedLRdaEkM9Ns4Hm7ykC6FZolMzffr-1O1a7rCrIAySmmdkigJvLIhs3WssZR3woFUgvVEghPYV0Pw4nue9IoM5SU6ZT2AiSs1Oxavw1Xx-91bYijvxXkXrAXpVMstOT4eu6tD7EKnvv0"
+image: "/blog-images/b9e04f6059ada0da3c5c.webp"
 image_alt: "The Guide to Spooky Shirts: From Gothic Elegance to Retro Horror"
 date: "2026-04-09"
 updated: "2026-05-20"

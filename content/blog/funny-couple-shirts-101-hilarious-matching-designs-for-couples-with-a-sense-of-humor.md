@@ -5,7 +5,7 @@ description: "😂 Funny Couple Shirts: 101 Hilarious Matching Designs for Coupl
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjoJlH58nuAEh-_jGE58btJw-tUHpuopHDBSKSOFuFHs2FucnjSNGwoSwf_kFupRT5t_8NUnmYJOW4krcu7IFv1OMl0EyUEL885zDT0_KK4CrVmggH-2KvAJePxcXMsUhYTsACPW1nZd8uoLtndnLbRNE9npepyUNDeiwxMv8Hxsa6eKmTILojlHzkJG-g"
+image: "/blog-images/d819292b2dda2b3ec633.webp"
 image_alt: "😂 Funny Couple Shirts: 101 Hilarious Matching Designs for Couples with a Sense of Humor"
 date: "2026-02-17"
 updated: "2026-06-19"

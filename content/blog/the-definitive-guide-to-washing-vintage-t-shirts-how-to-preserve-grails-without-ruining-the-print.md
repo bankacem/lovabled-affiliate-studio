@@ -5,7 +5,7 @@ description: "Preserve vintage t-shirts by learning how to check fabric and prin
 category: "Vintage & Retro"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgR6aix0KmVcw8IF54-Q6PXuA_QRyDVfmPPt9tjhlxVq2ofqBCxuHl2t2OBBBPveYLxbaqZAxYYURcDs9-UjSAKt_3ntBHVb73L-2a5CBLG4x5lMun6R54WUIqbAZ3iqjHgSoa3T4KD0m0srUSgweGwR8rT5cMfs4yXGAJt_5S2cNy4rcHr1IjDkiFA658"
+image: "/blog-images/3435ce085ed6c5557e5a.webp"
 image_alt: "The Definitive Guide to Washing Vintage T-Shirts: How to Preserve Grails Without Ruining the Print"
 date: "2026-02-21"
 updated: "2026-05-21"

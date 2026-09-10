@@ -5,7 +5,7 @@ description: "Learn how to manage custom orders with a clear workflow for briefs
 category: "Ecommerce & Marketing"
 tags: ["custom orders", "small business", "order management"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEj3h2iU-O4hOj7F1pygIl0U-v5FP3-K--6NnE9qGoeHm-PGH-gFlpe7ztLRScRa2nr8tAmzUIUNaBmOhPTP_IanzFj68SztFPBdji0d_umlcTWcjv575fczbBeI0gSFwY8XehLrV3k3Ftk2ZYCJuGhyC5KnvVIWgsSjojWDd5nubThh6N39ip7CEgHd6vw"
+image: "/blog-images/f5573c441545c900a571.webp"
 image_alt: "Custom order workflow for a small business"
 date: "2026-03-13"
 updated: "2026-06-19"

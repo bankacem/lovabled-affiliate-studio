@@ -5,7 +5,7 @@ description: "Compare canvas print materials, sizes, finishes, hanging options, 
 category: "Home Decor"
 tags: ["canvas prints", "wall art", "home decor"]
 author: "Admin"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEjZiN2jtCylYtKTmpZUCVkb47J4VKlKeTAdpPgOlWoNsEq3iWYjdv89ogAgxqQuFK_cy0QSOyS3BRI0nfHdQVDV5gDFMiob_Pq8gjupxcR5NCcpmgzNf_OiwW4SkN389fehnBdnaYcs4FO0nAYZLNsE-Nipv_-VBPv8POSih2A74SRJslBEUM_qfU86fxU"
+image: "/blog-images/9bc734cb234cb61ac702.webp"
 image_alt: "Canvas print wall art displayed in a home interior"
 date: "2026-02-17"
 updated: "2026-06-19"

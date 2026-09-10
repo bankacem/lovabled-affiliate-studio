@@ -5,7 +5,7 @@ description: "We see the slogan everywhere: on coffee mugs, oversized t-shirts, 
 category: "Guides"
 tags: []
 author: "Writer"
-image: "https://blogger.googleusercontent.com/img/a/AVvXsEgEwwikeQj7MgHR895DpF-Ib-8x2PMAvCa3KYV5fXCcgJT3SO6_ETe_qGr9oRTVLmQkipZA_4KWIoEsOWi6XJbel1M9nTcGPYp9dBOQQCeNQ0zadnkOgSyzDkU4J7xc1S-4jK4NvdJhYE-d8mSoB9xFiFVjfFpCd8tIzfaqd09ywO8pgqiCw43jRg2DcDE"
+image: "/blog-images/b3bcfc791919a17f9993.webp"
 image_alt: "The World's Best Mom: Defining Modern Motherhood and How to Celebrate It"
 date: "2026-03-16"
 updated: "2026-06-19"

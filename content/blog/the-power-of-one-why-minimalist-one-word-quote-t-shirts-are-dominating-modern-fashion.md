@@ -5,7 +5,7 @@ description: "Walk through any urban center today—be it SoHo, Shoreditch, or S
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Power%20of%20One%3A%20Why%20Minimalist%20One-Word%20Quote%20T-Shirts%20Are%20Dominating%20Modern%20Fashion%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=252024582"
+image: "/blog-images/d805135701e953dd0f51.webp"
 image_alt: "The Power of One: Why Minimalist One-Word Quote T-Shirts Are Dominating Modern Fashion"
 date: "2026-03-27"
 updated: "2026-07-22"

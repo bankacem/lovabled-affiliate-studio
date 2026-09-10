@@ -5,7 +5,7 @@ description: "Walking down any metropolitan street today—be it in Tokyo, Londo
 category: "Style Guides"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Oversized%20T-Shirt%20Revolution%3A%20Why%20Too%20Big%20Is%20Exactly%20Right%20for%20Modern%20Style%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1871042811"
+image: "/blog-images/dd36dfe2c64b683f449b.webp"
 image_alt: "The Oversized T-Shirt Revolution: Why \\\"Too Big\\\" Is Exactly Right for Modern Style"
 date: "2026-06-26"
 updated: "2026-07-22"
@@ -44,7 +44,7 @@ read_time: "5 min read"
 
     <p>Historically, the oversized look draws heavily from 1990s skate culture and hip-hop aesthetics. What started as a functional necessity for movement and a rejection of "corporate" tailoring has evolved into a high-fashion staple. Brands like Fear of God and Balenciaga have taken the humble tee and transformed it into a structural statement piece. Statistics from recent retail market reports suggest that the "relaxed fit" category has seen a 35% year-over-year growth, significantly outpacing traditional fits.</p>
 
-    <img src="[IMAGE__STREETWEAR_OVERSZIED_TEE]" alt="A person wearing a structured heavyweight oversized t-shirt in a minimalist urban setting">
+    <img src="/placeholder.svg" alt="A person wearing a structured heavyweight oversized t-shirt in a minimalist urban setting">
 
     <p>What's interesting is how the gender lines have blurred. The oversized T-shirt is perhaps the most truly "unisex" garment in modern history. It offers a blank canvas that ignores traditional body shapes, focusing instead on the silhouette created by the fabric itself. In my experience, the shift toward these fits reflects a broader cultural desire for "effortless" style—the idea that you can look highly curated while feeling like you’re wearing pajamas.</p>
   </section>
@@ -77,7 +77,7 @@ read_time: "5 min read"
     <h3>The "French Tuck" and Accessories</h3>
     <p>If you feel like you're drowning in fabric, the French tuck (tucking just the front hem into your waistband) can work wonders. It defines your waistline and creates an asymmetrical line that is visually interesting. ومن زاوية أخرى مكملة, accessories are your best friend. A chunky watch or a couple of silver chains "anchor" the outfit, signaling that the oversized fit is a choice, not an accident.</p>
 
-    <img src="[IMAGE__STYLING_DIAGRAM]" alt="Comparison showing a tucked vs untucked oversized t-shirt styling">
+    <img src="/placeholder.svg" alt="Comparison showing a tucked vs untucked oversized t-shirt styling">
   </section>
 
   <section id="comparison" class="comparison-section">

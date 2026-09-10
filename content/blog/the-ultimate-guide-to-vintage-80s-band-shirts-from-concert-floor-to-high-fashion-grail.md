@@ -5,7 +5,7 @@ description: "Walking through a thrift store today, you might see a \\\"distress
 category: "Vintage & Retro"
 tags: []
 author: "AI Writer"
-image: "https://image.pollinations.ai/prompt/Premium%20print-on-demand%20t-shirt%20mockup%2C%20folded%20cotton%20tee%20on%20clean%20minimal%20studio%20background%2C%20soft%20lighting%2C%20high%20detail%2C%20the%20phrase%20%22The%20Ultimate%20Guide%20to%20Vintage%2080s%20Band%20Shirts%3A%20From%20Concert%20Floor%20to%20High-Fashion%20Grail%22%20printed%20on%20the%20shirt%20in%20bold%20modern%20typography%2C%20product%20photography%2C%204k%2C%20ecommerce%20quality?width=1200&height=630&nologo=true&enhance=true&model=flux&seed=1397521291"
+image: "/blog-images/5cba8245c578d4b7c1d1.webp"
 image_alt: "The Ultimate Guide to Vintage 80s Band Shirts: From Concert Floor to High-Fashion Grail"
 date: "2026-07-24"
 updated: "2026-07-22"
@@ -45,7 +45,7 @@ read_time: "5 min read"
 
     <p>What's fascinating is how these items transitioned from $10 souvenirs to blue-chip alternative assets. According to recent auction data from platforms like Sotheby's and specialized vintage marketplaces, the "vintage tee" market has seen a 300% increase in valuation over the last decade. It isn't just nostalgia driving this; it's the scarcity of the "paper-thin" cotton-poly blends that modern manufacturing simply cannot replicate.</p>
 
-    <img src="[IMAGE_]" alt="A collection of authentic 1980s heavy metal tour shirts showing faded graphics and cracked screen printing.">
+    <img src="/placeholder.svg" alt="A collection of authentic 1980s heavy metal tour shirts showing faded graphics and cracked screen printing.">
 
     <p>In my years of scouring bins and estate sales, I’ve found that the 80s represent a "sweet spot" in <a href="/blog/p-the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history" class="auto-link internal-link" title="The Ultimate Guide to Storing Vintage T-Shirts: Preserving Textile History">textile history</a>. We moved away from the heavy, boxy 100% cotton of the 70s toward the soft, breathable 50/50 blends. These shirts drape differently. They feel like a second skin. If you’ve ever touched a 1986 Metallica <em>Damage, Inc.</em> tour shirt, you know exactly what I’m talking about—it’s light, airy, and carries the ghosts of a thousand mosh pits.</p>
   </section>
@@ -76,7 +76,7 @@ read_time: "5 min read"
       <li><strong>Hardcore Punk:</strong> Black Flag, Bad Brains, and Minor Threat. Because these were often printed in tiny batches on whatever cheap blanks were available, they are incredibly rare. Finding a 1981 Black Flag "Bars" shirt is the equivalent of finding a unicorn.</li>
     </ul>
 
-    <img src="[IMAGE_]" alt="Close up of a 1988 Guns N' Roses Appetite for Destruction shirt with legitimate single-stitch detailing.">
+    <img src="/placeholder.svg" alt="Close up of a 1988 Guns N' Roses Appetite for Destruction shirt with legitimate single-stitch detailing.">
   </section>
 
   <section id="comparison" class="comparison-section">
