@@ -73,6 +73,12 @@ read_time: "4 min read"
 
 <p>Explore the <a href="/designs">AIPrintVerse design collection</a> for original ideas that can be adapted to a printed hoodie or sweatshirt.</p>
 
+<h2>Related guides</h2>
+<p>Continue with these related AIPrintVerse guides:</p>
+<ul>
+<li><a href="/blog/cheap-custom-t-shirts-no-minimum-a-comprehensive-guide" class="internal-link">Cheap Custom T-Shirts No Minimum: How to Order One Without Overspending</a></li>
+</ul>
+
 <h2>References</h2>
 <p>For the method comparison and placement considerations summarized here, see <a href="https://www.customink.com/blog/custom-hoodies-printing-methods/">Custom Ink’s hoodie printing-method guide</a> [1] and <a href="https://www.printful.com/blog/hoodie-logo-placement-guide">Printful’s hoodie logo-placement guide</a> [2].</p>
 

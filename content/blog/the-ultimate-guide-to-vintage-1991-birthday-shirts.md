@@ -54,3 +54,9 @@ read_time: "6 min read"
 <h3>What should I put on a personalized 1991 birthday shirt?</h3><p>Start with the year, then add one meaningful detail such as a name, birth month, short phrase, or photo. Limit the front to the most important information so it stays legible.</p>
 <h3>Can the same design work for a group?</h3><p>Yes. Keep the main “1991” artwork consistent, choose one garment color and fit, and personalize only a small line for each person.</p>
 <p>For more original apparel inspiration, browse the <a href="/blog/the-ultimate-guide-to-vintage-t-shirts-how-to-find-style-and-value-them">vintage T-shirt guide</a> and choose a visual style that fits the celebrant.</p>
+<h2>Related guides</h2>
+<p>Continue with these related AIPrintVerse guides:</p>
+<ul>
+<li><a href="/blog/the-ultimate-guide-to-vintage-2001-birthday-shirts" class="internal-link">2001 Birthday Shirts: Y2K Design Ideas, Fit & Printing Tips</a></li>
+<li><a href="/blog/the-ultimate-guide-to-vintage-2010-birthday-shirts" class="internal-link">Born in 2010 Birthday Shirts: 16th-Birthday & Y2K Design Ideas</a></li>
+</ul>

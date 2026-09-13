@@ -60,6 +60,13 @@ read_time: "6 min read"
 <p>Use the garment’s care label as the source of truth, wash as directed, and avoid heat or chemicals that the manufacturer warns against. A proof and the original care instructions are useful records for custom orders.</p>
 <h2>More birthday-shirt planning ideas</h2>
 <p>For additional layout and personalization ideas, see the guide to <a href="/blog/p-the-ultimate-guide-to-custom-birthday-t-shirts-trends-techniques-and-pro-tips">custom birthday t-shirts</a>. You can also browse the <a href="/designs">AIPrintVerse design collection</a> for starting points, then adapt the wording and colors to the wearer.</p>
+<h2>Related guides</h2>
+<p>Continue with these related AIPrintVerse guides:</p>
+<ul>
+<li><a href="/blog/the-ultimate-guide-to-vintage-1991-birthday-shirts" class="internal-link">1991 Birthday Shirts: Vintage Design Ideas, Fit & Printing Tips</a></li>
+<li><a href="/blog/the-ultimate-guide-to-vintage-2001-birthday-shirts" class="internal-link">2001 Birthday Shirts: Y2K Design Ideas, Fit & Printing Tips</a></li>
+</ul>
+
 <h2>References</h2>
 <p>[1] <a href="https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule">Federal Trade Commission, “Clothes Captioning: Complying with the Care Labeling Rule”</a>.</p>
 

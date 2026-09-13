@@ -172,6 +172,13 @@ Screen printing is a practical match for a larger group with bold, limited-color
 
 Choose comfortable blanks, avoid an overly specific date if re-wearability matters, order only after sizes are confirmed, and inspect the shipment immediately. Ask about fiber content, certification details, and care instructions instead of relying on broad sustainability language.
 
+<h2>Related guides</h2>
+<p>Continue with these related AIPrintVerse guides:</p>
+<ul>
+<li><a href="/blog/birthday-squad-shirts-the-ultimate-guide-to-planning-your-group-celebration" class="internal-link">Birthday Squad Shirts: How to Choose, Design, and Order Group Tees</a></li>
+<li><a href="/blog/valentines-day-shirts-the-complete-guide-for-couples-and-singles" class="internal-link">Valentine’s Day Shirts: Ideas for Couples, Singles, and Friends</a></li>
+</ul>
+
 ## References
 
 [1]: https://global-standards.org/our-standards/gots "Global Organic Textile Standard (GOTS)"

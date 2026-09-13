@@ -57,5 +57,12 @@ read_time: "6 min read"
 <h3>What should go on the front versus the back?</h3><p>Use the front for the year and milestone because it is easiest to read. Reserve the back for a short memory list, a group name, or a secondary graphic that supports rather than competes with the main message.</p>
 <h3>Can one design work for a group?</h3><p>Yes. Keep the main year, placement, and colors consistent, then vary a small name or role line. Confirm every size and spelling before the order is submitted.</p>
 <p>Visit the <a href="/designs">AIPrintVerse designs</a> page for more ways to turn a personal idea into wearable art.</p>
+<h2>Related guides</h2>
+<p>Continue with these related AIPrintVerse guides:</p>
+<ul>
+<li><a href="/blog/the-ultimate-guide-to-vintage-1991-birthday-shirts" class="internal-link">1991 Birthday Shirts: Vintage Design Ideas, Fit & Printing Tips</a></li>
+<li><a href="/blog/the-ultimate-guide-to-vintage-2010-birthday-shirts" class="internal-link">Born in 2010 Birthday Shirts: 16th-Birthday & Y2K Design Ideas</a></li>
+</ul>
+
 <h2>References</h2>
 [1]: https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule "Clothes Captioning: Complying with the Care Labeling Rule"
