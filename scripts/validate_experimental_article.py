@@ -13,6 +13,9 @@ for key in ['title','slug','description','image','image_alt','updated']:
 assert 'cheap custom t-shirts' in front.lower()
 assert '/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg' in body
 assert (ROOT/'artifacts/app/public/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg').exists()
+assert '/authors/jordan-ellis.jpg' in body
+assert (ROOT/'artifacts/app/public/authors/jordan-ellis.jpg').exists()
+assert 'Jordan Ellis' in front and 'Jordan Ellis' in body
 internal=re.findall(r'href=["\']/blog/([^"\']+)',body)
 assert len(set(internal))>=3
 for slug in set(internal):
@@ -20,6 +23,7 @@ for slug in set(internal):
     assert any(p.exists() for p in candidates), slug
 assert 'FAQPage' in body and body.count('itemtype="https://schema.org/Question"')==4
 assert 'https://www.ftc.gov/news-events/topics/tools-consumers/apparel-labeling' in body
+assert 'https://www.printful.com/blog/dtg-vs-screen-printing' in body
 assert 'placeholder' not in body.lower()
 assert body.count('<article>')==1 and body.count('</article>')==1
 print('valid frontmatter/image/internal-links/faq/reference/structure')

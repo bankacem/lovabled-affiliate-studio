@@ -4,7 +4,7 @@ slug: "p-cheap-custom-t-shirts-no-minimum-a-comprehensive-guide"
 description: "Looking for cheap custom t-shirts with no minimum? Compare one-shirt printing, blank quality, DTG, DTF, screen printing, shipping, proofing, and total delivered cost before ordering."
 category: "T-Shirts"
 tags: ["cheap custom t-shirts", "no minimum t-shirts", "custom shirt printing"]
-author: "AIPrintVerse Editorial Team"
+author: "Jordan Ellis"
 image: "/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg"
 image_alt: "Professional custom T-shirt printing workspace with blank shirts, color swatches, a measuring tape, and a delivery box"
 date: "2026-06-15"
@@ -40,6 +40,11 @@ read_time: "10 min read"
   </figure>
 </section>
 
+<aside class="author-note" aria-label="About the author">
+  <img src="/authors/jordan-ellis.jpg" alt="Jordan Ellis, AIPrintVerse print and apparel editor" loading="lazy" />
+  <p><strong>Jordan Ellis</strong> is AIPrintVerse’s print and apparel editor. This guide was reviewed for printing-method accuracy, delivered-cost comparisons, and practical ordering details.</p>
+</aside>
+
 <section id="meaning">
   <h2>What “no minimum” really means</h2>
   <p>A no-minimum printer lets you order one printed garment, or a small quantity, instead of requiring a fixed batch. That is useful for a personal gift, a design sample, a small event, or a print-on-demand shop. It does not mean every blank, color, print method, or print location is available at quantity one.</p>
@@ -71,7 +76,7 @@ read_time: "10 min read"
 
 <section id="method">
   <h2>Which printing method fits your order?</h2>
-  <p>Printing method affects detail, color, hand feel, durability, and the point at which a larger quantity becomes economical. Match the process to the artwork and order size.</p>
+  <p>Printing method affects detail, color, hand feel, durability, and the point at which a larger quantity becomes economical. Match the process to the artwork and order size. For a technical comparison of setup, design complexity, and order size, see <a href="https://www.printful.com/blog/dtg-vs-screen-printing" rel="noopener noreferrer">Printful’s DTG versus screen-printing guide</a>.</p>
   <table>
     <thead><tr><th>Method</th><th>Good starting point for</th><th>Questions to ask</th></tr></thead>
     <tbody>
@@ -153,4 +158,4 @@ read_time: "10 min read"
 
 <p><em>Last reviewed September 14, 2026. Prices, products, shipping estimates, and provider policies can change, so confirm the final checkout quote for your destination.</em></p>
 
-<p><strong>Reference:</strong> <a href="https://www.ftc.gov/news-events/topics/tools-consumers/apparel-labeling" rel="noopener noreferrer">Federal Trade Commission apparel-labeling guidance</a>.</p>
+<p><strong>References:</strong> <a href="https://www.ftc.gov/news-events/topics/tools-consumers/apparel-labeling" rel="noopener noreferrer">Federal Trade Commission apparel-labeling guidance</a> and <a href="https://www.printful.com/blog/dtg-vs-screen-printing" rel="noopener noreferrer">Printful’s DTG versus screen-printing comparison</a>.</p>
