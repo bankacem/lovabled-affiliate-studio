@@ -11,7 +11,8 @@ front=parts[1]; body=parts[2]
 for key in ['title','slug','description','image','image_alt','updated']:
     assert re.search(r'^'+re.escape(key)+r':',front,re.M), f'missing {key}'
 assert 'cheap custom t-shirts' in front.lower()
-assert '/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg' in body
+assert '/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg' in front
+assert '/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg' not in body
 assert (ROOT/'artifacts/app/public/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg').exists()
 assert '/authors/jordan-ellis.jpg' in body
 assert (ROOT/'artifacts/app/public/authors/jordan-ellis.jpg').exists()

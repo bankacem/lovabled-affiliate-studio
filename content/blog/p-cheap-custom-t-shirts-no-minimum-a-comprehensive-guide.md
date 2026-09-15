@@ -34,10 +34,6 @@ read_time: "10 min read"
   <h2>The short answer</h2>
   <p>The cheapest <strong>custom t-shirt with no minimum</strong> is usually not the shirt with the lowest advertised base price. It is the order with the lowest <strong>delivered cost</strong> after you choose the blank, print location, artwork treatment, shipping speed, and quantity. For one shirt or a small run, start by comparing a basic cotton blank with one digital print location. For a repeated design across a larger batch, ask for a screen-printing quote as well.</p>
   <p>Before paying, confirm five things: the selected style truly accepts one shirt, the preview shows the correct placement, the final cart includes shipping and tax, the promised arrival date fits your deadline, and the provider has a clear defect or reprint policy. “No minimum” describes order quantity; it does not promise the lowest price or the best garment.</p>
-  <figure>
-    <img src="/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg" alt="Professional custom T-shirt printing workspace with blank shirts, color swatches, a measuring tape, and a delivery box" loading="lazy" />
-    <figcaption>A one-shirt order can be a useful sample before committing to inventory or a group run.</figcaption>
-  </figure>
 </section>
 
 <aside class="author-note" aria-label="About the author">
