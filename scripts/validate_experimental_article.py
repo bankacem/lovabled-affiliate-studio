@@ -11,8 +11,8 @@ front=parts[1]; body=parts[2]
 for key in ['title','slug','description','image','image_alt','updated']:
     assert re.search(r'^'+re.escape(key)+r':',front,re.M), f'missing {key}'
 assert 'cheap custom t-shirts' in front.lower()
-assert '/blog-images/2624a70d3212582bfe01.webp' in body
-assert (ROOT/'artifacts/app/public/blog-images/2624a70d3212582bfe01.webp').exists()
+assert '/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg' in body
+assert (ROOT/'artifacts/app/public/blog-images/cheap-custom-tshirts-no-minimum-editorial.jpg').exists()
 internal=re.findall(r'href=["\']/blog/([^"\']+)',body)
 assert len(set(internal))>=3
 for slug in set(internal):

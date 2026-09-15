@@ -178,7 +178,7 @@ const BlogPost = () => {
     );
   }
 
-  const jsonLd = {
+  const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.title,
@@ -197,6 +197,23 @@ const BlogPost = () => {
       "@id": `https://aiprintverse.com/blog/${post.slug}`
     }
   };
+  const jsonLd = post.slug === "cheap-custom-t-shirts-no-minimum-a-comprehensive-guide"
+    ? {
+        "@context": "https://schema.org",
+        "@graph": [
+          articleJsonLd,
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": "Can I order just one cheap custom t-shirt?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when the provider marks the selected product, color, and print method as no minimum. Compare the delivered cart total rather than assuming the lowest advertised unit price applies to one shirt." } },
+              { "@type": "Question", "name": "What is usually cheapest for one custom shirt?", "acceptedAnswer": { "@type": "Answer", "text": "A basic blank with one digital print location is a useful baseline. The final answer depends on the destination, shipping, artwork fees, shirt color, and the provider’s current quote." } },
+              { "@type": "Question", "name": "Is screen printing suitable for a small order?", "acceptedAnswer": { "@type": "Answer", "text": "It can be, but setup and color costs may make digital printing better for one or a few shirts. Request a quote at the exact quantity instead of relying on a general rule." } },
+              { "@type": "Question", "name": "Can personalized t-shirts be returned?", "acceptedAnswer": { "@type": "Answer", "text": "Personalized products may be excluded from change-of-mind returns. Read the provider’s policy and confirm the process for defects, wrong artwork, damage, or a printing error before ordering." } },
+            ],
+          },
+        ],
+      }
+    : articleJsonLd;
 
   return (
     <Layout>
