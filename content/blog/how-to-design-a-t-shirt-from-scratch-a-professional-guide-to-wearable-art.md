@@ -4,10 +4,10 @@ slug: "how-to-design-a-t-shirt-from-scratch-a-professional-guide-to-wearable-art
 description: "Follow a practical t-shirt design process from concept and audience research to typography, layout, file preparation, mockups, and print-quality checks."
 category: "Design & AI Tools"
 tags: []
-author: "AI Writer"
+author: "Emma Carter"
 image: "/blog-images/4ace19ca3f6191a3f4fc.webp"
 image_alt: "How to Design a T-Shirt From Scratch: A Professional Guide to Wearable Art"
-date: "2026-07-24"
+date: "2026-07-22"
 updated: "2026-07-22"
 status: "published"
 scheduled_at: ""

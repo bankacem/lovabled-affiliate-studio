@@ -4,10 +4,10 @@ slug: "mothers-day-shirt-ideas-2026-the-ultimate-guide-to-trends-tech-and-timele
 description: "Predicting fashion cycles requires a mix of data analysis and a gut feeling for cultural shifts. By May 2026, we are seeing a definitive move away from the \\\"Millennial Pink\\\" era and into what industry insiders call \\\"The New Nostalgia.\\\" This trend blends high-quality garment construction with graphic"
 category: "Gifts"
 tags: []
-author: "AI Writer"
+author: "Emma Carter"
 image: "/blog-images/1e6c2a2662af5d4a4e87.webp"
 image_alt: "Mother’s Day Shirt Ideas 2026: The Ultimate Guide to Trends, Tech, and Timeless Gifts"
-date: "2026-07-24"
+date: "2026-07-22"
 updated: "2026-07-22"
 status: "published"
 scheduled_at: ""

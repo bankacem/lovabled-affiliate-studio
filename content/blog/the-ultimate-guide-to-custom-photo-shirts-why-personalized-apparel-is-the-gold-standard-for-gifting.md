@@ -4,10 +4,10 @@ slug: "the-ultimate-guide-to-custom-photo-shirts-why-personalized-apparel-is-the
 description: "Think about the last time you received a gift that actually made you stop in your tracks. It probably wasn't a generic candle or a department store gift card. Most likely, it was something that signaled the giver truly knew you. Custom photo shirts tap into a psychological phenomenon known as the \\\"E"
 category: "Gifts"
 tags: []
-author: "AI Writer"
+author: "Emma Carter"
 image: "/blog-images/4834f5ab3f8b1607f485.webp"
 image_alt: "The Ultimate Guide to Custom Photo Shirts: Why Personalized Apparel is the Gold Standard for Gifting"
-date: "2026-07-24"
+date: "2026-07-22"
 updated: "2026-07-22"
 status: "published"
 scheduled_at: ""

@@ -4,10 +4,10 @@ slug: "the-ultimate-guide-to-rescue-dog-shirts-why-what-you-wear-matters-for-she
 description: "Walking down a busy street wearing a shirt that says \\\"Adopt, Don't Shop\\\" might seem like a small gesture, but the psychology behind it is surprisingly powerful. In the marketing world, we call this \\\"social proof.\\\" When people see others proudly supporting animal rescue, it normalizes the behavior an"
 category: "Phone Cases & Accessories"
 tags: []
-author: "AI Writer"
+author: "Emma Carter"
 image: "/blog-images/939df71b4f4d4a684002.webp"
 image_alt: "The Ultimate Guide to Rescue Dog Shirts: Why What You Wear Matters for Shelter Pets"
-date: "2026-07-24"
+date: "2026-07-22"
 updated: "2026-07-22"
 status: "published"
 scheduled_at: ""
