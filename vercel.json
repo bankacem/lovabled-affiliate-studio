@@ -192,6 +192,11 @@
       "source": "/blog/p-the-quest-for-the-perfect-white-v-neck-a-masterclass-in-mens-and-womens-essentials",
       "destination": "/blog/the-quest-for-the-perfect-white-v-neck-a-masterclass-in-mens-and-womens-essentials",
       "permanent": true
+    },
+    {
+      "source": "/blog/the-ultimate-guide-to-v-neck-shirts-how-to-style-them-for-any-occasion",
+      "destination": "/blog/the-ultimate-guide-to-v-neck-shirts-style-fit-and-fashion-mastery",
+      "permanent": true
     }
   ],
   "rewrites": [
