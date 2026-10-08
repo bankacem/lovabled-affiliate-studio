@@ -283,6 +283,14 @@ const BlogPost = () => {
                       ? format(new Date(post.created_at), "MMMM d, yyyy")
                       : "Recently"}
                 </span>
+                {post.updated_at && post.published_at &&
+                  format(new Date(post.updated_at), "yyyy-MM-dd") !==
+                    format(new Date(post.published_at), "yyyy-MM-dd") && (
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      Updated {format(new Date(post.updated_at), "MMMM d, yyyy")}
+                    </span>
+                  )}
                 {post.read_time && (
                   <span className="flex items-center gap-1">
                     <Clock className="h-4 w-4" />
