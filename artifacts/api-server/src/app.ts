@@ -4,6 +4,7 @@ import { pinoHttp } from "pino-http";
 import { db, sql } from "@workspace/db";
 import router from "./routes/index.js";
 import { logger } from "./lib/logger.js";
+import { seedDesignsIfEmpty } from "./seed/seedDesigns.js";
 
 const app: Express = express();
 
@@ -65,6 +66,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/designs", async (_req, _res, next) => {
   try {
     await ensureDesignsTable();
+    await seedDesignsIfEmpty();
     next();
   } catch (error) {
     next(error);
