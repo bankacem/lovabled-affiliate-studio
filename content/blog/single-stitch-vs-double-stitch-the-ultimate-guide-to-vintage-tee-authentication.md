@@ -1,9 +1,14 @@
 ---
 title: "Single Stitch vs Double Stitch: The Ultimate Guide to Vintage Tee Authentication"
 slug: "single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication"
-description: "Walking through a thrift store or browsing curated vintage shops on Grailed, you’ll often see sellers shouting \\\"SINGLE STITCH\\\" in all caps as if they’ve found a gold bar. To the uninitiated, it sounds like technical jargon. However, in the world of textile archaeology, these tiny threads are the DNA"
+description: "Single stitch vs double stitch explained: date vintage tees by their hems, spot repro fakes, and buy authenticated vintage shirts with confidence."
 category: "Vintage & Retro"
-tags: []
+tags:
+  - single stitch
+  - double stitch
+  - vintage t-shirt authentication
+  - vintage band tees
+  - how to date vintage clothing
 author: "Emma Carter"
 image: "/blog-images/dbbf9cb8e89a61956a1d.webp"
 image_alt: "Single Stitch vs Double Stitch: The Ultimate Guide to Vintage Tee Authentication"
@@ -14,184 +19,131 @@ scheduled_at: ""
 read_time: "5 min read"
 ---
 <article>
-  <h1><a href="/blog/the-single-stitch-secret-how-to-authenticate-vintage-t-shirts-like-a-pro" class="auto-link internal-link" title="The Single Stitch Secret: How to Authenticate Vintage T-Shirts Like a Pro">Single Stitch</a> vs Double Stitch: The <a href="/blog/p-the-ultimate-guide-to-the-best-custom-t-shirt-printing-sites-quality-cost-and-reliability-compared" class="auto-link internal-link" title="The Ultimate Guide to the Best Custom T-Shirt Printing Sites: Quality, Cost, and Reliability Compared">Ultimate Guide</a> to Vintage Tee Authentication</h1>
+  <h1>Single Stitch vs Double Stitch: The Ultimate Guide to Vintage Tee Authentication</h1>
 
-  <div class="toc">
-    <h3>Table of Contents</h3>
+  <p>Walk through any thrift store or browse curated vintage sellers online and you'll see the phrase "SINGLE STITCH" shouted in all caps like it's a gold bar. It isn't jargon — it's the single fastest way to date a T-shirt. A single row of thread on the hem tells you the shirt was almost certainly made before the mid-90s; two parallel rows mean it's modern. We've authenticated hundreds of tees over the years, and the hem check is always step one.</p>
+
+  <p>If you're new to the vintage game, it also helps to know how true vintage differs from modern retro-style prints — our <a href="/blog/modern-retro-vs-real-vintage-shirts-the-definitive-guide-to-authentic-style">modern retro vs real vintage guide</a> breaks that distinction down. Below is everything you need to read a hem like a dealer, avoid the common fakes, and buy with confidence.</p>
+
+  <section>
+    <h2>Key authentication checks at a glance</h2>
+    <p>In a hurry? Run these five checks on any tee you're thinking of buying:</p>
     <ul>
-      <li><a href="#understanding-fundamentals">Understanding the Fundamentals of Garment Construction</a></li>
-      <li><a href="#what-is-single-stitch">The Single Stitch: A Relic of the 20th Century</a></li>
-      <li><a href="#what-is-double-stitch">The Double Stitch: Modern Durability and Industrial Shift</a></li>
-      <li><a href="#dating-vintage">How to Date Vintage T-Shirts Using Stitching</a></li>
-      <li><a href="#the-exceptions">The Exceptions: When Single Stitch Isn't Vintage</a></li>
-      <li><a href="#comparison">Side-by-Side Comparison</a></li>
-      <li><a href="#collectors-perspective">The Collector's Perspective: Value and Market Trends</a></li>
-      <li><a href="#faq">Frequently Asked Questions</a></li>
+      <li><strong>The hem test:</strong> one line of stitching on sleeve and bottom hems = likely pre-1994; two parallel lines = modern.</li>
+      <li><strong>The tag test:</strong> period-correct brands (Screen Stars, Hanes Beefy-T, Fruit of the Loom with era-correct logos) and country of manufacture (USA, Pakistan, Honduras for true vintage).</li>
+      <li><strong>The print test:</strong> vintage screen prints crack and fade in a specific way; repros often look too crisp or too uniformly "distressed."</li>
+      <li><strong>The side-seam test:</strong> authentic vintage is often tubular knit (no side seams); modern fakes almost always have them.</li>
+      <li><strong>The fabric test:</strong> true vintage cotton is usually lighter and paper-thin from decades of wear; stiff, heavy cotton with a single stitch is suspicious.</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="summary">
-    <h3>Key Takeaways</h3>
+  <section>
+    <h2>What is a single stitch?</h2>
+    <p>Flip up the sleeve cuff or the bottom hem of a shirt. A single stitch shows as one solitary line of thread on the outside, with an interlocking overlock pattern on the inside of the hem. Before the mid-90s, this was simply how shirts were made — the single-needle machine was the workhorse of the American and Pakistani textile factories that dominated the market.</p>
+    <p>Technically it's the "weaker" construction: if a thread snaps, the hem can unravel. But it produces a cleaner, thinner drape with none of the bulk of a modern hem — which is why vintage purists prefer the silhouette. Whether it was a 1984 tour shirt or a blank from a gas station, single stitch was the standard, not a premium feature.</p>
+  </section>
+
+  <section>
+    <h2>What is a double stitch?</h2>
+    <p>A double stitch shows as two parallel lines of thread along the hems — the double-needle coverstitch that became the industry standard around 1994–1995. Major manufacturers like Fruit of the Loom, Hanes, and Screen Stars phased out single-needle machines because the double stitch is structurally more forgiving: if one thread breaks, the other usually holds the hem in place, and it handles the heavier "beefy" cottons that took over in the 90s.</p>
+    <p>In our experience, double-stitched shirts feel stiffer and lack the flow of an 80s paper-thin tee. By 1996, single stitching was effectively dead in mass production, surviving only in boutique runs and old-stock leftovers.</p>
+  </section>
+
+  <section>
+    <h2>How to date a vintage T-shirt using stitching</h2>
+    <p>Stitching is your first line of defense when deciding whether a shirt is an original or a reprint. Here's the timeline we use:</p>
     <ul>
-      <li>Single stitching is the primary hallmark of T-shirts manufactured before 1994.</li>
-      <li>Double stitching became the industry standard in the mid-90s due to increased machine efficiency and hem durability.</li>
-      <li>The "<a href="/blog/the-single-stitch-secret-how-to-authenticate-vintage-t-shirts-like-a-pro" class="auto-link internal-link" title="The Single Stitch Secret: How to Authenticate Vintage T-Shirts Like a Pro">Single Stitch</a>" rule is a reliable dating tool but requires secondary verification (tags, copyright dates).</li>
-      <li>Modern "repro" (reproduction) shirts often mimic single stitching to trick collectors.</li>
-      <li>A shirt's value can fluctuate by hundreds of dollars based solely on the presence of a single-thread hem.</li>
+      <li><strong>Pre-1990:</strong> almost exclusively single stitch. A double stitch on a shirt dated 1982 is a near-certain reprint.</li>
+      <li><strong>1990–1993:</strong> the transition years. Mostly single stitch, with a few early double-needle experiments.</li>
+      <li><strong>1994–1996:</strong> the "great crossover" — you'll find both. This is where you must check the tag to confirm the era.</li>
+      <li><strong>1997–present:</strong> standardized double stitch. Single stitching becomes a stylistic choice rather than a manufacturing necessity.</li>
     </ul>
-  </div>
-
-  <section id="understanding-fundamentals">
-    <h2>Understanding the Fundamentals of Garment Construction</h2>
-    <p>Walking through a <a href="/blog/p-the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets" class="auto-link internal-link" title="The Definitive Guide to Vintage 90s T-Shirt Brands: From Thrift Store Grails to Investment Assets">thrift store</a> or browsing curated vintage shops on Grailed, you’ll often see sellers shouting "SINGLE STITCH" in all caps as if they’ve found a gold bar. To the uninitiated, it sounds like technical jargon. However, in the world of textile archaeology, these tiny threads are the DNA of a garment. Understanding the difference between a single and double stitch isn't just about aesthetics; it's about identifying the manufacturing era, the origin of the fabric, and the potential resale value of the piece.</p>
-
-    <p>Historically, T-shirt construction was a simpler affair. Before the mid-1990s, the machinery used to finish hems—the bottom of the shirt and the ends of the sleeves—typically utilized a single needle. This produced a visible line of thread on the outside and a "blind stitch" or overlock pattern on the inside. As global manufacturing scaled and consumer demand for "rugged" clothing grew, brands shifted toward the double-needle coverstitch. This change wasn't just a stylistic choice; it was an industrial evolution.</p>
-
-    <img src="/placeholder.svg" alt="Close-up comparison of a single stitch hem versus a double stitch hem on a cotton T-shirt">
+    <p>One caveat: never rely on stitching alone. Always cross-reference with the tag brand and print quality. A "Made in China" tag on a single-stitch shirt is a massive red flag — authentic single-stitch vintage was overwhelmingly made in the USA, Pakistan, or Honduras. For the full tag-by-tag breakdown, see our <a href="/blog/the-definitive-guide-to-identifying-vintage-90s-t-shirt-tags-spotting-the-grails">guide to identifying vintage 90s T-shirt tags</a>.</p>
   </section>
 
-  <section id="what-is-single-stitch">
-    <h2>The Single Stitch: A Relic of the 20th Century</h2>
-    <p>What exactly is a single stitch? If you look at the cuff of the sleeve or the bottom hem of a shirt, a single stitch appears as a one, solitary line of thread running horizontally. If you flip the hem over, you’ll see a complex web of interlocking threads (the overlock). </p>
-
-    <p>Most enthusiasts associate this look with the "golden era" of <a href="/blog/the-renaissance-of-retro-18-essential-aesthetic-thrift-shop-style-graphic-tees" class="auto-link internal-link" title="The Renaissance of Retro: 18 Essential Aesthetic Thrift Shop Style Graphic Tees">graphic tees</a>—the 1970s, 80s, and early 90s. During this time, the machinery was designed to be efficient for the lighter-weight cottons of the era. What's interesting is that while a single stitch is technically "weaker" than a double stitch (it’s more prone to unraveling if a thread snaps), it offers a much cleaner, thinner drape. It lacks the bulkiness of modern hems, which is why many vintage purists prefer the silhouette it creates.</p>
-
-    <p>Here’s the thing: Single stitching wasn't a "premium" feature back then. It was simply how shirts were made. Whether it was a promotional 1984 Iron Maiden tour shirt or a generic blank from a gas station, the single-needle machine was the workhorse of the American and Pakistani textile factories that dominated the market.</p>
-  </section>
-
-  <section id="what-is-double-stitch">
-    <h2>The Double Stitch: Modern Durability and Industrial Shift</h2>
-    <p>By 1994 and 1995, the industry underwent a massive transition. Major manufacturers like Fruit of the Loom, Hanes, and Screen Stars began phasing out single-needle machines in favor of double-needle coverstitch machines. You can identify this by the two parallel lines of stitching running along the hems.</p>
-
-    <p>Why the change? Data from that era suggests that "fast fashion" (though not called that yet) required garments that could withstand the aggressive agitation of modern washing machines. A double stitch provides a structural backup; if one thread breaks, the other usually holds the hem in place. ومن زاوية أخرى مكملة, the double stitch allowed for the use of heavier, "beefier" cottons that became popular in the 90s grunge and hip-hop scenes.</p>
-
-    <p>What I've found in my years of collecting is that double-stitched shirts feel "stiffer." While they are objectively more durable, they lack the "flow" of an 80s paper-thin tee. By 1996, single stitching was effectively dead in mass production, appearing only in specialized boutique runs or old-stock leftovers.</p>
-  </section>
-
-  <section id="dating-vintage">
-    <h2>How to Date <a href="/blog/p-the-ultimate-guide-to-scouring-the-web-where-to-buy-vintage-t-shirts-online-without-getting-scammed" class="auto-link internal-link" title="The Ultimate Guide to Scouring the Web: Where to Buy Vintage T-Shirts Online Without Getting Scammed">Vintage T-Shirts</a> Using Stitching</h2>
-    <p>If you're trying to determine if that Nirvana shirt is an original 1991 <i>Nevermind</i> promo or a 2005 Hot Topic reprint, the stitching is your first line of defense. Here is a rough timeline of what to look for:</p>
-
+  <section>
+    <h2>When single stitch isn't vintage: the exceptions</h2>
+    <p>A single line of thread shouldn't make you spend serious money without doing your homework. Modern single stitching shows up in several places:</p>
     <ul>
-      <li><strong>Pre-1990:</strong> Almost exclusively single stitch. If you see a double stitch on a 1982 date-marked shirt, it is almost certainly a modern reprint.</li>
-      <li><strong>1990-1993:</strong> The transition years. Most shirts are still single stitch, but some early double-needle experiments exist.</li>
-      <li><strong>1994-1996:</strong> The "Great Crossover." You will find both. This is where you must check the tag (Screen Stars Best, Blue Grape, etc.) to confirm the era.</li>
-      <li><strong>1997-Present:</strong> Standardized double stitch. Single stitching becomes a stylistic "vintage" choice rather than a manufacturing necessity.</li>
+      <li><strong>High-end reproductions.</strong> Japanese labels and heritage brands use vintage looms to recreate the 1950s aesthetic perfectly. These are new but single-stitched — and often priced like it.</li>
+      <li><strong>Fast-fashion "vintage wash" tees.</strong> Retailers use a single stitch to fake a retro look. Check the side seams: authentic vintage is usually tubular knit (no side seams), while modern fakes almost always have them.</li>
+      <li><strong>Small Southeast Asian factories.</strong> Some continued running single-needle machines into the 2000s for local markets.</li>
     </ul>
-
-    <p>You might be wondering: "Can I rely on this 100%?" No. In my experience, you should always cross-reference the stitching with the <strong>tag brand</strong> and the <strong>print quality</strong>. A "Made in China" tag on a single-stitch shirt is a massive red flag, as most authentic single-stitch vintage was made in the USA, Pakistan, or Honduras.</p>
+    <p>The rule we live by: let your eyes find the graphic, but let your fingers find the hem — then verify everything else before you pay vintage prices.</p>
   </section>
 
-  <section id="comparison" class="comparison-section">
-    <h2>Comparison Table: Single vs. Double Stitch</h2>
+  <section>
+    <h2>Single vs double stitch: side-by-side</h2>
     <table class="comparison-table">
       <thead>
         <tr>
           <th>Feature</th>
           <th>Single Stitch</th>
           <th>Double Stitch</th>
-          <th>Rating (Collectibility)</th>
-          <th>Best For</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Visual Appearance</strong></td>
-          <td>Clean, minimal, single thread line.</td>
-          <td>Two parallel thread lines.</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>Vintage Authenticity</td>
-        </tr>
-        <tr>
-          <td><strong>Durability</strong></td>
-          <td class="text-red-600">Prone to unravelling if snagged.</td>
-          <td class="text-green-600">High resistance to hem failure.</td>
-          <td>⭐⭐⭐</td>
-          <td>Daily Workwear</td>
-        </tr>
-        <tr>
-          <td><strong>Fabric Feel</strong></td>
-          <td>Usually lighter, "paper-thin" cotton.</td>
-          <td>Heavier, "beefy" or ringspun cotton.</td>
-          <td>⭐⭐⭐⭐</td>
-          <td>Summer/Drapey fits</td>
-        </tr>
-        <tr>
-          <td><strong>Market Value</strong></td>
-          <td class="text-green-600">High (Indicates true vintage status).</td>
-          <td class="text-red-600">Lower (Indicates modern/reprint).</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>Resale & Investing</td>
+          <td><strong>Appearance</strong></td>
+          <td>One clean line of thread on the hem</td>
+          <td>Two parallel lines of thread</td>
         </tr>
         <tr>
           <td><strong>Era</strong></td>
-          <td>1960s - Early 1990s.</td>
-          <td>Late 1990s - Present Day.</td>
-          <td>N/A</td>
-          <td>Dating Garments</td>
+          <td>1960s – early 1990s</td>
+          <td>Mid-1990s – present</td>
+        </tr>
+        <tr>
+          <td><strong>Durability</strong></td>
+          <td>Prone to unraveling if snagged</td>
+          <td>More resistant to hem failure</td>
+        </tr>
+        <tr>
+          <td><strong>Fabric feel</strong></td>
+          <td>Lighter, often paper-thin cotton</td>
+          <td>Heavier, beefier cotton</td>
+        </tr>
+        <tr>
+          <td><strong>Collector value</strong></td>
+          <td>High — signals true vintage status</td>
+          <td>Lower — signals modern or reprint</td>
+        </tr>
+        <tr>
+          <td><strong>Best for</strong></td>
+          <td>Dating and authenticating garments</td>
+          <td>Daily wear and durability</td>
         </tr>
       </tbody>
     </table>
   </section>
 
-  <section id="the-exceptions">
-    <h2>The Exceptions: When Single Stitch Isn't Vintage</h2>
-    <p>Don't let a single line of thread fool you into spending $200 without doing your homework. There are several modern scenarios where single stitching is used:</p>
-
-    <ol>
-      <li><strong>High-End Repros:</strong> Brands like <i>Real McCoys</i> or specialized Japanese labels use vintage looms to recreate the 1950s aesthetic perfectly. These are "new" but single-stitched.</li>
-      <li><strong>Modern "Vintage-Wash" Tees:</strong> Fast fashion retailers like Zara or H&M sometimes use a single stitch to give a shirt a "retro" look. Check the side seams; <a href="/blog/the-digital-time-machine-how-to-use-ai-to-create-authentic-vintage-graphics" class="auto-link internal-link" title="The Digital Time Machine: How to Use AI to Create Authentic Vintage Graphics">authentic vintage</a> usually lacks side seams (tubular knit), whereas modern fakes almost always have them.</li>
-      <li><strong>International Manufacturing:</strong> Some smaller factories in Southeast Asia continued using single-needle machines well into the 2000s for local markets.</li>
-    </ol>
-
-    <img src="/placeholder.svg" alt="Internal view of a blind stitch hem showing the interlocking overlock pattern found on vintage shirts">
+  <section>
+    <h2>What to look for when buying vintage tees</h2>
+    <p>Authentication is only half the job — condition and fit decide whether a shirt is worth your money. Here's what we check before buying:</p>
+    <ul>
+      <li><strong>Measurements, not sizes.</strong> Vintage sizing runs small and varies wildly by brand. Ask for pit-to-pit and length measurements; a vintage "large" can fit like a modern medium.</li>
+      <li><strong>Print condition.</strong> Light, even cracking is normal and desirable. Large flaking areas, peeling, or a print that feels plasticky and thick can signal a modern reprint.</li>
+      <li><strong>Holes and stains.</strong> Pinholes at the collar and small distress marks are typical; armpit holes, large stains, and stretched collars reduce value. Decide your tolerance before you bid.</li>
+      <li><strong>Smell and storage.</strong> Musty or smoky shirts can be nearly impossible to fully deodorize. Ask how it was stored.</li>
+    </ul>
+    <p>Once you've bought one, protect the investment: our <a href="/blog/the-definitive-guide-to-washing-vintage-t-shirts-how-to-preserve-grails-without-ruining-the-print">guide to washing vintage T-shirts</a> covers how to clean them without destroying the print.</p>
   </section>
 
-  <section id="collectors-perspective">
-    <h2>The Collector's Perspective: Value and Market Trends</h2>
-    <p>Why do we care so much? It comes down to the "era-correct" nature of the item. To a serious collector, a 1992 <i>Sonic Youth</i> shirt with a double stitch is an immediate pass—it's a fake. The presence of that single row of thread acts as a certificate of authenticity that is very difficult for counterfeiters to replicate using the "correct" vintage thread weight and tension.</p>
-
-    <p>Statistics from secondary marketplaces like <i>eBay</i> and <i>Bored Teenager</i> show that single-stitch t-shirts command a price premium of 40% to 300% over their double-stitched counterparts of the same graphic. It’s the difference between owning a piece of history and owning a piece of merchandise.</p>
-
-    <p>In my experience, the tactile sensation of a single-stitch sleeve hitting your arm is just different. It’s softer, less restrictive, and carries the weight of the decades it has survived. When you're out hunting, let your eyes find the graphic, but let your fingers find the hem. That’s where the truth lies.</p>
+  <section>
+    <h2>Where to buy authenticated vintage tees</h2>
+    <p>The best finds still come from the hunt: thrift stores, estate sales, and flea markets, where knowing the hem test gives you a real edge. Online, curated vintage sellers and marketplaces like Grailed are the most reliable sources — look for sellers who photograph the hem stitching, the tag, and the print close-up. Vague listings with a single photo and "vintage style" in the title deserve skepticism; our <a href="/blog/the-ultimate-guide-to-scouring-the-web-where-to-buy-vintage-t-shirts-online-without-getting-scammed">guide to buying vintage online without getting scammed</a> walks through the red flags in detail.</p>
+    <p>If you love the look but don't want to pay collector prices or gamble on authenticity, modern retro-style prints are the practical alternative. Browse the <a href="/designs">AIPrintVerse designs collection</a> for vintage-inspired graphic tees printed to order, and check TeePublic and Redbubble for independent artists working in retro and throwback styles — you get the aesthetic with new-shirt durability and none of the authentication anxiety.</p>
   </section>
 
-  <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
-    <h2>Frequently Asked Questions</h2>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Does single stitch always mean a shirt is vintage?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Not necessarily. While it is a strong indicator of a shirt being pre-1994, some modern high-end reproductions and boutique brands use single stitching to mimic the vintage look. Always check the tag and fabric feel.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Is double stitch better quality than single stitch?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Technically, yes. Double stitching is more durable and less likely to unravel. However, in terms of "quality" regarding the collector market, single stitch is more desirable due to its historical significance.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">When did they stop making single stitch shirts?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">The industry-wide transition occurred between 1993 and 1996. By 1997, almost all major T-shirt manufacturers had moved to double-needle coverstitching.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Can a double stitch shirt still be vintage?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Yes. A shirt from 1997 or 1998 is still over 25 years old and considered vintage, yet it will almost certainly be double-stitched. The "single stitch rule" mostly applies to 70s, 80s, and early 90s items.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">What is a "blind stitch"?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">A blind stitch is a type of single-needle stitch where the thread is barely visible on the outside of the garment. It is a classic hallmark of authentic 80s T-shirt construction.</p>
-      </div>
-    </div>
+  <section>
+    <h2>Frequently asked questions</h2>
+    <h3>Does single stitch always mean a shirt is vintage?</h3>
+    <p>Not necessarily. It's a strong indicator of a pre-1994 shirt, but modern high-end reproductions and boutique brands use single stitching to mimic the vintage look. Always check the tag, the side seams, and the fabric feel before paying vintage prices.</p>
+    <h3>Is double stitch better quality than single stitch?</h3>
+    <p>In terms of durability, yes — double stitching is less likely to unravel. But in the collector market, single stitch is far more desirable because it signals true vintage status. "Better" depends on whether you're buying to wear hard or to collect.</p>
+    <h3>When did manufacturers stop making single stitch shirts?</h3>
+    <p>The industry-wide transition happened between 1993 and 1996. By 1997, almost all major T-shirt manufacturers had moved to double-needle coverstitching.</p>
+    <h3>Can a double stitch shirt still be vintage?</h3>
+    <p>Yes. A shirt from 1997 or 1998 is over 25 years old and counts as vintage, but it will almost certainly be double-stitched. The "single stitch rule" mainly applies to 70s, 80s, and early-90s pieces.</p>
   </section>
 </article>
