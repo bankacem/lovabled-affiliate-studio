@@ -1,7 +1,7 @@
 ---
-title: "V-Neck vs Crew Neck: Which T-Shirt Neckline Should You Choose?"
+title: "V-Neck vs. Crew Neck: The Definitive Guide to Choosing the Right Neckline"
 slug: "v-neck-vs-crew-neck-the-definitive-guide-to-choosing-the-right-neckline"
-description: "V-neck vs crew neck, compared side by side: fit, coverage, layering and occasions. A quick verdict table and honest guidance to pick the right neckline."
+description: "V-neck vs. crew neck compared head-to-head: fit, face shapes, layering, occasions and a quick verdict — the definitive neckline guide."
 category: "T-Shirts"
 tags: ["v-neck vs crew neck", "v-neck shirt", "crew neck shirt", "t-shirt neckline guide", "mens t-shirts", "t-shirt fit"]
 author: "Emma Carter"
@@ -53,6 +53,11 @@ read_time: "8 min read"
 
     <h3>To frame the face and open the neckline</h3>
     <p>The diagonal edges of a V draw the eye downward, which creates a longer visual line through the neck and upper chest. Many people find this flatters a rounder face or a shorter-looking neck — but treat that as a tendency, not a rule. A high, shallow V works for most people; a deep plunge is a deliberate fashion choice with far fewer settings where it fits. Comfort and coverage should decide the depth, not a face-shape chart.</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/v-neck-vs-crew-neck-comparison.webp" alt="V-neck vs crew neck comparison: when each neckline wins, at a glance" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">V-neck vs. crew neck at a glance — each one wins in different situations.</figcaption>
+    </figure>
 
     <h3>Under an open shirt, overshirt, or blazer</h3>
     <p>This is the V-neck's strongest use case. Under an open button-down, overshirt, or unstructured blazer, a shallow V echoes the opening above it and creates one continuous line. A crew neck in the same spot can look like an accidental layer peeking out. Keep the V's fabric smooth and the point intact — a stretched or wavy point undoes the effect.</p>

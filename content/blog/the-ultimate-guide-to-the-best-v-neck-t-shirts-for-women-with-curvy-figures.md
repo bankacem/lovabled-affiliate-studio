@@ -1,7 +1,7 @@
 ---
-title: "V-Neck T-Shirts for Curvy Women: Fit and Styling Tips"
+title: "Best V-Neck T-Shirts for Curvy Women: Fit, Depth & Styling Guide"
 slug: "the-ultimate-guide-to-the-best-v-neck-t-shirts-for-women-with-curvy-figures"
-description: "How to choose a V-neck t-shirt that flatters a curvy figure: depth guide for larger busts, fabrics that drape instead of cling, fit checklist and styling tips."
+description: "The best v-neck t-shirts for curvy women: exact depth by bust size, the bra-coverage rule, drape-friendly fabrics, fit checklist and styling tips."
 category: "Style Guides"
 tags:
   - "v-neck t-shirt"
@@ -48,6 +48,11 @@ read_time: "8 min read"
   <section id="depth-guide">
     <h2>Depth Guide for Larger Busts</h2>
     <p>Depth is the single most important variable, and the standard advice ("not too deep") is useless without numbers. Measure from your collarbone to the point of the V:</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/v-neck-depth-for-curvy-figures.webp" alt="V-neck depth guide for curvy figures: modest, everyday and evening depths in inches, plus the bra-coverage rule" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">Depth by occasion — and the bra-coverage rule: the V point stays above the bra’s center gore.</figcaption>
+    </figure>
     <ul>
       <li><strong>2–3 inches below the collarbone — the everyday sweet spot.</strong> Elongating without revealing. This is the right depth for work and daily wear on most curvy figures.</li>
       <li><strong>Under 2 inches — the modest option.</strong> Choose this for conservative workplaces or when you'll be leaning forward a lot (teaching, childcare, food service).</li>

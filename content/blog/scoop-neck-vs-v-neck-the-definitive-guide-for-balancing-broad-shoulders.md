@@ -1,7 +1,7 @@
 ---
-title: "Scoop Neck vs. V-Neck: The Definitive Guide for Balancing Broad Shoulders"
+title: "Scoop Neck vs. V-Neck: Which Flatters Broad Shoulders More?"
 slug: "scoop-neck-vs-v-neck-the-definitive-guide-for-balancing-broad-shoulders"
-description: "Scoop neck vs. V-neck for broad shoulders: how each neckline reshapes your silhouette, the wide-scoop trap to avoid, face-shape effects, and styling tips."
+description: "Scoop neck vs. v-neck compared head-to-head: shoulder effects, face shapes, when each neckline wins, and styling tips for both."
 category: "Style Guides"
 tags:
   - "scoop neck vs v-neck"
@@ -57,6 +57,11 @@ read_time: "7 min read"
   <section id="shoulders">
     <h2>How Each Neckline Affects Broad Shoulders</h2>
     <p>Broad shoulders create a strong horizontal line across the upper body. Every flattering neckline for this frame does the same thing: it interrupts that horizontal line with something vertical or curved.</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/scoop-neck-vs-v-neck-shapes.webp" alt="Scoop neck vs v-neck: how each neckline shape affects how broad shoulders read" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">Neckline geometry changes how wide shoulders read.</figcaption>
+    </figure>
     <h3>The V-Neck: The Vertical Interruption</h3>
     <p>The V-neck is the most recommended neckline for broad shoulders, and the reason is geometric. The downward point creates a strong vertical line right in the center of the torso, which pulls the eye up and down instead of side to side. A standard-depth V — point landing roughly level with the top of the armpits — elongates the neck and torso, which visually softens shoulder width. Deeper Vs amplify the effect but cross into casual-only territory past the mid-chest.</p>
     <h3>The Scoop Neck: The Soft Curve</h3>

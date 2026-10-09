@@ -1,7 +1,7 @@
 ---
-title: "The Ultimate Guide to V-Neck Shirts: Style, Fit, and Fashion Mastery"
+title: "V-Neck T-Shirts: The Ultimate Guide to Style, Fit & Fashion"
 slug: "the-ultimate-guide-to-v-neck-shirts-style-fit-and-fashion-mastery"
-description: "Master the V-neck shirt: how deep is too deep, which fits flatter your body type, dos and don'ts for styling, layering, fabrics, and care — plus graphic V-neck designs you can actually buy."
+description: "Master the v-neck t-shirt: exact depth measurements in inches, fit by body type, dos and don'ts, layering, fabrics, care — plus graphic v-necks you can buy."
 category: "Style Guides"
 tags:
   - "v-neck t-shirt"
@@ -41,6 +41,11 @@ read_time: "9 min read"
   <section id="anatomy">
     <h2>Anatomy of a V-Neck: Depth and Width</h2>
     <p>Not all V-necks are created equal. Two measurements decide whether yours looks sharp or sloppy: <strong>depth</strong> (how far the point drops below the collarbone) and <strong>width</strong> (how wide the opening sits at the collarbone).</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/v-neck-depth-guide-measurements.webp" alt="V-neck depth guide: shallow, standard and deep V measurements in inches below the collarbone" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">V-neck depth, measured in inches below the collarbone.</figcaption>
+    </figure>
 
     <h3>The Shallow V</h3>
     <p>The point drops <strong>1–2 inches below the collarbone</strong>. This is the safest choice for professional settings and for anyone trying the style for the first time. It delivers the elongating effect without exposing chest.</p>

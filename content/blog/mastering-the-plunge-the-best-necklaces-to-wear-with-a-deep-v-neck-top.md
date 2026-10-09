@@ -1,7 +1,7 @@
 ---
-title: "Mastering the Plunge: The Best Necklaces to Wear With a Deep V-Neck Top"
+title: "Best Necklaces for a Deep V-Neck: Lengths, Styles & Pairings"
 slug: "mastering-the-plunge-the-best-necklaces-to-wear-with-a-deep-v-neck-top"
-description: "Which necklace to wear with a deep V-neck top: the golden rule, pendant, lariat and choker picks by V depth, exact chain lengths in inches, and what to avoid."
+description: "Which necklace for a deep v-neck? Exact chain lengths mapped to V depth, pendant vs lariat vs choker, and the golden rule measured in inches."
 category: "Style Guides"
 tags:
   - "necklaces for v-neck"
@@ -64,6 +64,11 @@ read_time: "6 min read"
   <section id="length-guide">
     <h2>The Length Guide (in Inches)</h2>
     <p>Chain length is the difference between "styled" and "off." Standard necklace lengths and where they land:</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/necklace-lengths-for-v-neck-chart.webp" alt="Necklace lengths for v-neck depths: choker, princess, matinee and opera chain lengths in inches" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">Chain length mapped to V depth — the pendant sits 1–2 inches above the V point.</figcaption>
+    </figure>
     <ul>
       <li><strong>Choker — 14 to 16 inches:</strong> sits at or just below the collarbone. Best for deep and plunging Vs, where it frames the face without entering the neckline.</li>
       <li><strong>Princess — 16 to 18 inches:</strong> the workhorse. The pendant rests on the upper chest, inside most V openings. Works for nearly every V depth.</li>

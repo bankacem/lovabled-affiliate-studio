@@ -1,7 +1,7 @@
 ---
-title: "The Quest for the Perfect White V-Neck: A Masterclass in Men's and Women's Essentials"
+title: "White V-Neck T-Shirt: How to Find the Perfect One (Opacity, Fit & Care)"
 slug: "the-quest-for-the-perfect-white-v-neck-a-masterclass-in-mens-and-womens-essentials"
-description: "Master the white V-neck: a 3-step sheerness test, fabric and opacity guide, fit checklist, and a washing routine that keeps it bright wash after wash."
+description: "Find the perfect white v-neck t-shirt: the 30-second sheerness test, the GSM opacity sweet spot, fit checklist, undergarments and keeping it white."
 category: "T-Shirts"
 tags:
   - "white v-neck"
@@ -51,6 +51,11 @@ read_time: "8 min read"
   <section id="sheerness-test">
     <h2>The 3-Step Sheerness Test</h2>
     <p>None of the top-ranking guides give you a repeatable method for this. Use these three checks in the fitting room:</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/white-v-neck-opacity-gsm-guide.webp" alt="White v-neck opacity guide: the GSM sweet spot (160-200) and the 30-second sheerness hand test" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">Fabric weight decides sheerness: aim for the 160–200 GSM sweet spot.</figcaption>
+    </figure>
     <h3>1. The Hand Test</h3>
     <p>Hold the shirt up with one hand pressed flat behind the fabric, under store lighting. If you can clearly see your fingers' outlines, it will be sheer on your body. A faint blur is acceptable; distinct shapes are not.</p>
     <h3>2. The Daylight Check</h3>

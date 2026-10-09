@@ -1,7 +1,7 @@
 ---
-title: "The Invisible Layer: Why the V-Neck Undershirt is the Secret Weapon of Modern Tailoring"
+title: "V-Neck Undershirt: The Invisible Layering Guide for Dress Shirts"
 slug: "the-invisible-layer-why-the-v-neck-undershirt-is-the-secret-weapon-of-modern-tailoring"
-description: "The V-neck undershirt stays invisible under an open collar where a crew neck peeks through. Depth, fabric, color, and fit rules — plus when to skip it."
+description: "The v-neck undershirt guide: undershirt depth matched to buttons open, fabric and color rules, a fit that stays tucked, and when to skip it."
 category: "T-Shirts"
 tags:
   - "v-neck undershirt"
@@ -44,6 +44,11 @@ read_time: "7 min read"
   <section id="depth">
     <h2>Deep V vs. Standard V: Match It to Your Buttons</h2>
     <p>Not all V-neck undershirts dip equally. Match the depth to how you wear your collar:</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/v-neck-undershirt-button-rule.webp" alt="V-neck undershirt depth rule: which undershirt V to wear with one, two or zero buttons open" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">Match the undershirt V to how open your collar is.</figcaption>
+    </figure>
     <ul>
       <li><strong>Standard V-neck</strong> (point sits 2–3 inches below the collarbone): stays hidden with the <strong>top button undone</strong>. This covers the most common business-casual look.</li>
       <li><strong>Deep V-neck</strong> (point drops toward armpit level, 4–5 inches below the collarbone): stays hidden with <strong>two or even three buttons undone</strong>. The right call for warm weather, evening events, or anyone who wears their collar relaxed.</li>

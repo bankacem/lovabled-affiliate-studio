@@ -1,7 +1,7 @@
 ---
-title: "The V-Neck Workout Shirt: Why Performance Meets Style in Modern Activewear"
+title: "Best V-Neck Workout Shirts for Training: Fabric, Fit & Depth Guide"
 slug: "the-v-neck-workout-shirt-why-performance-meets-style-in-modern-activewear"
-description: "Why V-neck workout shirts work for training: fabrics that actually wick sweat, fit for lifting vs cardio, neckline depth tips, and care that kills gym odor."
+description: "V-neck workout shirts explained: moisture-wicking fabrics compared, fit for lifting vs cardio, neckline depth when moving, odor-proof care."
 category: "Style Guides"
 tags:
   - "v-neck workout shirt"
@@ -48,6 +48,11 @@ read_time: "7 min read"
   <section id="fabrics">
     <h2>Fabric Guide: What Actually Wicks Sweat</h2>
     <p>The neckline gets the attention, but fabric decides whether a workout shirt performs or becomes a wet rag by set three.</p>
+
+    <figure style="margin:32px 0;">
+      <img src="/blog-images/v-neck-workout-fabric-comparison.webp" alt="V-neck workout shirt fabric comparison: cotton vs poly-blend vs cotton-elastane, rated for wicking, stretch and comfort" loading="lazy" style="width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;" />
+      <figcaption style="text-align:center;color:#6b7280;font-size:14px;margin-top:8px;">Match the fabric to how you train.</figcaption>
+    </figure>
 
     <h3>Cotton vs Synthetics — the Honest Version</h3>
     <p><strong>100% cotton</strong> absorbs sweat and holds it. The shirt gets heavy, clings, and stays damp long after your workout ends. For light activity it's fine; for real training sessions it's the worst option.</p>
