@@ -572,6 +572,11 @@
       "source": "/blog/the-ultimate-guide-to-retro-designs-how-to-master-vintage-style-in-modern-fashion",
       "destination": "/blog/the-ultimate-guide-to-vintage-t-shirts-how-to-find-style-and-value-them",
       "permanent": true
+    },
+    {
+      "source": "/blog/the-ultimate-guide-to-custom-mugs-why-theyre-the-perfect-personalized-gift",
+      "destination": "/blog/the-ultimate-guide-to-personalized-mugs-why-they-make-the-perfect-gift",
+      "permanent": true
     }
   ],
   "rewrites": [
