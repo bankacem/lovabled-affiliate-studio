@@ -662,6 +662,21 @@
       "source": "/blog/the-ultimate-guide-to-funny-german-shepherd-dad-t-shirts-why-every-gsd-owner-needs-a-land-shark-ward",
       "destination": "/blog/paws-and-punchlines-the-ultimate-guide-to-funny-dog-shirts-for-humans",
       "permanent": true
+    },
+    {
+      "source": "/blog/the-art-of-the-anti-statement-why-ironic-t-shirt-designs-rule-modern-fashion",
+      "destination": "/blog/the-art-of-the-eye-roll-why-sarcastic-t-shirt-sayings-are-dominating-modern-streetwear",
+      "permanent": true
+    },
+    {
+      "source": "/blog/off-to-cause-a-kerfuffle-frog-funny-sarcastic-meme-graphic-the-ultimate-guide-to-creating-and-sharin",
+      "destination": "/blog/we-ride-at-dawn-funny-frog-and-goose-chaotic-meme-retro-shirt-the-ultimate-fashion-statement-for-mem",
+      "permanent": true
+    },
+    {
+      "source": "/blog/off-to-praise-the-lord-frog-funny-christian-meme-graphic-spreading-joy-and-faith-through-humor",
+      "destination": "/blog/we-ride-at-dawn-funny-frog-and-goose-chaotic-meme-retro-shirt-the-ultimate-fashion-statement-for-mem",
+      "permanent": true
     }
   ],
   "rewrites": [
