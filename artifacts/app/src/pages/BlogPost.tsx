@@ -185,7 +185,11 @@ const BlogPost = () => {
     "image": post.featured_image || undefined,
     "datePublished": post.published_at || post.created_at,
     "dateModified": post.updated_at,
-    "author": { "@type": "Person", "name": post.author_name },
+    "author": {
+      "@type": "Person",
+      "name": post.author_name,
+      "url": "https://aiprintverse.com/about"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "AIPrintVerse",
