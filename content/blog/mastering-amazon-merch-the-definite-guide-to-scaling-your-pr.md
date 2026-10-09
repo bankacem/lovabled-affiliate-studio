@@ -1,31 +1,31 @@
 ---
-title: "Amazon Merch: A Practical Guide to Scaling Print-on-Demand"
+title: "Amazon Merch on Demand: Complete Guide (2026)"
 slug: "mastering-amazon-merch-the-definite-guide-to-scaling-your-pr"
-description: "Learn how Amazon Merch on Demand works and how to scale a print-on-demand catalog through niche research, design systems, listings, testing, and sustainable workflow."
+description: "Amazon Merch on Demand guide (2026): how the invite-only platform works, tier limits, niche research, design tips, trademark safety and scaling steps."
 category: "Print on Demand Business"
-tags: []
-author: "AI Writer"
-image: "/blog-images/60d5d83f49b384f5b4f2.webp"
-image_alt: "Mastering Amazon Merch: The Definite Guide to Scaling Your Print-on-Demand Empire"
+tags: ["amazon merch", "print on demand", "merch on demand", "sell t-shirts", "pod business", "amazon seller"]
+author: "Emma Carter"
+image: "/blog-images/amazon-merch-guide.webp"
+image_alt: "Amazon Merch on Demand: Complete Guide (2026)"
 date: "2026-07-05"
-updated: "2026-07-22"
+updated: "2026-10-09"
 status: "published"
 scheduled_at: ""
-read_time: "5 min read"
+read_time: "8 min read"
 ---
 <article>
-  <h1>Mastering Amazon Merch: The Definite Guide to <a href="/blog/p-chatgpt-for-etsy-sellers-the-ultimate-guide-to-scaling-your-shop-without-the-burnout" class="auto-link internal-link" title="ChatGPT for Etsy Sellers: The Ultimate Guide to Scaling Your Shop Without the Burnout">Scaling Your</a> <a href="/blog/the-2024-blueprint-starting-a-print-on-demand-empire-with-generative-ai" class="auto-link internal-link" title="The 2026 Blueprint: Starting a Print-on-Demand Empire with Generative AI">Print-on-Demand Empire</a></h1>
+<p>Amazon Merch on Demand is one of the most talked-about print-on-demand platforms for a simple reason: it puts your designs in front of Amazon's enormous built-in audience while Amazon handles printing, shipping and customer service. But it is also one of the hardest platforms to join, with an invite-only application and a tier system that limits how many designs new sellers can publish. This guide explains how the platform actually works, what the application and tier system involve, how to research niches and upload designs, how to stay clear of trademark trouble, and how sellers realistically scale — without hype or invented earnings claims.</p>
 
   <div class="toc">
     <h3>Table of Contents</h3>
     <ul>
-      <li><a href="#what-is-merch">What is Amazon Merch on Demand?</a></li>
-      <li><a href="#the-tier-system">Understanding the Tier System: The Gritty Reality</a></li>
-      <li><a href="#design-strategy">Creating Designs That Actually Sell</a></li>
-      <li><a href="#seo-optimization">The Art of Amazon SEO: Keywords and Metadata</a></li>
-      <li><a href="#comparison">Platform Comparison: Merch vs. The Rivals</a></li>
-      <li><a href="#policy-safety">Avoiding the Ban Hammer: Policy Compliance</a></li>
-      <li><a href="#scaling-secrets">Scaling to 5-Figure Months</a></li>
+      <li><a href="#what-is-merch">What Is Amazon Merch on Demand?</a></li>
+      <li><a href="#application">The Application: Getting Accepted</a></li>
+      <li><a href="#tier-system">The Tier System Explained</a></li>
+      <li><a href="#niche-research">Niche Research and Design Strategy</a></li>
+      <li><a href="#upload-best-practices">Upload Best Practices</a></li>
+      <li><a href="#trademark">Trademark Caution: Protect Your Account</a></li>
+      <li><a href="#scaling">Scaling: From First Sales to a Catalog</a></li>
       <li><a href="#faq">Frequently Asked Questions</a></li>
     </ul>
   </div>
@@ -33,174 +33,143 @@ read_time: "5 min read"
   <div class="summary">
     <h3>Key Takeaways</h3>
     <ul>
-      <li>Amazon Merch on Demand provides access to millions of Prime customers without inventory risk.</li>
-      <li>The "Tier System" acts as a quality control gatekeeper for new sellers.</li>
-      <li>Success depends 20% on design quality and 80% on keyword relevance and niche research.</li>
-      <li>Copyright infringement is the fastest way to lose an account permanently.</li>
+      <li>Amazon Merch on Demand lets you sell printed apparel and more with no inventory — Amazon prints, ships via Prime, and handles support.</li>
+      <li>Joining requires an application that Amazon reviews manually; approval is not guaranteed and waiting times vary.</li>
+      <li>New accounts start with a small design allowance and earn more slots by selling — growth is paced by design.</li>
+      <li>Copyright and trademark compliance is the single most important account-safety habit on the platform.</li>
     </ul>
   </div>
 
   <section id="what-is-merch">
-    <h2>What is Amazon Merch on Demand?</h2>
-    <p>Let's bypass the fluff. Amazon Merch on Demand (formerly Merch by Amazon) is quite possibly the most lucrative print-on-demand (POD) platform on the planet. Why? Because you aren't fighting to drag traffic to a ghost town of a Shopify site. You are tapping into Amazon's massive organic traffic—over 2 billion visits per month according to recent Statista data.</p>
+    <h2>What Is Amazon Merch on Demand?</h2>
+    <p>Amazon Merch on Demand (formerly called Merch by Amazon) is Amazon's print-on-demand service for creators. You upload artwork, choose which products it appears on, and set your selling price. When a customer places an order, Amazon prints the product, ships it — often with Prime delivery — and handles any customer service. You earn a royalty on each sale.</p>
 
-    <p>The business model is deceptively simple: you upload a design, select a product (t-shirts, hoodies, popsockets), and set your price. When a customer buys it, Amazon prints it, ships it via Prime, and handles all customer service. You get a royalty. No boxes in your garage, no post office runs, and no dealing with angry customers who claim their package was stolen by a local squirrel.</p>
+    <figure style="margin: 2rem 0;">
+<img src="/blog-images/merch-tiers-guide.webp" alt="Amazon Merch on Demand tier system growth" loading="lazy" style="width:100%;height:auto;border-radius:12px;" />
+<figcaption style="text-align:center;color:#666;font-size:0.9rem;margin-top:0.5rem;">Growth unlocks more slots — prove quality first.</figcaption>
+</figure>
+<p>There are no inventory costs and no monthly fees for the basic program. That makes the barrier to entry cheap in money terms — but not in effort. Because you are selling inside Amazon's marketplace, you are competing with thousands of other listings, and Amazon's search rewards listings with relevant keywords and consistent sales. Think of the platform as a giant search engine that happens to sell shirts, not as a passive income machine that runs itself.</p>
 
-    <p>However, it’s not a "get rich quick" scheme. Gone are the days of 2015 when you could upload a "Best Dad Ever" shirt and make $1,000 a month. Today, competition is fierce, and the barrier to entry starts with a rigorous application process. You don't just sign up; you apply, and Amazon decides if you’re worthy.</p>
-
-    <img src="/placeholder.svg" alt="Dashboard view of Amazon Merch on Demand showing sales graphs and product uploads">
+    <p>It is worth setting expectations early: the era when a generic slogan shirt could generate easy monthly income is long gone. Today's successful sellers treat it like a small business — research niches, design deliberately, optimize listings, and protect their accounts.</p>
   </section>
 
-  <section id="the-tier-system">
-    <h2>Understanding the Tier System: The Gritty Reality</h2>
-    <p>If you're new, you’ll likely start at Tier 10. This means you can only have 10 active designs live at any given time. It’s frustrating, I know. You feel like a world-class chef allowed to serve only ten customers. But this is Amazon's way of filtering out low-quality spammers.</p>
+  <section id="application">
+    <h2>The Application: Getting Accepted</h2>
+    <p>Unlike most print-on-demand marketplaces, you cannot simply sign up for Merch on Demand. You request an invitation and complete an application that Amazon reviews manually. Wait times vary widely — some applicants hear back in days, others wait weeks or months — and rejections are common.</p>
 
-    <p>To "tier up" to Tier 25, 100, and eventually the coveted 10,000+ levels, you need to sell a specific number of units and fill your available slots. Here's a pro tip from someone who has been in the trenches: <strong>Don't wait for organic sales in Tier 10.</strong> Buy your own shirts if you have to, or run them at the minimum royalty price to move units fast. The goal of the early game isn't profit; it's expansion.</p>
-
-    <p>What's interesting is how the psychology of the platform changes as you grow. At Tier 10, every slot is precious. At Tier 10,000, it becomes a numbers game of "niche mining" and seasonal trends. You move from being a designer to being a data analyst.</p>
-  </section>
-
-  <section id="design-strategy">
-    <h2>Creating Designs <a href="/blog/p-beyond-the-gold-watch-a-master-guide-to-unique-retirement-gifts-that-actually-matter" class="auto-link internal-link" title="Best Unique Retirement Gifts 2026: Ideas That Actually Matter">That Actually</a> Sell</h2>
-    <p>Here is a hard truth: a beautiful design that no one is looking for is a failure. Conversely, a hideous design that hits a specific emotional nerve or inside joke can make you thousands. This is the "ugly shirt" paradox of Amazon Merch.</p>
-
+    <p>Several habits genuinely improve your odds:</p>
     <ul>
-      <li><strong>Typography is King:</strong> Roughly 70% of top-selling shirts are text-based. People want to express an identity, not necessarily wear fine art.</li>
-      <li><strong>Niche Down:</strong> Don't make a shirt for "Dog Lovers." Make a shirt for "Left-handed retirees who love rescued Greyhounds." The narrower the niche, the lower the competition.</li>
-      <li><strong>Color Psychology:</strong> Black is the undisputed champion. Over 60% of Merch sales are on black garments. If your design doesn't <a href="/blog/ditch-the-itch-7-refreshing-ugly-christmas-sweater-alternatives-that-actually-look-good" class="auto-link internal-link" title="Ditch the Itch: 7 Refreshing Ugly Christmas Sweater Alternatives That Actually Look Good">look good</a> on black, you're leaving money on the table.</li>
+      <li><strong>Write the application like a business plan, not a form.</strong> Explain specifically what you plan to sell — original, niche-focused apparel designs — in complete sentences.</li>
+      <li><strong>Use an established Amazon account.</strong> An account with normal purchase history looks more legitimate than a brand-new one created yesterday.</li>
+      <li><strong>Show you exist elsewhere.</strong> Links to a portfolio, an Etsy shop, or a design social account demonstrate you are a real creator.</li>
+      <li><strong>If rejected, improve before reapplying.</strong> A rewritten, more detailed application beats rapid-fire resubmissions.</li>
     </ul>
 
-    <p>In my experience, the "Cross-Niche" strategy is where the real magic happens. Combine two unrelated hobbies—like "Fishing" and "Dungeons & Dragons." A shirt that says "I cast Level 5 Bass Hook" captures a very specific, high-intent buyer who feels "seen" by the product.</p>
-
-    <img src="/placeholder.svg" alt="Infographic showing successful cross-niche design examples and color popularity charts">
+    <p>Approval is a black box — Amazon does not publish its criteria. A thoughtful application clearly outperforms a lazy one, but there is no guaranteed formula.</p>
   </section>
 
-  <section id="comparison" class="comparison-section">
-    <h2>Comparison Table: Amazon Merch vs. The Alternatives</h2>
-    <p>You might be wondering if Amazon Merch is the only game in town. It isn't, but the trade-offs are significant. Here is how the heavy hitters stack up in the current market.</p>
+  <section id="tier-system">
+    <h2>The Tier System Explained</h2>
+    <p>New sellers typically start with a small number of design slots — historically as few as ten live designs at a time. This is the "tier" system: as your designs sell and you fill your slots, Amazon promotes your account to higher tiers with progressively larger design allowances.</p>
 
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Platform</th>
-          <th>Pros</th>
-          <th>Cons</th>
-          <th>Rating</th>
-          <th>Best For</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Amazon Merch</strong></td>
-          <td class="text-green-600">Built-in Prime traffic; no marketing spend needed; massive scale.</td>
-          <td class="text-red-600">Strict application; Tier limits; brutal "copycat" competition.</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>Passive income seekers & SEO experts.</td>
-        </tr>
-        <tr>
-          <td><strong>Redbubble</strong></td>
-          <td class="text-green-600">Easy to join; great for artists; massive product variety.</td>
-          <td class="text-red-600">Lower traffic; aggressive account bans; lower margins.</td>
-          <td>⭐⭐⭐</td>
-          <td>Illustrators and fan art creators.</td>
-        </tr>
-        <tr>
-          <td><strong>Etsy + Printful</strong></td>
-          <td class="text-green-600">High margins; brand control; excellent customer data.</td>
-          <td class="text-red-600">Manual customer service; listing fees; marketing required.</td>
-          <td>⭐⭐⭐⭐</td>
-          <td>Build-your-own-brand entrepreneurs.</td>
-        </tr>
-        <tr>
-          <td><strong>TeePublic</strong></td>
-          <td class="text-green-600">Simple upload process; good for trending/meme content.</td>
-          <td class="text-red-600">Fixed royalties; lower "sale" prices are frequent.</td>
-          <td>⭐⭐⭐</td>
-          <td>Quick-turnaround trend chasers.</td>
-        </tr>
-        <tr>
-          <td><strong>Spreadshirt</strong></td>
-          <td class="text-green-600">Strong European presence; customize-your-own feature.</td>
-          <td class="text-red-600">Complex marketplace structure; lower US volume.</td>
-          <td>⭐⭐</td>
-          <td>Targeting the EU market.</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>Early on, every slot is precious. Sellers usually focus on a handful of carefully researched designs rather than uploading everything at once. As sales accumulate, the constraint loosens and the work shifts from "which design deserves a slot" to managing a growing catalog — researching niches, refreshing seasonal listings, and retiring underperformers.</p>
+
+    <p>The practical takeaway: don't measure your first month by profit. Measure it by whether your designs are getting impressions and converting. Slot growth follows sales, and sales follow discoverability — which is why niche research and keywords matter so much.</p>
   </section>
 
-  <section id="seo-optimization">
-    <h2>The Art of Amazon SEO: Keywords and Metadata</h2>
-    <p>Amazon is a search engine, not a fashion boutique. If your keywords aren't on point, your design will sit in the dark corners of page 45 where no one ever goes. You need to think like a buyer. Nobody searches for "Cool T-shirt for man." They search for "Funny 40th <a href="/blog/p-the-procrastinators-guide-last-minute-birthday-gift-ideas-that-dont-look-rushed" class="auto-link internal-link" title="The Procrastinator’s Guide: Last-Minute Birthday Gift Ideas That Don’t Look Rushed">Birthday Gift</a> for Electrician."</p>
-
-    <h3>The "Holy Trinity" of Merch SEO</h3>
-    <ol>
-      <li><strong>Brand Name:</strong> Use a unique brand name for each niche. This helps prevent competitors from clicking your brand and seeing all your other winning designs.</li>
-      <li><strong>Product Title:</strong> This is the most weighted factor. Include your main keyword here, but keep it readable. Avoid "keyword stuffing" that looks like gibberish.</li>
-      <li><strong>Bullet Points:</strong> This is where you sell the <em>benefits</em> and include secondary keywords. Don't just talk about the fabric; talk about the occasion. "Perfect for family reunions, summer BBQs, or as a graduation gift."</li>
-    </ol>
-
-    <p>A common mistake I see? People waste space in the description. On Merch, the description field is used primarily for mobile SEO and Google indexing, but the bullet points carry the heavy lifting for Amazon’s internal A9 algorithm. Focus your energy there.</p>
-    <a href="/internal-link--seo-tips">Check out our guide on advanced Amazon keyword research here.</a>
-  </section>
-
-  <section id="policy-safety">
-    <h2>Avoiding the Ban Hammer: Policy Compliance</h2>
-    <p>Amazon is notorious for its "one strike and you're out" policy. They don't care if you're making them $5,000 a month; if you infringe on a trademark, they will terminate your account without a second thought. This is the single biggest risk to your Merch business.</p>
-
-    <p><strong>Trademark vs. Copyright:</strong> Learn the difference. You can't use the word "Disney" (trademark), and you can't use a drawing of Mickey Mouse (copyright). But it gets trickier. Common phrases like "<a href="/blog/the-guide-to-mama-bear-shirts-why-this-trend-is-the-heart-of-modern-motherhood" class="auto-link internal-link" title="The Guide to Mama Bear Shirts: Why This Trend Is the Heart of Modern Motherhood">Mama Bear</a>" or "Boy Mom" are often trademarked for apparel. Always check <a href="https://www.uspto.gov/">TESS (USPTO)</a> before uploading. I've seen accounts with 5,000 live designs get wiped out because they ignored a single trademark update.</p>
-
-    <p>What's interesting is the rise of "Trademark Trolls" who register common phrases to extort or eliminate competition. It's a dirty game. Stay safe by focusing on evergreen niches and original phrasing that isn't easily trademarked.</p>
-  </section>
-
-  <section id="scaling-secrets">
-    <h2>Scaling to 5-Figure Months</h2>
-    <p>Once you hit Tier 500 or 1,000, you can no longer do everything yourself. This is where most sellers plateau. To break through, you need systems. This usually involves three things:</p>
-
+  <section id="niche-research">
+    <h2>Niche Research and Design Strategy</h2>
+    <p>On Amazon, a search engine does your merchandising. The most important skill is finding phrases people actually search for but that aren't already saturated with listings. Good starting points:</p>
     <ul>
-      <li><strong>Automation Tools:</strong> Use tools like <em>Produktor</em> or <em>Merch Informer</em> to streamline research and multi-product uploads.</li>
-      <li><strong>Outsourcing:</strong> Hire designers from the Philippines or Eastern Europe. Your job is to be the Creative Director, not the pixel-pusher.</li>
-      <li><strong>Amazon Advertising (AMS):</strong> Once you have a proven winner, pour gasoline on the fire. Spending $1 a day on ads for a shirt that’s already selling can lock it into the top of the search results, creating a "moat" around your bestseller.</li>
+      <li><strong>Amazon's own search bar.</strong> Type a niche word and read the autocomplete suggestions — those are real searches.</li>
+      <li><strong>Bestseller lists.</strong> Browse apparel bestseller rankings to see which niches (hobbies, professions, occasions) have demand.</li>
+      <li><strong>Specificity beats breadth.</strong> A shirt for a specific hobby-and-profession combination faces far less competition than a generic "dog lover" shirt.</li>
+      <li><strong>Text-based designs dominate.</strong> Identity-expressing slogans and typography consistently outperform complex illustrations in this marketplace.</li>
     </ul>
 
-    <p>Remember, the goal is "Evergreen" income. Seasonal shirts (Christmas, Halloween) are great for spikes, but a shirt about "Gardening" or "Accounting" sells all year round. Aim for a 70/30 split between evergreen and seasonal content to ensure your royalty checks don't plummet in January.</p>
+    <p>One widely used approach is cross-niching: combining two interests in one design (fishing plus a tabletop game, nursing plus a hobby). A buyer who sees both of their identities on one shirt feels understood — and high-intent buyers convert better.</p>
+
+    <p>Color choice matters too. Dark garments — especially black — are perennial bestsellers in the t-shirt space, so designs should be conceived to look strong on dark fabric from the start.</p>
+  </section>
+
+  <section id="upload-best-practices">
+    <h2>Upload Best Practices</h2>
+    <p>Getting the technical details right avoids rejections and rework:</p>
+    <ul>
+      <li><strong>Use high-resolution transparent PNGs.</strong> Artwork should be crisp at print size — blurry or pixelated uploads get rejected or print badly.</li>
+      <li><strong>Follow Amazon's template dimensions.</strong> Amazon publishes art templates for each product; designing inside them prevents cropping surprises.</li>
+      <li><strong>Write the brand, title and bullets for searchers.</strong> Use a unique brand name per niche, put your main keyword naturally in the title, and use bullet points to describe the occasion and audience ("a funny gift for electricians who fish").</li>
+      <li><strong>Avoid keyword stuffing.</strong> Readable, buyer-focused titles outperform gibberish keyword piles.</li>
+      <li><strong>Proof before publishing.</strong> Check spelling, centering and color contrast on a mockup — a typo on a live listing wastes a slot and your credibility.</li>
+    </ul>
+  </section>
+
+  <section id="trademark">
+    <h2>Trademark Caution: Protect Your Account</h2>
+    <p>Intellectual-property enforcement is the single biggest account risk on Merch on Demand. Amazon can and does terminate accounts for infringement, including accounts with large catalogs and steady revenue.</p>
+
+    <p>The essentials:</p>
+    <ul>
+      <li><strong>Learn the trademark/copyright distinction.</strong> You cannot use brand names (trademarks) or reproduce protected characters and artwork (copyright) — and many everyday phrases ("mama bear", "boy mom") are registered trademarks for apparel.</li>
+      <li><strong>Check phrases before uploading.</strong> The USPTO's trademark search database is free and public; checking a phrase there takes minutes and can save your account.</li>
+      <li><strong>Prefer original phrasing.</strong> Evergreen niches with your own wording are far safer than riding the edge of someone else's slogan.</li>
+      <li><strong>Steer clear of current events and celebrities.</strong> Names, likenesses and event branding are infringement minefields.</li>
+    </ul>
+
+    <p>When in doubt, leave it out. One risky design is never worth the account it sits in.</p>
+  </section>
+
+  <section id="scaling">
+    <h2>Scaling: From First Sales to a Catalog</h2>
+    <p>Scaling on Merch on Demand is a systems problem, not a talent problem. The pattern that works:</p>
+    <ul>
+      <li><strong>Treat it as research first.</strong> Publish, watch which niches get impressions and clicks, then double down on what the data supports.</li>
+      <li><strong>Build a design pipeline.</strong> Whether you design yourself, use AI tools (with commercial rights and proper upscaling), or hire designers, the bottleneck is always output quality at volume.</li>
+      <li><strong>Balance evergreen and seasonal.</strong> Seasonal designs (holidays, events) create spikes; evergreen niches (professions, hobbies) sell year-round. A catalog weighted toward evergreen smooths out January.</li>
+      <li><strong>Consider Amazon ads for proven winners.</strong> A small daily budget behind a design that already converts can defend its search position — but only advertise listings with proven conversion.</li>
+      <li><strong>Retire dead weight.</strong> As tiers grow, slots become less scarce, but regularly auditing and removing zero-impression designs keeps your catalog healthy.</li>
+    </ul>
+
+    <p>Growth compounds: more sales unlock more slots, more slots mean more niches covered, and more coverage means more data to refine your strategy.</p>
+
+    <p>For a broader view of how print-on-demand businesses fit together, see our <a href="/blog/the-ultimate-guide-to-print-on-demand-in-2025-start-your-business-today" class="internal-link">print-on-demand business guide</a> and our <a href="/blog/teepublic-review-is-this-print-on-demand-giant-still-profita" class="internal-link">TeePublic review</a> for a contrasting marketplace model.</p>
   </section>
 
   <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
     <h2>Frequently Asked Questions</h2>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">How long does it take to get approved for Amazon Merch?</h3>
+      <h3 itemprop="name">How long does Amazon Merch on Demand approval take?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">It varies wildly. Some people get approved in 3 days, while others wait 6 months or receive a rejection. Amazon doesn't disclose their criteria, but having a professional portfolio or a link to an existing shop (like Etsy) can help your chances.</p>
+        <p itemprop="text">It varies widely — some applicants are approved in days, others wait weeks or months, and some are rejected. Amazon does not publish its review criteria. A detailed, professional application with links to existing creative work improves your chances.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Do I need to be a professional graphic designer?</h3>
+      <h3 itemprop="name">Is Amazon Merch on Demand free to join?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Absolutely not. Many top sellers use simple text-based designs or buy assets from sites like Creative Fabrica. As long as you have the commercial rights to the images, you can succeed without knowing how to draw.</p>
+        <p itemprop="text">Yes — there are no monthly fees or listing costs in the standard program. Amazon takes its share from each sale and you keep the remaining royalty, which you influence by setting your price.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Is Amazon Merch on Demand free?</h3>
+      <h3 itemprop="name">How do the design tiers work?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Yes, there are no monthly fees or listing costs. Amazon takes their cut from the sale price, and you keep the remaining royalty. This makes it a zero-risk entry point for new entrepreneurs.</p>
+        <p itemprop="text">New accounts start with a small number of live design slots. As your designs generate sales and you fill your available slots, Amazon promotes your account to higher tiers with larger allowances. Growth is paced: early slots are precious, later tiers reward catalog volume.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Can I use AI-generated art for my designs?</h3>
+      <h3 itemprop="name">Do I need to be a professional designer?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Currently, Amazon allows AI-generated art as long as you have the rights to use it and it doesn't violate copyright or trademark laws. However, you must disclose if your content is AI-generated if asked by the platform, and you should always upscale the images to meet Amazon's 300 DPI requirement.</p>
+        <p itemprop="text">No. Many sellers use typography-based designs, licensed assets, AI-generated artwork (with proper rights and upscaling), or hired designers. What matters more than drawing skill is niche research and listing optimization.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">What is the best-selling product on Merch?</h3>
+      <h3 itemprop="name">What is the biggest risk to a Merch on Demand account?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">The Standard T-Shirt is by far the highest volume seller. While hoodies and sweatshirts have higher royalties, the sheer volume of t-shirt sales <a href="/blog/line-crossing-laughs-the-science-and-psychology-of-offensive-shirts-that-are-actually-funny" class="auto-link internal-link" title="Funny Offensive T-Shirts: What Makes Them Work & Best Picks">makes them</a> the primary engine for most Merch businesses.</p>
+        <p itemprop="text">Intellectual-property violations. Trademark or copyright infringement can lead to account termination regardless of your sales history. Always verify that phrases and imagery are clear before uploading, and keep records of your licenses and design sources.</p>
       </div>
     </div>
   </section>

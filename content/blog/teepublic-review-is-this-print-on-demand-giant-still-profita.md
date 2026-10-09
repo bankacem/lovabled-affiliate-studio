@@ -1,31 +1,30 @@
 ---
-title: "TeePublic Review: Is This Print-on-Demand Giant Still Profitable for Artists in 2024?"
+title: "TeePublic Review: Is It Worth It in 2026?"
 slug: "teepublic-review-is-this-print-on-demand-giant-still-profita"
-description: "Navigating the world of Print-on-Demand (POD) can feel like a gold rush where most people are just buying expensive shovels. However, TeePublic stands out as a genuine marketplace. Unlike platforms where you have to drive every single ounce of traffic yourself, TeePublic functions more like a search"
+description: "TeePublic review (2026): how the marketplace works for sellers, account types, honest pros and cons, who it suits best, and getting-started steps."
 category: "Print on Demand Business"
-tags: []
-author: "AI Writer"
-image: "/blog-images/77525feda1a6f8fe1cbc.webp"
-image_alt: "TeePublic Review: Is This Print-on-Demand Giant Still Profitable for Artists in 2024?"
+tags: ["teepublic", "print on demand", "teepublic review", "sell designs", "pod marketplace", "artist income"]
+author: "Emma Carter"
+image: "/blog-images/teepublic-review.webp"
+image_alt: "TeePublic Review: Is It Worth It in 2026?"
 date: "2026-07-06"
-updated: "2026-07-22"
+updated: "2026-10-09"
 status: "published"
 scheduled_at: ""
-read_time: "5 min read"
+read_time: "8 min read"
 ---
 <article>
-  <h1>TeePublic Review: Is This Print-on-Demand Giant <a href="/blog/p-the-ultimate-teespring-spring-review-is-print-on-demand-still-profitable-in-2024" class="auto-link internal-link" title="The Ultimate Teespring (Spring) Review: Is Print-on-Demand Still Profitable in 2024?">Still Profitable</a> for Artists in 2024?</h1>
+<p>TeePublic is one of the largest print-on-demand marketplaces for independent artists, with a loyal audience for niche, pop-culture-adjacent and hobby designs. But between its account classification system, fixed artist margins and frequent site-wide sales, sellers often ask a fair question: is TeePublic still worth it in 2026? This review walks through how the platform works for sellers, gives an honest pros-and-cons breakdown — including what buyer reviews actually say — explains who it suits best, and lays out the steps to get started.</p>
 
   <div class="toc">
     <h3>Table of Contents</h3>
     <ul>
-      <li><a href="#understanding-teepublic">Understanding the TeePublic Ecosystem</a></li>
-      <li><a href="#artist-experience">The Artist Experience: Uploading and Management</a></li>
-      <li><a href="#quality-analysis">Print Quality and Product Range</a></li>
-      <li><a href="#earnings-structure">The Controversial New Earnings Structure</a></li>
-      <li><a href="#comparison">TeePublic vs. The Competition</a></li>
-      <li><a href="#marketing-strategies">How to Actually Make Sales</a></li>
-      <li><a href="#customer-perspective">The Buyer’s Perspective: Shipping and Support</a></li>
+      <li><a href="#what-is-teepublic">What Is TeePublic?</a></li>
+      <li><a href="#how-it-works">How It Works for Sellers</a></li>
+      <li><a href="#pros-cons">Pros and Cons: An Honest Breakdown</a></li>
+      <li><a href="#who-its-for">Who TeePublic Is Best For (and Who Should Skip)</a></li>
+      <li><a href="#niche-patterns">What Sells: Niche Patterns That Work</a></li>
+      <li><a href="#getting-started">Getting Started: Step by Step</a></li>
       <li><a href="#faq">Frequently Asked Questions</a></li>
     </ul>
   </div>
@@ -33,171 +32,137 @@ read_time: "5 min read"
   <div class="summary">
     <h3>Key Takeaways</h3>
     <ul>
-      <li>TeePublic remains one of the highest-traffic POD marketplaces globally, trailing only Redbubble and Amazon.</li>
-      <li>The 2023 "Account Tier" update significantly changed how much artists earn per sale.</li>
-      <li>Success on the platform relies heavily on tagging and catering to niche fanbases (legally).</li>
-      <li>Product quality is generally high, utilizing DTG (Direct-to-Garment) printing technology.</li>
+      <li>TeePublic is a free, hands-off POD marketplace: you upload designs, they print, ship and support the orders.</li>
+      <li>Artist earnings are fixed per sale and shrink during frequent site sales — margin control is not in your hands.</li>
+      <li>An account classification system (Artisan vs Apprentice) affects visibility and earnings potential.</li>
+      <li>Best suited to niche artists seeking passive marketplace income — not to brand builders who need pricing control.</li>
     </ul>
   </div>
 
-  <section id="understanding-teepublic">
-    <h2>Understanding the TeePublic Ecosystem</h2>
-    <p>Navigating the world of Print-on-Demand (POD) can feel like a gold rush where most people are just buying expensive shovels. However, TeePublic stands out as a genuine marketplace. Unlike platforms where you have to drive every single ounce of traffic yourself, TeePublic functions more like a search engine for cool, indie designs. Founded in 2013 and later acquired by Redbubble in 2018 for $41 million, it has solidified its place as a go-to hub for "geek culture," parody art, and niche hobbies.</p>
+  <section id="what-is-teepublic">
+    <h2>What Is TeePublic?</h2>
+    <p>TeePublic is a print-on-demand marketplace where independent artists upload designs that get printed on t-shirts, hoodies, stickers, mugs, phone cases and more. Founded in 2013 and acquired by Redbubble in 2018, it has built a distinct identity around "geek culture" — niche fandoms, parody-adjacent art, obscure hobbies and highly specific humor.</p>
 
-    <p>What's interesting is the demographic shift. While many platforms try to be everything to everyone, TeePublic has maintained a very specific "vibe." If you're looking for a shirt featuring an obscure 80s horror movie reference or a very specific breed of dog wearing sunglasses, this is where you go. From a business perspective, the platform sees over 10 million monthly visitors, which is a massive pool of potential buyers that artists can tap into without spending a dime on Facebook ads.</p>
+    <figure style="margin: 2rem 0;">
+<img src="/blog-images/marketplace-vs-store-guide.webp" alt="Marketplace vs own store trade-offs for sellers" loading="lazy" style="width:100%;height:auto;border-radius:12px;" />
+<figcaption style="text-align:center;color:#666;font-size:0.9rem;margin-top:0.5rem;">Marketplace or own store — know the trade-offs.</figcaption>
+</figure>
+<p>Unlike platforms where you bring your own traffic (Shopify plus a print provider), TeePublic is a marketplace: buyers arrive through the platform's own search and category browsing. That built-in audience is the main attraction. The trade-off is that you sell inside TeePublic's ecosystem — you don't control product pricing, packaging, or the customer relationship.</p>
 
-    <img src="/placeholder.svg" alt="Close-up of a high-quality DTG printed graphic t-shirt showing texture and color vibrancy">
-
-    <p>But here is the kicker: the barrier to entry is incredibly low. You don't need a warehouse, a printing press, or even a customer service department. You provide the pixels; they provide the physical goods. But as many veteran sellers will tell you, "low barrier to entry" usually means "high competition."</p>
+    <p>It is also worth knowing the buyer-side reputation. On independent review sites, TeePublic's customer reviews are polarized: many buyers praise the design variety and responsive support for order mistakes, while others report shipping delays and inconsistent print quality. As a seller, that matters because your designs ride on the platform's fulfillment — good designs can still suffer from someone else's printing inconsistency.</p>
   </section>
 
-  <section id="artist-experience">
-    <h2>The Artist Experience: Uploading and Management</h2>
-    <p>If you've ever spent three hours uploading a single design to a dozen different products on other sites, you’ll find TeePublic’s uploader a breath of fresh air. It is arguably the most efficient in the industry. You upload one high-resolution PNG, and the system automatically maps it across t-shirts, hoodies, mugs, and stickers.</p>
+  <section id="how-it-works">
+    <h2>How It Works for Sellers</h2>
+    <p>The seller workflow is genuinely one of the simplest in the industry:</p>
+    <ol>
+      <li><strong>Upload one high-resolution PNG.</strong> A transparent background is essential — artwork with a white box around it looks amateurish on dark garments.</li>
+      <li><strong>Let the uploader map it across products.</strong> TeePublic automatically places your design on apparel, stickers, mugs and more; you can adjust placement and default garment colors.</li>
+      <li><strong>Tag thoroughly.</strong> You get a limited set of tags — use specific, buyer-like phrases ("retro space cat", "vaporwave aesthetic") rather than single generic words.</li>
+      <li><strong>Organize your storefront.</strong> Curated collections ("Cyberpunk Series", "Vintage Botany") help buyers navigate once you have dozens of designs.</li>
+      <li><strong>Get paid monthly.</strong> Earnings are paid out via PayPal or Payoneer, typically mid-month for the previous month's sales.</li>
+    </ol>
 
-    <p>In my experience, the "Multi-Product Creator" tool is what keeps artists loyal. You can toggle colors, adjust placement, and set your default shirt color in seconds. <strong>Pro tip:</strong> Always design for a transparent background. There is nothing that screams "amateur" louder than a white box around a design on a black t-shirt.</p>
+    <h3>The account classification system</h3>
+    <p>TeePublic classifies artist accounts into tiers — broadly, higher-trust accounts and newer or less-curated ones. The classification affects both your search visibility and your per-sale earnings: higher-trust accounts earn the platform's standard fixed margin per sale, while lower-tier accounts earn noticeably less for the same product. TeePublic has described the system as a way to reward original, high-quality work and filter low-effort uploads. Practically, the lesson is the same one that works everywhere: cohesive, original work in real niches is the fastest route to the better tier.</p>
 
-    <p>One feature that often goes overlooked is the "Storefront" customization. While it’s not as robust as a dedicated Shopify store, it allows for banner images and curated "albums." This is vital for organizing your work. If you have 500 designs, you don't want a customer scrolling through a chaotic mess; you want them to find your "Cyberpunk Collection" or "Vintage Botany" section immediately.</p>
+    <h3>Fixed margins and the sale problem</h3>
+    <p>You do not set your own prices on TeePublic — you earn a fixed artist margin per sale. And TeePublic runs frequent site-wide sales, which is great for buyers but means your margin per unit drops during sale periods. Sellers who treat TeePublic as a volume game (many designs, many small margins) fare better than those expecting large per-unit profits.</p>
   </section>
 
-  <section id="quality-analysis">
-    <h2>Print Quality and Product Range</h2>
-    <p>Let’s talk shop. A beautiful design on a sandpaper-textured shirt is a recipe for a 1-star review and a return. TeePublic primarily uses Direct-to-Garment (DTG) printing. For those unfamiliar with the term, DTG is essentially an inkjet printer for clothes. It allows for incredible detail and unlimited colors, which is a massive advantage over traditional screen printing for complex illustrations.</p>
+  <section id="pros-cons">
+    <h2>Pros and Cons: An Honest Breakdown</h2>
 
-    <p>The apparel choices usually center around three tiers:</p>
+    <h3>Pros</h3>
     <ul>
-      <li><strong>The Standard T-Shirt:</strong> Usually a heavy cotton Gildan or similar. It’s durable but a bit "boxy."</li>
-      <li><strong>The Premium T-Shirt:</strong> A softer, ringspun cotton (think Bella+Canvas level). This is what I personally recommend for most buyers.</li>
-      <li><strong>The V-Neck/Tank/Hoodie:</strong> Various blends that hold ink surprisingly well.</li>
+      <li><strong>Completely free to start.</strong> No listing fees, no subscriptions — you only earn when something sells.</li>
+      <li><strong>Truly hands-off.</strong> Printing, shipping, returns and customer support are TeePublic's problem, not yours.</li>
+      <li><strong>Built-in niche traffic.</strong> The platform's audience actively searches for the exact kind of niche and fandom-adjacent designs independent artists make.</li>
+      <li><strong>Fastest uploader in the business.</strong> One upload populates dozens of products in seconds.</li>
+      <li><strong>Fan art program.</strong> TeePublic (with Redbubble) runs a formal program letting approved artists sell licensed designs for partnered brands — a legal route into fandom merchandising.</li>
     </ul>
 
-    <p>What about the non-apparel items? Their stickers are surprisingly high quality—thick vinyl with a matte or glossy finish that survives the dishwasher (I’ve tested this on my own <a href="/blog/the-ultimate-guide-to-water-bottles-as-a-fashion-statement-hydration-meets-style" class="auto-link internal-link" title="The Ultimate Guide to Water Bottles as a Fashion Statement: Hydration Meets Style">water bottles</a>). The phone cases and wall art are decent, but let’s be honest: 80% of your revenue on this platform will likely come from t-shirts.</p>
-
-    <p><a href="#internal-link-to-pod-quality-guide">Check out our full guide on comparing POD print qualities here.</a></p>
+    <h3>Cons</h3>
+    <ul>
+      <li><strong>No pricing control.</strong> You can't raise margins on a winning design or run your own pricing strategy.</li>
+      <li><strong>Frequent sales compress earnings.</strong> Your per-sale margin shrinks whenever the platform discounts — which is often.</li>
+      <li><strong>No customer ownership.</strong> You get no buyer emails, no brand experience, no packaging — nothing to build a business on beyond the marketplace.</li>
+      <li><strong>Opaque classification.</strong> The criteria and review process for account tiers are not public, which frustrates new sellers earning lower rates.</li>
+      <li><strong>Fulfillment inconsistency.</strong> Buyer reviews show real variability in print quality and shipping times — your reputation is partly in third-party printers' hands.</li>
+      <li><strong>Competition is intense.</strong> Low barriers mean every viable niche already has hundreds of listings; standing out requires volume and sharp tagging.</li>
+    </ul>
   </section>
 
-  <section id="earnings-structure">
-    <h2>The Controversial New Earnings Structure</h2>
-    <p>We need to address the elephant in the room. In May 2023, TeePublic introduced a tiered account system: <strong>Artisan</strong> and <strong>Apprentice</strong>. This move sent shockwaves through the artist community. Why? Because it fundamentally changed the payout scale.</p>
+  <section id="who-its-for">
+    <h2>Who TeePublic Is Best For (and Who Should Skip)</h2>
+    <p><strong>TeePublic is a good fit if you:</strong> make niche, fandom-adjacent or hobby art; want genuinely passive marketplace income; are testing which designs resonate before investing in your own store; or want a legal channel for licensed fan art.</p>
 
-    <p>Here’s the breakdown: <strong>Artisan accounts</strong> (those deemed to have high-quality, original content) earn the standard commission. <strong>Apprentice accounts</strong> (often newer accounts or those that the platform deems "less unique" or potentially spammy) earn a significantly lower rate. For example, an Artisan might earn $4.00 on a full-priced shirt, while an Apprentice might only earn $1.00.</p>
+    <p><strong>Look elsewhere if you:</strong> need high per-unit margins; want to build a brand with your own pricing, packaging and customer list; or plan to make POD your primary business — in that case, a print provider plus your own storefront (or a platform with adjustable margins) serves you better. TeePublic works best as one channel in a wider strategy, not as the entire business.</p>
 
-    <p>You might be wondering: "Is this fair?" From the company’s perspective, they are trying to combat the deluge of AI-generated spam and low-effort "text-only" designs that have cluttered the marketplace. From the artist's perspective, it feels like a tax on being new. My advice? Focus on building a cohesive brand and unique style from day one to increase your chances of being upgraded to Artisan status.</p>
+    <p>For a contrasting model with adjustable pricing and your own storefront, compare with <a href="/blog/mastering-amazon-merch-the-definite-guide-to-scaling-your-pr" class="internal-link">Amazon Merch on Demand</a> and our broader <a href="/blog/the-ultimate-guide-to-print-on-demand-in-2025-start-your-business-today" class="internal-link">print-on-demand business guide</a>.</p>
   </section>
 
-  <section id="comparison" class="comparison-section">
-    <h2>TeePublic vs. The Competition</h2>
-    <p>How does it stack up against the other big players? I've spent years testing these platforms, and the results vary wildly depending on your goals.</p>
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Platform</th>
-          <th>Ease of Upload</th>
-          <th>Organic Traffic</th>
-          <th>Artist Margin</th>
-          <th>Best For</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>TeePublic</strong></td>
-          <td class="text-green-600">Excellent (Fastest)</td>
-          <td class="text-green-600">High (Niche focus)</td>
-          <td>Fixed ($1 - $4 per shirt)</td>
-          <td>Pop culture & Niche art</td>
-        </tr>
-        <tr>
-          <td><strong>Redbubble</strong></td>
-          <td>Moderate</td>
-          <td class="text-green-600">Very High</td>
-          <td>Adjustable (Average 20%)</td>
-          <td>Stickers & Home Decor</td>
-        </tr>
-        <tr>
-          <td><strong>Printful</strong></td>
-          <td class="text-red-600">Difficult (Manual)</td>
-          <td class="text-red-600">Zero (BYO Traffic)</td>
-          <td class="text-green-600">High (You set prices)</td>
-          <td>Building a serious brand</td>
-        </tr>
-        <tr>
-          <td><strong>Amazon Merch</strong></td>
-          <td>Basic</td>
-          <td class="text-green-600">Massive</td>
-          <td>Tiered Royalty</td>
-          <td>Trend chasing & SEO experts</td>
-        </tr>
-        <tr>
-          <td><strong>Zazzle</strong></td>
-          <td class="text-red-600">Complex</td>
-          <td>Moderate</td>
-          <td>Highly Adjustable</td>
-          <td>Weddings & Personalization</td>
-        </tr>
-      </tbody>
-    </table>
+  <section id="niche-patterns">
+    <h2>What Sells: Niche Patterns That Work</h2>
+    <p>TeePublic's audience has clear tastes. Designs that perform tend to share a few patterns — understanding them before you upload saves months of trial and error.</p>
+    <ul>
+      <li><strong>Fandom-adjacent art (done legally).</strong> The platform's core audience loves pop-culture-adjacent designs — but the safe route is the official fan art program or clearly original parody-free work, never unlicensed IP.</li>
+      <li><strong>Specific animals, not "animals".</strong> A design for a single dog breed or a specific cat personality outsells generic pet art, because buyers search for their own pet.</li>
+      <li><strong>Professions and hobbies as identity.</strong> Nursing, gaming, fishing, teaching — identity-expressive designs convert because people buy shirts that say who they are.</li>
+      <li><strong>Retro and vintage aesthetics.</strong> Distressed textures, 70s lettering and nostalgic illustration styles have a durable audience on the platform.</li>
+      <li><strong>Readable at thumbnail size.</strong> Most buyers discover designs in small search-result thumbnails. Bold shapes, high contrast and short text win; fine detail that only shows at full size does not.</li>
+    </ul>
+    <p>A practical split many sellers use is roughly 70% evergreen designs (professions, hobbies, aesthetics that sell year-round) and 30% trend-responsive designs (memes, seasonal moments). Trends bring bursts of traffic into your shop; evergreens keep baseline sales flowing between them. Whichever you make, specificity beats generality — a shirt for "left-handed bass players" will find its buyers faster than a shirt for "music lovers".</p>
   </section>
 
-  <section id="marketing-strategies">
-    <h2>How to Actually Make Sales</h2>
-    <p>Here’s the thing about "passive income": it usually requires a massive amount of active work upfront. You can't just upload five designs and wait for the checks to roll in. Data suggests that the top 1% of earners on TeePublic often have 500+ designs live at any given time.</p>
-
-    <h3>1. Master the Tagging Game</h3>
-    <p>TeePublic allows up to 15 tags. Don't waste them. If you're designing a "Retro Space Cat," don't just tag it "cat" and "space." Use long-tail keywords like "vaporwave aesthetic," "80s sci-fi," or "funny astronaut kitten." Think like a buyer. What would they type into the search bar?</p>
-
-    <h3>2. The "First 72 Hours" Rule</h3>
-    <p>When you upload a new design, TeePublic automatically puts it on sale for the first 72 hours. This is your window. Share your direct link on Pinterest, Instagram, or Reddit (where appropriate). The platform's algorithm loves early traction. If you get 3 sales in that first window, your design is much more likely to rank higher in the general search results.</p>
-
-    <h3>3. Designing for Trends vs. Evergreen</h3>
-    <p>In my experience, a 70/30 split is the sweet spot. 70% of <a href="/blog/p-chatgpt-for-etsy-sellers-the-ultimate-guide-to-scaling-your-shop-without-the-burnout" class="auto-link internal-link" title="ChatGPT for Etsy Sellers: The Ultimate Guide to Scaling Your Shop Without the Burnout">your shop</a> should be "evergreen"—designs that will be relevant five years from now (e.g., "I love mountain biking"). The other 30% should be "trend" designs (e.g., a meme that's currently blowing up). Trends bring people into your shop; evergreens keep the money flowing month after month.</p>
-
-    <img src="/placeholder.svg" alt="Dashboard showing sales analytics and graph of monthly earnings for an artist">
-  </section>
-
-  <section id="customer-perspective">
-    <h2>The Buyer’s Perspective: Shipping and Support</h2>
-    <p>If you're buying from TeePublic, you should know that they don't actually own the printing facilities. They partner with a network of third-party printers across the globe. This is why shipping times can vary. Usually, an order is printed and shipped within 3-5 business days.</p>
-
-    <p>What happens if the print is crooked or the size is wrong? TeePublic’s customer service is surprisingly robust. They have a "Satisfaction Guarantee" which usually results in a free replacement or a refund if the product is defective. As a seller, this is great because TeePublic handles the cost of the replacement, not you.</p>
-
-    <p>One minor gripe? International shipping can be pricey. If you're in Europe or Australia, the shipping cost might nearly equal the cost of the shirt itself. It’s something to keep in mind if you're marketing to a global audience.</p>
+  <section id="getting-started">
+    <h2>Getting Started: Step by Step</h2>
+    <ol>
+      <li><strong>Sign up as an artist.</strong> It's free; you'll need a PayPal or Payoneer account for payouts and tax information for your country.</li>
+      <li><strong>Prepare 5–10 strong designs.</strong> Start with your best work in one or two related niches — a cohesive opening shop looks far better than a random assortment.</li>
+      <li><strong>Upload with transparent PNGs.</strong> High resolution, transparent background, centered artwork; preview on both light and dark garments.</li>
+      <li><strong>Tag like a buyer.</strong> Use all available tag slots with specific multi-word phrases; include the niche, the style and the occasion.</li>
+      <li><strong>Use the 72-hour window.</strong> New uploads get an automatic introductory sale — share the link on Pinterest, Instagram or relevant communities to seed early traction, which helps search ranking.</li>
+      <li><strong>Publish consistently.</strong> Marketplaces reward catalog depth; a steady upload rhythm across niches beats occasional bursts.</li>
+      <li><strong>Track and double down.</strong> Watch which designs get views and sales, then create variations and companions for the winners.</li>
+    </ol>
   </section>
 
   <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
     <h2>Frequently Asked Questions</h2>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Is TeePublic free to use for artists?</h3>
+      <h3 itemprop="name">Is TeePublic free for artists?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Yes, it is completely free. You don't pay any listing fees or monthly subscriptions. TeePublic takes their cut from the sale price, and you receive a fixed royalty based on your account tier.</p>
+        <p itemprop="text">Yes. There are no listing fees or monthly subscriptions. TeePublic takes its share from each sale and you receive a fixed artist margin based on your account classification.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">How do I get paid?</h3>
+      <h3 itemprop="name">How do TeePublic payments work?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">TeePublic pays out via PayPal or Payoneer. Payments are typically sent out on the 15th of each month for sales made during the previous month.</p>
+        <p itemprop="text">TeePublic pays artists via PayPal or Payoneer, typically around the middle of each month for the previous month's sales. You are responsible for declaring the income for tax purposes in your country.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Can I sell Fan Art on TeePublic?</h3>
+      <h3 itemprop="name">What is the difference between the account types?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">TeePublic has a formal Fan Art Program (partnered with Redbubble). You can submit designs for specific brands like Rick and Morty or Star Trek. If approved, you can legally sell them, though the brand takes an additional cut of the royalties.</p>
+        <p itemprop="text">TeePublic classifies accounts into tiers that affect search visibility and per-sale earnings. Higher-trust accounts with original, quality work earn the standard margin; newer or less-curated accounts earn less. Building a cohesive, original portfolio is the practical route to the better tier.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">What is the difference between Artisan and Apprentice accounts?</h3>
+      <h3 itemprop="name">Can I sell fan art on TeePublic?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Artisan accounts are for high-quality, unique creators and earn higher royalties. Apprentice accounts are for newer or less-curated shops and earn lower royalties. <a href="/blog/the-ultimate-guide-to-just-married-shirts-how-to-celebrate-your-new-status-in-style" class="auto-link internal-link" title="The Ultimate Guide to Just Married Shirts: How to Celebrate Your New Status in Style">Your status</a> is determined by TeePublic's internal review team.</p>
+        <p itemprop="text">Yes, through TeePublic's formal fan art program (shared with Redbubble). You can submit designs for partnered brands, and if approved you can sell them legally — though the brand takes an additional share of the earnings.</p>
       </div>
     </div>
 
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Does TeePublic own my designs?</h3>
+      <h3 itemprop="name">Do I keep ownership of my designs?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">No. You retain 100% ownership of <a href="/blog/the-definitive-guide-to-dark-academia-fashion-curating-your-intellectual-wardrobe" class="auto-link internal-link" title="The Definitive Guide to Dark Academia Fashion: Curating Your Intellectual Wardrobe">your intellectual</a> property. You are simply granting TeePublic a non-exclusive license to print and sell your work on their products.</p>
+        <p itemprop="text">Yes. You retain ownership of your artwork and grant TeePublic a non-exclusive license to print and sell it on their products. You can sell the same designs on other platforms.</p>
       </div>
     </div>
   </section>

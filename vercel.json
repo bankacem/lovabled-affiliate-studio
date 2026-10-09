@@ -612,6 +612,16 @@
       "source": "/blog/the-ultimate-halloween-t-shirts-guide-from-spooky-styles-to-costume-tees",
       "destination": "/blog/the-guide-to-halloween-t-shirts-trends-styling-and-shopping-tips",
       "permanent": true
+    },
+    {
+      "source": "/blog/the-2024-blueprint-starting-a-print-on-demand-empire-with-generative-ai",
+      "destination": "/blog/the-ultimate-guide-to-print-on-demand-in-2025-start-your-business-today",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zero-inventory-high-margin-the-no-nonsense-guide-to-starting-a-print-on-demand-business-in-2024",
+      "destination": "/blog/the-ultimate-guide-to-print-on-demand-in-2025-start-your-business-today",
+      "permanent": true
     }
   ],
   "rewrites": [
