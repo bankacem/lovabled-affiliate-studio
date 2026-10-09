@@ -577,6 +577,31 @@
       "source": "/blog/the-ultimate-guide-to-custom-mugs-why-theyre-the-perfect-personalized-gift",
       "destination": "/blog/the-ultimate-guide-to-personalized-mugs-why-they-make-the-perfect-gift",
       "permanent": true
+    },
+    {
+      "source": "/blog/christmas-shirts-for-family-the-ultimate-guide-to-matching-holiday-style",
+      "destination": "/blog/the-ultimate-guide-to-matching-christmas-family-shirts-how-to-nail-the-holiday-look-without-the-stre",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-matching-christmas-shirts-traditions-trends-and-styling-tips",
+      "destination": "/blog/the-ultimate-guide-to-matching-christmas-family-shirts-how-to-nail-the-holiday-look-without-the-stre",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-funny-christmas-shirts-spreading-holiday-cheer-with-a-side-of-humor",
+      "destination": "/blog/the-ultimate-guide-to-funny-christmas-shirts-because-your-relatives-arent-going-to-entertain-themsel",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-christmas-vacation-shirts-trends-styling-and-group-planning",
+      "destination": "/blog/the-ultimate-guide-to-christmas-vacation-shirts-how-to-slay-the-holiday-style-game",
+      "permanent": true
+    },
+    {
+      "source": "/blog/rock-around-the-christmas-tree-your-ultimate-guide-to-epic-christmas-t-shirt-designs",
+      "destination": "/blog/the-guide-to-christmas-t-shirts-trends-styling-and-shopping-tips",
+      "permanent": true
     }
   ],
   "rewrites": [
