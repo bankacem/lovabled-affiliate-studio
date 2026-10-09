@@ -73,7 +73,7 @@ read_time: "8 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/t-shirt/Off-To-Cause-A-Kerfuffle-Comfort-Colors-Shirt-Funny-Groundhog-Scooter-Tshirt-Silly-Animal-Mental-Health-Tee-Adult-Humor-Sarcastic-T-Shirt-by-rengone/176800840/2cn5" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.6024665339.0840/ssrco,v_neck_tee,mens_01,353d77:4d8b4ffd91,front,square_product,x600.jpg" alt="Off To Cause A Kerfuffle funny groundhog v-neck tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.6024665339.0840/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Off To Cause A Kerfuffle funny groundhog v-neck tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">"Off To Cause A Kerfuffle" Groundhog V-Neck</h3>

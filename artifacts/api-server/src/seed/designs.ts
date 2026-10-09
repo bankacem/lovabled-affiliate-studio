@@ -10,7 +10,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "1945 Patriotic Anti-Fascist Liberty Protest Tee",
     description: "1945 Patriotic Anti-Fascist Liberty Protest Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997177843.5271/ssrco,classic_tee,mens_02,fafafa:ca443f4786,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997177843.5271/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["1945", "patriotic", "anti", "fascist", "liberty", "protest"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/1945-Patriotic-Anti-Fascist-Liberty-Protest-Tee-by-rengone/175935271/lrcw",
@@ -21,7 +21,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "1985 Retro Birthday Sweatshirt – Vintage 40th Birthday Gift",
     description: "1985 Retro Birthday Sweatshirt – Vintage 40th Birthday Gift — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997064820.1717/ur,throw_pillow_couch_small,square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997064820.1717/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["1985", "retro", "birthday", "vintage", "40th", "gift"],
     redbubble_url: "https://www.redbubble.com/i/throw-pillow/1985-Retro-Birthday-Sweatshirt-Vintage-40th-Birthday-Gift-by-rengone/175931717/xwxm",
@@ -32,7 +32,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "67 Funny Turkey Thanksgiving Six Seven Trending Gen Z Meme",
     description: "67 Funny Turkey Thanksgiving Six Seven Trending Gen Z Meme — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997990727.0825/sh,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997990727.0825/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["funny", "turkey", "thanksgiving", "six", "seven", "trending", "gen", "meme"],
     redbubble_url: "https://www.redbubble.com/i/holographic-sticker/67-Funny-Turkey-Thanksgiving-Six-Seven-Trending-Gen-Z-Meme-by-rengone/175960825/mtb4",
@@ -43,7 +43,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "67 Reindeer Approved Paw Print Christmas Design",
     description: "67 Reindeer Approved Paw Print Christmas Design — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979901307.7960/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979901307.7960/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["reindeer", "approved", "paw", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/sticker/67-Reindeer-Approved-Paw-Print-Christmas-Design-by-rengone/175387960/7sgk",
@@ -54,7 +54,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "67 Thanksgiving Meme Funny Dabbing Turkey Bruh Kids Boys Tee",
     description: "67 Thanksgiving Meme Funny Dabbing Turkey Bruh Kids Boys Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5998159680.5952/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5998159680.5952/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["thanksgiving", "meme", "funny", "dabbing", "turkey", "bruh", "kids", "boys"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/67-Thanksgiving-Meme-Funny-Dabbing-Turkey-Bruh-Kids-Boys-Tee-by-rengone/175965952/3bp7",
@@ -65,7 +65,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "67 Wishes Delivered North Pole Mailbox",
     description: "67 Wishes Delivered North Pole Mailbox — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979928824.8830/ssrco,graphic_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979928824.8830/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["wishes", "delivered", "north", "pole", "mailbox"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/67-Wishes-Delivered-North-Pole-Mailbox-by-rengone/175388830/rfjh",
@@ -76,7 +76,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Adorable Pastel Ghosts Black Cats Halloween Row",
     description: "Adorable Pastel Ghosts Black Cats Halloween Row — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980658389.1665/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980658389.1665/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["adorable", "pastel", "ghosts", "black", "cats", "halloween", "row"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Adorable-Pastel-Ghosts-Black-Cats-Halloween-Row-by-rengone/175411665/lrcw",
@@ -87,7 +87,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Assuming I'm Just An Old Lady Was First Mistake Witch",
     description: "Assuming I'm Just An Old Lady Was First Mistake Witch — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980705315.3137/pp,504x498-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980705315.3137/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["assuming", "i'm", "just", "old", "lady", "was", "first", "mistake", "witch"],
     redbubble_url: "https://www.redbubble.com/i/photographic-print/Assuming-I-m-Just-An-Old-Lady-Was-First-Mistake-Witch-by-rengone/175413137/zltf",
@@ -98,7 +98,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Awestruck / Mind Blown by Halloween Magic Graphic",
     description: "Awestruck / Mind Blown by Halloween Magic Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981459228.7394/aps,504x498,small,transparent-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981459228.7394/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["awestruck", "mind", "blown", "halloween", "magic"],
     redbubble_url: "https://www.redbubble.com/i/art-print/Awestruck-Mind-Blown-by-Halloween-Magic-Graphic-by-rengone/175437394/wqnt",
@@ -109,7 +109,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "BOO Dot Pattern Comic Style Halloween Word Art",
     description: "BOO Dot Pattern Comic Style Halloween Word Art — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980731581.3943/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980731581.3943/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["boo", "dot", "pattern", "comic", "style", "halloween", "word", "art"],
     redbubble_url: "https://www.redbubble.com/i/sticker/BOO-Dot-Pattern-Comic-Style-Halloween-Word-Art-by-rengone/175413943/7sgk",
@@ -120,7 +120,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Beam Me Up This Place Sucks - Funny Retro Sci-Fi Alien Meme Shirt",
     description: "Beam Me Up This Place Sucks - Funny Retro Sci-Fi Alien Meme Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056181641.3763/ssrco,pullover_hoodie,mens_01,dec3a0:e943c4fe21,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056181641.3763/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["beam", "this", "place", "sucks", "funny", "retro", "sci", "alien", "meme"],
     redbubble_url: "https://www.redbubble.com/i/hoodie/Beam-Me-Up-This-Place-Sucks-Funny-Retro-Sci-Fi-Alien-Meme-Shirt-by-rengone/177823763/2j5j",
@@ -131,7 +131,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Big Fan of Human Rights - Radicalized by Basic Decency Retro T-Shirt",
     description: "Big Fan of Human Rights - Radicalized by Basic Decency Retro T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056177177.3622/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056177177.3622/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["big", "fan", "human", "rights", "radicalized", "basic", "decency", "retro"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Big-Fan-of-Human-Rights-Radicalized-by-Basic-Decency-Retro-T-Shirt-by-rengone/177823622/7sgk",
@@ -142,7 +142,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Black Cat Eating Ramen Noodles Japanese Food Tee",
     description: "Black Cat Eating Ramen Noodles Japanese Food Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997278585.8461/ssrco,essential_tee,mens_01,fafafa:ca443f4786,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997278585.8461/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["black", "cat", "eating", "ramen", "noodles", "japanese", "food"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Black-Cat-Eating-Ramen-Noodles-Japanese-Food-Tee-by-rengone/175938461/z5wf",
@@ -153,7 +153,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Boo-tiful Halloween Skeleton Coffee Graphic",
     description: "Boo-tiful Halloween Skeleton Coffee Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984573953.5984/ur,backpack_front,square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984573953.5984/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Accessories",
     tags: ["boo", "tiful", "halloween", "skeleton", "coffee"],
     redbubble_url: "https://www.redbubble.com/i/backpack/Boo-tiful-Halloween-Skeleton-Coffee-Graphic-by-rengone/175535984/e55z",
@@ -164,7 +164,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Brain Fog / Exhausted by Spooky Season Graphic",
     description: "Brain Fog / Exhausted by Spooky Season Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981431117.6518/ssrco,oversized_hoodie,mens_01,111112:1f01311efe,front,square_product,x600.u1.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981431117.6518/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["brain", "fog", "exhausted", "spooky", "season"],
     redbubble_url: "https://www.redbubble.com/i/hoodie/Brain-Fog-Exhausted-by-Spooky-Season-Graphic-by-rengone/175436518/ng59",
@@ -175,7 +175,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Bringing Spooks & Joys Skeleton Reindeer Ride",
     description: "Bringing Spooks & Joys Skeleton Reindeer Ride — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981485936.8261/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981485936.8261/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["bringing", "spooks", "joys", "skeleton", "reindeer", "ride"],
     redbubble_url: "https://www.redbubble.com/i/poster/Bringing-Spooks-and-Joys-Skeleton-Reindeer-Ride-by-rengone/175438261/flk2",
@@ -186,7 +186,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Calm & Contemplative – Quiet Autumn Mood Graphic",
     description: "Calm & Contemplative – Quiet Autumn Mood Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981458273.7360/ssrco,raglan_tee,mens_01,101010~fafafa:9dca97ff57,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981458273.7360/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["calm", "contemplative", "quiet", "autumn", "mood"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Calm-and-Contemplative-Quiet-Autumn-Mood-Graphic-by-rengone/175437360/wsjt8g",
@@ -197,7 +197,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cat Brew Crew Witch Black Cat Cauldron Full Moon",
     description: "Cat Brew Crew Witch Black Cat Cauldron Full Moon — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980728865.3866/ssrco,dad_hat,product,FFFDF5:8c3db69414,front,square,600x600-bg,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980728865.3866/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Accessories",
     tags: ["cat", "brew", "crew", "witch", "black", "cauldron", "full", "moon"],
     redbubble_url: "https://www.redbubble.com/i/hat/Cat-Brew-Crew-Witch-Black-Cat-Cauldron-Full-Moon-by-rengone/175413866/fce2",
@@ -208,7 +208,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cheerful Wide-Grin Cartoon Vector for Positive Vibes",
     description: "Cheerful Wide-Grin Cartoon Vector for Positive Vibes — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981402212.5598/aps,504x498,small,transparent-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981402212.5598/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["cheerful", "wide", "grin", "cartoon", "vector", "positive", "vibes"],
     redbubble_url: "https://www.redbubble.com/i/art-print/Cheerful-Wide-Grin-Cartoon-Vector-for-Positive-Vibes-by-rengone/175435598/wqnt",
@@ -219,7 +219,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Christmas Compass 67 Degrees North Cabin",
     description: "Christmas Compass 67 Degrees North Cabin — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979929787.8860/ssrco,oversize_tee,mens,000000:44f0b734a5,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979929787.8860/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["christmas", "compass", "degrees", "north", "cabin"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Christmas-Compass-67-Degrees-North-Cabin-by-rengone/175388860/rh5j",
@@ -230,7 +230,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Christmas Dog Sweatshirt Golden Retriever Golf Cart Holiday Xmas Season Sweater Pink Cute Santa Snow Puppy Lover Pullover Gift Mom Crewneck",
     description: "Christmas Dog Sweatshirt Golden Retriever Golf Cart Holiday Xmas Season Sweater Pink Cute Santa Snow Puppy Lover Pullover Gift Mom Crewneck — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024705808.1969/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024705808.1969/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["christmas", "dog", "golden", "retriever", "golf", "cart", "holiday", "xmas", "season", "pink", "cute", "santa"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Christmas-Dog-Sweatshirt-Golden-Retriever-Golf-Cart-Holiday-Xmas-Season-Sweater-Pink-Cute-Santa-Snow-Puppy-Lover-Pullover-Gift-Mom-Crewneck-by-rengone/176801969/lrcw",
@@ -241,7 +241,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Christmas Heart Shirt, Christmas Shirt, Women Christmas Shirt, Gift for Christmas, Christmas Gifts, Gift for Her, Christmas Vacation",
     description: "Christmas Heart Shirt, Christmas Shirt, Women Christmas Shirt, Gift for Christmas, Christmas Gifts, Gift for Her, Christmas Vacation — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6000876852.1706/ssrco,essential_tee,mens_01,fafafa:ca443f4786,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6000876852.1706/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["christmas", "heart", "women", "gift", "gifts", "her", "vacation"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Christmas-Heart-Shirt-Christmas-Shirt-Women-Christmas-Shirt-Gift-for-Christmas-Christmas-Gifts-Gift-for-Her-Christmas-Vacation-by-rengone/176051706/z5wf",
@@ -252,7 +252,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Classic Great Wave Off Kanagawa Japanese Art Tee",
     description: "Classic Great Wave Off Kanagawa Japanese Art Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997320632.9721/mo,small,flatlay,product_square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997320632.9721/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Accessories",
     tags: ["classic", "great", "wave", "off", "kanagawa", "japanese", "art"],
     redbubble_url: "https://www.redbubble.com/i/magnet/Classic-Great-Wave-Off-Kanagawa-Japanese-Art-Tee-by-rengone/175939721/9gzh",
@@ -263,7 +263,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Comfort Colors Cat Shirt, Funny Cat Shirt, Sourdough Shirt, Cat Meme Shirt, Cat T Shirt, Biscuit Shirt, Bakery Tee, Kitty Lover Gift Tee",
     description: "Comfort Colors Cat Shirt, Funny Cat Shirt, Sourdough Shirt, Cat Meme Shirt, Cat T Shirt, Biscuit Shirt, Bakery Tee, Kitty Lover Gift Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024672382.1051/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024672382.1051/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["comfort", "colors", "cat", "funny", "sourdough", "meme", "biscuit", "bakery", "kitty", "lover", "gift"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Comfort-Colors-Cat-Shirt-Funny-Cat-Shirt-Sourdough-Shirt-Cat-Meme-Shirt-Cat-T-Shirt-Biscuit-Shirt-Bakery-Tee-Kitty-Lover-Gift-Tee-by-rengone/176801051/3bp7",
@@ -274,7 +274,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Comfort Colors® Floral Ghost Retro Halloween Aesthetic Tee",
     description: "Comfort Colors® Floral Ghost Retro Halloween Aesthetic Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997242348.7334/ssrco,pullover_sweatshirt,mens_01,101010:01c5ca27c6,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997242348.7334/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["comfort", "colors", "floral", "ghost", "retro", "halloween", "aesthetic"],
     redbubble_url: "https://www.redbubble.com/i/sweatshirt/Comfort-Colors-Floral-Ghost-Retro-Halloween-Aesthetic-Tee-by-rengone/175937334/du6s",
@@ -285,7 +285,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Comfort Colors® Funny Kitty Biscuits Bakery Shirt",
     description: "Comfort Colors® Funny Kitty Biscuits Bakery Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997083653.2278/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997083653.2278/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["comfort", "colors", "funny", "kitty", "biscuits", "bakery"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Comfort-Colors-Funny-Kitty-Biscuits-Bakery-Shirt-by-rengone/175932278/3bp7",
@@ -296,7 +296,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cool Pumpkin Vibes Only Iced Coffee Autumn",
     description: "Cool Pumpkin Vibes Only Iced Coffee Autumn — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980652528.1491/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980652528.1491/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["cool", "pumpkin", "vibes", "only", "iced", "coffee", "autumn"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Cool-Pumpkin-Vibes-Only-Iced-Coffee-Autumn-by-rengone/175411491/7sgk",
@@ -307,7 +307,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cool Santa Says 6-7 Perfect Holiday",
     description: "Cool Santa Says 6-7 Perfect Holiday — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979946206.9357/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979946206.9357/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["cool", "santa", "says", "perfect", "holiday"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Cool-Santa-Says-6-7-Perfect-Holiday-by-rengone/175389357/7sgk",
@@ -318,7 +318,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cool Santa Six Seven Secret Holiday Code",
     description: "Cool Santa Six Seven Secret Holiday Code — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979838978.6002/ssrco,oversized_hoodie,mens_01,111112:1f01311efe,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979838978.6002/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["cool", "santa", "six", "seven", "secret", "holiday", "code"],
     redbubble_url: "https://www.redbubble.com/i/hoodie/Cool-Santa-Six-Seven-Secret-Holiday-Code-by-rengone/175386002/ng59",
@@ -329,7 +329,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cool Santa's Secret 67 Holiday Code",
     description: "Cool Santa's Secret 67 Holiday Code — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979740794.2970/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979740794.2970/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["cool", "santa's", "secret", "holiday", "code"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Cool-Santa-s-Secret-67-Holiday-Code-by-rengone/175382970/7sgk",
@@ -340,7 +340,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cozy Ghost Happy Halloween Fall Vibes",
     description: "Cozy Ghost Happy Halloween Fall Vibes — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980704092.3100/icr,iphone_18_pro_soft,back,a,x600-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980704092.3100/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["cozy", "ghost", "happy", "halloween", "fall", "vibes"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Cozy-Ghost-Happy-Halloween-Fall-Vibes-by-rengone/175413100/2x65",
@@ -351,7 +351,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cute Frog Ghost with Pumpkins Halloween Graphic",
     description: "Cute Frog Ghost with Pumpkins Halloween Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984572531.5936/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984572531.5936/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["cute", "frog", "ghost", "pumpkins", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Cute-Frog-Ghost-with-Pumpkins-Halloween-Graphic-by-rengone/175535936/lrcw",
@@ -362,7 +362,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cute Ghost Studying for My Boo-Exam Funny Halloween",
     description: "Cute Ghost Studying for My Boo-Exam Funny Halloween — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980670793.2062/fposter,small,wall_texture,square_product,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980670793.2062/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["cute", "ghost", "studying", "boo", "exam", "funny", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/poster/Cute-Ghost-Studying-for-My-Boo-Exam-Funny-Halloween-by-rengone/175412062/flk2",
@@ -373,7 +373,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cute Mummy All Wrapped Up in Halloween Fun",
     description: "Cute Mummy All Wrapped Up in Halloween Fun — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980651671.1461/ur,classic_mug_right,full,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980651671.1461/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["cute", "mummy", "all", "wrapped", "halloween", "fun"],
     redbubble_url: "https://www.redbubble.com/i/mug/Cute-Mummy-All-Wrapped-Up-in-Halloween-Fun-by-rengone/175411461/7yqg",
@@ -384,7 +384,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Cute Thanksgiving Cat in Turkey Costume Fall Sublimation",
     description: "Cute Thanksgiving Cat in Turkey Costume Fall Sublimation — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997930893.9158/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997930893.9158/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["cute", "thanksgiving", "cat", "turkey", "costume", "fall", "sublimation"],
     redbubble_url: "https://www.redbubble.com/i/poster/Cute-Thanksgiving-Cat-in-Turkey-Costume-Fall-Sublimation-by-rengone/175959158/flk2",
@@ -395,7 +395,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Deck These Halls Funny Christmas I'm Tired Xmas Gift",
     description: "Deck These Halls Funny Christmas I'm Tired Xmas Gift — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997171318.5062/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997171318.5062/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["deck", "these", "halls", "funny", "christmas", "i'm", "tired", "xmas", "gift"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Deck-These-Halls-Funny-Christmas-I-m-Tired-Xmas-Gift-by-rengone/175935062/lrcw",
@@ -406,7 +406,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Detective Frog Missing Candy Mystery Graphic",
     description: "Detective Frog Missing Candy Mystery Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984610432.7229/ssrco,essential_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984610432.7229/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["detective", "frog", "missing", "candy", "mystery"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Detective-Frog-Missing-Candy-Mystery-Graphic-by-rengone/175537229/z5wf",
@@ -417,7 +417,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Dog Dad Shirt - Best Dog Dad Ever Shirt - Fathers Day Gift - Dog Lover Gift Funny Shirt Men - Dad Gift Husband Gift Dog Dad Gift",
     description: "Dog Dad Shirt - Best Dog Dad Ever Shirt - Fathers Day Gift - Dog Lover Gift Funny Shirt Men - Dad Gift Husband Gift Dog Dad Gift — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6000817419.9874/ur,throw_pillow_couch_small,square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6000817419.9874/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["dog", "dad", "best", "ever", "fathers", "day", "gift", "lover", "funny", "men", "husband"],
     redbubble_url: "https://www.redbubble.com/i/throw-pillow/Dog-Dad-Shirt-Best-Dog-Dad-Ever-Shirt-Fathers-Day-Gift-Dog-Lover-Gift-Funny-Shirt-Men-Dad-Gift-Husband-Gift-Dog-Dad-Gift-by-rengone/176049874/xwxm",
@@ -428,7 +428,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Drink Up Witches Shirt, Halloween Party Shirt, Halloween Party Outfit, Halloween Gift, Halloween Shirts for Women, Matching Halloween Shirts",
     description: "Drink Up Witches Shirt, Halloween Party Shirt, Halloween Party Outfit, Halloween Gift, Halloween Shirts for Women, Matching Halloween Shirts — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6001685992.6741/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6001685992.6741/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["drink", "witches", "halloween", "party", "outfit", "gift", "women", "matching"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Drink-Up-Witches-Shirt-Halloween-Party-Shirt-Halloween-Party-Outfit-Halloween-Gift-Halloween-Shirts-for-Women-Matching-Halloween-Shirts-by-rengone/176076741/7sgk",
@@ -439,7 +439,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Duck Tape Bomb Funny Pun T-Shirt",
     description: "Duck Tape Bomb Funny Pun T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997331987.0071/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997331987.0071/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["duck", "tape", "bomb", "funny", "pun"],
     redbubble_url: "https://www.redbubble.com/i/poster/Duck-Tape-Bomb-Funny-Pun-T-Shirt-by-rengone/175940071/flk2",
@@ -450,7 +450,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Easily Distracted By Rocks Shirt",
     description: "Easily Distracted By Rocks Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997008767.9941/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997008767.9941/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["easily", "distracted", "rocks"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Easily-Distracted-By-Rocks-Shirt-by-rengone/175929941/lrcw",
@@ -461,7 +461,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "English Teacher Frog Comfort Colors Shirt Teaching Literature Tee High School Teacher TShirt Funny Frog Scooter Gift For English Teacher",
     description: "English Teacher Frog Comfort Colors Shirt Teaching Literature Tee High School Teacher TShirt Funny Frog Scooter Gift For English Teacher — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024645373.0280/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024645373.0280/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["english", "teacher", "frog", "comfort", "colors", "teaching", "literature", "high", "school", "funny", "scooter", "gift"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/English-Teacher-Frog-Comfort-Colors-Shirt-Teaching-Literature-Tee-High-School-Teacher-TShirt-Funny-Frog-Scooter-Gift-For-English-Teacher-by-rengone/176800280/lrcw",
@@ -472,7 +472,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Extreme Shock Face – Horror Movie / Jump Scare Reaction",
     description: "Extreme Shock Face – Horror Movie / Jump Scare Reaction — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981461057.7456/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981461057.7456/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["extreme", "shock", "face", "horror", "movie", "jump", "scare", "reaction"],
     redbubble_url: "https://www.redbubble.com/i/poster/Extreme-Shock-Face-Horror-Movie-Jump-Scare-Reaction-by-rengone/175437456/flk2",
@@ -483,7 +483,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "F-CAW-F Rooster Crow Funny Chicken Meme T-Shirt",
     description: "F-CAW-F Rooster Crow Funny Chicken Meme T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5998778416.5327/ssrco,premium_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.1.jpg",
+    image_url: "https://ih1.redbubble.net/image.5998778416.5327/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["caw", "rooster", "crow", "funny", "chicken", "meme"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/F-CAW-F-Rooster-Crow-Funny-Chicken-Meme-T-Shirt-by-rengone/175985327/e22z",
@@ -494,7 +494,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "F-Caw-F Trump Rooster Meme Funny Political Satire Shirt",
     description: "F-Caw-F Trump Rooster Meme Funny Political Satire Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5998003162.1219/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5998003162.1219/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["caw", "trump", "rooster", "meme", "funny", "political", "satire"],
     redbubble_url: "https://www.redbubble.com/i/sticker/F-Caw-F-Trump-Rooster-Meme-Funny-Political-Satire-Shirt-by-rengone/175961219/7sgk",
@@ -505,7 +505,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Feed Everyone Cute Bunnies Minimalist Easter Shirt",
     description: "Feed Everyone Cute Bunnies Minimalist Easter Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5998783179.5476/aps,504x498,small,transparent-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5998783179.5476/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["feed", "everyone", "cute", "bunnies", "minimalist", "easter"],
     redbubble_url: "https://www.redbubble.com/i/art-print/Feed-Everyone-Cute-Bunnies-Minimalist-Easter-Shirt-by-rengone/175985476/wqnt",
@@ -516,7 +516,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Forbidden Forest National Park Vintage Hiking Tee",
     description: "Forbidden Forest National Park Vintage Hiking Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997167216.4747/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997167216.4747/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["forbidden", "forest", "national", "park", "vintage", "hiking"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Forbidden-Forest-National-Park-Vintage-Hiking-Tee-by-rengone/175934747/7sgk",
@@ -527,7 +527,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Butcher's Guide to Santa's Reindeer",
     description: "Funny Butcher's Guide to Santa's Reindeer — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985476209.5012/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985476209.5012/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["funny", "butcher's", "guide", "santa's", "reindeer"],
     redbubble_url: "https://www.redbubble.com/i/poster/Funny-Butcher-s-Guide-to-Santa-s-Reindeer-by-rengone/175565012/flk2",
@@ -538,7 +538,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Cat Sweatshirt Sourdough Bread Kitty Biscuit Sweater Silly Cat Meme Crewneck Bakery Baker Christmas Gift For Cat Lover",
     description: "Funny Cat Sweatshirt Sourdough Bread Kitty Biscuit Sweater Silly Cat Meme Crewneck Bakery Baker Christmas Gift For Cat Lover — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024683777.1357/ur,throw_pillow_couch_small,square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024683777.1357/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["funny", "cat", "sourdough", "bread", "kitty", "biscuit", "silly", "meme", "crewneck", "bakery", "baker", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/throw-pillow/Funny-Cat-Sweatshirt-Sourdough-Bread-Kitty-Biscuit-Sweater-Silly-Cat-Meme-Crewneck-Bakery-Baker-Christmas-Gift-For-Cat-Lover-by-rengone/176801357/xwxm",
@@ -549,7 +549,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Christmas Family Gift Related To Me Graphic",
     description: "Funny Christmas Family Gift Related To Me Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984642816.8215/aps,504x498,small,transparent-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984642816.8215/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["funny", "christmas", "family", "gift", "related"],
     redbubble_url: "https://www.redbubble.com/i/art-print/Funny-Christmas-Family-Gift-Related-To-Me-Graphic-by-rengone/175538215/wqnt",
@@ -560,7 +560,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Cow Turkey Thanksgiving Mooo Kids Sublimation Design",
     description: "Funny Cow Turkey Thanksgiving Mooo Kids Sublimation Design — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997970777.0238/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997970777.0238/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["funny", "cow", "turkey", "thanksgiving", "mooo", "kids", "sublimation"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Funny-Cow-Turkey-Thanksgiving-Mooo-Kids-Sublimation-Design-by-rengone/175960238/r3lj",
@@ -571,7 +571,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Exaggerated Cartoon Character Design",
     description: "Funny Exaggerated Cartoon Character Design — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981395663.5400/ssrco,racerback_tank,womens_01,101010:01c5ca27c6,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981395663.5400/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["funny", "exaggerated", "cartoon", "character"],
     redbubble_url: "https://www.redbubble.com/i/tank-top/Funny-Exaggerated-Cartoon-Character-Design-by-rengone/175435400/wwtp",
@@ -582,7 +582,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny F-CAW-F Chicken Rooster Joke T-Shirt",
     description: "Funny F-CAW-F Chicken Rooster Joke T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997344297.0436/aps,504x498,small,transparent-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997344297.0436/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["funny", "caw", "chicken", "rooster", "joke"],
     redbubble_url: "https://www.redbubble.com/i/art-print/Funny-F-CAW-F-Chicken-Rooster-Joke-T-Shirt-by-rengone/175940436/wqnt",
@@ -593,7 +593,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Family Christmas Crew 2025 Matching Pajama",
     description: "Funny Family Christmas Crew 2025 Matching Pajama — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997132090.3792/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997132090.3792/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["funny", "family", "christmas", "crew", "2025", "matching", "pajama"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Funny-Family-Christmas-Crew-2025-Matching-Pajama-by-rengone/175933792/lrcw",
@@ -604,7 +604,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Merry Christmas 67 Letters Count Backwards",
     description: "Funny Merry Christmas 67 Letters Count Backwards — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979965971.9944/fposter,small,wall_texture,square_product,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979965971.9944/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["funny", "merry", "christmas", "letters", "count", "backwards"],
     redbubble_url: "https://www.redbubble.com/i/poster/Funny-Merry-Christmas-67-Letters-Count-Backwards-by-rengone/175389944/flk2",
@@ -615,7 +615,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Reindeer Names and Antlers Holiday Chart",
     description: "Funny Reindeer Names and Antlers Holiday Chart — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985529472.6713/icr,samsung_galaxy_s26_soft,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985529472.6713/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["funny", "reindeer", "names", "antlers", "holiday", "chart"],
     redbubble_url: "https://www.redbubble.com/i/samsung-case/Funny-Reindeer-Names-and-Antlers-Holiday-Chart-by-rengone/175566713/wu9t",
@@ -626,7 +626,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Retro Santa 'I Do It For The Cookies' Illustration",
     description: "Funny Retro Santa 'I Do It For The Cookies' Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984662563.8837/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984662563.8837/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["funny", "retro", "santa", "cookies"],
     redbubble_url: "https://www.redbubble.com/i/poster/Funny-Retro-Santa-I-Do-It-For-The-Cookies-Illustration-by-rengone/175538837/flk2",
@@ -637,7 +637,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Running Dachshund Dog Cartoon T-Shirt",
     description: "Funny Running Dachshund Dog Cartoon T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997338952.0291/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997338952.0291/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["funny", "running", "dachshund", "dog", "cartoon"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Funny-Running-Dachshund-Dog-Cartoon-T-Shirt-by-rengone/175940291/7sgk",
@@ -648,7 +648,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Santa Claus 'I Do It For Cookies' Christmas Illustration",
     description: "Funny Santa Claus 'I Do It For Cookies' Christmas Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984699771.9962/ur,classic_mug_right,full,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984699771.9962/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["funny", "santa", "claus", "cookies", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/mug/Funny-Santa-Claus-I-Do-It-For-Cookies-Christmas-Illustration-by-rengone/175539962/7yqg",
@@ -659,7 +659,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Santa Claus 'I Do It For Cookies' Illustration",
     description: "Funny Santa Claus 'I Do It For Cookies' Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984700650.9987/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984700650.9987/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["funny", "santa", "claus", "cookies"],
     redbubble_url: "https://www.redbubble.com/i/poster/Funny-Santa-Claus-I-Do-It-For-Cookies-Illustration-by-rengone/175539987/flk2",
@@ -670,7 +670,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Santa Claus 'I Do It For The Cookies' Christmas Design",
     description: "Funny Santa Claus 'I Do It For The Cookies' Christmas Design — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984699532.9954/fp,504x498,black,off_white,box20,s,f8f8f8-pad,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984699532.9954/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["funny", "santa", "claus", "cookies", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/framed-print/Funny-Santa-Claus-I-Do-It-For-The-Cookies-Christmas-Design-by-rengone/175539954/lmvc",
@@ -681,7 +681,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Santa Claus 'I Do It For The Cookies' Illustration",
     description: "Funny Santa Claus 'I Do It For The Cookies' Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984663293.8860/pp,504x498-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984663293.8860/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["funny", "santa", "claus", "cookies"],
     redbubble_url: "https://www.redbubble.com/i/photographic-print/Funny-Santa-Claus-I-Do-It-For-The-Cookies-Illustration-by-rengone/175538860/zltf",
@@ -692,7 +692,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Santa Claus with Holiday Cookies Quote",
     description: "Funny Santa Claus with Holiday Cookies Quote — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984700187.9975/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984700187.9975/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["funny", "santa", "claus", "holiday", "cookies", "quote"],
     redbubble_url: "https://www.redbubble.com/i/poster/Funny-Santa-Claus-with-Holiday-Cookies-Quote-by-rengone/175539975/flk2",
@@ -703,7 +703,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Funny Sausage Dogs Holiday Doxie Christmas Tee",
     description: "Funny Sausage Dogs Holiday Doxie Christmas Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997335761.0192/ssrco,oversized_sweatshirt,mens_01,e8e6e1:aa8ffd9f0f,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997335761.0192/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["funny", "sausage", "dogs", "holiday", "doxie", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/sweatshirt/Funny-Sausage-Dogs-Holiday-Doxie-Christmas-Tee-by-rengone/175940192/cdux",
@@ -714,7 +714,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Getting Boo-Fit Funny Ghost Gym Workout",
     description: "Getting Boo-Fit Funny Ghost Gym Workout — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980696277.2848/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980696277.2848/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["getting", "boo", "fit", "funny", "ghost", "gym", "workout"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Getting-Boo-Fit-Funny-Ghost-Gym-Workout-by-rengone/175412848/lrcw",
@@ -725,7 +725,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Gothic Halloween T-Shirt Design",
     description: "Gothic Halloween T-Shirt Design — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984537360.4772/gbrf,6x6,f,540x540-pad,450x450,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984537360.4772/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["gothic", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/art-board-print/Gothic-Halloween-T-Shirt-Design-by-rengone/175534772/xpmg",
@@ -736,7 +736,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Grinch Christmas 67 Trend Tee Six Seven Meme Pullover",
     description: "Grinch Christmas 67 Trend Tee Six Seven Meme Pullover — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5998025309.1914/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5998025309.1914/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["grinch", "christmas", "trend", "six", "seven", "meme", "pullover"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Grinch-Christmas-67-Trend-Tee-Six-Seven-Meme-Pullover-by-rengone/175961914/lrcw",
@@ -747,7 +747,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Halloween Nights Skeleton Coffee Monochrome",
     description: "Halloween Nights Skeleton Coffee Monochrome — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981604900.2124/ur,throw_pillow_couch_small,square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981604900.2124/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["halloween", "nights", "skeleton", "coffee", "monochrome"],
     redbubble_url: "https://www.redbubble.com/i/throw-pillow/Halloween-Nights-Skeleton-Coffee-Monochrome-by-rengone/175442124/xwxm",
@@ -758,7 +758,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Halloweentown Spooky Haunted House Vintage Est 1998",
     description: "Halloweentown Spooky Haunted House Vintage Est 1998 — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980652095.1470/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980652095.1470/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["halloweentown", "spooky", "haunted", "house", "vintage", "est", "1998"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Halloweentown-Spooky-Haunted-House-Vintage-Est-1998-by-rengone/175411470/7sgk",
@@ -769,7 +769,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Happy Halloween Devil Horn Skeleton OK Gesture",
     description: "Happy Halloween Devil Horn Skeleton OK Gesture — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984615453.7382/ssrco,oversized_sweatshirt,mens_01,111112:1f01311efe,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984615453.7382/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["happy", "halloween", "devil", "horn", "skeleton", "gesture"],
     redbubble_url: "https://www.redbubble.com/i/sweatshirt/Happy-Halloween-Devil-Horn-Skeleton-OK-Gesture-by-rengone/175537382/cdux",
@@ -780,7 +780,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Haunted By 6 Divided By 7 Math Ghost",
     description: "Haunted By 6 Divided By 7 Math Ghost — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980680563.2400/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980680563.2400/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["haunted", "divided", "math", "ghost"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Haunted-By-6-Divided-By-7-Math-Ghost-by-rengone/175412400/7sgk",
@@ -791,7 +791,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Haunted By 6-7 Funny Ghost & Pumpkin Halloween Tee",
     description: "Haunted By 6-7 Funny Ghost & Pumpkin Halloween Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997962551.0012/papergc,300x,w,f8f8f8-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997962551.0012/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stationery",
     tags: ["haunted", "funny", "ghost", "pumpkin", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/greeting-card/Haunted-By-6-7-Funny-Ghost-and-Pumpkin-Halloween-Tee-by-rengone/175960012/qjsu",
@@ -802,7 +802,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Haunted Never Better Skeleton Red Roses Coffee",
     description: "Haunted Never Better Skeleton Red Roses Coffee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984536680.4743/ssrco,essential_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984536680.4743/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["haunted", "never", "better", "skeleton", "red", "roses", "coffee"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Haunted-Never-Better-Skeleton-Red-Roses-Coffee-by-rengone/175534743/z5wf",
@@ -813,7 +813,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Humorous Christmas Reindeer Butcher Chart",
     description: "Humorous Christmas Reindeer Butcher Chart — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985476829.5031/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985476829.5031/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["humorous", "christmas", "reindeer", "butcher", "chart"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Humorous-Christmas-Reindeer-Butcher-Chart-by-rengone/175565031/7sgk",
@@ -824,7 +824,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Humorous Reindeer Butcher Chart for Christmas",
     description: "Humorous Reindeer Butcher Chart for Christmas — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985519711.6450/ssrco,v_neck_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985519711.6450/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["humorous", "reindeer", "butcher", "chart", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Humorous-Reindeer-Butcher-Chart-for-Christmas-by-rengone/175566450/2cn5",
@@ -835,7 +835,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "I'm Tired Jingle Some Of The Way Funny Christmas",
     description: "I'm Tired Jingle Some Of The Way Funny Christmas — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997144388.4189/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997144388.4189/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["i'm", "tired", "jingle", "some", "way", "funny", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/poster/I-m-Tired-Jingle-Some-Of-The-Way-Funny-Christmas-by-rengone/175934189/flk2",
@@ -846,7 +846,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "I'm Up Already Mad Funny Cat Morning Person Tee",
     description: "I'm Up Already Mad Funny Cat Morning Person Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5999044529.3646/tst,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5999044529.3646/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["i'm", "already", "mad", "funny", "cat", "morning", "person"],
     redbubble_url: "https://www.redbubble.com/i/sticker/I-m-Up-Already-Mad-Funny-Cat-Morning-Person-Tee-by-rengone/175993646/djes",
@@ -857,7 +857,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Japanese Wood Pine Tree Nature Forest Aesthetic Tee",
     description: "Japanese Wood Pine Tree Nature Forest Aesthetic Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5998958348.0890/ssrco,essential_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5998958348.0890/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["japanese", "wood", "pine", "tree", "nature", "forest", "aesthetic"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Japanese-Wood-Pine-Tree-Nature-Forest-Aesthetic-Tee-by-rengone/175990890/z5wf",
@@ -868,7 +868,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Jolly Only Cool Santa Sunset Retro Christmas Graphic",
     description: "Jolly Only Cool Santa Sunset Retro Christmas Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984642206.8197/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984642206.8197/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["jolly", "only", "cool", "santa", "sunset", "retro", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Jolly-Only-Cool-Santa-Sunset-Retro-Christmas-Graphic-by-rengone/175538197/7sgk",
@@ -879,7 +879,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Jolly Vibes Only Cool Santa Christmas Graphic",
     description: "Jolly Vibes Only Cool Santa Christmas Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984643625.8236/ssrco,tank_top,mens_01,101010:01c5ca27c6,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984643625.8236/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["jolly", "vibes", "only", "cool", "santa", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/tank-top/Jolly-Vibes-Only-Cool-Santa-Christmas-Graphic-by-rengone/175538236/5xql",
@@ -890,7 +890,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Jolly Vibes Only Santa Claus Illustration",
     description: "Jolly Vibes Only Santa Claus Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985430545.3532/ur,throw_pillow_couch_small,square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985430545.3532/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["jolly", "vibes", "only", "santa", "claus"],
     redbubble_url: "https://www.redbubble.com/i/throw-pillow/Jolly-Vibes-Only-Santa-Claus-Illustration-by-rengone/175563532/xwxm",
@@ -901,7 +901,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Knitting Goose Sweatshirt Crochet Yarn Lover Sweater Knitter Crafter Pulllover Cute Knitting Funny Silly Goose Crafty Gift for Grandma",
     description: "Knitting Goose Sweatshirt Crochet Yarn Lover Sweater Knitter Crafter Pulllover Cute Knitting Funny Silly Goose Crafty Gift for Grandma — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024699181.1781/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024699181.1781/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["knitting", "goose", "crochet", "yarn", "lover", "knitter", "crafter", "pulllover", "cute", "funny", "silly", "crafty"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Knitting-Goose-Sweatshirt-Crochet-Yarn-Lover-Sweater-Knitter-Crafter-Pulllover-Cute-Knitting-Funny-Silly-Goose-Crafty-Gift-for-Grandma-by-rengone/176801781/7sgk",
@@ -912,7 +912,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Luxury Gold 67 Minimalist Christmas Foil",
     description: "Luxury Gold 67 Minimalist Christmas Foil — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979746318.3138/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979746318.3138/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["luxury", "gold", "minimalist", "christmas", "foil"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Luxury-Gold-67-Minimalist-Christmas-Foil-by-rengone/175383138/7sgk",
@@ -923,7 +923,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Luxury Gold Foil 67 Minimalist Christmas Art",
     description: "Luxury Gold Foil 67 Minimalist Christmas Art — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979861223.6716/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979861223.6716/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["luxury", "gold", "foil", "minimalist", "christmas", "art"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Luxury-Gold-Foil-67-Minimalist-Christmas-Art-by-rengone/175386716/7sgk",
@@ -934,7 +934,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Magic Code Frog with Pumpkin Halloween Design",
     description: "Magic Code Frog with Pumpkin Halloween Design — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984535289.4692/ssrco,oversized_sweatshirt,mens_01,111112:1f01311efe,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984535289.4692/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["magic", "code", "frog", "pumpkin", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/sweatshirt/Magic-Code-Frog-with-Pumpkin-Halloween-Design-by-rengone/175534692/cdux",
@@ -945,7 +945,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Math Teacher Comfort Colors Shirt Algebra Grade Teacher Tshirt Funny Scooter Frog Off To Teach Statistics T-Shirt Christmas Gift Mathematics",
     description: "Math Teacher Comfort Colors Shirt Algebra Grade Teacher Tshirt Funny Scooter Frog Off To Teach Statistics T-Shirt Christmas Gift Mathematics — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024649264.0403/ssrco,essential_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024649264.0403/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["math", "teacher", "comfort", "colors", "algebra", "grade", "funny", "scooter", "frog", "off", "teach", "statistics"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Math-Teacher-Comfort-Colors-Shirt-Algebra-Grade-Teacher-Tshirt-Funny-Scooter-Frog-Off-To-Teach-Statistics-T-Shirt-Christmas-Gift-Mathematics-by-rengone/176800403/z5wf",
@@ -956,7 +956,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Melting Chocolate Snowman 67° Keep the Magic Cold",
     description: "Melting Chocolate Snowman 67° Keep the Magic Cold — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979867399.6910/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979867399.6910/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["melting", "chocolate", "snowman", "keep", "magic", "cold"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Melting-Chocolate-Snowman-67-Keep-the-Magic-Cold-by-rengone/175386910/lrcw",
@@ -967,7 +967,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Meowloween Cute Black Cat in Pumpkin",
     description: "Meowloween Cute Black Cat in Pumpkin — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980682173.2449/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980682173.2449/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["meowloween", "cute", "black", "cat", "pumpkin"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Meowloween-Cute-Black-Cat-in-Pumpkin-by-rengone/175412449/7sgk",
@@ -978,7 +978,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Merry & Bright Christmas Sweatshirt | Family Christmas Apparel",
     description: "Merry & Bright Christmas Sweatshirt | Family Christmas Apparel — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6000833483.0387/ur,coaster_pack_4_flatlay,square,600x600.2.jpg",
+    image_url: "https://ih1.redbubble.net/image.6000833483.0387/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Home & Living",
     tags: ["merry", "bright", "christmas", "family", "apparel"],
     redbubble_url: "https://www.redbubble.com/i/coasters/Merry-and-Bright-Christmas-Sweatshirt-Family-Christmas-Apparel-by-rengone/176050387/43wr",
@@ -989,7 +989,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Merry Frightmas Skeleton Elf Gift Spider",
     description: "Merry Frightmas Skeleton Elf Gift Spider — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984609929.7187/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984609929.7187/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["merry", "frightmas", "skeleton", "elf", "gift", "spider"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Merry-Frightmas-Skeleton-Elf-Gift-Spider-by-rengone/175537187/7sgk",
@@ -1000,7 +1000,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Merry Grump-mas Cat Holiday Illustration",
     description: "Merry Grump-mas Cat Holiday Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985477265.5042/mp,504x498,matte,f8f8f8,t-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985477265.5042/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["merry", "grump", "mas", "cat", "holiday"],
     redbubble_url: "https://www.redbubble.com/i/canvas-print/Merry-Grump-mas-Cat-Holiday-Illustration-by-rengone/175565042/5mul",
@@ -1011,7 +1011,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Merry Grump-mas: A Humorous Grumpy Cat Holiday Illustration",
     description: "Merry Grump-mas: A Humorous Grumpy Cat Holiday Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985433839.3652/ur,mouse_pad_small_flatlay,square,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985433839.3652/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Accessories",
     tags: ["merry", "grump", "mas", "humorous", "grumpy", "cat", "holiday"],
     redbubble_url: "https://www.redbubble.com/i/mouse-pad/Merry-Grump-mas-A-Humorous-Grumpy-Cat-Holiday-Illustration-by-rengone/175563652/2mh5",
@@ -1022,7 +1022,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Merry and Bright Sweatshirt, Christmas Sweatshirt, Family Christmas Sweatshirt, Christmas Sweatshirts for Women, Merry Christmas Sweatshirt",
     description: "Merry and Bright Sweatshirt, Christmas Sweatshirt, Family Christmas Sweatshirt, Christmas Sweatshirts for Women, Merry Christmas Sweatshirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6000845611.0744/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6000845611.0744/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["merry", "bright", "christmas", "family", "women"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Merry-and-Bright-Sweatshirt-Christmas-Sweatshirt-Family-Christmas-Sweatshirt-Christmas-Sweatshirts-for-Women-Merry-Christmas-Sweatshirt-by-rengone/176050744/3bp7",
@@ -1033,7 +1033,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Minimalist 67: Reindeer Peek Candy Cane Art",
     description: "Minimalist 67: Reindeer Peek Candy Cane Art — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979759759.3590/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979759759.3590/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["minimalist", "reindeer", "peek", "candy", "cane", "art"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Minimalist-67-Reindeer-Peek-Candy-Cane-Art-by-rengone/175383590/3bp7",
@@ -1044,7 +1044,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Minimalist 67: Reindeer Peek The Only Number",
     description: "Minimalist 67: Reindeer Peek The Only Number — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979859423.6661/ssrco,oversized_sweatshirt,mens_01,111112:1f01311efe,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979859423.6661/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["minimalist", "reindeer", "peek", "only", "number"],
     redbubble_url: "https://www.redbubble.com/i/sweatshirt/Minimalist-67-Reindeer-Peek-The-Only-Number-by-rengone/175386661/cdux",
@@ -1055,7 +1055,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Minimalist Pine Tree Forest Sunset Nature Hiking Tee",
     description: "Minimalist Pine Tree Forest Sunset Nature Hiking Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997329085.9991/ssrco,oversized_hoodie,mens_01,e8e6e1:aa8ffd9f0f,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997329085.9991/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["minimalist", "pine", "tree", "forest", "sunset", "nature", "hiking"],
     redbubble_url: "https://www.redbubble.com/i/hoodie/Minimalist-Pine-Tree-Forest-Sunset-Nature-Hiking-Tee-by-rengone/175939991/ng59",
@@ -1066,7 +1066,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Missing Golden Key 67 North Pole Workshop Mystery",
     description: "Missing Golden Key 67 North Pole Workshop Mystery — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979966548.9973/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979966548.9973/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["missing", "golden", "key", "north", "pole", "workshop", "mystery"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Missing-Golden-Key-67-North-Pole-Workshop-Mystery-by-rengone/175389973/r3lj",
@@ -1077,7 +1077,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Mission Trick or Treat Astronaut Pumpkin Helmet",
     description: "Mission Trick or Treat Astronaut Pumpkin Helmet — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984574716.6012/ssrco,triblend_tee,mens,triblend_black,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984574716.6012/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["mission", "trick", "treat", "astronaut", "pumpkin", "helmet"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Mission-Trick-or-Treat-Astronaut-Pumpkin-Helmet-by-rengone/175536012/4d7w",
@@ -1088,7 +1088,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Mom Graduated Tee, Grad Mama Shirts, Graduation Shirt, Student Mom Shirt, Mama Graduate, Family Graduation Tee, My Mommy Did It Shirt",
     description: "Mom Graduated Tee, Grad Mama Shirts, Graduation Shirt, Student Mom Shirt, Mama Graduate, Family Graduation Tee, My Mommy Did It Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6001722190.7887/ssrco,oversize_tee,mens,445366:bdf0f0f880,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6001722190.7887/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["mom", "graduated", "grad", "mama", "graduation", "student", "graduate", "family", "mommy", "did"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Mom-Graduated-Tee-Grad-Mama-Shirts-Graduation-Shirt-Student-Mom-Shirt-Mama-Graduate-Family-Graduation-Tee-My-Mommy-Did-It-Shirt-by-rengone/176077887/rh5j",
@@ -1099,7 +1099,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Monster Mash & Coffee Crush Skeleton Bride",
     description: "Monster Mash & Coffee Crush Skeleton Bride — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981603429.2072/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981603429.2072/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["monster", "mash", "coffee", "crush", "skeleton", "bride"],
     redbubble_url: "https://www.redbubble.com/i/poster/Monster-Mash-and-Coffee-Crush-Skeleton-Bride-by-rengone/175442072/flk2",
@@ -1110,7 +1110,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Mysterious Ice 67 Runes Secret North Pole Code",
     description: "Mysterious Ice 67 Runes Secret North Pole Code — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979948465.9482/mp,504x498,matte,f8f8f8,t-pad,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979948465.9482/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["mysterious", "ice", "runes", "secret", "north", "pole", "code"],
     redbubble_url: "https://www.redbubble.com/i/canvas-print/Mysterious-Ice-67-Runes-Secret-North-Pole-Code-by-rengone/175389482/5mul",
@@ -1121,7 +1121,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Mystical Sun And Moon Face Vintage Bohemian Yin Yang Tee",
     description: "Mystical Sun And Moon Face Vintage Bohemian Yin Yang Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997213861.6410/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997213861.6410/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["mystical", "sun", "moon", "face", "vintage", "bohemian", "yin", "yang"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Mystical-Sun-And-Moon-Face-Vintage-Bohemian-Yin-Yang-Tee-by-rengone/175936410/7sgk",
@@ -1132,7 +1132,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Mystical Yin Yang Koi Fish Japanese Aesthetic Tee",
     description: "Mystical Yin Yang Koi Fish Japanese Aesthetic Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997325195.9862/ssrco,classic_tee,mens_02,fafafa:ca443f4786,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997325195.9862/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["mystical", "yin", "yang", "koi", "fish", "japanese", "aesthetic"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Mystical-Yin-Yang-Koi-Fish-Japanese-Aesthetic-Tee-by-rengone/175939862/lrcw",
@@ -1143,7 +1143,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Nice List Nah Skeleton Christmas Halloween Cross-over",
     description: "Nice List Nah Skeleton Christmas Halloween Cross-over — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984608601.7137/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984608601.7137/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["nice", "list", "nah", "skeleton", "christmas", "halloween", "cross", "over"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Nice-List-Nah-Skeleton-Christmas-Halloween-Cross-over-by-rengone/175537137/lrcw",
@@ -1154,7 +1154,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Nice or Naughty? The 6-7 Christmas Checklist Meme",
     description: "Nice or Naughty? The 6-7 Christmas Checklist Meme — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979751807.3315/pp,504x498-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979751807.3315/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["nice", "naughty", "christmas", "checklist", "meme"],
     redbubble_url: "https://www.redbubble.com/i/photographic-print/Nice-or-Naughty-The-6-7-Christmas-Checklist-Meme-by-rengone/175383315/zltf",
@@ -1165,7 +1165,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "No Cap Bruh Drug Free Red Ribbon Week Boys T-Shirt",
     description: "No Cap Bruh Drug Free Red Ribbon Week Boys T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997949634.9689/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997949634.9689/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["cap", "bruh", "drug", "free", "red", "ribbon", "week", "boys"],
     redbubble_url: "https://www.redbubble.com/i/sticker/No-Cap-Bruh-Drug-Free-Red-Ribbon-Week-Boys-T-Shirt-by-rengone/175959689/7sgk",
@@ -1176,7 +1176,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Nurse Valentine's Day Heart - Cute Pink RN Pediatric Nursing Tee",
     description: "Nurse Valentine's Day Heart - Cute Pink RN Pediatric Nursing Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056193119.4125/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056193119.4125/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["nurse", "valentine's", "day", "heart", "cute", "pink", "pediatric", "nursing"],
     redbubble_url: "https://www.redbubble.com/i/poster/Nurse-Valentine-s-Day-Heart-Cute-Pink-RN-Pediatric-Nursing-Tee-by-rengone/177824125/flk2",
@@ -1187,7 +1187,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Off To Cause A Kerfuffle Comfort Colors Shirt Funny Groundhog Scooter Tshirt Silly Animal Mental Health Tee Adult Humor Sarcastic T-Shirt",
     description: "Off To Cause A Kerfuffle Comfort Colors Shirt Funny Groundhog Scooter Tshirt Silly Animal Mental Health Tee Adult Humor Sarcastic T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024665339.0840/ssrco,v_neck_tee,mens_01,353d77:4d8b4ffd91,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024665339.0840/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["off", "cause", "kerfuffle", "comfort", "colors", "funny", "groundhog", "scooter", "silly", "animal", "mental", "health"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Off-To-Cause-A-Kerfuffle-Comfort-Colors-Shirt-Funny-Groundhog-Scooter-Tshirt-Silly-Animal-Mental-Health-Tee-Adult-Humor-Sarcastic-T-Shirt-by-rengone/176800840/2cn5",
@@ -1198,7 +1198,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Off To Cause A Kerfuffle Frog - Funny Sarcastic Meme Graphic",
     description: "Off To Cause A Kerfuffle Frog - Funny Sarcastic Meme Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056130766.2194/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056130766.2194/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["off", "cause", "kerfuffle", "frog", "funny", "sarcastic", "meme"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Off-To-Cause-A-Kerfuffle-Frog-Funny-Sarcastic-Meme-Graphic-by-rengone/177822194/r3lj",
@@ -1209,7 +1209,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Off To Praise The Lord Frog - Funny Christian Meme Graphic",
     description: "Off To Praise The Lord Frog - Funny Christian Meme Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056190404.4043/aps,504x498,small,transparent-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056190404.4043/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["off", "praise", "lord", "frog", "funny", "christian", "meme"],
     redbubble_url: "https://www.redbubble.com/i/art-print/Off-To-Praise-The-Lord-Frog-Funny-Christian-Meme-Graphic-by-rengone/177824043/wqnt",
@@ -1220,7 +1220,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Over-the-Top Angry Screaming Man Illustration",
     description: "Over-the-Top Angry Screaming Man Illustration — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981395979.5414/ssrco,classic_tee,mens_02,dd2121:8219e99865,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981395979.5414/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["over", "top", "angry", "screaming", "man"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Over-the-Top-Angry-Screaming-Man-Illustration-by-rengone/175435414/lrcw",
@@ -1231,7 +1231,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Personalized Grandpa shirt",
     description: "Personalized Grandpa shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997070358.1892/ssrco,fitted_tee,womens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997070358.1892/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["personalized", "grandpa"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Personalized-Grandpa-shirt-by-rengone/175931892/my4n",
@@ -1242,7 +1242,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Pigeon Elephant Piggie Reading 6-7 Teacher Library Shirt",
     description: "Pigeon Elephant Piggie Reading 6-7 Teacher Library Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6000057783.5578/ssrco,premium_tee,mens_01,171716:c5d52111d6,front,square_product,x600.1.jpg",
+    image_url: "https://ih1.redbubble.net/image.6000057783.5578/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["pigeon", "elephant", "piggie", "reading", "teacher", "library"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Pigeon-Elephant-Piggie-Reading-6-7-Teacher-Library-Shirt-by-rengone/176025578/e22z",
@@ -1253,7 +1253,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Pink Christmas Sweatshirt Tis The Season Xmas Sweater Cute Girly Holiday Womens Pullover Candy Cane Bow Santa Tee Winter Crewneck",
     description: "Pink Christmas Sweatshirt Tis The Season Xmas Sweater Cute Girly Holiday Womens Pullover Candy Cane Bow Santa Tee Winter Crewneck — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024677291.1179/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024677291.1179/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["pink", "christmas", "tis", "season", "xmas", "cute", "girly", "holiday", "womens", "pullover", "candy", "cane"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Pink-Christmas-Sweatshirt-Tis-The-Season-Xmas-Sweater-Cute-Girly-Holiday-Womens-Pullover-Candy-Cane-Bow-Santa-Tee-Winter-Crewneck-by-rengone/176801179/7sgk",
@@ -1264,7 +1264,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Pink Santa Retro Christmas T-Shirts Sweatshirts for Women Pink Christmas Matching Family Sweaters Pink Vintage Holiday Crewneck Group Party",
     description: "Pink Santa Retro Christmas T-Shirts Sweatshirts for Women Pink Christmas Matching Family Sweaters Pink Vintage Holiday Crewneck Group Party — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6001662284.5953/ssrco,classic_tee,mens_02,531963:70d276b9c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6001662284.5953/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["pink", "santa", "retro", "christmas", "women", "matching", "family", "sweaters", "vintage", "holiday", "crewneck", "group"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Pink-Santa-Retro-Christmas-T-Shirts-Sweatshirts-for-Women-Pink-Christmas-Matching-Family-Sweaters-Pink-Vintage-Holiday-Crewneck-Group-Party-by-rengone/176075953/lrcw",
@@ -1275,7 +1275,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Pop-Art 67: Santa's Magical Lucky Number",
     description: "Pop-Art 67: Santa's Magical Lucky Number — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979759608.3585/ssrco,lightweight_hoodie,mens_01,heather_mid_grey,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979759608.3585/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["pop", "art", "santa's", "magical", "lucky", "number"],
     redbubble_url: "https://www.redbubble.com/i/hoodie/Pop-Art-67-Santa-s-Magical-Lucky-Number-by-rengone/175383585/lgcw",
@@ -1286,7 +1286,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Pro-Democracy In Memoriam Stamp - Retro Anti-Fascism Resist Tee",
     description: "Pro-Democracy In Memoriam Stamp - Retro Anti-Fascism Resist Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056133766.2295/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056133766.2295/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["pro", "democracy", "memoriam", "stamp", "retro", "anti", "fascism", "resist"],
     redbubble_url: "https://www.redbubble.com/i/poster/Pro-Democracy-In-Memoriam-Stamp-Retro-Anti-Fascism-Resist-Tee-by-rengone/177822295/flk2",
@@ -1297,7 +1297,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Purranormal Cativity Cute Ghost Cats Vintage Swirl",
     description: "Purranormal Cativity Cute Ghost Cats Vintage Swirl — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980729721.3889/ssrco,premium_tee,mens_01,030c1a:11a297723f,front,square_product,x600.1u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980729721.3889/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["purranormal", "cativity", "cute", "ghost", "cats", "vintage", "swirl"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Purranormal-Cativity-Cute-Ghost-Cats-Vintage-Swirl-by-rengone/175413889/e22z",
@@ -1308,7 +1308,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Read More Books Comfort Colors Long Sleeve Shirt Librarian Bookish Tee Cute Reader Cozy Teacher Womens Tshirt Retro Literature T-Shirt Gift",
     description: "Read More Books Comfort Colors Long Sleeve Shirt Librarian Bookish Tee Cute Reader Cozy Teacher Womens Tshirt Retro Literature T-Shirt Gift — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056116912.1748/ssrco,classic_tee,mens_02,4a4440:cc103efb7a,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056116912.1748/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["read", "more", "books", "comfort", "colors", "long", "sleeve", "librarian", "bookish", "cute", "reader", "cozy"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Read-More-Books-Comfort-Colors-Long-Sleeve-Shirt-Librarian-Bookish-Tee-Cute-Reader-Cozy-Teacher-Womens-Tshirt-Retro-Literature-T-Shirt-Gift-by-rengone/177821748/lrcw",
@@ -1319,7 +1319,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Retro 'Jolly Only' Santa with Sunglasses Graphic",
     description: "Retro 'Jolly Only' Santa with Sunglasses Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984662040.8822/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984662040.8822/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["retro", "jolly", "only", "santa", "sunglasses"],
     redbubble_url: "https://www.redbubble.com/i/poster/Retro-Jolly-Only-Santa-with-Sunglasses-Graphic-by-rengone/175538822/flk2",
@@ -1330,7 +1330,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Retro 67: Best Gift Ever Vintage Christmas Poster",
     description: "Retro 67: Best Gift Ever Vintage Christmas Poster — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979747355.3172/ssrco,boxy_tee,womens_01,ffffff:affd82b53f,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979747355.3172/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["retro", "best", "gift", "ever", "vintage", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Retro-67-Best-Gift-Ever-Vintage-Christmas-Poster-by-rengone/175383172/xtkm",
@@ -1341,7 +1341,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Retro Elk Sweatshirt Vintage Fall Hunter Scene Sweater 90s Bull Forest Nature Outfit Crewneck Americana Nostalgia Elk Deer Sweatshirt",
     description: "Retro Elk Sweatshirt Vintage Fall Hunter Scene Sweater 90s Bull Forest Nature Outfit Crewneck Americana Nostalgia Elk Deer Sweatshirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024660225.0700/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024660225.0700/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["retro", "elk", "vintage", "fall", "hunter", "scene", "90s", "bull", "forest", "nature", "outfit", "crewneck"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Retro-Elk-Sweatshirt-Vintage-Fall-Hunter-Scene-Sweater-90s-Bull-Forest-Nature-Outfit-Crewneck-Americana-Nostalgia-Elk-Deer-Sweatshirt-by-rengone/176800700/7sgk",
@@ -1352,7 +1352,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Retro-Futuristic Neon 67 Christmas What We Wanted",
     description: "Retro-Futuristic Neon 67 Christmas What We Wanted — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979933962.8999/ssrco,triblend_tee,mens,triblend_black,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979933962.8999/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["retro", "futuristic", "neon", "christmas", "what", "wanted"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Retro-Futuristic-Neon-67-Christmas-What-We-Wanted-by-rengone/175388999/4d7w",
@@ -1363,7 +1363,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Rise and Grind Zombie Hand Coffee Halloween",
     description: "Rise and Grind Zombie Hand Coffee Halloween — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980690397.2676/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980690397.2676/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["rise", "grind", "zombie", "hand", "coffee", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Rise-and-Grind-Zombie-Hand-Coffee-Halloween-by-rengone/175412676/3bp7",
@@ -1374,7 +1374,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Rustic Reindeer Antler Logos for Christmas",
     description: "Rustic Reindeer Antler Logos for Christmas — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985520027.6449/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985520027.6449/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["rustic", "reindeer", "antler", "logos", "christmas"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Rustic-Reindeer-Antler-Logos-for-Christmas-by-rengone/175566449/7sgk",
@@ -1385,7 +1385,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Safety Third Cowboy Riding Bear Funny Work Tee",
     description: "Safety Third Cowboy Riding Bear Funny Work Tee — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997341449.0358/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997341449.0358/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["safety", "third", "cowboy", "riding", "bear", "funny", "work"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Safety-Third-Cowboy-Riding-Bear-Funny-Work-Tee-by-rengone/175940358/3bp7",
@@ -1396,7 +1396,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Santa Baseball 67 Funny Xmas Sports Sublimation Design",
     description: "Santa Baseball 67 Funny Xmas Sports Sublimation Design — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997195750.5856/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997195750.5856/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["santa", "baseball", "funny", "xmas", "sports", "sublimation"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Santa-Baseball-67-Funny-Xmas-Sports-Sublimation-Design-by-rengone/175935856/lrcw",
@@ -1407,7 +1407,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Santa Checked 67 Times You're Still On The Nice List",
     description: "Santa Checked 67 Times You're Still On The Nice List — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979930854.8894/st,small,507x507-pad,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979930854.8894/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["santa", "checked", "times", "you're", "still", "nice", "list"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Santa-Checked-67-Times-You-re-Still-On-The-Nice-List-by-rengone/175388894/7sgk",
@@ -1418,7 +1418,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Santa Claus Kittens Christmas Shirt Comfort Colors Retro 90s Old Saint Nick Holiday Tee Funny Ugly Christmas Shirt Xmas Gift For Cat Lovers",
     description: "Santa Claus Kittens Christmas Shirt Comfort Colors Retro 90s Old Saint Nick Holiday Tee Funny Ugly Christmas Shirt Xmas Gift For Cat Lovers — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6024654882.0550/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6024654882.0550/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["santa", "claus", "kittens", "christmas", "comfort", "colors", "retro", "90s", "old", "saint", "nick", "holiday"],
     redbubble_url: "https://www.redbubble.com/i/poster/Santa-Claus-Kittens-Christmas-Shirt-Comfort-Colors-Retro-90s-Old-Saint-Nick-Holiday-Tee-Funny-Ugly-Christmas-Shirt-Xmas-Gift-For-Cat-Lovers-by-rengone/176800550/flk2",
@@ -1429,7 +1429,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Santa's Private WiFi Password 67 North Pole Guest",
     description: "Santa's Private WiFi Password 67 North Pole Guest — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979840850.6064/fposter,small,wall_texture,square_product,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979840850.6064/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["santa's", "private", "wifi", "password", "north", "pole", "guest"],
     redbubble_url: "https://www.redbubble.com/i/poster/Santa-s-Private-WiFi-Password-67-North-Pole-Guest-by-rengone/175386064/flk2",
@@ -1440,7 +1440,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Santa's Top Secret 67 Gift Requests List",
     description: "Santa's Top Secret 67 Gift Requests List — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979869288.6972/ssrco,oversize_tee,mens,000000:44f0b734a5,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979869288.6972/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["santa's", "top", "secret", "gift", "requests", "list"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Santa-s-Top-Secret-67-Gift-Requests-List-by-rengone/175386972/rh5j",
@@ -1451,7 +1451,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Serious Grumpy Mood – Autumn Aesthetic Graphic",
     description: "Serious Grumpy Mood – Autumn Aesthetic Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981408313.5796/st,small,507x507-pad,600x600,f8f8f8.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981408313.5796/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["serious", "grumpy", "mood", "autumn", "aesthetic"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Serious-Grumpy-Mood-Autumn-Aesthetic-Graphic-by-rengone/175435796/7sgk",
@@ -1462,7 +1462,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Shy Smile / Contented Autumn Vibe Graphic",
     description: "Shy Smile / Contented Autumn Vibe Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981481887.8127/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981481887.8127/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["shy", "smile", "contented", "autumn", "vibe"],
     redbubble_url: "https://www.redbubble.com/i/poster/Shy-Smile-Contented-Autumn-Vibe-Graphic-by-rengone/175438127/flk2",
@@ -1473,7 +1473,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Silly Teachers Build Character - Funny Goose Teacher SEL Aesthetic Shirt",
     description: "Silly Teachers Build Character - Funny Goose Teacher SEL Aesthetic Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056186894.3933/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056186894.3933/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["silly", "teachers", "build", "character", "funny", "goose", "teacher", "sel", "aesthetic"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/Silly-Teachers-Build-Character-Funny-Goose-Teacher-SEL-Aesthetic-Shirt-by-rengone/177823933/3bp7",
@@ -1484,7 +1484,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Skate Till Death Skeleton Skateboard Halloween",
     description: "Skate Till Death Skeleton Skateboard Halloween — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980670436.2050/fposter,small,wall_texture,square_product,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980670436.2050/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["skate", "till", "death", "skeleton", "skateboard", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/poster/Skate-Till-Death-Skeleton-Skateboard-Halloween-by-rengone/175412050/flk2",
@@ -1495,7 +1495,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Thankful Sweatshirt T-Shirt",
     description: "Thankful Sweatshirt T-Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997134911.2604/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997134911.2604/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["thankful"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Thankful-Sweatshirt-T-Shirt-by-rengone/175932604/lrcw",
@@ -1506,7 +1506,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "The Carnivore's Christmas Reindeer Menu",
     description: "The Carnivore's Christmas Reindeer Menu — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985521059.6475/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985521059.6475/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["carnivore's", "christmas", "reindeer", "menu"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/The-Carnivore-s-Christmas-Reindeer-Menu-by-rengone/175566475/lrcw",
@@ -1517,7 +1517,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "The Original Litter's Full Christmas Vacation Cat Shirt",
     description: "The Original Litter's Full Christmas Vacation Cat Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997959662.9946/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997959662.9946/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["original", "litter's", "full", "christmas", "vacation", "cat"],
     redbubble_url: "https://www.redbubble.com/i/poster/The-Original-Litter-s-Full-Christmas-Vacation-Cat-Shirt-by-rengone/175959946/flk2",
@@ -1528,7 +1528,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Tis The Season Vintage Halloween Skeletons & Pumpkins",
     description: "Tis The Season Vintage Halloween Skeletons & Pumpkins — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980672143.2109/fposter,small,wall_texture,square_product,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980672143.2109/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["tis", "season", "vintage", "halloween", "skeletons", "pumpkins"],
     redbubble_url: "https://www.redbubble.com/i/poster/Tis-The-Season-Vintage-Halloween-Skeletons-and-Pumpkins-by-rengone/175412109/flk2",
@@ -1539,7 +1539,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Too Sweet To Spook Cute Bat Halloween Candy",
     description: "Too Sweet To Spook Cute Bat Halloween Candy — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980659159.1685/fposter,small,wall_texture,square_product,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980659159.1685/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["too", "sweet", "spook", "cute", "bat", "halloween", "candy"],
     redbubble_url: "https://www.redbubble.com/i/poster/Too-Sweet-To-Spook-Cute-Bat-Halloween-Candy-by-rengone/175411685/flk2",
@@ -1550,7 +1550,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Tune In: Christmas Magic Radio Broadcast 67",
     description: "Tune In: Christmas Magic Radio Broadcast 67 — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979852735.6441/ssrco,fitted_v_neck,womens_01,101010:01c5ca27c6,front,product_square,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979852735.6441/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["tune", "christmas", "magic", "radio", "broadcast"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Tune-In-Christmas-Magic-Radio-Broadcast-67-by-rengone/175386441/dpsq",
@@ -1561,7 +1561,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Turn The Volume Up Zohran Mamdani Mayor NYC 2026 Shirt",
     description: "Turn The Volume Up Zohran Mamdani Mayor NYC 2026 Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5997218410.6536/aps,504x498,small,transparent-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5997218410.6536/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Art Prints",
     tags: ["turn", "volume", "zohran", "mamdani", "mayor", "nyc", "2026"],
     redbubble_url: "https://www.redbubble.com/i/art-print/Turn-The-Volume-Up-Zohran-Mamdani-Mayor-NYC-2026-Shirt-by-rengone/175936536/wqnt",
@@ -1572,7 +1572,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Vintage Goose Sweater, Country Farmhouse Cottagecore Crewneck, 90s Retro Goose Shirt, Cozy Animals Folk Art Top, Cute Couple Goose Pullover",
     description: "Vintage Goose Sweater, Country Farmhouse Cottagecore Crewneck, 90s Retro Goose Shirt, Cozy Animals Folk Art Top, Cute Couple Goose Pullover — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056126154.2046/ssrco,oversized_hoodie,mens_01,4e4b4e:befaed7a59,front,square_product,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056126154.2046/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["vintage", "goose", "country", "farmhouse", "cottagecore", "crewneck", "90s", "retro", "cozy", "animals", "folk", "art"],
     redbubble_url: "https://www.redbubble.com/i/hoodie/Vintage-Goose-Sweater-Country-Farmhouse-Cottagecore-Crewneck-90s-Retro-Goose-Shirt-Cozy-Animals-Folk-Art-Top-Cute-Couple-Goose-Pullover-by-rengone/177822046/ng59",
@@ -1583,7 +1583,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "We Ride at Dawn Funny Frog and Goose - Chaotic Meme Retro Shirt",
     description: "We Ride at Dawn Funny Frog and Goose - Chaotic Meme Retro Shirt — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.6056173059.3517/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.6056173059.3517/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["ride", "dawn", "funny", "frog", "goose", "chaotic", "meme", "retro"],
     redbubble_url: "https://www.redbubble.com/i/sticker/We-Ride-at-Dawn-Funny-Frog-and-Goose-Chaotic-Meme-Retro-Shirt-by-rengone/177823517/7sgk",
@@ -1594,7 +1594,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "What's Behind Frog Question Mark Bats Graphic",
     description: "What's Behind Frog Question Mark Bats Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984614654.7377/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984614654.7377/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Phone Cases",
     tags: ["what's", "behind", "frog", "question", "mark", "bats"],
     redbubble_url: "https://www.redbubble.com/i/iphone-case/What-s-Behind-Frog-Question-Mark-Bats-Graphic-by-rengone/175537377/3bp7",
@@ -1605,7 +1605,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Who Needs Nice or Naughty? The 6-7 Checklist Meme",
     description: "Who Needs Nice or Naughty? The 6-7 Checklist Meme — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5979853098.6454/ssrco,oversized_hoodie,mens_01,111112:1f01311efe,front,square_product,x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5979853098.6454/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Hoodies & Sweatshirts",
     tags: ["who", "needs", "nice", "naughty", "checklist", "meme"],
     redbubble_url: "https://www.redbubble.com/i/hoodie/Who-Needs-Nice-or-Naughty-The-6-7-Checklist-Meme-by-rengone/175386454/ng59",
@@ -1616,7 +1616,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Winking Santa Claus with Jolly Vibes Only Slogan",
     description: "Winking Santa Claus with Jolly Vibes Only Slogan — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5985432192.3597/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5985432192.3597/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["winking", "santa", "claus", "jolly", "vibes", "only", "slogan"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Winking-Santa-Claus-with-Jolly-Vibes-Only-Slogan-by-rengone/175563597/7sgk",
@@ -1627,7 +1627,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Witch Please Black Cat Halloween Established 1692",
     description: "Witch Please Black Cat Halloween Established 1692 — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5980659820.1706/ur,pin_large_front,square,600x600.u3.jpg",
+    image_url: "https://ih1.redbubble.net/image.5980659820.1706/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Accessories",
     tags: ["witch", "please", "black", "cat", "halloween", "established", "1692"],
     redbubble_url: "https://www.redbubble.com/i/pin/Witch-Please-Black-Cat-Halloween-Established-1692-by-rengone/175411706/lw9c",
@@ -1638,7 +1638,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Witchy Speed Cute Frog Flying Broomstick",
     description: "Witchy Speed Cute Frog Flying Broomstick — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981611593.2328/tst,small,507x507-pad,600x600,f8f8f8.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981611593.2328/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Stickers",
     tags: ["witchy", "speed", "cute", "frog", "flying", "broomstick"],
     redbubble_url: "https://www.redbubble.com/i/sticker/Witchy-Speed-Cute-Frog-Flying-Broomstick-by-rengone/175442328/djes",
@@ -1649,7 +1649,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Witchy Speed Frog Flying Broomstick - Halloween Graphic",
     description: "Witchy Speed Frog Flying Broomstick - Halloween Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984528632.4469/ssrco,essential_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984528632.4469/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["witchy", "speed", "frog", "flying", "broomstick", "halloween"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Witchy-Speed-Frog-Flying-Broomstick-Halloween-Graphic-by-rengone/175534469/z5wf",
@@ -1660,7 +1660,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Witchy Winter Wishes Skeleton Brewing Potion",
     description: "Witchy Winter Wishes Skeleton Brewing Potion — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5981483312.8181/fposter,small,wall_texture,square_product,600x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5981483312.8181/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "Posters",
     tags: ["witchy", "winter", "wishes", "skeleton", "brewing", "potion"],
     redbubble_url: "https://www.redbubble.com/i/poster/Witchy-Winter-Wishes-Skeleton-Brewing-Potion-by-rengone/175438181/flk2",
@@ -1671,7 +1671,7 @@ export const SEED_DESIGNS: SeedDesign[] = [
   {
     name: "Wizard Frog Cauldron Spells Code Graphic",
     description: "Wizard Frog Cauldron Spells Code Graphic — original design from BANKACEM.STORE, available on Redbubble on multiple products and sizes.",
-    image_url: "https://ih1.redbubble.net/image.5984588488.6493/ssrco,essential_tee,mens_01,101010:01c5ca27c6,front,product_square,x600.jpg",
+    image_url: "https://ih1.redbubble.net/image.5984588488.6493/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
     category: "T-Shirts",
     tags: ["wizard", "frog", "cauldron", "spells", "code"],
     redbubble_url: "https://www.redbubble.com/i/t-shirt/Wizard-Frog-Cauldron-Spells-Code-Graphic-by-rengone/175536493/z5wf",

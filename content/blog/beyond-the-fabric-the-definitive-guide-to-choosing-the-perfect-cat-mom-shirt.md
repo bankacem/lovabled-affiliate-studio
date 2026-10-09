@@ -36,7 +36,7 @@ read_time: "5 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/t-shirt/Black-Cat-Eating-Ramen-Noodles-Japanese-Food-Tee-by-rengone/175938461/z5wf" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.5997278585.8461/ssrco,essential_tee,mens_01,fafafa:ca443f4786,front,product_square,x600.jpg" alt="Black cat eating ramen noodles Japanese food tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.5997278585.8461/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Black cat eating ramen noodles Japanese food tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">Black Cat Eating Ramen Noodles Japanese Food Tee</h3>
@@ -47,7 +47,7 @@ read_time: "5 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/iphone-case/Comfort-Colors-Funny-Kitty-Biscuits-Bakery-Shirt-by-rengone/175932278/3bp7" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.6024672382.1051/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg" alt="Funny kitty biscuits bakery cat shirt design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.6024672382.1051/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Funny kitty biscuits bakery cat shirt design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">Funny Kitty Biscuits Bakery Shirt</h3>
@@ -58,7 +58,7 @@ read_time: "5 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/sticker/I-m-Up-Already-Mad-Funny-Cat-Morning-Person-Tee-by-rengone/175993646/djes" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.5999044529.3646/tst,small,507x507-pad,600x600,f8f8f8.jpg" alt="I'm up already mad funny cat morning person tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.5999044529.3646/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="I'm up already mad funny cat morning person tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">I'm Up Already Mad Funny Cat Morning Person Tee</h3>

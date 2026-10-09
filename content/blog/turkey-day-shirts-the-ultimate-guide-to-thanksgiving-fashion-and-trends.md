@@ -37,7 +37,7 @@ read_time: "7 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/t-shirt/Thankful-Sweatshirt-T-Shirt-by-rengone/175932604/lrcw" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.5997134911.2604/ssrco,classic_tee,mens_02,101010:01c5ca27c6,front,product_square,x600.jpg" alt="Thankful sweatshirt t-shirt Thanksgiving design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.5997134911.2604/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Thankful sweatshirt t-shirt Thanksgiving design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">Thankful Sweatshirt T-Shirt</h3>
@@ -48,7 +48,7 @@ read_time: "7 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/poster/Cute-Thanksgiving-Cat-in-Turkey-Costume-Fall-Sublimation-by-rengone/175959158/flk2" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.5997930893.9158/fposter,small,wall_texture,square_product,600x600.jpg" alt="Cute Thanksgiving cat in turkey costume fall design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.5997930893.9158/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Cute Thanksgiving cat in turkey costume fall design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">Cute Thanksgiving Cat in Turkey Costume</h3>
@@ -59,7 +59,7 @@ read_time: "7 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/iphone-case/67-Thanksgiving-Meme-Funny-Dabbing-Turkey-Bruh-Kids-Boys-Tee-by-rengone/175965952/3bp7" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.5998159680.5952/icr,iphone_18_pro_tough,back,a,x600-pad,600x600,f8f8f8.jpg" alt="67 Thanksgiving meme funny dabbing turkey design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.5998159680.5952/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="67 Thanksgiving meme funny dabbing turkey design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">67 Thanksgiving Meme Dabbing Turkey Tee</h3>

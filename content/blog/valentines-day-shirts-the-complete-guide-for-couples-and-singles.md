@@ -37,7 +37,7 @@ read_time: "8 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/poster/Nurse-Valentine-s-Day-Heart-Cute-Pink-RN-Pediatric-Nursing-Tee-by-rengone/177824125/flk2" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.6056193119.4125/fposter,small,wall_texture,square_product,600x600.jpg" alt="Nurse Valentine's Day heart cute pink RN pediatric nursing tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.6056193119.4125/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Nurse Valentine's Day heart cute pink RN pediatric nursing tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">Nurse Valentine's Day Heart - Cute Pink RN Pediatric Nursing Tee</h3>

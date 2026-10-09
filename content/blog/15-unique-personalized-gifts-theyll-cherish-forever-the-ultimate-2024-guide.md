@@ -43,7 +43,7 @@ read_time: "9 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/t-shirt/Personalized-Grandpa-shirt-by-rengone/175931892/my4n" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.5997070358.1892/ssrco,fitted_tee,womens_01,101010:01c5ca27c6,front,product_square,x600.jpg" alt="Personalized Grandpa shirt design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.5997070358.1892/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Personalized Grandpa shirt design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">Personalized Grandpa Shirt</h3>
@@ -54,7 +54,7 @@ read_time: "9 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/t-shirt/Mom-Graduated-Tee-Grad-Mama-Shirts-Graduation-Shirt-Student-Mom-Shirt-Mama-Graduate-Family-Graduation-Tee-My-Mommy-Did-It-Shirt-by-rengone/176077887/rh5j" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.6001722190.7887/ssrco,oversize_tee,mens,445366:bdf0f0f880,front,product_square,x600.jpg" alt="Mom Graduated Tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.6001722190.7887/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Mom Graduated Tee design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">Mom Graduated Tee</h3>

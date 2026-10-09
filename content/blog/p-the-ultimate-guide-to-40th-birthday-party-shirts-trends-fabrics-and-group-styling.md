@@ -37,7 +37,7 @@ read_time: "8 min read"
 
     <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:24px 0;display:flex;gap:20px;align-items:center;flex-wrap:wrap;background:#fafafa;">
       <a href="https://www.redbubble.com/i/throw-pillow/1985-Retro-Birthday-Sweatshirt-Vintage-40th-Birthday-Gift-by-rengone/175931717/xwxm" rel="nofollow" target="_blank" style="flex:0 0 200px;">
-        <img src="https://ih1.redbubble.net/image.5997064820.1717/ur,throw_pillow_couch_small,square,600x600.jpg" alt="1985 Retro Birthday Sweatshirt – vintage 40th birthday gift design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
+        <img src="https://ih1.redbubble.net/image.5997064820.1717/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="1985 Retro Birthday Sweatshirt – vintage 40th birthday gift design" style="width:200px;height:200px;object-fit:cover;border-radius:8px;" loading="lazy" />
       </a>
       <div style="flex:1;min-width:220px;">
         <h3 style="margin:0 0 8px 0;">1985 Retro Birthday Sweatshirt – Vintage 40th Birthday Gift</h3>
