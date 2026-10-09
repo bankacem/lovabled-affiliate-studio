@@ -507,6 +507,71 @@
       "source": "/blog/the-ultimate-curated-guide-to-gifts-for-graphic-tee-fans-beyond-the-basic-cotton-t-shirt",
       "destination": "/blog/the-ultimate-guide-to-gifts-for-t-shirt-lovers-beyond-the-basic-graphic-tee",
       "permanent": true
+    },
+    {
+      "source": "/blog/the-single-stitch-secret-how-to-authenticate-vintage-t-shirts-like-a-pro",
+      "destination": "/blog/single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-ultimate-guide-to-authenticating-vintage-how-to-tell-if-a-shirt-is-truly-old-or-just-a-modern-co",
+      "destination": "/blog/single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication",
+      "permanent": true
+    },
+    {
+      "source": "/blog/modern-retro-vs-real-vintage-shirts-the-definitive-guide-to-authentic-style",
+      "destination": "/blog/single-stitch-vs-double-stitch-the-ultimate-guide-to-vintage-tee-authentication",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-definitive-guide-to-sourcing-authentic-vintage-band-tees-for-the-ultimate-grunge-aesthetic",
+      "destination": "/blog/the-hunt-for-history-where-to-find-authentic-vintage-graphic-tees-online",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-ultimate-guide-to-scouring-the-web-where-to-buy-vintage-t-shirts-online-without-getting-scammed",
+      "destination": "/blog/the-hunt-for-history-where-to-find-authentic-vintage-graphic-tees-online",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-definitive-vintage-t-shirt-grading-guide-how-to-value-your-grails",
+      "destination": "/blog/the-holy-grail-of-cotton-most-valuable-vintage-t-shirts-to-collect-in-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/grails-of-the-pit-a-deep-dive-into-the-most-valuable-vintage-band-tees",
+      "destination": "/blog/the-holy-grail-of-cotton-most-valuable-vintage-t-shirts-to-collect-in-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-definitive-guide-to-vintage-90s-t-shirt-brands-from-thrift-store-grails-to-investment-assets",
+      "destination": "/blog/the-holy-grail-of-cotton-most-valuable-vintage-t-shirts-to-collect-in-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-ultimate-guide-to-storing-vintage-t-shirts-preserving-textile-history",
+      "destination": "/blog/the-definitive-guide-to-washing-vintage-t-shirts-how-to-preserve-grails-without-ruining-the-print",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-art-of-the-perfect-fit-how-to-shrink-a-vintage-t-shirt-without-ruining-it",
+      "destination": "/blog/the-definitive-guide-to-washing-vintage-t-shirts-how-to-preserve-grails-without-ruining-the-print",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-renaissance-of-retro-why-vintage-style-oversized-t-shirts-dominate-modern-streetwear",
+      "destination": "/blog/the-art-of-the-archive-a-masterclass-in-styling-vintage-t-shirts",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-art-of-the-oversized-mastering-street-style-with-baggy-vintage-graphic-tees",
+      "destination": "/blog/the-art-of-the-archive-a-masterclass-in-styling-vintage-t-shirts",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-ultimate-guide-to-retro-designs-how-to-master-vintage-style-in-modern-fashion",
+      "destination": "/blog/the-ultimate-guide-to-vintage-t-shirts-how-to-find-style-and-value-them",
+      "permanent": true
     }
   ],
   "rewrites": [
