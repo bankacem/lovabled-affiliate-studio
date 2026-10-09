@@ -5,7 +5,7 @@ description: "V-neck vs crew neck, compared side by side: fit, coverage, layerin
 category: "T-Shirts"
 tags: ["v-neck vs crew neck", "v-neck shirt", "crew neck shirt", "t-shirt neckline guide", "mens t-shirts", "t-shirt fit"]
 author: "Emma Carter"
-image: "/blog-images/1ffc6ec75e5d6a8f560c.webp"
+image: "/blog-images/v-neck-vs-crew-neck-guide.webp"
 image_alt: "White shallow V-neck T-shirt showing how an open neckline frames the face"
 date: "2026-03-27"
 updated: "2026-10-09"
