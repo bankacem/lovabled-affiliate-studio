@@ -772,6 +772,46 @@
       "source": "/blog/the-ultimate-guide-to-designing-your-own-custom-hoodies",
       "destination": "/blog/the-ultimate-guide-to-printed-hoodies-style-quality-and-customization",
       "permanent": true
+    },
+    {
+      "source": "/blog/canvas-prints-101-everything-you-need-to-know-before-you-buy",
+      "destination": "/blog/the-ultimate-guide-to-choosing-and-styling-wall-art-prints-for-your-home",
+      "permanent": true
+    },
+    {
+      "source": "/blog/10-creative-ways-to-style-poster-prints-for-a-stunning-gallery-wall",
+      "destination": "/blog/the-ultimate-guide-to-choosing-and-styling-wall-art-prints-for-your-home",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-psychology-of-visual-environment-why-growth-mindset-posters-shirts-actually-work",
+      "destination": "/blog/the-ultimate-guide-to-choosing-and-styling-wall-art-prints-for-your-home",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-software-engineer-sarcastic-definition-mug-why-every-dev-needs-a-dose-of-irony-with-their-caffei",
+      "destination": "/blog/the-myth-and-the-mug-why-the-coding-fuel-coffee-mug-is-a-developer-staple",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-the-perfect-tote-bag-for-any-occasion-the-ultimate-guide-2024",
+      "destination": "/blog/custom-bags-101-everything-from-totes-to-backpacks",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-choose-the-perfect-phone-case-a-complete-buying-guide",
+      "destination": "/blog/the-ultimate-guide-to-custom-phone-cases-design-protection-and-style",
+      "permanent": true
+    },
+    {
+      "source": "/blog/hydration-with-intent-the-rise-of-self-care-first-aesthetic-water-bottle-stickers",
+      "destination": "/blog/the-ultimate-guide-to-water-bottles-as-a-fashion-statement-hydration-meets-style",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beyond-the-pumpkin-spice-the-ultimate-guide-to-halloween-spooky-season-coffee-mugs",
+      "destination": "/blog/the-guide-to-halloween-t-shirts-trends-styling-and-shopping-tips",
+      "permanent": true
     }
   ],
   "rewrites": [

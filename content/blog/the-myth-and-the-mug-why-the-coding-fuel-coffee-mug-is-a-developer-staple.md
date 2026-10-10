@@ -1,182 +1,153 @@
 ---
-title: "Best Coffee Mugs for Developers 2026: Coding-Themed Gifts for Programmers"
+title: "Developer Coffee Mugs: Coding Fuel (2026)"
 slug: "the-myth-and-the-mug-why-the-coding-fuel-coffee-mug-is-a-developer-staple"
-description: "Ask any senior engineer about their morning routine, and you’ll likely hear a story that begins with a specific vessel. It’s not just about the caffeine—though the stimulant properties of coffee are well-documented in enhancing cognitive function and alertness. It’s about the ritual. In a field wher"
-category: "Gifts"
-tags: []
-author: "AI Writer"
-image: "/blog-images/734f7003ae5c70b69e74.webp"
-image_alt: "Best Coffee Mugs for Developers 2026: Coding-Themed Gifts for Programmers"
+description: "Developer coffee mugs are the classic programmer gift. Explore coding mug designs, from sarcastic definitions to code humor, plus buying and gifting tips."
+category: "Mugs & Drinkware"
+tags: ["developer gifts", "programmer mug", "coffee mugs", "coding humor", "office gifts"]
+author: "Emma Carter"
+image: "/blog-images/developer-coffee-mugs.webp"
+image_alt: "Developer Coffee Mugs: Coding Fuel (2026)"
 date: "2026-03-09"
-updated: "2026-07-22"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
-read_time: "5 min read"
+read_time: "9 min read"
 ---
+
 <article>
-  <h1>The Myth and the Mug: Why the Coding Fuel Coffee Mug is a Developer Staple</h1>
+  <p>Every engineering team has one: the mug that never leaves the desk. For developers, the coffee mug is part work tool, part personality badge — and <strong>coding-themed mugs</strong> are the gift that reliably lands, whether for a new hire, a hackathon prize, or a birthday.</p>
+
+  <p>This guide covers the main developer mug design families — including the classic <strong>sarcastic definition mug</strong> — plus how to choose one that survives daily use, how to check the code jokes actually compile, and how to gift without the cringe. The SERP for this keyword is almost entirely product listings, so this serves as the independent buyer's guide the query lacks.</p>
 
   <div class="toc">
     <h3>Table of Contents</h3>
     <ul>
-      <li><a href="#psychology-of-ritual">The Psychology of the Morning Ritual</a></li>
-      <li><a href="#anatomy-of-coding-fuel">Anatomy of the "Coding Fuel" 22oz Experience</a></li>
-      <li><a href="#thermal-performance">Thermal Performance: Keeping the Logic Warm</a></li>
-      <li><a href="#ergonomics-syntax">Ergonomics and UX: More Than Just a Handle</a></li>
-      <li><a href="#comparison">Comparison: The Best Developer Vessels of 2026</a></li>
-      <li><a href="#maintenance-deployment">Maintenance and Deployment: Dishwasher or Manual?</a></li>
-      <li><a href="#gift-guide">Is it a Cliché? The Gifting Dilemma</a></li>
-      <li><a href="#faq">Frequently Asked Questions</a></li>
+      <li><a href="#quick-answer">Quick answer: how to choose a developer mug</a></li>
+      <li><a href="#families">Developer mug design families</a></li>
+      <li><a href="#definition-mug">The sarcastic definition mug, explained</a></li>
+      <li><a href="#code-check">Check the code before you gift</a></li>
+      <li><a href="#buying">Buying guide: materials and daily use</a></li>
+      <li><a href="#gifting">Gifting without the cringe</a></li>
+      <li><a href="#care">Care and longevity</a></li>
+      <li><a href="#faq">Frequently asked questions</a></li>
     </ul>
   </div>
 
   <div class="summary">
     <h3>Key Takeaways</h3>
     <ul>
-      <li>Caffeine consumption among developers is statistically significant, with over 60% of programmers consuming at least two cups daily.</li>
-      <li>The "Coding Fuel" mug design serves as a psychological signal for deep work state (Flow).</li>
-      <li>Material choice impacts heat retention, which is critical for long debugging sessions.</li>
-      <li>Proper ergonomics prevent repetitive strain during long-term desk use.</li>
+      <li><strong>Design families:</strong> definition mugs, code snippets, error-message humor, language-specific jokes, and minimalist dev symbols.</li>
+      <li><strong>The definition mug</strong> — "Software Engineer (noun): someone who…" — is the most gifted style; personalization with a name elevates it.</li>
+      <li><strong>Verify the code.</strong> A snippet with a syntax error embarrasses the giver more than the mug amuses the recipient.</li>
+      <li><strong>Daily-use criteria first:</strong> capacity, dishwasher and microwave guidance, and handle comfort matter as much as the joke.</li>
+      <li><strong>Match the humor to the person.</strong> Sarcasm lands with peers; keep it professional for managers, clients, and new hires.</li>
     </ul>
   </div>
 
-  <section id="psychology-of-ritual">
-    <h2>The Psychology of the Morning Ritual</h2>
-    <p>Ask any senior engineer about their morning routine, and you’ll likely hear a story that begins with a specific vessel. It’s not just about the caffeine—though the stimulant properties of coffee are well-documented in enhancing cognitive function and alertness. It’s about the ritual. In a field where we spend all day manipulating invisible logic and abstract data structures, having a physical "anchor" provides a sense of grounding.</p>
-
-    <p>The "Coding Fuel" coffee mug has become a cultural shorthand. When that mug is on the desk, it signals to colleagues (and the developer's own subconscious) that the compile-test-debug loop has begun. Interestingly, a study by the University of Sussex found that even the smell of coffee can improve performance on tasks related to logic and spatial reasoning. For a developer, the mug is the delivery system for that performance boost.</p>
-
-    <p>What's interesting is how the "Coding Fuel" branding acts as a badge of honor. It’s a nod to the "coffee-to-code" converter trope—a lighthearted take on the intense mental energy required to maintain a complex codebase in one's working memory.</p>
+  <section id="quick-answer">
+    <h2>Quick answer: how to choose a developer mug</h2>
+    <p>Pick a design family that matches the recipient's actual taste and seniority: a <strong>sarcastic definition mug</strong> for a peer who loves dry humor, a <strong>language-specific joke</strong> (JavaScript, Python, and similar) for someone whose stack you know, or a <strong>minimalist dev symbol</strong> for a manager or a camera-visible desk. Confirm <strong>capacity, dishwasher and microwave guidance</strong>, and check that any printed code is syntactically sensible.</p>
   </section>
 
-  <section id="anatomy-of-coding-fuel">
-    <h2>Anatomy of the "Coding Fuel" 22oz Experience</h2>
-    <p>Standard <a href="/blog/p-beyond-the-pumpkin-spice-the-ultimate-guide-to-halloween-spooky-season-coffee-mugs" class="auto-link internal-link" title="Beyond the Pumpkin Spice: The Ultimate Guide to Halloween Spooky Season Coffee Mugs">coffee mugs</a> typically hold 8 to 12 ounces. For anyone deep-diving into a legacy C++ codebase, that’s simply insufficient. The 22oz "Coding Fuel" variants have gained traction because they minimize interruptions. Every time you leave your desk to refill, you risk "context switching"—the productivity killer where you lose the mental map of the function you were just writing.</p>
-
-    <p>You might be wondering: does size <a href="/blog/p-beyond-the-gold-watch-a-master-guide-to-unique-retirement-gifts-that-actually-matter" class="auto-link internal-link" title="Beyond the Gold Watch: A Master Guide to Unique Retirement Gifts That Actually Matter">actually matter</a>? In my experience, yes. Research into "Deep Work" suggests it takes an average of 23 minutes to return to full focus after an interruption. By doubling the capacity of the vessel, you effectively halve the number of necessary interruptions, theoretically doubling your chances of staying in a state of Flow.</p>
-
-    <p>Most high-quality versions of these mugs utilize ceramic with a heavy-duty glaze. This isn't just for aesthetics; high-density ceramic has better thermal mass than thin porcelain, meaning your "fuel" stays at the optimal 140°F (60°C) drinking temperature for longer periods.</p>
+  <section id="families">
+    <h2>Developer mug design families</h2>
+    <ul>
+      <li><strong>Sarcastic definition mugs.</strong> Dictionary-style entries — "Software Engineer (noun): a person who turns coffee into code" — often with "see also" cross-references. The most gifted family, and the easiest to personalize with a name. (See the dedicated section below.)</li>
+      <li><strong>Code snippet mugs.</strong> Actual lines of code: a "Hello World," a CSS rule, a git joke. Best when the snippet is short, correct, and readable at mug scale.</li>
+      <li><strong>Error-message humor.</strong> "404: Sleep Not Found," "It works on my machine," compile-error jokes. Universally understood across languages — a safe pick when you don't know the recipient's stack.</li>
+      <li><strong>Language-specific jokes.</strong> JavaScript's type coercion, Python's whitespace, CSS centering memes. These land hardest with people who actually write that language — and fall flat otherwise.</li>
+      <li><strong>Minimalist dev symbols.</strong> A terminal prompt, curly braces, a semicolon, a Git branch icon. Subtle enough for any office and any seniority.</li>
+    </ul>
   </section>
 
-  <section id="thermal-performance">
-    <h2>Thermal Performance: Keeping the Logic Warm</h2>
-    <p>There is nothing more tragic than reaching for a sip of coffee during a breakthrough, only to find it has gone cold. It’s the physical equivalent of a 404 error. The "Coding Fuel" trend has evolved from simple ceramic mugs to vacuum-insulated stainless steel tumblers.</p>
-
-    <p>If you're looking at a stainless steel version, ensure it uses 18/8 food-grade stainless steel. This material doesn't retain flavors from previous "deployments" (yesterday's tea won't ruin today's dark roast). Double-wall vacuum insulation can keep liquids hot for up to 6 hours. In the context of a long sprint or an overnight server migration, this isn't a luxury—it’s a requirement.</p>
-
-    <p><a href="/internal-link--coffee-brewing-tech">Learn more about the best brewing methods for technical focus</a>.</p>
+  <section id="definition-mug">
+    <h2>The sarcastic definition mug, explained</h2>
+    <p>The definition mug borrows the layout of a dictionary entry: the job title as headword, a part of speech, a dry one-line definition, and often a "see also" line of related jokes ("see also: caffeine-dependent, professional Googler"). Its appeal is the deadpan format — the humor comes from describing an absurd job in the driest possible language.</p>
+    <p>When this style works, it works because the definition is <strong>specific enough to feel written for the recipient</strong>. A generic "turns coffee into code" line is fine; a definition referencing on-call rotations, code review, or standup meetings feels personal. Many sellers offer <strong>name personalization</strong> ("Code Whisperer (noun): [Name]"), which meaningfully upgrades the gift for birthdays and promotions.</p>
+    <p>The main risk is tone. Sarcasm about the job reads as affection among peers but can feel off when given upward — to a new manager, a client, or someone you don't know well. For those recipients, choose the minimalist or error-message families instead.</p>
   </section>
 
-  <section id="comparison" class="comparison-section">
-    <h2>Comparison: The Best Developer Vessels of 2026</h2>
-    <p>Not all mugs are created equal. Depending on whether you work in a temperature-controlled office or a drafty home garage, your needs will differ. Here is how the "Coding Fuel" standard stack stacks up against the competition.</p>
-
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Vessel Type</th>
-          <th>Pros</th>
-          <th>Cons</th>
-          <th>Rating</th>
-          <th>Best For</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Classic Ceramic "Coding Fuel" (15oz)</td>
-          <td class="text-green-600">Microwave safe, classic feel, affordable.</td>
-          <td class="text-red-600">Loses heat quickly, fragile.</td>
-          <td>⭐⭐⭐</td>
-          <td>Quick morning breaks.</td>
-        </tr>
-        <tr>
-          <td>Oversized 22oz Mega-Mug</td>
-          <td class="text-green-600">Massive capacity, reduces context switching.</td>
-          <td class="text-red-600">Heavy when full, may not fit cup holders.</td>
-          <td>⭐⭐⭐⭐</td>
-          <td>Deep work sessions.</td>
-        </tr>
-        <tr>
-          <td>Vacuum Insulated Tumbler</td>
-          <td class="text-green-600">Stays hot for 6+ hours, spill-proof lid.</td>
-          <td class="text-red-600">Not microwave safe, metallic taste risks.</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>Long debugging marathons.</td>
-        </tr>
-        <tr>
-          <td>Self-Heating Smart Mug</td>
-          <td class="text-green-600">App-controlled precision temperature.</td>
-          <td class="text-red-600">Expensive, requires charging.</td>
-          <td>⭐⭐⭐⭐</td>
-          <td>Tech enthusiasts/Gadget lovers.</td>
-        </tr>
-        <tr>
-          <td>The "Traveler" Press Mug</td>
-          <td class="text-green-600">Brews and drinks in one vessel.</td>
-          <td class="text-red-600">Harder to clean, sediment issues.</td>
-          <td>⭐⭐⭐</td>
-          <td>Commuting developers.</td>
-        </tr>
-      </tbody>
-    </table>
+  <section id="code-check">
+    <h2>Check the code before you gift</h2>
+    <p>A developer will read the code on the mug. That is the entire point — and the entire risk. Before ordering a snippet mug:</p>
+    <ul>
+      <li><strong>Read it yourself.</strong> If you can't parse it, ask a developer friend whether it makes sense.</li>
+      <li><strong>Watch for obvious errors.</strong> Mismatched brackets, misspelled keywords, and wrong-language syntax ("Python" code with semicolons) are common on cheap listings.</li>
+      <li><strong>Prefer short snippets.</strong> Three to five lines stay legible on a curved surface; a full function becomes decoration nobody reads.</li>
+      <li><strong>Match the language to the person.</strong> A JavaScript joke for a JavaScript developer; a generic terminal joke when you're unsure.</li>
+    </ul>
+    <p>A mug with correct, clever code becomes a desk fixture. A mug with broken code becomes a story the recipient tells at your expense.</p>
   </section>
 
-  <section id="ergonomics-syntax">
-    <h2>Ergonomics and UX: <a href="/blog/p-the-stick-on-revolution-why-mental-health-awareness-stickers-are-more-than-just-decor" class="auto-link internal-link" title="The Stick-on Revolution: Why Mental Health Awareness Stickers Are More Than Just Decor">More Than Just</a> a Handle</h2>
-    <p>We talk a lot about ergonomic keyboards and vertical mice, but we rarely consider the ergonomics of our mugs. A 22oz mug full of liquid weighs approximately 1.5 to 2 pounds. If the handle is poorly designed—specifically, if it only allows for a two-finger grip—you're putting unnecessary strain on your extensor muscles. For those already battling Carpal Tunnel or RSI, this is a genuine concern.</p>
-
-    <p>The best "Coding Fuel" mugs feature a "C-handle" or an oversized "D-handle" that allows for a full-palm grip. This distributes the weight across the larger muscles of the forearm rather than the small joints of the fingers. It sounds like overkill until you’ve spent 12 hours staring at a screen and realize your hand is cramping from <a href="/blog/p-the-quiet-revolution-why-the-choose-peace-over-chaos-minimalist-shirt-is-more-than-a-fashion-stateme" class="auto-link internal-link" title="The Quiet Revolution: Why the 'Choose Peace Over Chaos' Minimalist Shirt is More Than a Fashion Statement">more than</a> just typing.</p>
+  <section id="buying">
+    <h2>Buying guide: materials and daily use</h2>
+    <p>Most developer mugs are <strong>ceramic</strong>, typically 11 ounces with 15-ounce options for heavy coffee drinkers. For a desk mug that gets used daily, confirm the product-specific <strong>dishwasher and microwave guidance</strong> — printed jokes with metallic or heavy-ink designs are the most likely to carry hand-wash recommendations.</p>
+    <p>Check the print description and listing photos: the design should be shown on the actual mug, and text should be large enough to read at arm's length. A definition mug whose punchline requires squinting loses its effect. For team orders or hackathon prizes, order one sample first to check print alignment and text size.</p>
+    <p>For general drinkware buying strategy, see our <a href="/blog/the-ultimate-guide-to-custom-mugs-why-theyre-the-perfect-personalized-gift" class="internal-link">custom mugs guide</a>.</p>
   </section>
 
-  <section id="maintenance-deployment">
-    <h2>Maintenance and Deployment: Dishwasher or Manual?</h2>
-    <p>Let's be honest: developers love efficiency. If a mug isn't dishwasher safe, it's a technical debt in your kitchen. Most ceramic mugs are perfectly fine in the dishwasher, but pay attention to the "Coding Fuel" graphic. High-heat industrial dishwashers can cause "ghosting" or peeling of the design if it wasn't applied using high-fire sublimation.</p>
-
-    <p>If you opt for the stainless steel vacuum-insulated versions, <strong>read the docs</strong> (the bottom of the mug). Many of these are hand-wash only because the dishwasher heat can break the vacuum seal, turning your high-tech insulator into a very expensive, heavy cup.</p>
+  <section id="gifting">
+    <h2>Gifting without the cringe</h2>
+    <p>A developer mug is a good gift when it shows you know the person. Match the humor to the relationship:</p>
+    <ul>
+      <li><strong>Peers and friends:</strong> sarcastic definitions, language-specific jokes, and error-message humor all land.</li>
+      <li><strong>New hires and interns:</strong> a warm, welcoming design — a "Hello World" or team-themed mug — beats irony.</li>
+      <li><strong>Managers and clients:</strong> keep it professional with minimalist symbols or a quality plain mug.</li>
+      <li><strong>Promotions and work anniversaries:</strong> a personalized definition mug with the recipient's name and new title is a genuinely thoughtful upgrade.</li>
+    </ul>
+    <p>Pair the mug with <strong>good coffee beans, quality tea, or a small desk accessory</strong> for a complete gift. For hackathons and team events, a consistent mug design with each person's name makes a better prize than a random novelty.</p>
+    <p>Explore related collections in our <a href="/designs" class="internal-link">design collection</a>.</p>
   </section>
 
-  <section id="gift-guide">
-    <h2>Is it a Cliché? The Gifting Dilemma</h2>
-    <p>Here’s the thing about "Coding Fuel" <a href="/blog/the-ultimate-guide-to-personalized-mugs-why-they-make-the-perfect-gift" class="auto-link internal-link" title="The Ultimate Guide to Personalized Mugs: Why They Make the Perfect Gift">mugs: they</a> are the "<a href="/blog/the-ultimate-guide-to-being-the-worlds-best-dad-traits-tips-and-modern-fatherhood" class="auto-link internal-link" title="The Ultimate Guide to Being the World's Best Dad: Traits, Tips, and Modern Fatherhood">World's Best</a> Dad" mugs of the tech world. Yes, it’s a cliché. Yes, every developer probably has three of them. But here is why they still work as gifts: they are functional. Unlike a decorative figurine or a "funny" t-shirt that gets worn once, a high-quality mug will be used daily.</p>
-
-    <p>What I’ve found is that the best versions aren't just about the slogan. They are about the <em>quality</em> of the vessel. If you're buying one for a colleague, look for features like a cork base (built-in coaster) or a splash-proof lid. It shows you understand the environment—one where a spill could mean a $3,000 MacBook Pro goes up in smoke.</p>
+  <section id="care">
+    <h2>Care and longevity</h2>
+    <p>Follow the seller's care instructions. For printed developer mugs, <strong>hand washing</strong> is the conservative default that keeps text sharp longest; if the listing states dishwasher safety, a gentle cycle is still kinder to the print. Avoid abrasive sponges on the decorated exterior, and let hot mugs cool before cold rinses.</p>
   </section>
+
+<figure style="margin: 2rem 0;">
+<img src="/blog-images/developer-mug-design-families.webp" alt="The five design families behind developer mugs — find your flavor." loading="lazy" style="width:100%;height:auto;border-radius:12px;" />
+<figcaption style="text-align:center;color:#666;font-size:0.9rem;margin-top:0.5rem;">The five design families behind developer mugs — find your flavor.</figcaption>
+</figure>
 
   <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
-    <h2>Frequently Asked Questions</h2>
+    <h2 id="faq">Frequently Asked Questions</h2>
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Is a 22oz mug too big for a standard coffee maker?</h3>
+      <h3 itemprop="name">What is a software engineer definition mug?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Most single-serve machines like Keurigs have a removable drip tray to accommodate taller mugs. However, a standard 22oz mug usually requires two "large" brew cycles to fill. If you use a pour-over or French press, it's the perfect size for a single large batch.</p>
+        <p itemprop="text">A mug printed in dictionary-entry style: the job title as headword, a part of speech, and a dry, sarcastic one-line definition, often with a "see also" line of related jokes. Many sellers offer name personalization.</p>
       </div>
     </div>
-
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Does the material of the mug affect the taste of the "fuel"?</h3>
+      <h3 itemprop="name">Are developer mugs a good gift for programmers?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Ceramic and glass are chemically inert, meaning they won't change the flavor profile. Stainless steel is generally fine but can sometimes impart a metallic note if the acidity of the coffee is high. Avoid plastic-lined mugs as they can absorb oils and become "funky" over time.</p>
+        <p itemprop="text">Yes — they're one of the most reliable programmer gifts, because the mug gets daily use. Match the humor to the person: sarcastic definitions for peers, language-specific jokes when you know their stack, and minimalist designs for managers or professional settings.</p>
       </div>
     </div>
-
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Are these mugs microwave safe?</h3>
+      <h3 itemprop="name">What size developer mug should I buy?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Ceramic versions typically are, unless they have metallic gold or silver leaf in the design. Stainless steel vacuum-insulated mugs are NEVER microwave safe and can damage your appliance and the mug.</p>
+        <p itemprop="text">Eleven ounces is the standard and suits most drinkers. Choose 15 ounces for someone who drinks large coffees. Check handle comfort and actual dimensions, since a joke you can't read at arm's length loses its effect.</p>
       </div>
     </div>
-
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Why is the "Coding Fuel" design so popular among programmers?</h3>
+      <h3 itemprop="name">Can programmer mugs go in the dishwasher?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">It resonates with the "hustle culture" and the high-intensity nature of software engineering. It also acts as a conversation starter in office environments, helping to build community among the engineering team.</p>
+        <p itemprop="text">It depends on the product. Some printed mugs are listed as dishwasher-safe; others recommend hand washing. Follow the specific listing's care instructions, and hand wash when in doubt to keep the text sharp.</p>
       </div>
     </div>
-
     <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">What is the best way to clean coffee stains from a white ceramic mug?</h3>
+      <h3 itemprop="name">How do I avoid a cringe developer mug gift?</h3>
       <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">A paste of baking soda and a little water works wonders. Rub it on the stain, let it sit for five minutes, and scrub. It's an abrasive but won't scratch the glaze like steel wool would.</p>
+        <p itemprop="text">Verify any printed code is correct, match the joke to the recipient's actual language or role, keep sarcasm for peers rather than managers or clients, and make sure the text is legible at arm's length. Personalization with a name almost always elevates the gift.</p>
       </div>
     </div>
   </section>
+
+  <h2>Related guides</h2>
+  <p>Continue with these related AIPrintVerse guides:</p>
+  <ul>
+    <li><a href="/blog/the-ultimate-guide-to-custom-mugs-why-theyre-the-perfect-personalized-gift" class="internal-link">Custom Mugs: The Personalized Gift Guide</a></li>
+    <li><a href="/blog/the-ultimate-guide-to-personalized-mugs-why-they-make-the-perfect-gift" class="internal-link">Personalized Mugs: Why They Make the Perfect Gift</a></li>
+    <li><a href="/designs" class="internal-link">Browse the design collection</a></li>
+  </ul>
 </article>
