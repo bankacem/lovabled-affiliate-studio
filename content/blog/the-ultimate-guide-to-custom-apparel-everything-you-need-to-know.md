@@ -1,16 +1,191 @@
 ---
-title: "Custom Apparel: A Practical Guide to Designing and Printing"
+title: "Custom Apparel: Everything You Need to Know (2026)"
 slug: "the-ultimate-guide-to-custom-apparel-everything-you-need-to-know"
-description: "Learn how to plan custom apparel from idea to finished garment, including artwork, fabric, printing methods, sizing, file preparation, and quality checks."
-category: "T-Shirts"
-tags: []
-author: "Admin"
-image: "/blog-images/d409e09c5da6f7bf5960.webp"
-image_alt: "The Ultimate Guide to Custom Apparel: Everything You Need to Know"
+description: "Custom apparel, explained from idea to finished garment: choosing fabrics, matching the print method to your order, file prep, and ordering without mistakes."
+category: "Printing Guides"
+tags: ["custom apparel", "screen printing", "DTG printing", "print on demand", "merch"]
+author: "Emma Carter"
+image: "/blog-images/custom-apparel.webp"
+image_alt: "Custom Apparel: Everything You Need to Know (2026)"
 date: "2026-03-01"
-updated: "2026-06-19"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
-read_time: "7 min read"
+read_time: "9 min read"
 ---
-<h3>The <a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80 auto-link internal-link" href="/blog/matching-friend-shirts-the-ultimate-guide-to-friendship-fashion-in-2026">Ultimate Guide</a> to Custom Apparel: Everything You Need to Know</h3><p>Whether you are spearheading a rebranding campaign for your startup, organizing a <a href="/blog/the-ultimate-guide-to-personalized-family-reunion-shirts-design-quality-and-logistics" class="auto-link internal-link" title="The Ultimate Guide to Personalized Family Reunion Shirts: Design, Quality, and Logistics">family reunion</a>, or launching your own streetwear line, custom apparel is the intersection where strategy <a href="/blog/p-the-ultimate-guide-to-water-bottles-as-a-fashion-statement-hydration-meets-style" class="auto-link internal-link" title="The Ultimate Guide to Water Bottles as a Fashion Statement: Hydration Meets Style">meets style</a>. It’s not just about slapping a logo on a shirt; it’s about choosing the right fabric weight, selecting the durable printing method, and calculating the ROI of your merchandise.</p><p>As someone who loves a well-organized spreadsheet almost as much as a perfectly fitted tee, I’ve broken down the complex world of custom clothing into actionable steps. We are going to look at this through a lens of quality and efficiency. No guessing games—just data-backed decisions to ensure your final product looks polished and professional.</p><h3>✨ Key Takeaways</h3><ul><li><p><strong>Fabric Matters:</strong> The difference between 100% cotton and a tri-blend can change the entire "vibe" and fit of your garment.</p></li><li><p><strong>Method Matches Volume:</strong> Screen printing is cost-effective for <a href="/blog/p-the-ultimate-guide-to-bulk-orders-in-fashion-maximizing-profit-and-efficiency" class="auto-link internal-link" title="The Ultimate Guide to Bulk Orders in Fashion: Maximizing Profit and Efficiency">bulk orders</a>, while Direct-to-Garment (DTG) is ideal for small batches and complex colors.</p></li><li><p><strong>File Prep is Non-Negotiable:</strong> Always use vector files (.AI or .EPS) for crisp lines; low-resolution JPEGs will result in amateurish prints.</p></li><li><p><strong>Calculated ROI:</strong> For businesses, custom apparel acts as a walking billboard—investing in higher quality yields better brand perception.</p></li></ul><h2>Table of Contents</h2><ul><li><p><a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#strategy">1. Defining Your Strategy</a></p></li><li><p><a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#fabric-selection">2. Fabric &amp; Garment Selection</a></p></li><li><p><a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#printing-methods">3. The Tech Stack: Printing Methods Compared</a></p></li><li><p><a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#design-prep">4. Design &amp; File Preparation</a></p></li><li><p><a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#budgeting">5. Budgeting &amp; Logistics</a></p></li><li><p><a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#faq">Frequently Asked Questions</a></p></li></ul><h2>1. Defining Your Strategy</h2><p>Before we look at color swatches, we need to define the <em>purpose</em> of this project. In my experience, custom apparel generally falls into three specific categories, and each requires a different approach to budgeting and quality.</p><h3>Promotional &amp; Event Swag</h3><p>If you are handing these out for free at a trade show or a 5K run, cost-per-unit is your primary metric. You want something that looks good but doesn't break the bank. However, avoid the "trash can" trap—if the quality is too low, it goes straight to the donation bin, and your brand impression goes with it.</p><h3>Retail &amp; Merchandise</h3><p>If you are selling these items, the perceived value must be high. Customers are savvy; they know the difference between a boxy promotional tee and a retail-fit garment. If you are exploring this avenue, you might want to read <a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#">A Beginner’s Guide to Starting Your Own Graphic Tee Line</a> to understand the nuances of building a collection.</p><h3>Uniforms &amp; Corporate Gifting</h3><p>This is about durability and professionalism. Embroidered polos or high-end fleece hoodies tell your team (and your clients) that you value quality. When selecting items for internal teams, consider longevity—will this <a href="/blog/p-ditch-the-itch-7-refreshing-ugly-christmas-sweater-alternatives-that-actually-look-good" class="auto-link internal-link" title="Ditch the Itch: 7 Refreshing Ugly Christmas Sweater Alternatives That Actually Look Good">look good</a> after 50 washes?</p><h2>2. Fabric &amp; Garment Selection</h2><p>If you take nothing else from this guide, remember this: the canvas dictates the art. You cannot print a high-detail photograph on a heavy ribbed texture and expect clarity. Here is the breakdown of the most common fabrics.</p><h3>100% Cotton</h3><p>The classic choice. It is breathable and prints exceptionally well. <br><strong>Combed &amp; Ring-Spun Cotton:</strong> This is the premium version. The impurities are removed, making it softer and smoother for printing. Always opt for this if your budget allows.</p><h3>Polyester &amp; Performance</h3><p>Essential for athletic wear. It wicks moisture and holds color well, but it requires special printing techniques (like dye sublimation) to avoid "dye migration," where the fabric color bleeds into the ink.</p><h3>Tri-Blends</h3><p>The "Goldilocks" fabric. Made from cotton, polyester, and rayon. These are super soft, have a vintage heathered look, and drape beautifully on the body. They are incredibly popular for lifestyle brands. If you are specifically looking into heavier garments for colder months, check out <a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#">Custom Hoodies 101: Everything You Need to Know Before You Buy</a> for a <a href="/blog/grails-of-the-pit-a-deep-dive-into-the-most-valuable-vintage-band-tees" class="auto-link internal-link" title="Grails of the Pit: A Deep Dive Into the Most Valuable Vintage Band Tees">deep dive</a> on fleece weights.</p><h2>3. The Tech Stack: <a href="/blog/p-the-ultimate-guide-to-custom-birthday-shirts-trends-design-tips-and-printing-methods" class="auto-link internal-link" title="The Ultimate Guide to Custom Birthday Shirts: Trends, Design Tips, and Printing Methods">Printing Methods</a> Compared</h2><p>Choosing a printing method is a balance of <strong>Quantity</strong>, <strong>Design Complexity</strong>, and <strong>Fabric</strong>. I’ve created this comparison table to help you make the most efficient choice for your specific project.</p><p>Printing Method Best For... Pros Cons Ideal Quantity <strong>Screen Printing</strong> Logos, vibrant colors, simple graphics. Extremely durable, cost-effective for large runs, vibrant Pantone matching. High setup costs, not good for photos/gradients, expensive for small orders. 24+ units <strong>Direct-to-Garment (DTG)</strong> Detailed photos, multi-color designs, small batches. Soft hand feel, unlimited colors, no setup fees. Slower production, prints can fade faster than screen print, expensive per unit on bulk. 1 - 24 units <strong>Embroidery</strong> Polos, hats, jackets, corporate wear. Professional look, textured, extremely durable (lasts longer than the garment). Cannot do gradients or tiny text, heavy on thin fabrics (causes puckering). Any (Price drops with bulk) <strong>Heat Transfer / Vinyl</strong> Names/Numbers on jerseys, simple shapes. Bright colors, allows for unique finishes (glitter, reflective). Can feel "plastic" or heavy on the shirt, can peel if not applied correctly. 1 - 15 units</p><h2>4. Design &amp; File Preparation</h2><p>Nothing delays a project like a "low-res" email from your printer. To ensure <a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80 auto-link internal-link" href="/blog/The Ultimate Guide to Designing Your Own Custom Hoodies">your custom</a> apparel looks crisp, you need to speak the language of design files.</p><ul><li><p><strong>Vector is King (.AI, .EPS, .SVG):</strong> Vector graphics are made of math, not pixels. This means you can scale them up to the size of a billboard and they will remain perfectly sharp. This is essential for screen printing and embroidery.</p></li><li><p><strong>Raster (.JPG, .PNG, .PSD):</strong> If you must use a raster image (like a photograph), it needs to be <strong>300 DPI (Dots Per Inch)</strong> at the actual print size. If you take a tiny Instagram photo and stretch it across a hoodie, it will look blocky and blurred.</p></li><li><p><strong>Pantone Matching (PMS):</strong> Monitors display color in RGB (light), but printers use ink. If your brand requires a specific shade of "Tiffany Blue," you must provide the Pantone code to ensure accuracy.</p></li></ul><h2>5. Budgeting &amp; Logistics</h2><p>As we wrap up the planning phase, let's talk numbers. Custom apparel pricing is usually a matrix of three variables: <strong>Quantity</strong>, <strong>Number of Colors</strong>, and <strong>Garment Quality</strong>.</p><p><strong>The Break-Point Rule:</strong> Most printers have price breaks at 12, 24, 48, and 72 units. If you need 45 shirts, it is often cheaper <em>per shirt</em> (and sometimes cheaper in total) to order 48 because you hit the next efficiency tier.</p><p>Also, consider the full ecosystem of your branding. If you are ordering apparel for a welcome kit or a client gift basket, you want cohesive merchandise. Mixing high-quality apparel with other premium items creates a better unboxing experience. For instance, pairing a custom hoodie with drinkware is a classic move—learn more about that combination in <a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80" href="#">Boost Your Brand: Why Custom Mugs are the Best Corporate Swag</a>.</p><h2>Conclusion</h2><p>Navigating the world of custom apparel <a href="/blog/p-holiday-party-tees-why-looking-festive-doesnt-have-to-mean-wearing-a-scratchy-sweater" class="auto-link internal-link" title="Holiday Party Tees: Why Looking Festive Doesn't Have to Mean Wearing a Scratchy Sweater">doesn't have</a> to be overwhelming. By selecting the right garment for your audience, matching the print method to your design, and preparing your files correctly, you eliminate 90% of the common errors people make. Treat <a target="_blank" rel="noopener noreferrer nofollow" class="text-primary underline underline-offset-4 hover:text-primary/80 auto-link internal-link" href="/blog/the-ultimate-guide-to-designing-your-own-custom-hoodies">your custom</a> apparel order like a business project: plan the details, verify the data, and the result will be a product you are proud to display.</p><hr><h2>Frequently Asked Questions</h2><h3>What is the difference between screen printing and embroidery?</h3><p>Screen printing uses ink pushed through a mesh screen to lay color onto the fabric, making it ideal for t-shirts and large graphic designs. Embroidery uses needle and thread to stitch the design into the fabric, creating a textured, professional look best suited for hats, polos, and jackets.</p><h3>How can I make my custom apparel order cheaper?</h3><p>To reduce costs, try to limit the number of colors in your design (for screen printing), increase your order quantity to hit price breaks, and choose a white or light-colored garment, which often requires less ink and labor than printing on black fabrics.</p><h3>Why do I need a vector file for custom printing?</h3><p>Vector files (like .AI or .EPS) are scalable <a href="/blog/the-ultimate-guide-to-custom-apparel-how-to-print-on-t-shirts-at-home-without-losing-your-mind" class="auto-link internal-link" title="The Ultimate Guide to Custom Apparel: How to Print on T-Shirts at Home Without Losing Your Mind">without losing</a> quality. They allow printers to separate colors cleanly and resize your logo for different garment sizes without pixelation or blurriness.</p><h3>What is the best fabric for custom t-shirts?</h3><p>For a standard, breathable fit, 100% ring-spun cotton is the best choice. For a vintage, super-soft feel, a Tri-Blend (Cotton/Poly/Rayon) is preferred. For athletic use, 100% moisture-wicking polyester is recommended.</p>
+<article>
+  <p>Custom apparel sits at the intersection of strategy and style. Whether you are ordering shirts for a startup rebrand, a family reunion, or your own streetwear line, the same five decisions determine the outcome: the purpose of the order, the garment, the print method, the artwork files, and the ordering workflow. Get those right and the result looks professional. Get one wrong and you learn an expensive lesson.</p>
+
+  <p>Most guides to custom apparel are written by print shops, and they all quietly steer you toward whatever method that shop sells. This one doesn't sell printing. It's an independent buyer's guide — the decisions in the order that actually matters, with the trade-offs stated plainly.</p>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#purpose">1. Define the Job First</a></li>
+      <li><a href="#garment">2. Choose the Garment</a></li>
+      <li><a href="#method">3. Match the Print Method to the Order</a></li>
+      <li><a href="#files">4. Prepare Print-Ready Files</a></li>
+      <li><a href="#workflow">5. The Ordering Workflow</a></li>
+      <li><a href="#mistakes">6. Common Mistakes to Avoid</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ul>
+  </div>
+
+  <div class="summary">
+    <h3>Key Takeaways</h3>
+    <ul>
+      <li>Start with the purpose — promo swag, retail merch, and uniforms each demand different quality and budget decisions.</li>
+      <li>Fabric choice shapes the print result; match the method to the fabric, not just the design.</li>
+      <li>Screen printing wins on volume, DTG wins on detail and small runs, embroidery wins on corporate durability.</li>
+      <li>Vector files and 300 DPI artwork are non-negotiable for professional results.</li>
+      <li>Always approve a digital proof — and order a sample before committing to a large run.</li>
+    </ul>
+  </div>
+
+  <section id="purpose">
+    <h2>1. Define the Job First</h2>
+    <p>Before touching a color swatch, define what the apparel is for. Three categories cover nearly every order, and each pulls your decisions in a different direction.</p>
+    <figure style="margin: 2rem 0;">
+<img src="/blog-images/apparel-methods.webp" alt="Custom apparel print methods by volume" loading="lazy" style="width:100%;height:auto;border-radius:12px;" />
+<figcaption style="text-align:center;color:#666;font-size:0.9rem;margin-top:0.5rem;">By volume — screen to embroidery.</figcaption>
+</figure>
+<h3>Promotional and Event Swag</h3>
+    <p>Handouts for trade shows, fun runs, or conferences. Cost per unit matters most here, but there is a trap: if the shirt is so cheap it goes straight to the donation bin, your brand impression goes with it. Aim for the cheapest garment you would still wear yourself.</p>
+    <h3>Retail and Merchandise</h3>
+    <p>Shirts you sell. Perceived value is everything — customers can tell a boxy promo tee from a retail-fit garment instantly. Spend more on the blank here; the margin usually justifies it.</p>
+    <h3>Uniforms and Corporate Wear</h3>
+    <p>Durability and consistency rule. Embroidered polos or quality fleece hold up to weekly washing and look professional for years. Plan for reorders: pick garments from established blank lines that won't be discontinued next season.</p>
+  </section>
+
+  <section id="garment">
+    <h2>2. Choose the Garment</h2>
+    <p>The canvas dictates the art. You cannot print a photographic design on a heavy ribbed texture and expect clarity, and you cannot sublimate onto cotton. Start with fabric.</p>
+    <h3>100% Cotton</h3>
+    <p>The classic. Breathable, prints beautifully with screen printing and DTG. Ring-spun and combed cotton are the premium versions — softer and smoother, with fewer impurities that can interfere with fine detail.</p>
+    <h3>Polyester and Performance Blends</h3>
+    <p>Essential for athletic wear: moisture-wicking and colorfast. But polyester needs compatible methods — dye sublimation or DTF — because standard plastisol screen inks can suffer dye migration, where the fabric color bleeds into the print.</p>
+    <h3>Tri-Blends</h3>
+    <p>Cotton, polyester, and rayon. Very soft, with a vintage heathered look and a drape that lifestyle brands love. Slightly trickier to print on, so confirm the method with your printer first.</p>
+    <h3>Fit and Weight</h3>
+    <p>Check the garment's weight (GSM) and fit profile. A 180 GSM fashion-fit tee and a 220 GSM heavyweight boxy tee are different products with different audiences. If you are ordering for a group, unisex sizing simplifies the size curve; if fit matters, offer a fitted option in the same print.</p>
+  </section>
+
+  <section id="method">
+    <h2>3. Match the Print Method to the Order</h2>
+    <p>This is the decision that determines cost, quality, and durability. Match the method to three things: quantity, design complexity, and fabric.</p>
+    <table class="comparison-table">
+      <thead>
+        <tr><th>Method</th><th>Best For</th><th>Strengths</th><th>Limitations</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Screen printing</strong></td>
+          <td>Large runs of the same design</td>
+          <td class="text-green-600">Very durable, vibrant color, cheapest per unit at volume</td>
+          <td class="text-red-600">Setup cost per color, poor for photos and gradients</td>
+        </tr>
+        <tr>
+          <td><strong>DTG</strong></td>
+          <td>Small batches, detailed full-color art</td>
+          <td class="text-green-600">Unlimited colors, soft feel, no setup fees</td>
+          <td class="text-red-600">Slower for bulk, needs high cotton content</td>
+        </tr>
+        <tr>
+          <td><strong>DTF</strong></td>
+          <td>Mixed fabrics, dark polyester</td>
+          <td class="text-green-600">Works on almost any fabric, vivid on darks</td>
+          <td class="text-red-600">Slightly heavier hand feel than DTG</td>
+        </tr>
+        <tr>
+          <td><strong>Embroidery</strong></td>
+          <td>Polos, hats, jackets, corporate wear</td>
+          <td class="text-green-600">Professional texture, extremely durable</td>
+          <td class="text-red-600">No gradients or tiny text, heavy on thin fabrics</td>
+        </tr>
+        <tr>
+          <td><strong>Heat transfer vinyl</strong></td>
+          <td>Names, numbers, simple bold graphics</td>
+          <td class="text-green-600">Bright colors, special finishes like glitter</td>
+          <td class="text-red-600">Can feel plasticky, limited detail</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>A practical rule: if you need 24 or more of one design with a few colors, screen printing usually wins. Fewer than that, or a photographic design, points to DTG. Corporate polos point to embroidery. For a deeper dive on the digital option, see our <a href="/blog/what-is-dtg-printing-the-2024-guide-to-direct-to-garment-technology">DTG printing guide</a>.</p>
+  </section>
+
+  <section id="files">
+    <h2>4. Prepare Print-Ready Files</h2>
+    <p>Nothing delays an order like a low-resolution logo emailed as a phone screenshot. Speak the printer's language:</p>
+    <ul>
+      <li><strong>Vector is king (.AI, .EPS, .SVG):</strong> vectors scale infinitely without losing sharpness — essential for screen printing and embroidery, where colors must be separated cleanly.</li>
+      <li><strong>Raster needs 300 DPI at print size (.PNG, .PSD):</strong> a photograph must be 300 dots per inch at the actual dimensions it will print. A small web image stretched across a chest will look blocky.</li>
+      <li><strong>Spot colors need Pantone codes:</strong> screens see RGB (light), printers mix ink. If brand accuracy matters, supply the Pantone (PMS) reference.</li>
+      <li><strong>Transparent backgrounds:</strong> for DTG and DTF, deliver artwork on transparency, not a white box — unless the white box is the design.</li>
+    </ul>
+  </section>
+
+  <section id="workflow">
+    <h2>5. The Ordering Workflow</h2>
+    <p>A smooth order follows the same steps whether you use a local shop or an online printer:</p>
+    <ol>
+      <li><strong>Brief the printer:</strong> garment, quantities per size, print locations, deadline. Vague briefs get vague quotes.</li>
+      <li><strong>Approve the digital proof:</strong> check every word, color, placement, and dimension. Production starts only after your approval — errors you approve are yours.</li>
+      <li><strong>Order a sample:</strong> for any run that matters, one sample shirt is the cheapest insurance in the industry. Check the print, the fit, and the color in person.</li>
+      <li><strong>Plan the size curve:</strong> for group orders, don't guess — collect sizes in advance. A common split skews toward medium and large, but your group is your group.</li>
+      <li><strong>Build in lead time:</strong> standard production is often one to two weeks plus shipping. Rush fees are real; ordering early is free.</li>
+    </ol>
+    <p>If you want to skip inventory entirely, <a href="/blog/the-ultimate-guide-to-print-on-demand-in-2025-start-your-business-today">print on demand</a> prints one shirt at a time as orders come in — a different model with different trade-offs.</p>
+  </section>
+
+  <section id="samples">
+    <h2>Why the Sample Matters More Than the Quote</h2>
+    <p>Price quotes are estimates; a sample is evidence. A single sample shirt answers questions no quote can: does the ink color match your brand on this exact fabric? Does the print placement sit right on an extra-small and a 3XL? Does the garment's fit match its size chart? Printers expect sample requests on serious orders, and the good ones encourage them. When the sample arrives, wash it once before approving — that single wash reveals more about durability than any spec sheet. Photograph the approved sample next to its proof and keep both with your order records; on reorders, that photo is your quality reference.</p>
+    <p>For group and team orders, the sample also settles the most common dispute in custom apparel: sizing. Pass it around, let people try it on, and collect real size commitments instead of guesses. A fifteen-minute fitting session prevents the classic outcome of twenty mediums nobody wanted.</p>
+  </section>
+
+  <section id="mistakes">
+    <h2>6. Common Mistakes to Avoid</h2>
+    <ul>
+      <li><strong>Choosing the garment on price alone.</strong> A shirt nobody wears is the most expensive shirt you can buy.</li>
+      <li><strong>Approving proofs in a hurry.</strong> Typos on 200 shirts are permanent.</li>
+      <li><strong>Ignoring the fabric-method match.</strong> Sublimation on cotton and plastisol on uncoated polyester are the two classic failures.</li>
+      <li><strong>Skipping the sample.</strong> Screens render colors differently than monitors; one sample answers every question.</li>
+      <li><strong>Forgetting reorders.</strong> If this design will be reprinted, save the exact garment SKU, ink colors, and file versions.</li>
+    </ul>
+    <p>Prefer to make shirts yourself instead of ordering? Our <a href="/blog/the-ultimate-guide-to-custom-apparel-how-to-print-on-t-shirts-at-home-without-losing-your-mind">home printing guide</a> covers the DIY methods. And if sustainability matters to your brand, read our <a href="/blog/green-threads-navigating-eco-friendly-printing-methods-for-custom-ai-generated-apparel">eco-friendly printing guide</a> before choosing inks and fabrics. You can also browse finished designs for inspiration in our <a href="/designs">design collection</a>.</p>
+  </section>
+
+  <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+    <h2>Frequently Asked Questions</h2>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">What is the cheapest way to make custom apparel?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">For large quantities of a simple design, screen printing has the lowest per-unit cost. For one-offs or small batches, DTG or print-on-demand avoids setup fees entirely. The cheapest method depends on your quantity and design complexity, not on the method alone.</p>
+      </div>
+    </div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Screen printing vs DTG — which should I choose?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Choose screen printing for 24+ units of a design with few colors — it's more durable and cheaper at volume. Choose DTG for small runs, photographic designs, or unlimited colors with no setup cost. For dark polyester, consider DTF instead.</p>
+      </div>
+    </div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">What file format do printers need?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Vector files (AI, EPS, SVG) are ideal because they scale without losing quality. For photographic designs, supply a raster file (PNG, PSD) at 300 DPI at the actual print size. Always include Pantone codes if exact brand colors matter.</p>
+      </div>
+    </div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">How far in advance should I order custom shirts?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Allow at least two to three weeks for standard production plus shipping, more for embroidery or large runs. Ordering a sample first adds a few days but prevents expensive mistakes. Rush production is available from most shops at a premium.</p>
+      </div>
+    </div>
+    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <h3 itemprop="name">Can I reorder the same design later?</h3>
+      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Yes — keep the garment SKU, ink colors or Pantone codes, print dimensions, and your approved files. Printers can usually match a previous run exactly if you supply the same specifications, though dye lots and garment availability can vary.</p>
+      </div>
+    </div>
+  </section>
+</article>
