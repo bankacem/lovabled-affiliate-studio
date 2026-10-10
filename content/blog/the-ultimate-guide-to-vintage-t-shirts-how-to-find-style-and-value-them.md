@@ -1,14 +1,14 @@
 ---
-title: "Vintage T-Shirts: How to Find, Style & Value Them (2026 Guide)"
+title: "Vintage T-Shirts: Find, Style & Value Them (2026)"
 slug: "the-ultimate-guide-to-vintage-t-shirts-how-to-find-style-and-value-them"
-description: "Vintage t-shirts decoded: how to tell real from vintage-inspired, where to find authentic pieces, what drives their value, and how to style and care for them."
+description: "Vintage t-shirts: how to find authentic pieces, tell real from vintage-inspired, what drives value, plus styling and care. The 2026 collector's guide."
 category: "Vintage & Retro"
 tags: ["vintage t-shirts", "vintage fashion", "thrift shopping", "graphic tees", "retro style"]
 author: "Emma Carter"
 image: "/blog-images/vintage-t-shirts-guide.webp"
 image_alt: "Vintage T-Shirts: How to Find, Style & Value Them (2026 Guide)"
 date: "2026-01-19"
-updated: "2026-10-09"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "9 min read"

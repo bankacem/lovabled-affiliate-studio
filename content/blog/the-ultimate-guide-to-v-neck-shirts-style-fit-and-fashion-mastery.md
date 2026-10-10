@@ -1,7 +1,7 @@
 ---
-title: "V-Neck T-Shirts: The Ultimate Guide to Style, Fit & Fashion"
+title: "V-Neck Style Guide: Fit, Depth & Fashion (2026)"
 slug: "the-ultimate-guide-to-v-neck-shirts-style-fit-and-fashion-mastery"
-description: "Master the v-neck t-shirt: exact depth measurements in inches, fit by body type, dos and don'ts, layering, fabrics, care — plus graphic v-necks you can buy."
+description: "The definitive v-neck style guide: exact depth measurements in inches, fit by body type, complete styling dos and don'ts, layering, fabrics and care for 2026."
 category: "Style Guides"
 tags:
   - "v-neck t-shirt"
@@ -13,7 +13,7 @@ author: "Emma Carter"
 image: "/blog-images/v-neck-shirts-ultimate-guide.webp"
 image_alt: "The Ultimate Guide to V-Neck Shirts — folded V-neck t-shirts in white, navy, charcoal and olive"
 date: "2026-01-22"
-updated: "2026-10-09"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "9 min read"

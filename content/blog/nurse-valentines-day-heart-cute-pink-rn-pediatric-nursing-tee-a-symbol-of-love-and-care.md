@@ -1,14 +1,14 @@
 ---
-title: "Nurse Appreciation Shirt Ideas Beyond the Stethoscope"
+title: "Cute Nurse Valentine's Day Shirts: Pink RN Tees (2026)"
 slug: "nurse-valentines-day-heart-cute-pink-rn-pediatric-nursing-tee-a-symbol-of-love-and-care"
-description: "Find thoughtful nurse appreciation shirt ideas with advice on wording, symbols, color, comfort, and respectful designs for Valentine’s Day or any shift."
+description: "Cute nurse Valentine's Day shirts: pink RN tees and pediatric nursing designs for Valentine's shifts. Wording, symbols, colors and comfort tips for nurses."
 category: "Gifts"
 tags: ["nurse gifts", "nurse appreciation shirts", "healthcare gifts"]
 author: "Admin"
 image: "/blog-images/3811b6ccb9341a4ea969.webp"
 image_alt: "Nurse appreciation shirt with a thoughtful heart design"
 date: "2026-01-21"
-updated: "2026-05-09"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "5 min read"

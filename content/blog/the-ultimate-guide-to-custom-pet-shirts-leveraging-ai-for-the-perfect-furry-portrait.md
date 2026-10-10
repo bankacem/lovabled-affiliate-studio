@@ -1,14 +1,14 @@
 ---
-title: "Custom Pet Shirts: Turn Your Dog Into Wearable Art (2026)"
+title: "Custom Pet Shirts: AI Portraits of Your Dog (2026)"
 slug: "the-ultimate-guide-to-custom-pet-shirts-leveraging-ai-for-the-perfect-furry-portrait"
-description: "Custom pet shirts turn your dog's photo into wearable art. Learn photo tips, AI portrait tool options, design styles, and how to order a print that lasts."
+description: "Custom pet shirts turn your dog's photo into wearable art with AI portraits. Photo tips, design styles, print options and complete ordering guidance for 2026."
 category: "Style Guides"
 tags: ["custom pet shirts", "AI pet portraits", "personalized apparel", "dog shirts", "pet gifts"]
 author: "Emma Carter"
 image: "/blog-images/custom-pet-shirts.webp"
 image_alt: "Custom AI pet portrait prepared for a printed shirt"
 date: "2026-07-04"
-updated: "2026-10-09"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "8 min read"

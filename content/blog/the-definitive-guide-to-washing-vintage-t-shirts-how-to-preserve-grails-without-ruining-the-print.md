@@ -1,14 +1,14 @@
 ---
-title: "How to Wash & Care for Vintage T-Shirts (Without Ruining Them)"
+title: "How to Wash Vintage T-Shirts Without Ruining Them (2026)"
 slug: "the-definitive-guide-to-washing-vintage-t-shirts-how-to-preserve-grails-without-ruining-the-print"
-description: "Learn how to wash vintage t-shirts without damaging prints: gentle washing, safe drying, archival storage, stain triage, and how to shrink them safely."
+description: "How to wash and care for authentic vintage t-shirts: gentle washing that protects prints, safe drying, archival storage, stain triage and safe shrinking."
 category: "Vintage & Retro"
 tags: ["vintage t-shirts", "shirt care", "washing guide", "storage", "print preservation", "collecting"]
 author: "Emma Carter"
 image: "/blog-images/vintage-tee-care-guide.webp"
 image_alt: "How to wash and care for vintage t-shirts without ruining the print"
 date: "2026-02-21"
-updated: "2026-10-09"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "9 min read"

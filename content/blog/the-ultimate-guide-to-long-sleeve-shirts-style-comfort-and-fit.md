@@ -1,7 +1,7 @@
 ---
-title: "Long Sleeve Shirts: Style, Comfort & Fit (2026)"
+title: "How to Choose Long Sleeve Shirts for Daily Wear (2026)"
 slug: "the-ultimate-guide-to-long-sleeve-shirts-style-comfort-and-fit"
-description: "Long sleeve shirts decoded: fabrics, fit, sleeve and cuff mechanics, layering formulas and care. The 2026 guide to buying long sleeves that actually last."
+description: "How to choose long sleeve shirts for daily wear: fabrics, fit, cuffs, layering formulas and care. The complete 2026 guide to long sleeves that actually last."
 category: "Style Guides"
 tags: ["long-sleeve shirts", "shirt fit", "layering", "wardrobe basics", "fabric guide"]
 author: "Emma Carter"

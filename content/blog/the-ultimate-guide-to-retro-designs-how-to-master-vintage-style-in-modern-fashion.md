@@ -1,7 +1,7 @@
 ---
-title: "Retro Designs: Master Vintage Style in Modern Fashion (2026)"
+title: "What Is Retro Design? Master Vintage Style (2026)"
 slug: "the-ultimate-guide-to-retro-designs-how-to-master-vintage-style-in-modern-fashion"
-description: "Retro designs bring vintage style into modern fashion. Why the comeback happened, decade design lanes, styling rules, and how to buy quality retro apparel."
+description: "What is retro design? 2026 guide to vintage-inspired graphics in modern fashion: the comeback, decade design lanes, styling rules, buying quality retro apparel."
 category: "Vintage & Retro"
 tags: ["retro designs", "vintage style", "retro fashion", "nostalgia fashion", "retro streetwear"]
 author: "Emma Carter"

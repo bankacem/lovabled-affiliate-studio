@@ -1,7 +1,7 @@
 ---
-title: "Vintage 90s T-Shirt Tags: Spotting the Grails (2026)"
+title: "How to Identify Vintage T-Shirts by Their Tags (2026)"
 slug: "the-definitive-guide-to-identifying-vintage-90s-t-shirt-tags-spotting-the-grails"
-description: "Vintage 90s t-shirt tags decoded: Giant, Brockum, Winterland, Screen Stars and the red flags exposing modern reprints. Read tags like a collector. Start here."
+description: "How to identify vintage t-shirts by tags: Giant, Brockum, Winterland, Screen Stars and red flags exposing modern reprints. Read tags like a collector."
 category: "Vintage & Retro"
 tags: ["vintage t-shirts", "90s tags", "authentication", "thrift guide", "collecting"]
 author: "Emma Carter"

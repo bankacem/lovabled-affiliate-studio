@@ -1,14 +1,14 @@
 ---
-title: "Oversized V-Neck Shirts: How to Style the Trend"
+title: "Oversized V-Neck Shirts: Summer 2026 Style Guide"
 slug: "the-oversized-v-neck-renaissance-mastering-summer-2026s-most-versatile-staple"
-description: "Learn how to style oversized V-neck shirts with guidance on proportions, layering, fabric weight, color, and outfits that keep the relaxed silhouette intentional."
+description: "Oversized v-neck shirts for summer 2026: proportions, layering, fabric weight, colors and outfit formulas that keep the relaxed silhouette intentional."
 category: "Style Guides"
 tags: []
 author: "AI Writer"
 image: "/blog-images/0c7779b48c2beaa067b1.webp"
 image_alt: "The Oversized V-Neck Renaissance: Mastering Summer 2026's Most Versatile Staple"
 date: "2026-02-13"
-updated: "2026-06-13"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "5 min read"

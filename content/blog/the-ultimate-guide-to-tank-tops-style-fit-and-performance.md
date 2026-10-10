@@ -1,7 +1,7 @@
 ---
-title: "Tank Tops: Style, Fit & Performance (2026)"
+title: "Are Tank Tops Supposed to Be Loose or Tight? (2026)"
 slug: "the-ultimate-guide-to-tank-tops-style-fit-and-performance"
-description: "Tank tops done right: types, fabrics, fit by body type, styling and layering. The complete 2026 guide to choosing tank tops for gym, summer and beyond."
+description: "Are tank tops supposed to be loose or tight? Fit rules by body type and activity, fabrics, types and styling. The complete 2026 tank top fit and style guide."
 category: "Style Guides"
 tags: ["tank tops", "summer style", "athletic wear", "shirt fit", "layering"]
 author: "Emma Carter"

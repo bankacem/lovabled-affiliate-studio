@@ -1,14 +1,14 @@
 ---
-title: "Off To Praise The Lord Frog - Funny Christian Meme Graphic: Spreading Joy and Faith through Humor"
+title: "Praise the Lord Frog Meme Shirt: Funny Christian Tee"
 slug: "off-to-praise-the-lord-frog-funny-christian-meme-graphic-spreading-joy-and-faith-through-humor"
-description: "Are you looking for a way to share your Christian faith with others in a lighthearted and humorous way? Look no further than the \\\"Off To Praise The Lord Frog - "
+description: "The Praise the Lord frog meme on a funny Christian t-shirt: share faith with humor. Design meaning, styling and gifting ideas for believers who love memes."
 category: "Design & AI Tools"
 tags: []
 author: "Admin"
 image: "/blog-images/3df2129d573e667c4084.webp"
 image_alt: "Off To Praise The Lord Frog - Funny Christian Meme Graphic: Spreading Joy and Faith through Humor"
 date: "2026-01-22"
-updated: "2026-04-28"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "3 min read"

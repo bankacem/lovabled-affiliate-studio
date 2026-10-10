@@ -1,14 +1,14 @@
 ---
-title: "15 Bride Shirt Ideas for a Bachelorette Party and Beyond"
+title: "15 Bride Shirts for Bachelorette Parties (2026)"
 slug: "15-best-bride-shirts-for-your-bachelorette-party-and-beyond-2025"
-description: "Explore 15 bride shirt ideas for bachelorette weekends, wedding events, and everyday wear, with guidance on wording, fit, fabric, and reusability."
+description: "15 bride shirt ideas for bachelorette parties, wedding weekends and beyond: wording, fit, fabric and reusability guidance for shirts you'll actually rewear."
 category: "Weddings & Bridal"
 tags: ["bride shirts", "bachelorette shirts", "bridal party apparel"]
 author: "Admin"
 image: "/blog-images/8736f07b05542b7cc833.webp"
 image_alt: "Bride shirt ideas for a bachelorette party and wedding events"
 date: "2026-01-17"
-updated: "2026-06-19"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
 read_time: "6 min read"
