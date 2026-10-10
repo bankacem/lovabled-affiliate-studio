@@ -767,6 +767,11 @@
       "source": "/blog/beyond-the-pumpkin-spice-the-ultimate-guide-to-halloween-spooky-season-coffee-mugs",
       "destination": "/blog/the-guide-to-halloween-t-shirts-trends-styling-and-shopping-tips",
       "permanent": true
+    },
+    {
+      "source": "/blog/matching-friend-shirts-the-ultimate-guide-to-friendship-fashion-in-2024",
+      "destination": "/blog/the-ultimate-guide-to-matching-best-friend-aesthetic-t-shirts-beyond-the-bff-cliche",
+      "permanent": true
     }
   ],
   "rewrites": [

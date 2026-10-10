@@ -1,176 +1,146 @@
 ---
-title: "The Ultimate Guide to Personalized Family Reunion Shirts: Design, Quality, and Logistics"
+title: "Family Reunion Shirts: Design, Quality & Logistics (2026)"
 slug: "the-ultimate-guide-to-personalized-family-reunion-shirts-design-quality-and-logistics"
-description: "Walk into any state park or hotel lobby in July, and you’ll likely spot them: a sea of matching neon green or royal blue shirts emblazoned with a family crest or a pun about \\\"Deep Roots.\\\" While some might dismiss personalized family reunion shirts as a cliché, there is a profound psychological eleme"
-category: "Design & AI Tools"
-tags: []
+description: "Family reunion shirts: design themes, fabric and print-method choices for big groups, plus a logistics plan for sizing and ordering without the chaos."
+category: "T-Shirts"
+tags: ["family reunion shirts", "matching family shirts", "custom group t-shirts", "reunion planning", "bulk t-shirt ordering"]
 author: "Emma Carter"
-image: "/blog-images/0fd6cb11ea8f1792c750.webp"
-image_alt: "The Ultimate Guide to Personalized Family Reunion Shirts: Design, Quality, and Logistics"
+image: "/blog-images/family-reunion-shirts.webp"
+image_alt: "Family Reunion Shirts: Design, Quality & Logistics (2026)"
 date: "2026-07-03"
-updated: "2026-07-03"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
-read_time: "5 min read"
+read_time: "9 min read"
 ---
 <article>
-  <h1>The <a href="/blog/p-the-ultimate-guide-to-the-best-custom-t-shirt-printing-sites-quality-cost-and-reliability-compared" class="auto-link internal-link" title="The Ultimate Guide to the Best Custom T-Shirt Printing Sites: Quality, Cost, and Reliability Compared">Ultimate Guide</a> to Personalized Family Reunion Shirts: Design, Quality, and Logistics</h1>
+<p>Walk into any state park or hotel lobby in July and you'll likely spot them: a sea of matching shirts in one bold color, emblazoned with a family name or a reunion year. Family reunion shirts are part practical tool, part souvenir — they help the group stay visible and give everyone something to take home. This guide covers the three things that determine whether yours succeed: <strong>design, quality, and logistics</strong>.</p>
 
-  <div class="toc">
-    <h3>Table of Contents</h3>
-    <ul>
-      <li><a href="#psychology">The Psychology of the Reunion Shirt</a></li>
-      <li><a href="#fabric-science">Fabric and Material Science: Beyond the $5 Tee</a></li>
-      <li><a href="#printing-methods">Comparison of Printing Methods</a></li>
-      <li><a href="#design-trends">Current Design Trends and Themes</a></li>
-      <li><a href="#logistics">Managing the Logistics: Sizing and Ordering</a></li>
-      <li><a href="#eco-friendly">The Rise of Sustainable Options</a></li>
-      <li><a href="#faq">Frequently Asked Questions</a></li>
-    </ul>
-  </div>
+<div class="toc">
+<h3>Table of Contents</h3>
+<ul>
+<li><a href="#why-it-works">Why the Reunion Shirt Works</a></li>
+<li><a href="#fabric">Fabric: Beyond the Budget Tee</a></li>
+<li><a href="#printing-methods">Printing Methods Compared</a></li>
+<li><a href="#design-trends">Design Themes That Work</a></li>
+<li><a href="#logistics">Logistics: Sizing and Ordering Without Chaos</a></li>
+<li><a href="#day-of-checklist">Reunion-Day Checklist</a></li>
+<li><a href="#eco">Sustainable Options</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
 
-  <div class="summary">
-    <h3>Key Takeaways</h3>
-    <ul>
-      <li>Standard 100% cotton is reliable, but tri-blends offer superior comfort for high-heat summer reunions.</li>
-      <li>Screen printing remains the <a href="/blog/p-the-ultimate-guide-to-custom-photo-shirts-why-personalized-apparel-is-the-gold-standard-for-gifting" class="auto-link internal-link" title="The Ultimate Guide to Custom Photo Shirts: Why Personalized Apparel is the Gold Standard for Gifting">gold standard</a> for large groups (50+), while DTG is better for small, colorful designs.</li>
-      <li>Choosing a "unisex" fit often alienates female family members; offering a variety of cuts increases wearability post-event.</li>
-      <li>Organizing orders via a dedicated online portal prevents the "Uncle Bob forgot to pay" headache.</li>
-    </ul>
-  </div>
+<div class="summary">
+<h3>Key Takeaways</h3>
+<ul>
+<li>Ring-spun cotton is the comfort baseline; tri-blends handle hot outdoor reunions best.</li>
+<li>Screen printing suits large groups with simple artwork; DTG suits small groups and photo designs.</li>
+<li>Offer multiple fits — a single "unisex" cut rarely flatters everyone.</li>
+<li>Use an online ordering link so each household picks sizes and pays individually.</li>
+</ul>
+</div>
 
-  <section id="psychology">
-    <h2>The Psychology of the Reunion Shirt</h2>
-    <p>Walk into any state park or hotel lobby in July, and you’ll likely spot them: a sea of matching neon green or royal blue shirts emblazoned with a family crest or a pun about "Deep Roots." While some might dismiss personalized family reunion shirts as a cliché, there is a profound psychological element at play. These garments act as a social lubricant.</p>
+<section id="why-it-works">
+<h2>Why the Reunion Shirt Works</h2>
+<p>A shared shirt does two jobs at once. Socially, it signals belonging — distant cousins who haven't spoken in years get an instant conversation starter and a visible marker that they're part of the same team. Practically, one bright color makes a scattered group easy to spot across a park, resort, or crowded restaurant.</p>
+<p>The shirts that get worn again after the event share one trait: they look like something someone would actually buy. Keep that as your design compass and the rest gets easier.</p>
+</section>
 
-    <p>In my years of observing group dynamics and event planning, the "uniform" serves to immediately break down barriers between distant cousins who haven't spoken in a decade. It signals belonging. According to social identity theory, wearing shared apparel reinforces a sense of community and reduces the "out-group" feeling that can plague large, multi-generational gatherings. Beyond the sentiment, they serve a practical safety purpose—try spotting a runaway toddler in a crowded theme park without a bright, identifying shirt. It's nearly impossible.</p>
+<section id="fabric">
+<h2>Fabric: Beyond the Budget Tee</h2>
+<p>It's tempting to order the cheapest heavy-cotton blank available. For an outdoor summer reunion, reconsider: a heavy 6 oz cotton shirt in humid heat feels miserable by noon, and scratchy fabric guarantees the shirt lives in a drawer afterward.</p>
+<p><strong>Ring-spun cotton</strong> is the minimum worth buying — the fibers are twisted and thinned during spinning, which makes it noticeably softer than basic carded cotton. <strong>Tri-blends</strong> (polyester/cotton/rayon) go further: they breathe well, drape nicely, and resist the boxy shrinkage cheap shirts develop after a few washes. If the reunion is in serious heat, lighter fabric weights (around 4 oz) are worth the small premium.</p>
+<p>One fit note: offering a women's cut alongside the standard unisex blank meaningfully increases the odds people wear the shirt again. It's a small logistics addition with a big wearability payoff.</p>
+</section>
 
-    <img src="/placeholder.svg" alt="A multi-generational family wearing matching navy blue custom t-shirts standing in a park, smiling for a group photo.">
-  </section>
+<section id="printing-methods">
+<h2>Printing Methods Compared</h2>
+<p>The right decoration method depends on headcount and artwork complexity:</p>
+<table class="comparison-table">
+<thead>
+<tr><th>Method</th><th>Strengths</th><th>Limitations</th><th>Best For</th></tr>
+</thead>
+<tbody>
+<tr><td>Screen printing</td><td>Vibrant colors; cost-effective at 24+ pieces</td><td>Setup fees; limited color count</td><td>Large families (50+) with 1–3 color logos</td></tr>
+<tr><td>Direct-to-garment (DTG)</td><td>No minimums; handles photos and fine detail</td><td>Higher per-unit cost; prints can fade faster</td><td>Small groups or photo-based designs — see our <a href="/blog/what-is-dtg-printing-the-2024-guide-to-direct-to-garment-technology">DTG guide</a></td></tr>
+<tr><td>Sublimation</td><td>Zero-feel print that never cracks or peels</td><td>Only works on light, high-polyester fabrics</td><td>Athletic-style shirts for "family olympics" events</td></tr>
+<tr><td>Heat-transfer vinyl</td><td>Easy individual names and numbers</td><td>Can feel plasticky; may peel over time</td><td>Adding names to the back for small groups</td></tr>
+</tbody>
+</table>
+</section>
 
-  <section id="fabric-science">
-    <h2>Fabric and Material Science: Beyond the $5 Tee</h2>
-    <p>You might be tempted to go for the cheapest heavy-cotton gildan you can find. Resist that urge. If your reunion is outdoors in the humid South or the dry heat of the West, a heavy 6.1 oz cotton shirt will feel like wearing a lead blanket by noon. What's interesting is that the perceived value of the event often correlates with the quality of the swag.</p>
+<section id="design-trends">
+<h2>Design Themes That Work</h2>
+<p>The strongest reunion designs look "retail-ready" rather than clip-art assembled. Current directions that hold up:</p>
+<ul>
+<li><strong>Badge and national-park style:</strong> Vintage typography in a badge layout with the family name and year. Rugged, timeless, and it flatters every age group.</li>
+<li><strong>Minimalist typography:</strong> Just the family name in a bold modern font across the chest. Teenagers will actually wear this to school.</li>
+<li><strong>The lineage list:</strong> Surnames of the family branches on the back, showing how the branches merged into the current generation.</li>
+<li><strong>Retro sunset:</strong> 70s/80s-style lettering with sunset gradients — a nostalgia hit for Gen X and grandparents that's ironically cool for Gen Z.</li>
+</ul>
+<p>Design discipline matters: limit the artwork to two colors. It keeps screen-printing affordable and prevents the shirt from looking cluttered. If a relative is a graphic designer, let them lead; otherwise most printers offer templates far better than a hand-drawn sketch.</p>
+<p>For more theme inspiration, see our <a href="/blog/15-adorable-matching-family-shirt-ideas-for-every-occasion-2024-guide">15 matching family shirt ideas</a>.</p>
+</section>
 
-    <p>For a premium feel, <strong>Ringspun Cotton</strong> is the minimum baseline. Unlike carded open-end cotton (the scratchy stuff), ringspun fibers are twisted and thinned, resulting in a significantly softer hand-feel. If the budget allows, <strong>Tri-blends</strong> (a mix of polyester, cotton, and rayon) are the <a href="/blog/the-holy-grail-of-cotton-most-valuable-vintage-t-shirts-to-collect-in-2026" class="auto-link internal-link" title="The Holy Grail of Cotton: Most Valuable Vintage T-Shirts to Collect in 2026">holy grail</a>. They offer a vintage drape, excellent breathability, and they don’t shrink into a square shape after one wash.</p>
+<section id="logistics">
+<h2>Logistics: Sizing and Ordering Without Chaos</h2>
+<p>Collecting sizes and money from 40 people across six states is where most reunion plans break down. Two approaches solve it:</p>
+<p><strong>Online pop-up shops.</strong> Many custom apparel companies host a temporary ordering link for your group. Each household picks its own sizes, pays individually, and shirts ship to one address or directly to each home. This eliminates the dreaded "money collector" role entirely.</p>
+<p><strong>The manual route, done right.</strong> Use one shared spreadsheet (name, size, paid), set a hard order deadline two weeks before you think you need it, and order about 10% extra in the most common sizes (Large and XL). Someone always spills BBQ sauce, and a spare shirt makes you the hero of the reunion.</p>
+<p>Whichever route you take, confirm with the printer that youth and toddler sizes carry the <em>same</em> design — print areas shrink on small garments, which sometimes requires a resized layout.</p>
+</section>
 
-    <p>Statistics from the promotional products industry suggest that high-quality apparel is kept for an average of 14 months, whereas "budget" shirts are often discarded or relegated to the rag bin within weeks. If you want the family to <a href="/blog/25-unique-bachelor-party-shirt-ideas-your-crew-will-actually-wear-again" class="auto-link internal-link" title="25 Unique Bachelor Party Shirt Ideas Your Crew Will Actually Wear Again">actually wear</a> these shirts again, invest in a 4.2 oz or 3.8 oz fabric weight.</p>
-  </section>
+<section id="eco">
+<h2>Sustainable Options</h2>
+<p>Organic cotton and recycled-polyester (rPET) blanks are widely available from most custom printers now. They cost more than standard blanks, but for families trying to reduce fast-fashion waste — especially for a nature-themed reunion — the trade-off is worth discussing with the group. Another simple sustainability win: skip year-specific designs so the shirts stay wearable (and giftable) for years. Our <a href="/blog/green-threads-navigating-eco-friendly-printing-methods-for-custom-ai-generated-apparel">eco-friendly printing guide</a> covers the print methods in more depth.</p>
+</section>
 
-  <section id="comparison" class="comparison-section">
-    <h2>Comparison of <a href="/blog/green-threads-navigating-eco-friendly-printing-methods-for-custom-ai-generated-apparel" class="auto-link internal-link" title="Green Threads: Navigating Eco-Friendly Printing Methods for Custom AI-Generated Apparel">Printing Methods</a></h2>
-    <p>Choosing the right decoration method depends entirely on your headcount and the complexity of your artwork. Here is how the most common methods stack up for a family reunion scenario:</p>
+<section id="day-of-checklist">
+<h2>Reunion-Day Checklist</h2>
+<p>A short run-sheet for the morning of the event:</p>
+<ul>
+<li><strong>Spare shirts:</strong> Bring the extras in Large and XL, plus a stain-removal pen. Someone always needs one.</li>
+<li><strong>Group photo window:</strong> Schedule the big photo early, before heat, food, and activities take their toll on the shirts.</li>
+<li><strong>Name tags (optional):</strong> For large reunions, peel-and-stick tags with first names plus family branch ("Lisa — Miller side") help distant relatives actually talk to each other.</li>
+<li><strong>A "shirt captain":</strong> One person holds the spares and handles last-minute swaps so the organizer isn't doing it mid-barbecue.</li>
+</ul>
+</section>
 
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Printing Method</th>
-          <th>Pros</th>
-          <th>Cons</th>
-          <th>Durability</th>
-          <th>Best For</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Screen Printing</td>
-          <td class="text-green-600">Vibrant colors, very cost-effective for large batches (24+).</td>
-          <td class="text-red-600">High setup fees; limited to fewer colors.</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>Large families (50+) with 1-3 color logos.</td>
-        </tr>
-        <tr>
-          <td>Direct-to-Garment (DTG)</td>
-          <td class="text-green-600">No minimums, handles high-detail photos perfectly.</td>
-          <td class="text-red-600">Expensive per unit; colors can fade faster.</td>
-          <td>⭐⭐⭐</td>
-          <td>Small groups or shirts featuring a family photo.</td>
-        </tr>
-        <tr>
-          <td>Sublimation</td>
-          <td class="text-green-600">Breathable "zero-feel" print; will never crack or peel.</td>
-          <td class="text-red-600">Only works on high-polyester white/light fabrics.</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>Performance/Athletic wear for "Family Olympics."</td>
-        </tr>
-        <tr>
-          <td>Heat Transfer Vinyl (HTV)</td>
-          <td class="text-green-600">Great for individual names/numbers on the back.</td>
-          <td class="text-red-600">Can feel "plastic-y" and heavy; may peel over time.</td>
-          <td>⭐⭐</td>
-          <td>Personalizing individual names for a small group.</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="design-trends">
-    <h2>Current <a href="/blog/the-renaissance-of-the-great-outdoors-why-retro-national-park-souvenir-stickers-are-dominating-desig" class="auto-link internal-link" title="The Renaissance of the Great Outdoors: Why Retro National Park Souvenir Stickers Are Dominating Design Trends">Design Trends</a> and Themes</h2>
-    <p>We are seeing a move away from the "Tree with Names" trope. While classic, modern families are opting for more "retail-ready" aesthetics. Here’s what’s actually working in the current landscape:</p>
-
-    <ul>
-      <li><strong>The "<a href="/blog/the-renaissance-of-the-great-outdoors-why-retro-national-park-souvenir-stickers-are-dominating-desig" class="auto-link internal-link" title="The Renaissance of the Great Outdoors: Why Retro National Park Souvenir Stickers Are Dominating Design Trends">National Park</a>" Aesthetic:</strong> Using vintage typography and badge-style layouts that mimic the look of Zion or Yosemite souvenirs. It feels rugged and timeless.</li>
-      <li><strong>Minimalist Typography:</strong> Just the family name in a bold, modern sans-serif font across the chest. It’s something a teenager might <a href="/blog/25-unique-bachelor-party-shirt-ideas-your-crew-will-actually-wear-again" class="auto-link internal-link" title="25 Unique Bachelor Party Shirt Ideas Your Crew Will Actually Wear Again">actually wear</a> to school.</li>
-      <li><strong>The "Lineage" List:</strong> A list of surnames on the back, representing the branches that merged to create the current generation.</li>
-      <li><strong>Retro 70s/80s:</strong> Think "Stranger Things" fonts and sunset gradients. It hits the nostalgia button for the Gen X and Boomer crowd while being "ironically cool" for Gen Z.</li>
-    </ul>
-
-    <p>In my experience, the most successful designs use no <a href="/blog/the-quiet-revolution-why-the-choose-peace-over-chaos-minimalist-shirt-is-more-than-a-fashion-stateme" class="auto-link internal-link" title="The Quiet Revolution: Why the 'Choose Peace Over Chaos' Minimalist Shirt is More Than a Fashion Statement">more than</a> two colors. Not only does this keep screen-printing costs down, but it also prevents the shirt from looking cluttered. Here's a pro tip: if you have a family member who is a graphic designer, let them lead. If not, many online platforms like Canva or even the printer's in-house staff provide templates that are far better than a hand-drawn sketch.</p>
-  </section>
-
-  <section id="logistics">
-    <h2>Managing the Logistics: Sizing and Ordering</h2>
-    <p>This is where most reunion organizers lose their minds. Collecting sizes from 40 people across six states is a recipe for disaster. You might be wondering, "How do I ensure I don't get stuck with ten extra Large shirts and no 2XLs?"</p>
-
-    <p>The solution is <strong>Online Pop-up Shops</strong>. Many modern custom apparel companies offer a service where they host a temporary link specifically for your family. Each branch of the family goes in, selects their size, pays individually, and the shirts are either shipped to the organizer or directly to the individual’s home. This eliminates the "money collector" role, which is the most thankless job in family planning.</p>
-
-    <img src="/placeholder.svg" alt="A screenshot of a spreadsheet tracking t-shirt sizes, payments, and shipping addresses for a family event.">
-
-    <p>If you prefer the manual route, always order "The Rule of 10%." Order 10% <a href="/blog/the-quiet-revolution-why-the-choose-peace-over-chaos-minimalist-shirt-is-more-than-a-fashion-stateme" class="auto-link internal-link" title="The Quiet Revolution: Why the 'Choose Peace Over Chaos' Minimalist Shirt is More Than a Fashion Statement">more than</a> you think you need in the most common sizes (Large and XL). Someone will inevitably spill BBQ sauce on theirs, or a long-lost cousin will show up unannounced. Being the hero with a spare shirt is worth the extra $20 in the budget.</p>
-  </section>
-
-  <section id="eco-friendly">
-    <h2>The Rise of Sustainable Options</h2>
-    <p>What's interesting is the growing demand for organic and recycled materials in the custom apparel space. Many families are now opting for 100% <a href="/blog/the-invisible-layer-why-organic-cotton-white-v-nicks-are-the-gold-standard-for-sensitive-skin" class="auto-link internal-link" title="The Invisible Layer: Why Organic Cotton White V-Nicks are the Gold Standard for Sensitive Skin">organic cotton</a> or shirts made from recycled plastic bottles (RPET). While these carry a price premium—usually 15-25% higher—they align with the values of younger generations who are increasingly wary of "fast fashion" waste.</p>
-
-    <p>Brands like Allmade or Econscious are leading this space. If your family reunion is centered around a "return to nature" or a camping trip, an eco-friendly shirt isn't just a piece of clothing; it's a statement about the world you want to leave for the next generation of that family tree.</p>
-  </section>
-
-  <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
-    <h2>Frequently Asked Questions</h2>
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">How far in advance should I order family reunion shirts?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">You should ideally start the process 6-8 weeks before the event. This allows two weeks for design, two weeks for collecting sizes/money, and two weeks for production and shipping. Always include a "buffer week" for shipping delays.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">What is the best color for family reunion shirts?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Bright colors like Heather Royal, Kelly Green, or Safety Orange are best for visibility in crowds. However, Heather Grey and Navy are the most likely to be worn again after the event. Avoid white, as it is prone to stains during outdoor meals.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Do I need a different shirt for kids and adults?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">While the design should be the same, you must ensure your printer offers the same garment in "Youth" and "Toddler" sizes. Note that the print size on a 2T shirt will be much smaller than on an Adult 3XL, which may require two different "screens" in screen printing.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">How can I keep the cost per shirt under $10?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">To hit a sub-$10 price point, you generally need to order at least 50 shirts, use a single-color print in one location, and choose a "Standard" cotton garment rather than a premium tri-blend.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Should I include the year on the design?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">In my experience, yes. Including the year or "The [Name] Annual Reunion" turns the shirt into a collectible memento. It helps family members distinguish between the "2022 Lake Trip" and the "2026 Mountain Retreat" in their wardrobes.</p>
-      </div>
-    </div>
-  </section>
+<figure style="margin: 2rem 0;">
+<img src="/blog-images/reunion-shirt-logistics-checklist.webp" alt="Bulk-ordering checklist for family reunion shirts: sizes, proof, timeline, budget and distribution." loading="lazy" style="width:100%;height:auto;border-radius:12px;" />
+<figcaption style="text-align:center;color:#666;font-size:0.9rem;margin-top:0.5rem;">Reunion shirt bulk-ordering checklist</figcaption>
+</figure>
+<section id="faq" class="faq" itemscope itemtype="https://schema.org/FAQPage">
+<h2>Frequently Asked Questions</h2>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">How far in advance should I order family reunion shirts?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Start 6–8 weeks before the event: two weeks for design, two for collecting sizes and payments, and two for production and shipping — plus a buffer week for delays.</p>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">What is the best color for family reunion shirts?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Bright colors like royal blue or kelly green maximize visibility in crowds. Heather grey and navy get worn most often after the event. Avoid white for outdoor meal-heavy reunions.</p>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Do I need different shirts for kids and adults?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Same design, but make sure your printer offers it in youth and toddler sizes. Print areas are much smaller on a 2T shirt than an adult 3XL, which can require a resized layout for screen printing.</p>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Screen printing or DTG for a reunion?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Screen printing for 24+ shirts with simple artwork — it's the most cost-effective per unit. DTG for smaller groups, photo designs, or when everyone wants something slightly different.</p>
+</div>
+</div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Should I include the year on the design?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Yes — the year turns the shirt into a collectible that distinguishes each reunion in the wardrobe. If you want maximum re-wearability, keep the year small, e.g. on a sleeve.</p>
+</div>
+</div>
+</section>
 </article>
