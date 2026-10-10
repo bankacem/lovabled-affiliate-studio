@@ -772,6 +772,21 @@
       "source": "/blog/matching-friend-shirts-the-ultimate-guide-to-friendship-fashion-in-2024",
       "destination": "/blog/the-ultimate-guide-to-matching-best-friend-aesthetic-t-shirts-beyond-the-bff-cliche",
       "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-custom-gifts-why-personalized-presents-mean-more",
+      "destination": "/blog/beyond-the-monogram-the-definitive-guide-to-the-best-personalized-gifts-of-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/silly-teachers-build-character-funny-goose-teacher-sel-aesthetic-shirt-the-ultimate-guide-to-spreadi",
+      "destination": "/blog/the-ultimate-guide-to-funny-teacher-shirts-why-humor-is-the-best-classroom-management-tool",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-valentines-day-shirts-trends-styling-tips-and-gift-ideas",
+      "destination": "/blog/valentines-day-shirts-the-complete-guide-for-couples-and-singles",
+      "permanent": true
     }
   ],
   "rewrites": [
