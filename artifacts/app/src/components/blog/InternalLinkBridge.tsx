@@ -214,7 +214,7 @@ function SuggestionCard({ suggestion, variant, index }: SuggestionCardProps) {
       >
         {/* Image */}
         {post.featured_image && (
-          <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+          <div className="relative aspect-[120/63] overflow-hidden bg-muted">
             <img
               src={post.featured_image}
               alt=""
