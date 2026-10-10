@@ -737,6 +737,36 @@
       "source": "/blog/the-guide-to-thanksgiving-shirts-trends-styling-tips-and-custom-ideas",
       "destination": "/blog/turkey-day-shirts-the-ultimate-guide-to-thanksgiving-fashion-and-trends",
       "permanent": true
+    },
+    {
+      "source": "/blog/the-art-of-the-fade-why-worn-out-vintage-band-t-shirts-are-the-ultimate-style-flex",
+      "destination": "/blog/the-art-of-the-archive-a-masterclass-in-styling-vintage-t-shirts",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-spooky-shirts-from-gothic-elegance-to-retro-horror",
+      "destination": "/blog/the-guide-to-halloween-t-shirts-trends-styling-and-shopping-tips",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-retro-design-is-making-a-massive-comeback-in-2024",
+      "destination": "/blog/the-ultimate-guide-to-retro-designs-how-to-master-vintage-style-in-modern-fashion",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-renaissance-of-the-great-outdoors-why-retro-national-park-souvenir-stickers-are-dominating-desig",
+      "destination": "/blog/the-neon-nostalgia-why-80s-retro-sunset-graphic-stickers-are-dominating-design-trends",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-resurgence-of-americana-why-vintage-college-style-font-stickers-are-dominating-modern-design",
+      "destination": "/blog/the-neon-nostalgia-why-80s-retro-sunset-graphic-stickers-are-dominating-design-trends",
+      "permanent": true
+    },
+    {
+      "source": "/blog/unveiling-the-power-of-protest-pro-democracy-in-memoriam-stamp-retro-anti-fascism-resist-tee",
+      "destination": "/blog/big-fan-of-human-rights-radicalized-by-basic-decency-retro-t-shirt-a-symbol-of-solidarity-and-activi",
+      "permanent": true
     }
   ],
   "rewrites": [
