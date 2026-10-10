@@ -717,6 +717,26 @@
       "source": "/blog/the-ultimate-guide-to-fathers-day-t-shirts-trends-personalization-and-gift-ideas",
       "destination": "/blog/the-ultimate-guide-to-fathers-day-graphic-tees-style-quality-and-sentimental-value",
       "permanent": true
+    },
+    {
+      "source": "/blog/ditch-the-itch-7-refreshing-ugly-christmas-sweater-alternatives-that-actually-look-good",
+      "destination": "/blog/the-guide-to-ugly-christmas-sweaters-history-trends-and-styling-tips",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-easter-shirts-trends-styling-tips-and-shopping-secrets",
+      "destination": "/blog/the-definitive-guide-to-easter-shirts-trends-fabrics-and-family-traditions-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/easter-bunny-shirts-the-ultimate-guide-to-style-trends-and-shopping-in-2024",
+      "destination": "/blog/the-definitive-guide-to-easter-shirts-trends-fabrics-and-family-traditions-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-guide-to-thanksgiving-shirts-trends-styling-tips-and-custom-ideas",
+      "destination": "/blog/turkey-day-shirts-the-ultimate-guide-to-thanksgiving-fashion-and-trends",
+      "permanent": true
     }
   ],
   "rewrites": [

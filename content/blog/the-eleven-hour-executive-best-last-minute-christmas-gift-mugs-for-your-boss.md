@@ -1,188 +1,106 @@
 ---
-title: "Last-Minute Christmas Gift Mugs for Your Boss: Best Options 2026"
+title: "Last-Minute Christmas Gifts for Your Boss (2026)"
 slug: "the-eleven-hour-executive-best-last-minute-christmas-gift-mugs-for-your-boss"
-description: "Finding yourself in a panic on December 23rd is practically a holiday tradition. You realize everyone in the department is chipping in for a group gift, or worse, your boss just handed you a thoughtful card and you’ve got nothing but a \\\"Merry Christmas\\\" and a sheepish grin. This is where the humble "
+description: "Last-minute Christmas gifts for your boss, done right: workplace etiquette rules, a December 23rd timeline playbook, and 12 gift ideas that land well."
 category: "Gifts"
-tags: []
+tags: ["gifts for boss", "last minute christmas gifts", "workplace gifts", "christmas gifts", "office etiquette"]
 author: "Emma Carter"
-image: "/blog-images/52767a539e0f49af4307.webp"
-image_alt: "Last-Minute Christmas Gift Mugs for Your Boss: Best Options 2026"
+image: "/blog-images/boss-christmas-gifts.webp"
+image_alt: "Last-minute Christmas gifts for your boss"
 date: "2026-07-07"
-updated: "2026-07-07"
+updated: "2026-10-10"
 status: "published"
 scheduled_at: ""
-read_time: "5 min read"
+read_time: "8 min read"
 ---
-<article>
-  <h1>The Eleven-Hour Executive: Best Last-Minute <a href="/blog/the-ultimate-2026-christmas-gift-guide-50-ideas-for-everyone-on-your-list" class="auto-link internal-link" title="The Ultimate 2026 Christmas Gift Guide: 50+ Ideas for Everyone on Your List">Christmas Gift</a> Mugs for Your Boss</h1>
+<article><p>Last-minute Christmas gifts for your boss are a special kind of stress: the clock is ticking, the office gift exchange is tomorrow, and the margin for error is thin. A mug is the classic answer — useful, safe, and personal enough when chosen well. This guide covers the etiquette rules that keep a boss gift appropriate, a last-minute playbook for the December 23rd panic, and 12 gift ideas that work when you're out of time but not out of options.</p>
 
-  <div class="toc">
-    <h3>Table of Contents</h3>
-    <ul>
-      <li><a href="#psychology-of-gifting">The Psychology of Gifting Up: Why a Mug?</a></li>
-      <li><a href="#professional-etiquette">Navigating the Minefield of Professional Etiquette</a></li>
-      <li><a href="#top-categories">Top Categories for Corporate Gift Mugs</a></li>
-      <li><a href="#comparison">The Ultimate Comparison Table: Finding the Right Match</a></li>
-      <li><a href="#personalization">Adding the Personal Touch (Even at the Last Minute)</a></li>
-      <li><a href="#last-minute-hacks">Last-Minute Sourcing Hacks: Where to Buy Today</a></li>
-      <li><a href="#faq">Frequently Asked Questions</a></li>
-    </ul>
-  </div>
+<h2>The Etiquette Rules First</h2>
+<p>Gifting upward has unwritten rules. Follow these and the gift reads as thoughtful; break them and it reads as awkward.</p>
+<figure style="margin: 2rem 0;">
+<img src="/blog-images/boss-gift-etiquette.webp" alt="Boss Christmas gift etiquette rules" loading="lazy" style="width:100%;height:auto;border-radius:12px;" />
+<figcaption style="text-align:center;color:#666;font-size:0.9rem;margin-top:0.5rem;">Keep it professional — budget, group gift, card.</figcaption>
+</figure>
+<h3>Keep the budget modest</h3>
+<p>A boss gift should never look expensive. A modest, thoughtful item beats a lavish one — big spending upward can read as currying favor. If the team is doing a group gift, contribute your share and sign the card; don't out-give the group.</p>
+<h3>Keep it professional</h3>
+<p>No gag gifts, no alcohol (unless you know their habits well and the culture supports it), nothing personal like fragrance or clothing. Desk-friendly, home-friendly, or consumable is the safe zone.</p>
+<h3>Consider the group gift first</h3>
+<p>Before buying solo, check whether colleagues are pooling for a group gift. Joining the group gift is often the smartest move — it's expected, it's collective, and it removes the spotlight from you.</p>
+<h3>The card matters more than you think</h3>
+<p>A short, specific, handwritten note — thanking them for something concrete from the year — elevates any gift. Generic "happy holidays" cards are forgettable; two specific sentences are not.</p>
+<h3>Know your workplace culture</h3>
+<p>Some offices do gifts enthusiastically; others barely acknowledge them. Match the energy around you. When in doubt, ask a trusted colleague what the norm is.</p>
 
-  <div class="summary">
-    <h3>Key Takeaways</h3>
-    <ul>
-      <li><strong>Focus on Utility:</strong> High-performance thermal mugs (like Ember or Yeti) are often better received than novelty jokes.</li>
-      <li><strong>Know the Boundary:</strong> Avoid overly personal or "cutesy" humor unless you have an established, long-term rapport.</li>
-      <li><strong>Presentation is King:</strong> A $20 mug in a $10 gift box looks more professional than a $40 mug in a plastic bag.</li>
-      <li><strong>Retail Speed:</strong> Utilize "Buy Online, Pick Up In-Store" (BOPIS) to secure quality items hours before the party.</li>
-    </ul>
-  </div>
+<h2>The Last-Minute Playbook: December 23rd and 24th</h2>
+<p>When time has run out, work this timeline:</p>
+<h3>Morning: decide digital vs. physical</h3>
+<p>If shipping can't arrive in time, go digital or local. A digital gift card with a well-written message beats a late physical gift. Local options — a bakery box, a quality candle from a nearby shop, a bookstore find — can be bought and wrapped the same day.</p>
+<h3>Midday: buy and wrap</h3>
+<p>Keep wrapping simple and clean: solid paper, a ribbon, a proper card. Rushed wrapping in newspaper or a gift bag with the store logo still on it undermines the gift.</p>
+<h3>Evening: write the card</h3>
+<p>Do this last, when you're calm. Two or three specific sentences about the working year. Sign your full name legibly.</p>
+<h3>What to avoid at the last minute</h3>
+<ul>
+<li><p><strong>Anything that needs sizing</strong> — you don't have time to exchange it.</p></li>
+<li><p><strong>Inside jokes</strong> — the humor-to-risk ratio is bad when gifting upward.</p></li>
+<li><p><strong>Overly personal items</strong> — keep the boundary professional.</p></li>
+<li><p><strong>Regifting something visible</strong> — if there's any chance it's recognizable, skip it.</p></li>
+</ul>
 
-  <section id="psychology-of-gifting">
-    <h2>The Psychology of Gifting Up: Why a Mug?</h2>
-    <p>Finding yourself in a panic on December 23rd is practically a holiday tradition. You realize everyone in the department is chipping in for a group gift, or worse, your boss just handed you a thoughtful card and you’ve got nothing but a "Merry Christmas" and a sheepish grin. This is where the humble mug enters the chat. But wait—don't roll your eyes just yet. While "<a href="/blog/the-ultimate-guide-to-being-the-worlds-best-dad-traits-tips-and-modern-fatherhood" class="auto-link internal-link" title="The Ultimate Guide to Being the World's Best Dad: Traits, Tips, and Modern Fatherhood">World's Best</a> Boss" mugs have become a tired sitcom trope, the modern drinkware market has evolved into a legitimate status symbol.</p>
+<h2>12 Last-Minute Boss Gift Ideas</h2>
+<h3>1. A quality desk mug with a clever-but-safe design</h3>
+<p>The classic for a reason: used daily, visible, and personal without being personal. Choose witty over edgy — think clever typography or a tasteful illustration, never a joke that needs explaining.</p>
+<h3>2. Gourmet coffee or tea sampler</h3>
+<p>A small set of quality beans or loose-leaf teas. Safe, consumable, and it shows you put thought into it. Pair with the mug for a complete gift.</p>
+<h3>3. A good notebook and pen</h3>
+<p>A quality notebook with a smooth-writing pen is one of those gifts professionals never buy themselves but always use. Understated and useful.</p>
+<h3>4. Desk plant in a nice pot</h3>
+<p>A low-maintenance plant brightens any office. Choose something hardy and pair it with a clean, modern pot.</p>
+<h3>5. Local bakery or chocolate box</h3>
+<p>A box from a respected local bakery or chocolatier. Consumable, shareable, and it supports a local business — easy to buy on the 23rd.</p>
+<h3>6. Quality candle</h3>
+<p>A well-chosen scented candle in neutral packaging. Safe for home or office, and it feels more considered than its price suggests.</p>
+<h3>7. Book by an author they'd enjoy</h3>
+<p>A business book, biography, or novel matched to their interests. Add a sticky note on the first page explaining why you picked it — that's the personal touch.</p>
+<h3>8. Digital gift card, done properly</h3>
+<p>When time is truly gone: a digital gift card for a bookstore, coffee chain, or general retailer. The key is the message — write a real note, not just "Happy Holidays!" in the default template.</p>
+<h3>9. Gourmet snack box</h3>
+<p>Nuts, dried fruit, quality chocolate, artisan crackers in one box. Feels abundant, requires zero sizing, and works for almost any dietary profile if you choose carefully.</p>
+<h3>10. Insulated travel tumbler</h3>
+<p>A step up from the desk mug for the boss who's always in meetings or commuting. Practical, professional, and used constantly.</p>
+<h3>11. Charitable donation in their name</h3>
+<p>For the boss who has everything: a donation to a cause connected to your industry or community, with a card explaining the choice. Tasteful and memorable.</p>
+<h3>12. The group gift contribution</h3>
+<p>If colleagues are pooling, this is your answer. Contribute fairly, sign the card with a genuine line, and let the collective gift do the work.</p>
 
-    <p>What's interesting is how a simple vessel for caffeine can signal professional respect. According to retail data, the global coffee mug market is projected to reach over $25 billion by 2029. In a corporate setting, a mug isn't just a container; it's a desk fixture. It’s part of their daily workflow. When you choose a high-quality mug, you aren't just giving them a gift; you're improving their Monday mornings. In my experience, a boss who appreciates efficiency will value a mug <a href="/blog/ditch-the-itch-7-refreshing-ugly-christmas-sweater-alternatives-that-actually-look-good" class="auto-link internal-link" title="Ditch the Itch: 7 Refreshing Ugly Christmas Sweater Alternatives That Actually Look Good">that actually</a> keeps their coffee hot through a two-hour board meeting far <a href="/blog/p-the-quiet-revolution-why-the-choose-peace-over-chaos-minimalist-shirt-is-more-than-a-fashion-stateme" class="auto-link internal-link" title="The Quiet Revolution: Why the 'Choose Peace Over Chaos' Minimalist Shirt is More Than a Fashion Statement">more than</a> a decorative trinket that gathers dust.</p>
-  </section>
+<h2>The Thank-You Note Formula</h2>
+<p>If the gift itself is simple, the note does the heavy lifting. A formula that works every time: one sentence of genuine thanks tied to something specific ("thanks for backing the Q3 launch when the timeline slipped"), one sentence looking forward ("looking forward to a strong 2027"), one holiday wish. Sign it by hand. This takes four minutes and it's the part most people skip — which is exactly why it stands out.</p>
+<h2>After Christmas: The Follow-Up</h2>
+<p>The gift exchange isn't the end of the story. In the first week of January, a brief thank-you for any gift they gave you — in person or by message — closes the loop gracefully. If your boss gave the team a holiday gift or bonus, acknowledging it specifically (not just in the group chat) is remembered. Professional relationships are built in these small follow-throughs more than in the gifts themselves.</p>
 
-  <section id="professional-etiquette">
-    <h2>Navigating the Minefield of Professional Etiquette</h2>
-    <p>Before you dash to the nearest department store, we need to talk about the "cringe factor." Gifting "up"—giving a gift to someone who has authority over your paycheck—requires a delicate touch. You want to be seen as thoughtful, not brown-nosed. You want to be friendly, but not overly familiar.</p>
+<h2>Gifts That Fail Upward (Avoid These)</h2>
+<p>Some gifts technically qualify as "safe" but land badly. The impersonal gift card with no note. The obviously regifted candle. The mug with a joke about Mondays that every office has seen a hundred times. The fruitcake-tier gift basket from a gas station. The rule of thumb: if you wouldn't be pleased to receive it from your own boss, don't give it to yours.</p>
+<h2>The Remote Boss</h2>
+<p>If your boss works remotely, the playbook shifts slightly. Ship early — even "last minute" needs two-day delivery math. A digital gift card paired with a genuine video-call thank-you can land better than a physical gift that arrives late. If the team is distributed, coordinate the group gift in the team chat rather than assuming someone local is handling it.</p>
 
-    <p>The golden rule? Look at their current habits. Do they drink espresso or massive 20oz lattes? Are they constantly reheating their coffee in the breakroom microwave? If they are a "tech-forward" leader, a temperature-controlled smart mug is a home run. If they are an outdoorsy, "weekend warrior" type, a rugged vacuum-insulated tumbler is the way to go. Avoid politics, religion, or any humor that could be misinterpreted in an HR file. I’ve seen many well-meaning employees lose points by choosing a mug with a joke that was just a bit too "edgy" for the office environment.</p>
+<h2>Why a Mug Works (When Chosen Well)</h2>
+<p>The mug endures as a boss gift because it sits at the intersection of safe and personal. It's used every workday, it lives on their desk as a small reminder, and the design you choose says something about your taste without saying anything risky. The rules: keep the design clever but office-safe, choose good quality over novelty, pair it with something consumable — coffee, tea, or chocolate — so the gift feels complete rather than bare. Done right, it's the rare last-minute gift that looks anything but.</p>
 
-    <p><a href="/internal-link-corporate-etiquette-guide">Check out our full guide on corporate holiday etiquette here.</a></p>
-  </section>
+<h2>Frequently Asked Questions</h2>
+<h3>How much should I spend on a boss's Christmas gift?</h3>
+<p>Modest is the rule. A thoughtful gift in a moderate range is appropriate; anything lavish risks looking like favoritism-seeking. If there's a group gift, your contribution to it usually covers the expectation.</p>
+<h3>Is it okay to give my boss a funny mug?</h3>
+<p>Lightly funny, yes — clever wordplay or a tasteful illustration is fine. Avoid sarcasm, edgy humor, or anything about work itself. When in doubt, choose charming over comic.</p>
+<h3>Should I give a gift if no one else on the team is?</h3>
+<p>Match the culture. A solo gift in a no-gift team can create awkwardness; a small card with a warm note is a safe middle ground. Ask a trusted colleague about the norm before deciding.</p>
+<h3>What should I write in the card?</h3>
+<p>Two or three specific sentences: thank them for something concrete from the year, wish them well for the holidays. Specificity is what makes it feel genuine instead of obligatory.</p>
+<h3>Is a digital gift card too impersonal for a boss?</h3>
+<p>Not if the message is personal. A digital card with a thoughtful, specific note beats a rushed physical gift. Presentation and words carry it.</p>
 
-  <section id="top-categories">
-    <h2>Top Categories for Corporate Gift Mugs</h2>
-    <p>When time is of the essence, you need to categorize your boss’s personality quickly. Here are the three most successful archetypes for last-minute shopping:</p>
+<h3>What if my boss gives me a gift and I have nothing ready?</h3>
+<p>Don't panic-buy in front of them. Thank them warmly and specifically, and if your workplace culture expects reciprocation, follow up the next day with a small thoughtful item and a card. A graceful thank-you in the moment matters more than a rushed gift.</p>
 
-    <h3>1. The Tech-Savvy Executive</h3>
-    <p>These are the leaders who have the latest smartphone and a clean, minimalist desk. For them, the <strong>Ember Mug 2</strong> is the <a href="/blog/p-the-plastic-free-revolution-why-sustainability-awareness-tote-bags-are-the-new-corporate-gold-standa" class="auto-link internal-link" title="The Plastic-Free Revolution: Why Sustainability Awareness Tote Bags are the New Corporate Gold Standard">gold standard</a>. It allows them to set a precise drinking temperature via an app. It's sleek, it's expensive-looking, and it solves a real problem: cold coffee. You can usually find these at Best Buy or Target for immediate pickup.</p>
-
-    <h3>2. The Commuter & Road Warrior</h3>
-    <p>If your boss is constantly traveling between sites or has a long commute, think durability. Brands like <strong>YETI</strong> or <strong>Stanley</strong> have transcended mere utility to become lifestyle brands. A 20oz Rambler in a professional color like Navy, Charcoal, or Black is a safe, high-quality bet. Most sporting goods stores (Dick's, REI) or even Ace Hardware carry deep stock of these right up until Christmas Eve.</p>
-
-    <h3>3. The Sophisticated Minimalist</h3>
-    <p>For the boss with the glass-walled office and an appreciation for aesthetics, look for <strong>double-walled glass mugs</strong> or <strong>stoneware</strong> from brands like Le Creuset. These look beautiful on a mahogany desk and feel substantial in the hand. They scream "executive presence" without saying a word. Williams-Sonoma or Crate & Barrel are your best bets for these last-minute finds.</p>
-  </section>
-
-  <section id="comparison" class="comparison-section">
-    <h2>Comparison Table: Best Last-Minute Mug Options</h2>
-    <p>You might be wondering which of these fits your specific budget and timeline. Here is a breakdown of the top contenders for that eleventh-hour purchase.</p>
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Mug Option</th>
-          <th>Pros</th>
-          <th>Cons</th>
-          <th>Rating</th>
-          <th>Best For</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Ember Mug 2</strong></td>
-          <td class="text-green-600">Precise temp control, extremely "high-end" feel, app integration.</td>
-          <td class="text-red-600">Expensive, requires charging, not dishwasher safe.</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>The Tech-Forward CEO</td>
-        </tr>
-        <tr>
-          <td><strong>YETI Rambler (20oz)</strong></td>
-          <td class="text-green-600">Indestructible, excellent insulation, dishwasher safe.</td>
-          <td class="text-red-600">Heavy, seen as "common" or less exclusive.</td>
-          <td>⭐⭐⭐⭐</td>
-          <td>The Daily Commuter</td>
-        </tr>
-        <tr>
-          <td><strong>Le Creuset Stoneware</strong></td>
-          <td class="text-green-600">Vibrant colors, classic brand prestige, microwave safe.</td>
-          <td class="text-red-600">No lid, will break if dropped, doesn't keep coffee hot long.</td>
-          <td>⭐⭐⭐</td>
-          <td>The Aesthetic Office</td>
-        </tr>
-        <tr>
-          <td><strong>Fellow Carter Mug</strong></td>
-          <td class="text-green-600">Ceramic interior (no metallic taste), sleek design, fits cup holders.</td>
-          <td class="text-red-600">Harder to find in-store (check boutique coffee shops).</td>
-          <td>⭐⭐⭐⭐⭐</td>
-          <td>The Coffee Connoisseur</td>
-        </tr>
-        <tr>
-          <td><strong>Starbucks Collector Series</strong></td>
-          <td class="text-green-600">Very easy to find last minute, regional designs available.</td>
-          <td class="text-red-600">Can feel "generic" if not chosen carefully.</td>
-          <td>⭐⭐</td>
-          <td>The Absolute Last Resort</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section id="personalization">
-    <h2>Adding the Personal Touch (Even at the Last Minute)</h2>
-    <p>Here’s the thing: a mug by itself can feel a little lonely. If you're worried that a single mug looks like an afterthought, you can "bulk it up" with items that take zero extra time to source. This is what separates the pros from the amateurs.</p>
-
-    <ul>
-      <li><strong>The "Coffee Break" Bundle:</strong> Buy a bag of high-end whole bean coffee (look for a local roaster) and tuck it inside the mug.</li>
-      <li><strong>The "Winter Warmth" Kit:</strong> Include a tin of premium hot cocoa mix and a stirring spoon.</li>
-      <li><strong>The Gift Card Inclusion:</strong> A $10–$20 gift card to a local coffee shop tucked inside the mug adds immediate value.</li>
-    </ul>
-
-    <p>In my experience, the packaging is what sells the "thoughtfulness." If you buy a mug from a department store, ask for a gift box. If they don't have one, grab a roll of high-quality, heavy-weight wrapping paper and a real cloth ribbon. A poorly wrapped gift looks rushed; a perfectly wrapped one looks planned, even if you did it in the parking lot ten minutes before the office party.</p>
-  </section>
-
-  <section id="last-minute-hacks">
-    <h2>Last-Minute Sourcing Hacks: Where to Buy Today</h2>
-    <p>You don't have time for shipping. Amazon Prime's "Two-Day" delivery becomes "Four-Day" during the Christmas rush, and you simply cannot risk it. Here is where you should go right now:</p>
-
-    <ol>
-      <li><strong>Local High-End Roasteries:</strong> They often sell Fellow or Miir brand mugs which are incredibly stylish and high-quality. Plus, you’re supporting local business—a detail you can mention in the card.</li>
-      <li><strong>Department Stores (Nordstrom/Bloomingdale's):</strong> Check the "Home" section. They usually have curated gift sets that are already boxed and ready to go.</li>
-      <li><strong>Whole Foods or High-End Grocers:</strong> You’d be surprised at the quality of the ceramic mugs and locally made pottery found in the "General Goods" aisle of premium grocery stores.</li>
-      <li><strong>Corporate Stationery Stores:</strong> Places like Paper Source or boutique stationery shops often carry mugs with sophisticated, professional designs that you won't find at big-box retailers.</li>
-    </ol>
-  </section>
-
-  <section class="faq" itemscope itemtype="https://schema.org/FAQPage">
-    <h2>Frequently Asked Questions</h2>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Is it okay to give my boss a "funny" mug?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Generally, it's safer to avoid humor unless you have worked together for several years and have a very casual relationship. Sarcastic humor (e.g., "This meeting could have been an email") can sometimes be misconstrued as passive-aggression. When in doubt, go for quality and utility over a joke.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">How much should I spend on a mug for my boss?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">The "sweet spot" is usually between $25 and $50. Anything under $15 can look cheap, while spending over $100 (unless it's a group gift) might make the boss feel uncomfortable. An Ember mug at $130 is acceptable as a group gift, but might be "too much" from an individual contributor.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Should I include a receipt?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Always include a gift receipt if possible, especially for electronic mugs like the Ember or high-end tumblers. It shows you're practical and allows them to exchange it if they already have that specific model or color.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">What are the best colors for a professional gift?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">Stick to "Executive Neutrals": Navy Blue, Matte Black, Slate Gray, or Forest Green. Avoid neon colors, glitter, or overly bright patterns unless you know for a fact that matches their personal style.</p>
-      </div>
-    </div>
-
-    <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-      <h3 itemprop="name">Is a Starbucks mug a good last-minute gift?</h3>
-      <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">It is a "safe" gift, but can feel a bit generic. If you go this route, try to find a "Been There" series mug from a city that has significance to your boss (e.g., their hometown or their favorite vacation spot) to add a layer of thoughtfulness.</p>
-      </div>
-    </div>
-  </section>
+<p>For broader holiday gifting, see our <a href="/blog/the-ultimate-2024-christmas-gift-guide-50-ideas-for-everyone-on-your-list" class="auto-link internal-link">Christmas gift guide: 50 ideas for everyone</a> and our <a href="/blog/rock-around-the-christmas-tree-your-ultimate-guide-to-epic-christmas-t-shirt-designs" class="auto-link internal-link">Christmas t-shirt designs guide</a>, or browse <a href="/designs" class="auto-link internal-link">the design catalogue</a>.</p>
 </article>
