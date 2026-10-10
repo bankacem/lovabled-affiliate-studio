@@ -155,19 +155,37 @@ read_time: "10 min read"
     </ul>
   </section>
 
-  <section id="faq">
-    <h2>Frequently Asked Questions</h2>
-    <h3>What makes a birthday shirt "vintage"?</h3>
-    <p>Either it's genuinely old (a true vintage garment) or it's a new shirt with a vintage-style design: distressed graphics, era-correct typography, and a soft, worn-in blank. Most "vintage birthday shirts" sold today are the latter — new shirts printed to look retro.</p>
-    <h3>How do I pick the right birth year design?</h3>
-    <p>Use the year finder above: match the birth year to its era cues (fonts, palettes, textures). A 1990s birth year in 80s neon looks off; the same year in collegiate or grunge styling looks right.</p>
-    <h3>Are vintage-style shirts true to size?</h3>
-    <p>Modern "vintage-look" shirts usually follow contemporary sizing, sometimes in a slightly slimmer retail fit. Actual vintage garments from past decades run significantly smaller than today's sizes — always check the size chart.</p>
-    <h3>How do I wash a vintage-style shirt to keep the look?</h3>
-    <p>Wash inside out in cold water and air dry when possible. Heat is what breaks down prints prematurely — the dryer ages a graphic faster than years of wear.</p>
-    <h3>Screen printing or DTG for a birthday shirt?</h3>
-    <p>Screen printing for groups and simple graphics (it ages into the vintage look); DTG for one-off complex or photo-based designs. For the most authentic texture, discharge printing wins — ask your printer if they offer it.</p>
-    <h3>Can I get a vintage design with my exact birth year?</h3>
-    <p>Yes — most vintage birthday designs are printed to order, so the year is just part of the artwork. Look for "est." or "limited edition" templates where the year can be swapped without breaking the retro layout.</p>
-  </section>
+  <section id="faq" class="faq" itemscope itemtype="https://schema.org/FAQPage">
+<h2>Frequently Asked Questions</h2>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">What makes a birthday shirt "vintage"?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Either it's genuinely old (a true vintage garment) or it's a new shirt with a vintage-style design: distressed graphics, era-correct typography, and a soft, worn-in blank. Most "vintage birthday shirts" sold today are the latter — new shirts printed to look retro.</p>
+</div></div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">How do I pick the right birth year design?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Use the year finder above: match the birth year to its era cues (fonts, palettes, textures). A 1990s birth year in 80s neon looks off; the same year in collegiate or grunge styling looks right.</p>
+</div></div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Are vintage-style shirts true to size?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Modern "vintage-look" shirts usually follow contemporary sizing, sometimes in a slightly slimmer retail fit. Actual vintage garments from past decades run significantly smaller than today's sizes — always check the size chart.</p>
+</div></div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">How do I wash a vintage-style shirt to keep the look?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Wash inside out in cold water and air dry when possible. Heat is what breaks down prints prematurely — the dryer ages a graphic faster than years of wear.</p>
+</div></div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Screen printing or DTG for a birthday shirt?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Screen printing for groups and simple graphics (it ages into the vintage look); DTG for one-off complex or photo-based designs. For the most authentic texture, discharge printing wins — ask your printer if they offer it.</p>
+</div></div>
+<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+<h3 itemprop="name">Can I get a vintage design with my exact birth year?</h3>
+<div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+<p itemprop="text">Yes — most vintage birthday designs are printed to order, so the year is just part of the artwork. Look for "est." or "limited edition" templates where the year can be swapped without breaking the retro layout.</p>
+</div></div>
+</section>
 </article>
