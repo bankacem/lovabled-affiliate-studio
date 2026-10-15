@@ -18,6 +18,8 @@ const DesignDetail = lazy(() => import("./pages/DesignDetail"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const About = lazy(() => import("./pages/About"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Contact = lazy(() => import("./pages/Contact"));
 const Admin = lazy(() => import("./pages/Admin"));
 const Studio = lazy(() => import("./pages/Studio"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -56,6 +58,8 @@ const App = () => (
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:id" element={<BlogPost />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/contact" element={<Contact />} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/studio" element={<Studio />} />
 
@@ -66,6 +70,8 @@ const App = () => (
                   <Route path="/:lang/blog" element={<Blog />} />
                   <Route path="/:lang/blog/:id" element={<BlogPost />} />
                   <Route path="/:lang/about" element={<About />} />
+                  <Route path="/:lang/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/:lang/contact" element={<Contact />} />
                   <Route path="/:lang/admin" element={<Admin />} />
 
                   {/* Fallback */}

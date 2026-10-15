@@ -46,6 +46,8 @@ export interface TranslationDictionary {
     allDesigns: string;
     blog: string;
     aboutUs: string;
+    privacyPolicy: string;
+    contact: string;
     categories: string;
     connect: string;
     rights: string;
@@ -163,6 +165,8 @@ export const translations: Record<"en" | "ar" | "es" | "fr", TranslationDictiona
       allDesigns: "All Designs",
       blog: "Blog",
       aboutUs: "About Us",
+      privacyPolicy: "Privacy Policy",
+      contact: "Contact",
       categories: "Categories",
       connect: "Connect",
       rights: "© 2025 AIPrintVerse. All rights reserved.",
@@ -278,6 +282,8 @@ export const translations: Record<"en" | "ar" | "es" | "fr", TranslationDictiona
       allDesigns: "جميع التصاميم",
       blog: "المدونة",
       aboutUs: "من نحن",
+      privacyPolicy: "سياسة الخصوصية",
+      contact: "اتصل بنا",
       categories: "الفئات",
       connect: "تواصل معنا",
       rights: "© 2025 AIPrintVerse. جميع الحقوق محفوظة.",
@@ -393,6 +399,8 @@ export const translations: Record<"en" | "ar" | "es" | "fr", TranslationDictiona
       allDesigns: "Todos los Diseños",
       blog: "Blog",
       aboutUs: "Sobre Nosotros",
+      privacyPolicy: "Política de Privacidad",
+      contact: "Contacto",
       categories: "Categorías",
       connect: "Conectar",
       rights: "© 2025 AIPrintVerse. Todos los derechos reservados.",
@@ -508,6 +516,8 @@ export const translations: Record<"en" | "ar" | "es" | "fr", TranslationDictiona
       allDesigns: "Tous les Designs",
       blog: "Blog",
       aboutUs: "À Propos de Nous",
+      privacyPolicy: "Politique de Confidentialité",
+      contact: "Contact",
       categories: "Catégories",
       connect: "Se Connecter",
       rights: "© 2025 AIPrintVerse. Tous droits réservés.",

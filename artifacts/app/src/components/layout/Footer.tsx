@@ -24,7 +24,7 @@ export function Footer() {
 
           <div>
             <h4 className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white/45">{t("footer.quickLinks")}</h4>
-            <ul className="space-y-3 text-sm"><li><Link to={langPrefix("/designs")} className="text-white/65 transition-colors hover:text-primary">{t("footer.allDesigns")}</Link></li><li><Link to={langPrefix("/blog")} className="text-white/65 transition-colors hover:text-primary">{t("footer.blog")}</Link></li><li><Link to={langPrefix("/about")} className="text-white/65 transition-colors hover:text-primary">{t("footer.aboutUs")}</Link></li></ul>
+            <ul className="space-y-3 text-sm"><li><Link to={langPrefix("/designs")} className="text-white/65 transition-colors hover:text-primary">{t("footer.allDesigns")}</Link></li><li><Link to={langPrefix("/blog")} className="text-white/65 transition-colors hover:text-primary">{t("footer.blog")}</Link></li><li><Link to={langPrefix("/about")} className="text-white/65 transition-colors hover:text-primary">{t("footer.aboutUs")}</Link></li><li><Link to={langPrefix("/privacy-policy")} className="text-white/65 transition-colors hover:text-primary">{t("footer.privacyPolicy")}</Link></li><li><Link to={langPrefix("/contact")} className="text-white/65 transition-colors hover:text-primary">{t("footer.contact")}</Link></li></ul>
           </div>
 
           <div>
