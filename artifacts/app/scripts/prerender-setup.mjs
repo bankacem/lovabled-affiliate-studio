@@ -36,7 +36,7 @@ async function fetchAll(table) {
   }
 }
 
-const staticRoutes = ["/", "/about", "/blog", "/designs"];
+const staticRoutes = ["/", "/about", "/blog", "/designs", "/privacy-policy", "/contact"];
 
 // Blog posts come from the GitHub-committed markdown in /content/blog — never
 // from the database — so a backend outage can never empty the sitemap again.
@@ -273,6 +273,26 @@ const metaMap = {
       title: "Print-on-demand design ideas",
       intro: "Explore design inspiration for custom apparel, gifts, stickers, mugs, and other products you can create or sell through print-on-demand.",
       links: posts.slice(0, 8).map((p) => ({ href: `/blog/${p.slug}`, title: p.title, excerpt: p.excerpt })),
+    },
+  },
+  "/privacy-policy": {
+    title: "Privacy Policy | AIPrintVerse",
+    description: "How AIPrintVerse collects, uses, and protects your information — including cookies, advertising, and affiliate links.",
+    body: {
+      kind: "landing",
+      title: "Privacy Policy",
+      intro: "Plain-language summary of how AIPrintVerse handles your information, including cookies, advertising, and affiliate links.",
+      links: [],
+    },
+  },
+  "/contact": {
+    title: "Contact Us | AIPrintVerse",
+    description: "Get in touch with the AIPrintVerse team — questions, design requests, and corrections.",
+    body: {
+      kind: "landing",
+      title: "Contact Us",
+      intro: "We read every message and usually reply within a couple of days.",
+      links: [],
     },
   },
 };
