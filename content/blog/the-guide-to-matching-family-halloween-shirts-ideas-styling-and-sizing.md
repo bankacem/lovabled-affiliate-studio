@@ -61,7 +61,7 @@ read_time: "9 min read"
     <h2>Sizing the Whole Family, Baby to Grandparent</h2>
     <p>This is where family orders go wrong. Five people, five different size systems, one design:</p>
     <ul>
-      <li><p><strong>Babies (bodysuits):</strong> sized by months (12M, 18M, 24M). Size up if the baby is between sizes — a slightly roomy bodysuit layers over warm clothes on cold October nights. Check for snap closures; they matter more than the graphic at this age.</p></li>
+      <li><p><strong>Babies (bodysuits):</strong> sized by months (12M, 18M, 24M). Size up if the baby is between sizes — a slightly roomy bodysuit layers over warm clothes on cold October nights. Check for snap closures; they matter more than the graphic at this age. For the full breakdown of kid-specific themes, fabrics, and safety rules, see our <a href="/blog/the-guide-to-toddler-halloween-shirts-ideas-safety-and-sizing">toddler Halloween shirts guide</a>.</p></li>
       <li><p><strong>Toddlers &amp; kids:</strong> sized 2T–youth XL. Kids' tees run slimmer than adult unisex — when in doubt between a youth L and an adult XS for an older kid, the adult XS usually gives more growing room.</p></li>
       <li><p><strong>Adults:</strong> unisex tees are the norm for matching sets. Women's fitted cuts exist but complicate matching — stick with unisex for visual consistency, and size down one for a closer fit.</p></li>
       <li><p><strong>Grandparents &amp; extended family:</strong> order their size from their own closet, not from the size chart's promises. And confirm they actually want to participate before ordering — surprise matching shirts are a gamble.</p></li>
