@@ -106,7 +106,7 @@ read_time: "8 min read"
 
   <section id="group">
     <h2>Group and Couple Ideas</h2>
-    <p>Costume shirts are ideal for groups because everyone can wear the same category in their own size and style — no matching sizing nightmares.</p>
+    <p>Costume shirts are ideal for groups because everyone can wear the same category in their own size and style — no matching sizing nightmares. For families who want to go further with coordinated sets, our <a href="/blog/the-guide-to-matching-family-halloween-shirts-ideas-styling-and-sizing">matching family Halloween shirts guide</a> covers sizing from baby to grandparent.</p>
     <ul>
       <li><strong>Skeleton crew:</strong> Everyone in skeleton shirts, each with slightly different face paint. Photographs as a unit.</li>
       <li><strong>Zombie horde:</strong> Mix zombie graphics with different levels of makeup commitment — the person who "didn't try" still fits in.</li>
